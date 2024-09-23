@@ -1,102 +1,109 @@
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <style>
     /* Your CSS styles */
-    .navbar {
-        overflow: hidden;
-        background-color: #333;
-        font-family: Arial;
-        width: 100%;
-    }
-    .navbar a {
-        float: left;
-        font-size: 16px;
-        color: white;
-        text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;
-    }
-    .dropdown {
-        float: left;
-        overflow: hidden;
-    }
-    .dropdown .dropbtn {
-        font-size: 16px;
-        border: none;
-        outline: none;
-        color: white;
-        padding: 14px 16px;
-        background-color: inherit;
-        font-family: inherit;
-        margin: 0;
-    }
-    .navbar a:hover, .dropdown:hover .dropbtn {
-        background-color: red;
-    }
-    .dropdown-content {
-        display: none;
-        position: absolute;
-        background-color: #f9f9f9;
-        min-width: 160px;
-        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-        z-index: 1;
-    }
-    .dropdown-content a {
-        float: none;
-        color: black;
-        padding: 12px 16px;
-        text-decoration: none;
-        display: block;
-        text-align: left;
-    }
-    .dropdown-content a:hover {
-        background-color: #ddd;
-    }
-    .dropdown:hover .dropdown-content {
-        display: block;
-    }
-
-    .child__category__list, .child__product__list {
-        position:absolute;
-        left: 100%;
-        width: 100%;
-        top: 0;
-        bottom: 0;
+    * {
+        font-family: 'Karla', sans-serif;
     }
 </style>
+<!-- 
+<div
+    class="navbar"
+    id="navbar__category"
+></div> -->
+<header
+    class="header fixed top-0 bg-white shadow-md flex items-center justify-between px-8 py-5 w-full"
+>
+    <button
+        class="text-gray-900 bg-transparent border-transparent outline-none hover:text-gray-400 flex items-center gap-2"
+        type="button"
+        data-drawer-target="drawer-navigation"
+        data-drawer-show="drawer-navigation"
+        aria-controls="drawer-navigation"
+    >
+        <img
+            src="wp-content/uploads/2024/09/drag_handle.png"
+            alt="menu"
+        />
+        MENU
+    </button>
+    <img
+        src="wp-content/uploads/2024/09/Logo-Blue-Resized-1.png"
+        alt="Triconville logo"
+    />
+    <div class="flex items-center justify-between gap-1">
+        <p>EN</p>
+        <p>LOGIN</p>
+    </div>
+</header>
 
-<div class="navbar" id="navbar__category"></div> 
-
+<!-- drawer component -->
+<div
+    id="drawer-navigation"
+    class="fixed top-0 left-0 outline-none z-40 h-screen w-80 p-10 overflow-y-auto transition-transform duration-500 ease-in-out -translate-x-full bg-white"
+    tabindex="-1"
+    aria-labelledby="drawer-navigation-label"
+>
+    <h5
+        id="drawer-navigation-label"
+        class="text-gray-500 uppercase dark:text-gray-400 divide-y"
+    >
+        Menu
+    </h5>
+    <button
+        type="button"
+        data-drawer-hide="drawer-navigation"
+        aria-controls="drawer-navigation"
+        class="text-gray-400 bg-transparent outline-none hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 absolute top-2.5 end-2.5 inline-flex items-center justify-center dark:hover:bg-gray-600 dark:hover:text-white"
+    >
+        <svg
+            class="w-3 h-3"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 14 14"
+        >
+            <path
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
+            />
+        </svg>
+        <span class="sr-only">Close menu</span>
+    </button>
+    <div class="py-4 overflow-y-auto"></div>
+</div>
 <script>
-$(document).ready(function(){
-    $.ajax({
-        url: "http://192.168.88.178:82/?rest_route=/wp/v2/top-nav",
-        type: 'GET',
-        success: function(res) {
-            res.forEach(e => {
-                if (e.name === 'Categories') {
-                    $.ajax({
-                        url: "https://platform.indospacegroup.com/v1_categories/",
-                        type: 'GET',
-                        headers: {
-                            'Authorization' : 'Token 09633df1426fce26fc53de676e8bb65f47a0dcf1',
-                        },
-                        success: function(categoriesRes) {
-                            let categoriesHtml = '<div id="categories__dropdown" class="dropdown-content">';
-                            categoriesRes.results.forEach(k => {
-                                categoriesHtml += `
+    $(document).ready(function () {
+        $.ajax({
+            url: my_ajax_object.BASE_URL + '/?rest_route=/wp/v2/top-nav',
+            type: 'GET',
+            success: function (res) {
+                res.forEach((e) => {
+                    if (e.name === 'Categories') {
+                        $.ajax({
+                            url: my_ajax_object.BASE_API + '/v1_categories/',
+                            type: 'GET',
+                            headers: {
+                                Authorization: my_ajax_object.api_key
+                            },
+                            success: function (categoriesRes) {
+                                let categoriesHtml =
+                                    '<div id="categories__dropdown" class="dropdown-content">';
+                                categoriesRes.results.forEach((k) => {
+                                    categoriesHtml += `
                                     <div class="child__category">
-                                        <a >${k.name}</a>
+                                        <a >${k.name}s</a>
                                         <ul class="child__category__list" style="display:none;">`;
-                                k.child_categories.forEach(l => {
-                                    categoriesHtml += `<li><a href="http://192.168.88.178:82/categories/${l.id}">${l.name}</a></li>`;
+                                    k.child_categories.forEach((l) => {
+                                        categoriesHtml += `<li><a href="${my_ajax_object.BASE_LINK}/categories/${l.id}">${l.name}</a></li>`;
+                                    });
+
+                                    categoriesHtml += `</ul></div>`;
                                 });
+                                categoriesHtml += '</div>';
 
-                                categoriesHtml += `</ul></div>`;
-                            });
-                            categoriesHtml += '</div>';
-
-                            $('#navbar__category').append(`
+                                $('#navbar__category').append(`
                                 <div class="dropdown categories__nav">
                                     <button class="dropbtn">${e.name}
                                         <i class="fa fa-caret-down"></i>
@@ -105,68 +112,79 @@ $(document).ready(function(){
                                 </div>
                             `);
 
-                            $('.navbar').on('mouseover', '.child__category', function(){
-                                $(this).find('.child__category__list').show();
-                            }).on('mouseout', '.child__category', function(){
-                                $(this).find('.child__category__list').hide();
-                            });
-                        },
-                        error: function(xhr, status, error) {
-                            console.error('Error fetching categories:', error);
-                        }
-                    });
-                } else if(e.name === 'Products'){
-                    $.ajax({
-                        url: "http://192.168.88.178:82/?rest_route=/wp/v2/product_service",
-                        type: "GET",
-                        success: function(productsRes) {
-                            let productsHtml = '<div id="products__dropdown" class="dropdown-content">';
-                            productsRes.forEach(k => {
-                                productsHtml += `
+                                $('.navbar')
+                                    .on('mouseover', '.child__category', function () {
+                                        $(this).find('.child__category__list').show();
+                                    })
+                                    .on('mouseout', '.child__category', function () {
+                                        $(this).find('.child__category__list').hide();
+                                    });
+                            },
+                            error: function (xhr, status, error) {
+                                console.error('Error fetching categories:', error);
+                            }
+                        });
+                    } else if (e.name === 'Products') {
+                        $.ajax({
+                            url: my_ajax_object.BASE_URL + '/?rest_route=/wp/v2/product_service',
+                            type: 'GET',
+                            success: function (productsRes) {
+                                let productsHtml =
+                                    '<div id="products__dropdown" class="dropdown-content">';
+                                productsRes.forEach((k) => {
+                                    productsHtml += `
                                     <div class="child__product">
-                                        <a ${k.children.length == 0 ? `href=http://192.168.88.178:82/selected/${k.id}` : ""}>${k.name}</a>
+                                        <a href="${my_ajax_object.BASE_LINK}/selected/${k.id}">${k.name}s</a>
                                         <ul class="child__product__list" style="display:none;">`;
-                                k.children.forEach(l => {
-                                    productsHtml += `<li><a href="http://192.168.88.178:82/selected/${l.param == "" ? l.id : `${l.id}-${l.param}`}">${l.name}</a></li>`;
+                                    k.children.forEach((l) => {
+                                        productsHtml += `<li><a href="${
+                                            my_ajax_object.BASE_LINK
+                                        }/selected/${l.param ? `${l.id}-${l.param}` : l.id}">${
+                                            l.name
+                                        }s</a></li>`;
+                                    });
+
+                                    productsHtml += `</ul></div>`;
                                 });
+                                productsHtml += '</div>';
 
-                                productsHtml += `</ul></div>`;
-                            });
-                            productsHtml += '</div>';
-
-                            $('#navbar__category').append(`
+                                $('#navbar__category').append(`
                                 <div class="dropdown products__nav">
-                                    <a href="${e.href}" class="dropbtn !float-none block">${e.name}
+                                    <a href="${e.href}" class="dropbtn !float-none block">${e.name}s
                                         <i class="fa fa-caret-down"></i>
                                     </a>
                                     ${productsHtml}
                                 </div>
                             `);
 
-                            $('.navbar').on('mouseover', '.child__product', function(){
-                                $(this).find('.child__product__list').show();
-                            }).on('mouseout', '.child__product', function(){
-                                $(this).find('.child__product__list').hide();
-                            });
-                        },
-                        error: function(xhr, status, error) {
-                            console.error('Error fetching products:', error);
-                        }
-                    });
-                } else {
-                    $('#navbar__category').append(`
+                                $('.navbar')
+                                    .on('mouseover', '.child__product', function () {
+                                        $(this).find('.child__product__list').show();
+                                    })
+                                    .on('mouseout', '.child__product', function () {
+                                        $(this).find('.child__product__list').hide();
+                                    });
+                            },
+                            error: function (xhr, status, error) {
+                                console.error('Error fetching products:', error);
+                            }
+                        });
+                    } else {
+                        $('#navbar__category').append(`
                         <div class="dropdown">
                             <a href="${e.href}" class="dropbtn">${e.name}
                                 <i class="fa fa-caret-down"></i>
                             </a>
                         </div>
                     `);
-                }
-            });
-        },
-        error: function(xhr, status, error) {
-            console.error('Error fetching top navigation items:', error);
-        }
+                    }
+                });
+            },
+            error: function (xhr, status, error) {
+                console.error('Error fetching top navigation items:', error);
+            }
+        });
     });
-});
 </script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.0/flowbite.min.js"></script>

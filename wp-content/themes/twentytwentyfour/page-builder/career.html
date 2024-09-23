@@ -1,0 +1,151 @@
+<style>
+  .career-banner {
+    background: url(/triconville/wp-content/uploads/2024/09/showroombanner.jpg);
+    height: 50vh;
+    width: 100%;
+    overflow: hidden;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+</style>
+
+<div class="content-container">
+  <!-- CAREER BANNER -->
+  <div class="career-banner flex items-center justify-center">
+    <h1 class="text-white text-4xl font-semibold tracking-wider uppercase">triconville careers</h1>
+  </div>
+  <!-- CAREER FILTER -->
+
+  <div class="max-w-[1440px] mx-auto my-5">
+    <h3 class="tracking-widest text-2xl uppercase text-center my-5">DIVISIONS</h3>
+    <div
+      class="flex items-center justify-center flex-wrap gap-3 mt-3"
+      id="divisions__filter"
+    >
+      <button
+        class="text-white p-2 uppercase bg-black tracking-wider border border-black"
+        onclick="renderCategory('page')"
+        id="all__divisions-button"
+      >
+        ALL DIVISIONS
+      </button>
+    </div>
+  </div>
+  <!-- CAREER LIST -->
+
+  <div
+    class="max-w-[1440px] mx-auto my-5"
+    id="container__career"
+  ></div>
+  <!-- CAREER ENDS -->
+  <div
+    class="py-5 flex justify-center h-[400px] bg-cover bg-center bg-no-repeat"
+    style="background-image: url(/triconville/wp-content/uploads/2024/09/collection-banner.png)"
+  >
+    <a
+      href="https://www.linkedin.com/company/indospaceb2b/"
+      class="flex items-center gap-3 group"
+    >
+      <h1
+        class="text-4xl text-center uppercase font-semibold tracking-wide text-white group-hover:underline group-hover:underline-offset-4"
+      >
+        find us on linkedin
+      </h1>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="2"
+        stroke="white"
+        class="size-8 group-hover:translate-x-2 transition duration-300"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
+        />
+      </svg>
+    </a>
+  </div>
+</div>
+
+<script>
+  let dataLoker = [];
+  $(document).ready(function () {
+    $.ajax({
+      url: "/triconville/?rest_route=/wp/v2/loker_service",
+      type: "GET",
+      success: (res) => {
+        dataLoker = res.loker;
+        renderCategory();
+      },
+    });
+  });
+  function renderCategory(action = "") {
+    if (action === "page") {
+      $(`#divisions__filter button`)
+        .removeClass("text-white bg-black hover:bg-white hover:text-black")
+        .addClass("text-black hover:bg-black hover:text-white");
+      $(`#all__divisions-button`)
+        .removeClass("text-black bg-white hover:bg-black hover:text-white")
+        .addClass("text-white bg-black");
+      $("#container__career").empty();
+    }
+    console.log(" dataLoker:", dataLoker);
+    console.log("🚀 ~ dataLoker:", dataLoker);
+    dataLoker.forEach((e) => {
+      const { category, lokerList, idCateg } = e;
+      if (action !== "page") {
+        $("#divisions__filter").append(
+          ` <button id="btn-${idCateg}" class="p-2 border-black border uppercase bg-white text-black tracking-wider hover:bg-black hover:text-white" onClick="filterCategory(${idCateg})">${category}</button>`
+        );
+      }
+      $("#container__career").append(`
+          <div class="flex justify-between border-b border-slate-500 my-5">
+            <h4 class="text-2xl uppercase font-semibold tracking-wider">${category}</h4>
+            <p class="text-slate-600 text-sm uppercase">${lokerList.length} open jobs</p>
+          </div>
+
+          <div id="loker__${slugify(category)}" class="mt-5 group"></div>
+        `);
+      lokerList.forEach((loker, index) => {
+        renderLoker(loker, category, index);
+      });
+    });
+  }
+  function renderLoker(loker, category, index) {
+    const { id, location, name, exp } = loker;
+    $(`#loker__${slugify(category)}`).append(`
+        <div class="${index % 2 == 0 ? "bg-white" : "bg-[#F7F7F7]"} hover:bg-slate-200 px-3 py-5">
+          <a href="/triconville/careers/${slugify(name)}" class="flex justify-between w-full">
+            <h4 class="text-md">${name}</h4>
+            <p class="text-slate-600 text-sm uppercase">${location}</p> 
+          </a>
+        </div>
+      `);
+  }
+</script>
+  function filterCategory(idCateg) {
+    $(`#divisions__filter button`)
+      .removeClass("text-white bg-black hover:bg-white hover:text-black")
+      .addClass("text-black hover:bg-black hover:text-white");
+    $(`#btn-${idCateg}`)
+      .removeClass("text-black bg-white hover:bg-black hover:text-white")
+      .addClass("text-white bg-black");
+    const findCategory = dataLoker.find((e) => e.idCateg === idCateg);
+    $("#container__career").empty();
+
+    $("#container__career").append(`
+          <div class="flex justify-between border-b border-slate-500 my-5">
+            <h4 class="text-2xl uppercase font-semibold tracking-wider">${findCategory.category}</h4>
+            <p class="text-slate-600 text-sm uppercase">${findCategory.lokerList.length} open jobs</p>
+          </div>
+
+          <div id="loker__${slugify(findCategory.category)}" class="mt-5 group"></div>
+        `);
+    findCategory.lokerList.forEach((loker, index) => {
+      renderLoker(loker, findCategory.category, index);
+    });
+  }
+</script>

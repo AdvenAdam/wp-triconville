@@ -32,7 +32,7 @@
 }
 .flatpickr-calendar.open {
     display: inline-block;
-    z-index: 99999;
+    z-index: 1;
 }
 .flatpickr-calendar.animate.open {
     -webkit-animation: fpFadeInDown 300ms cubic-bezier(0.23, 1, 0.32, 1);
@@ -48,7 +48,7 @@
     top: calc(100% + 2px);
 }
 .flatpickr-calendar.static.open {
-    z-index: 999;
+    z-index: 1;
     display: block;
 }
 .flatpickr-calendar.hasWeeks {

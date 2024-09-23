@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Twenty Twenty-Four functions and definitions
  *
@@ -12,20 +13,21 @@
  * Register block styles.
  */
 
-if ( ! function_exists( 'twentytwentyfour_block_styles' ) ) :
+if (!function_exists('twentytwentyfour_block_styles')) :
 	/**
 	 * Register custom block styles
 	 *
 	 * @since Twenty Twenty-Four 1.0
 	 * @return void
 	 */
-	function twentytwentyfour_block_styles() {
+	function twentytwentyfour_block_styles()
+	{
 
 		register_block_style(
 			'core/details',
 			array(
 				'name'         => 'arrow-icon-details',
-				'label'        => __( 'Arrow icon', 'twentytwentyfour' ),
+				'label'        => __('Arrow icon', 'twentytwentyfour'),
 				/*
 				 * Styles for the custom Arrow icon style of the Details block
 				 */
@@ -48,7 +50,7 @@ if ( ! function_exists( 'twentytwentyfour_block_styles' ) ) :
 			'core/post-terms',
 			array(
 				'name'         => 'pill',
-				'label'        => __( 'Pill', 'twentytwentyfour' ),
+				'label'        => __('Pill', 'twentytwentyfour'),
 				/*
 				 * Styles variation for post terms
 				 * https://github.com/WordPress/gutenberg/issues/24956
@@ -71,7 +73,7 @@ if ( ! function_exists( 'twentytwentyfour_block_styles' ) ) :
 			'core/list',
 			array(
 				'name'         => 'checkmark-list',
-				'label'        => __( 'Checkmark', 'twentytwentyfour' ),
+				'label'        => __('Checkmark', 'twentytwentyfour'),
 				/*
 				 * Styles for the custom checkmark list block style
 				 * https://github.com/WordPress/gutenberg/issues/51480
@@ -90,7 +92,7 @@ if ( ! function_exists( 'twentytwentyfour_block_styles' ) ) :
 			'core/navigation-link',
 			array(
 				'name'         => 'arrow-link',
-				'label'        => __( 'With arrow', 'twentytwentyfour' ),
+				'label'        => __('With arrow', 'twentytwentyfour'),
 				/*
 				 * Styles for the custom arrow nav link block style
 				 */
@@ -108,7 +110,7 @@ if ( ! function_exists( 'twentytwentyfour_block_styles' ) ) :
 			'core/heading',
 			array(
 				'name'         => 'asterisk',
-				'label'        => __( 'With asterisk', 'twentytwentyfour' ),
+				'label'        => __('With asterisk', 'twentytwentyfour'),
 				'inline_style' => "
 				.is-style-asterisk:before {
 					content: '';
@@ -144,20 +146,21 @@ if ( ! function_exists( 'twentytwentyfour_block_styles' ) ) :
 	}
 endif;
 
-add_action( 'init', 'twentytwentyfour_block_styles' );
+add_action('init', 'twentytwentyfour_block_styles');
 
 /**
  * Enqueue block stylesheets.
  */
 
-if ( ! function_exists( 'twentytwentyfour_block_stylesheets' ) ) :
+if (!function_exists('twentytwentyfour_block_stylesheets')) :
 	/**
 	 * Enqueue custom block stylesheets
 	 *
 	 * @since Twenty Twenty-Four 1.0
 	 * @return void
 	 */
-	function twentytwentyfour_block_stylesheets() {
+	function twentytwentyfour_block_stylesheets()
+	{
 		/**
 		 * The wp_enqueue_block_style() function allows us to enqueue a stylesheet
 		 * for a specific block. These will only get loaded when the block is rendered
@@ -170,190 +173,281 @@ if ( ! function_exists( 'twentytwentyfour_block_stylesheets' ) ) :
 			'core/button',
 			array(
 				'handle' => 'twentytwentyfour-button-style-outline',
-				'src'    => get_parent_theme_file_uri( 'assets/css/button-outline.css' ),
-				'ver'    => wp_get_theme( get_template() )->get( 'Version' ),
-				'path'   => get_parent_theme_file_path( 'assets/css/button-outline.css' ),
+				'src'    => get_parent_theme_file_uri('assets/css/button-outline.css'),
+				'ver'    => wp_get_theme(get_template())->get('Version'),
+				'path'   => get_parent_theme_file_path('assets/css/button-outline.css'),
 			)
 		);
 	}
 endif;
 
-add_action( 'init', 'twentytwentyfour_block_stylesheets' );
+add_action('init', 'twentytwentyfour_block_stylesheets');
 
 /**
  * Register pattern categories.
  */
 
-if ( ! function_exists( 'twentytwentyfour_pattern_categories' ) ) :
+if (!function_exists('twentytwentyfour_pattern_categories')) :
 	/**
 	 * Register pattern categories
 	 *
 	 * @since Twenty Twenty-Four 1.0
 	 * @return void
 	 */
-	function twentytwentyfour_pattern_categories() {
+	function twentytwentyfour_pattern_categories()
+	{
 
 		register_block_pattern_category(
 			'twentytwentyfour_page',
 			array(
-				'label'       => _x( 'Pages', 'Block pattern category', 'twentytwentyfour' ),
-				'description' => __( 'A collection of full page layouts.', 'twentytwentyfour' ),
+				'label'       => _x('Pages', 'Block pattern category', 'twentytwentyfour'),
+				'description' => __('A collection of full page layouts.', 'twentytwentyfour'),
 			)
 		);
 	}
 endif;
 
-add_theme_support( 'menus' );
+add_theme_support('menus');
 
 
-function top_nav_menu() {
+function top_nav_menu()
+{
 
-    $menu = wp_get_nav_menu_items('top-nav');
+	$menu = wp_get_nav_menu_items('top-nav');
 
-    $result = [];
+	$result = [];
 
-    foreach($menu as $item) {
+	foreach ($menu as $item) {
 
-        $my_item = [
+		$my_item = [
 
-            'name' => $item->title,
+			'name' => $item->title,
 
-            'href' => $item->url
+			'href' => $item->url
 
-        ];
+		];
 
-        $result[] = $my_item;
+		$result[] = $my_item;
+	}
 
-    }
-
-    return $result;
-
+	return $result;
 }
 
-add_action( 'rest_api_init', function() {
+add_action('rest_api_init', function () {
 
-    // top-nav menu
+	// top-nav menu
 
-    register_rest_route( 'wp/v2', 'top-nav', array(
+	register_rest_route('wp/v2', 'top-nav', array(
 
-        'methods' => 'GET',
+		'methods' => 'GET',
 
-        'callback' => 'top_nav_menu',
+		'callback' => 'top_nav_menu',
 		'permission_callback' => '__return_true',
-    ) );
-
+	));
 });
 
 // JSON PRODUCT API
-	add_action( 'rest_api_init', function () {
-		register_rest_route( 'wp/v2', '/product_service/', array(
-			'methods' => 'GET',
-			'callback' => 'jsonApi',
-		) );
-	} );
+add_action('rest_api_init', function () {
+	register_rest_route('wp/v2', '/product_service/', array(
+		'methods' => 'GET',
+		'callback' => 'getProductsList',
+	));
+});
 
-	function jsonApi() {
-		$json_file_path = get_template_directory() . '/api/product.json';
+// JSON SELECTED COLLECTION
+add_action('rest_api_init', function () {
+	register_rest_route('wp/v2', '/selected_collection/', array(
+		'methods' => 'GET',
+		'callback' => 'getCollectionsList',
+	));
+});
 
-		if ( ! file_exists( $json_file_path ) ) {
-			return new WP_Error( 'no_file', 'File not found', array( 'status' => 404 ) );
-		}
-	
-		$json_content = file_get_contents( $json_file_path );
-		$data = json_decode( $json_content, true );
-	
-		if ( json_last_error() !== JSON_ERROR_NONE ) {
-			return new WP_Error( 'json_error', 'Error decoding JSON', array( 'status' => 500 ) );
-		}
-		return new WP_REST_Response( $data, 200 );
+// JSON Loker
+add_action('rest_api_init', function () {
+	register_rest_route('wp/v2', '/loker_service/', array(
+		'methods' => 'GET',
+		'callback' => 'getLokerList',
+	));
+});
+
+
+function getProductsList()
+{
+	$json_file_path = get_template_directory() . '/api/product.json';
+
+	if (!file_exists($json_file_path)) {
+		return new WP_Error('no_file', 'File not found', array('status' => 404));
 	}
-	
+
+	$json_content = file_get_contents($json_file_path);
+	$data = json_decode($json_content, true);
+
+	if (json_last_error() !== JSON_ERROR_NONE) {
+		return new WP_Error('json_error', 'Error decoding JSON', array('status' => 500));
+	}
+	return new WP_REST_Response($data, 200);
+}
+
+function getCollectionsList()
+{
+	$json_file_path = get_template_directory() . '/api/collection.json';
+
+	if (!file_exists($json_file_path)) {
+		return new WP_Error('no_file', 'File not found', array('status' => 404));
+	}
+
+	$json_content = file_get_contents($json_file_path);
+	$data = json_decode($json_content, true);
+
+	if (json_last_error() !== JSON_ERROR_NONE) {
+		return new WP_Error('json_error', 'Error decoding JSON', array('status' => 500));
+	}
+	return new WP_REST_Response($data, 200);
+}
+function getLokerList()
+{
+	$json_file_path = get_template_directory() . '/api/loker.json';
+
+	if (!file_exists($json_file_path)) {
+		return new WP_Error('no_file', 'File not found', array('status' => 404));
+	}
+
+	$json_content = file_get_contents($json_file_path);
+	$data = json_decode($json_content, true);
+
+	if (json_last_error() !== JSON_ERROR_NONE) {
+		return new WP_Error('json_error', 'Error decoding JSON', array('status' => 500));
+	}
+	return new WP_REST_Response($data, 200);
+}
+
+
 // END JSON PRODUCT API
 
 
 // CUSTOM Collections
-add_action('init', function(){
-    add_rewrite_rule( 'collections/([a-z0-9]+)[/]?$', 'index.php?collection=$matches[1]', 'top' );
+add_action('init', function () {
+	add_rewrite_rule('collections/([a-z0-9]+)[/]?$', 'index.php?collection=$matches[1]', 'top');
 });
 
-add_filter( 'query_vars', function( $query_vars ) {
-    $query_vars[] = 'collection';
-    return $query_vars;
-} );
-
-add_action( 'template_include', function( $template ) {
-
-    if ( get_query_var( 'collection' ) == false || get_query_var( 'collection' ) == '' ) {
-        return $template;
-    }
- 
-    return get_template_directory() . '/pages/collections.php';
-} );
-
-// CUSTOM product details
-add_action('init', function(){
-    add_rewrite_rule( 'products/([a-z0-9]+)[/]?$', 'index.php?product=$matches[1]', 'top' );
+add_filter('query_vars', function ($query_vars) {
+	$query_vars[] = 'collection';
+	return $query_vars;
 });
 
-add_filter( 'query_vars', function( $query_vars ) {
-    $query_vars[] = 'product';
-    return $query_vars;
-} );
+add_action('template_include', function ($template) {
 
-add_action( 'template_include', function( $template ) {
+	if (get_query_var('collection') == false || get_query_var('collection') == '') {
+		return $template;
+	}
 
-    if ( get_query_var( 'product' ) == false || get_query_var( 'product' ) == '' ) {
-        return $template;
-    }
- 
-    return get_template_directory() . '/pages/products.php';
-} );
+	return get_template_directory() . '/pages/collections.php';
+});
+
+
+// CUSTOM Materials
+// add_action('init', function () {
+// 	add_rewrite_rule('materials/([a-z0-9]+)[/]?$', 'index.php?material=$matches[1]', 'top');
+// });
+
+// add_filter('query_vars', function ($query_vars) {
+// 	$query_vars[] = 'material';
+// 	return $query_vars;
+// });
+
+// add_action('template_include', function ($template) {
+
+// 	if (get_query_var('material') == false || get_query_var('material') == '') {
+// 		return $template;
+// 	}
+
+// 	return get_template_directory() . '/pages/materials.php';
+// });
+
+// CUSTOM product-category details
+add_action('init', function () {
+	add_rewrite_rule('products/([a-z0-9]+)[/]?$', 'index.php?product=$matches[1]', 'top');
+});
+
+add_filter('query_vars', function ($query_vars) {
+	$query_vars[] = 'product';
+	return $query_vars;
+});
+
+add_action('template_include', function ($template) {
+	if (get_query_var('product') == false || get_query_var('product') == '') {
+		return $template;
+	}
+
+	return get_template_directory() . '/pages/product-category-detail.php';
+});
+
 
 // CUSTOM catalog
-add_action('init', function(){
-    add_rewrite_rule( 'categories/([a-z0-9]+)[/]?$', 'index.php?category=$matches[1]', 'top' );
+add_action('init', function () {
+	add_rewrite_rule('categories/([a-z0-9]+)[/]?$', 'index.php?category=$matches[1]', 'top');
 });
 
-add_filter( 'query_vars', function( $query_vars ) {
-    $query_vars[] = 'category';
-    return $query_vars;
-} );
+add_filter('query_vars', function ($query_vars) {
+	$query_vars[] = 'category';
+	return $query_vars;
+});
 
-add_action( 'template_include', function( $template ) {
+add_action('template_include', function ($template) {
 
-    if ( get_query_var( 'category' ) == false || get_query_var( 'category' ) == '' ) {
-        return $template;
-    }
- 
-    return get_template_directory() . '/pages/category.php';
-} );
+	if (get_query_var('category') == false || get_query_var('category') == '') {
+		return $template;
+	}
+
+	return get_template_directory() . '/pages/category.php';
+});
 
 // SELECTED PRODUCT
-add_action('init', function(){
-    add_rewrite_rule( 'selected/([a-z0-9,]+)[/]?$', 'index.php?selected=$matches[1]', 'top' );
+// add_action('init', function () {
+// 	add_rewrite_rule('selected/([a-z0-9,]+)[/]?$', 'index.php?selected=$matches[1]', 'top');
+// });
+
+// add_filter('query_vars', function ($query_vars) {
+// 	$query_vars[] = 'selected';
+// 	return $query_vars;
+// });
+
+// add_action('template_include', function ($template) {
+
+// 	if (get_query_var('selected') == false || get_query_var('selected') == '') {
+// 		return $template;
+// 	}
+
+// 	return get_template_directory() . '/pages/selected-products.php';
+// });
+
+
+// CUSTOM product-page details
+add_action('init', function () {
+	add_rewrite_rule('detail/([a-z0-9]+)[/]?$', 'index.php?detail=$matches[1]', 'top');
 });
 
-add_filter( 'query_vars', function( $query_vars ) {
-    $query_vars[] = 'selected';
-    return $query_vars;
-} );
+add_filter('query_vars', function ($query_vars) {
+	$query_vars[] = 'detail';
+	return $query_vars;
+});
 
-add_action( 'template_include', function( $template ) {
+add_action('template_include', function ($template) {
+	if (get_query_var('detail') == false || get_query_var('detail') == '') {
+		return $template;
+	}
 
-    if ( get_query_var( 'selected' ) == false || get_query_var( 'selected' ) == '' ) {
-        return $template;
-    }
- 
-    return get_template_directory() . '/pages/selected-products.php';
-} );
+	return get_template_directory() . '/pages/product-detail.php';
+});
+
 
 
 // TAILWIND INIT
 
-function enqueue_styles() {
-    wp_enqueue_style('tailwind-style', get_template_directory_uri() . '/output.css', array(), '1.0.0');
+function enqueue_styles()
+{
+	wp_enqueue_style('tailwind-style', get_template_directory_uri() . '/output.css', array(), '1.0.0');
 	wp_enqueue_style('global', get_template_directory_uri() . '/global.css', array(), '1.0.0');
-
 }
 
 add_action('wp_enqueue_scripts', 'enqueue_styles');

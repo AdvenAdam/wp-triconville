@@ -1,0 +1,196 @@
+{
+    "loker": [
+        {
+            "idCateg": 1,
+            "category": "Marketing",
+            "lokerList": [
+                {
+                    "id": 1,
+                    "location": "Jepara/Kudus, Indonesia",
+                    "name": "Business Unit Wholesale B2B Head",
+                    "exp": "10+ Years"
+                },
+                {
+                    "id": 2,
+                    "location": "Jepara/Kudus, Indonesia",
+                    "name": "Franchise Development Manager",
+                    "exp": "7 to 10 Years"
+                },
+                {
+                    "id": 3,
+                    "location": "South Jakarta, Indonesia",
+                    "name": "Store Manager",
+                    "exp": "7 to 10 Years"
+                },
+                {
+                    "id": 4,
+                    "location": "Semarang, Indonesia",
+                    "name": "Category Manager – Indoor Furniture",
+                    "exp": "5 Years"
+                },
+                {
+                    "id": 5,
+                    "location": "Semarang, Indonesia",
+                    "name": "Category Manager – Outdoor Furniture",
+                    "exp": "5 Years"
+                },
+                {
+                    "id": 6,
+                    "location": "Semarang, Indonesia",
+                    "name": "Brand / Marketing Manager",
+                    "exp": "5 Years"
+                },
+                {
+                    "id": 7,
+                    "location": "Jepara/Kudus, Indonesia",
+                    "name": "Sourcing Staff",
+                    "exp": "3 Years"
+                }
+            ]
+        },
+        {
+            "idCateg": 2,
+            "category": "R&D Engineering",
+            "lokerList": [
+                {
+                    "id": 11,
+                    "location": "Semarang, Indonesia",
+                    "name": "R&D Head",
+                    "exp": "5 Years"
+                },
+                {
+                    "id": 12,
+                    "location": "Semarang, Indonesia",
+                    "name": "Design Studio Head",
+                    "exp": "5+ Years"
+                },
+                {
+                    "id": 13,
+                    "location": "Semarang, Indonesia",
+                    "name": "Designer Industrial Designing Head",
+                    "exp": "5+ Years"
+                }
+            ]
+        },
+        {
+            "idCateg": 3,
+            "category": "DESIGN STUDIO",
+            "lokerList": [
+                {
+                    "id": 21,
+                    "location": "Semarang, Indonesia",
+                    "name": "Furniture Product Designer",
+                    "exp": "5 Years"
+                }
+            ]
+        },
+        {
+            "idCateg": 4,
+            "category": "SYSTEM & DIGITAL",
+            "lokerList": [
+                {
+                    "id": 31,
+                    "location": "Semarang, Indonesia",
+                    "name": "IT System Development & Operations Manager",
+                    "exp": "5 Years"
+                },
+                {
+                    "id": 32,
+                    "location": "Semarang, Indonesia",
+                    "name": "E-Commerce Head",
+                    "exp": "5 Years"
+                }
+            ]
+        },
+        {
+            "idCateg": 5,
+            "category": "supply chain",
+            "lokerList": [
+                {
+                    "id": 41,
+                    "location": "Jepara/Kudus, Indonesia",
+                    "name": "Inventory Manager",
+                    "exp": "5 Years"
+                },
+                {
+                    "id": 42,
+                    "location": "Jepara/Kudus, Indonesia",
+                    "name": "Warehouse Manager",
+                    "exp": "5 - 7 Years"
+                },
+                {
+                    "id": 43,
+                    "location": "Jepara/Kudus, Indonesia",
+                    "name": "Business Unit Supply Chain Head",
+                    "exp": "10+ Years"
+                },
+                {
+                    "id": 44,
+                    "location": "Jepara/Kudus, Indonesia",
+                    "name": "Global Business Relationship Manager",
+                    "exp": "10+ Years"
+                },
+                {
+                    "id": 45,
+                    "location": "Jepara/Kudus, Indonesia",
+                    "name": "Order Fulfillment Manager",
+                    "exp": "5+ Years"
+                }
+            ]
+        },
+        {
+            "idCateg": 6,
+            "category": "Production",
+            "lokerList": [
+                {
+                    "id": 51,
+                    "location": "Semarang, Indonesia",
+                    "name": "Production Manager",
+                    "exp": "7-10 Years"
+                },
+                {
+                    "id": 52,
+                    "location": "Jepara/Kudus, Indonesia",
+                    "name": "PPIC Head",
+                    "exp": "3-5 Years"
+                },
+                {
+                    "id": 53,
+                    "location": "Jepara/Kudus, Indonesia",
+                    "name": "General Manager",
+                    "exp": "7-10 Years"
+                },
+                {
+                    "id": 54,
+                    "location": "Jepara/Kudus, Indonesia",
+                    "name": "Prototype Head",
+                    "exp": "3-5 Years"
+                },
+                {
+                    "id": 55,
+                    "location": "Jepara/Kudus, Indonesia",
+                    "name": "QC Head",
+                    "exp": "3+ Years"
+                },
+                {
+                    "id": 56,
+                    "location": "Jepara/Kudus, Indonesia",
+                    "name": "Mechanical Head",
+                    "exp": "5+ Years"
+                },
+                {
+                    "id": 57,
+                    "location": "Jepara/Kudus, Indonesia",
+                    "name": "Upholstery & Cushion Head",
+                    "exp": "5 Years"
+                },
+                {
+                    "id": 58,
+                    "location": "Jepara/Kudus, Indonesia",
+                    "name": "Drafter",
+                    "exp": "5 Years"
+                }
+            ]
+        }
+    ]
+}

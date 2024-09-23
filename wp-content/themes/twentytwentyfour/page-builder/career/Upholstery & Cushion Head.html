@@ -1,0 +1,164 @@
+<div class="content-container">
+  <div class="mx-auto max-w-[1440px] flex flex-col lg:flex-row gap-4 border-b border-slate-600">
+    <div class="lg:w-2/3 w-full mx-auto p-5">
+      <h2 class="uppercase text-4xl font-extrabold tracking-wider">Upholstery & Cushion Head</h2>
+      <p class="uppercase tracking-wider">full time - Jepara / Kudus, Indonesia</p>
+      <div class="my-5">
+        <h4 class="tracking-wider font-semibold uppercase text-2xl mb-3">overview</h4>
+        <p>
+          Handles the renovation and repair of upholstered furniture, replacing fabrics, fillings, furniture components,
+          restoring furniture, as well as creating custom upholstery pieces.
+        </p>
+      </div>
+      <div class="my-5">
+        <h4 class="tracking-wider font-semibold uppercase text-2xl mb-3">responsibility</h4>
+        <ul class="list-disc list-outside ms-5">
+          <p>
+            <li>Ensures sufficient stock of required materials/fabrics and supplies are in stock.</li>
+            <li>Repair or replace materials/fabrics.</li>
+            <li>Replace backrest and cushion covers.</li>
+            <li>Replace foams and repair backrest frames.</li>
+            <li>Monitor inventory and request supplies as needed.</li>
+            <li>Responsible for the repair and maintenance of all upholstered material, furniture, and finishes.</li>
+            <li>Execute projects and tasks as assigned and dispatched.</li>
+
+            <br /><br />
+          </p>
+        </ul>
+      </div>
+      <div class="my-5">
+        <h4 class="tracking-wider font-semibold uppercase text-2xl mb-3">Qualification</h4>
+        <ul class="list-disc list-outside ms-5">
+          <p>
+            <li>Knowledge of tailoring, stitching, carpentry is a must.</li>
+            <li>Good practical, operational, interpersonal skills with a flair of creativity are a must.</li>
+            <li>At least 5 years’ experience as an Upholsterer.</li>
+            <li>
+              At least 5 years’ experience stripping and installing new layouts on all table and repairing or
+              re-upholstering chairs, sofas, and upholstered wall panels.
+            </li>
+            <li>Working knowledge of all phases of upholstery repair and renewal.</li>
+            <li>Read and comprehend required documents.</li>
+            <li>Willing to be placed in a branch of our factory.</li>
+          </p>
+        </ul>
+      </div>
+    </div>
+    <div class="lg:w-1/3 w-full mx-auto p-5">
+      <div class="border border-slate-800 lg:p-10 p-5 mb-5">
+        <p class="font-bold mb-3">Upholstery & Cushion Head</p>
+        <p class="flex gap-2 mb-3">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="size-6"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
+            />
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z"
+            />
+          </svg>
+          Jepara / Kudus, Indonesia
+        </p>
+        <p class="text-slate-400 mb-3">Please send us your detailed CV to apply for this job post</p>
+        <div class="mb-3">
+          <p class="text-slate-400">Division</p>
+          <p class="font-medium">Production</p>
+        </div>
+        <div class="mb-3">
+          <p class="text-slate-400">Job Type</p>
+          <p class="font-medium">Full Time</p>
+        </div>
+        <div class="mb-10">
+          <p class="text-slate-400">Requirement</p>
+          <p class="font-medium">5 Years</p>
+        </div>
+        <div class="mb-5">
+          <a
+            href="/triconville/careers/career-form"
+            class="btn bg-[#10A1CF] hover:bg-cyan-500 text-white p-3 my-3"
+            >Apply for this job
+          </a>
+        </div>
+      </div>
+      <div class="border border-slate-800 lg:p-10 p-5 mb-5">
+        <img
+          src="/triconville/wp-content/uploads/2024/09/Logo-Blue-Resized-1.png"
+          alt=""
+        />
+        <p class="my-5">We are committed to creating an inclusive for all employees. </p>
+        <div class="my-5">
+          <a
+            href="/triconville/about-us/"
+            class="btn bg-white border border-slate-800 text-slate-800 hover:bg-black hover:text-white p-3 my-3"
+          >
+            Learn more about us
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="mx-auto max-w-[1440px] mt-5 p-5">
+    <h3 class="text-2xl font-bold uppercase tracking-wider">similar job you might be insterested in</h3>
+    <div
+      class="w-full md:w-2/3 lg:w-1/2 my-5"
+      id="container__career"
+    ></div>
+    <div class="my-10">
+      <a
+        href="/triconville/careers/"
+        class="btn bg-white border border-slate-800 text-slate-800 hover:bg-black hover:text-white p-3 my-3"
+      >
+        View all Jobs
+      </a>
+    </div>
+  </div>
+</div>
+<script>
+  let idCateg = 6;
+  let idLoker = 57;
+  let dataLoker = [];
+  $(document).ready(function () {
+    $.ajax({
+      url: "/triconville/?rest_route=/wp/v2/loker_service",
+      type: "GET",
+      success: (res) => {
+        dataLoker = res.loker;
+        renderCategory(idCateg);
+      },
+    });
+  });
+  function renderCategory(idCateg) {
+    const filteredData = dataLoker.filter((e) => e.idCateg === idCateg);
+    filteredData.forEach((e) => {
+      const { category, lokerList, idCateg } = e;
+      $("#container__career").append(`
+          <div id="loker__${slugify(category)}" class="mt-5 group"></div>
+        `);
+      const filteredlokerList = lokerList.filter((e) => e.id !== idLoker);
+      filteredlokerList.forEach((loker, index) => {
+        renderLoker(loker, category, index);
+      });
+    });
+  }
+  function renderLoker(loker, category, index) {
+    const { id, location, name, exp } = loker;
+    $(`#loker__${slugify(category)}`).append(`
+        <div class="${index % 2 == 0 ? "bg-white" : "bg-[#F7F7F7]"} hover:bg-slate-200 px-3 py-5">
+          <a href="/triconville/careers/${slugify(name)}" class="flex justify-between w-full">
+            <h4 class="text-md">${name}</h4>
+            <p class="text-slate-600 text-sm uppercase">${location}</p> 
+          </a>
+        </div>
+      `);
+  }
+</script>

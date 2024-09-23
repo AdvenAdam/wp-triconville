@@ -1,0 +1,85 @@
+<div class="py-3">
+  <p class="uppercase">FullName</p>
+  <div class="w-full">[text* full-name ]</div>
+</div>
+
+<div class="grid sm:grid-cols-2 grid-cols-1 gap-3 py-3">
+  <div class="">
+    <p class="uppercase">Email</p>
+    <div class="w-full">[email* email-name ]</div>
+  </div>
+  <div class="">
+    <p class="uppercase">Phone Number</p>
+    <div class="w-full">[number* phone-number ]</div>
+  </div>
+</div>
+<div class="py-3">
+  <p class="uppercase">Current Company</p>
+  <div class="w-full">[text* current-company ]</div>
+</div>
+
+<div class="py-3">
+  <p class="tracking-widest uppercase">position applied for</p>
+  <div class="min-w-full">
+    [select* JobPosition include_blank "Business Unit Wholesale B2B Head" "Franchise Development Manager" "Store
+    Manager" "Category Manager - Indoor Furniture" "Category Manager - Outdoor Furniture" "Brand / Marketing Manager"
+    "Furniture Product Designer" "R&D Head" "Design Studio Head" "Designer Industrial Designing Head" "IT System
+    Development & Operations Manager" "E-Commerce Head" "Inventory Manager" "Warehouse Manager" "Business Unit Supply
+    Chain Head" "Global Business Relationship Manager" "Order Fulfillment Manager" "Production Manager" "PPIC Head"
+    "General Manager" "Prototype Head" "QC Head" "Mechanical Head" "Upholstery & Cushion Head" "Drafter"]
+  </div>
+</div>
+<div class="py-3">
+  <h5 class="font-semibold text-lg uppercase">Upload CV</h5>
+
+  [mfile* career-file limit:2097152 filetypes:pdf|docx min-file:1 max-file:1]
+</div>
+<div class="py-3">
+  <h5 class="mb-3 font-semibold text-lg uppercase">Links</h5>
+  <div class="sm:flex items-center my-3 gap-4">
+    <div class="sm:w-1/5 w-full">
+      <p class="uppercase">Linkedin</p>
+    </div>
+    <div class="w-4/5">[url LinkedinURL]</div>
+  </div>
+  <div class="sm:flex items-center my-3 gap-4">
+    <div class="sm:w-1/5 w-full">
+      <p class="uppercase">Website</p>
+    </div>
+    <div class="w-4/5">[url WebsiteURL]</div>
+  </div>
+  <div class="sm:flex items-center my-3 gap-4">
+    <p class="sm:w-1/5 w-full uppercase">Portfolio</p>
+    <div class="w-4/5">[url PortfolioURL]</div>
+  </div>
+</div>
+<h5 class="my-3 font-semibold text-lg uppercase">DATA Consent</h5>
+<div class="checkbox-form flex">
+  <input
+    type="checkbox"
+    name=""
+    id=""
+    class="me-2"
+    required
+  />
+  <p>
+    I hereby consent and authorize Indospace Group to process the personal data I provide for the recruitment process.
+  </p>
+</div>
+<div class="py-3 flex">
+  <div>[acceptance workeligibility optional]</div>
+  <p>I hereby meet the eligibility requirements to work in the country where this job is located.</p>
+</div>
+<div class="py-3">
+  <h5 class="mb-3 font-semibold text-lg uppercase">Additional Information</h5>
+  [textarea CoverLetter placeholder]
+</div>
+<div class="my-3">[recaptcha]</div>
+<div class="mt-3">
+  <button
+    type="submit"
+    class="btn bg-cyan-500 hover:bg-cyan-600 text-white py-2 px-4"
+  >
+    Send
+  </button>
+</div>
