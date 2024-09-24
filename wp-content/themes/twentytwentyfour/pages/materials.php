@@ -25,7 +25,7 @@ get_template_part('header-custom');
         </div>
     </div>
     <!-- NOTE : Material list -->
-    <div class="">
+    <div class="w-full">
         <div id="list__materials"
              class='p-5 my-5 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4'>
 

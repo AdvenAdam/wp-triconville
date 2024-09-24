@@ -3,19 +3,12 @@ get_template_part('header-custom');
 
 $character_slug = get_query_var('detail');
 ?>
-<script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js "></script>
-<link href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.css "
-      rel="stylesheet">
-<!-- Fancybox -->
-<link rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
-<script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
 <div class="content-container overflow-hidden">
-    <div id="product__header"
-         class='p-6'></div>
+    <div id="product__header"></div>
     <!-- NOTE : PRODUCT Overview -->
-    <div class="lg:w-4/5 grid mx-auto md:grid-cols-2 sm:grid-cols-2 grid-cols-1 mb-5">
-        <div class="text p-3 border-r border-b border-gray-300  product-overview-desc flex justify-center flex-col">
+    <div class="lg:w-4/5 grid mx-auto md:grid-cols-3 sm:grid-cols-2 grid-cols-1 my-5">
+        <div class="text p-3 border-r  border-gray-300  product-overview-desc flex justify-center flex-col">
             <div class=""
                  id="product__overview"></div>
             <div class="flex flex-col gap-2 item-center align mt-6 pb-5 mb-5">
@@ -32,8 +25,6 @@ $character_slug = get_query_var('detail');
                 </div>
             </div>
         </div>
-        <div class="border-b border-gray-300 p-3 flex items-center"
-             id="product__ambience"></div>
         <div class="border-gray-300 p-3 border-r">
             <h3 class="text-3xl font-medium text-center tracking-wide mb-3">SPECIFICATIONS</h3>
             <table class="product__spec w-full"
@@ -63,9 +54,9 @@ $character_slug = get_query_var('detail');
             </div>
         </div>
     </div> -->
-    <div class="technical__section">
+    <!-- <div class="technical__section">
         <div class="technical__img grid grid-cols-3 gap-4"></div>
-    </div>
+    </div> -->
     <div class="ambience__section">
         <div class="ambience__img grid grid-cols-3 gap-4"></div>
     </div>
@@ -99,14 +90,14 @@ jQuery(document).ready(function($) {
             $('#page-loading').hide();
             // NOTE : PRODUCT HEADER 
             $('#product__header').append(
-                `<div class="md:h-[70vh] h-[50vh] w-full rounded-xl transition-all duration-500 "
+                `<div class="md:h-[70vh] h-[50vh] w-full transition-all duration-500 "
                     style="
                         background: url('${res.ambience_image[0]}'); 
                         background-position: 50% 50%;
                         background-size: cover;
                         background-repeat: no-repeat;
                     ">
-                    <div class ='bg-black bg-opacity-25 rounded-xl h-full w-full flex items-center justify-center'>
+                    <div class ='bg-black bg-opacity-25 h-full w-full flex items-center justify-center'>
                         <p class="text-xl  md:text-5xl font-semibold text-white text-center ">${res.name}</p>
                     </div>
                 </div>`

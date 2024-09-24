@@ -25,16 +25,21 @@
     <link rel="stylesheet"
           href="https://sibforms.com/forms/end-form/build/sib-styles.css">
     <!--  END - We recommend to place the above code in head tag of your website html -->
-
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js "></script>
+    <link href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.css "
+          rel="stylesheet">
+    <!-- Fancybox -->
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
     <style>
     /* Your CSS styles */
     * {
         font-family: 'Karla', sans-serif;
     }
 
-    .content-container,
     .content-wrapper {
-        margin-top: 65px
+        overflow-x: hidden;
     }
 
     .gtranslate_wrapper select {
@@ -47,10 +52,42 @@
 </head>
 
 <body <?php body_class(); ?>>
-    <header class="header fixed top-0 bg-white shadow-md flex items-center justify-between px-8 py-5 w-full max-h-16"
+    <header class="header sticky top-0 bg-white shadow-md flex items-center justify-between md:px-8 py-5 px-5 w-full max-h-16"
             style="z-index: 2;">
-        <div class="w-1/3">
-            <button class="group bg-transparent border-transparent outline-none flex items-center gap-2"
+
+        <div class=" flex justify-center">
+            <a href="<?php echo home_url(); ?>">
+                <img src="<?php echo wp_upload_dir()['url']; ?>/Logo-Blue-Resized-1.png"
+                     alt="Triconville logo" />
+            </a>
+        </div>
+
+        <div class="flex items-center justify-end gap-2">
+            <div id="navbar_menu_category"
+                 class='md:flex hidden'></div>
+
+            <a href="<?= BASE_LINK; ?>/find-a-store/"
+               id='find-a-store-link'
+               class='md:flex hidden p-2 gap-2 items-center text-gray-900 hover:text-cyan-500 group'>
+                <svg xmlns="http://www.w3.org/2000/svg"
+                     fill="none"
+                     viewBox="0 0 24 24"
+                     stroke-width="1.5"
+                     stroke="currentColor"
+                     class="size-5">
+                    <path stroke-linecap="round"
+                          stroke-linejoin="round"
+                          d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                    <path stroke-linecap="round"
+                          stroke-linejoin="round"
+                          d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
+                </svg>
+                <p>
+                    Find a Store
+                </p>
+            </a>
+
+            <button class="group bg-transparent border-transparent outline-none flex items-center gap-2 md:hidden "
                     type="button"
                     data-drawer-target="drawer-navigation"
                     data-drawer-show="drawer-navigation"
@@ -65,37 +102,7 @@
                           stroke-linejoin="round"
                           d="M3.75 9h16.5m-16.5 6.75h16.5" />
                 </svg>
-                <p class="text-gray-900 group-hover:text-gray-400">MENU</p>
             </button>
-        </div>
-        <div class="w-1/3 flex justify-center">
-            <a href="<?php echo home_url(); ?>">
-                <img src="<?php echo wp_upload_dir()['url']; ?>/Logo-Blue-Resized-1.png"
-                     alt="Triconville logo" />
-            </a>
-        </div>
-
-        <div class="w-1/3">
-            <div class="flex items-center justify-end gap-2">
-                <?php echo do_shortcode('[gtranslate]') ?>
-                <a href="<?= BASE_LINK; ?>/find-us/"
-                   class='flex p-2 gap-2 items-center text-gray-900 rounded-lg hover:bg-gray-100 group'>
-                    <svg xmlns="http://www.w3.org/2000/svg"
-                         fill="none"
-                         viewBox="0 0 24 24"
-                         stroke-width="1.5"
-                         stroke="currentColor"
-                         class="size-6">
-                        <path stroke-linecap="round"
-                              stroke-linejoin="round"
-                              d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
-                        <path stroke-linecap="round"
-                              stroke-linejoin="round"
-                              d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
-                    </svg>
-                    Find a Store
-                </a>
-            </div>
         </div>
     </header>
 
@@ -131,14 +138,26 @@
             <ul class="space-y-2 font-normal"
                 id="navbar__category">
             </ul>
+
         </div>
         <hr class="my-5">
         <ul class="space-y-2 font-normal mb-5">
             <li><a href="<?= BASE_LINK; ?>/contact-us/"
-                   class='flex p-2 items-center text-gray-900 rounded-lg hover:bg-gray-100 group'>Contact</a></li>
+                   class='flex p-2 items-center text-gray-900 rounded-lg hover:bg-gray-100'>Contact</a></li>
+            <li>
+                <a href="<?= BASE_LINK; ?>/find-a-store/"
+                   class=' flex p-2 items-center text-gray-900 rounded-lg hover:bg-gray-100'>
+                    <p>
+                        Find a Store
+                    </p>
+                </a>
+            </li>
+            <li class="p-2 md:hidden">
+                <?php echo do_shortcode('[gtranslate]') ?>
+            </li>
         </ul>
 
-        <div class="flex items-center gap-3 my-3">
+        <div class=" flex items-center gap-3 my-3">
             <a href='#'>
                 <img src='<?php echo get_stylesheet_directory_uri(); ?>/assets/images/icons/youtube.svg' />
             </a>
@@ -157,30 +176,46 @@
         </div>
     </div>
     <script>
+    $(document).ready(function() {
+        renderNavbar();
+
+    });
+
     function renderNavbar() {
         $.ajax({
             url: '<?php echo BASE_URL; ?>/?rest_route=/wp/v2/top-nav',
             type: 'GET',
             success: function(res) {
                 res.forEach((e) => {
-
                     renderLink(e);
-
                 });
             },
             error: function(xhr, status, error) {
                 console.error('Error fetching top navigation items:', error);
+            },
+            complete: function() {
+                const url = window.location.href;
+                const slug = url.split('/');
+                const finalUrl = slug[4];
+                const target = `#${finalUrl === 'materials' ? 'materials-038-care' : finalUrl}-link`;
+
+                $(target).removeClass('text-gray-900').addClass('text-cyan-500 underline');
             }
         });
     }
 
     function renderLink(e) {
         $('#navbar__category').append(`
-                <li>
-                    <a href="${e.href}" class="flex p-2 items-center text-gray-900 rounded-lg hover:bg-gray-100 group">${e.name}
-                    </a>
-                </li>
-            `);
+            <li>
+                <a href="${e.href}" class="flex p-2 items-center text-gray-900 rounded-lg hover:bg-gray-100 group">${e.name}
+                </a>
+            </li>
+        `);
+        $('#navbar_menu_category').append(`
+            <a href="${e.href}" id="${slugify(e.name)}-link" class="flex p-2 gap-2 items-center text-gray-900 hover:text-cyan-500">
+                <p class="uppercase">${e.name}</p>
+            </a>
+        `);
     }
 
     function slugify(str) {
@@ -201,5 +236,4 @@
 
         return str;
     }
-    renderNavbar();
     </script>

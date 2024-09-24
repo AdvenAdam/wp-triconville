@@ -12,25 +12,60 @@ get_template_part('header-custom');
 
     <h1 class="text-5xl font-semibold text-center pt-10 uppercase">triconville collections</h1>
     <p class='font-light tracking-widest text-center'>The Luxury of Living Outdoors</p>
+    <div class="flex gap-2 justify-center my-5 view-button">
+        <button class="btn-ghost-dark flex gap-2 items-center"
+                id="list-button"
+                onClick="changeView('list')">
+            List View <svg xmlns="http://www.w3.org/2000/svg"
+                 fill="none"
+                 viewBox="0 0 24 24"
+                 stroke-width="1.5"
+                 stroke="currentColor"
+                 class="size-5">
+                <path stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M8.25 6.75h12M8.25 12h12m-12 5.25h12M3.75 6.75h.007v.008H3.75V6.75Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0ZM3.75 12h.007v.008H3.75V12Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm-.375 5.25h.007v.008H3.75v-.008Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
+            </svg>
+
+        </button>
+        <button class="btn-ghost flex gap-2 items-center"
+                id="grid-button"
+                onClick="changeView('grid')">
+            Grid View
+            <svg xmlns="http://www.w3.org/2000/svg"
+                 fill="none"
+                 viewBox="0 0 24 24"
+                 stroke-width="1.5"
+                 stroke="currentColor"
+                 class="size-5">
+                <path stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M3.75 6A2.25 2.25 0 0 1 6 3.75h2.25A2.25 2.25 0 0 1 10.5 6v2.25a2.25 2.25 0 0 1-2.25 2.25H6a2.25 2.25 0 0 1-2.25-2.25V6ZM3.75 15.75A2.25 2.25 0 0 1 6 13.5h2.25a2.25 2.25 0 0 1 2.25 2.25V18a2.25 2.25 0 0 1-2.25 2.25H6A2.25 2.25 0 0 1 3.75 18v-2.25ZM13.5 6a2.25 2.25 0 0 1 2.25-2.25H18A2.25 2.25 0 0 1 20.25 6v2.25A2.25 2.25 0 0 1 18 10.5h-2.25a2.25 2.25 0 0 1-2.25-2.25V6ZM13.5 15.75a2.25 2.25 0 0 1 2.25-2.25H18a2.25 2.25 0 0 1 2.25 2.25V18A2.25 2.25 0 0 1 18 20.25h-2.25A2.25 2.25 0 0 1 13.5 18v-2.25Z" />
+            </svg>
+
+        </button>
+    </div>
     <!-- NOTE : Material list -->
-    <div class="md:p-5 p-3">
+    <div class="md:p-5 p-3"
+         id="grid-container">
         <div class="max-w-[1440px] mx-auto">
-            <div id="list__collections"
-                 class='p-5 my-5 grid grid-cols-1 sm:grid-cols-2 gap-3'>
-
+            <div id="grid__collections"
+                 class='p-5 mb-5 grid grid-cols-1 sm:grid-cols-2 gap-3'>
             </div>
-
-
-            <div id="errorIndicator"
-                 class="hidden">Error</div>
         </div>
     </div>
-</div>
-<div id="page-loading">
-    <div class="three-balls">
-        <div class="ball ball1"></div>
-        <div class="ball ball2"></div>
-        <div class="ball ball3"></div>
+    <div id="list__collections"
+         class='mt-16 '>
+    </div>
+
+    <div id="errorIndicator"
+         class="hidden">Error</div>
+    <div id="page-loading">
+        <div class="three-balls">
+            <div class="ball ball1"></div>
+            <div class="ball ball2"></div>
+            <div class="ball ball3"></div>
+        </div>
     </div>
 </div>
 <script>
@@ -39,6 +74,7 @@ let isLoading = false;
 let stop = false;
 let count = 0;
 let selectedCollectionId = [];
+let filteredCollection = [];
 
 $(document).ready(function() {
     $.ajax({
@@ -46,6 +82,7 @@ $(document).ready(function() {
         type: "GET",
         success: (res) => {
             selectedCollectionId = res.collection;
+            loadCollections(page);
         }
     })
 })
@@ -62,17 +99,18 @@ function loadCollections(page) {
             Authorization: '<?= API_KEY; ?>',
         },
         success: function(res) {
-            const filteredCollection = [];
             res.results.forEach((e) => {
                 if (selectedCollectionId.includes(parseInt(e.collection_id))) {
                     filteredCollection.push(e);
                 }
             })
-            filteredCollection.forEach((e, index) => renderCollections(e, index));
             // TODO : make logic for triggering next page not by baypassing
             if (res.next) {
                 loadCollections(page + 1);
             } else {
+                $('#grid-container').hide();
+                sortedCollection = filteredCollection.sort((a, b) => (a.name > b.name) ? 1 : -1)
+                sortedCollection.forEach((e, index) => renderCollections(e, index, 'list'));
                 stop = true;
                 $('#page-loading').hide();
             }
@@ -88,32 +126,74 @@ function loadCollections(page) {
     });
 }
 
-function renderCollections(e, index) {
-    count += 1;
-    $('#list__collections').append(`
-        <a href= "<?= BASE_LINK; ?>/collections/${e.id}" class="mb-5">
-            <div class="h-[365px] w-full flex items-center justify-center transition duration-500 ease-in-out transform hover:-translate-y-1 hover:shadow-md" 
-                style="
-                    background-position:center; 
-                    background-image: url('${e.collection_image_768}'); 
-                    background-repeat: no-repeat;
-                    background-size: cover;
-                "
-            >
-            </div>
-            <p class='font-extrabold mt-3'>
-                ${count < 10 ? '0' + (count) : count}. 
-            </p>
-            <hr class='w-2/5 mt-3 border-black'/>
-            <p class="text-4xl mt-3 font-extrabold tracking-wider uppercase">${e.name}</p>
-            <p class='line-clamp-2 text-ellipsis'>
-                ${e.description}
-            </p>
-        </a>
-    `);
+function changeView(type) {
+    count = 0;
+    $('.view-button button').removeClass('btn-ghost-dark').addClass('btn-ghost');
+    if (type == 'grid') {
+        $('#grid-container').show();
+        $('#grid-button').removeClass('btn-ghost').addClass('btn-ghost-dark');
+        sortedCollection.forEach((e, index) => renderCollections(e, index, 'grid'));
+    } else if (type == 'list') {
+        $('#grid-container').hide();
+        $('#list-button').removeClass('btn-ghost').addClass('btn-ghost-dark');
+        sortedCollection.forEach((e, index) => renderCollections(e, index, 'list'));
+    }
 }
 
-loadCollections(page);
+function renderCollections(e, index, type = 'grid') {
+    count += 1;
+    if (type == 'grid') {
+        $('#list__collections').empty();
+        $('#grid__collections').append(`
+            <a href= "<?= BASE_LINK; ?>/collections/${e.id}" class="mb-5">
+                <div class="h-[365px] w-full flex items-center justify-center transition duration-500 ease-in-out transform hover:-translate-y-1 hover:shadow-md" 
+                    style="
+                        background-position:center; 
+                        background-image: url('${e.collection_image_768}'); 
+                        background-repeat: no-repeat;
+                        background-size: cover;
+                    "
+                >
+                </div>
+                <p class='font-extrabold mt-3'>
+                    ${count < 10 ? '0' + (count) : count}. 
+                </p>
+                <hr class='w-2/5 mt-3 border-black'/>
+                <p class="text-4xl mt-3 font-extrabold tracking-wider uppercase">${e.name}</p>
+                <p class='line-clamp-2 text-ellipsis'>
+                    ${e.description}
+                </p>
+            </a>
+        `);
+    } else if (type == 'list') {
+        $('#grid__collections').empty();
+        $('#list__collections').append(`
+            <a href= "<?= BASE_LINK; ?>/collections/${e.id}" class="mb-5">
+                <div class="h-[680px] w-full relative flex items-center text-white justify-center" 
+                    style="
+                        background-position:center; 
+                        background-image: url('${e.collection_image_1920}'); 
+                        background-repeat: no-repeat;
+                        background-size: cover;
+                    "
+                >
+                    <div class="bg-black/25 h-full w-full absolute top-0 left-0 md:p-5 p-3">
+                        <div class="max-w-[1440px] mx-auto">
+                            <p class='font-extrabold mt-3'>
+                            ${count < 10 ? '0' + (count) : count}. 
+                            </p>
+                            <hr class='w-1/5 mt-3 border-white'/>
+                            <p class="text-4xl mt-3 font-extrabold tracking-wider uppercase">${e.name}</p>
+                            <p class='line-clamp-2 text-ellipsis md:w-1/2'>
+                            ${e.description}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        `);
+    }
+}
 </script>
 <?php
 // Conditional for footer

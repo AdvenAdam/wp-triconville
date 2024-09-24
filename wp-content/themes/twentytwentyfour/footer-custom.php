@@ -1,7 +1,7 @@
 <div class="w-full footer py-10 md:px-5 px-3">
     <div class="max-w-[1440px] mx-auto ">
-        <div class="w-full border-b border-black flex">
-            <div class="w-1/2">
+        <div class="w-full border-b border-black md:flex">
+            <div class="md:w-1/2 w-full">
                 <div class="grid grid-cols-2 gap-3">
                     <div class="about p-3">
                         <p class='font-semibold mb-3 uppercase tracking-wider'>About</p>
@@ -77,7 +77,7 @@
                     </div>
                 </div>
             </div>
-            <div class="w-1/2 p-3">
+            <div class="md:w-1/2 w-full p-3">
                 <p class='font-semibold uppercase tracking-wider'>newsletter</p>
                 <p>Sign up to our newsletter</p>
                 <div class="form mt-5">
@@ -126,12 +126,11 @@
                                             <div class="form__entry entry_block">
                                                 <div class="grid grid-cols-2 items-baseline gap-4">
                                                     <div class="entry__field">
-                                                        <input class="input "
+                                                        <input class="input outline-none"
                                                                type="text"
                                                                id="EMAIL"
                                                                name="EMAIL"
                                                                autocomplete="off"
-                                                               placeholder="EMAIL"
                                                                data-required="true"
                                                                required />
                                                     </div>
@@ -217,8 +216,6 @@ var AUTOHIDE = Boolean(0);
 
 <script defer
         src="https://sibforms.com/forms/end-form/build/main.js"></script>
-
-
 <!-- END - We recommend to place the above code in footer or bottom of your website html  -->
 <?php wp_footer(); ?>
 </body>

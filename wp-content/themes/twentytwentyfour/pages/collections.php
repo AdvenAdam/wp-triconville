@@ -27,15 +27,15 @@ $(document).ready(function() {
             console.log(res);
             $('#container__<?= $character_slug ?>').append(`
                     <section class="banner my-5 relative">
-                        <img src="${res.image_1920}" alt="${res.name}" class="w-full h-[70vh] object-cover">
+                        <img src="${res.image_1920}" alt="${res.name}" class="w-full h-[50vh] object-cover">
                         <div class='bg-black bg-opacity-25 h-full w-full absolute inset-0 flex items-center justify-center'>
-                            <h1 class="text-white text-4xl uppercase font-semibold tracking-widest">${res.name}</h1>
                         </div>
                     </section>
 
-                    <section class="collection__description my-5">
-                        <div class="collection__description-content max-w-4xl mx-auto">
-                            <p class="text-center">${res.description}</p>
+                    <section class="collection__description my-5 flex max-w-[1440px] mx-auto justify-end p-3 md:p-5 ">
+                        <div class="collection__description-content w-3/5">
+                            <h1 class="text-4xl uppercase font-semibold tracking-widest">${res.name}</h1>
+                            <p class="text-justify max-w-3xl">${res.description}</p>
                         </div>
                     </section>
                     <section class="collection__product relative my-10 py-5">

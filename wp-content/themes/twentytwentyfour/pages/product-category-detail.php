@@ -61,8 +61,10 @@ $(document).ready(function() {
         },
         success: (res) => {
             $('#page-loading').hide();
+
             const filteredCategory = res.filter(cat => cat.slug === '<?= $character_slug ?>')
             categoriesData = filteredCategory[0];
+            $('.product-detail-banner').css('background-image', `url("${categoriesData.image}")`);
             $('#category__name').text(categoriesData.name);
             renderFilterProduct('All Products', 0);
             // NOTE : Render all Filter Product
@@ -98,6 +100,7 @@ async function renderFilterAllProduct() {
         }
         fetchAllProduct().then(res => {
             productListSelected = [...new Set([...productListSelected, ...res])];
+            console.log("🚀 ~ fetchAllProduct ~ productListSelected:", productListSelected)
             renderProducts(productListSelected)
         }).catch(err => {
             console.error("🚀 ~ renderFilterAllProduct ~ err:", err)
@@ -116,7 +119,6 @@ async function renderFilterAllProduct() {
             console.error("🚀 ~ renderFilterAllProduct ~ err:", err)
         })
     }
-
 }
 
 async function fetchProducts(id, param) {

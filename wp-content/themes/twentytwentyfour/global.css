@@ -14,6 +14,32 @@ body {
     background-color: #fff;
 }
 
+/* NEWS  */
+.wp-block-post-excerpt__more-link {
+    background-color: #06b6d4;
+    color: white;
+    padding: 0.5rem 1rem;
+    transition: all 0.3s ease;
+  }
+  .wp-block-post-excerpt__more-link:hover {
+    background-color: #0891b2;
+  }
+  .news-image img {
+    height: 400px !important;
+    object-fit: cover !important;
+    width: auto !important;
+  }
+
+  .news-description-bottom .wp-block-post-excerpt__excerpt {
+    line-clamp: 3;
+    -webkit-line-clamp: 3;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+
 #page-loading {
     position: fixed;
     top: 0;
@@ -222,7 +248,7 @@ body {
     padding: 0px !important;
 }
 .entry__field input {
-    background: transparent !important;
+    background: #F4F6F6 !important;
     border: 1px solid #4d4d4d !important;
     max-width: none !important;
     font-size: 16px !important;
@@ -246,3 +272,27 @@ body {
     text-align: left;
     color: #c0ccda;
 }
+
+
+gmpx-store-locator {
+    width: 100%;
+    height: 100%;
+  
+    /* These parameters customize the appearance of Locator Plus. See the documentation at
+       https://github.com/googlemaps/extended-component-library/blob/main/src/store_locator/README.md
+       for more information. */
+    --gmpx-color-surface: #fff;
+    --gmpx-color-on-surface: #212121;
+    --gmpx-color-on-surface-variant: #757575;
+    --gmpx-color-primary: #757575;
+    --gmpx-color-outline: #e0e0e0;
+    --gmpx-fixed-panel-width-row-layout: 28.5em;
+    --gmpx-fixed-panel-height-column-layout: 65%;
+    --gmpx-font-family-base: "Roboto", sans-serif;
+    --gmpx-font-family-headings: "Roboto", sans-serif;
+    --gmpx-font-size-base: 0.875rem;
+    --gmpx-hours-color-open: #188038;
+    --gmpx-hours-color-closed: #d50000;
+    --gmpx-rating-color: #ffb300;
+    --gmpx-rating-color-empty: #e0e0e0;
+  }
