@@ -1,4 +1,4 @@
-<div class="w-full footer py-10 md:px-5 px-3">
+<div class="w-full footer py-10 md:px-5 px-3 snap-start">
     <div class="max-w-[1440px] mx-auto ">
         <div class="w-full border-b border-black md:flex">
             <div class="md:w-1/2 w-full">
@@ -11,17 +11,11 @@
                         <p>
                             <a href='<?= BASE_LINK; ?>/news'> News </a>
                         </p>
-                        <p>
-                            <a href='<?= BASE_LINK; ?>/careers'> Careers </a>
-                        </p>
                     </div>
                     <div class="about p-3">
                         <p class='font-semibold mb-3 uppercase tracking-wider'>customer service</p>
                         <p>
-                            <a href='<?= BASE_LINK; ?>/about-us'>Contact Us</a>
-                        </p>
-                        <p>
-                            <a href='<?= BASE_LINK; ?>/about-us'>Trade Showroom</a>
+                            <a href='<?= BASE_LINK; ?>/contact-us'>Contact Us</a>
                         </p>
                         <p>
                             <a href='<?= BASE_LINK; ?>/find-us'
@@ -200,9 +194,6 @@ window.EMAIL_INVALID_MESSAGE = window.SMS_INVALID_MESSAGE = "The information pro
 window.REQUIRED_ERROR_MESSAGE = "This field cannot be left blank. ";
 
 window.GENERIC_INVALID_MESSAGE = "The information provided is invalid. Please review the field format and try again.";
-
-
-
 
 window.translation = {
     common: {

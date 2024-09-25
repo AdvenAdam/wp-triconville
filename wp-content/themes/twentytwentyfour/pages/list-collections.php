@@ -5,12 +5,31 @@ Template Name: List Collections
 get_template_part('header-custom');
 ?>
 <style>
+/* Hide scrollbar for Chrome, Safari and Opera */
+.scrollbar-none::-webkit-scrollbar {
+    display: none;
+}
 
+/* Hide scrollbar for IE, Edge and Firefox */
+.scrollbar-none {
+    overflow: -moz-scrollbars-none;
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+body {
+    overscroll-behavior-y: contain;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
 </style>
-<div class="content-container">
+<div class="content-container scroll-smooth overflow-x-hidden">
     <!-- NOTE: Banner -->
-
-    <h1 class="text-5xl font-semibold text-center pt-10 uppercase">triconville collections</h1>
+    <h1 class="text-5xl font-semibold text-center pt-10 uppercase snap-start">triconville collections</h1>
     <p class='font-light tracking-widest text-center'>The Luxury of Living Outdoors</p>
     <div class="flex gap-2 justify-center my-5 view-button">
         <button class="btn-ghost-dark flex gap-2 items-center"
@@ -55,9 +74,8 @@ get_template_part('header-custom');
         </div>
     </div>
     <div id="list__collections"
-         class='mt-16 '>
+         class='mt-16 scrollbar-none'>
     </div>
-
     <div id="errorIndicator"
          class="hidden">Error</div>
     <div id="page-loading">
@@ -67,6 +85,11 @@ get_template_part('header-custom');
             <div class="ball ball3"></div>
         </div>
     </div>
+    <?php
+    // Conditional for footer
+    get_template_part('footer-custom');
+
+    ?>
 </div>
 <script>
 let page = 1;
@@ -86,8 +109,6 @@ $(document).ready(function() {
         }
     })
 })
-
-
 
 function loadCollections(page) {
     isLoading = true;
@@ -130,6 +151,7 @@ function changeView(type) {
     count = 0;
     $('.view-button button').removeClass('btn-ghost-dark').addClass('btn-ghost');
     if (type == 'grid') {
+        $('.content-container').removeClass('snap-y snap-mandatory overflow-y-scroll h-screen scrollbar-none')
         $('#grid-container').show();
         $('#grid-button').removeClass('btn-ghost').addClass('btn-ghost-dark');
         sortedCollection.forEach((e, index) => renderCollections(e, index, 'grid'));
@@ -166,18 +188,19 @@ function renderCollections(e, index, type = 'grid') {
             </a>
         `);
     } else if (type == 'list') {
+        $('.content-container').addClass('snap-y snap-mandatory transition duration-500 ease-in-out overflow-y-scroll h-screen scrollbar-none')
         $('#grid__collections').empty();
         $('#list__collections').append(`
-            <a href= "<?= BASE_LINK; ?>/collections/${e.id}" class="mb-5">
-                <div class="h-[680px] w-full relative flex items-center text-white justify-center" 
-                    style="
-                        background-position:center; 
-                        background-image: url('${e.collection_image_1920}'); 
-                        background-repeat: no-repeat;
-                        background-size: cover;
-                    "
-                >
-                    <div class="bg-black/25 h-full w-full absolute top-0 left-0 md:p-5 p-3">
+            <div class="h-screen w-screen relative text-white snap-center" 
+                style="
+                    background-position:center; 
+                    background-image: url('${e.collection_image_1920}'); 
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                "
+            >
+                <a href= "<?= BASE_LINK; ?>/collections/${e.id}">
+                    <div class="bg-black/25 h-full w-full absolute top-0 left-0 p-3 md:p-5 lg:p-10">
                         <div class="max-w-[1440px] mx-auto">
                             <p class='font-extrabold mt-3'>
                             ${count < 10 ? '0' + (count) : count}. 
@@ -189,14 +212,13 @@ function renderCollections(e, index, type = 'grid') {
                             </p>
                         </div>
                     </div>
-                </div>
-            </a>
+                </a>
+           </div>
         `);
     }
 }
-</script>
-<?php
-// Conditional for footer
-get_template_part('footer-custom');
 
-?>
+$(window).scroll(function() {
+
+});
+</script>

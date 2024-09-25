@@ -42,10 +42,10 @@ $(document).ready(function() {
                         <h3 class="text-center uppercase text-3xl tracking-wide ">PRODUCT ON ${res.name} COLLECTION</h3>
                         <div class=" grid grid-cols-2 md:grid-cols-4 mt-5 gap-4 justify-center container mx-auto mt-5 mb-10">
                             ${res.product_list.map((pr, i) => `
-                            <div class='overflow-hidden group border rounded-xl shadow-lg transition duration-300 hover:shadow-2xl hover:-translate-y-2 ${i % 2 !== 0 ? 'mt-10 -mb-10' : ''}'>
+                            <div class='overflow-hidden '>
                                 <a href="<?= BASE_LINK; ?>/detail/${pr.id}" class="">
                                     <img src="${pr.product_image}" alt="${pr.alt_text}" class="w-full h-[384px] object-contain group-hover:scale-110 transition duration-300"> 
-                                    <h3 class="text-center mb-5 text-xl relative group-hover:underline group-hover:underline-offset-4 group-hover:z-40">${pr.name}</h3>
+                                    <h3 class="text-center mb-5 uppercase tracking-wider line-clamp-2 max-w-xs">${pr.name}</h3>
                                 </a>
                             </div>
                             `).join('')}

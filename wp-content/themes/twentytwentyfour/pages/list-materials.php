@@ -7,7 +7,7 @@ get_template_part('header-custom');
 <style>
 .materials-banner {
     background: url('<?php echo get_stylesheet_directory_uri(); ?>/assets/images/material-banner.jpg');
-    height: 70vh;
+    height: 50vh;
     width: 100%;
     overflow: hidden;
     background-size: cover;
@@ -118,35 +118,17 @@ function renderMaterials(id) {
         success: function(res) {
             $('#page-loading').hide();
             $('#material__page').append(`
-                <div class='font-semibold text-2xl tracking-wide text-slate-800'>
+                <div class='font-medium text-2xl tracking-wider uppercase'>
                     ${res.alias}
                 </div>
                 <hr class='mb-3'>
-
-                <p class='text-slate-800'>
-                    ${res.swatch_options[0].material_information}
-                </p>
-                
-                ${res.swatch_options[0].information.length > 0 ? `
-                    <div id="material__features_${res.id}">
-                        <p class='text-slate-800 tracking-wide mt-3 font-semibold'>
-                            FEATURES
-                        </p>
-                        ${res.swatch_options[0].information.map(element => `
-                            <div class='my-3'>
-                                <p class='text-slate-800 font-semibold'>
-                                ${element.name}
-                                </p>
-                                <p class='text-slate-800'>
-                                ${element.description}
-                                </p>
-                            </div>
-                        `).join('')}
-                    </div>`: ''
-                }
                 <div class='flex flex-wrap gap-3 my-5' id="material__image_${res.id}">
                     ${res.swatch_options.map(element => `
-                        <img src='${element.image_512}' class='w-full max-h-[150px] max-w-[150px] h-full object-cover'/>
+                        <div>
+                            <img src='${element.image_512}' class='w-full max-h-[250px] max-w-[250px] h-full object-cover'/>
+                            <p class='line-clamp-2 max-w-[250px] uppercase tracking-wider'>${element.name}</p>
+                        </div>
+
                     `).join('')}
                 </div>
             `);

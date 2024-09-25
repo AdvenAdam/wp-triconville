@@ -198,7 +198,6 @@
                 const slug = url.split('/');
                 const finalUrl = slug[4];
                 const target = `#${finalUrl === 'materials' ? 'materials-038-care' : finalUrl}-link`;
-
                 $(target).removeClass('text-gray-900').addClass('text-cyan-500 underline');
             }
         });
