@@ -11,7 +11,7 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
 <style>
 .homepage-banner {
     background: url('/triconville/wp-content/uploads/2024/09/home-banner.png');
-    height: 70vh;
+    height: 100vh;
     width: 100%;
     overflow: hidden;
     background-size: cover;

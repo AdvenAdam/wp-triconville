@@ -51,13 +51,13 @@ get_template_part('header-custom');
 let page = 1;
 let isLoading = false;
 let stop = false;
-loadCollections(page);
+let selectedMaterial = [];
+$(document).ready(function() {
+    loadCollections(page);
+});
 
 function loadCollections(page, action = '') {
     isLoading = true;
-    if (action == 'material') {
-
-    }
     $('#page-loading').show();
     if (action == 'material') {
         $('#material__page').empty();
@@ -69,11 +69,8 @@ function loadCollections(page, action = '') {
             Authorization: '<?= API_KEY; ?>',
         },
         success: async function(res) {
-            res.results.sort((a, b) => a.name.localeCompare(b.name)).forEach(e => {
-                if (action != 'material') {
-                    renderMaterialFilter(e);
-                }
-                renderMaterials(e.id);
+            res.results.forEach(e => {
+                selectedMaterial.push(e);
             })
             // TODO : make logic for triggering next page not by baypassing
             if (res.next) {
@@ -81,15 +78,23 @@ function loadCollections(page, action = '') {
             } else {
                 stop = true;
                 $('#page-loading').hide();
+                selectedMaterial.sort((a, b) => (a.name > b.name) ? 1 : -1).forEach((e, index) => {
+                    if (action != 'material') {
+                        renderMaterialFilter(e);
+                    }
+                    renderMaterials(e.id);
+                });
+                selectedMaterial = [];
             }
-
-            isLoading = false;
         },
         error: function(xhr, status, error) {
             isLoading = false;
             stop = true;
             $('#page-loading').hide();
             $('#errorIndicator').show();
+        },
+        complete: function() {
+            isLoading = false;
         }
     });
 }
