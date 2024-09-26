@@ -8,7 +8,7 @@ $character_slug = get_query_var('detail');
     <div id="product__header"></div>
     <!-- NOTE : PRODUCT Overview -->
     <div class="lg:w-4/5 grid mx-auto md:grid-cols-3 sm:grid-cols-2 grid-cols-1 my-5">
-        <div class="text p-3 border-r  border-gray-300  product-overview-desc flex justify-center flex-col">
+        <div class="text p-3 border-r border-gray-300  product-overview-desc flex justify-center flex-col">
             <div class=""
                  id="product__overview"></div>
             <div class="flex flex-col gap-2 item-center align mt-6 pb-5 mb-5">
@@ -90,15 +90,15 @@ jQuery(document).ready(function($) {
             $('#page-loading').hide();
             // NOTE : PRODUCT HEADER 
             $('#product__header').append(
-                `<div class="md:h-[70vh] h-[50vh] w-full transition-all duration-500 "
+                `<div class="h-screen w-full transition-all duration-500 "
                     style="
                         background: url('${res.ambience_image[0]}'); 
                         background-position: 50% 50%;
                         background-size: cover;
                         background-repeat: no-repeat;
                     ">
-                    <div class ='bg-black bg-opacity-25 h-full w-full flex items-center justify-center'>
-                        <p class="text-xl  md:text-5xl font-semibold text-white text-center ">${res.name}</p>
+                    <div class ='bg-black bg-opacity-30 h-full w-full flex items-center justify-center'>
+                        <h1 class="text-4xl font-extrabold text-center tracking-wider text-white uppercase">${res.name}</h1>
                     </div>
                 </div>`
             );
@@ -311,22 +311,25 @@ jQuery(document).ready(function($) {
             }
 
             $('.image__spec').append(`
-            <img src="${res.spec_image}"
-                alt="specification product"
-                height="512"
-                width="512" />
+                <img src="${res.spec_image}"
+                    alt="specification product"
+                    height="512"
+                    width="512" />
             `)
 
             res.ambience_image.forEach((e) => {
                 $('.ambience__img').append(`
-                <img src="${e}"
-                    class="mr-2" />
+                    <div>
+                        <img src="${e}"
+                            class="h-[350px] mx-2 w-auto object-cover" />
+                    </div>
                 `)
             })
 
             $('.ambience__img').slick({
-                slidesToShow: 3.1,
                 slidesToScroll: 1,
+                variableWidth: true,
+                infinite: true,
                 arrows: false,
             });
             res.technical_image.forEach((e) => {

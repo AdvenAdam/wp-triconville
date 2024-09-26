@@ -217,8 +217,4 @@ function renderCollections(e, index, type = 'grid') {
         `);
     }
 }
-
-$(window).scroll(function() {
-
-});
 </script>

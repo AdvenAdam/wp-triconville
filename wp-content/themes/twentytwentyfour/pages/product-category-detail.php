@@ -6,7 +6,7 @@ $character_slug = get_query_var('product');
 <style>
 .product-detail-banner {
     background: url('<?php echo get_stylesheet_directory_uri(); ?>/assets/images/category-detail-banner.jpg');
-    height: 70vh;
+    height: 100vh;
     width: 100%;
     overflow: hidden;
     background-size: cover;
@@ -19,7 +19,7 @@ $character_slug = get_query_var('product');
     <!-- NOTE: Banner -->
     <div class="product-detail-banner">
         <div class="flex items-center justify-center min-h-full bg-black bg-opacity-35">
-            <h1 class="text-5xl font-semibold text-center text-white tracking-widest uppercase"
+            <h1 class="text-4xl font-extrabold text-center tracking-wider text-white uppercase"
                 id="category__name"></h1>
         </div>
     </div>
@@ -100,7 +100,6 @@ async function renderFilterAllProduct() {
         }
         fetchAllProduct().then(res => {
             productListSelected = [...new Set([...productListSelected, ...res])];
-            console.log("🚀 ~ fetchAllProduct ~ productListSelected:", productListSelected)
             renderProducts(productListSelected)
         }).catch(err => {
             console.error("🚀 ~ renderFilterAllProduct ~ err:", err)

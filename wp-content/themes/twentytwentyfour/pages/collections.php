@@ -61,7 +61,6 @@ $(document).ready(function() {
 </script>
 
 
-
 <style>
 section.banner>picture>img {
     max-height: 900px;
@@ -81,45 +80,6 @@ section.banner>h1 {
     line-height: 0;
     position: absolute;
 }
-
-/* .collection__product-card {
-    height: auto;
-    margin-left: 1rem;
-    border-radius: 4px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
-}
-
-.collection__product-card:nth-child(1) {
-    margin-left: 0.5rem;
-}
-
-.collection__product-card>img {
-    height: 384px;
-    width: 384px;
-    object-fit: contain;
-} */
-
-/* #product__prev,
-#product__next {
-    height: 30px;
-    width: 30px;
-    position: absolute;
-    margin: auto 0px;
-    bottom: 0;
-    top: 0;
-}
-
-#product__prev {
-    background: url('https://triconville.co.id/static/version1720147324/frontend/Ammar/customtheme/en_US/css/slick/arrow-left.svg');
-    left: 120px;
-    background-size: cover;
-}
-
-#product__next {
-    background: url('https://triconville.co.id/static/version1720147324/frontend/Ammar/customtheme/en_US/css/slick/arrow-right.svg');
-    right: 120px;
-    background-size: cover;
-} */
 </style>
 <?php
 // Conditional for footer

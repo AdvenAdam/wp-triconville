@@ -33,10 +33,10 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
             <div class="grid md:grid-cols-2 items-center my-5">
                 <div class="txt max-w-2xl">
                     <p class="uppercase tracking-widest">our story</p>
-                    <h5 class='text-2xl font-semibold'>
+                    <h2 class='text-2xl font-semibold'>
                         20 Years of Excellence Experience on Outdoor Living
-                    </h5>
-                    <p>
+                    </h2>
+                    <p class='tracking-wide'>
                         In line with cutting-edge design trends, Triconville manufactures furniture that is beautiful yet functional, versatile products, for outdoors.
                         And all combined in an excellence that guides Triconville towards new solutions for the world of architecture and hospitality.
                     </p>
@@ -48,7 +48,9 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
             </div>
             <div class="flex items-center my-5">
                 <div class="w-2/5">
-                    <p class='uppercase tracking-widest'>
+                    <p class='
+                       uppercase
+                       tracking-widest'>
                         trusted worldwide
                     </p>
                     <h5 class='text-2xl font-semibold'>
@@ -56,7 +58,7 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                     </h5>
                 </div>
                 <div class='w-3/5'>
-                    <p>
+                    <p class='tracking-wide'>
                         An outdoor sofa that hugs you with the specially built cushion designed ergonomically to improve comfort,
                         while the angular backrest makes the recline easy with books or drinks in hand.
                         An outdoor sofa that hugs you with the specially built cushion designed ergonomically to improve comfort,

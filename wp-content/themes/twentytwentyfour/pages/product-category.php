@@ -7,8 +7,8 @@ get_template_part('header-custom');
 
 <style>
 .product-header {
-    background: url('<?php echo get_stylesheet_directory_uri(); ?>/assets/images/category-banner.png');
-    height: 70vh;
+    background: url('<?php echo get_stylesheet_directory_uri(); ?>/assets/images/products-banner.webp');
+    height: 100vh;
     width: 100%;
     overflow: hidden;
     background-size: cover;
@@ -20,8 +20,11 @@ get_template_part('header-custom');
 
     <div class="product-header w-full">
         <div class="flex items-center justify-center min-h-full bg-black bg-opacity-25">
-            <h1 class="text-5xl font-semibold text-center text-white">PRODUCTS</h1>
+            <h1 class="text-4xl font-extrabold text-center tracking-wider text-white">PRODUCTS</h1>
         </div>
+    </div>
+    <div class="text-center uppercase text-2xl tracking-widest my-10">
+        explore our outdoor product range
     </div>
     <!-- NOTE : PRODUCT LIST -->
     <div class="p-6 my-5 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3"
