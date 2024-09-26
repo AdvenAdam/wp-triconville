@@ -52,16 +52,14 @@ let page = 1;
 let isLoading = false;
 let stop = false;
 let selectedMaterial = [];
+let readyToRenderMaterial = [];
 $(document).ready(function() {
     loadCollections(page);
 });
 
 function loadCollections(page, action = '') {
     isLoading = true;
-    $('#page-loading').show();
-    if (action == 'material') {
-        $('#material__page').empty();
-    }
+    // $('#page-loading').show();
     $.ajax({
         url: `<?= BASE_API; ?>/v1_swatchparent/?page=${page}`,
         type: 'GET',
@@ -72,12 +70,15 @@ function loadCollections(page, action = '') {
             res.results.forEach(e => {
                 selectedMaterial.push(e);
             })
+            console.log("🚀 ~ success:function ~ selectedMaterial:", selectedMaterial)
             // TODO : make logic for triggering next page not by baypassing
             if (res.next) {
                 loadCollections(page + 1, action);
             } else {
+                isLoading = false;
                 stop = true;
                 $('#page-loading').hide();
+                console.log(" selectedMaterial.sort ~ selectedMaterial:", selectedMaterial.sort((a, b) => (a.name > b.name) ? 1 : -1))
                 selectedMaterial.sort((a, b) => (a.name > b.name) ? 1 : -1).forEach((e, index) => {
                     if (action != 'material') {
                         renderMaterialFilter(e);
@@ -93,9 +94,6 @@ function loadCollections(page, action = '') {
             $('#page-loading').hide();
             $('#errorIndicator').show();
         },
-        complete: function() {
-            isLoading = false;
-        }
     });
 }
 
@@ -105,10 +103,6 @@ function renderMaterialFilter(e) {
     `);
 }
 
-function renderMaterial(id) {
-    $('#material__page').empty();
-    renderMaterials(id);
-}
 
 function renderMaterials(id) {
     $.ajax({
@@ -137,19 +131,24 @@ function renderMaterials(id) {
                     `).join('')}
                 </div>
             `);
+        },
+        complete: function() {
+            $('#page-loading').hide();
         }
     })
+
 }
 
 
 function btnClick(id) {
+    $('#material__page').empty();
     $('#list__materials_filter button').removeClass('text-white bg-black hover:bg-white hover:text-black').addClass('text-black hover:bg-black hover:text-white');
     if (id == 'all') {
         loadCollections(page, 'material');
         $(`#btn-all`).removeClass('text-black hover:bg-black hover:text-white').addClass('text-white bg-black');
     } else {
         $(`#btn-${id}`).removeClass('text-black hover:bg-black hover:text-white').addClass('text-white bg-black');
-        renderMaterial(id);
+        renderMaterials(id);
     }
 }
 </script>
