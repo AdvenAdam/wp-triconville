@@ -30,4 +30,4 @@ host('34.124.194.147')
 after('deploy:failed', 'deploy:unlock');
 
 // Clear cache after successful deployment
-after('deploy:success', 'deploy:cache:clear');
+after('deploy:success', 'deploy:cleanup');
