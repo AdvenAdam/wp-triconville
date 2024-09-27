@@ -1,4 +1,7 @@
 /wp-content/themes/twentytwentyfour/node_modules
+/wp-content/themes/twentytwentyfour/page-builder
+
 # Ignore wp-config.php and .htaccess files.
 wp-config.php
 .htaccess
+
