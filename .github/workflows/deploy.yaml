@@ -24,5 +24,5 @@ jobs:
       - name: Deploy
         uses: deployphp/action@v1
         with:
-          private-key: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC4LDdFxldbO91IbimcOQ5lBpVooRjmbdDInLJ/AFBxjCB5ujMqVEtdYJTAJ0DuJwDv0XRsqI0GyxvSNOyHvkVT4SoCoVb+0YDako2/dCf2HJI8hQP5Pj2Cp7cOohsyul59bgO1P2AdCIap/y/XvYycr296PtzkDHp9w7b2aAhSPJvH2MI+P5swOYU/3kle7O78BsjvcqqS6d1xuYEGMNgoMG0wGMaYswmVsTsFT5Tic54LzxIXPZG5SXxh2zZgSl58tMtPmtJa2hJjRXVx442de922o66aCC+KmdU+AM7SRG+UWsCzxIb6XLY+taOD4dE0eJUIAzewCN9cdU8LxhM7/p33z5x3uZmezmdUzRcXh7qnu8Dzn9NGhwjn5j1eMHcTJFx3EnktDsxGk/nq4ZAhvLPi7BpyAILkTYF0IO8d0p2pHxqRybCTWOJ4T04r/4djTUdXDHovhg7kwRPuHFwd4VS42g7LZB9KP8lXvGbRr57gvOWpE8gNcHnFn45DeX0= root@wp-tcv
+          private-key: ${{ secrets.PRIVATE_KEY }}
           dep: deploy
