@@ -26,12 +26,12 @@ $character_slug = get_query_var('detail');
             </div>
         </div>
         <div class="border-gray-300 p-3 border-r">
-            <h3 class="text-3xl font-medium text-center tracking-wide mb-3">SPECIFICATIONS</h3>
+            <h3 class="text-3xl font-medium text-center tracking-wide mb-3 line-clamp-2">SPECIFICATIONS</h3>
             <table class="product__spec w-full"
                    id="table__spec"></table>
         </div>
         <div class="border-gray-300 p-3">
-            <h3 class="text-3xl font-medium text-center tracking-wide mb-3">DOWNLOAD</h3>
+            <h3 class="text-3xl font-medium text-center tracking-wide mb-3 line-clamp-2">DOWNLOAD</h3>
             <div id="product__downloadable"
                  class="grid grid-cols-2 gap-4">
             </div>
@@ -62,7 +62,7 @@ $character_slug = get_query_var('detail');
     </div>
 
     <div class="inthis__section">
-        <div class="collection__product grid grid-cols-4 gap-4"></div>
+        <div class="collection__product my-10"></div>
     </div>
 </div>
 <div id="page-loading">
@@ -316,12 +316,11 @@ jQuery(document).ready(function($) {
                     height="512"
                     width="512" />
             `)
-
             res.ambience_image.forEach((e) => {
                 $('.ambience__img').append(`
                     <div>
                         <img src="${e}"
-                            class="h-[350px] mx-2 w-auto object-cover" />
+                            class="h-[350px] mx-2 w-screen md:w-auto object-cover" />
                     </div>
                 `)
             })
@@ -344,18 +343,17 @@ jQuery(document).ready(function($) {
                 slidesToScroll: 1,
                 arrows: false,
             });
-
             res.collection_product.forEach((e) => {
                 $('.collection__product').append(`
                 <div class="product__card">
-                    <img src="${e.product_image}" />
+                    <img src="${e.product_image}" class="h-[350px] mx-2 w-auto object-cover" />
                 </div>
                 `)
             })
 
             $('.collection__product').slick({
-                slidesToShow: 4.1,
-                slidesToScroll: 1,
+                variableWidth: true,
+                infinite: true,
                 arrows: false,
             });
         },
@@ -368,7 +366,7 @@ jQuery(document).ready(function($) {
 function renderOverview(res) {
     if (res.name) {
         $('#product__overview').append(`
-            <h1 class="text-3xl font-semibold text-gray-900 tracking-wide mb-3">${res.name}</h1>
+            <h1 class="text-3xl font-semibold text-gray-900 tracking-wide mb-3 line-clamp-2">${res.name}</h1>
             <p class="text-center"> ${res.description}</p>
         `);
     }

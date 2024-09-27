@@ -135,39 +135,30 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                     </p>
                 </div>
                 <div class="grid grid-cols-3 gap-3 lg:gap-5">
-                    <?php
-                foreach ($posts as $post):
-                    ?>
+                    <?php foreach ($posts as $post): ?>
                     <div class="news-card">
                         <div class="news-image">
                             <?php echo get_the_post_thumbnail($post->ID, 'large'); ?>
                         </div>
                         <div class=" uppercase overflow-hidden">
-                            <h2 class="text-2xl font-semibold">
+                            <h2 class="text-2xl font-semibold mb-5">
                                 <a href="<?php echo get_permalink($post->ID); ?>"
                                    class="text-[#2c272e] line-clamp-1">
                                     <?php echo get_the_title($post->ID); ?>
                                 </a>
                             </h2>
                         </div>
-                        <div class="news-date uppercase">
-                            <p class="text-[#9c9c9c] text-sm">
-                                <?php echo get_the_date('F j, Y', $post->ID); ?>
-                            </p>
-                        </div>
                         <div class="mb-10">
-                            <p class="text-[#2c272e] text-sm line-clamp-2">
+                            <p class="text-[#2c272e] line-clamp-2">
                                 <?php echo get_the_excerpt($post->ID); ?>
                             </p>
                         </div>
-                        <a href="<?php echo get_permalink($post->ID); ?>"
-                           class="wp-block-post-excerpt__more-link ">
-                            Read More
-                        </a>
                     </div>
-                    <?php
-                endforeach;
-                ?>
+                    <?php  endforeach; ?>
+                </div>
+                <div class="    text-center">
+                    <a href="/triconville/news"
+                       class="btn-ghost">See All News</a>
                 </div>
             </div>
         </div>

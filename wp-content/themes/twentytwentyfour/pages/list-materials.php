@@ -70,7 +70,6 @@ function loadCollections(page, action = '') {
             res.results.forEach(e => {
                 selectedMaterial.push(e);
             })
-            console.log("🚀 ~ success:function ~ selectedMaterial:", selectedMaterial)
             // TODO : make logic for triggering next page not by baypassing
             if (res.next) {
                 loadCollections(page + 1, action);
@@ -78,7 +77,6 @@ function loadCollections(page, action = '') {
                 isLoading = false;
                 stop = true;
                 $('#page-loading').hide();
-                console.log(" selectedMaterial.sort ~ selectedMaterial:", selectedMaterial.sort((a, b) => (a.name > b.name) ? 1 : -1))
                 selectedMaterial.sort((a, b) => (a.name > b.name) ? 1 : -1).forEach((e, index) => {
                     if (action != 'material') {
                         renderMaterialFilter(e);
@@ -125,7 +123,7 @@ function renderMaterials(id) {
                     ${res.swatch_options.map(element => `
                         <div>
                             <img src='${element.image_512}' class='w-full max-h-[250px] max-w-[250px] h-full object-cover'/>
-                            <p class='line-clamp-2 max-w-[250px] uppercase tracking-wider'>${element.name}</p>
+                            <p class='line-clamp-2 max-w-[250px] uppercase text-center tracking-wider'>${element.name}</p>
                         </div>
 
                     `).join('')}

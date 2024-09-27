@@ -38,6 +38,7 @@
         font-family: 'Karla', sans-serif;
     }
 
+    .content-container,
     .content-wrapper {
         overflow-x: hidden;
     }
