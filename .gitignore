@@ -1,1 +1,4 @@
 /wp-content/themes/twentytwentyfour/node_modules
+# Ignore wp-config.php and .htaccess files.
+wp-config.php
+.htaccess
