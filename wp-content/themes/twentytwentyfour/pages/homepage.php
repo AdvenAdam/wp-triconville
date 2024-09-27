@@ -10,7 +10,7 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
 ?>
 <style>
 .homepage-banner {
-    background: url('/triconville/wp-content/uploads/2024/09/home-banner.png');
+    background: url('<?= BASE_LINK ?>/wp-content/uploads/2024/09/home-banner.png');
     height: 100vh;
     width: 100%;
     overflow: hidden;
@@ -42,7 +42,7 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                     </p>
                 </div>
                 <div class="image">
-                    <img src="/triconville/wp-content/uploads/2024/09/home-our-story.png"
+                    <img src="<?= BASE_LINK ?>/wp-content/uploads/2024/09/home-our-story.png"
                          class="w-full h-full object-cover" />
                 </div>
             </div>
@@ -75,14 +75,14 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
             <!-- Item 1 -->
             <div class=" duration-200 ease-linear mx-2"
                  data-carousel-item>
-                <img src="/triconville/wp-content/uploads/2024/09/home-slider-1.png"
+                <img src="<?= BASE_LINK ?>/wp-content/uploads/2024/09/home-slider-1.png"
                      class="object-cover w-full h-[600px]"
                      alt="Slider-1">
             </div>
             <!-- Item 2 -->
             <div class=" duration-200 ease-linear mx-2"
                  data-carousel-item>
-                <img src="/triconville/wp-content/uploads/2024/09/home-slider-2.png"
+                <img src="<?= BASE_LINK ?>/wp-content/uploads/2024/09/home-slider-2.png"
                      class="object-cover w-full h-[600px]"
                      alt="Slider-2">
             </div>
@@ -157,7 +157,7 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                     <?php  endforeach; ?>
                 </div>
                 <div class="    text-center">
-                    <a href="/triconville/news"
+                    <a href="<?= BASE_LINK ?>/news"
                        class="btn-ghost">See All News</a>
                 </div>
             </div>
@@ -217,8 +217,8 @@ $(document).ready(function() {
                                     ${data.description}
                                 </p>
                                 <div class="flex gap-5 mt-5">
-                                    <a href="/triconville/collections/${data.id}" class="btn-primary">${data.name} Collection</a>
-                                    <a href="/triconville/collections" class="btn-ghost">View More Collections</a>
+                                    <a href="<?= BASE_LINK ?>/collections/${data.id}" class="btn-primary">${data.name} Collection</a>
+                                    <a href="<?= BASE_LINK ?>/collections" class="btn-ghost">View More Collections</a>
                                 </div>
                             </div>
                         </div>
