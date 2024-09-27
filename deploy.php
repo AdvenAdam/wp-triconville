@@ -17,7 +17,7 @@ add('writable_dirs', ['wp-content/uploads']);
 // Hosts Configuration
 
 host('34.124.194.147')
-    ->set('remote_user', 'adven_indospacetech') // Make sure 'deployer' user has SSH access and the correct permissions
+    ->set('remote_user', 'dev-04') // Make sure 'deployer' user has SSH access and the correct permissions
     ->set('deploy_path', '/var/www/wp-triconville') // Path where the WordPress project will be deployed
     ->set('branch', 'main') // Specify the branch to deploy, adjust as needed
     ->set('http_user', 'www-data') // Ensures correct user for writable files
