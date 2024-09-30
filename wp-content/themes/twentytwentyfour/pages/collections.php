@@ -26,7 +26,7 @@ $(document).ready(function() {
         success: function(res) {
             console.log(res);
             $('#container__<?= $character_slug ?>').append(`
-                    <section class="banner my-5 relative">
+                    <section class="banner mb-5 relative">
                         <img src="${res.image_1920}" alt="${res.name}" class="w-full h-[50vh] object-cover">
                         <div class='bg-black bg-opacity-25 h-full w-full absolute inset-0 flex items-center justify-center'>
                         </div>
