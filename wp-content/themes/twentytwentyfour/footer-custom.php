@@ -18,7 +18,7 @@
                             <a href='<?= BASE_LINK; ?>/contact-us'>Contact Us</a>
                         </p>
                         <p>
-                            <a href='<?= BASE_LINK; ?>/find-us'
+                            <a href='<?= BASE_LINK; ?>/find-a-store'
                                class='flex items-center py-2    '>
                                 <svg xmlns="http://www.w3.org/2000/svg"
                                      fill="none"
