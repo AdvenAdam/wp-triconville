@@ -1,0 +1,39 @@
+[2024-09-30 19:59:11] [fallback_cache::fallback_cache_add_define_cache_wp_config] wp-config.php is not writable
+[2024-09-30 19:59:11] [fallback_cache::fallback_cache_add_define_cache_wp_config] wp-config.php is not writable
+[2024-09-30 19:59:14] [fallback_cache::fallback_cache_add_define_cache_wp_config] wp-config.php is not writable
+[2024-09-30 19:59:14] [cache_controller::ajax_purge_whole_cache] Purge whole Cloudflare cache
+[2024-09-30 19:59:14] [cache_controller::purge_all] Purged whole Cloudflare cache
+[2024-09-30 19:59:14] [cloudflare::start_preloader_for_all_urls] Getting last published posts for post types: Array
+(
+    [0] => post
+    [1] => page
+)
+
+[2024-09-30 19:59:14] [cache_controller::start_cache_preloader_for_specific_urls] Adding 18 URLs to preloader queue
+[2024-09-30 19:59:14] [fallback_cache::fallback_cache_add_define_cache_wp_config] wp-config.php is not writable
+[2024-09-30 19:59:14] [fallback_cache::fallback_cache_add_define_cache_wp_config] wp-config.php is not writable
+[2024-09-30 19:59:14] [preloader::task] Preloading URL http://192.168.88.65/triconville/find-a-store/
+[2024-09-30 19:59:15] [fallback_cache::fallback_cache_add_define_cache_wp_config] wp-config.php is not writable
+[2024-09-30 19:59:17] [preloader::task] Preloading URL http://192.168.88.65/triconville/about-us/
+[2024-09-30 19:59:17] [fallback_cache::fallback_cache_add_define_cache_wp_config] wp-config.php is not writable
+[2024-09-30 19:59:19] [preloader::task] Preloading URL http://192.168.88.65/triconville/newsroom/
+[2024-09-30 19:59:19] [fallback_cache::fallback_cache_add_define_cache_wp_config] wp-config.php is not writable
+[2024-09-30 19:59:21] [preloader::task] Preloading URL http://192.168.88.65/triconville/privacy-policy/
+[2024-09-30 19:59:21] [fallback_cache::fallback_cache_add_define_cache_wp_config] wp-config.php is not writable
+[2024-09-30 19:59:23] [preloader::task] Preloading URL http://192.168.88.65/triconville/warranty/
+[2024-09-30 19:59:23] [fallback_cache::fallback_cache_add_define_cache_wp_config] wp-config.php is not writable
+[2024-09-30 19:59:25] [preloader::task] Preloading URL http://192.168.88.65/triconville/contact-us/
+[2024-09-30 19:59:25] [fallback_cache::fallback_cache_add_define_cache_wp_config] wp-config.php is not writable
+[2024-09-30 19:59:27] [preloader::task] Preloading URL http://192.168.88.65/triconville/find-us/
+[2024-09-30 19:59:27] [fallback_cache::fallback_cache_add_define_cache_wp_config] wp-config.php is not writable
+[2024-09-30 19:59:30] [preloader::task] Preloading URL http://192.168.88.65/triconville/materials/
+[2024-09-30 19:59:30] [fallback_cache::fallback_cache_add_define_cache_wp_config] wp-config.php is not writable
+[2024-09-30 19:59:32] [preloader::task] Preloading URL http://192.168.88.65/triconville/products/
+[2024-09-30 19:59:32] [fallback_cache::fallback_cache_add_define_cache_wp_config] wp-config.php is not writable
+[2024-09-30 19:59:34] [fallback_cache::fallback_cache_add_define_cache_wp_config] wp-config.php is not writable
+[2024-09-30 19:59:34] [preloader::task] Preloading URL http://192.168.88.65/triconville/collections/
+[2024-09-30 19:59:34] [fallback_cache::fallback_cache_add_define_cache_wp_config] wp-config.php is not writable
+[2024-09-30 19:59:36] [preloader::task] Preloading URL http://192.168.88.65/triconville/
+[2024-09-30 19:59:36] [fallback_cache::fallback_cache_add_define_cache_wp_config] wp-config.php is not writable
+[2024-09-30 19:59:38] [preloader::task] Preloading URL http://192.168.88.65/triconville/salone-del-mobile-2024/
+[2024-09-30 19:59:38] [fallback_cache::fallback_cache_add_define_cache_wp_config] wp-config.php is not writable
