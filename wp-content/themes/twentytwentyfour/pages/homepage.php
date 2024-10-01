@@ -69,46 +69,46 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
         </div>
     </div>
     <!-- NOTE : Slider -->
-    <div class="relative my-10 ">
+    <div class="relative my-10">
         <!-- Carousel wrapper -->
         <div class=" slider__home">
             <!-- Item 1 -->
             <div class=" duration-200 ease-linear mx-2"
                  data-carousel-item>
                 <img src="https://storage.googleapis.com/pimassest1/asset/utils/collection/featured_image/Corda/1920/corda-sofa-lifestyle-2.jpg"
-                     class="object-cover w-full h-[600px]"
+                     class="object-cover w-auto h-[600px]"
                      alt="Slider-1">
             </div>
             <!-- Item 2 -->
             <div class=" duration-200 ease-linear mx-2"
                  data-carousel-item>
                 <img src="https://storage.googleapis.com/pimassest1/asset/utils/collection/featured_image/Emmilie/1920/Emmilie-sofa_piedra-coffee-table.jpg"
-                     class="object-cover w-full h-[600px]"
+                     class="object-cover w-auto h-[600px]"
                      alt="Slider-2">
             </div>
             <!-- Item 3 -->
             <div class=" duration-200 ease-linear mx-2"
                  data-carousel-item>
                 <img src="https://storage.googleapis.com/pimassest1/asset/utils/collection/featured_image/Karla/1920/Karla_2-1-1_Olefin-calasona-142-weathered-teak-.jpg"
-                     class="object-cover w-full h-[600px]"
+                     class="object-cover w-auto h-[600px]"
                      alt="Slider-2">
             </div>
             <!-- Item 4 -->
             <div class=" duration-200 ease-linear mx-2"
                  data-carousel-item>
                 <img src="https://storage.googleapis.com/pimassest1/asset/utils/collection/featured_image/Timo/1920/timo_sofa_lifestyle_06.jpg"
-                     class="object-cover w-full h-[600px]"
+                     class="object-cover w-auto h-[600px]"
                      alt="Slider-2">
             </div>
             <!-- Item 5 -->
             <div class=" duration-200 ease-linear mx-2"
                  data-carousel-item>
                 <img src="https://storage.googleapis.com/pimassest1/asset/utils/collection/featured_image/Vento%20Aluminium/1920/4._Vento_Alu_Ambiance_Fontelina_Blue_.jpg"
-                     class="object-cover w-full h-[600px]"
+                     class="object-cover w-auto h-[600px]"
                      alt="Slider-2">
             </div>
         </div>
-        <button class="slick-prev prev-btn absolute top-1/2 -translate-y-1/2 z-10 left-5 hover:py-10 hover:bg-slate-50/50 p-3"
+        <button class="slick-prev prev-btn absolute top-1/2 -translate-y-1/2 z-10 left-5 py-10 bg-slate-50/50 p-3 hover:bg-slate-50/80"
                 aria-label="Previous"
                 type="button">
             <svg xmlns="http://www.w3.org/2000/svg"
@@ -122,7 +122,7 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                       d="M15.75 19.5 8.25 12l7.5-7.5" />
             </svg>
         </button>
-        <button class="slick-next next-btn absolute top-1/2 -translate-y-1/2 z-10 right-5 hover:py-10 hover:bg-slate-50/50 p-3"
+        <button class="slick-next next-btn absolute top-1/2 -translate-y-1/2 z-10 right-5 py-10 bg-slate-50/50 p-3 hover:bg-slate-50/80"
                 aria-label="Next"
                 type="button">
             <svg xmlns="http://www.w3.org/2000/svg"
@@ -257,7 +257,9 @@ $(document).ready(function() {
 });
 
 $('.slider__home').slick({
-    slidesToShow: 1.02,
+    infinite: true,
+    centerMode: true,
+    variableWidth: true,
     slidesToScroll: 1,
     arrows: false,
 });
