@@ -24,7 +24,6 @@ $(document).ready(function() {
             // TODO ::SKELETON
         },
         success: function(res) {
-            console.log(res);
             $('#container__<?= $character_slug ?>').append(`
                     <section class="banner mb-5 relative">
                         <img src="${res.image_1920}" alt="${res.name}" class="w-full h-[50vh] object-cover">

@@ -159,7 +159,6 @@ $(document).ready(function() {
             $('#dropdownButton').text(selectedText).append(' <svg class="w-5 h-5 float-right mt-1" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>');
             Object.keys(getAllElement).forEach((key) => {
                 let idCat = $(getAllElement[key]).attr('id')
-                console.log(idselected)
                 if (idCat !== `cat-${idselected}`) {
                     $(getAllElement[key]).addClass("hidden")
                 } else {

@@ -86,7 +86,6 @@ jQuery(document).ready(function($) {
             $('#page-loading').show();
         },
         success: (res) => {
-            console.log(res);
             $('#page-loading').hide();
             // NOTE : PRODUCT HEADER 
             $('#product__header').append(

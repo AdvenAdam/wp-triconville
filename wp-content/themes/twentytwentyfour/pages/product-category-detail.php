@@ -133,7 +133,6 @@ async function fetchProducts(id, param) {
         });
         // NOTE : Get Triconville Product by id == 3
         let triconvilleProduct = res.product_list.filter(product => product.brand === 3 && selectedCollectionId.includes(product.collection));
-        console.log("🚀 ~ fetchProducts ~ triconvilleProduct:", triconvilleProduct)
         const products = param !== '' ?
             triconvilleProduct.filter(({
                 name

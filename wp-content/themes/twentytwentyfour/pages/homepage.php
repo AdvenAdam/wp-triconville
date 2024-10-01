@@ -75,18 +75,38 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
             <!-- Item 1 -->
             <div class=" duration-200 ease-linear mx-2"
                  data-carousel-item>
-                <img src="<?= BASE_LINK ?>/wp-content/uploads/2024/09/home-slider-1.png"
+                <img src="https://storage.googleapis.com/pimassest1/asset/utils/collection/featured_image/Corda/1920/corda-sofa-lifestyle-2.jpg"
                      class="object-cover w-full h-[600px]"
                      alt="Slider-1">
             </div>
             <!-- Item 2 -->
             <div class=" duration-200 ease-linear mx-2"
                  data-carousel-item>
-                <img src="<?= BASE_LINK ?>/wp-content/uploads/2024/09/home-slider-2.png"
+                <img src="https://storage.googleapis.com/pimassest1/asset/utils/collection/featured_image/Emmilie/1920/Emmilie-sofa_piedra-coffee-table.jpg"
                      class="object-cover w-full h-[600px]"
                      alt="Slider-2">
             </div>
-
+            <!-- Item 3 -->
+            <div class=" duration-200 ease-linear mx-2"
+                 data-carousel-item>
+                <img src="https://storage.googleapis.com/pimassest1/asset/utils/collection/featured_image/Karla/1920/Karla_2-1-1_Olefin-calasona-142-weathered-teak-.jpg"
+                     class="object-cover w-full h-[600px]"
+                     alt="Slider-2">
+            </div>
+            <!-- Item 4 -->
+            <div class=" duration-200 ease-linear mx-2"
+                 data-carousel-item>
+                <img src="https://storage.googleapis.com/pimassest1/asset/utils/collection/featured_image/Timo/1920/timo_sofa_lifestyle_06.jpg"
+                     class="object-cover w-full h-[600px]"
+                     alt="Slider-2">
+            </div>
+            <!-- Item 5 -->
+            <div class=" duration-200 ease-linear mx-2"
+                 data-carousel-item>
+                <img src="https://storage.googleapis.com/pimassest1/asset/utils/collection/featured_image/Vento%20Aluminium/1920/4._Vento_Alu_Ambiance_Fontelina_Blue_.jpg"
+                     class="object-cover w-full h-[600px]"
+                     alt="Slider-2">
+            </div>
         </div>
         <button class="slick-prev prev-btn absolute top-1/2 -translate-y-1/2 z-10 left-5 hover:py-10 hover:bg-slate-50/50 p-3"
                 aria-label="Previous"
