@@ -36,7 +36,7 @@ html,
   -moz-tab-size: 4; /* 3 */
   -o-tab-size: 4;
      tab-size: 4; /* 3 */
-  font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; /* 4 */
+  font-family: Helvetica Neue, sans-serif; /* 4 */
   font-feature-settings: normal; /* 5 */
   font-variation-settings: normal; /* 6 */
   -webkit-tap-highlight-color: transparent; /* 7 */
@@ -545,6 +545,12 @@ video {
   white-space: nowrap;
   border-width: 0;
 }
+.visible {
+  visibility: visible;
+}
+.invisible {
+  visibility: hidden;
+}
 .collapse {
   visibility: collapse;
 }
@@ -586,6 +592,9 @@ video {
 }
 .top-1\/2 {
   top: 50%;
+}
+.top-16 {
+  top: 4rem;
 }
 .top-2 {
   top: 0.5rem;
@@ -746,6 +755,10 @@ video {
 .size-8 {
   width: 2rem;
   height: 2rem;
+}
+.size-9 {
+  width: 2.25rem;
+  height: 2.25rem;
 }
 .h-0 {
   height: 0px;
@@ -986,6 +999,9 @@ video {
 .items-baseline {
   align-items: baseline;
 }
+.justify-start {
+  justify-content: flex-start;
+}
 .justify-end {
   justify-content: flex-end;
 }
@@ -1104,6 +1120,10 @@ video {
   --tw-bg-opacity: 1;
   background-color: rgb(241 241 241 / var(--tw-bg-opacity));
 }
+.bg-\[\#F4F6F6\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(244 246 246 / var(--tw-bg-opacity));
+}
 .bg-\[\#F5F2EE\] {
   --tw-bg-opacity: 1;
   background-color: rgb(245 242 238 / var(--tw-bg-opacity));
@@ -1131,6 +1151,9 @@ video {
   --tw-bg-opacity: 1;
   background-color: rgb(229 231 235 / var(--tw-bg-opacity));
 }
+.bg-slate-50\/50 {
+  background-color: rgb(248 250 252 / 0.5);
+}
 .bg-slate-900\/50 {
   background-color: rgb(15 23 42 / 0.5);
 }
@@ -1140,9 +1163,6 @@ video {
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
-}
-.bg-slate-50\/50 {
-  background-color: rgb(248 250 252 / 0.5);
 }
 .bg-opacity-25 {
   --tw-bg-opacity: 0.25;
@@ -1187,6 +1207,10 @@ video {
 }
 .p-8 {
   padding: 2rem;
+}
+.px-2 {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
 }
 .px-3 {
   padding-left: 0.75rem;
@@ -1243,6 +1267,9 @@ video {
 .text-justify {
   text-align: justify;
 }
+.font-sans {
+  font-family: Helvetica Neue, sans-serif;
+}
 .text-2xl {
   font-size: 1.5rem;
   line-height: 2rem;
@@ -1252,8 +1279,7 @@ video {
   line-height: 2.25rem;
 }
 .text-4xl {
-  font-size: 2.25rem;
-  line-height: 2.5rem;
+  font-size: 2.5rem;
 }
 .text-5xl {
   font-size: 3rem;
@@ -1397,6 +1423,11 @@ video {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
 }
+.transition-opacity {
+  transition-property: opacity;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
 .transition-transform {
   transition-property: transform;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -1504,16 +1535,12 @@ video {
 .hover\:bg-slate-50\/50:hover {
   background-color: rgb(248 250 252 / 0.5);
 }
-.hover\:bg-white:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
-}
 .hover\:bg-slate-50\/80:hover {
   background-color: rgb(248 250 252 / 0.8);
 }
-.hover\:py-10:hover {
-  padding-top: 2.5rem;
-  padding-bottom: 2.5rem;
+.hover\:bg-white:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 .hover\:text-black:hover {
   --tw-text-opacity: 1;
@@ -1560,10 +1587,6 @@ video {
   --tw-scale-y: 1.1;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
-.group:hover .group-hover\:text-gray-400 {
-  --tw-text-opacity: 1;
-  color: rgb(156 163 175 / var(--tw-text-opacity));
-}
 .group:hover .group-hover\:underline {
   text-decoration-line: underline;
 }
@@ -1603,12 +1626,12 @@ video {
     margin-top: -30px;
   }
 
-  .md\:flex {
-    display: flex;
+  .md\:block {
+    display: block;
   }
 
-  .md\:hidden {
-    display: none;
+  .md\:flex {
+    display: flex;
   }
 
   .md\:h-\[384px\] {
@@ -1617,6 +1640,10 @@ video {
 
   .md\:w-1\/2 {
     width: 50%;
+  }
+
+  .md\:w-2\/5 {
+    width: 40%;
   }
 
   .md\:w-3\/5 {

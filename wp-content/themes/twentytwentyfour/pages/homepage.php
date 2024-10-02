@@ -46,8 +46,8 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                          class="w-full h-full object-cover" />
                 </div>
             </div>
-            <div class="flex items-center my-5">
-                <div class="w-2/5">
+            <div class="md:flex items-center my-5">
+                <div class="md:w-2/5 w-full">
                     <p class='
                        uppercase
                        tracking-widest'>
@@ -57,7 +57,7 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                         25 Years of Excellence Experience on Outdoor Living
                     </h5>
                 </div>
-                <div class='w-3/5'>
+                <div class='md:w-3/5 w-full'>
                     <p class='tracking-wide'>
                         An outdoor sofa that hugs you with the specially built cushion designed ergonomically to improve comfort,
                         while the angular backrest makes the recline easy with books or drinks in hand.
@@ -154,7 +154,7 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                         Walk with us to discover news concerning events, trade fairs, latest product news and much more
                     </p>
                 </div>
-                <div class="grid grid-cols-3 gap-3 lg:gap-5">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-3 lg:gap-5">
                     <?php foreach ($posts as $post): ?>
                     <div class="news-card">
                         <div class="news-image">
@@ -220,8 +220,8 @@ $(document).ready(function() {
                 </div>
                 <div class="p-3 md:p-5">
                     <div class="max-w-[1440px] mx-auto">
-                        <div class="flex items-center my-5">
-                            <div class="w-2/5">
+                        <div class="md:flex items-center my-5">
+                            <div class="md:w-2/5 w-full">
                                 <p class='uppercase tracking-widest'>
                                     collection
                                 </p>
@@ -229,7 +229,7 @@ $(document).ready(function() {
                                     The Luxury of Living Outdoors
                                 </h5>
                             </div>
-                            <div class='w-3/5'>
+                            <div class='md:w-3/5 w-full'>
                                 <h1 class="text-4xl font-extrabold uppercase tracking-widest">
                                     ${data.name} collection
                                 </h1>

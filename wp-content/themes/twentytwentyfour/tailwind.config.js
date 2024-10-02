@@ -1,13 +1,14 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./*.php", "./pages/*.php", "./page-builder/*.html"],
+  content: ["./*.php", "./pages/*.php", "./page-builder/*.html", "./inc/blocks/*.php", "./inc/blocks/**/*.php"],
   theme: {
-    theme: {
-      fontFamily: {
-        sans: ['"karla"', "sans-serif"],
-      },
-    },
     extend: {
+      fontFamily: {
+        sans: ["Helvetica Neue", "sans-serif"],
+      },
+      fontSize: {
+        "4xl": "2.5rem",
+      },
       colors: {
         "shadow-image": "#f8f8f8",
       },

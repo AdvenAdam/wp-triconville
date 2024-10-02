@@ -10,7 +10,7 @@
     <?php wp_head(); ?>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.0/flowbite.min.js"></script>
-
+    <!-- Google Fonts -->
     <link rel="preconnect"
           href="https://fonts.googleapis.com" />
     <link rel="preconnect"
@@ -18,6 +18,10 @@
           crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap"
           rel="stylesheet" />
+    <link href="https://fonts.cdnfonts.com/css/helvetica-neue-5"
+          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap"
+          rel="stylesheet">
     <!-- ReCaptcha -->
     <script src="https://www.google.com/recaptcha/enterprise.js?render=6LergUEqAAAAAFzDZhNSfmvZccQssYyAQ0qugxnr"></script>
     <!-- START - We recommend to place the below code in head tag of your website html  -->
@@ -34,9 +38,6 @@
     <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
     <style>
     /* Your CSS styles */
-    * {
-        font-family: 'Karla', sans-serif;
-    }
 
     .content-container,
     .content-wrapper {
@@ -53,57 +54,32 @@
 </head>
 
 <body <?php body_class(); ?>>
-    <header class="header sticky top-0 bg-white shadow-md flex items-center justify-between md:px-8 py-5 px-5 w-full max-h-16"
+    <header class="header sticky top-0 "
             style="z-index: 2;">
+        <div class="flex items-center justify-between md:px-8 px-5 w-full max-h-16 bg-white shadow-md">
+            <div class=" flex justify-center">
+                <a href="<?php echo home_url(); ?>">
+                    <img src="<?= BASE_LINK ?>/wp-content/uploads/2024/09/Logo-Blue-Resized-1.png"
+                         alt="Triconville logo" />
+                </a>
+            </div>
 
-        <div class=" flex justify-center">
-            <a href="<?php echo home_url(); ?>">
-                <img src="<?php echo wp_upload_dir()['url']; ?>/Logo-Blue-Resized-1.png"
-                     alt="Triconville logo" />
-            </a>
+            <div class="flex items-center justify-end gap-2">
+                <div id="navbar_menu_category"
+                     class='md:flex hidden '>
+                </div>
+            </div>
         </div>
-
-        <div class="flex items-center justify-end gap-2">
-            <div id="navbar_menu_category"
-                 class='md:flex hidden'></div>
-
-            <a href="<?= BASE_LINK; ?>/find-a-store/"
-               id='find-a-store-link'
-               class='md:flex hidden p-2 gap-2 items-center text-gray-900 hover:text-cyan-500 group'>
-                <svg xmlns="http://www.w3.org/2000/svg"
-                     fill="none"
-                     viewBox="0 0 24 24"
-                     stroke-width="1.5"
-                     stroke="currentColor"
-                     class="size-5">
-                    <path stroke-linecap="round"
-                          stroke-linejoin="round"
-                          d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
-                    <path stroke-linecap="round"
-                          stroke-linejoin="round"
-                          d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
-                </svg>
-                <p>
-                    Find a Store
-                </p>
-            </a>
-
-            <button class="group bg-transparent border-transparent outline-none flex items-center gap-2 md:hidden "
-                    type="button"
-                    data-drawer-target="drawer-navigation"
-                    data-drawer-show="drawer-navigation"
-                    aria-controls="drawer-navigation">
-                <svg xmlns="http://www.w3.org/2000/svg"
-                     fill="none"
-                     viewBox="0 0 24 24"
-                     stroke-width="1.5"
-                     stroke="currentColor"
-                     class="size-6 group-hover:text-gray-400">
-                    <path stroke-linecap="round"
-                          stroke-linejoin="round"
-                          d="M3.75 9h16.5m-16.5 6.75h16.5" />
-                </svg>
-            </button>
+        <div class="w-full md:px-8 py-3 px-5 bg-[#F4F6F6] invisible transition-opacity duration-500 ease-in-out fixed top-16"
+             style="z-index: 2;"
+             id="sub-header"
+             onMouseOut="showSubHeader(false)"
+             onMouseOver="showSubHeader(true)">
+            <div class="flex w-full justify-end gap-3 uppercase">
+                <p>Projects</p>
+                <p>News</p>
+                <p>Moods</p>
+            </div>
         </div>
     </header>
 
@@ -145,17 +121,6 @@
         <ul class="space-y-2 font-normal mb-5">
             <li><a href="<?= BASE_LINK; ?>/contact-us/"
                    class='flex p-2 items-center text-gray-900 rounded-lg hover:bg-gray-100'>Contact</a></li>
-            <li>
-                <a href="<?= BASE_LINK; ?>/find-a-store/"
-                   class=' flex p-2 items-center text-gray-900 rounded-lg hover:bg-gray-100'>
-                    <p>
-                        Find a Store
-                    </p>
-                </a>
-            </li>
-            <li class="p-2 md:hidden">
-                <?php echo do_shortcode('[gtranslate]') ?>
-            </li>
         </ul>
 
         <div class=" flex items-center gap-3 my-3">
@@ -182,6 +147,14 @@
 
     });
 
+    function showSubHeader(isShow) {
+        if (isShow) {
+            $('#sub-header').removeClass('invisible').addClass('visible');
+        } else {
+            $('#sub-header').removeClass('visible').addClass('invisible');
+        }
+    }
+
     function renderNavbar() {
         $.ajax({
             url: '<?php echo BASE_URL; ?>/?rest_route=/wp/v2/top-nav',
@@ -205,17 +178,27 @@
     }
 
     function renderLink(e) {
+        // NOTE : Drawer
         $('#navbar__category').append(`
             <li>
                 <a href="${e.href}" class="flex p-2 items-center text-gray-900 rounded-lg hover:bg-gray-100 group">${e.name}
                 </a>
             </li>
         `);
-        $('#navbar_menu_category').append(`
-            <a href="${e.href}" id="${slugify(e.name)}-link" class="flex p-2 gap-2 items-center text-gray-900 hover:text-cyan-500">
-                <p class="uppercase">${e.name}</p>
-            </a>
-        `);
+        // NOTE : Desktop
+        if (e.name === 'Inspiration') {
+            $('#navbar_menu_category').append(`
+                <a href="${e.href}" id="${slugify(e.name)}-link" onMouseOver="showSubHeader(true)" class="flex py-5 px-2 items-center text-gray-900 hover:text-cyan-500">                    
+                    <p class="uppercase">${e.name}</p>
+                </a>
+            `);
+        } else {
+            $('#navbar_menu_category').append(`
+                <a href="${e.href}" id="${slugify(e.name)}-link" class="flex py-5 px-2 gap-2 items-center text-gray-900 hover:text-cyan-500">
+                    <p class="uppercase">${e.name}</p>
+                </a>
+            `);
+        }
     }
 
     function slugify(str) {
