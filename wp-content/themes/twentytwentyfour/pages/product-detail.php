@@ -2,6 +2,7 @@
 get_template_part('header-custom');
 
 $character_slug = get_query_var('detail');
+// $character_slug = preg_replace('/.+-/', '', get_query_var( 'product-detail' ));
 ?>
 
 <div class="content-container overflow-hidden">

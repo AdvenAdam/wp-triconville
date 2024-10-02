@@ -327,7 +327,7 @@ function getLokerList()
 
 // CUSTOM Collections
 add_action('init', function () {
-	add_rewrite_rule('collections/([a-zA-Z0-9-]+)[/]?$', 'index.php?collection=$matches[1]', 'top');
+	add_rewrite_rule('collections/([a-z0-9]+)[/]?$', 'index.php?collection=$matches[1]', 'top');
 });
 
 add_filter('query_vars', function ($query_vars) {
@@ -344,7 +344,24 @@ add_action('template_include', function ($template) {
 	return get_template_directory() . '/pages/collections.php';
 });
 
+// CUSTOM catalog
+add_action('init', function () {
+	add_rewrite_rule('categories/([a-z0-9]+)[/]?$', 'index.php?category=$matches[1]', 'top');
+});
 
+add_filter('query_vars', function ($query_vars) {
+	$query_vars[] = 'category';
+	return $query_vars;
+});
+
+add_action('template_include', function ($template) {
+
+	if (get_query_var('category') == false || get_query_var('product_category') == '') {
+		return $template;
+	}
+
+	return get_template_directory() . '/pages/product-category-detail.php';
+});
 
 // CUSTOM product-category details
 add_action('init', function () {
@@ -364,49 +381,9 @@ add_action('template_include', function ($template) {
 	return get_template_directory() . '/pages/product-category-detail.php';
 });
 
-
-// CUSTOM catalog
-add_action('init', function () {
-	add_rewrite_rule('categories/([a-z0-9]+)[/]?$', 'index.php?category=$matches[1]', 'top');
-});
-
-add_filter('query_vars', function ($query_vars) {
-	$query_vars[] = 'category';
-	return $query_vars;
-});
-
-add_action('template_include', function ($template) {
-
-	if (get_query_var('category') == false || get_query_var('category') == '') {
-		return $template;
-	}
-
-	return get_template_directory() . '/pages/category.php';
-});
-
-// SELECTED PRODUCT
-// add_action('init', function () {
-// 	add_rewrite_rule('selected/([a-z0-9,]+)[/]?$', 'index.php?selected=$matches[1]', 'top');
-// });
-
-// add_filter('query_vars', function ($query_vars) {
-// 	$query_vars[] = 'selected';
-// 	return $query_vars;
-// });
-
-// add_action('template_include', function ($template) {
-
-// 	if (get_query_var('selected') == false || get_query_var('selected') == '') {
-// 		return $template;
-// 	}
-
-// 	return get_template_directory() . '/pages/selected-products.php';
-// });
-
-
 // CUSTOM product-page details
 add_action('init', function () {
-	add_rewrite_rule('detail/([a-z0-9]+)[/]?$', 'index.php?detail=$matches[1]', 'top');
+	add_rewrite_rule('product-detail/([a-z0-9]+)[/]?$', 'index.php?detail=$matches[1]', 'top');
 });
 
 add_filter('query_vars', function ($query_vars) {
