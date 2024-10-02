@@ -327,7 +327,7 @@ function getLokerList()
 
 // CUSTOM Collections
 add_action('init', function () {
-	add_rewrite_rule('collections/([a-z0-9]+)[/]?$', 'index.php?collection=$matches[1]', 'top');
+	add_rewrite_rule('^collections/([^/]+)/?$', 'index.php?collection=$matches[1]', 'top');
 });
 
 add_filter('query_vars', function ($query_vars) {
@@ -344,7 +344,7 @@ add_action('template_include', function ($template) {
 	return get_template_directory() . '/pages/collections.php';
 });
 
-// CUSTOM catalog
+// CUSTOM Categories
 add_action('init', function () {
 	add_rewrite_rule('categories/([a-z0-9]+)[/]?$', 'index.php?category=$matches[1]', 'top');
 });
@@ -383,7 +383,7 @@ add_action('template_include', function ($template) {
 
 // CUSTOM product-page details
 add_action('init', function () {
-	add_rewrite_rule('product-detail/([a-z0-9]+)[/]?$', 'index.php?detail=$matches[1]', 'top');
+	add_rewrite_rule('^product-detail/([^/]+)/?$', 'index.php?detail=$matches[1]', 'top');
 });
 
 add_filter('query_vars', function ($query_vars) {

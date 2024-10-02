@@ -177,7 +177,7 @@ function renderProducts(data) {
     $('#product__list').empty();
     data.sort((a, b) => a.name.localeCompare(b.name)).forEach(e => {
         $('#product__list').append(`
-            <a href= "<?= BASE_LINK; ?>/product-detail/${slugify(`${e.name}-${e.id}`)}">
+            <a href= "<?= BASE_LINK; ?>/product-detail/${slugify(e.name)}">
                 <img class="w-full md:h-[384px] h-[250px] object-cover md:object-contain" src="${e.product_image}" />
                 <p class="text-xl text-center md:mt-[-30px] max-w-[90%]">${e.name}</p>
             </a>

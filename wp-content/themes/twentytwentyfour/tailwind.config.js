@@ -7,6 +7,12 @@ module.exports = {
         sans: ["Helvetica Neue", "sans-serif"],
       },
       fontSize: {
+        "3xl": [
+          "2rem",
+          {
+            lineHeight: "3rem",
+          },
+        ],
         "4xl": "2.5rem",
       },
       colors: {

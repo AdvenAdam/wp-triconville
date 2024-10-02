@@ -2,424 +2,7 @@
 get_template_part('header-custom');
 
 $character_slug = get_query_var('detail');
-// $character_slug = preg_replace('/.+-/', '', get_query_var( 'product-detail' ));
 ?>
-
-<div class="content-container overflow-hidden">
-    <div id="product__header"></div>
-    <!-- NOTE : PRODUCT Overview -->
-    <div class="lg:w-4/5 grid mx-auto md:grid-cols-3 sm:grid-cols-2 grid-cols-1 my-5">
-        <div class="text p-3 border-r border-gray-300  product-overview-desc flex justify-center flex-col">
-            <div class=""
-                 id="product__overview"></div>
-            <div class="flex flex-col gap-2 item-center align mt-6 pb-5 mb-5">
-                <div class="flex gap-1"
-                     id="option_1">
-                    <span class="mr-3"
-                          id="label_1"></span>
-                </div>
-
-                <div class="flex items-center gap-1"
-                     id="option_2">
-                    <span class="mr-3"
-                          id="label_2"></span>
-                </div>
-            </div>
-        </div>
-        <div class="border-gray-300 p-3 border-r">
-            <h3 class="text-3xl font-medium text-center tracking-wide mb-3 line-clamp-2">SPECIFICATIONS</h3>
-            <table class="product__spec w-full"
-                   id="table__spec"></table>
-        </div>
-        <div class="border-gray-300 p-3">
-            <h3 class="text-3xl font-medium text-center tracking-wide mb-3 line-clamp-2">DOWNLOAD</h3>
-            <div id="product__downloadable"
-                 class="grid grid-cols-2 gap-4">
-            </div>
-        </div>
-    </div>
-    <!-- FIXME : DELETED SLIDER  -->
-    <!-- <div class="px-5 py-24 w-1/2"
-         style="cursor: auto;">
-        <div class=" mx-auto flex flex-row">
-            <div class="image__gallery w-full">
-                <div class="grid gap-4">
-                    <div id="main_slider"
-                         class="slick-slider">
-                    </div> -->
-    <!-- Thumbnail Navigation -->
-    <!-- <div id="thumbnail_slider"
-                         class="slick-slider mt-2 grid grid-cols-5 gap-4">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> -->
-    <!-- <div class="technical__section">
-        <div class="technical__img grid grid-cols-3 gap-4"></div>
-    </div> -->
-    <div class="ambience__section">
-        <div class="ambience__img grid grid-cols-3 gap-4"></div>
-    </div>
-
-    <div class="inthis__section">
-        <div class="collection__product my-10"></div>
-    </div>
-</div>
-<div id="page-loading">
-    <div class="three-balls">
-        <div class="ball ball1"></div>
-        <div class="ball ball2"></div>
-        <div class="ball ball3"></div>
-    </div>
-</div>
-
-<script>
-jQuery(document).ready(function($) {
-    $.ajax({
-        url: `<?= BASE_API; ?>/v1_products_det/<?= $character_slug ?>/`,
-        type: 'GET',
-        headers: {
-            'Authorization': '<?= API_KEY; ?>',
-        },
-        beforeSend: () => {
-            // TODO ::SKELETON
-            $('#page-loading').show();
-        },
-        success: (res) => {
-            $('#page-loading').hide();
-            // NOTE : PRODUCT HEADER 
-            $('#product__header').append(
-                `<div class="h-screen w-full transition-all duration-500 "
-                    style="
-                        background: url('${res.ambience_image[0]}'); 
-                        background-position: 50% 50%;
-                        background-size: cover;
-                        background-repeat: no-repeat;
-                    ">
-                    <div class ='bg-black bg-opacity-30 h-full w-full flex items-center justify-center'>
-                        <h1 class="text-4xl font-extrabold text-center tracking-wider text-white uppercase">${res.name}</h1>
-                    </div>
-                </div>`
-            );
-
-            // NOTE :PRODUCT OVERVIEW
-            renderOverview(res);
-            $('#product__name').html(res.name);
-            $('#main__image').attr('src', res.product_image);
-            $('#product__desc').html(res.description)
-
-            let allImages = [...res.technical_image, ...res.ambience_image];
-
-            allImages.forEach((url) => {
-                $('#main_slider').append(`
-                    <div>
-                        <a href="${url}"
-                            data-fancybox="gallery"
-                            data-caption="Image">
-                                <img src="${url}"
-                                    alt="Image"
-                                    class="w-full h-auto">
-                        </a>
-                    </div>
-                `);
-                $('#thumbnail_slider').append(`
-                    <div>
-                        <img src="${url}"
-                            alt="Thumbnail"
-                            class="w-40 h-auto cursor-pointer">
-                    </div>
-                `);
-            });
-
-            $('#main_slider').slick({
-                slidesToShow: 1,
-                slidesToScroll: 1,
-                arrows: false,
-                fade: true,
-                asNavFor: '#thumbnail_slider'
-            });
-
-            $('#thumbnail_slider').slick({
-                slidesToShow: 4,
-                slidesToScroll: 1,
-                asNavFor: '#main_slider',
-                focusOnSelect: true,
-                arrows: false,
-                centerMode: true,
-                centerPadding: '0',
-                variableWidth: true
-            });
-
-            if (res.option1 && Array.isArray(res.option1)) {
-                $('#label_1').text(res.label1)
-                res.option1.forEach(opt => {
-                    $('#option_1').append(
-                        `<button class="w-10 h-10 rounded-full"
-                        style="background-image:url(${opt.img_link})"></button>`
-                    );
-                });
-            }
-
-            if (res.option2 && Array.isArray(res.option2)) {
-                $('#label_2').text(res.label2)
-                res.option2.forEach(opt2 => {
-                    $('#option_2').append(
-                        `<button class="w-10 h-10 rounded-full"
-                        style="background-image:url(${opt2.img_link})"></button>`
-                    );
-                });
-            }
-
-            // APPEND DIMENSION
-            let dimensions = res.dimension;
-
-            // Append overall dimensions
-            if (dimensions.ps_overal_dimension) {
-                dimensions.ps_overal_dimension.forEach((e) => {
-                    $('#table__spec').append(`
-                        <tr>
-                            <td>Overall - ${e.description}</td>
-                            <td> : </td>
-                            <td> ${e.width} x ${e.depth} x ${e.height} CM</td>
-                        </tr>
-                    `);
-                });
-            }
-
-            // Append box dimensions
-            if (dimensions.ps_box_dimension) {
-                dimensions.ps_box_dimension.forEach((e) => {
-                    $('#table__spec').append(`
-                        <tr>
-                            <td>Box - ${e.description}</td>
-                            <td> : </td>
-                            <td>${e.width} x ${e.depth} x ${e.height} CM</td>
-                        </tr>
-                    `);
-                });
-            }
-
-            // Append other properties
-            if (dimensions.ps_clearance_from_floor) {
-                $('#table__spec').append(`
-                    <tr>
-                        <td>Clearance from Floor</td>
-                        <td> : </td>
-                        <td>${dimensions.ps_clearance_from_floor}</td>
-                    </tr>
-                `);
-            }
-            if (dimensions.ps_table_top_thickness) {
-                $('#table__spec').append(`
-                    <tr>
-                        <td>Table Top Thickness</td>
-                        <td> : </td>
-                        <td>${dimensions.ps_table_top_thickness}</td>
-                    </tr>
-                `);
-            }
-            if (dimensions.ps_distance_between_legs) {
-                $('#table__spec').append(`
-                    <tr>
-                        <td>Distance Between Legs</td>
-                        <td> : </td>
-                        <td>${dimensions.ps_distance_between_legs}</td>
-                    </tr>
-                `);
-            }
-            if (dimensions.ps_arm_height) {
-                $('#table__spec').append(`
-                    <tr>
-                        <td>Arm Height</td>
-                        <td> : </td>
-                        <td>${dimensions.ps_arm_height}</td>
-                    </tr>
-                `);
-            }
-            if (dimensions.ps_seat_height) {
-                $('#table__spec').append(`
-                    <tr>
-                        <td>Seat Height</td>
-                        <td> : </td>
-                        <td>${dimensions.ps_seat_height}</td>
-                    </tr>
-                `);
-            }
-            if (dimensions.ps_seat_depth) {
-                $('#table__spec').append(`
-                <tr>
-                    <td>Seat Depth</td>
-                    <td> : </td>
-                    <td>${dimensions.ps_seat_depth}</td>
-                </tr>
-            `);
-            }
-            if (dimensions.ps_nett_weight) {
-                $('#table__spec').append(`
-                <tr>
-                    <td>Nett Weight</td>
-                    <td> : </td>
-                    <td>${dimensions.ps_nett_weight}</td>
-                </tr>
-            `);
-            }
-            if (dimensions.ps_gross_weight) {
-                $('#table__spec').append(`
-                <tr>
-                    <td>Gross Weight</td>
-                    <td> : </td>
-                    <td>${dimensions.ps_gross_weight}</td>
-                </tr>
-            `);
-            }
-            if (dimensions.ps_pax) {
-                $('#table__spec').append(`
-                <tr>
-                    <td>PAX</td>
-                    <td> : </td>
-                    <td>${dimensions.ps_pax}</td>
-                </tr>
-            `);
-            }
-            if (dimensions.ps_20ft_container) {
-                $('#table__spec').append(`
-                <tr>
-                    <td>20ft Container</td>
-                    <td> : </td>
-                    <td>${dimensions.ps_20ft_container}</td>
-                </tr>
-            `);
-            }
-            if (dimensions.ps_40hq_container) {
-                $('#table__spec').append(`
-                <tr>
-                    <td>40HQ Container</td>
-                    <td> : </td>
-                    <td>${dimensions.ps_40hq_container}</td>
-                </tr>
-            `);
-            }
-            if (dimensions.cbm) {
-                $('#table__spec').append(`
-                <tr>
-                    <td>CBM</td>
-                    <td> : </td>
-                    <td>${dimensions.cbm}</td>
-                </tr>
-            `);
-            }
-
-            $('.image__spec').append(`
-                <img src="${res.spec_image}"
-                    alt="specification product"
-                    height="512"
-                    width="512" />
-            `)
-            res.ambience_image.forEach((e) => {
-                $('.ambience__img').append(`
-                    <div>
-                        <img src="${e}"
-                            class="h-[350px] mx-2 w-screen md:w-auto object-cover" />
-                    </div>
-                `)
-            })
-
-            $('.ambience__img').slick({
-                slidesToScroll: 1,
-                variableWidth: true,
-                infinite: true,
-                arrows: false,
-            });
-            res.technical_image.forEach((e) => {
-                $('.technical__img').append(`
-                <img src="${e}"
-                    class="mr-2" />
-                `)
-            })
-
-            $('.technical__img').slick({
-                slidesToShow: 3,
-                slidesToScroll: 1,
-                arrows: false,
-            });
-            res.collection_product.forEach((e) => {
-                $('.collection__product').append(`
-                <div class="product__card">
-                    <img src="${e.product_image}" class="h-[350px] mx-2 w-auto object-cover" />
-                </div>
-                `)
-            })
-
-            $('.collection__product').slick({
-                variableWidth: true,
-                infinite: true,
-                arrows: false,
-            });
-        },
-        error: (xhr, status, error) => {
-            console.error('Error fetching data:', error);
-        }
-    });
-});
-
-function renderOverview(res) {
-    if (res.name) {
-        $('#product__overview').append(`
-            <h1 class="text-3xl font-semibold text-gray-900 tracking-wide mb-3 line-clamp-2">${res.name}</h1>
-            <p class="text-center"> ${res.description}</p>
-        `);
-    }
-    if (Array.isArray(res.ambience_image) && res.ambience_image.length > 0) {
-        $('#product__ambience').append(`
-            <img src="${res.ambience_image[0]}" alt="${res.name}" class="w-full h-auto rounded-xl"/>
-        `);
-    }
-    if (res.asset3d !== null) {
-        if (res.asset3d.drawing_3d_dwg) {
-            $('#product__downloadable').append(`
-                <div>
-                    <a href="${res.asset3d.drawing_3d_dwg}" class="text-slate-500 hover:text-slate-400">DWG</a>
-                    <hr class="my-1 me-6 border-slate-300 "/>
-                </div>
-            `);
-        }
-        if (res.asset3d.drawing_3d_obj) {
-            $('#product__downloadable').append(`
-                <div>
-                    <a href="${res.asset3d.drawing_3d_obj}" class="text-slate-500 hover:text-slate-400">OBJ</a>
-                    <hr class="my-1 me-6 border-slate-300 "/>
-                </div>
-            `);
-        }
-        if (res.asset3d.drawing_3d_3dmax) {
-            $('#product__downloadable').append(`
-                <div>
-                    <a href="${res.asset3d.drawing_3d_3dmax}" class="text-slate-500 hover:text-slate-400">3DMAX</a>
-                    <hr class="my-1 me-6 border-slate-300 "/>
-                </div>
-            `);
-        }
-        if (res.asset3d.drawing_3d_sketchup) {
-            $('#product__downloadable').append(`
-                <div>
-                    <a href="${res.asset3d.drawing_3d_sketchup}" class="text-slate-500 hover:text-slate-400">SKETCHUP</a>
-                    <hr class="my-1 me-6 border-slate-300 "/>
-                </div>
-            `);
-        }
-        if (res.asset3d.file_3d_glb) {
-            $('#product__downloadable').append(`
-                <div>
-                    <a href="${res.asset3d.file_3d_glb}" class="text-slate-500 hover:text-slate-400">GLB</a>
-                    <hr class="my-1 me-6 border-slate-300 "/>
-                </div>
-            `);
-        }
-    }
-}
-</script>
-
 <style>
 .slick-slider {
     max-width: 100vw;
@@ -451,6 +34,502 @@ function renderOverview(res) {
     z-index: 1 !important;
 }
 </style>
+
+<div class="content-container  overflow-hidden">
+    <div id="product__banner"></div>
+    <!-- NOTE : PRODUCT Overview -->
+    <div class="md:p-5 p-3">
+        <div class="max-w-[1440px] mx-auto">
+            <div id="product__header__image"></div>
+            <div class="textproduct-overview-desc mt-6 pb-5 mb-5 flex flex-col md:flex-row">
+                <div id="product__overview"
+                     class="md:w-3/5"></div>
+                <div class="flex flex-col gap-2 item-center md:w-2/5 mt-5 md:mt-0">
+                    <span class="mr-3"
+                          id="label_1"></span>
+                    <div class="flex gap-1"
+                         id="option_1">
+                    </div>
+                    <span class="mr-3"
+                          id="label_2"></span>
+                    <div class="flex items-center gap-1"
+                         id="option_2">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- NOTE : PRODUCT Ambience Slider -->
+    <div class="ambience__section relative">
+        <div class="ambience__img grid gap-4"></div>
+        <button class="slick-prev prev-btn absolute top-1/2 -translate-y-1/2 z-10 left-5 py-10 bg-slate-50/50 p-3 hover:bg-slate-50/80"
+                aria-label="Previous"
+                type="button">
+            <svg xmlns="http://www.w3.org/2000/svg"
+                 fill="none"
+                 viewBox="0 0 24 24"
+                 stroke-width="1.5"
+                 stroke="currentColor"
+                 class="size-6">
+                <path stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M15.75 19.5 8.25 12l7.5-7.5" />
+            </svg>
+        </button>
+        <button class="slick-next next-btn absolute top-1/2 -translate-y-1/2 z-10 right-5 py-10 bg-slate-50/50 p-3 hover:bg-slate-50/80"
+                aria-label="Next"
+                type="button">
+            <svg xmlns="http://www.w3.org/2000/svg"
+                 fill="none"
+                 viewBox="0 0 24 24"
+                 stroke-width="1.5"
+                 stroke="currentColor"
+                 class="size-6">
+                <path stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+            </svg>
+        </button>
+    </div>
+    <!-- NOTE : PRODUCT Specification -->
+    <div class="md:p-5 p-3">
+        <div class="max-w-[1440px] mx-auto grid gap-4 grid-cols-1 md:grid-cols-2">
+            <div class=""
+                 id="image__spec">
+            </div>
+            <div class="md:p-3">
+                <div class="p-3">
+                    <h3 class="text-3xl tracking-wide mb-3 line-clamp-2">SIZING</h3>
+                    <table class="product__spec w-full"
+                           id="table__spec"></table>
+                </div>
+                <div class="p-3">
+                    <h3 class="text-3xl tracking-wide mb-3 line-clamp-2">DOWNLOAD</h3>
+                    <div id="product__downloadable"
+                         class="grid grid-cols-2 gap-4">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- NOTE : PRODUCT IN THIS SECTION -->
+    <div class="inthis__section">
+        <div class="collection__product my-10"></div>
+    </div>
+</div>
+<div id="page-loading">
+    <div class="three-balls">
+        <div class="ball ball1"></div>
+        <div class="ball ball2"></div>
+        <div class="ball ball3"></div>
+    </div>
+</div>
+
+<script>
+jQuery(document).ready(function($) {
+    $.ajax({
+        url: `<?= BASE_API; ?>/v1_products_det_slug/<?= $character_slug ?>/`,
+        type: 'GET',
+        headers: {
+            'Authorization': '<?= API_KEY; ?>',
+        },
+        beforeSend: () => {
+            // TODO ::SKELETON
+            $('#page-loading').show();
+        },
+        success: (res) => {
+            // NOTE : PRODUCT HEADER 
+            $('#product__banner').append(
+                `<div class="h-screen w-full transition-all duration-500 "
+                    style="
+                        background: url('${res.ambience_image[0]}'); 
+                        background-position: 50% 50%;
+                        background-size: cover;
+                        background-repeat: no-repeat;
+                    ">
+                    <div class ='bg-black bg-opacity-30 h-full w-full flex items-center justify-center'>
+                        <h1 class="text-4xl font-extrabold text-center tracking-wider text-white uppercase">${res.name}</h1>
+                    </div>
+                </div>`
+            );
+            // NOTE :PRODUCT OVERVIEW
+            renderOverview(res);
+            renderMaterial(res);
+            // APPEND DIMENSION
+            renderDimensions(res.dimension);
+            renderDownloadable(res.asset3d);
+            renderImages(res)
+        },
+        error: (xhr, status, error) => {
+            console.error('Error fetching data:', error);
+        },
+        complete: () => {
+            $('#page-loading').hide();
+        }
+    });
+});
+
+function renderMaterial(res) {
+    if (res.option1 && Array.isArray(res.option1)) {
+        $('#label_1').text(res.label1)
+        res.option1.forEach(opt => {
+            $('#option_1').append(
+                `<img src="${opt.img_link}" class="w-20 h-20"/>`
+            );
+        });
+    }
+
+    if (res.option2 && Array.isArray(res.option2)) {
+        $('#label_2').text(res.label2)
+        res.option2.forEach(opt2 => {
+            $('#option_2').append(
+                `<img src="${opt2.img_link}" class="w-20 h-20"/>`
+            );
+        });
+    }
+
+}
+
+function renderOverview(res) {
+    $('#product__header__image').append(`
+        <div class="text-center mx-auto">
+            <img src="${res.product_image}" alt="${res.name}" class="w-auto h-[350px] lg:h-[480px] mx-auto"/>
+        </div>
+    `)
+    if (res.name) {
+        $('#product__overview').append(`
+            <div class='max-w-lg'>
+                <h1 class="text-3xl font-semibold text-gray-900 tracking-wide line-clamp-2">${res.name}</h1>
+                <p class="text-slate-500 tracking-widest text-sm mb-3">Designed by 
+                    <span class="text-black font-medium hover:underline"><a href="https://indospacegroup.com/dezign-s2dio/">Dezign S2dio </a></span>
+                </p>
+                <p class="text-center line-clamp-4">${res.description.replace(/<li[^>]*>(.*?)<\/li>/g, '')}</p>
+            </div>
+        `);
+    }
+    if (Array.isArray(res.ambience_image) && res.ambience_image.length > 0) {
+        $('#product__ambience').append(`
+            <img src="${res.ambience_image[0]}" alt="${res.name}" class="w-full h-auto rounded-xl"/>
+        `);
+    }
+}
+
+function renderDimensions(dimensions) {
+    // Append overall dimensions
+    if (dimensions.ps_overal_dimension) {
+        dimensions.ps_overal_dimension.forEach((e) => {
+            $('#table__spec').append(`
+                <tr>
+                    <td>Overall - ${e.description}</td>
+                    <td class='px-3'> : </td>
+                    <td> ${e.width} x ${e.depth} x ${e.height} CM</td>
+                </tr>
+            `);
+        });
+    }
+
+    // Append box dimensions
+    if (dimensions.ps_box_dimension) {
+        dimensions.ps_box_dimension.forEach((e) => {
+            $('#table__spec').append(`
+                        <tr>
+                            <td>Box - ${e.description}</td>
+                            <td class='px-3'> : </td>
+                            <td>${e.width} x ${e.depth} x ${e.height} CM</td>
+                        </tr>
+                    `);
+        });
+    }
+
+    // Append other properties
+    if (dimensions.ps_clearance_from_floor) {
+        $('#table__spec').append(`
+                    <tr>
+                        <td>Clearance from Floor</td>
+                        <td class='px-3'> : </td>
+                        <td>${dimensions.ps_clearance_from_floor}</td>
+                    </tr>
+                `);
+    }
+    if (dimensions.ps_table_top_thickness) {
+        $('#table__spec').append(`
+                    <tr>
+                        <td>Table Top Thickness</td>
+                        <td class='px-3'> : </td>
+                        <td>${dimensions.ps_table_top_thickness}</td>
+                    </tr>
+                `);
+    }
+    if (dimensions.ps_distance_between_legs) {
+        $('#table__spec').append(`
+                    <tr>
+                        <td>Distance Between Legs</td>
+                        <td class='px-3'> : </td>
+                        <td>${dimensions.ps_distance_between_legs}</td>
+                    </tr>
+                `);
+    }
+    if (dimensions.ps_arm_height) {
+        $('#table__spec').append(`
+                    <tr>
+                        <td>Arm Height</td>
+                        <td class='px-3'> : </td>
+                        <td>${dimensions.ps_arm_height}</td>
+                    </tr>
+                `);
+    }
+    if (dimensions.ps_seat_height) {
+        $('#table__spec').append(`
+                    <tr>
+                        <td>Seat Height</td>
+                        <td class='px-3'> : </td>
+                        <td>${dimensions.ps_seat_height}</td>
+                    </tr>
+                `);
+    }
+    if (dimensions.ps_seat_depth) {
+        $('#table__spec').append(`
+                <tr>
+                    <td>Seat Depth</td>
+                    <td class='px-3'> : </td>
+                    <td>${dimensions.ps_seat_depth}</td>
+                </tr>
+            `);
+    }
+    if (dimensions.ps_nett_weight) {
+        $('#table__spec').append(`
+                <tr>
+                    <td>Nett Weight</td>
+                    <td class='px-3'> : </td>
+                    <td>${dimensions.ps_nett_weight}</td>
+                </tr>
+            `);
+    }
+    if (dimensions.ps_gross_weight) {
+        $('#table__spec').append(`
+                <tr>
+                    <td>Gross Weight</td>
+                    <td class='px-3'> : </td>
+                    <td>${dimensions.ps_gross_weight}</td>
+                </tr>
+            `);
+    }
+    if (dimensions.ps_pax) {
+        $('#table__spec').append(`
+                <tr>
+                    <td>PAX</td>
+                    <td class='px-3'> : </td>
+                    <td>${dimensions.ps_pax}</td>
+                </tr>
+            `);
+    }
+    if (dimensions.ps_20ft_container) {
+        $('#table__spec').append(`
+                <tr>
+                    <td>20ft Container</td>
+                    <td class='px-3'> : </td>
+                    <td>${dimensions.ps_20ft_container}</td>
+                </tr>
+            `);
+    }
+    if (dimensions.ps_40hq_container) {
+        $('#table__spec').append(`
+                <tr>
+                    <td>40HQ Container</td>
+                    <td class='px-3'> : </td>
+                    <td>${dimensions.ps_40hq_container}</td>
+                </tr>
+            `);
+    }
+    if (dimensions.cbm) {
+        $('#table__spec').append(`
+                <tr>
+                    <td>CBM</td>
+                    <td class='px-3'> : </td>
+                    <td>${dimensions.cbm}</td>
+                </tr>
+            `);
+    }
+
+}
+
+function renderDownloadable(asset3d) {
+    if (asset3d !== null) {
+        if (asset3d.drawing_3d_dwg) {
+            $('#product__downloadable').append(`
+                <div>
+                    <a href="${asset3d.drawing_3d_dwg}"
+                    class="text-slate-500 hover:text-slate-400">
+                        <div class='flex gap-2'>
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke-width="1.5"
+                                stroke="currentColor"
+                                class="size-5 text-slate-500">
+                                <path stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
+                            </svg>DWG
+                        </div>
+                    </a>
+                    <hr class="my-1 me-6 border-slate-300 "/>
+                </div>
+            `);
+        }
+        if (asset3d.drawing_3d_obj) {
+            $('#product__downloadable').append(`
+                <div>
+                    <a href="${asset3d.drawing_3d_obj}"
+                    class="text-slate-500 hover:text-slate-400">
+                        <div class='flex gap-2'>
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke-width="1.5"
+                                stroke="currentColor"
+                                class="size-5 text-slate-500">
+                                <path stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
+                            </svg>3D OBJ
+                        </div>
+                    </a>
+                    <hr class="my-1 me-6 border-slate-300 "/>
+                </div>
+            `);
+        }
+        if (asset3d.drawing_3d_3dmax) {
+            $('#product__downloadable').append(`
+                <div>
+                    <a href="${asset3d.drawing_3d_3dmax}"
+                    class="text-slate-500 hover:text-slate-400">
+                        <div class='flex gap-2'>
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke-width="1.5"
+                                stroke="currentColor"
+                                class="size-5 text-slate-500">
+                                <path stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
+                            </svg>3D MAX
+                        </div>
+                    </a>
+                    <hr class="my-1 me-6 border-slate-300 "/>
+                </div>
+            `);
+        }
+        if (asset3d.drawing_3d_sketchup) {
+            $('#product__downloadable').append(`
+                <div>
+                    <a href="${asset3d.drawing_3d_sketchup}"
+                    class="text-slate-500 hover:text-slate-400">
+                        <div class='flex gap-2'>
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke-width="1.5"
+                                stroke="currentColor"
+                                class="size-5 text-slate-500">
+                                <path stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
+                            </svg>SKETCHUP
+                        </div>
+                    </a>
+                    <hr class="my-1 me-6 border-slate-300 "/>
+                </div>
+            `);
+        }
+        if (asset3d.file_3d_glb) {
+            $('#product__downloadable').append(`
+                <div>
+                    <a href="${asset3d.file_3d_glb}"
+                    class="text-slate-500 hover:text-slate-400">
+                        <div class='flex gap-2'>
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke-width="1.5"
+                                stroke="currentColor"
+                                class="size-5 text-slate-500">
+                                <path stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
+                            </svg>GLB
+                        </div>
+                    </a>
+                    <hr class="my-1 me-6 border-slate-300 "/>
+                </div>
+            `);
+        }
+    }
+}
+
+function renderImages(images) {
+    images.ambience_image.forEach((e) => {
+        $('.ambience__img').append(`
+            <div>
+                <img src="${e}"
+                    class="h-[350px] sm:h-[600px] lg:h-[800px] mx-2 w-screen md:w-auto object-cover" />
+            </div>
+        `)
+    })
+    $('.ambience__img').slick({
+        slidesToScroll: 1,
+        variableWidth: true,
+        centerMode: true,
+        infinite: true,
+        arrows: false,
+    });
+    // Spec image
+    $('#image__spec').append(`
+        <img src="${images.spec_image}"
+            alt="specification product"
+            height="512"
+            width="512" />
+    `)
+    // Technical
+    images.technical_image.forEach((e) => {
+        $('.technical__img').append(`
+                <img src="${e}"
+                    class="mr-2" />
+                `)
+    })
+    $('.technical__img').slick({
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        arrows: false,
+    });
+
+    // Collection product
+    images.collection_product.forEach((e) => {
+        $('.collection__product').append(`
+            <div class="product__card">
+                <img src="${e.product_image}" class="h-[350px] mx-2 w-auto object-cover" />
+            </div>
+        `)
+    })
+
+    $('.collection__product').slick({
+        variableWidth: true,
+        infinite: true,
+        arrows: false,
+    });
+}
+</script>
+<script>
+$(".prev-btn").click(function() {
+    $(".ambience__img").slick("slickPrev");
+});
+
+$(".next-btn").click(function() {
+    $(".ambience__img").slick("slickNext");
+});
+</script>
+
 
 <?php
 // Conditional for footer

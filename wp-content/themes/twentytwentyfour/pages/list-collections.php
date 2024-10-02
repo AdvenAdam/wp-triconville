@@ -105,16 +105,16 @@ $(document).ready(function() {
         type: "GET",
         success: (res) => {
             selectedCollectionId = res.collection;
-            loadCollections(page);
+            loadCollections();
         }
     })
 })
 
-function loadCollections(page) {
+function loadCollections() {
     isLoading = true;
     $('#page-loading').show();
     $.ajax({
-        url: `<?= BASE_API; ?>/v1_collections/?page=${page}`,
+        url: `<?= BASE_API; ?>/v1_collections/`,
         type: 'GET',
         headers: {
             Authorization: '<?= API_KEY; ?>',
@@ -126,15 +126,6 @@ function loadCollections(page) {
                 }
             })
             // TODO : make logic for triggering next page not by baypassing
-            if (res.next) {
-                loadCollections(page + 1);
-            } else {
-                $('#grid-container').hide();
-                sortedCollection = filteredCollection.sort((a, b) => (a.name > b.name) ? 1 : -1)
-                sortedCollection.forEach((e, index) => renderCollections(e, index, 'list'));
-                stop = true;
-                $('#page-loading').hide();
-            }
 
             isLoading = false;
         },
@@ -143,6 +134,13 @@ function loadCollections(page) {
             stop = true;
             $('#page-loading').hide();
             $('#errorIndicator').show();
+        },
+        complete: () => {
+            $('#grid-container').hide();
+            sortedCollection = filteredCollection.sort((a, b) => (a.name > b.name) ? 1 : -1)
+            sortedCollection.forEach((e, index) => renderCollections(e, index, 'list'));
+            stop = true;
+            $('#page-loading').hide();
         }
     });
 }
@@ -167,7 +165,7 @@ function renderCollections(e, index, type = 'grid') {
     if (type == 'grid') {
         $('#list__collections').empty();
         $('#grid__collections').append(`
-            <a href= "<?= BASE_LINK; ?>/collections/${slugify(`${e.name}-${e.id}`)}" class="mb-5">
+            <a href= "<?= BASE_LINK; ?>/collections/${slugify(e.name)}" class="mb-5">
                 <div class="h-[365px] w-full flex items-center justify-center transition duration-500 ease-in-out transform hover:-translate-y-1 hover:shadow-md" 
                     style="
                         background-position:center; 
@@ -199,7 +197,7 @@ function renderCollections(e, index, type = 'grid') {
                     background-size: cover;
                 "
             >
-                <a href= "<?= BASE_LINK; ?>/collections/${slugify(`${e.name}-${e.id}`)}">
+                <a href= "<?= BASE_LINK; ?>/collections/${slugify(e.name)}">
                     <div class="bg-black/25 h-full w-full absolute top-0 left-0 p-3 md:p-5 lg:p-10">
                         <div class="max-w-[1440px] mx-auto">
                             <p class='font-extrabold mt-3 md:mt-5 lg:mt-10 '>

@@ -23,12 +23,15 @@ get_template_part('header-custom');
             <h1 class="text-4xl font-extrabold text-center tracking-wider text-white">PRODUCTS</h1>
         </div>
     </div>
-    <div class="text-center uppercase text-2xl tracking-widest my-10">
+    <h2 class="text-center uppercase text-2xl tracking-widest my-10">
         explore our outdoor product range
-    </div>
+    </h2>
     <!-- NOTE : PRODUCT LIST -->
-    <div class="p-6 my-5 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3"
-         id="product__list">
+    <div class="md:p-5 p-3 my-10">
+        <div class="max-w-[1440px] mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3"
+             id="product__list">
+
+        </div>
 
     </div>
 </div>
@@ -62,20 +65,8 @@ $(document).ready(function() {
 function renderProducts(e) {
     $('#product__list').append(`
         <a href= "<?= BASE_LINK; ?>/products/${e.slug}">
-            <div class="h-60 w-full transition-all duration-500 " 
-                onmouseover="this.style.backgroundSize='120% ';"    
-                onmouseout="this.style.backgroundSize='100%';"
-                style="
-                    background-position:center; 
-                    background: url('${e.image}'); 
-                    background-repeat: no-repeat;
-                    background-size: cover;
-                "
-            >
-                <div class ='bg-black bg-opacity-25 h-full w-full flex items-center justify-center'>
-                </div>
-            </div>
-            <p class="text-xl text-center ">${e.name}</p>
+            <img class="w-full h-full object-cover md:object-contain" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/category/${e.thumb}" />
+            <p class="text-xl text-center -mt-5">${e.name}</p>
         </a>
     `);
 }

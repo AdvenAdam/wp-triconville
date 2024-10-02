@@ -1,7 +1,6 @@
 <?php
     get_template_part('header-custom');
-    $character_slug = preg_replace('/.+-/', '', get_query_var( 'collection' ));
-
+    $character_slug = get_query_var('collection');
 ?>
 
 <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js "></script>
@@ -24,7 +23,7 @@
 <script>
 $(document).ready(function() {
     $.ajax({
-        url: `<?= BASE_API; ?>/v1_collections_det/<?= $character_slug ?>/`,
+        url: `<?= BASE_API; ?>/v1_collections_det_slug/<?= $character_slug ?>/`,
         type: 'GET',
         headers: {
             'Authorization': '<?= API_KEY; ?>',
@@ -51,7 +50,7 @@ $(document).ready(function() {
                         <div class=" grid grid-cols-2 md:grid-cols-4 mt-5 gap-4 justify-center container mx-auto mt-5 mb-10">
                             ${res.product_list.map((pr, i) => `
                             <div class='overflow-hidden '>
-                                <a href="<?= BASE_LINK; ?>/product-detail/${slugify(`${pr.name}-${pr.id}`)}" class="">
+                                <a href="<?= BASE_LINK; ?>/product-detail/${slugify(pr.name)}" class="">
                                     <img src="${pr.product_image}" alt="${pr.alt_text}" class="w-full h-[384px] object-contain group-hover:scale-110 transition duration-300"> 
                                     <h3 class="text-center mb-5 uppercase tracking-wider line-clamp-2 max-w-xs">${pr.name}</h3>
                                 </a>
