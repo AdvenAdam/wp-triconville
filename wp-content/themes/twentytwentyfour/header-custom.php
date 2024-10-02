@@ -57,7 +57,7 @@
     <header class="header sticky top-0 "
             style="z-index: 2;">
         <div class="flex items-center justify-between md:px-8 px-5 w-full max-h-16 bg-white shadow-md">
-            <div class=" flex justify-center">
+            <div class="py-5 flex justify-center">
                 <a href="<?php echo home_url(); ?>">
                     <img src="<?= BASE_LINK ?>/wp-content/uploads/2024/09/Logo-Blue-Resized-1.png"
                          alt="Triconville logo" />
@@ -68,6 +68,22 @@
                 <div id="navbar_menu_category"
                      class='md:flex hidden '>
                 </div>
+                <button class="group bg-transparent border-transparent outline-none flex items-center py-5 gap-2 md:hidden "
+                        type="button"
+                        data-drawer-target="drawer-navigation"
+                        data-drawer-show="drawer-navigation"
+                        aria-controls="drawer-navigation">
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                         fill="none"
+                         viewBox="0 0 24 24"
+                         stroke-width="1.5"
+                         stroke="currentColor"
+                         class="size-6 group-hover:text-gray-400">
+                        <path stroke-linecap="round"
+                              stroke-linejoin="round"
+                              d="M3.75 9h16.5m-16.5 6.75h16.5" />
+                    </svg>
+                </button>
             </div>
         </div>
         <div class="w-full md:px-8 py-3 px-5 bg-[#F4F6F6] invisible transition-opacity duration-500 ease-in-out fixed top-16"

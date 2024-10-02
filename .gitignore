@@ -4,4 +4,4 @@
 # Ignore wp-config.php and .htaccess files.
 wp-config.php
 .htaccess
-
+*.log

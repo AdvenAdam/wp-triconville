@@ -237,7 +237,7 @@ $(document).ready(function() {
                                     ${data.description}
                                 </p>
                                 <div class="flex gap-5 mt-5">
-                                    <a href="<?= BASE_LINK ?>/collections/${data.id}" class="btn-primary">${data.name} Collection</a>
+                                    <a href="<?= BASE_LINK ?>/collections/${slugify(`${data.name}-${data.id}`)}" class="btn-primary">${data.name} Collection</a>
                                     <a href="<?= BASE_LINK ?>/collections" class="btn-ghost">View More Collections</a>
                                 </div>
                             </div>

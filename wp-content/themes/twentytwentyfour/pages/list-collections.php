@@ -167,7 +167,7 @@ function renderCollections(e, index, type = 'grid') {
     if (type == 'grid') {
         $('#list__collections').empty();
         $('#grid__collections').append(`
-            <a href= "<?= BASE_LINK; ?>/collections/${e.id}" class="mb-5">
+            <a href= "<?= BASE_LINK; ?>/collections/${slugify(`${e.name}-${e.id}`)}" class="mb-5">
                 <div class="h-[365px] w-full flex items-center justify-center transition duration-500 ease-in-out transform hover:-translate-y-1 hover:shadow-md" 
                     style="
                         background-position:center; 
@@ -191,7 +191,7 @@ function renderCollections(e, index, type = 'grid') {
         $('.content-container').addClass('snap-y snap-mandatory transition duration-500 ease-in-out overflow-y-scroll h-screen scrollbar-none')
         $('#grid__collections').empty();
         $('#list__collections').append(`
-            <div class="h-screen w-screen relative text-white snap-center" 
+            <div class="h-screen w-screen relative text-white snap-start" 
                 style="
                     background-position:center; 
                     background-image: url('${e.collection_image_1920}'); 
@@ -199,10 +199,10 @@ function renderCollections(e, index, type = 'grid') {
                     background-size: cover;
                 "
             >
-                <a href= "<?= BASE_LINK; ?>/collections/${e.id}">
+                <a href= "<?= BASE_LINK; ?>/collections/${slugify(`${e.name}-${e.id}`)}">
                     <div class="bg-black/25 h-full w-full absolute top-0 left-0 p-3 md:p-5 lg:p-10">
                         <div class="max-w-[1440px] mx-auto">
-                            <p class='font-extrabold mt-3'>
+                            <p class='font-extrabold mt-3 md:mt-5 lg:mt-10 '>
                             ${count < 10 ? '0' + (count) : count}. 
                             </p>
                             <hr class='w-1/5 mt-3 border-white'/>

@@ -327,7 +327,7 @@ function getLokerList()
 
 // CUSTOM Collections
 add_action('init', function () {
-	add_rewrite_rule('collections/([a-z0-9]+)[/]?$', 'index.php?collection=$matches[1]', 'top');
+	add_rewrite_rule('collections/([a-zA-Z0-9-]+)[/]?$', 'index.php?collection=$matches[1]', 'top');
 });
 
 add_filter('query_vars', function ($query_vars) {
@@ -345,24 +345,6 @@ add_action('template_include', function ($template) {
 });
 
 
-// CUSTOM Materials
-// add_action('init', function () {
-// 	add_rewrite_rule('materials/([a-z0-9]+)[/]?$', 'index.php?material=$matches[1]', 'top');
-// });
-
-// add_filter('query_vars', function ($query_vars) {
-// 	$query_vars[] = 'material';
-// 	return $query_vars;
-// });
-
-// add_action('template_include', function ($template) {
-
-// 	if (get_query_var('material') == false || get_query_var('material') == '') {
-// 		return $template;
-// 	}
-
-// 	return get_template_directory() . '/pages/materials.php';
-// });
 
 // CUSTOM product-category details
 add_action('init', function () {

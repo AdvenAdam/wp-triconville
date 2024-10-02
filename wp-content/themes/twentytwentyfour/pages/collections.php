@@ -1,6 +1,7 @@
 <?php
     get_template_part('header-custom');
-    $character_slug = get_query_var( 'collection' );
+    $character_slug = preg_replace('/.+-/', '', get_query_var( 'collection' ));
+
 ?>
 
 <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js "></script>
@@ -11,7 +12,15 @@
      class="w-full flex flex-row gapx-5"></div>
 
 <div id="container__<?=$character_slug ?>"></div>
-
+<div id="errorIndicator"
+     class="hidden">Error</div>
+<div id="page-loading">
+    <div class="three-balls">
+        <div class="ball ball1"></div>
+        <div class="ball ball2"></div>
+        <div class="ball ball3"></div>
+    </div>
+</div>
 <script>
 $(document).ready(function() {
     $.ajax({
@@ -21,7 +30,7 @@ $(document).ready(function() {
             'Authorization': '<?= API_KEY; ?>',
         },
         beforeSend: () => {
-            // TODO ::SKELETON
+            $('#page-loading').show();
         },
         success: function(res) {
             $('#container__<?= $character_slug ?>').append(`
@@ -54,6 +63,9 @@ $(document).ready(function() {
         },
         error: function(xhr, status, error) {
             console.error('Error fetching data:', error);
+        },
+        complete: () => {
+            $('#page-loading').hide();
         }
     });
 });
