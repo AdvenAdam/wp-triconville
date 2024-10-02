@@ -86,7 +86,7 @@
                 </button>
             </div>
         </div>
-        <div class="w-full md:px-8 py-3 px-5 bg-[#F4F6F6] invisible transition-opacity duration-500 ease-in-out fixed top-16"
+        <div class="w-full md:px-8 py-3 px-5 bg-[#F4F6F6] opacity-0 transition-opacity duration-500 ease-in-out fixed top-16"
              style="z-index: 2;"
              id="sub-header"
              onMouseOut="showSubHeader(false)"
@@ -165,9 +165,9 @@
 
     function showSubHeader(isShow) {
         if (isShow) {
-            $('#sub-header').removeClass('invisible').addClass('visible');
+            $('#sub-header').removeClass('opacity-0').addClass('opacity-100');
         } else {
-            $('#sub-header').removeClass('visible').addClass('invisible');
+            $('#sub-header').removeClass('opacity-100').addClass('opacity-0');
         }
     }
 
