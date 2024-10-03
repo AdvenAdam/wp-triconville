@@ -1,22 +1,25 @@
 <div class="w-full footer snap-start">
-    <div class="py-5 flex h-[400px] bg-cover bg-center bg-no-repeat"
-         style="background-image: url(<?= BASE_LINK; ?>/wp-content/uploads/2024/09/showroombanner.jpg)">
-        <a href="<?= BASE_LINK; ?>/find-a-store/"
-           class="flex items-center justify-start  w-full gap-3 group max-w-[1440px] mx-auto">
-            <h1 class="text-4xl text-center uppercase font-semibold tracking-wide text-white group-hover:underline">
-                find the nearest store
-            </h1>
-            <svg xmlns="http://www.w3.org/2000/svg"
-                 fill="none"
-                 viewBox="0 0 24 24"
-                 stroke-width="2"
-                 stroke="white"
-                 class="size-9 hidden md:block group-hover:translate-x-2 transition duration-300">
-                <path stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-            </svg>
-        </a>
+    <div class="flex max-h-[300px] h-[30vh]  bg-cover bg-center bg-no-repeat"
+         style="background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/assets/images/store/store-banner.jpeg)">
+        <div class="bg-black bg-opacity-20 h-full w-full flex items-center justify-start">
+            <a href="<?= BASE_LINK; ?>/find-a-store/"
+               class="flex items-center   w-full gap-3 group max-w-[1440px] mx-auto">
+                <h1 class="text-5xl text-center uppercase font-medium tracking-wide text-white group-hover:underline">
+                    find the nearest store
+                </h1>
+                <svg xmlns="http://www.w3.org/2000/svg"
+                     fill="none"
+                     viewBox="0 0 24 24"
+                     stroke-width="1.5"
+                     stroke="currentColor"
+                     class="size-12 text-white hidden md:block group-hover:translate-x-2 transition duration-300">
+                    <path stroke-linecap="round"
+                          stroke-linejoin="round"
+                          d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" />
+                </svg>
+
+            </a>
+        </div>
     </div>
     <div class="py-10 md:px-5 px-3">
 
