@@ -55,7 +55,7 @@
 
 <body <?php body_class(); ?>>
     <header class="header sticky top-0"
-            style="z-index: 2;">
+            style="z-index: 20;">
         <div class="flex items-center justify-between md:px-8 px-5 w-full max-h-16 bg-white shadow-md">
             <div class="py-5 flex justify-center">
                 <a href="<?php echo home_url(); ?>">
