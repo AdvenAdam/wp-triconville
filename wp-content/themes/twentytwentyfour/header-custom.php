@@ -54,7 +54,7 @@
 </head>
 
 <body <?php body_class(); ?>>
-    <header class="header sticky top-0 "
+    <header class="header sticky top-0"
             style="z-index: 2;">
         <div class="flex items-center justify-between md:px-8 px-5 w-full max-h-16 bg-white shadow-md">
             <div class="py-5 flex justify-center">
@@ -91,7 +91,7 @@
              id="sub-header"
              onMouseOut="showSubHeader(false)"
              onMouseOver="showSubHeader(true)">
-            <div class="flex w-full justify-end gap-3 uppercase">
+            <div class="flex w-full justify-end gap-3 lg:gap-5 uppercase text-xs">
                 <p>Projects</p>
                 <p>News</p>
                 <p>Moods</p>
@@ -160,7 +160,6 @@
     <script>
     $(document).ready(function() {
         renderNavbar();
-
     });
 
     function showSubHeader(isShow) {
@@ -205,13 +204,13 @@
         if (e.name === 'Inspiration') {
             $('#navbar_menu_category').append(`
                 <a href="${e.href}" id="${slugify(e.name)}-link" onMouseOver="showSubHeader(true)" class="flex py-5 px-2 items-center text-gray-900 hover:text-cyan-500">                    
-                    <p class="uppercase">${e.name}</p>
+                    <p class="uppercase text-xs">${e.name}</p>
                 </a>
             `);
         } else {
             $('#navbar_menu_category').append(`
-                <a href="${e.href}" id="${slugify(e.name)}-link" class="flex py-5 px-2 gap-2 items-center text-gray-900 hover:text-cyan-500">
-                    <p class="uppercase">${e.name}</p>
+                <a href="${e.href}" id="${slugify(e.name)}-link" class="flex py-5 px-3 gap-2 items-center text-gray-900 hover:text-cyan-500">
+                    <p class="uppercase text-xs">${e.name}</p>
                 </a>
             `);
         }
