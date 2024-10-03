@@ -3,12 +3,12 @@
 @tailwind utilities;
 
 .btn-primary {
-    @apply py-3 px-4 bg-cyan-500 font-medium text-white hover:bg-cyan-700 outline-none;
+    @apply py-3 px-4 bg-cyan-500 text-white hover:bg-cyan-700 outline-none;
 }
 .btn-ghost {
-    @apply py-3 px-4 bg-transparent font-medium text-black border-black border hover:text-white hover:bg-black outline-none;
+    @apply py-3 px-4 bg-transparent text-black border-black border hover:text-white hover:bg-black outline-none;
 }
 .btn-ghost-dark {
-    @apply py-3 px-4 bg-black font-medium text-white border-black border hover:bg-slate-800 outline-none;
+    @apply py-3 px-4 bg-black text-white border-black border hover:bg-slate-800 outline-none;
 
 }

@@ -28,8 +28,8 @@ get_template_part('header-custom');
         <div id="list__materials_filter"
              class='flex items-center p-8 justify-center flex-wrap gap-3'>
             <button type="button"
-                    class="border border-slate-800 p-3 transition duration-300  text-white bg-black hover:bg-white hover:text-black"
-                    onclick="btnClick('all')"
+                    class="btn-ghost-dark"
+                    onclick="changeFilter('all')"
                     id="btn-all">All Materials</button>
         </div>
     </div>
@@ -48,63 +48,23 @@ get_template_part('header-custom');
          class="hidden">Error</div>
 </div>
 <script>
-let page = 1;
-let isLoading = false;
-let stop = false;
-let selectedMaterial = [];
+let selectedMaterialIds = [];
 let readyToRenderMaterial = [];
 $(document).ready(function() {
-    loadCollections(page);
+    $.ajax({
+        url: "<?= BASE_URL; ?>/?rest_route=/wp/v2/selected_materials",
+        type: "GET",
+        success: (res) => {
+            selectedMaterialIds = res.selectedMaterial;
+            loadMaterials();
+        }
+    })
+
 });
 
-function loadCollections(page, action = '') {
-    isLoading = true;
-    // $('#page-loading').show();
+function loadMaterials() {
     $.ajax({
-        url: `<?= BASE_API; ?>/v1_swatchparent/?page=${page}`,
-        type: 'GET',
-        headers: {
-            Authorization: '<?= API_KEY; ?>',
-        },
-        success: async function(res) {
-            res.results.forEach(e => {
-                selectedMaterial.push(e);
-            })
-            // TODO : make logic for triggering next page not by baypassing
-            if (res.next) {
-                loadCollections(page + 1, action);
-            } else {
-                isLoading = false;
-                stop = true;
-                $('#page-loading').hide();
-                selectedMaterial.sort((a, b) => (a.name > b.name) ? 1 : -1).forEach((e, index) => {
-                    if (action != 'material') {
-                        renderMaterialFilter(e);
-                    }
-                    renderMaterials(e.id);
-                });
-                selectedMaterial = [];
-            }
-        },
-        error: function(xhr, status, error) {
-            isLoading = false;
-            stop = true;
-            $('#page-loading').hide();
-            $('#errorIndicator').show();
-        },
-    });
-}
-
-function renderMaterialFilter(e) {
-    $('#list__materials_filter').append(`
-            <button class="border border-slate-800 p-3 transition duration-300 text-black hover:bg-black hover:text-white" id="btn-${e.id}" type="button" onClick = "btnClick(${e.id})">${e.alias}</button>
-    `);
-}
-
-
-function renderMaterials(id) {
-    $.ajax({
-        url: `<?= BASE_API; ?>/v1_swatchparent_det/${id}/`,
+        url: `<?= BASE_API; ?>/v1_swatchparent/`,
         type: 'GET',
         headers: {
             Authorization: '<?= API_KEY; ?>',
@@ -112,40 +72,89 @@ function renderMaterials(id) {
         beforeSend: function() {
             $('#page-loading').show();
         },
-        success: function(res) {
+        success: async function(res) {
+            res.results.forEach(e => {
+                if (selectedMaterialIds.includes(parseInt(e.id))) {
+                    readyToRenderMaterial.push(e);
+                }
+            })
+        },
+        error: function(xhr, status, error) {
             $('#page-loading').hide();
-            $('#material__page').append(`
-                <div class='font-medium text-2xl tracking-wider uppercase'>
-                    ${res.alias}
-                </div>
-                <hr class='mb-3'>
-                <div class='flex flex-wrap gap-3 my-5' id="material__image_${res.id}">
-                    ${res.swatch_options.map(element => `
-                        <div>
-                            <img src='${element.image_512}' class='w-full max-h-[250px] max-w-[250px] h-full object-cover'/>
-                            <p class='line-clamp-2 max-w-[250px] uppercase text-center tracking-wider'>${element.name}</p>
-                        </div>
-
-                    `).join('')}
-                </div>
-            `);
+            $('#errorIndicator').show();
         },
         complete: function() {
+            readyToRenderMaterial = readyToRenderMaterial.sort((a, b) => (a.name > b.name) ? 1 : -1)
+            renderMaster();
             $('#page-loading').hide();
         }
-    })
-
+    });
 }
 
+async function renderMaster(action = 'all') {
+    try {
+        await readyToRenderMaterial.reduce(async (promise, e) => {
+            await promise;
+            if (action == 'all') {
+                renderMaterialFilter(e);
+            }
+            await renderMaterials(e.id);
+        }, Promise.resolve());
+    } catch (error) {
+        console.error(error);
+    }
+}
 
-function btnClick(id) {
+function renderMaterialFilter(e) {
+    $('#list__materials_filter').append(`
+            <button class="btn-ghost" id="btn-${e.id}" type="button" onClick = "changeFilter(${e.id})">${e.alias}</button>
+    `);
+}
+
+async function renderMaterials(id) {
+    try {
+        const res = await $.ajax({
+            url: `<?= BASE_API; ?>/v1_swatchparent_det/${id}/`,
+            type: 'GET',
+            headers: {
+                Authorization: '<?= API_KEY; ?>',
+            },
+            beforeSend: function() {
+                $('#page-loading').show();
+            },
+            complete: function() {
+                $('#page-loading').hide();
+            }
+        })
+
+        $('#material__page').append(`
+            <div class='font-medium text-2xl tracking-wider uppercase'>
+                ${res.alias}
+            </div>
+            <hr class='mb-3'>
+            <div class='flex flex-wrap gap-3 my-5' id="material__image_${res.id}">
+                ${res.swatch_options.map(element => `
+                    <div>
+                        <img src='${element.image_512}' class='w-full max-h-[250px] max-w-[250px] h-full object-cover'/>
+                        <p class='line-clamp-2 max-w-[250px] uppercase text-center tracking-wider'>${element.name}</p>
+                    </div>
+
+                `).join('')}
+            </div>
+        `);
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+function changeFilter(id) {
     $('#material__page').empty();
-    $('#list__materials_filter button').removeClass('text-white bg-black hover:bg-white hover:text-black').addClass('text-black hover:bg-black hover:text-white');
+    $('#list__materials_filter button').removeClass('btn-ghost-dark').addClass('btn-ghost');
     if (id == 'all') {
-        loadCollections(page, 'material');
-        $(`#btn-all`).removeClass('text-black hover:bg-black hover:text-white').addClass('text-white bg-black');
+        renderMaster('material')
+        $(`#btn-all`).removeClass('btn-ghost-dark').addClass('btn-ghost');
     } else {
-        $(`#btn-${id}`).removeClass('text-black hover:bg-black hover:text-white').addClass('text-white bg-black');
+        $(`#btn-${id}`).removeClass('btn-ghost-dark').addClass('btn-ghost');
         renderMaterials(id);
     }
 }

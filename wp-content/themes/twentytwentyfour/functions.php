@@ -261,15 +261,13 @@ add_action('rest_api_init', function () {
 		'callback' => 'getCollectionsList',
 	));
 });
-
-// JSON Loker
+// JSON SELECTED MATERIAL
 add_action('rest_api_init', function () {
-	register_rest_route('wp/v2', '/loker_service/', array(
+	register_rest_route('wp/v2', '/selected_materials/', array(
 		'methods' => 'GET',
-		'callback' => 'getLokerList',
+		'callback' => 'getMaterialsList',
 	));
 });
-
 
 function getProductsList()
 {
@@ -304,9 +302,9 @@ function getCollectionsList()
 	}
 	return new WP_REST_Response($data, 200);
 }
-function getLokerList()
+function getMaterialsList()
 {
-	$json_file_path = get_template_directory() . '/api/loker.json';
+	$json_file_path = get_template_directory() . '/api/materials.json';
 
 	if (!file_exists($json_file_path)) {
 		return new WP_Error('no_file', 'File not found', array('status' => 404));
@@ -320,7 +318,6 @@ function getLokerList()
 	}
 	return new WP_REST_Response($data, 200);
 }
-
 
 // END JSON PRODUCT API
 

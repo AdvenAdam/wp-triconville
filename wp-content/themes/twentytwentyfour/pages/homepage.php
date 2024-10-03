@@ -137,22 +137,30 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
             </svg>
         </button>
     </div>
-    <div class="my-10"
-         id="colection-selected"></div>
 
 
 
-    <!-- NOTE : News List -->
     <div class="p-3 md:p-5">
         <div class="max-w-[1440px] mx-auto">
-            <div class="my-10">
+            <!-- NOTE : Collection -->
+            <div class="py-10">
+                <h2 class="text-center text-3xl tracking-widest mb-5">Collections</h2>
+                <div class=" grid grid-cols-1 sm:grid-cols-2 gap-3 my-5"
+                     id="colection-selected"></div>
+                <div class="text-center">
+                    <a href="<?= BASE_LINK ?>/collections"
+                       class='btn-ghost uppercase text-xs tracking-widest '>
+                        more collections
+                    </a>
+                </div>
+            </div>
+            <!-- NOTE : News List -->
+            <div class="py-10">
                 <div class="text-center mx-auto max-w-2xl mb-5">
-                    <h4 class="text-2xl font-semibold">
+                    <p class="uppercase tracking-widest text-xs">news </p>
+                    <h4 class="text-3xl">
                         Our Latest News
                     </h4>
-                    <p>
-                        Walk with us to discover news concerning events, trade fairs, latest product news and much more
-                    </p>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-3 lg:gap-5">
                     <?php foreach ($posts as $post): ?>
@@ -160,8 +168,8 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                         <div class="news-image">
                             <?php echo get_the_post_thumbnail($post->ID, 'large'); ?>
                         </div>
-                        <div class=" uppercase overflow-hidden">
-                            <h2 class="text-2xl font-semibold mb-5">
+                        <div class=" overflow-hidden">
+                            <h2 class="text-3xl mb-5">
                                 <a href="<?php echo get_permalink($post->ID); ?>"
                                    class="text-[#2c272e] line-clamp-1">
                                     <?php echo get_the_title($post->ID); ?>
@@ -176,9 +184,9 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                     </div>
                     <?php  endforeach; ?>
                 </div>
-                <div class="    text-center">
+                <div class="text-center">
                     <a href="<?= BASE_LINK ?>/news"
-                       class="btn-ghost">See All News</a>
+                       class="btn-ghost uppercase text-xs tracking-widest">All News</a>
                 </div>
             </div>
         </div>
@@ -194,68 +202,66 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
          class="hidden">Error</div>
 </div>
 <script>
+var selectedCollectionIds = [];
+var filteredCollections = [];
 $(document).ready(function() {
     $.ajax({
-        url: `<?= BASE_API; ?>/v1_collections_det/76/`,
+        url: "<?= BASE_URL; ?>/?rest_route=/wp/v2/selected_collection",
+        type: "GET",
+        success: (res) => {
+            selectedCollectionIds = res.homePageCollection;
+            loadCollections();
+        }
+    })
+})
+
+function loadCollections() {
+    $.ajax({
+        url: `<?= BASE_API; ?>/v1_collections/`,
         type: 'GET',
         headers: {
-            'Authorization': '<?= API_KEY; ?>',
+            Authorization: '<?= API_KEY; ?>',
         },
         beforeSend: () => {
-            // TODO ::SKELETON
             $('#page-loading').show();
         },
-        success: (data) => {
-            // render Banner
-            $('#colection-selected').append(`
-                <div class="collection-banner" 
-                    style="
-                        background-image: url('${data.image_1920}');
-                        object-fit: cover;
-                        background-position: center;
-                        height: 31.25rem;
-                        width: 100vw;
-                        background-repeat: no-repeat;
-                        ">
-                </div>
-                <div class="p-3 md:p-5">
-                    <div class="max-w-[1440px] mx-auto">
-                        <div class="md:flex items-center my-5">
-                            <div class="md:w-2/5 w-full">
-                                <p class='uppercase tracking-widest'>
-                                    collection
-                                </p>
-                                <h5 class='text-2xl font-semibold'>
-                                    The Luxury of Living Outdoors
-                                </h5>
-                            </div>
-                            <div class='md:w-3/5 w-full'>
-                                <h1 class="text-4xl font-extrabold uppercase tracking-widest">
-                                    ${data.name} collection
-                                </h1>
-                                <p>
-                                    ${data.description}
-                                </p>
-                                <div class="flex gap-5 mt-5">
-                                    <a href="<?= BASE_LINK ?>/collections/${slugify(`${data.name}-${data.id}`)}" class="btn-primary">${data.name} Collection</a>
-                                    <a href="<?= BASE_LINK ?>/collections" class="btn-ghost">View More Collections</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            `);
-
+        success: function(res) {
+            res.results.forEach((e) => {
+                if (selectedCollectionIds.includes(parseInt(e.collection_id))) {
+                    filteredCollections.push(e);
+                }
+            })
+            // TODO : make logic for triggering next page not by baypassing
         },
         error: function(xhr, status, error) {
-            console.error('Error fetching data:', error);
+            $('#page-loading').hide();
+            $('#errorIndicator').show();
         },
         complete: () => {
+            $('#grid-container').hide();
+            sortedCollections = filteredCollections.sort((a, b) => (b.collection_id > a.collection_id) ? 1 : -1)
+            sortedCollections.slice(0, 4).forEach((colection) => renderCollections(colection));
             $('#page-loading').hide();
         }
     });
-});
+}
 
+function renderCollections(collection) {
+    $('#colection-selected').append(`
+        <div style="background-image: url(${collection.collection_image_768});" class="bg-cover bg-no-repeat bg-center h-[300px] sm:h-[365px] w-auto">
+            <a href= "<?= BASE_LINK; ?>/collections/${slugify(collection.name)}">
+                <div class=" h-full w-full flex items-end p-5">
+                    <h1 class="text-5xl font-medium text-white line-clamp-2 max-w-xs">
+                        ${collection.name}
+                    </h1>
+                </div>
+            </a>
+        </div>
+    `)
+}
+</script>
+
+<script>
 $('.slider__home').slick({
     infinite: true,
     centerMode: true,
@@ -266,7 +272,6 @@ $('.slider__home').slick({
 $(".prev-btn").click(function() {
     $(".slider__home").slick("slickPrev");
 });
-
 $(".next-btn").click(function() {
     $(".slider__home").slick("slickNext");
 });

@@ -51,7 +51,7 @@ $(document).ready(function() {
                             ${res.product_list.map((pr, i) => `
                             <div class='overflow-hidden '>
                                 <a href="<?= BASE_LINK; ?>/product-detail/${slugify(pr.name)}" class="">
-                                    <img src="${pr.product_image}" alt="${pr.alt_text}" class="w-full h-[384px] object-contain group-hover:scale-110 transition duration-300"> 
+                                    <img src="${pr.product_image_384}" alt="${pr.alt_text}" class="w-full h-[384px] object-contain group-hover:scale-110 transition duration-300"> 
                                     <h3 class="text-center mb-5 uppercase tracking-wider line-clamp-2 max-w-xs">${pr.name}</h3>
                                 </a>
                             </div>
