@@ -93,8 +93,12 @@
              onMouseOver="showSubHeader(true)">
             <div class="flex w-full justify-end gap-3 lg:gap-5 uppercase text-xs">
                 <p>Projects</p>
-                <p>News</p>
-                <p>Moods</p>
+                <a href="<?= BASE_LINK; ?>/newsroom/">
+                    <p>News</p>
+                </a>
+                <a href="<?= BASE_LINK; ?>/moods/">
+                    <p>Moods</p>
+                </a>
             </div>
         </div>
     </header>

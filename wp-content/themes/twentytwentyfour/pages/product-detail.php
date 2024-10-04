@@ -37,7 +37,7 @@ $character_slug = get_query_var('detail');
 
 <div class="content-container  overflow-hidden">
     <div id="product__banner"></div>
-    <!-- NOTE : PRODUCT Overview -->
+    <!-- NOTE : PRODUCT Overview & Material -->
     <div class="md:p-5 p-3">
         <div class="max-w-[1440px] mx-auto">
             <div id="product__header__image"></div>
@@ -47,12 +47,12 @@ $character_slug = get_query_var('detail');
                 <div class="flex flex-col gap-2 item-center md:w-2/5 mt-5 md:mt-0">
                     <span class="mr-3"
                           id="label_1"></span>
-                    <div class="flex gap-1"
+                    <div class="flex flex-wrap gap-1"
                          id="option_1">
                     </div>
                     <span class="mr-3"
                           id="label_2"></span>
-                    <div class="flex items-center gap-1"
+                    <div class="flex flex-wrap items-center gap-1"
                          id="option_2">
                     </div>
                 </div>
@@ -113,8 +113,19 @@ $character_slug = get_query_var('detail');
         </div>
     </div>
     <!-- NOTE : PRODUCT IN THIS SECTION -->
-    <div class="inthis__section">
-        <div class="collection__product my-10"></div>
+    <div class="md:p-5 p-3">
+        <div class="max-w-[1440px] mx-auto">
+            <div class="py-10">
+                <h2 class='text-3xl collection__product__name'></h2>
+                <div class="collection__product grid gap-4 grid-cols-4 my-10"></div>
+                <div class="collection__product__btn text-center"></div>
+            </div>
+            <div class="py-10">
+                <h2 class='text-3xl well__with__product__name'></h2>
+                <div class="well__with__product grid gap-4 grid-cols-4 my-10"></div>
+                <div class="well__with__product__btn text-center"></div>
+            </div>
+        </div>
     </div>
 </div>
 <div id="page-loading">
@@ -154,11 +165,17 @@ jQuery(document).ready(function($) {
             );
             // NOTE :PRODUCT OVERVIEW
             renderOverview(res);
-            renderMaterial(res);
+            renderMaterial(res.combineoptionvariant);
             // APPEND DIMENSION
             renderDimensions(res.dimension);
             renderDownloadable(res.asset3d);
-            renderImages(res)
+            renderImages(res);
+            if (res.collection_product) {
+                renderCollectionProducts(res.collection_product.slice(0, 4), res.name);
+            }
+            if (res.goes_well_with) {
+                renderWellWithProducts(res.goes_well_with.slice(0, 4));
+            }
         },
         error: (xhr, status, error) => {
             console.error('Error fetching data:', error);
@@ -473,7 +490,7 @@ function renderImages(images) {
         $('.ambience__img').append(`
             <div>
                 <img src="${e}"
-                    class="h-[350px] sm:h-[600px] lg:h-[800px] mx-2 w-screen md:w-auto object-cover" />
+                    class="h-[350px] sm:h-[600px] lg:h-[700px] mx-2 w-screen md:w-auto object-cover" />
             </div>
         `)
     })
@@ -503,21 +520,52 @@ function renderImages(images) {
         slidesToScroll: 1,
         arrows: false,
     });
+}
 
+function renderCollectionProducts(products, name) {
     // Collection product
-    images.collection_product.forEach((e) => {
+    $('.collection__product__name').text(`in ${name} Collection`);
+    products.forEach((e) => {
         $('.collection__product').append(`
-            <div class="product__card">
-                <img src="${e.product_image}" class="h-[350px] mx-2 w-auto object-cover" />
-            </div>
+            <a href="/product-detail/${slugify(e.name)}">     
+                <div class="product__card">
+                    <img src="${e.product_image}" class="h-[350px] mx-2 w-auto object-cover" />
+                    <div class="text-center">
+                        <p class="line-clamp-2">
+                            ${e.name}
+                        </p>
+                    </div>
+                </div>
+            </a>
         `)
     })
 
-    $('.collection__product').slick({
-        variableWidth: true,
-        infinite: true,
-        arrows: false,
-    });
+    $('.collection__product__btn').append(`
+        <a href="<?= BASE_LINK ?>/collections/${slugify(name)}"
+            class='btn-ghost uppercase tracking-widest text-xs py-5'>
+            discover ${name} collection
+        </a>
+    `)
+
+}
+
+function renderWellWithProducts(products) {
+    // Goes Well with product
+    $('.well__with__product__name').text(`Goes well with `);
+    products.forEach((e) => {
+        $('.well__with__product').append(`
+            <a href="/product-detail/${slugify(e.name)}">     
+                <div class="product__card">
+                    <img src="${e.product_image}" class="h-[350px] mx-2 w-auto object-cover" />
+                    <div class="text-center">
+                        <p class="line-clamp-2">
+                            ${e.name}
+                        </p>
+                    </div>
+                </div>
+            </a>
+        `)
+    })
 }
 </script>
 <script>
