@@ -33,7 +33,7 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
             <div class="grid md:grid-cols-2 items-center my-5">
                 <div class="txt max-w-xl text-justify">
                     <p class="uppercase text-xs tracking-widest">our story</p>
-                    <h2 class='text-3xl'>
+                    <h2 class='text-3xl tracking-wider'>
                         20 Years of Excellence Experience on Outdoor Living
                     </h2>
                     <p class="tracking-wide text-sm mb-5">
@@ -56,9 +56,9 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                     <p class='uppercase text-xs tracking-widest'>
                         inspiration
                     </p>
-                    <h5 class='text-3xl max-w-xl'>
+                    <h2 class='text-3xl tracking-wider max-w-xl'>
                         25 Years of Excellence Experience on Outdoor Living
-                    </h5>
+                    </h2>
                 </div>
                 <div class='md:w-2/4 w-full'>
                     <p class='tracking-wide text-sm mb-5'>
@@ -148,7 +148,7 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
         <div class="max-w-[1440px] mx-auto">
             <!-- NOTE : Collection -->
             <div class="py-10">
-                <h2 class="text-center text-3xl tracking-widest mb-5">Collections</h2>
+                <h2 class="text-center text-3xl tracking-wider mb-5">Collections</h2>
                 <div class=" grid grid-cols-1 sm:grid-cols-2 gap-3 my-5"
                      id="colection-selected"></div>
                 <div class="text-center">
@@ -162,7 +162,7 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
             <div class="py-10">
                 <div class="text-center mx-auto max-w-2xl mb-5">
                     <p class="uppercase tracking-widest text-xs">news </p>
-                    <h4 class="text-3xl">
+                    <h4 class="text-3xl tracking-wider">
                         Our Latest News
                     </h4>
                 </div>
@@ -173,7 +173,7 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                             <?php echo get_the_post_thumbnail($post->ID, 'large'); ?>
                         </div>
                         <div class=" overflow-hidden">
-                            <h2 class="text-3xl mb-5">
+                            <h2 class="text-3xl tracking-wider mb-5">
                                 <a href="<?php echo get_permalink($post->ID); ?>"
                                    class="hover:underline line-clamp-1">
                                     <?php echo get_the_title($post->ID); ?>
@@ -204,7 +204,7 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                     <div class="flex justify-center items-center p-5">
                         <div class="p-5">
                             <p class="uppercase text-xs tracking-widest">catalog</p>
-                            <h2 class="text-3xl">Triconville - 2024 Catalog</h2>
+                            <h2 class="text-3xl tracking-wider">Triconville - 2024 Catalog</h2>
                             <p class="text-sm text-justify mb-5">
                                 Discover an unrivaled selection of luxuriant designs from Triconville. Brought to life with captivating imagery,
                                 the 2024 Triconville catalogue is a go-to resource for inspiration and information. Qualified trade members can
@@ -277,7 +277,7 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
         <div style="background-image: url(${collection.collection_image_768});" class="bg-cover bg-no-repeat bg-center h-[300px] sm:h-[365px] w-auto">
             <a href= "<?= BASE_LINK; ?>/collections/${slugify(collection.name)}">
                 <div class=" h-full w-full flex items-end p-5">
-                    <h1 class="text-5xl font-medium text-white line-clamp-2 max-w-xs">
+                    <h1 class="text-5xl text-white line-clamp-2 max-w-xs">
                         ${collection.name}
                     </h1>
                 </div>

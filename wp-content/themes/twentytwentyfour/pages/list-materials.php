@@ -128,7 +128,7 @@ async function renderMaterials(id) {
         })
 
         $('#material__page').append(`
-            <div class='font-medium text-2xl tracking-wider uppercase'>
+            <div class='text-2xl tracking-wider uppercase'>
                 ${res.alias}
             </div>
             <hr class='mb-3'>

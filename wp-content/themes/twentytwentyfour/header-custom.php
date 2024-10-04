@@ -54,7 +54,7 @@
 </head>
 
 <body <?php body_class(); ?>>
-    <header class="header sticky top-0"
+    <header class="header sticky top-0 tracking-widest"
             style="z-index: 20;">
         <div class="flex items-center justify-between md:px-8 px-5 w-full max-h-16 bg-white shadow-md">
             <div class="py-5 flex justify-center">
@@ -68,6 +68,16 @@
                 <div id="navbar_menu_category"
                      class='md:flex hidden '>
                 </div>
+                <!-- Note : Login -->
+                <div class="flex items-center">
+                    <div class="px-3 text-xs uppercase outline-none">
+                        <?php echo do_shortcode('[gtranslate]') ?>
+                    </div>
+                    <a href="https://triconville.co.id/customer/account/login/">
+                        <p class="px-3 text-xs uppercase">B2B Login</p>
+                    </a>
+                </div>
+                <!-- NOTE : Drawer -->
                 <button class="group bg-transparent border-transparent outline-none flex items-center py-5 gap-2 md:hidden "
                         type="button"
                         data-drawer-target="drawer-navigation"
@@ -91,13 +101,16 @@
              id="sub-header"
              onMouseOut="showSubHeader(false)"
              onMouseOver="showSubHeader(true)">
-            <div class="flex w-full justify-end gap-3 lg:gap-5 uppercase text-xs">
-                <p>Projects</p>
+            <div class="flex w-full justify-end uppercase text-xs">
+                <p class="px-3">Projects</p>
                 <a href="<?= BASE_LINK; ?>/newsroom/">
-                    <p>News</p>
+                    <p class="px-3">News</p>
                 </a>
                 <a href="<?= BASE_LINK; ?>/moods/">
-                    <p>Moods</p>
+                    <p class="px-3">Moods</p>
+                </a>
+                <a href="<?= BASE_LINK; ?>/materials/">
+                    <p class="px-3">Materials</p>
                 </a>
             </div>
         </div>
@@ -179,6 +192,7 @@
             url: '<?php echo BASE_URL; ?>/?rest_route=/wp/v2/top-nav',
             type: 'GET',
             success: function(res) {
+                console.log("🚀 ~ renderNavbar ~ res:", res)
                 res.forEach((e) => {
                     renderLink(e);
                 });

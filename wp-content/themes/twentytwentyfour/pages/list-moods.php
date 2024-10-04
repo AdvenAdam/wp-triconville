@@ -11,7 +11,7 @@ get_template_part('header-custom');
     <div class="px-3 md:px-5 mb-10">
         <div class="max-w-[1440px] mx-auto">
             <div class="text-center pt-10">
-                <h1 class="text-5xl font-medium uppercase">Moods</h1>
+                <h1 class="text-5xl uppercase">Moods</h1>
                 <p>Emotions in Every Moments</p>
             </div>
             <div class="grid py-10 lg:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-5">
@@ -19,28 +19,28 @@ get_template_part('header-custom');
                      style="background-image: url('<?php echo get_stylesheet_directory_uri(); ?>/assets/images/moods/Serenity-Dunes.png')">
                     <a href="#"
                        class="h-full w-full flex items-end justify-end p-5">
-                        <h1 class="text-5xl font-medium text-end text-white max-w-[260px]">Serenity Dunes</h1>
+                        <h1 class="text-5xl font-semibold text-end text-white max-w-[260px]">Serenity Dunes</h1>
                     </a>
                 </div>
                 <div class="h-[600px] w-auto bg-no-repeat bg-center bg-cover"
                      style="background-image: url('<?php echo get_stylesheet_directory_uri(); ?>/assets/images/moods/Rhythmic-Oasis.png')">
                     <a href="#"
                        class="h-full w-full flex items-end justify-end p-5">
-                        <h1 class="text-5xl font-medium text-end text-white max-w-[260px]">Rhythmic Oasis</h1>
+                        <h1 class="text-5xl font-semibold text-end text-white max-w-[260px]">Rhythmic Oasis</h1>
                     </a>
                 </div>
                 <div class="h-[600px] w-auto bg-no-repeat bg-center bg-cover"
                      style="background-image: url('<?php echo get_stylesheet_directory_uri(); ?>/assets/images/moods/Whispering-Ocean.png')">
                     <a href="#"
                        class="h-full w-full flex items-end justify-end p-5">
-                        <h1 class="text-5xl font-medium text-end text-white max-w-[260px]">Whispering Ocean</h1>
+                        <h1 class="text-5xl font-semibold text-end text-white max-w-[260px]">Whispering Ocean</h1>
                     </a>
                 </div>
                 <div class="h-[600px] w-auto bg-no-repeat bg-center bg-cover"
                      style="background-image: url('<?php echo get_stylesheet_directory_uri(); ?>/assets/images/moods/Chilling-Fall.png')">
                     <a href="#"
                        class="h-full w-full flex items-end justify-end p-5">
-                        <h1 class="text-5xl font-medium text-end text-white max-w-[260px]">Chilling Fall</h1>
+                        <h1 class="text-5xl font-semibold text-end text-white max-w-[260px]">Chilling Fall</h1>
                     </a>
                 </div>
             </div>

@@ -234,13 +234,9 @@ function top_nav_menu()
 }
 
 add_action('rest_api_init', function () {
-
 	// top-nav menu
-
 	register_rest_route('wp/v2', 'top-nav', array(
-
 		'methods' => 'GET',
-
 		'callback' => 'top_nav_menu',
 		'permission_callback' => '__return_true',
 	));

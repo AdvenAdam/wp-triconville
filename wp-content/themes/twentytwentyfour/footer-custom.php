@@ -22,59 +22,66 @@
         </div>
     </div>
     <div class="py-10 md:px-5 px-3">
-
         <div class="max-w-[1440px] mx-auto ">
-            <div class="w-full border-b border-black md:flex">
-                <div class="md:w-1/2 w-full">
-                    <div class="grid grid-cols-2 gap-3">
+            <div class="w-full md:flex">
+                <div class="md:w-3/5 w-full">
+                    <div class="flex tracking-wide gap-3">
                         <div class="about p-3">
-                            <p class='font-semibold mb-3 uppercase tracking-wider'>About</p>
-                            <p>
-                                <a href='<?= BASE_LINK; ?>/about-us'> About Us </a>
+                            <p class='mb-3 uppercase text-sm r'>Triconville</p>
+                            <p class='text-sm py-1'>
+                                <a href='<?= BASE_LINK; ?>/about-us'> Brand </a>
                             </p>
-                            <p>
-                                <a href='<?= BASE_LINK; ?>/news'> News </a>
+                            <p class='text-sm py-1'>
+                                <a href='<?= BASE_LINK; ?>/stores'> Stores </a>
+                            </p>
+                            <p class='text-sm py-1'>
+                                <a href='<?= BASE_LINK; ?>/products'> Inspiration </a>
+                            </p>
+                            <p class='text-sm py-1'>
+                                <a href='<?= BASE_LINK; ?>/materials'> Materials </a>
+                            </p>
+                            <p class='text-sm py-1'>
+                                <a href='<?= BASE_LINK; ?>/'> Catalog </a>
+                            </p>
+                        </div>
+                        <div class="about tracking-wider p-3">
+                            <p class='mb-3 uppercase text-sm '>products</p>
+                            <p class='text-sm py-1'>
+                                <a href='<?= BASE_LINK; ?>/products/sofa'>Sofa</a>
+                            </p>
+                            <p class='text-sm py-1'>
+                                <a href='<?= BASE_LINK; ?>/products/loungechairs'>Lounge Chairs</a>
+                            </p>
+                            <p class='text-sm py-1'>
+                                <a href='<?= BASE_LINK; ?>/products/loungerdaybed'>Lounger & Daybed</a>
+                            </p>
+                            <p class='text-sm py-1'>
+                                <a href='<?= BASE_LINK; ?>/products/chairs'>Chairs</a>
+                            </p>
+                            <p class='text-sm py-1'>
+                                <a href='<?= BASE_LINK; ?>/products/tables'>Tables</a>
+                            </p>
+
+                        </div>
+                        <div class="about tracking-wider p-3">
+                            <p class='mb-3 uppercase text-sm '>moods</p>
+                            <p class='text-sm py-1'>
+                                <a href='<?= BASE_LINK; ?>/'> Serenity Dunes </a>
+                            </p>
+                            <p class='text-sm py-1'>
+                                <a href='<?= BASE_LINK; ?>/'> Desert </a>
+                            </p>
+                            <p class='text-sm py-1'>
+                                <a href='<?= BASE_LINK; ?>/'> Ocean Breeze </a>
                             </p>
                         </div>
                         <div class="about p-3">
-                            <p class='font-semibold mb-3 uppercase tracking-wider'>customer service</p>
-                            <p>
-                                <a href='<?= BASE_LINK; ?>/contact-us'>Contact Us</a>
-                            </p>
-                            <p>
-                                <a href='<?= BASE_LINK; ?>/find-a-store'
-                                   class='flex items-center py-2    '>
-                                    <svg xmlns="http://www.w3.org/2000/svg"
-                                         fill="none"
-                                         viewBox="0 0 24 24"
-                                         stroke-width="1.5"
-                                         stroke="currentColor"
-                                         class="size-6">
-                                        <path stroke-linecap="round"
-                                              stroke-linejoin="round"
-                                              d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
-                                        <path stroke-linecap="round"
-                                              stroke-linejoin="round"
-                                              d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
-                                    </svg>
-                                    Find a Store
-                                </a>
-                            </p>
-                        </div>
-                        <div class="about p-3">
-                            <p class='font-semibold mb-3 uppercase tracking-wider'>browse</p>
-                            <p>
-                                <a href='<?= BASE_LINK; ?>/collections'> Collections </a>
-                            </p>
-                            <p>
-                                <a href='<?= BASE_LINK; ?>/products'> Products </a>
-                            </p>
-                            <p>
-                                <a href='<?= BASE_LINK; ?>/materials'> Materials & Care </a>
-                            </p>
-                        </div>
-                        <div class="about p-3">
-                            <p class='font-semibold mb-3 uppercase tracking-wider'>connect</p>
+                            <p class='font-bold uppercase tracking-widest'>triconville head office</p>
+                            <p class='my-3 text-sm'>Jl.Bukit Panorama no.6, <br />
+                                Kota Semarang, Jawa Tengah,<br /> Indonesia 50274</p>
+                            <p class='text-sm mb-3'>+62 21 27084824</p>
+                            <p class='text-sm mb-3'>info@triconville.co.id</p>
+                            <p class='text-sm pt-5 uppercase tracking-wider'>connect</p>
                             <div class="flex items-center gap-3 my-3">
                                 <a href='#'>
                                     <img src='<?php echo get_stylesheet_directory_uri(); ?>/assets/images/icons/youtube.svg' />
@@ -95,11 +102,11 @@
                         </div>
                     </div>
                 </div>
-                <div class="md:w-1/2 w-full p-3">
-                    <p class='font-semibold uppercase tracking-wider'>newsletter</p>
+                <div class="md:w-2/5 w-full p-3">
+                    <p class='font-bold uppercase tracking-widest'>newsletter</p>
                     <p>Sign up to our newsletter</p>
                     <div class="form mt-5">
-                        <p class='uppercase tracking-wider'>EMAIL </p>
+                        <p class='uppercase text-xs tracking-widest'>EMAIL </p>
                         <!-- START - We recommend to place the below code where you want the form in your website html  -->
                         <div class="sib-form"
                              style="text-align: left;background-color: transparent;">
@@ -142,8 +149,8 @@
                                         <div style="padding: 8px 0;">
                                             <div class="sib-input sib-form-block">
                                                 <div class="form__entry entry_block">
-                                                    <div class="grid grid-cols-2 items-baseline gap-4">
-                                                        <div class="entry__field">
+                                                    <div class="grid grid-cols-3 items-baseline gap-4">
+                                                        <div class="entry__field col-span-2">
                                                             <input class="input outline-none"
                                                                    type="text"
                                                                    id="EMAIL"
@@ -153,7 +160,7 @@
                                                                    required />
                                                         </div>
 
-                                                        <div class="sib-form-block">
+                                                        <div class="sib-form-block w-fit">
                                                             <button class="sib-form-block__button sib-form-block__button-with-loader min-h-[40px] btn-ghost-dark"
                                                                     form="sib-form"
                                                                     type="submit">
@@ -162,7 +169,7 @@
                                                                          viewBox="0 0 0 0">
                                                                         <path d="M460.116 373.846l-20.823-12.022c-5.541-3.199-7.54-10.159-4.663-15.874 30.137-59.886 28.343-131.652-5.386-189.946-33.641-58.394-94.896-95.833-161.827-99.676C261.028 55.961 256 50.751 256 44.352V20.309c0-6.904 5.808-12.337 12.703-11.982 83.556 4.306 160.163 50.864 202.11 123.677 42.063 72.696 44.079 162.316 6.031 236.832-3.14 6.148-10.75 8.461-16.728 5.01z" />
                                                                     </svg>
-                                                                    <p class="uppercase font-sans">SUBSCRIBE</p>
+                                                                    <p class="uppercase text-xs font-sans">SUBSCRIBE</p>
                                                                 </div>
                                                             </button>
 
@@ -193,7 +200,7 @@
                     </div>
                 </div>
             </div>
-            <div class="flex gap-3 p-3">
+            <!-- <div class="flex gap-3 p-3">
                 <p class=' hover:underline'>
                     <a href='<?= BASE_LINK; ?>/warranty'>
                         Warranty
@@ -204,8 +211,7 @@
                         Privacy Policy & Protection
                     </a>
                 </p>
-
-            </div>
+            </div> -->
         </div>
     </div>
 </div>
