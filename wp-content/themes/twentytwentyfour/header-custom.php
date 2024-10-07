@@ -74,7 +74,7 @@
                         <?php echo do_shortcode('[gtranslate]') ?>
                     </div>
                     <a href="https://triconville.co.id/customer/account/login/">
-                        <p class="px-3 text-xs uppercase">B2B Login</p>
+                        <p class="px-3 text-xs uppercase hover:text-cyan-500">B2B Login</p>
                     </a>
                 </div>
                 <!-- NOTE : Drawer -->
@@ -96,13 +96,15 @@
                 </button>
             </div>
         </div>
-        <div class="w-full md:px-8 py-3 px-5 bg-[#F4F6F6] opacity-0 transition-opacity duration-500 ease-in-out fixed top-16"
+        <div class="w-full md:px-8 py-3 px-5 bg-[#F4F6F6] opacity-0 invisible transition-opacity duration-500 ease-in-out fixed top-16"
              style="z-index: 2;"
              id="sub-header"
              onMouseOut="showSubHeader(false)"
              onMouseOver="showSubHeader(true)">
             <div class="flex w-full justify-end uppercase text-xs">
-                <p class="px-3">Projects</p>
+                <a href="<?= BASE_LINK; ?>/projects/">
+                    <p class="px-3">Projects</p>
+                </a>
                 <a href="<?= BASE_LINK; ?>/newsroom/">
                     <p class="px-3">News</p>
                 </a>
@@ -181,9 +183,9 @@
 
     function showSubHeader(isShow) {
         if (isShow) {
-            $('#sub-header').removeClass('opacity-0').addClass('opacity-100');
+            $('#sub-header').removeClass('opacity-0 invisible').addClass('opacity-100 visible');
         } else {
-            $('#sub-header').removeClass('opacity-100').addClass('opacity-0');
+            $('#sub-header').removeClass('opacity-100 visible').addClass('opacity-0 invisible');
         }
     }
 
@@ -192,7 +194,6 @@
             url: '<?php echo BASE_URL; ?>/?rest_route=/wp/v2/top-nav',
             type: 'GET',
             success: function(res) {
-                console.log("🚀 ~ renderNavbar ~ res:", res)
                 res.forEach((e) => {
                     renderLink(e);
                 });

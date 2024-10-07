@@ -6,8 +6,8 @@ get_template_part('header-custom');
 ?>
 <style>
 .materials-banner {
-    background: url('<?php echo get_stylesheet_directory_uri(); ?>/assets/images/material-banner.jpg');
-    height: 50vh;
+    background: url('<?php echo get_stylesheet_directory_uri(); ?>/assets/images/material-banner.png');
+    height: 60vh;
     width: 100%;
     overflow: hidden;
     background-size: cover;
@@ -69,6 +69,7 @@ function loadMaterials() {
         headers: {
             Authorization: '<?= API_KEY; ?>',
         },
+        cache: true,
         beforeSend: function() {
             $('#page-loading').show();
         },
@@ -119,6 +120,7 @@ async function renderMaterials(id) {
             headers: {
                 Authorization: '<?= API_KEY; ?>',
             },
+            cache: true,
             beforeSend: function() {
                 $('#page-loading').show();
             },
@@ -128,18 +130,20 @@ async function renderMaterials(id) {
         })
 
         $('#material__page').append(`
-            <div class='text-2xl tracking-wider uppercase'>
-                ${res.alias}
-            </div>
-            <hr class='mb-3'>
-            <div class='flex flex-wrap gap-3 my-5' id="material__image_${res.id}">
-                ${res.swatch_options.map(element => `
-                    <div>
-                        <img src='${element.image_512}' class='w-full max-h-[250px] max-w-[250px] h-full object-cover'/>
-                        <p class='line-clamp-2 max-w-[250px] uppercase text-center tracking-wider'>${element.name}</p>
-                    </div>
+            <div id="material__page_${res.id}" class='material-page'>
+                <div class='text-2xl tracking-wider uppercase'>
+                    ${res.alias}
+                </div>
+                <hr class='mb-3'>
+                <div class='flex flex-wrap gap-3 my-5' id="material__image_${res.id}">
+                    ${res.swatch_options.map(element => `
+                        <div>
+                            <img src='${element.image_512}' class='w-full max-h-[250px] max-w-[250px] h-full object-cover'/>
+                            <p class='line-clamp-2 max-w-[250px] uppercase text-center tracking-wider'>${element.name}</p>
+                        </div>
 
-                `).join('')}
+                    `).join('')}
+                </div>
             </div>
         `);
     } catch (error) {
@@ -148,14 +152,14 @@ async function renderMaterials(id) {
 }
 
 function changeFilter(id) {
-    $('#material__page').empty();
+    $('.material-page').addClass('hidden');
     $('#list__materials_filter button').removeClass('btn-ghost-dark').addClass('btn-ghost');
     if (id == 'all') {
-        renderMaster('material')
+        $(`.material-page`).removeClass('hidden').addClass('block');
         $(`#btn-all`).removeClass('btn-ghost-dark').addClass('btn-ghost');
     } else {
         $(`#btn-${id}`).removeClass('btn-ghost-dark').addClass('btn-ghost');
-        renderMaterials(id);
+        $(`#material__page_${id}`).removeClass('hidden');
     }
 }
 </script>

@@ -117,13 +117,15 @@ $character_slug = get_query_var('detail');
         <div class="max-w-[1440px] mx-auto">
             <div class="py-10">
                 <h2 class='text-3xl collection__product__name'></h2>
-                <div class="collection__product grid gap-4 grid-cols-4 my-10"></div>
+                <div class="collection__product grid gap-4 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 my-10"></div>
                 <div class="collection__product__btn text-center"></div>
             </div>
-            <div class="py-10">
+            <div class="py-10 relative"
+                 id="well__with__product">
                 <h2 class='text-3xl well__with__product__name'></h2>
-                <div class="well__with__product grid gap-4 grid-cols-4 my-10"></div>
+                <div class="well__with__product my-10"></div>
                 <div class="well__with__product__btn text-center"></div>
+
             </div>
         </div>
     </div>
@@ -149,6 +151,7 @@ jQuery(document).ready(function($) {
             $('#page-loading').show();
         },
         success: (res) => {
+            console.log("🚀 ~ jQuery ~ res:", res)
             // NOTE : PRODUCT HEADER 
             $('#product__banner').append(
                 `<div class="h-screen w-full transition-all duration-500 "
@@ -171,10 +174,10 @@ jQuery(document).ready(function($) {
             renderDownloadable(res.asset3d);
             renderImages(res);
             if (res.collection_product) {
-                renderCollectionProducts(res.collection_product.slice(0, 4), res.name);
+                renderCollectionProducts(res.collection_product.slice(0, 4), res.collection_det);
             }
-            if (res.goes_well_with) {
-                renderWellWithProducts(res.goes_well_with.slice(0, 4));
+            if (res.goes_well_with.length > 0) {
+                renderWellWithProducts(res.goes_well_with);
             }
         },
         error: (xhr, status, error) => {
@@ -509,17 +512,17 @@ function renderImages(images) {
             width="512" />
     `)
     // Technical
-    images.technical_image.forEach((e) => {
-        $('.technical__img').append(`
-                <img src="${e}"
-                    class="mr-2" />
-                `)
-    })
-    $('.technical__img').slick({
-        slidesToShow: 3,
-        slidesToScroll: 1,
-        arrows: false,
-    });
+    // images.technical_image.forEach((e) => {
+    //     $('.technical__img').append(`
+    //             <img src="${e}"
+    //                 class="mr-2" />
+    //             `)
+    // })
+    // $('.technical__img').slick({
+    //     slidesToShow: 3,
+    //     slidesToScroll: 1,
+    //     arrows: false,
+    // });
 }
 
 function renderCollectionProducts(products, name) {
@@ -527,7 +530,7 @@ function renderCollectionProducts(products, name) {
     $('.collection__product__name').text(`in ${name} Collection`);
     products.forEach((e) => {
         $('.collection__product').append(`
-            <a href="/product-detail/${slugify(e.name)}">     
+            <a href="<?= BASE_LINK; ?>/product-detail/${slugify(e.name)}">     
                 <div class="product__card">
                     <img src="${e.product_image}" class="h-[350px] mx-2 w-auto object-cover" />
                     <div class="text-center">
@@ -554,7 +557,7 @@ function renderWellWithProducts(products) {
     $('.well__with__product__name').text(`Goes well with `);
     products.forEach((e) => {
         $('.well__with__product').append(`
-            <a href="/product-detail/${slugify(e.name)}">     
+            <a href="<?= BASE_LINK; ?>/product-detail/${slugify(e.name)}">     
                 <div class="product__card">
                     <img src="${e.product_image}" class="h-[350px] mx-2 w-auto object-cover" />
                     <div class="text-center">
@@ -566,6 +569,49 @@ function renderWellWithProducts(products) {
             </a>
         `)
     })
+    $('#well__with__product').append(`
+        <button class="gww-prev absolute top-1/2 -translate-y-1/2 z-10 left-5 py-10 bg-slate-200/50 p-3 hover:bg-slate-200/80"
+                aria-label="Previous"
+                type="button">
+            <svg xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="size-6">
+                <path stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M15.75 19.5 8.25 12l7.5-7.5" />
+            </svg>
+        </button>
+        <button class="gww-next absolute top-1/2 -translate-y-1/2 z-10 right-5 py-10 bg-slate-200/50 p-3 hover:bg-slate-200/80"
+                aria-label="Next"
+                type="button">
+            <svg xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="size-6">
+                <path stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+            </svg>
+        </button>
+    `)
+    $('.well__with__product').slick({
+        variableWidth: true,
+        infinite: true,
+        slidesToScroll: 1,
+        arrows: false,
+    });
+    $(".gww-prev").click(function() {
+        $(".well__with__product").slick("slickPrev");
+    });
+
+    $(".gww-next").click(function() {
+        $(".well__with__product").slick("slickNext");
+    });
 }
 </script>
 <script>

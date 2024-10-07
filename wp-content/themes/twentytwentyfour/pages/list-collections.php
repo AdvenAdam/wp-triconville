@@ -120,13 +120,13 @@ function loadCollections() {
             Authorization: '<?= API_KEY; ?>',
         },
         success: function(res) {
-            res.results.forEach((e) => {
-                if (selectedCollectionId.includes(parseInt(e.collection_id))) {
-                    filteredCollection.push(e);
-                }
-            })
-            // TODO : make logic for triggering next page not by baypassing
-
+            filteredCollection = res.results.filter(e => selectedCollectionId.some(element => element.collection_id === parseInt(e.collection_id))).map(e => {
+                const selectedCollection = selectedCollectionId.find(element => element.collection_id === parseInt(e.collection_id));
+                return {
+                    ...e,
+                    ...selectedCollection
+                };
+            });
             isLoading = false;
         },
         error: function(xhr, status, error) {
@@ -169,18 +169,18 @@ function renderCollections(e, index, type = 'grid') {
                 <div class="h-[365px] w-full flex items-center justify-center transition duration-500 ease-in-out transform hover:-translate-y-1 hover:shadow-md" 
                     style="
                         background-position:center; 
-                        background-image: url('${e.collection_image_768}'); 
+                        background-image: url('<?php echo get_stylesheet_directory_uri(); ?>/assets/images/${e.image_grid}'); 
                         background-repeat: no-repeat;
                         background-size: cover;
                     "
                 >
                 </div>
-                <p class='font-extrabold mt-3'>
+                <p class='text-sm mt-3'>
                     ${count < 10 ? '0' + (count) : count}. 
                 </p>
                 <hr class='w-2/5 mt-3 border-black'/>
-                <p class="text-4xl mt-3 font-extrabold tracking-wider uppercase">${e.name}</p>
-                <p class='line-clamp-2 text-ellipsis'>
+                <h1 class="text-5xl mt-3 font-medium tracking-wider uppercase">${e.name}</h1>
+                <p class='text-sm mt-3 line-clamp-2 text-ellipsis'>
                     ${e.description}
                 </p>
             </a>
@@ -192,7 +192,7 @@ function renderCollections(e, index, type = 'grid') {
             <div class="h-screen w-screen relative text-white snap-start" 
                 style="
                     background-position:center; 
-                    background-image: url('${e.collection_image_1920}'); 
+                    background-image: url('<?php echo get_stylesheet_directory_uri(); ?>/assets/images/${e.image_banner}'); 
                     background-repeat: no-repeat;
                     background-size: cover;
                 "
@@ -200,11 +200,11 @@ function renderCollections(e, index, type = 'grid') {
                 <a href= "<?= BASE_LINK; ?>/collections/${slugify(e.name)}">
                     <div class="bg-black/25 h-full w-full absolute top-0 left-0 p-3 md:p-5 lg:p-10">
                         <div class="max-w-[1440px] mx-auto">
-                            <p class='font-extrabold mt-3 md:mt-5 lg:mt-10 '>
+                            <p class='font-medium mt-3 md:mt-5 lg:mt-10 '>
                             ${count < 10 ? '0' + (count) : count}. 
                             </p>
                             <hr class='w-1/5 mt-3 border-white'/>
-                            <p class="text-4xl mt-3 font-extrabold tracking-wider uppercase">${e.name}</p>
+                            <h1 class="text-5xl text-white mt-3 font-medium tracking-wider uppercase">${e.name}</h1>
                             <p class='line-clamp-2 text-ellipsis md:w-1/2'>
                             ${e.description}
                             </p>

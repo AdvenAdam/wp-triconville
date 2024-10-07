@@ -25,8 +25,8 @@
         <div class="max-w-[1440px] mx-auto ">
             <div class="w-full md:flex">
                 <div class="md:w-3/5 w-full">
-                    <div class="flex tracking-wide gap-3">
-                        <div class="about p-3">
+                    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 tracking-wide gap-3">
+                        <div class="about w-full p-3">
                             <p class='mb-3 uppercase text-sm r'>Triconville</p>
                             <p class='text-sm py-1'>
                                 <a href='<?= BASE_LINK; ?>/about-us'> Brand </a>
@@ -44,7 +44,7 @@
                                 <a href='<?= BASE_LINK; ?>/'> Catalog </a>
                             </p>
                         </div>
-                        <div class="about tracking-wider p-3">
+                        <div class="about w-full tracking-wider p-3">
                             <p class='mb-3 uppercase text-sm '>products</p>
                             <p class='text-sm py-1'>
                                 <a href='<?= BASE_LINK; ?>/products/sofa'>Sofa</a>
@@ -63,7 +63,7 @@
                             </p>
 
                         </div>
-                        <div class="about tracking-wider p-3">
+                        <div class="about w-full tracking-wider p-3">
                             <p class='mb-3 uppercase text-sm '>moods</p>
                             <p class='text-sm py-1'>
                                 <a href='<?= BASE_LINK; ?>/'> Serenity Dunes </a>
@@ -75,7 +75,7 @@
                                 <a href='<?= BASE_LINK; ?>/'> Ocean Breeze </a>
                             </p>
                         </div>
-                        <div class="about p-3">
+                        <div class="about w-full md:col-span-2 col-span-3 p-3">
                             <p class='font-bold uppercase tracking-widest'>triconville head office</p>
                             <p class='my-3 text-sm'>Jl.Bukit Panorama no.6, <br />
                                 Kota Semarang, Jawa Tengah,<br /> Indonesia 50274</p>

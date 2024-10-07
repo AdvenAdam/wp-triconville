@@ -4,7 +4,7 @@
         "ids":[39,30,36],
         "name" : "Sofa",
         "slug" : "sofa",
-        "image" : "https://storage.googleapis.com/pimassest1/asset/ALP-02/ambience_image/1920/alpha_sofa_lifestyle_04.jpg",
+        "image" : "banner_sofa2.jpg",
         "thumb": "sofa.png",
         "children" : [
             {
@@ -29,7 +29,7 @@
         "ids" :[32],
         "name" : "Lounge Chairs",
         "slug" : "loungechairs",
-        "image" : "https://storage.googleapis.com/pimassest1/asset/TORA-01/ambience_image/1920/tora-modular-sofa-lifestyle-4.jpg",
+        "image" : "banner_lounge-chair2.jpg",
         "thumb" : "lounge-chair.png",
         "children" : []
     },
@@ -38,7 +38,7 @@
         "ids":[37,5],
         "name" : "Lounger & Daybed",
         "slug" : "loungerdaybed",
-        "image" : "https://storage.googleapis.com/pimassest1/asset/TIMO-LG/ambience_image/1920/timo_lounger_lifestyle_02__st_round_teak.jpg",
+        "image" : "banner_lounger-&-daybed2.jpg",
         "thumb" : "lounger-daybed.png",
         "children" : []
     },
@@ -47,7 +47,7 @@
         "ids":[23,25],
         "name" : "Chairs",
         "slug" : "chairs",
-        "image" : "https://storage.googleapis.com/pimassest1/asset/ALP-DC/ambience_image/1920/alpha_dining_arm_chair__ara_160_lifestyle_03.jpg",
+        "image" : "banner_chair2.jpg",
         "thumb" : "chair.png",
         "children" : [
             {
@@ -72,7 +72,7 @@
         "ids":[28,15,31,24],
         "name" : "Tables",
         "slug" : "tables",
-        "image" : "https://storage.googleapis.com/pimassest1/asset/ARA-DT-100/ambience_image/1920/ara-dt-teak-100-lifestyle-2.jpg",
+        "image" : "banner_table2.jpg",
         "thumb" : "table.png",
         "children" : [
             {

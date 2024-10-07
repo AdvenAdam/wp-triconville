@@ -64,7 +64,7 @@ $(document).ready(function() {
 
             const filteredCategory = res.filter(cat => cat.slug === '<?= $character_slug ?>')
             categoriesData = filteredCategory[0];
-            $('.product-detail-banner').css('background-image', `url("${categoriesData.image}")`);
+            $('.product-detail-banner').css('background-image', `url("<?php echo get_stylesheet_directory_uri(); ?>/assets/images/category/banner/${categoriesData.image}")`);
             $('#category__name').text(categoriesData.name);
             renderFilterProduct('All Products', 0);
             // NOTE : Render all Filter Product
@@ -148,7 +148,6 @@ async function fetchProducts(id, param) {
     }
 }
 
-
 function renderFilterProduct(name, id, param = '') {
     const classes = id === 0 ? 'onclick="renderFilterAllProduct()"' : `onclick="subCategoryOnClick('${name}', ${id}, '${param}')"`;
     $('#filter__product').append(`
@@ -157,7 +156,6 @@ function renderFilterProduct(name, id, param = '') {
         </button>
     `);
 }
-
 
 async function subCategoryOnClick(name, id, param) {
     $('#category__name-label').text(name);
@@ -178,8 +176,10 @@ function renderProducts(data) {
     data.sort((a, b) => a.name.localeCompare(b.name)).forEach(e => {
         $('#product__list').append(`
             <a href= "<?= BASE_LINK; ?>/product-detail/${slugify(e.name)}">
-                <img class="w-full md:h-[384px] h-[250px] object-cover md:object-contain" src="${e.product_image_384}" />
-                <p class="text-xl text-center md:mt-[-30px] max-w-[90%]">${e.name}</p>
+                <div class='flex justify-center items-center flex-col p-3'>
+                    <img class="w-auto md:h-[384px] h-[250px] object-cover md:object-contain" src="${e.product_image_384}" />
+                    <p class="text-center md:mt-[-30px] max-w-[90%]">${e.name}</p>
+                </div>
             </a>
         `);
     })

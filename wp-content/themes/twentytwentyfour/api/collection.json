@@ -1,4 +1,77 @@
 {
-    "collection":[19,28,33,13,25,1,26,31,16,27,6,21],
-    "homePageCollection":[19,13,33,28]
+  "collection": [
+    {
+      "name": "Alpha",
+      "collection_id": 19,
+      "image_banner": "/collection/banner-list/alpha.jpg",
+      "image_grid": "/collection/grid/alpha.jpg"
+    },
+    {
+      "name": "Brie",
+      "collection_id": 27,
+      "image_banner": "/collection/banner-list/brie.jpg",
+      "image_grid": "/collection/grid/brie.jpg"
+    },
+    {
+      "name": "Corda",
+      "collection_id": 25,
+      "image_banner": "/collection/banner-list/corda.jpg",
+      "image_grid": "/collection/grid/corda.jpg"
+    },
+    {
+      "name": "Dexa",
+      "collection_id": 16,
+      "image_banner": "/collection/banner-list/dexa.jpg",
+      "image_grid": "/collection/grid/dexa.jpg"
+    },
+    {
+      "name": "Emmilie",
+      "collection_id": 31,
+      "image_banner": "/collection/banner-list/emmilie.jpg",
+      "image_grid": "/collection/grid/emmilie.jpg"
+    },
+    {
+      "name": "Gera Tables & Benches",
+      "collection_id": 15,
+      "image_banner": "/collection/banner-list/gera-tables-benches.jpg",
+      "image_grid": "/collection/grid/gera-tables-benches.jpg"
+    },
+    {
+      "name": "Karla",
+      "collection_id": 6,
+      "image_banner": "/collection/banner-list/karla.jpg",
+      "image_grid": "/collection/grid/karla.jpg"
+    },
+    {
+      "name": "Marlow",
+      "collection_id": 1,
+      "image_banner": "/collection/banner-list/marlow.jpg",
+      "image_grid": "/collection/grid/marlow.jpg"
+    },
+    {
+      "name": "Timo",
+      "collection_id": 28,
+      "image_banner": "/collection/banner-list/timo.jpg",
+      "image_grid": "/collection/grid/timo.jpg"
+    },
+    {
+      "name": "Tora",
+      "collection_id": 26,
+      "image_banner": "/collection/banner-list/tora.jpg",
+      "image_grid": "/collection/grid/tora.jpg"
+    },
+    {
+      "name": "Vento Aluminium",
+      "collection_id": 13,
+      "image_banner": "/collection/banner-list/vento-aluminium.jpg",
+      "image_grid": "/collection/grid/vento-aluminium.jpg"
+    },
+    {
+      "name": "Vento Teak",
+      "collection_id": 33,
+      "image_banner": "/collection/banner-list/vento-teak.jpg",
+      "image_grid": "/collection/grid/vento-teak.jpg"
+    }
+  ],
+  "homePageCollection": [19, 13, 33, 28]
 }

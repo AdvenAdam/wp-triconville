@@ -21,7 +21,19 @@
     </div>
 </div>
 <script>
+let selectedCollection = [];
 $(document).ready(function() {
+    $.ajax({
+        url: "<?= BASE_URL; ?>/?rest_route=/wp/v2/selected_collection",
+        type: "GET",
+        success: (res) => {
+            selectedCollection = res.collection;
+            loadCollections();
+        }
+    })
+})
+
+function loadCollections() {
     $.ajax({
         url: `<?= BASE_API; ?>/v1_collections_det_slug/<?= $character_slug ?>/`,
         type: 'GET',
@@ -32,29 +44,37 @@ $(document).ready(function() {
             $('#page-loading').show();
         },
         success: function(res) {
+            selectedCollection = selectedCollection.filter(data => data.collection_id == res.collection_id);
+            const collectionData = {
+                ...res,
+                ...selectedCollection[0]
+            };
             $('#container__<?= $character_slug ?>').append(`
                     <section class="banner mb-5 relative">
-                        <img src="${res.image_1920}" alt="${res.name}" class="w-full h-[50vh] object-cover">
+                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/${collectionData.image_banner}" alt="${collectionData.name}" class="w-full h-screen object-cover">
                         <div class='bg-black bg-opacity-25 h-full w-full absolute inset-0 flex items-center justify-center'>
+                            <h1 class='text-white text-5xl uppercase'>${collectionData.name}</h1>
                         </div>
                     </section>
-
                     <section class="collection__description my-5 flex max-w-[1440px] mx-auto justify-end p-3 md:p-5 ">
                         <div class="collection__description-content w-3/5">
-                            <h1 class="text-4xl uppercase font-semibold tracking-widest">${res.name}</h1>
-                            <p class="text-justify max-w-3xl">${res.description}</p>
+                            <h1 class="text-4xl uppercase font-semibold tracking-widest">${collectionData.name}</h1>
+                            <p class="text-justify max-w-3xl mb-5">${collectionData.description}</p>
+                            <a href="<?= BASE_LINK; ?>/collections" class='btn-ghost-dark uppercase text-xs tracking-widest '>
+                                download collection sheet
+                            </a>
                         </div>
                     </section>
                     <section class="collection__product relative my-10 py-5">
-                        <h3 class="text-center uppercase text-3xl tracking-wide ">PRODUCT ON ${res.name} COLLECTION</h3>
+                        <h3 class="text-center uppercase text-3xl tracking-wide ">PRODUCT ON ${collectionData.name} COLLECTION</h3>
                         <div class=" grid grid-cols-2 md:grid-cols-4 mt-5 gap-4 justify-center container mx-auto mt-5 mb-10">
-                            ${res.product_list.map((pr, i) => `
-                            <div class='overflow-hidden '>
-                                <a href="<?= BASE_LINK; ?>/product-detail/${slugify(pr.name)}" class="">
-                                    <img src="${pr.product_image_384}" alt="${pr.alt_text}" class="w-full h-[384px] object-contain group-hover:scale-110 transition duration-300"> 
-                                    <h3 class="text-center mb-5 uppercase tracking-wider line-clamp-2 max-w-xs">${pr.name}</h3>
-                                </a>
-                            </div>
+                            ${collectionData.product_list.map((pr, i) => `
+                                <div class='overflow-hidden '>
+                                    <a href="<?= BASE_LINK; ?>/product-detail/${slugify(pr.name)}" class="">
+                                        <img src="${pr.product_image_384}" alt="${pr.alt_text}" class="w-full h-[384px] object-contain group-hover:scale-110 transition duration-300"> 
+                                        <h3 class="text-center mb-5 uppercase tracking-wider line-clamp-2 max-w-xs">${pr.name}</h3>
+                                    </a>
+                                </div>
                             `).join('')}
                         </div>
                     </section>
@@ -67,7 +87,7 @@ $(document).ready(function() {
             $('#page-loading').hide();
         }
     });
-});
+};
 </script>
 
 

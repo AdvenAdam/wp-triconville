@@ -45,6 +45,9 @@ h6 {
     overflow: hidden;
     text-overflow: ellipsis;
   }
+  .gt_selector{
+    text-transform: uppercase;
+  }
 #page-loading {
     position: fixed;
     top: 0;
