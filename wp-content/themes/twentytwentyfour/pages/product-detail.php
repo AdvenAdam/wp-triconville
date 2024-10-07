@@ -99,7 +99,17 @@ $character_slug = get_query_var('detail');
             </div>
             <div class="md:p-3">
                 <div class="p-3">
-                    <h3 class="text-3xl tracking-wide mb-3 line-clamp-2">SIZING</h3>
+                    <div class="flex items-start justify-between">
+                        <h3 class="text-3xl tracking-wide mb-3 line-clamp-2">SIZING</h3>
+                        <div class="flex items-center sizing-btn">
+                            <button class="bg-slate-800 hover:bg-slate-800/80 border border-slate-800 text-white py-2 px-8 text-sm"
+                                    onClick="changeSize('metric')"
+                                    id="metric">Metric</button>
+                            <button class="bg-transparent hover:bg-slate-800 hover:text-white border border-slate-800 py-2 px-8 text-sm"
+                                    onClick="changeSize('imperial')"
+                                    id="imperial">Imperial</button>
+                        </div>
+                    </div>
                     <table class="product__spec w-full"
                            id="table__spec"></table>
                 </div>
@@ -139,6 +149,7 @@ $character_slug = get_query_var('detail');
 </div>
 
 <script>
+let ProductsData = [];
 jQuery(document).ready(function($) {
     $.ajax({
         url: `<?= BASE_API; ?>/v1_products_det_slug/<?= $character_slug ?>/`,
@@ -151,12 +162,12 @@ jQuery(document).ready(function($) {
             $('#page-loading').show();
         },
         success: (res) => {
-            console.log("🚀 ~ jQuery ~ res:", res)
+            ProductsData = res;
             // NOTE : PRODUCT HEADER 
             $('#product__banner').append(
                 `<div class="h-screen w-full transition-all duration-500 "
                     style="
-                        background: url('${res.ambience_image[0]}'); 
+                        background: url('${res.ambience_image_1920[0]}'); 
                         background-position: 50% 50%;
                         background-size: cover;
                         background-repeat: no-repeat;
@@ -188,6 +199,20 @@ jQuery(document).ready(function($) {
         }
     });
 });
+
+function changeSize(size) {
+    $('.sizing-btn button').removeClass('bg-slate-800 hover:bg-slate-800/80 text-white').addClass('bg-transparent hover:bg-slate-800 hover:text-white');
+
+    if (size == 'metric') {
+        $('#table__spec').empty();
+        $('#metric').removeClass('bg-transparent hover:bg-slate-800 hover:text-white').addClass('bg-slate-800 hover:bg-slate-800/80 text-white');
+        renderDimensions(ProductsData.dimension);
+    } else {
+        $('#table__spec').empty();
+        $('#imperial').removeClass('bg-transparent hover:bg-slate-800 hover:text-white').addClass('bg-slate-800 hover:bg-slate-800/80 text-white');
+        renderDimensions(ProductsData.dimension_imperial);
+    }
+}
 
 function renderMaterial(res) {
     if (res.option1 && Array.isArray(res.option1)) {
@@ -240,32 +265,30 @@ function renderDimensions(dimensions) {
         dimensions.ps_overal_dimension.forEach((e) => {
             $('#table__spec').append(`
                 <tr>
-                    <td>Overall - ${e.description}</td>
+                    <td class='w-1/2'>Overall - ${e.description}</td>
                     <td class='px-3'> : </td>
-                    <td> ${e.width} x ${e.depth} x ${e.height} CM</td>
+                    <td> ${e.width} x ${e.depth} x ${e.height}</td>
                 </tr>
             `);
         });
     }
-
     // Append box dimensions
     if (dimensions.ps_box_dimension) {
         dimensions.ps_box_dimension.forEach((e) => {
             $('#table__spec').append(`
                         <tr>
-                            <td>Box - ${e.description}</td>
+                            <td class='w-1/2'>Box - ${e.description}</td>
                             <td class='px-3'> : </td>
-                            <td>${e.width} x ${e.depth} x ${e.height} CM</td>
+                            <td>${e.width} x ${e.depth} x ${e.height}</td>
                         </tr>
                     `);
         });
     }
-
     // Append other properties
     if (dimensions.ps_clearance_from_floor) {
         $('#table__spec').append(`
                     <tr>
-                        <td>Clearance from Floor</td>
+                        <td class='w-1/2'>Clearance from Floor</td>
                         <td class='px-3'> : </td>
                         <td>${dimensions.ps_clearance_from_floor}</td>
                     </tr>
@@ -274,7 +297,7 @@ function renderDimensions(dimensions) {
     if (dimensions.ps_table_top_thickness) {
         $('#table__spec').append(`
                     <tr>
-                        <td>Table Top Thickness</td>
+                        <td class='w-1/2'>Table Top Thickness</td>
                         <td class='px-3'> : </td>
                         <td>${dimensions.ps_table_top_thickness}</td>
                     </tr>
@@ -283,7 +306,7 @@ function renderDimensions(dimensions) {
     if (dimensions.ps_distance_between_legs) {
         $('#table__spec').append(`
                     <tr>
-                        <td>Distance Between Legs</td>
+                        <td class='w-1/2'>Distance Between Legs</td>
                         <td class='px-3'> : </td>
                         <td>${dimensions.ps_distance_between_legs}</td>
                     </tr>
@@ -292,7 +315,7 @@ function renderDimensions(dimensions) {
     if (dimensions.ps_arm_height) {
         $('#table__spec').append(`
                     <tr>
-                        <td>Arm Height</td>
+                        <td class='w-1/2'>Arm Height</td>
                         <td class='px-3'> : </td>
                         <td>${dimensions.ps_arm_height}</td>
                     </tr>
@@ -301,7 +324,7 @@ function renderDimensions(dimensions) {
     if (dimensions.ps_seat_height) {
         $('#table__spec').append(`
                     <tr>
-                        <td>Seat Height</td>
+                        <td class='w-1/2'>Seat Height</td>
                         <td class='px-3'> : </td>
                         <td>${dimensions.ps_seat_height}</td>
                     </tr>
@@ -310,7 +333,7 @@ function renderDimensions(dimensions) {
     if (dimensions.ps_seat_depth) {
         $('#table__spec').append(`
                 <tr>
-                    <td>Seat Depth</td>
+                    <td class='w-1/2'>Seat Depth</td>
                     <td class='px-3'> : </td>
                     <td>${dimensions.ps_seat_depth}</td>
                 </tr>
@@ -319,7 +342,7 @@ function renderDimensions(dimensions) {
     if (dimensions.ps_nett_weight) {
         $('#table__spec').append(`
                 <tr>
-                    <td>Nett Weight</td>
+                    <td class='w-1/2'>Nett Weight</td>
                     <td class='px-3'> : </td>
                     <td>${dimensions.ps_nett_weight}</td>
                 </tr>
@@ -328,7 +351,7 @@ function renderDimensions(dimensions) {
     if (dimensions.ps_gross_weight) {
         $('#table__spec').append(`
                 <tr>
-                    <td>Gross Weight</td>
+                    <td class='w-1/2'>Gross Weight</td>
                     <td class='px-3'> : </td>
                     <td>${dimensions.ps_gross_weight}</td>
                 </tr>
@@ -337,7 +360,7 @@ function renderDimensions(dimensions) {
     if (dimensions.ps_pax) {
         $('#table__spec').append(`
                 <tr>
-                    <td>PAX</td>
+                    <td class='w-1/2'>PAX</td>
                     <td class='px-3'> : </td>
                     <td>${dimensions.ps_pax}</td>
                 </tr>
@@ -346,7 +369,7 @@ function renderDimensions(dimensions) {
     if (dimensions.ps_20ft_container) {
         $('#table__spec').append(`
                 <tr>
-                    <td>20ft Container</td>
+                    <td class='w-1/2'>20ft Container</td>
                     <td class='px-3'> : </td>
                     <td>${dimensions.ps_20ft_container}</td>
                 </tr>
@@ -355,7 +378,7 @@ function renderDimensions(dimensions) {
     if (dimensions.ps_40hq_container) {
         $('#table__spec').append(`
                 <tr>
-                    <td>40HQ Container</td>
+                    <td class='w-1/2'>40HQ Container</td>
                     <td class='px-3'> : </td>
                     <td>${dimensions.ps_40hq_container}</td>
                 </tr>
@@ -364,7 +387,7 @@ function renderDimensions(dimensions) {
     if (dimensions.cbm) {
         $('#table__spec').append(`
                 <tr>
-                    <td>CBM</td>
+                    <td class='w-1/2'>CBM</td>
                     <td class='px-3'> : </td>
                     <td>${dimensions.cbm}</td>
                 </tr>
