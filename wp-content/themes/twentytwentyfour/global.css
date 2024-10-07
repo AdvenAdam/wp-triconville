@@ -23,13 +23,16 @@ h6 {
 }
 /* NEWS  */
 .wp-block-post-excerpt__more-link {
-    background-color: #06b6d4;
-    color: white;
+    background-color: transparent;
+    font-family: "Helvetica Neue", sans-serif;
+    border: 1px solid #212121;
     padding: 0.5rem 1rem;
+    font-size: 14px;
     transition: all 0.3s ease;
   }
   .wp-block-post-excerpt__more-link:hover {
-    background-color: #0891b2;
+    background-color: #111111;
+    color: white;
   }
   .news-image img {
     height: 400px !important;

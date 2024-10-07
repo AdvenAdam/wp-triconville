@@ -527,6 +527,13 @@ function renderImages(images) {
         infinite: true,
         arrows: false,
     });
+    $(".prev-btn").click(function() {
+        $(".ambience__img").slick("slickPrev");
+    });
+    $(".next-btn").click(function() {
+        $(".ambience__img").slick("slickNext");
+    });
+
     // Spec image
     $('#image__spec').append(`
         <img src="${images.spec_image}"
@@ -534,18 +541,6 @@ function renderImages(images) {
             height="512"
             width="512" />
     `)
-    // Technical
-    // images.technical_image.forEach((e) => {
-    //     $('.technical__img').append(`
-    //             <img src="${e}"
-    //                 class="mr-2" />
-    //             `)
-    // })
-    // $('.technical__img').slick({
-    //     slidesToShow: 3,
-    //     slidesToScroll: 1,
-    //     arrows: false,
-    // });
 }
 
 function renderCollectionProducts(products, name) {
@@ -638,13 +633,7 @@ function renderWellWithProducts(products) {
 }
 </script>
 <script>
-$(".prev-btn").click(function() {
-    $(".ambience__img").slick("slickPrev");
-});
 
-$(".next-btn").click(function() {
-    $(".ambience__img").slick("slickNext");
-});
 </script>
 
 
