@@ -187,7 +187,7 @@ jQuery(document).ready(function($) {
             if (res.collection_product) {
                 renderCollectionProducts(res.collection_product.slice(0, 4), res.collection_det);
             }
-            if (res.goes_well_with.length > 0) {
+            if (Array.isArray(res.goes_well_with) && res.goes_well_with.length > 0) {
                 renderWellWithProducts(res.goes_well_with);
             }
         },

@@ -61,7 +61,6 @@ $(document).ready(function() {
         },
         success: (res) => {
             $('#page-loading').hide();
-
             const filteredCategory = res.filter(cat => cat.slug === '<?= $character_slug ?>')
             categoriesData = filteredCategory[0];
             $('.product-detail-banner').css('background-image', `url("<?php echo get_stylesheet_directory_uri(); ?>/assets/images/category/banner/${categoriesData.image}")`);
@@ -132,12 +131,18 @@ async function fetchProducts(id, param) {
             }
         });
         // NOTE : Get Triconville Product by id == 3
-        let triconvilleProduct = res.product_list.filter(product => product.brand === 3 && selectedCollectionId.includes(product.collection));
+        filteredCollection = res.product_list.filter(e => selectedCollectionId.some(element => element.collection_id === parseInt(e.collection))).map(e => {
+            const selectedCollection = selectedCollectionId.find(element => element.collection_id === parseInt(e.collection_id));
+            return {
+                ...e,
+                ...selectedCollection
+            };
+        });
         const products = param !== '' ?
-            triconvilleProduct.filter(({
+            filteredCollection.filter(({
                 name
             }) => param.split(",").some(p => name.toLowerCase().includes(p))) :
-            triconvilleProduct;
+            filteredCollection;
 
         return [...productListSelected, ...products];
     } catch (error) {
