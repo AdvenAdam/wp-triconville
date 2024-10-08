@@ -5,20 +5,6 @@ Template Name: List Collections
 get_template_part('header-custom');
 ?>
 <style>
-/* Hide scrollbar for Chrome, Safari and Opera */
-.scrollbar-none::-webkit-scrollbar {
-    display: none;
-}
-
-/* Hide scrollbar for IE, Edge and Firefox */
-.scrollbar-none {
-    overflow: -moz-scrollbars-none;
-    -ms-overflow-style: none;
-    /* IE and Edge */
-    scrollbar-width: none;
-    /* Firefox */
-}
-
 body {
     overscroll-behavior-y: contain;
 }

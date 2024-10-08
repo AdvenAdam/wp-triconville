@@ -128,9 +128,9 @@ function renderBanner() {
             <h2 class="text-3xl tracking-wider text-white">
                 Discover Other Moods
             </h2>
-            <div class="flex items-center my-5">
+            <div class="flex items-center my-5 snap-x overflow-x-scroll scrollbar-none">
                 ${otherMoods.map(e => `
-                    <div class="mx-2">
+                    <div class="mx-2 snap-center">
                         <div class="h-[600px] w-[400px] max-w-screen bg-no-repeat bg-center bg-cover"
                             style="background-image: url('<?php echo get_stylesheet_directory_uri(); ?>/${e.thumb}')">
                             <a href="<?= BASE_LINK ?>/moods/${e.slug}"

@@ -1095,6 +1095,9 @@ video {
 .snap-start {
   scroll-snap-align: start;
 }
+.snap-center {
+  scroll-snap-align: center;
+}
 .list-outside {
   list-style-position: outside;
 }
@@ -1820,6 +1823,10 @@ video {
     width: 20%;
   }
 
+  .sm\:snap-x {
+    scroll-snap-type: x var(--tw-scroll-snap-strictness);
+  }
+
   .sm\:grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -1838,6 +1845,10 @@ video {
 
   .sm\:justify-end {
     justify-content: flex-end;
+  }
+
+  .sm\:overflow-x-scroll {
+    overflow-x: scroll;
   }
 
   .sm\:pe-8 {
