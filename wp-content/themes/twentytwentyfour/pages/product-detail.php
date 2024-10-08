@@ -523,8 +523,6 @@ function renderImages(images) {
     $('.ambience__img').slick({
         slidesToScroll: 1,
         variableWidth: true,
-        centerMode: true,
-        infinite: true,
         arrows: false,
     });
     $(".prev-btn").click(function() {
