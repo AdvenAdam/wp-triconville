@@ -5,6 +5,7 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ["Helvetica Neue", "sans-serif"],
+        serif: ["Lora", "serif"],
       },
       fontSize: {
         "3xl": [
