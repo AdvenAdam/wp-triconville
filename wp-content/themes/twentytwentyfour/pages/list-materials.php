@@ -156,9 +156,9 @@ function changeFilter(id) {
     $('#list__materials_filter button').removeClass('btn-ghost-dark').addClass('btn-ghost');
     if (id == 'all') {
         $(`.material-page`).removeClass('hidden').addClass('block');
-        $(`#btn-all`).removeClass('btn-ghost-dark').addClass('btn-ghost');
+        $(`#btn-all`).removeClass('btn-ghost').addClass('btn-ghost-dark');
     } else {
-        $(`#btn-${id}`).removeClass('btn-ghost-dark').addClass('btn-ghost');
+        $(`#btn-${id}`).removeClass('btn-ghost').addClass('btn-ghost-dark');
         $(`#material__page_${id}`).removeClass('hidden');
     }
 }
