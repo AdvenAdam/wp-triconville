@@ -1,0 +1,138 @@
+[
+  {
+    "id": 1,
+    "name": "Rhythmic Oasis",
+    "slug": "rhythmic-oasis",
+    "thumb": "/assets/images/moods/rhythmic-oasis/Rhythmic-Oasis.png",
+    "banner": "/assets/images/moods/rhythmic-oasis/mood_rhythmic_oasis-banner.png",
+    "desc": "Discover the perfect mix of old and new. Amble past impressive art deco houses surrounded by landscaped gardens or take a stroll in one of the many flower-filled city parks. Enjoy a day on the harbour connect with the cultural offering in a city that never sleeps. Come together in electrifying places to enjoy sparkling diversions. Find yourself seated under lush plane trees, on lavish rooftop terraces in a sphere of constant animation. Surrender to the sights and sounds of the moment.",
+    "color": {
+      "start": "#4C7B6F",
+      "end": "#172924"
+    },
+    "subTitle": {
+      "title": "Embrace the urban vibe: chill, comfy and vibrant. Explore the grandeur and excitement of city life, with its grand boulevards, open squares and dazzling architecture.",
+      "subImage": "/assets/images/moods/rhythmic-oasis/mood_rhythmic_oasis-sub.png"
+    },
+    "materials": {
+      "desc": "Characterised by the fusion of robust materials with royal nautical colours, your poolside furniture is sure to inspire and catalyse. Finish off your light metallic or white frame with silver ropes or aluminium that match with minimalist surroundings and pearly white, concrete settings. Or, opt for the lava variant for a more sophisticated flair. <br/> <br/> Add a contrasting black teak nero tabletop or choose Carrara white marble for a more diffused effect, paired with an umbrella designed to both shade and attract the eyes. Stretch your legs over generous, luxurious poufs, or rest with cool glass in hand on a matching stool. Sofa and lounge chair cushions come in nautical, leather or white varieties. Complete your outdoor pool deck look with stylish accent lighting and blue-tinted accessories.",
+      "image": "/assets/images/moods/rhythmic-oasis/mood_rhythmic_oasis-materials.png"
+    },
+    "relatedProjects": [
+      {
+        "id": 1,
+        "title": "Soaking in The Summer Warmth",
+        "location": "One & Only Resort Desaru",
+        "thumb": "/assets/images/moods/rhythmic-oasis/mood_rhythmic_oasis-project-1.png"
+      },
+      {
+        "id": 2,
+        "title": "Unwind in the Sun-Kissed Lounge",
+        "location": "SS Family Villa",
+        "thumb": "/assets/images/moods/rhythmic-oasis/mood_rhythmic_oasis-project-2.png"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Whispering Ocean",
+    "slug": "whispering-ocean",
+    "thumb": "/assets/images/moods/whispering-ocean/Whispering-Ocean.png",
+    "banner": "/assets/images/moods/rhythmic-oasis/mood_rhythmic_oasis-banner.png",
+    "desc": "Discover the perfect mix of old and new. Amble past impressive art deco houses surrounded by landscaped gardens or take a stroll in one of the many flower-filled city parks. Enjoy a day on the harbour connect with the cultural offering in a city that never sleeps. Come together in electrifying places to enjoy sparkling diversions. Find yourself seated under lush plane trees, on lavish rooftop terraces in a sphere of constant animation. Surrender to the sights and sounds of the moment.",
+    "color": {
+      "start": "#4C7B6F",
+      "end": "#172924"
+    },
+    "subTitle": {
+      "title": "Embrace the urban vibe: chill, comfy and vibrant. Explore the grandeur and excitement of city life, with its grand boulevards, open squares and dazzling architecture.",
+      "subImage": "/assets/images/moods/rhythmic-oasis/mood_rhythmic_oasis-sub.png"
+    },
+    "materials": {
+      "desc": "Characterised by the fusion of robust materials with royal nautical colours, your poolside furniture is sure to inspire and catalyse. Finish off your light metallic or white frame with silver ropes or aluminium that match with minimalist surroundings and pearly white, concrete settings. Or, opt for the lava variant for a more sophisticated flair. <br/> <br/> Add a contrasting black teak nero tabletop or choose Carrara white marble for a more diffused effect, paired with an umbrella designed to both shade and attract the eyes. Stretch your legs over generous, luxurious poufs, or rest with cool glass in hand on a matching stool. Sofa and lounge chair cushions come in nautical, leather or white varieties. Complete your outdoor pool deck look with stylish accent lighting and blue-tinted accessories.",
+      "image": "/assets/images/moods/rhythmic-oasis/mood_rhythmic_oasis-materials.png"
+    },
+    "relatedProjects": [
+      {
+        "id": 1,
+        "title": "Soaking in The Summer Warmth",
+        "location": "One & Only Resort Desaru",
+        "thumb": "/assets/images/moods/rhythmic-oasis/mood_rhythmic_oasis-project-1.png"
+      },
+      {
+        "id": 2,
+        "title": "Unwind in the Sun-Kissed Lounge",
+        "location": "SS Family Villa",
+        "thumb": "/assets/images/moods/rhythmic-oasis/mood_rhythmic_oasis-project-2.png"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Chilling Fall",
+    "slug": "chilling-fall",
+    "thumb": "/assets/images/moods/chilling-fall/Chilling-Fall.png",
+    "banner": "/assets/images/moods/rhythmic-oasis/mood_rhythmic_oasis-banner.png",
+    "desc": "Discover the perfect mix of old and new. Amble past impressive art deco houses surrounded by landscaped gardens or take a stroll in one of the many flower-filled city parks. Enjoy a day on the harbour connect with the cultural offering in a city that never sleeps. Come together in electrifying places to enjoy sparkling diversions. Find yourself seated under lush plane trees, on lavish rooftop terraces in a sphere of constant animation. Surrender to the sights and sounds of the moment.",
+    "color": {
+      "start": "#4C7B6F",
+      "end": "#172924"
+    },
+    "subTitle": {
+      "title": "Embrace the urban vibe: chill, comfy and vibrant. Explore the grandeur and excitement of city life, with its grand boulevards, open squares and dazzling architecture.",
+      "subImage": "/assets/images/moods/rhythmic-oasis/mood_rhythmic_oasis-sub.png"
+    },
+    "materials": {
+      "desc": "Characterised by the fusion of robust materials with royal nautical colours, your poolside furniture is sure to inspire and catalyse. Finish off your light metallic or white frame with silver ropes or aluminium that match with minimalist surroundings and pearly white, concrete settings. Or, opt for the lava variant for a more sophisticated flair. <br/> <br/> Add a contrasting black teak nero tabletop or choose Carrara white marble for a more diffused effect, paired with an umbrella designed to both shade and attract the eyes. Stretch your legs over generous, luxurious poufs, or rest with cool glass in hand on a matching stool. Sofa and lounge chair cushions come in nautical, leather or white varieties. Complete your outdoor pool deck look with stylish accent lighting and blue-tinted accessories.",
+      "image": "/assets/images/moods/rhythmic-oasis/mood_rhythmic_oasis-materials.png"
+    },
+    "relatedProjects": [
+      {
+        "id": 1,
+        "title": "Soaking in The Summer Warmth",
+        "location": "One & Only Resort Desaru",
+        "thumb": "/assets/images/moods/rhythmic-oasis/mood_rhythmic_oasis-project-1.png"
+      },
+      {
+        "id": 2,
+        "title": "Unwind in the Sun-Kissed Lounge",
+        "location": "SS Family Villa",
+        "thumb": "/assets/images/moods/rhythmic-oasis/mood_rhythmic_oasis-project-2.png"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Serenity Dunes",
+    "slug": "serenity-dunes",
+    "thumb": "/assets/images/moods/serenity-dunes/Serenity-Dunes.png",
+    "banner": "/assets/images/moods/rhythmic-oasis/mood_rhythmic_oasis-banner.png",
+    "desc": "Discover the perfect mix of old and new. Amble past impressive art deco houses surrounded by landscaped gardens or take a stroll in one of the many flower-filled city parks. Enjoy a day on the harbour connect with the cultural offering in a city that never sleeps. Come together in electrifying places to enjoy sparkling diversions. Find yourself seated under lush plane trees, on lavish rooftop terraces in a sphere of constant animation. Surrender to the sights and sounds of the moment.",
+    "color": {
+      "start": "#4C7B6F",
+      "end": "#172924"
+    },
+    "subTitle": {
+      "title": "Embrace the urban vibe: chill, comfy and vibrant. Explore the grandeur and excitement of city life, with its grand boulevards, open squares and dazzling architecture.",
+      "subImage": "/assets/images/moods/rhythmic-oasis/mood_rhythmic_oasis-sub.png"
+    },
+    "materials": {
+      "desc": "Characterised by the fusion of robust materials with royal nautical colours, your poolside furniture is sure to inspire and catalyse. Finish off your light metallic or white frame with silver ropes or aluminium that match with minimalist surroundings and pearly white, concrete settings. Or, opt for the lava variant for a more sophisticated flair. <br/> <br/> Add a contrasting black teak nero tabletop or choose Carrara white marble for a more diffused effect, paired with an umbrella designed to both shade and attract the eyes. Stretch your legs over generous, luxurious poufs, or rest with cool glass in hand on a matching stool. Sofa and lounge chair cushions come in nautical, leather or white varieties. Complete your outdoor pool deck look with stylish accent lighting and blue-tinted accessories.",
+      "image": "/assets/images/moods/rhythmic-oasis/mood_rhythmic_oasis-materials.png"
+    },
+    "relatedProjects": [
+      {
+        "id": 1,
+        "title": "Soaking in The Summer Warmth",
+        "location": "One & Only Resort Desaru",
+        "thumb": "/assets/images/moods/rhythmic-oasis/mood_rhythmic_oasis-project-1.png"
+      },
+      {
+        "id": 2,
+        "title": "Unwind in the Sun-Kissed Lounge",
+        "location": "SS Family Villa",
+        "thumb": "/assets/images/moods/rhythmic-oasis/mood_rhythmic_oasis-project-2.png"
+      }
+    ]
+  }
+]

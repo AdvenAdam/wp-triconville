@@ -265,6 +265,43 @@ add_action('rest_api_init', function () {
 	));
 });
 
+// JSON SELECTED MOOD
+add_action('rest_api_init', function () {
+	register_rest_route('wp/v2', '/selected_moods/(?P<slug>[a-zA-Z0-9-]+)?', array(
+		'methods' => 'GET',
+		'callback' => 'getMoodList',
+	));
+});
+add_action('rest_api_init', function () {
+	register_rest_route('wp/v2', '/selected_moods/', array(
+		'methods' => 'GET',
+		'callback' => 'getMoodList',
+	));
+});
+
+function getMoodList($request)
+{
+	$json_file_path = get_template_directory() . '/api/moods.json';
+
+	if (!file_exists($json_file_path)) {
+		return new WP_Error('no_file', 'File not found', array('status' => 404));
+	}
+
+	$json_content = file_get_contents($json_file_path);
+	$data = json_decode($json_content, true);
+
+	if (isset($request['slug'])) {
+		$slug = $request['slug'];
+		$data = array_filter($data, function ($item) use ($slug) {
+			return $item['slug'] === $slug;
+		});
+	}
+
+	if (json_last_error() !== JSON_ERROR_NONE) {
+		return new WP_Error('json_error', 'Error decoding JSON', array('status' => 500));
+	}
+	return new WP_REST_Response($data, 200);
+}
 function getProductsList()
 {
 	$json_file_path = get_template_directory() . '/api/product.json';
@@ -390,6 +427,23 @@ add_action('template_include', function ($template) {
 	}
 
 	return get_template_directory() . '/pages/product-detail.php';
+});
+
+// CUSTOM Moods details
+add_action('init', function () {
+	add_rewrite_rule('^moods/([^/]+)/?$', 'index.php?mood=$matches[1]', 'top');
+});
+
+add_filter('query_vars', function ($query_vars) {
+	$query_vars[] = 'mood';
+	return $query_vars;
+});
+
+add_action('template_include', function ($template) {
+	if (get_query_var('mood') == false || get_query_var('mood') == '') {
+		return $template;
+	}
+	return get_template_directory() . '/pages/moods.php';
 });
 
 //enable upload for webp image files.

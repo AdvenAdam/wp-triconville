@@ -14,35 +14,9 @@ get_template_part('header-custom');
                 <h1 class="text-5xl uppercase">Moods</h1>
                 <p>Emotions in Every Moments</p>
             </div>
-            <div class="grid py-10 lg:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-5">
-                <div class="h-[600px] w-auto bg-no-repeat bg-center bg-cover"
-                     style="background-image: url('<?php echo get_stylesheet_directory_uri(); ?>/assets/images/moods/Serenity-Dunes.png')">
-                    <a href="#"
-                       class="h-full w-full flex items-end justify-end p-5">
-                        <h1 class="text-5xl font-semibold text-end text-white max-w-[260px]">Serenity Dunes</h1>
-                    </a>
-                </div>
-                <div class="h-[600px] w-auto bg-no-repeat bg-center bg-cover"
-                     style="background-image: url('<?php echo get_stylesheet_directory_uri(); ?>/assets/images/moods/Rhythmic-Oasis.png')">
-                    <a href="#"
-                       class="h-full w-full flex items-end justify-end p-5">
-                        <h1 class="text-5xl font-semibold text-end text-white max-w-[260px]">Rhythmic Oasis</h1>
-                    </a>
-                </div>
-                <div class="h-[600px] w-auto bg-no-repeat bg-center bg-cover"
-                     style="background-image: url('<?php echo get_stylesheet_directory_uri(); ?>/assets/images/moods/Whispering-Ocean.png')">
-                    <a href="#"
-                       class="h-full w-full flex items-end justify-end p-5">
-                        <h1 class="text-5xl font-semibold text-end text-white max-w-[260px]">Whispering Ocean</h1>
-                    </a>
-                </div>
-                <div class="h-[600px] w-auto bg-no-repeat bg-center bg-cover"
-                     style="background-image: url('<?php echo get_stylesheet_directory_uri(); ?>/assets/images/moods/Chilling-Fall.png')">
-                    <a href="#"
-                       class="h-full w-full flex items-end justify-end p-5">
-                        <h1 class="text-5xl font-semibold text-end text-white max-w-[260px]">Chilling Fall</h1>
-                    </a>
-                </div>
+            <div class="grid py-10 lg:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-5"
+                 id="mood__list">
+
             </div>
             <div class="py-10 flex flex-col justify-between items-center sm:flex-row gap-3">
                 <div class="p-3 max-w-xl">
@@ -64,7 +38,44 @@ get_template_part('header-custom');
         </div>
     </div>
 </div>
+<script>
+let moods = [];
 
+$(document).ready(function() {
+    $.ajax({
+        url: "<?= BASE_URL; ?>/?rest_route=/wp/v2/selected_moods",
+        type: "GET",
+        beforeSend: () => {
+            $('#page-loading').show();
+        },
+        success: (res) => {
+            moods = res;
+            renderBanner();
+        },
+        error: function(xhr, status, error) {
+            console.error('Error fetching data:', error);
+        },
+        complete: () => {
+            $('#page-loading').hide();
+        }
+    })
+})
+
+function renderBanner() {
+    // Note : Set background
+    moods.forEach(mood => {
+        $('#mood__list').append(`
+            <div class="h-[600px] w-auto bg-no-repeat bg-center bg-cover"
+                style="background-image: url('<?php echo get_stylesheet_directory_uri(); ?>/${mood.thumb}')">
+                <a href="<?= BASE_LINK ?>/moods/${mood.slug}"
+                    class="h-full w-full flex items-end justify-end p-5">
+                    <h1 class="text-5xl font-semibold text-end text-white max-w-[260px]">${mood.name}</h1>
+                </a>
+            </div>
+        `)
+    })
+}
+</script>
 <?php
 // Include your custom footer
 get_template_part('footer-custom');
