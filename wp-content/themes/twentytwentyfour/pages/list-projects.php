@@ -25,7 +25,7 @@ const projects = [{
     <div class="relative"
          id="project-1">
         <div class="h-screen w-auto project__slider_1 ">
-            <div class="banner mx-2 relative">
+            <div class="banner mx-2 max-w-screen relative">
                 <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/projects/Project-1/banner1.png"
                      alt=""
                      class="h-screen w-screen object-cover">
@@ -47,8 +47,8 @@ const projects = [{
                     </div>
                 </div>
             </div>
-            <div class="text w-auto bg-white mx-2 ">
-                <div class=" h-screen w-auto flex flex-col justify-end max-w-xl pb-40 mx-40">
+            <div class="text w-auto max-w-screen bg-white mx-2 ">
+                <div class=" h-screen w-auto flex flex-col justify-end max-w-xl md:pb-40 pb-20 md:mx-40 mx-20">
                     <h2 class="text-5xl tracking-wider uppercase ">the danna langkawi</h2>
                     <p>Malaysia</p>
                     <p class="text-sm pt-10">
@@ -59,22 +59,22 @@ const projects = [{
                     </p>
                 </div>
             </div>
-            <div class="image mx-2">
+            <div class="image max-w-screen mx-2">
                 <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/projects/Project-1/image.png"
                      alt=""
                      class="h-screen w-auto object-cover">
             </div>
-            <div class="image mx-2">
+            <div class="image max-w-screen mx-2">
                 <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/projects/Project-1/image-1.png"
                      alt=""
                      class="h-screen w-auto object-cover">
             </div>
-            <div class="image mx-2">
+            <div class="image max-w-screen mx-2">
                 <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/projects/Project-1/image-2.png"
                      alt=""
                      class="h-screen w-auto object-cover">
             </div>
-            <div class="products w-screen mx-2 ">
+            <div class="products w-screen max-w-screen mx-2 ">
                 <div class=" h-screen flex flex-col items-center justify-center">
                     <h3 class="text-3xl tracking-wider ">
                         Featured Products
