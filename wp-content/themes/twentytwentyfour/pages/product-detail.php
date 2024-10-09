@@ -237,8 +237,8 @@ function renderMaterial(res) {
 
 function renderOverview(res) {
     $('#product__header__image').append(`
-        <div class="text-center mx-auto">
-            <img src="${res.product_image}" alt="${res.name}" class="w-auto h-[350px] lg:h-[480px] mx-auto"/>
+        <div class="text-center mx-auto ">
+            <img src="${res.product_image}" alt="${res.name}" class="w-auto h-[350px] lg:h-[720px] xl:h-[680px] object-contain mx-auto"/>
         </div>
     `)
     if (res.name) {
