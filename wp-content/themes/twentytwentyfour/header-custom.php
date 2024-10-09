@@ -103,16 +103,47 @@
              onMouseOver="showSubHeader(true)">
             <div class="flex w-full justify-end uppercase text-xs">
                 <a href="<?= BASE_LINK; ?>/projects/">
-                    <p class="px-3">Projects</p>
+                    <p class="px-3 hover:text-cyan-500"
+                       id="projects-link">Projects</p>
                 </a>
                 <a href="<?= BASE_LINK; ?>/newsroom/">
-                    <p class="px-3">News</p>
+                    <p class="px-3 hover:text-cyan-500"
+                       id="newsroom-link">News</p>
                 </a>
                 <a href="<?= BASE_LINK; ?>/moods/">
-                    <p class="px-3">Moods</p>
+                    <p class="px-3 hover:text-cyan-500"
+                       id="moods-link">Moods</p>
                 </a>
                 <a href="<?= BASE_LINK; ?>/materials/">
-                    <p class="px-3">Materials</p>
+                    <p class="px-3 hover:text-cyan-500"
+                       id="materials-link">Materials</p>
+                </a>
+            </div>
+        </div>
+        <div class="w-full md:px-8 py-3 px-5 bg-[#F4F6F6] opacity-0 invisible transition-opacity duration-500 ease-in-out fixed top-16"
+             style="z-index: 1;"
+             id="sub-products"
+             onMouseOut="showSubProducts(false)"
+             onMouseOver="showSubProducts(true)">
+            <div class="flex w-full justify-end uppercase text-xs">
+                <a href="<?= BASE_LINK; ?>/products/sofa/">
+                    <p class="px-3 hover:text-cyan-500"
+                       id="sofa-link">Sofa</p>
+                </a>
+                <a href="<?= BASE_LINK; ?>/products/loungechairs/">
+                    <p class="px-3 hover:text-cyan-500"
+                       id="loungechairs-link">Lounge Chairs</p>
+                </a>
+                <a href="<?= BASE_LINK; ?>/products/loungerdaybed/">
+                    <p class="px-3 hover:text-cyan-500"
+                       id="loungerdaybed-link">Lounger & Daybed</p>
+                </a>
+                <a href="<?= BASE_LINK; ?>/products/chairs/">
+                    <p class="px-3 hover:text-cyan-500"
+                       id="chairs-link">Chairs</p>
+                </a> <a href="<?= BASE_LINK; ?>/products/tables/">
+                    <p class="px-3 hover:text-cyan-500"
+                       id="tables-link">Tables</p>
                 </a>
             </div>
         </div>
@@ -182,10 +213,20 @@
     });
 
     function showSubHeader(isShow) {
+        $('#sub-products').removeClass('opacity-100 visible').addClass('opacity-0 invisible');
         if (isShow) {
             $('#sub-header').removeClass('opacity-0 invisible').addClass('opacity-100 visible');
         } else {
             $('#sub-header').removeClass('opacity-100 visible').addClass('opacity-0 invisible');
+        }
+    }
+
+    function showSubProducts(isShow) {
+        $('#sub-header').removeClass('opacity-100 visible').addClass('opacity-0 invisible');
+        if (isShow) {
+            $('#sub-products').removeClass('opacity-0 invisible').addClass('opacity-100 visible');
+        } else {
+            $('#sub-products').removeClass('opacity-100 visible').addClass('opacity-0 invisible');
         }
     }
 
@@ -202,11 +243,7 @@
                 console.error('Error fetching top navigation items:', error);
             },
             complete: function() {
-                const url = window.location.href;
-                const slug = url.split('/');
-                const finalUrl = slug[4];
-                const target = `#${finalUrl === 'materials' ? 'materials-038-care' : finalUrl}-link`;
-                $(target).removeClass('text-gray-900').addClass('text-cyan-500 underline');
+                setActiveLink();
             }
         });
     }
@@ -226,6 +263,12 @@
                     <p class="uppercase text-xs">${e.name}</p>
                 </a>
             `);
+        } else if (e.name === 'Products') {
+            $('#navbar_menu_category').append(`
+                <a href="${e.href}" id="${slugify(e.name)}-link" onMouseOver="showSubProducts(true)" class="flex py-5 px-2 items-center text-gray-900 hover:text-cyan-500">                    
+                    <p class="uppercase text-xs">${e.name}</p>
+                </a>
+            `);
         } else {
             $('#navbar_menu_category').append(`
                 <a href="${e.href}" id="${slugify(e.name)}-link" class="flex py-5 px-3 gap-2 items-center text-gray-900 hover:text-cyan-500">
@@ -233,6 +276,37 @@
                 </a>
             `);
         }
+    }
+
+    function setActiveLink() {
+        const url = window.location.href;
+        const slug = url.split('/');
+        const parentUrl = slug[4];
+        const childUrl = slug[5];
+        switch (parentUrl) {
+            case 'product-detail':
+                $(`#products-link`).removeClass('text-gray-900').addClass('text-cyan-500 underline');
+                break;
+            case 'about-us':
+                $(`#brand-link`).removeClass('text-gray-900').addClass('text-cyan-500 underline');
+                break;
+            case 'newsroom':
+            case 'materials':
+            case 'projects':
+            case 'moods':
+                $(`#inspiration-link`).removeClass('text-gray-900').addClass('text-cyan-500 underline');
+                $(`#${parentUrl}-link`).removeClass('text-gray-900').addClass('text-cyan-500 underline');
+                break;
+            default:
+                console.log("🚀 ~ setActiveLink ~ parentUrl:", parentUrl)
+                $(`#${parentUrl}-link`).removeClass('text-gray-900').addClass('text-cyan-500 underline');
+                break;
+        }
+
+        if (childUrl) {
+            $(`#${childUrl}-link`).removeClass('text-gray-900').addClass('text-cyan-500 underline');
+        }
+
     }
 
     function slugify(str) {
