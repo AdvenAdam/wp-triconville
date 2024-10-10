@@ -55,7 +55,7 @@ $(document).ready(function() {
 
 function renderBanner() {
     // Note : Set background
-    $('.content-container').attr('style', `background-image: linear-gradient(to bottom right, ${selectedMood.color.start}, ${selectedMood.color.end});`);
+    $('.content-container').attr('style', `background-image: linear-gradient(to bottom, ${selectedMood.color.start}, ${selectedMood.color.end});`);
     // Note : Set Banner Title 
     $('#mood__title').append(`
         <div>

@@ -279,9 +279,46 @@ add_action('rest_api_init', function () {
 	));
 });
 
+// JSON SELECTED PROJECTS
+add_action('rest_api_init', function () {
+	register_rest_route('wp/v2', '/selected_projects/(?P<slug>[a-zA-Z0-9-]+)?', array(
+		'methods' => 'GET',
+		'callback' => 'getProjectList',
+	));
+});
+add_action('rest_api_init', function () {
+	register_rest_route('wp/v2', '/selected_projects/', array(
+		'methods' => 'GET',
+		'callback' => 'getProjectList',
+	));
+});
+
+
 function getMoodList($request)
 {
 	$json_file_path = get_template_directory() . '/api/moods.json';
+
+	if (!file_exists($json_file_path)) {
+		return new WP_Error('no_file', 'File not found', array('status' => 404));
+	}
+
+	$json_content = file_get_contents($json_file_path);
+	$data = json_decode($json_content, true);
+
+	if (isset($request['slug'])) {
+		$slug = $request['slug'];
+		$data = array_filter($data, function ($item) use ($slug) {
+			return $item['slug'] === $slug;
+		});
+	}
+	if (json_last_error() !== JSON_ERROR_NONE) {
+		return new WP_Error('json_error', 'Error decoding JSON', array('status' => 500));
+	}
+	return new WP_REST_Response($data, 200);
+}
+function getProjectList($request)
+{
+	$json_file_path = get_template_directory() . '/api/projects.json';
 
 	if (!file_exists($json_file_path)) {
 		return new WP_Error('no_file', 'File not found', array('status' => 404));
@@ -318,7 +355,6 @@ function getProductsList()
 	}
 	return new WP_REST_Response($data, 200);
 }
-
 function getCollectionsList()
 {
 	$json_file_path = get_template_directory() . '/api/collection.json';

@@ -1897,11 +1897,6 @@ video {
     right: 12rem;
   }
 
-  .lg\:-my-36 {
-    margin-top: -9rem;
-    margin-bottom: -9rem;
-  }
-
   .lg\:mt-10 {
     margin-top: 2.5rem;
   }
@@ -1935,15 +1930,6 @@ video {
   }
 }
 @media (min-width: 1280px) {
-
-  .xl\:-my-56 {
-    margin-top: -14rem;
-    margin-bottom: -14rem;
-  }
-
-  .xl\:h-\[950px\] {
-    height: 950px;
-  }
 
   .xl\:h-\[680px\] {
     height: 680px;

@@ -3,118 +3,17 @@
 Template Name: List Projects
 */
 
+// TODO : Render Banner->Desc Project->Gallery->Product
 // Include your custom header
 get_template_part('header-custom');
 ?>
-<script>
-const projects = [{
-    id: 1,
-    products_sku: [
-        "VENTO-01",
-        "TORA-01",
-        "BRIE-01",
-        "TIMO-01",
-        "ALP-01",
-        "KRL-1S",
-        "SNIX-01",
-        "COR-01"
-    ]
-}]
-</script>
+
 <div class="content-container">
-    <div class="relative"
-         id="project-1">
-        <div class="h-screen w-auto project__slider_1 ">
-            <div class="banner mx-2 max-w-screen relative">
-                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/projects/Project-1/banner1.png"
-                     alt=""
-                     class="h-screen w-screen object-cover">
-                <div class="absolute bottom-10 right-10 sm:bottom-32 lg:bottom-48 lg:right-48">
-                    <div class="p-5 text-white flex flex-col sm:justify-end sm:items-end">
-                        <h1 class='text-5xl tracking-wider text-white uppercase'>the danna langkawi</h1>
-                        <p>Malaysia</p>
-                        <svg xmlns="http://www.w3.org/2000/svg"
-                             fill="none"
-                             viewBox="0 0 24 24"
-                             stroke-width="1.5"
-                             stroke="currentColor"
-                             class="size-11 text-end">
-                            <path stroke-linecap="round"
-                                  stroke-linejoin="round"
-                                  d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" />
-                        </svg>
+    <div id="Slider__Container"
+         class="overflow-hidden">
 
-                    </div>
-                </div>
-            </div>
-            <div class="text w-auto max-w-screen bg-white mx-2 ">
-                <div class=" h-screen w-auto flex flex-col justify-end max-w-xl md:pb-40 pb-20 md:mx-40 mx-20">
-                    <h2 class="text-5xl tracking-wider uppercase ">the danna langkawi</h2>
-                    <p>Malaysia</p>
-                    <p class="text-sm pt-10">
-                        Wandering the westernmost tip of Mallorca, dense pine trees unveil a hidden gem. La Trapa is a 430-square-metre
-                        family home designed by architect Joan Miquel Seguí and the Terraza Balear team. Organically shaped to its
-                        triangular plot, this retreat is a tribute to Mallorca’s wild beauty. Every corner has been crafted to foster a deep
-                        connection to the lush outdoors. Glass walls invite the surroundings to become part of daily life.
-                    </p>
-                </div>
-            </div>
-            <div class="image max-w-screen mx-2">
-                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/projects/Project-1/image.png"
-                     alt=""
-                     class="h-screen w-auto object-cover">
-            </div>
-            <div class="image max-w-screen mx-2">
-                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/projects/Project-1/image-1.png"
-                     alt=""
-                     class="h-screen w-auto object-cover">
-            </div>
-            <div class="image max-w-screen mx-2">
-                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/projects/Project-1/image-2.png"
-                     alt=""
-                     class="h-screen w-auto object-cover">
-            </div>
-            <div class="products w-screen max-w-screen mx-2 ">
-                <div class=" h-screen flex flex-col items-center justify-center">
-                    <h3 class="text-3xl tracking-wider ">
-                        Featured Products
-                    </h3>
-                    <div class="grid grid-cols-2 md:grid-cols-4 gap-1"
-                         id="project_1__products">
-
-                    </div>
-                </div>
-            </div>
-        </div>
-        <button class="slick-prev prev-btn-1 absolute top-1/2 -translate-y-1/2 z-10 left-5 py-10 bg-slate-50/50 p-3 hover:bg-slate-50/80"
-                aria-label="Previous"
-                type="button">
-            <svg xmlns="http://www.w3.org/2000/svg"
-                 fill="none"
-                 viewBox="0 0 24 24"
-                 stroke-width="1.5"
-                 stroke="currentColor"
-                 class="size-6">
-                <path stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M15.75 19.5 8.25 12l7.5-7.5" />
-            </svg>
-        </button>
-        <button class="slick-next next-btn-1 absolute top-1/2 -translate-y-1/2 z-10 right-5 py-10 bg-slate-50/50 p-3 hover:bg-slate-50/80"
-                aria-label="Next"
-                type="button">
-            <svg xmlns="http://www.w3.org/2000/svg"
-                 fill="none"
-                 viewBox="0 0 24 24"
-                 stroke-width="1.5"
-                 stroke="currentColor"
-                 class="size-6">
-                <path stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-            </svg>
-        </button>
     </div>
+
 </div>
 <div id="page-loading">
     <div class="three-balls">
@@ -124,15 +23,167 @@ const projects = [{
     </div>
 </div>
 <script>
+let projects = [];
 jQuery(document).ready(function($) {
-    projects.forEach(project => {
-        project.products_sku.forEach(sku => {
-            loadProduct(sku)
+    $(document).ready(function() {
+        $.ajax({
+            url: "<?= BASE_URL; ?>/?rest_route=/wp/v2/selected_projects",
+            type: "GET",
+            beforeSend: () => {
+                $('#page-loading').show();
+            },
+            success: (res) => {
+                projects = res;
+                renderMaster();
+            },
+            error: function(xhr, status, error) {
+                console.error('Error fetching data:', error);
+            },
+            complete: () => {
+                $('#page-loading').hide();
+            }
         })
     })
 })
+// ANCHOR RENDERER SLIDER
+function renderMaster() {
+    // NOTE : Init Slider First
+    projects.forEach(project => {
+        $('#Slider__Container').append(`
+            <div class="relative"
+             id="${project.slug}__Container">
+                <div class="h-screen w-auto" id="${project.slug}__slider">
 
-function loadProduct(sku) {
+                </div>
+            </div>
+        `)
+        renderSliderPages(project)
+        renderButton(project.slug)
+        initSlick(project.slug)
+
+    })
+}
+
+
+function renderSliderPages(project) {
+    //    NOTE : BANNER SLIDER 
+    $(`#${project.slug}__slider`).append(`
+        <div class="banner mx-2 max-w-screen relative">
+            <img src="<?php echo get_stylesheet_directory_uri(); ?>${project.banner}"
+                    alt=""
+                    class="h-screen w-screen object-cover">
+            <div class="absolute bottom-10 right-10 sm:bottom-32 lg:bottom-48 lg:right-48">
+                <div class="p-5 text-white flex flex-col sm:justify-end sm:items-end">
+                    <h1 class='text-5xl tracking-wider text-white uppercase'>${project.name}</h1>
+                    <p>${project.country}</p>
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke-width="1.5"
+                            stroke="currentColor"
+                            class="size-11 text-end">
+                        <path stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" />
+                    </svg>
+
+                </div>
+            </div>
+        </div>
+    `)
+    // NOTE : DESCRIPTION SLIDER
+    $(`#${project.slug}__slider`).append(`
+        <div class="text w-auto max-w-screen bg-white mx-2 ">
+            <div class=" h-screen w-auto flex flex-col justify-end max-w-xl md:pb-40 pb-20 md:mx-40 mx-20">
+                <h2 class="text-5xl tracking-wider uppercase ">${project.name}</h2>
+                <p>Malaysia</p>
+                <p class="text-sm pt-10">
+                    ${project.description}
+                </p>
+            </div>
+        </div>
+    `)
+    // NOTE : GALLERIES SLIDER
+    project.galleries.forEach(gallery => {
+        $(`#${project.slug}__slider`).append(`
+            <div class="image max-w-screen mx-2">
+                <img src="<?php echo get_stylesheet_directory_uri(); ?>${gallery}"
+                    alt="${project.name}"
+                    class="h-screen w-auto object-cover">
+            </div>
+        `)
+    })
+    // NOTE : PRODUCTS SLIDER
+    $(`#${project.slug}__slider`).append(`
+        <div class="products w-screen max-w-screen mx-2 ">
+            <div class=" h-screen flex flex-col items-center justify-center">
+                <h3 class="text-3xl tracking-wider ">
+                    Featured Products
+                </h3>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-1"
+                        id="${project.slug}__products">
+
+                </div>
+            </div>
+        </div>
+    `)
+    project.products_sku.forEach(sku => {
+        loadProduct(project.slug, sku)
+    })
+}
+
+function renderButton(slug) {
+    $(`#${slug}__Container`).append(`
+        <button class="slick-prev absolute top-1/2 -translate-y-1/2 z-10 left-5 py-10 bg-slate-50/50 p-3 hover:bg-slate-50/80"
+            aria-label=""
+            id="${slug}__prev-btn"
+            type="button">
+            <svg xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="size-6">
+                <path stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M15.75 19.5 8.25 12l7.5-7.5" />
+            </svg>
+        </button>
+        <button class="slick-next absolute top-1/2 -translate-y-1/2 z-10 right-5 py-10 bg-slate-50/50 p-3 hover:bg-slate-50/80"
+                aria-label=""
+                id="${slug}__next-btn"
+                type="button">
+            <svg xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="size-6">
+                <path stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+            </svg>
+        </button>
+    `)
+}
+
+function initSlick(slug) {
+    $(`#${slug}__slider`).slick({
+        variableWidth: true,
+        infinite: true,
+        slidesToScroll: 1,
+        arrows: false,
+    });
+    $(`#${slug}__prev-btn`).click(function() {
+        $(`#${slug}__slider`).slick("slickPrev");
+    });
+
+    $(`#${slug}__next-btn`).click(function() {
+        $(`#${slug}__slider`).slick("slickNext");
+    });
+}
+
+function loadProduct(slug, sku) {
     $.ajax({
         url: `<?= BASE_API; ?>/v1_products_det_sku/${sku}/`,
         type: 'GET',
@@ -143,7 +194,7 @@ function loadProduct(sku) {
             $('#page-loading').show();
         },
         success: (res) => {
-            $('#project_1__products').append(`
+            $(`#${slug}__products`).append(`
                 <a href= "<?= BASE_LINK; ?>/product-detail/${slugify(res.name)}">
                     <div class='flex justify-center items-center flex-col p-3'>
                         <img class="w-auto md:h-[384px] h-[250px] object-cover md:object-contain" src="${res.product_image}" />
