@@ -45,11 +45,27 @@
     }
 
     .gtranslate_wrapper select {
-        padding-block: 0.5rem;
+        padding-block: 1rem;
         background-color: transparent;
         max-width: 120px;
     }
     </style>
+
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const select = document.querySelector(".gt_selector");
+        const options = select.options;
+        select.removeChild(options[0]);
+        for (let i = 0; i < options.length; i++) {
+            const option = options[i];
+            // if (i === 0) {
+            //     select.removeChild(option);
+            // }
+            const value = option.getAttribute("value").split("|")[1]
+            option.innerHTML = value || option.innerHTML;
+        }
+    });
+    </script>
 
 </head>
 

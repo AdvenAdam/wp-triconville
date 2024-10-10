@@ -64,8 +64,12 @@ h6 {
     overflow: hidden;
     text-overflow: ellipsis;
   }
-  .gt_selector{
+  
+  .gtranslate_wrapper .gt_selector{
     text-transform: uppercase;
+  }
+  .gtranslate_wrapper .gt_selector:focus-visible{
+    outline: none;
   }
 #page-loading {
     position: fixed;
