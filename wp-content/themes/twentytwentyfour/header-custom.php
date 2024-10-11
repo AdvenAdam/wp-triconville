@@ -314,7 +314,6 @@
                 $(`#${parentUrl}-link`).removeClass('text-gray-900').addClass('text-cyan-500 underline');
                 break;
             default:
-                console.log("🚀 ~ setActiveLink ~ parentUrl:", parentUrl)
                 $(`#${parentUrl}-link`).removeClass('text-gray-900').addClass('text-cyan-500 underline');
                 break;
         }
