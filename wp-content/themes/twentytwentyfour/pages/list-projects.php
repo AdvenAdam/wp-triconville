@@ -3,7 +3,6 @@
 Template Name: List Projects
 */
 
-// TODO : Render Banner->Desc Project->Gallery->Product
 // Include your custom header
 get_template_part('header-custom');
 ?>
@@ -24,51 +23,52 @@ get_template_part('header-custom');
 </div>
 <script>
 let projects = [];
-jQuery(document).ready(function($) {
-    $(document).ready(function() {
-        const filter = {
-            slug: "the-danna-langkawi"
-        }
-        $.ajax({
-            url: "<?= BASE_URL; ?>/?rest_route=/wp/v2/selected_projects",
-            type: "GET",
-            data: filter,
-            beforeSend: () => {
-                $('#page-loading').show();
-            },
-            success: (res) => {
-                console.log("🚀 ~ $ ~ res:", res)
-                projects = res;
-                renderMaster();
-            },
-            error: function(xhr, status, error) {
-                console.log("🚀 ~ $ ~ xhr:", xhr)
-                console.log("🚀 ~ $ ~ status:", status)
-                console.error('Error fetching data:', error);
-            },
-            complete: () => {
-                $('#page-loading').hide();
+$(document).ready(function() {
+    $.ajax({
+        url: "<?= BASE_URL; ?>/?rest_route=/wp/v2/selected_projects",
+        type: "GET",
+        beforeSend: () => {
+            $('#page-loading').show();
+        },
+        success: (res) => {
+            projects = res;
+        },
+        error: function(xhr, status, error) {
+            if (xhr.status === 404) {
+                redirectError(404)
             }
-        })
+            console.error('Error fetching data:', error);
+        },
+        complete: () => {
+            renderMaster();
+        }
     })
 })
+
 // ANCHOR RENDERER SLIDER
 function renderMaster() {
-    // NOTE : Init Slider First
-    projects.forEach(project => {
-        $('#Slider__Container').append(`
-            <div class="relative"
-             id="${project.slug}__Container">
-                <div class="h-screen w-auto" id="${project.slug}__slider">
+    try {
+        // NOTE : Init Slider First
+        projects.forEach(project => {
+            $('#Slider__Container').append(`
+                <div class="relative"
+                id="${project.slug}__Container">
+                    <div class="h-screen w-auto" id="${project.slug}__slider">
 
+                    </div>
                 </div>
-            </div>
-        `)
-        renderSliderPages(project)
-        renderButton(project.slug)
-        initSlick(project.slug)
+            `)
+            renderSliderPages(project)
+            renderButton(project.slug)
+            initSlick(project.slug)
+        })
+    } catch (error) {
+        redirectError()
+        console.error("Error Rendering data:", error)
+    } finally {
+        $('#page-loading').hide();
+    }
 
-    })
 }
 
 

@@ -5,7 +5,6 @@ $character_slug = get_query_var('product');
 ?>
 <style>
 .product-detail-banner {
-    background: url('<?php echo get_stylesheet_directory_uri(); ?>/assets/images/category-detail-banner.jpg');
     height: 100vh;
     width: 100%;
     overflow: hidden;
@@ -60,33 +59,46 @@ $(document).ready(function() {
             $('#page-loading').show();
         },
         success: (res) => {
-            $('#page-loading').hide();
             const filteredCategory = res.filter(cat => cat.slug === '<?= $character_slug ?>')
             categoriesData = filteredCategory[0];
-            $('.product-detail-banner').css('background-image', `url("<?php echo get_stylesheet_directory_uri(); ?>/assets/images/category/banner/${categoriesData.image}")`);
-            $('#category__name').text(categoriesData.name);
-            renderFilterProduct('All Products', 0);
-            // NOTE : Render all Filter Product
-            renderFilterAllProduct();
-
-            // TODO : Render Each SubCategory
-            categoriesData.children.forEach((e, index) => {
-                renderFilterProduct(e.name, e.id, e.param);
-            })
+        },
+        error: (xhr, status, error) => {
+            if (xhr.status === 404) {
+                redirectError(404)
+            }
+            console.error('Error fetching data:', error);
+        },
+        complete: () => {
+            $('#page-loading').hide();
+            renderMaster()
         }
     })
     $.ajax({
         url: "<?= BASE_URL; ?>/?rest_route=/wp/v2/selected_collection",
         type: "GET",
-        beforeSend: () => {
-            $('#page-loading').show();
-        },
         success: (res) => {
-            $('#page-loading').hide();
             selectedCollectionId = res.collection;
-        }
+        },
     })
 })
+
+function renderMaster() {
+    try {
+        $('.product-detail-banner').css('background-image', `url("<?php echo get_stylesheet_directory_uri(); ?>/assets/images/category/banner/${categoriesData.image}")`);
+        $('#category__name').text(categoriesData.name);
+        renderFilterProduct('All Products', 0);
+        // NOTE : Render all Filter Product
+        renderFilterAllProduct();
+
+        // TODO : Render Each SubCategory
+        categoriesData.children.forEach((e, index) => {
+            renderFilterProduct(e.name, e.id, e.param);
+        })
+    } catch (error) {
+        console.error("🚀 ~ renderMaster ~ error:", error)
+        redirectError()
+    }
+}
 
 async function renderFilterAllProduct() {
     subCategoryOnClick('All Products', 0);

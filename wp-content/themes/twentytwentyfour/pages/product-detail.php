@@ -93,33 +93,9 @@ $character_slug = get_query_var('detail');
     </div>
     <!-- NOTE : PRODUCT Specification -->
     <div class="md:p-5 p-3">
-        <div class="max-w-[1440px] mx-auto grid gap-4 grid-cols-1 md:grid-cols-2">
-            <div class=""
-                 id="image__spec">
-            </div>
-            <div class="md:p-3">
-                <div class="p-3">
-                    <div class="flex items-start justify-between">
-                        <h3 class="text-3xl tracking-wide mb-3 line-clamp-2">SIZING</h3>
-                        <div class="flex items-center sizing-btn">
-                            <button class="bg-slate-800 hover:bg-slate-800/80 border border-slate-800 text-white py-2 px-8 text-sm"
-                                    onClick="changeSize('metric')"
-                                    id="metric">Metric</button>
-                            <button class="bg-transparent hover:bg-slate-800 hover:text-white border border-slate-800 py-2 px-8 text-sm"
-                                    onClick="changeSize('imperial')"
-                                    id="imperial">Imperial</button>
-                        </div>
-                    </div>
-                    <table class="product__spec w-full"
-                           id="table__spec"></table>
-                </div>
-                <div class="p-3">
-                    <h3 class="text-3xl tracking-wide mb-3 line-clamp-2">DOWNLOAD</h3>
-                    <div id="product__downloadable"
-                         class="grid grid-cols-2 gap-4">
-                    </div>
-                </div>
-            </div>
+        <div class="max-w-[1440px] mx-auto grid gap-4 grid-cols-1 md:grid-cols-2"
+             id="specification__section">
+
         </div>
     </div>
     <!-- NOTE : PRODUCT IN THIS SECTION -->
@@ -162,47 +138,56 @@ jQuery(document).ready(function($) {
             $('#page-loading').show();
         },
         success: (res) => {
+            console.log("🚀 ~ jQuery ~ res:", res)
             ProductsData = res;
-            console.log("🚀 ~ jQuery ~ ProductsData:", ProductsData)
-            // NOTE : PRODUCT HEADER 
-            $('#product__banner').append(
-                `<div class="h-screen w-full transition-all duration-500 "
-                    style="
-                        background: url('${res.ambience_image_1920[0]}'); 
-                        background-position: 50% 50%;
-                        background-size: cover;
-                        background-repeat: no-repeat;
-                    ">
-                    <div class ='bg-black bg-opacity-30 h-full w-full flex items-center justify-center'>
-                        <h1 class="text-4xl font-extrabold text-center tracking-wider text-white uppercase">${res.name}</h1>
-                    </div>
-                </div>`
-            );
-            // NOTE :PRODUCT OVERVIEW
-            renderOverview(res);
-            renderMaterial(res.combineoptionvariant);
-            // APPEND DIMENSION
-            renderDimensions(res.dimension);
-            renderDownloadable(res.asset3d);
-            renderImages(res);
-            if (res.collection_product) {
-                renderCollectionProducts(res.collection_product.slice(0, 4), res.collection_det);
-            }
-            if (Array.isArray(res.goes_well_with) && res.goes_well_with.length > 0) {
-                renderWellWithProducts(res.goes_well_with);
-            }
         },
         error: (xhr, status, error) => {
             if (xhr.status === 404) {
-                window.location.href = '<?= BASE_LINK; ?>/page-not-found';
+                redirectError(404)
             }
             console.error('Error fetching data:', error);
         },
         complete: () => {
             $('#page-loading').hide();
+            renderMaster();
         }
     });
 });
+
+function renderMaster() {
+    try {
+        // NOTE : PRODUCT HEADER 
+        $('#product__banner').append(
+            `<div class="h-screen w-full transition-all duration-500 "
+                    style="
+                        background: url('${ProductsData.ambience_image_1920[0]}'); 
+                        background-position: 50% 50%;
+                        background-size: cover;
+                        background-repeat: no-repeat;
+                    ">
+                    <div class ='bg-black bg-opacity-30 h-full w-full flex items-center justify-center'>
+                        <h1 class="text-4xl font-extrabold text-center tracking-wider text-white uppercase">${ProductsData.name}</h1>
+                    </div>
+                </div>`
+        );
+        // NOTE :PRODUCT OVERVIEW
+        renderOverview(ProductsData);
+        renderMaterial(ProductsData.combineoptionvariant);
+        // APPEND DIMENSION
+        renderDimensions(ProductsData.dimension);
+        renderDownloadable(ProductsData.asset3d);
+        renderImages(ProductsData);
+        if (Array.isArray(ProductsData.collection_product) && ProductsData.collection_product.length > 0) {
+            renderCollectionProducts(ProductsData.collection_product.slice(0, 4), ProductsData.collection_det);
+        }
+        if (Array.isArray(ProductsData.goes_well_with) && ProductsData.goes_well_with.length > 0) {
+            renderWellWithProducts(ProductsData.goes_well_with);
+        }
+    } catch (error) {
+        console.error("🚀 ~ renderMaster ~ error:", error)
+        redirectError()
+    }
+}
 
 function changeSize(size) {
     $('.sizing-btn button').removeClass('bg-slate-800 hover:bg-slate-800/80 text-white').addClass('bg-transparent hover:bg-slate-800 hover:text-white');
@@ -264,6 +249,36 @@ function renderOverview(res) {
 }
 
 function renderDimensions(dimensions) {
+    if (dimensions) {
+        $('#specification__section').append(`
+            <div class=""
+                 id="image__spec">
+            </div>
+            <div class="md:p-3">
+                <div class="p-3">
+                    <div class="flex items-start justify-between">
+                        <h3 class="text-3xl tracking-wide mb-3 line-clamp-2">SIZING</h3>
+                        <div class="flex items-center sizing-btn">
+                            <button class="bg-slate-800 hover:bg-slate-800/80 border border-slate-800 text-white py-2 px-8 text-sm"
+                                    onClick="changeSize('metric')"
+                                    id="metric">Metric</button>
+                            <button class="bg-transparent hover:bg-slate-800 hover:text-white border border-slate-800 py-2 px-8 text-sm"
+                                    onClick="changeSize('imperial')"
+                                    id="imperial">Imperial</button>
+                        </div>
+                    </div>
+                    <table class="product__spec w-full"
+                           id="table__spec"></table>
+                </div>
+                <div class="p-3">
+                    <h3 class="text-3xl tracking-wide mb-3 line-clamp-2">DOWNLOAD</h3>
+                    <div id="product__downloadable"
+                         class="grid grid-cols-2 gap-4">
+                    </div>
+                </div>
+            </div>
+        `)
+    }
     // Append overall dimensions
     if (dimensions.ps_overal_dimension) {
         dimensions.ps_overal_dimension.forEach((e) => {
@@ -280,12 +295,12 @@ function renderDimensions(dimensions) {
     if (dimensions.ps_box_dimension) {
         dimensions.ps_box_dimension.forEach((e) => {
             $('#table__spec').append(`
-                        <tr>
-                            <td class='w-1/2'>Box - ${e.description}</td>
-                            <td class='px-3'> : </td>
-                            <td>${e.width} x ${e.depth} x ${e.height}</td>
-                        </tr>
-                    `);
+                <tr>
+                    <td class='w-1/2'>Box - ${e.description}</td>
+                    <td class='px-3'> : </td>
+                    <td>${e.width} x ${e.depth} x ${e.height}</td>
+                </tr>
+            `);
         });
     }
     // Append other properties

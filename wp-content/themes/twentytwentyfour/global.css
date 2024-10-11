@@ -67,6 +67,7 @@ h6 {
   
   .gtranslate_wrapper .gt_selector{
     text-transform: uppercase;
+    cursor: pointer;
   }
   .gtranslate_wrapper .gt_selector:focus-visible{
     outline: none;

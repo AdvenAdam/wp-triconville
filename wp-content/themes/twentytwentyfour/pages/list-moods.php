@@ -50,30 +50,36 @@ $(document).ready(function() {
         },
         success: (res) => {
             moods = res;
-            renderBanner();
         },
         error: function(xhr, status, error) {
             console.error('Error fetching data:', error);
         },
         complete: () => {
-            $('#page-loading').hide();
+            renderBanner();
         }
     })
 })
 
 function renderBanner() {
-    // Note : Set background
-    moods.forEach(mood => {
-        $('#mood__list').append(`
-            <div class="h-[600px] w-auto bg-no-repeat bg-center bg-cover"
-                style="background-image: url('<?php echo get_stylesheet_directory_uri(); ?>/${mood.thumb}')">
-                <a href="<?= BASE_LINK ?>/moods/${mood.slug}"
-                    class="h-full w-full flex items-end justify-end p-5">
-                    <h1 class="text-5xl font-semibold text-end text-white max-w-[260px]">${mood.name}</h1>
-                </a>
-            </div>
-        `)
-    })
+    try {
+        // Note : Set background
+        moods.forEach(mood => {
+            $('#mood__list').append(`
+                <div class="h-[600px] w-auto bg-no-repeat bg-center bg-cover"
+                    style="background-image: url('<?php echo get_stylesheet_directory_uri(); ?>/${mood.thumb}')">
+                    <a href="<?= BASE_LINK ?>/moods/${mood.slug}"
+                        class="h-full w-full flex items-end justify-end p-5">
+                        <h1 class="text-5xl font-semibold text-end text-white max-w-[260px]">${mood.name}</h1>
+                    </a>
+                </div>
+            `)
+        })
+    } catch (error) {
+        redirectError();
+    } finally {
+        $('#page-loading').hide();
+    }
+
 }
 </script>
 <?php

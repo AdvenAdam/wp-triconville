@@ -42,16 +42,90 @@ $(document).ready(function() {
             moods = res;
             selectedMood = moods.find(e => e.slug === '<?= $character_slug; ?>');
             otherMoods = moods.filter(e => e.slug !== '<?= $character_slug; ?>');
-            renderBanner();
+
         },
         error: function(xhr, status, error) {
+            if (xhr.status === 404) {
+                redirectError(404)
+            }
             console.error('Error fetching data:', error);
         },
         complete: () => {
-            $('#page-loading').hide();
+            renderMaster();
         }
     })
 })
+
+function renderMaster() {
+    try {
+        renderBanner()
+        // Note : Set Materials
+        $('#mood__materials').append(`
+            <div class="py-10 grid grid-cols-1 sm:grid-cols-2 gap-3 items-center">
+                <div class="p-5 flex justify-center relative">
+                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/${selectedMood.materials.image}" class="w-auto max-h-[500px] object-cover relative z-10" />
+                    <div class="absolute opacity-50 h-3/4 w-1/2 top-1/2 -translate-y-1/2 left-10 z-1" style="background-color: ${selectedMood.color.end}"></div>
+                </div>
+                <div class="p-5 max-w-xl">
+                    <h2 class="text-3xl tracking-wider text-white mb-5">
+                        Materials
+                    </h2>
+                    <p class="text-sm text-white text-justify">
+                        ${selectedMood.materials.desc}
+                    </p>
+                </div>
+            </div>
+        `);
+        // Note : Set Inspirations / Projects
+        $('#mood__inspirations').append(`
+            <div class="py-10">
+               <div class="grid grid-cols-1 md:grid-cols-2 gap-10 py-10">
+                    <h2 class="text-3xl tracking-wider md:col-span-2 text-center text-white md:pb-60">
+                        Inspirations
+                    </h2>
+                   ${selectedMood.relatedProjects.map(e => `
+                        <div class="p-5 w-auto bg-no-repeat h-[450px] ${e.id % 2 === 0 ? 'mt-0' : 'md:-mt-40'} relative" style="background: url('<?php echo get_stylesheet_directory_uri(); ?>/${e.thumb}');">
+                            <div class="absolute bg-opacity-50 ${e.id % 2 === 0 ? 'md:-bottom-20 z-2' : 'md:-top-20 z-1'} p-5 max-w-lg ${e.id % 2 === 0 ? '-right-20' : '-right-20'}" style="background-color: ${selectedMood.color.end}">
+                                <h2 class="text-3xl tracking-wider text-white mb-5">
+                                    ${e.title}
+                                </h2>
+                                <p class="text-sm text-white text-justify">
+                                    ${e.location}
+                                </p>
+                            </div>
+                        </div>
+                    `).join('')}
+               </div>
+            </div>
+        `);
+        // Note : Set Other Moods
+        $('#mood__other_moods').append(`
+            <div class="py-10">
+                <h2 class="text-3xl tracking-wider text-white">
+                    Discover Other Moods
+                </h2>
+                <div class="flex items-center my-5 snap-x overflow-x-scroll scrollbar-none">
+                    ${otherMoods.map(e => `
+                        <div class="mx-2 snap-center">
+                            <div class="h-[600px] w-[400px] max-w-screen bg-no-repeat bg-center bg-cover"
+                                style="background-image: url('<?php echo get_stylesheet_directory_uri(); ?>/${e.thumb}')">
+                                <a href="<?= BASE_LINK ?>/moods/${e.slug}"
+                                class="h-full w-full flex items-end justify-end p-5">
+                                    <h1 class="text-5xl font-semibold text-end text-white max-w-[260px]">${e.name}</h1>
+                                </a>
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
+            </div>
+        `);
+    } catch (error) {
+        console.error('Error rendering data:', error);
+        redirectError()
+    } finally {
+        $('#page-loading').hide();
+    }
+}
 
 function renderBanner() {
     // Note : Set background
@@ -81,68 +155,6 @@ function renderBanner() {
             </p>
             <img src="<?php echo get_stylesheet_directory_uri(); ?>/${selectedMood.subTitle.subImage}" class="w-auto h-auto object-cover " />
         </div>
-    `);
-    // Note : Set Materials
-    $('#mood__materials').append(`
-        <div class="py-10 grid grid-cols-1 sm:grid-cols-2 gap-3 items-center">
-            <div class="p-5 flex justify-center relative">
-                <img src="<?php echo get_stylesheet_directory_uri(); ?>/${selectedMood.materials.image}" class="w-auto max-h-[500px] object-cover relative z-10" />
-                <div class="absolute opacity-50 h-3/4 w-1/2 top-1/2 -translate-y-1/2 left-10 z-1" style="background-color: ${selectedMood.color.end}"></div>
-            </div>
-            <div class="p-5 max-w-xl">
-                <h2 class="text-3xl tracking-wider text-white mb-5">
-                    Materials
-                </h2>
-                <p class="text-sm text-white text-justify">
-                    ${selectedMood.materials.desc}
-                </p>
-            </div>
-        </div>
-    `);
-    // Note : Set Inspirations
-    $('#mood__inspirations').append(`
-        <div class="py-10">
-          
-           <div class="grid grid-cols-1 md:grid-cols-2 gap-10 py-10">
-                <h2 class="text-3xl tracking-wider md:col-span-2 text-center text-white md:pb-60">
-                    Inspirations
-                </h2>
-               ${selectedMood.relatedProjects.map(e => `
-                    <div class="p-5 w-auto bg-no-repeat h-[450px] ${e.id % 2 === 0 ? 'mt-0' : 'md:-mt-40'} relative" style="background: url('<?php echo get_stylesheet_directory_uri(); ?>/${e.thumb}');">
-                        <div class="absolute bg-opacity-50 ${e.id % 2 === 0 ? 'md:-bottom-20 z-2' : 'md:-top-20 z-1'} p-5 max-w-lg ${e.id % 2 === 0 ? '-right-20' : '-right-20'}" style="background-color: ${selectedMood.color.end}">
-                            <h2 class="text-3xl tracking-wider text-white mb-5">
-                                ${e.title}
-                            </h2>
-                            <p class="text-sm text-white text-justify">
-                                ${e.location}
-                            </p>
-                        </div>
-                    </div>
-                `).join('')}
-           </div>
-        </div>
-    `);
-    // Note : Set Other Moods
-    $('#mood__other_moods').append(`
-        <div class="py-10">
-            <h2 class="text-3xl tracking-wider text-white">
-                Discover Other Moods
-            </h2>
-            <div class="flex items-center my-5 snap-x overflow-x-scroll scrollbar-none">
-                ${otherMoods.map(e => `
-                    <div class="mx-2 snap-center">
-                        <div class="h-[600px] w-[400px] max-w-screen bg-no-repeat bg-center bg-cover"
-                            style="background-image: url('<?php echo get_stylesheet_directory_uri(); ?>/${e.thumb}')">
-                            <a href="<?= BASE_LINK ?>/moods/${e.slug}"
-                            class="h-full w-full flex items-end justify-end p-5">
-                                <h1 class="text-5xl font-semibold text-end text-white max-w-[260px]">${e.name}</h1>
-                            </a>
-                        </div>
-                    </div>
-                `).join('')}
-            </div>
-        </div>
-    
     `);
 }
 </script>

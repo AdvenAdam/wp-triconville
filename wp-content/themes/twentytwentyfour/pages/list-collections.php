@@ -62,8 +62,6 @@ body {
     <div id="list__collections"
          class='mt-16 scrollbar-none'>
     </div>
-    <div id="errorIndicator"
-         class="hidden">Error</div>
     <div id="page-loading">
         <div class="three-balls">
             <div class="ball ball1"></div>

@@ -81,28 +81,27 @@ function loadMaterials() {
             })
         },
         error: function(xhr, status, error) {
-            $('#page-loading').hide();
             $('#errorIndicator').show();
         },
         complete: function() {
             readyToRenderMaterial = readyToRenderMaterial.sort((a, b) => (a.name > b.name) ? 1 : -1)
             renderMaster();
-            $('#page-loading').hide();
         }
     });
 }
 
-async function renderMaster(action = 'all') {
+async function renderMaster() {
     try {
         await readyToRenderMaterial.reduce(async (promise, e) => {
             await promise;
-            if (action == 'all') {
-                renderMaterialFilter(e);
-            }
+            renderMaterialFilter(e);
             await renderMaterials(e.id);
         }, Promise.resolve());
     } catch (error) {
+        redirectError();
         console.error(error);
+    } finally {
+        $('#page-loading').hide();
     }
 }
 
@@ -121,12 +120,6 @@ async function renderMaterials(id) {
                 Authorization: '<?= API_KEY; ?>',
             },
             cache: true,
-            beforeSend: function() {
-                $('#page-loading').show();
-            },
-            complete: function() {
-                $('#page-loading').hide();
-            }
         })
 
         $('#material__page').append(`
