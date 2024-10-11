@@ -26,17 +26,24 @@ get_template_part('header-custom');
 let projects = [];
 jQuery(document).ready(function($) {
     $(document).ready(function() {
+        const filter = {
+            slug: "the-danna-langkawi"
+        }
         $.ajax({
             url: "<?= BASE_URL; ?>/?rest_route=/wp/v2/selected_projects",
             type: "GET",
+            data: filter,
             beforeSend: () => {
                 $('#page-loading').show();
             },
             success: (res) => {
+                console.log("🚀 ~ $ ~ res:", res)
                 projects = res;
                 renderMaster();
             },
             error: function(xhr, status, error) {
+                console.log("🚀 ~ $ ~ xhr:", xhr)
+                console.log("🚀 ~ $ ~ status:", status)
                 console.error('Error fetching data:', error);
             },
             complete: () => {

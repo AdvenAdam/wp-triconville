@@ -163,6 +163,7 @@ jQuery(document).ready(function($) {
         },
         success: (res) => {
             ProductsData = res;
+            console.log("🚀 ~ jQuery ~ ProductsData:", ProductsData)
             // NOTE : PRODUCT HEADER 
             $('#product__banner').append(
                 `<div class="h-screen w-full transition-all duration-500 "
@@ -192,6 +193,9 @@ jQuery(document).ready(function($) {
             }
         },
         error: (xhr, status, error) => {
+            if (xhr.status === 404) {
+                window.location.href = '<?= BASE_LINK; ?>/page-not-found';
+            }
             console.error('Error fetching data:', error);
         },
         complete: () => {
@@ -512,33 +516,38 @@ function renderDownloadable(asset3d) {
 }
 
 function renderImages(images) {
-    images.ambience_image.forEach((e) => {
-        $('.ambience__img').append(`
-            <div>
-                <img src="${e}"
-                    class="h-[350px] sm:h-[600px] lg:h-[700px] mx-2 w-screen md:w-auto object-cover" />
-            </div>
+    if (images.ambience_image_1920.length > 0) {
+        images.ambience_image_1920.forEach((e) => {
+            $('.ambience__img').append(`
+                <div>
+                    <img src="${e}"
+                        class="h-[350px] sm:h-[600px] lg:h-[700px] mx-2 w-screen md:w-auto object-cover" />
+                </div>
+            `)
+        })
+        $('.ambience__img').slick({
+            slidesToScroll: 1,
+            variableWidth: true,
+            arrows: false,
+        });
+        $(".prev-btn").click(function() {
+            $(".ambience__img").slick("slickPrev");
+        });
+        $(".next-btn").click(function() {
+            $(".ambience__img").slick("slickNext");
+        });
+    } else {
+        $('.ambience__section').hide();
+    }
+    if (images.spec_image) {
+        // Spec image
+        $('#image__spec').append(`
+            <img src="${images.spec_image}"
+                alt="specification product"
+                height="512"
+                width="512" />
         `)
-    })
-    $('.ambience__img').slick({
-        slidesToScroll: 1,
-        variableWidth: true,
-        arrows: false,
-    });
-    $(".prev-btn").click(function() {
-        $(".ambience__img").slick("slickPrev");
-    });
-    $(".next-btn").click(function() {
-        $(".ambience__img").slick("slickNext");
-    });
-
-    // Spec image
-    $('#image__spec').append(`
-        <img src="${images.spec_image}"
-            alt="specification product"
-            height="512"
-            width="512" />
-    `)
+    }
 }
 
 function renderCollectionProducts(products, name) {
@@ -630,10 +639,6 @@ function renderWellWithProducts(products) {
     });
 }
 </script>
-<script>
-
-</script>
-
 
 <?php
 // Conditional for footer
