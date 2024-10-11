@@ -72,11 +72,12 @@
 <body <?php body_class(); ?>>
     <header class="header sticky top-0 tracking-widest"
             style="z-index: 20;">
-        <div class="flex items-center justify-between md:px-8 px-5 w-full max-h-16 bg-white">
-            <div class="py-5 flex justify-center">
+        <div class="flex items-center justify-between md:px-5 px-3 w-full max-h-16 bg-white">
+            <div class="py-5 flex justify-center min-w-">
                 <a href="<?php echo home_url(); ?>">
                     <img src="<?= BASE_LINK ?>/wp-content/uploads/2024/09/Logo-Blue-Resized-1.png"
-                         alt="Triconville logo" />
+                         alt="Triconville logo"
+                         class="h-6 will-auto min-w-20" />
                 </a>
             </div>
 
@@ -85,7 +86,7 @@
                      class='md:flex hidden '>
                 </div>
                 <!-- Note : Login -->
-                <div class="flex items-center">
+                <div class="hidden md:flex items-center">
                     <div class="px-3 text-xs uppercase outline-none">
                         <?php echo do_shortcode('[gtranslate]') ?>
                     </div>
@@ -171,7 +172,7 @@
          tabindex="-1"
          aria-labelledby="drawer-navigation-label">
         <h5 id="drawer-navigation-label"
-            class="text-gray-500 uppercase divide-y">
+            class="uppercase divide-y">
             Menu
         </h5>
         <button type="button"
@@ -194,15 +195,24 @@
         <hr class="my-5">
         <!-- NOTE : MENU LIST  -->
         <div class="overflow-y-auto bg-transparent ">
-            <ul class="space-y-2 font-normal"
+            <ul class="space-y-2 text-xs uppercase"
                 id="navbar__category">
             </ul>
 
         </div>
         <hr class="my-5">
         <ul class="space-y-2 font-normal mb-5">
-            <li><a href="<?= BASE_LINK; ?>/contact-us/"
-                   class='flex p-2 items-center text-gray-900 rounded-lg hover:bg-gray-100'>Contact</a></li>
+            <li>
+                <a href="https://triconville.co.id/customer/account/login/">
+                    <p class="px-3 text-xs uppercase hover:text-cyan-500">B2B Login</p>
+                </a>
+            </li>
+            <li>
+                <div class="text-xs px-2 uppercase outline-none">
+                    <?php echo do_shortcode('[gtranslate]') ?>
+                </div>
+            </li>
+
         </ul>
 
         <div class=" flex items-center gap-3 my-3">
@@ -225,7 +235,21 @@
     </div>
     <script>
     $(document).ready(function() {
-        renderNavbar();
+        $.ajax({
+            url: '<?php echo BASE_URL; ?>/?rest_route=/wp/v2/top-nav',
+            type: 'GET',
+            success: function(res) {
+                res.forEach((e) => {
+                    renderLink(e);
+                });
+            },
+            error: function(xhr, status, error) {
+                console.error('Error fetching top navigation items:', error);
+            },
+            complete: function() {
+                setActiveLink();
+            }
+        });
     });
 
     function showSubHeader(isShow) {
@@ -244,24 +268,6 @@
         } else {
             $('#sub-products').removeClass('opacity-100 visible').addClass('opacity-0 invisible');
         }
-    }
-
-    function renderNavbar() {
-        $.ajax({
-            url: '<?php echo BASE_URL; ?>/?rest_route=/wp/v2/top-nav',
-            type: 'GET',
-            success: function(res) {
-                res.forEach((e) => {
-                    renderLink(e);
-                });
-            },
-            error: function(xhr, status, error) {
-                console.error('Error fetching top navigation items:', error);
-            },
-            complete: function() {
-                setActiveLink();
-            }
-        });
     }
 
     function renderLink(e) {
@@ -287,7 +293,7 @@
             `);
         } else {
             $('#navbar_menu_category').append(`
-                <a href="${e.href}" id="${slugify(e.name)}-link" class="flex py-5 px-3 gap-2 items-center text-gray-900 hover:text-cyan-500">
+                <a href="${e.href}" id="${slugify(e.name)}-link" class="flex py-5 px-2 gap-2 items-center text-gray-900 hover:text-cyan-500">
                     <p class="uppercase text-xs">${e.name}</p>
                 </a>
             `);

@@ -31,7 +31,7 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
     <div class="p-3 md:p-5">
         <div class="max-w-[1440px] mx-auto">
             <div class="grid md:grid-cols-2 items-center my-5">
-                <div class="txt max-w-xl text-justify">
+                <div class="txt max-w-xl text-justify py-5">
                     <p class="uppercase text-xs tracking-widest">our story</p>
                     <h2 class='text-3xl tracking-wider'>
                         20 Years of Excellence Experience on Outdoor Living
@@ -67,7 +67,7 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                         An outdoor sofa that hugs you with the specially built cushion designed ergonomically to improve comfort,
                         while the angular backrest makes the recline easy with books or drinks in hand.
                     </p>
-                    <a href="<?= BASE_LINK ?>/about-us"
+                    <a href="<?= BASE_LINK ?>/projects"
                        class='btn-ghost uppercase tracking-widest text-xs'>
                         inspiration
                     </a>
@@ -80,42 +80,42 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
         <!-- Carousel wrapper -->
         <div class=" slider__home">
             <!-- Item 1 -->
-            <div class=" duration-200 ease-linear mx-2"
+            <div class="max-w-screen duration-200 ease-linear mx-2"
                  data-carousel-item>
                 <img src="https://storage.googleapis.com/pimassest1/asset/utils/collection/featured_image/Corda/1920/corda-sofa-lifestyle-2.jpg"
-                     class="object-cover w-auto h-[600px]"
+                     class="object-cover w-auto max-w-screen h-[600px]"
                      alt="Slider-1">
             </div>
             <!-- Item 2 -->
-            <div class=" duration-200 ease-linear mx-2"
+            <div class="max-w-screen duration-200 ease-linear mx-2"
                  data-carousel-item>
                 <img src="https://storage.googleapis.com/pimassest1/asset/utils/collection/featured_image/Emmilie/1920/Emmilie-sofa_piedra-coffee-table.jpg"
-                     class="object-cover w-auto h-[600px]"
+                     class="object-cover w-auto max-w-screen h-[600px]"
                      alt="Slider-2">
             </div>
             <!-- Item 3 -->
-            <div class=" duration-200 ease-linear mx-2"
+            <div class="max-w-screen duration-200 ease-linear mx-2"
                  data-carousel-item>
                 <img src="https://storage.googleapis.com/pimassest1/asset/utils/collection/featured_image/Karla/1920/Karla_2-1-1_Olefin-calasona-142-weathered-teak-.jpg"
-                     class="object-cover w-auto h-[600px]"
+                     class="object-cover w-auto max-w-screen h-[600px]"
                      alt="Slider-2">
             </div>
             <!-- Item 4 -->
-            <div class=" duration-200 ease-linear mx-2"
+            <div class="max-w-screen duration-200 ease-linear mx-2"
                  data-carousel-item>
                 <img src="https://storage.googleapis.com/pimassest1/asset/utils/collection/featured_image/Timo/1920/timo_sofa_lifestyle_06.jpg"
-                     class="object-cover w-auto h-[600px]"
+                     class="object-cover w-auto max-w-screen h-[600px]"
                      alt="Slider-2">
             </div>
             <!-- Item 5 -->
-            <div class=" duration-200 ease-linear mx-2"
+            <div class="max-w-screen duration-200 ease-linear mx-2"
                  data-carousel-item>
                 <img src="https://storage.googleapis.com/pimassest1/asset/utils/collection/featured_image/Vento%20Aluminium/1920/4._Vento_Alu_Ambiance_Fontelina_Blue_.jpg"
-                     class="object-cover w-auto h-[600px]"
+                     class="object-cover w-auto max-w-screen h-[600px]"
                      alt="Slider-2">
             </div>
         </div>
-        <button class="slick-prev prev-btn absolute top-1/2 -translate-y-1/2 z-1 left-5 py-10 bg-slate-50/50 p-3 hover:bg-slate-50/80"
+        <button class="slick-prev prev-btn hidden md:block absolute top-1/2 -translate-y-1/2 z-1 left-5 py-10 bg-slate-50/50 p-3 hover:bg-slate-50/80"
                 aria-label="Previous"
                 type="button">
             <svg xmlns="http://www.w3.org/2000/svg"
@@ -129,7 +129,7 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                       d="M15.75 19.5 8.25 12l7.5-7.5" />
             </svg>
         </button>
-        <button class="slick-next next-btn absolute top-1/2 -translate-y-1/2 z-1     right-5 py-10 bg-slate-50/50 p-3 hover:bg-slate-50/80"
+        <button class="slick-next next-btn hidden md:block absolute top-1/2 -translate-y-1/2 z-1 right-5 py-10 bg-slate-50/50 p-3 hover:bg-slate-50/80"
                 aria-label="Next"
                 type="button">
             <svg xmlns="http://www.w3.org/2000/svg"
@@ -144,12 +144,14 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
             </svg>
         </button>
     </div>
+    <!-- NOTE : Collection & News List &Catalog -->
     <div class="p-3 md:p-5">
         <div class="max-w-[1440px] mx-auto">
-            <!-- NOTE : Collection -->
+            <!-- ANCHOR : Collection -->
             <div class="py-10">
                 <h2 class="text-center text-3xl tracking-wider mb-5">Collections</h2>
-                <div class=" grid grid-cols-1 sm:grid-cols-2 gap-3 my-5"
+                <!-- sm:grid sm:grid-cols-2 gap-3 my-5 -->
+                <div class="block sm:grid sm:grid-cols-2 gap-3 my-5 collection__wrapper"
                      id="colection-selected"></div>
                 <div class="text-center">
                     <a href="<?= BASE_LINK ?>/collections"
@@ -158,7 +160,7 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                     </a>
                 </div>
             </div>
-            <!-- NOTE : News List -->
+            <!-- ANCHOR : News List -->
             <div class="py-10">
                 <div class="text-center mx-auto max-w-2xl mb-5">
                     <p class="uppercase tracking-widest text-xs">news </p>
@@ -193,7 +195,7 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                        class="btn-ghost uppercase text-xs tracking-widest">All News</a>
                 </div>
             </div>
-            <!-- NOTE : Catalog -->
+            <!-- ANCHOR : Catalog -->
             <div class="py-10">
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 my-5">
                     <div class="">
@@ -236,6 +238,8 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
             type: "GET",
             success: (res) => {
                 selectedCollectionIds = res.homePageCollection;
+            },
+            complete: () => {
                 loadCollections();
             }
         })
@@ -268,32 +272,62 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                 sortedCollections = filteredCollections.sort((a, b) => (b.collection_id > a.collection_id) ? 1 : -1)
                 sortedCollections.slice(0, 4).forEach((colection) => renderCollections(colection));
                 $('#page-loading').hide();
+                collectionSlick()
             }
         });
     }
 
     function renderCollections(collection) {
         $('#colection-selected').append(`
-        <div style="background-image: url(${collection.collection_image_768});" class="bg-cover bg-no-repeat bg-center h-[300px] sm:h-[365px] w-auto">
-            <a href= "<?= BASE_LINK; ?>/collections/${slugify(collection.name)}">
-                <div class=" h-full w-full flex items-end p-5">
-                    <h1 class="text-5xl text-white line-clamp-2 max-w-xs">
-                        ${collection.name}
-                    </h1>
-                </div>
-            </a>
-        </div>
-    `)
+            <div style="background-image: url(${collection.collection_image_768});" class="bg-cover bg-no-repeat bg-center h-[300px] sm:h-[365px] sm:mx-0 mx-2 w-auto">
+                <a href= "<?= BASE_LINK; ?>/collections/${slugify(collection.name)}">
+                    <div class=" sm:h-full sm:w-full h-[65vh] w-[calc(100vw-20px)] flex items-end p-5 mx-2">
+                        <h1 class="text-5xl text-white line-clamp-2 max-w-xs">
+                            ${collection.name}
+                        </h1>
+                    </div>
+                </a>
+            </div>
+        `);
+
+
     }
+
+    function collectionSlick() {
+        if ($(window).width() <= 639) {
+            $(".collection__wrapper").slick({
+                slidesToScroll: 1,
+                slidesToShow: 1.03,
+                arrows: false,
+                infinite: true,
+            });
+        } else {
+            if ($(".collection__wrapper").hasClass("slick-initialized")) {
+                $(".collection__wrapper").slick("unslick");
+            }
+        }
+    }
+    $(window).resize(function() {
+        collectionSlick();
+    })
     </script>
 
     <script>
     $('.slider__home').slick({
-        infinite: true,
-        centerMode: true,
-        variableWidth: true,
         slidesToScroll: 1,
         arrows: false,
+        variableWidth: true,
+        infinite: true,
+        centerMode: true,
+        responsive: [{
+            breakpoint: 768,
+            settings: {
+                infinite: false,
+                centerMode: false,
+                variableWidth: false,
+                slidesToShow: 1.05,
+            }
+        }]
     });
     $(".prev-btn").click(function() {
         $(".slider__home").slick("slickPrev");
