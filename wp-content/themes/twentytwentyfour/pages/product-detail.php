@@ -195,11 +195,11 @@ function changeSize(size) {
     if (size == 'metric') {
         $('#table__spec').empty();
         $('#metric').removeClass('bg-transparent hover:bg-slate-800 hover:text-white').addClass('bg-slate-800 hover:bg-slate-800/80 text-white');
-        renderDimensions(ProductsData.dimension);
+        renderDimensions(ProductsData.dimension, "only size");
     } else {
         $('#table__spec').empty();
         $('#imperial').removeClass('bg-transparent hover:bg-slate-800 hover:text-white').addClass('bg-slate-800 hover:bg-slate-800/80 text-white');
-        renderDimensions(ProductsData.dimension_imperial);
+        renderDimensions(ProductsData.dimension_imperial, "only size");
     }
 }
 
@@ -248,8 +248,8 @@ function renderOverview(res) {
     }
 }
 
-function renderDimensions(dimensions) {
-    if (dimensions) {
+function renderDimensions(dimensions, render = "all") {
+    if (dimensions && render == "all") {
         $('#specification__section').append(`
             <div class=""
                  id="image__spec">
