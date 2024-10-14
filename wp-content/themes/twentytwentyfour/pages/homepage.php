@@ -170,27 +170,31 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-3 lg:gap-5">
                     <?php foreach ($posts as $post): ?>
-                    <div class="news-card">
-                        <div class="news-image">
+                    <div class="news-card flex items-center gap-3 sm:block">
+                        <div class="news-image w-3/5 sm:w-full sm:h-auto h-[300px]">
                             <?php echo get_the_post_thumbnail($post->ID, 'large'); ?>
                         </div>
-                        <div class=" overflow-hidden">
-                            <h2 class="text-3xl tracking-wider mb-5">
-                                <a href="<?php echo get_permalink($post->ID); ?>"
-                                   class="hover:underline line-clamp-1">
-                                    <?php echo get_the_title($post->ID); ?>
-                                </a>
-                            </h2>
+                        <div class="desc w-2/5 sm:w-full ">
+                            <div class=" overflow-hidden">
+                                <h2 class="text-3xl tracking-wider mb-5">
+                                    <a href="<?php echo get_permalink($post->ID); ?>"
+                                       class="hover:underline line-clamp-1">
+                                        <?php echo get_the_title($post->ID); ?>
+                                    </a>
+                                </h2>
+                            </div>
+                            <div class="mb-10">
+                                <p class=" text-sm line-clamp-2">
+                                    <?php echo get_the_excerpt($post->ID); ?>
+                                </p>
+                            </div>
+
                         </div>
-                        <div class="mb-10">
-                            <p class=" text-sm line-clamp-2">
-                                <?php echo get_the_excerpt($post->ID); ?>
-                            </p>
-                        </div>
+
                     </div>
                     <?php  endforeach; ?>
                 </div>
-                <div class="text-center">
+                <div class="text-center mt-10 md:mt-5">
                     <a href="<?= BASE_LINK ?>/news"
                        class="btn-ghost uppercase text-xs tracking-widest">All News</a>
                 </div>
