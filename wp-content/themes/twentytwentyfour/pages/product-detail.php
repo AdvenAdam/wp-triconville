@@ -47,12 +47,12 @@ $character_slug = get_query_var('detail');
                 <div class="flex flex-col gap-2 item-center md:w-2/5 mt-5 md:mt-0">
                     <span class="mr-3"
                           id="label_1"></span>
-                    <div class="flex flex-wrap gap-1"
+                    <div class="flex flex-wrap gap-2"
                          id="option_1">
                     </div>
                     <span class="mr-3"
                           id="label_2"></span>
-                    <div class="flex flex-wrap items-center gap-1"
+                    <div class="flex flex-wrap items-center gap-2"
                          id="option_2">
                     </div>
                 </div>
@@ -62,7 +62,7 @@ $character_slug = get_query_var('detail');
     <!-- NOTE : PRODUCT Ambience Slider -->
     <div class="ambience__section relative">
         <div class="ambience__img grid gap-4"></div>
-        <button class="slick-prev prev-btn absolute top-1/2 -translate-y-1/2 z-10 left-5 py-10 bg-slate-50/50 p-3 hover:bg-slate-50/80"
+        <button class="slick-prev prev-btn hidden md:block absolute top-1/2 -translate-y-1/2 z-10 left-5 py-10 bg-slate-50/50 p-3 hover:bg-slate-50/80"
                 aria-label="Previous"
                 type="button">
             <svg xmlns="http://www.w3.org/2000/svg"
@@ -76,7 +76,7 @@ $character_slug = get_query_var('detail');
                       d="M15.75 19.5 8.25 12l7.5-7.5" />
             </svg>
         </button>
-        <button class="slick-next next-btn absolute top-1/2 -translate-y-1/2 z-10 right-5 py-10 bg-slate-50/50 p-3 hover:bg-slate-50/80"
+        <button class="slick-next next-btn hidden md:block absolute top-1/2 -translate-y-1/2 z-10 right-5 py-10 bg-slate-50/50 p-3 hover:bg-slate-50/80"
                 aria-label="Next"
                 type="button">
             <svg xmlns="http://www.w3.org/2000/svg"
@@ -108,7 +108,7 @@ $character_slug = get_query_var('detail');
             </div>
             <div class="py-10 relative"
                  id="well__with__product">
-                <h2 class='text-3xl well__with__product__name'></h2>
+                <h2 class='text-2xl md:text-3xl well__with__product__name'></h2>
                 <div class="well__with__product my-10"></div>
                 <div class="well__with__product__btn text-center"></div>
 
@@ -166,7 +166,7 @@ function renderMaster() {
                         background-repeat: no-repeat;
                     ">
                     <div class ='bg-black bg-opacity-30 h-full w-full flex items-center justify-center'>
-                        <h1 class="text-4xl font-extrabold text-center tracking-wider text-white uppercase">${ProductsData.name}</h1>
+                        <h1 class="text-3xl md:text-4xl font-medium text-center tracking-wider text-white uppercase">${ProductsData.name}</h1>
                     </div>
                 </div>`
         );
@@ -208,7 +208,7 @@ function renderMaterial(res) {
         $('#label_1').text(res.label1)
         res.option1.forEach(opt => {
             $('#option_1').append(
-                `<img src="${opt.img_link}" class="w-20 h-20"/>`
+                `<img src="${opt.img_link}" class="w-16 md:w-20 h-16 md:h-20"/>`
             );
         });
     }
@@ -217,7 +217,7 @@ function renderMaterial(res) {
         $('#label_2').text(res.label2)
         res.option2.forEach(opt2 => {
             $('#option_2').append(
-                `<img src="${opt2.img_link}" class="w-20 h-20"/>`
+                `<img src="${opt2.img_link}" class="w-16 md:w-20 h-16 md:h-20"/>`
             );
         });
     }
@@ -233,7 +233,7 @@ function renderOverview(res) {
     if (res.name) {
         $('#product__overview').append(`
             <div class='max-w-lg'>
-                <h1 class="text-3xl font-semibold text-gray-900 tracking-wide line-clamp-2">${res.name}</h1>
+                <h1 class="text-2xl md:text-3xl font-medium text-gray-900 tracking-wide line-clamp-2">${res.name}</h1>
                 <p class="text-slate-500 tracking-widest text-sm mb-3">Designed by 
                     <span class="text-black font-medium hover:underline"><a href="https://indospacegroup.com/dezign-s2dio/">Indospace R&D </a></span>
                 </p>
@@ -255,10 +255,10 @@ function renderDimensions(dimensions, render = "all") {
                  id="image__spec">
             </div>
             <div class="md:p-3">
-                <div class="p-3">
-                    <div class="flex items-start justify-between">
-                        <h3 class="text-3xl tracking-wide mb-3 line-clamp-2">SIZING</h3>
-                        <div class="flex items-center sizing-btn">
+                <div >
+                    <div class="flex md:flex-row flex-col items-start justify-between">
+                        <h3 class="text-2xl md:text-3xl tracking-wide mb-3 line-clamp-2">SIZING</h3>
+                        <div class="flex items-center sizing-btn mb-3">
                             <button class="bg-slate-800 hover:bg-slate-800/80 border border-slate-800 text-white py-2 px-8 text-sm"
                                     onClick="changeSize('metric')"
                                     id="metric">Metric</button>
@@ -267,11 +267,11 @@ function renderDimensions(dimensions, render = "all") {
                                     id="imperial">Imperial</button>
                         </div>
                     </div>
-                    <table class="product__spec w-full"
+                    <table class="product__spec w-full md:text-sm text-xs"
                            id="table__spec"></table>
                 </div>
-                <div class="p-3">
-                    <h3 class="text-3xl tracking-wide mb-3 line-clamp-2">DOWNLOAD</h3>
+                <div >
+                    <h3 class="text-2xl md:text-3xl tracking-wide my-3 line-clamp-2">DOWNLOAD</h3>
                     <div id="product__downloadable"
                          class="grid grid-cols-2 gap-4">
                     </div>
@@ -285,7 +285,7 @@ function renderDimensions(dimensions, render = "all") {
             $('#table__spec').append(`
                 <tr>
                     <td class='w-1/2'>Overall - ${e.description}</td>
-                    <td class='px-3'> : </td>
+                    <td class='md:px-3'> : </td>
                     <td> ${e.width} x ${e.depth} x ${e.height}</td>
                 </tr>
             `);
@@ -297,7 +297,7 @@ function renderDimensions(dimensions, render = "all") {
             $('#table__spec').append(`
                 <tr>
                     <td class='w-1/2'>Box - ${e.description}</td>
-                    <td class='px-3'> : </td>
+                    <td class='md:px-3'> : </td>
                     <td>${e.width} x ${e.depth} x ${e.height}</td>
                 </tr>
             `);
@@ -308,7 +308,7 @@ function renderDimensions(dimensions, render = "all") {
         $('#table__spec').append(`
                     <tr>
                         <td class='w-1/2'>Clearance from Floor</td>
-                        <td class='px-3'> : </td>
+                        <td class='md:px-3'> : </td>
                         <td>${dimensions.ps_clearance_from_floor}</td>
                     </tr>
                 `);
@@ -317,7 +317,7 @@ function renderDimensions(dimensions, render = "all") {
         $('#table__spec').append(`
                     <tr>
                         <td class='w-1/2'>Table Top Thickness</td>
-                        <td class='px-3'> : </td>
+                        <td class='md:px-3'> : </td>
                         <td>${dimensions.ps_table_top_thickness}</td>
                     </tr>
                 `);
@@ -326,7 +326,7 @@ function renderDimensions(dimensions, render = "all") {
         $('#table__spec').append(`
                     <tr>
                         <td class='w-1/2'>Distance Between Legs</td>
-                        <td class='px-3'> : </td>
+                        <td class='md:px-3'> : </td>
                         <td>${dimensions.ps_distance_between_legs}</td>
                     </tr>
                 `);
@@ -335,7 +335,7 @@ function renderDimensions(dimensions, render = "all") {
         $('#table__spec').append(`
                     <tr>
                         <td class='w-1/2'>Arm Height</td>
-                        <td class='px-3'> : </td>
+                        <td class='md:px-3'> : </td>
                         <td>${dimensions.ps_arm_height}</td>
                     </tr>
                 `);
@@ -344,7 +344,7 @@ function renderDimensions(dimensions, render = "all") {
         $('#table__spec').append(`
                     <tr>
                         <td class='w-1/2'>Seat Height</td>
-                        <td class='px-3'> : </td>
+                        <td class='md:px-3'> : </td>
                         <td>${dimensions.ps_seat_height}</td>
                     </tr>
                 `);
@@ -353,7 +353,7 @@ function renderDimensions(dimensions, render = "all") {
         $('#table__spec').append(`
                 <tr>
                     <td class='w-1/2'>Seat Depth</td>
-                    <td class='px-3'> : </td>
+                    <td class='md:px-3'> : </td>
                     <td>${dimensions.ps_seat_depth}</td>
                 </tr>
             `);
@@ -362,7 +362,7 @@ function renderDimensions(dimensions, render = "all") {
         $('#table__spec').append(`
                 <tr>
                     <td class='w-1/2'>Nett Weight</td>
-                    <td class='px-3'> : </td>
+                    <td class='md:px-3'> : </td>
                     <td>${dimensions.ps_nett_weight}</td>
                 </tr>
             `);
@@ -371,7 +371,7 @@ function renderDimensions(dimensions, render = "all") {
         $('#table__spec').append(`
                 <tr>
                     <td class='w-1/2'>Gross Weight</td>
-                    <td class='px-3'> : </td>
+                    <td class='md:px-3'> : </td>
                     <td>${dimensions.ps_gross_weight}</td>
                 </tr>
             `);
@@ -380,7 +380,7 @@ function renderDimensions(dimensions, render = "all") {
         $('#table__spec').append(`
                 <tr>
                     <td class='w-1/2'>PAX</td>
-                    <td class='px-3'> : </td>
+                    <td class='md:px-3'> : </td>
                     <td>${dimensions.ps_pax}</td>
                 </tr>
             `);
@@ -389,7 +389,7 @@ function renderDimensions(dimensions, render = "all") {
         $('#table__spec').append(`
                 <tr>
                     <td class='w-1/2'>20ft Container</td>
-                    <td class='px-3'> : </td>
+                    <td class='md:px-3'> : </td>
                     <td>${dimensions.ps_20ft_container}</td>
                 </tr>
             `);
@@ -398,7 +398,7 @@ function renderDimensions(dimensions, render = "all") {
         $('#table__spec').append(`
                 <tr>
                     <td class='w-1/2'>40HQ Container</td>
-                    <td class='px-3'> : </td>
+                    <td class='md:px-3'> : </td>
                     <td>${dimensions.ps_40hq_container}</td>
                 </tr>
             `);
@@ -407,7 +407,7 @@ function renderDimensions(dimensions, render = "all") {
         $('#table__spec').append(`
                 <tr>
                     <td class='w-1/2'>CBM</td>
-                    <td class='px-3'> : </td>
+                    <td class='md:px-3'> : </td>
                     <td>${dimensions.cbm}</td>
                 </tr>
             `);
@@ -534,7 +534,7 @@ function renderImages(images) {
     if (images.ambience_image_1920.length > 0) {
         images.ambience_image_1920.forEach((e) => {
             $('.ambience__img').append(`
-                <div>
+                <div class="me-2">
                     <img src="${e}"
                         class="h-[350px] sm:h-[600px] lg:h-[700px] mx-2 w-screen md:w-auto object-cover" />
                 </div>
@@ -544,6 +544,14 @@ function renderImages(images) {
             slidesToScroll: 1,
             variableWidth: true,
             arrows: false,
+            responsive: [{
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 1.02,
+                    slidesToScroll: 1,
+                    variableWidth: false,
+                }
+            }]
         });
         $(".prev-btn").click(function() {
             $(".ambience__img").slick("slickPrev");
@@ -572,12 +580,10 @@ function renderCollectionProducts(products, name) {
         $('.collection__product').append(`
             <a href="<?= BASE_LINK; ?>/product-detail/${slugify(e.name)}">     
                 <div class="product__card">
-                    <img src="${e.product_image}" class="h-[350px] mx-2 w-auto object-cover" />
-                    <div class="text-center">
-                        <p class="line-clamp-2">
-                            ${e.name}
-                        </p>
-                    </div>
+                    <img src="${e.product_image}" class="md:h-[384px] h-[204px] object-contain mx-2 w-auto object-cover" />
+                    <p class="text-center text-xs md:mt-[-30px] max-w-[90%] uppercase">
+                        ${e.name}
+                    </p>
                 </div>
             </a>
         `)
@@ -599,7 +605,7 @@ function renderWellWithProducts(products) {
         $('.well__with__product').append(`
             <a href="<?= BASE_LINK; ?>/product-detail/${slugify(e.name)}">     
                 <div class="product__card">
-                    <img src="${e.product_image}" class="h-[350px] mx-2 w-auto object-cover" />
+                    <img src="${e.product_image}" class="md:h-[384px] h-[204px] object-contain mx-2 w-auto object-cover" />
                     <div class="text-center">
                         <p class="line-clamp-2">
                             ${e.name}

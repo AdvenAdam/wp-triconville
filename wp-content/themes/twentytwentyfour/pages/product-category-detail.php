@@ -31,12 +31,13 @@ $character_slug = get_query_var('product');
     </div>
 
     <!-- NOTE : PRODUCT LIST -->
-    <div class="max-w-[1440px] my-8 mx-auto border-b border-black">
+    <div class="max-w-[1440px] px-3 md:px-5 my-8 mx-auto ">
         <h3 class="text-2xl md:text-3xl tracking-widest"
             id="category__name-label"></h3>
+        <hr style="border-width: 2px;" />
     </div>
 
-    <div class="max-w-[1440px] my-10 mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
+    <div class="max-w-[1440px] my-10 mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
          id="product__list">
     </div>
 </div>
@@ -197,8 +198,8 @@ function renderProducts(data) {
         $('#product__list').append(`
             <a href= "<?= BASE_LINK; ?>/product-detail/${slugify(e.name)}">
                 <div class='flex justify-center items-center flex-col p-3'>
-                    <img class="w-auto md:h-[384px] h-[250px] object-cover md:object-contain" src="${e.product_image_384}" />
-                    <p class="text-center md:mt-[-30px] max-w-[90%] uppercase">${e.name}</p>
+                    <img class="w-auto md:h-[384px] h-[204px] object-contain" src="${e.product_image_384}" />
+                    <p class="text-center text-xs md:mt-[-30px] max-w-[90%] uppercase">${e.name}</p>
                 </div>
             </a>
         `);
