@@ -1053,6 +1053,9 @@ video {
 .snap-start {
   scroll-snap-align: start;
 }
+.snap-end {
+  scroll-snap-align: end;
+}
 .snap-center {
   scroll-snap-align: center;
 }
@@ -1395,6 +1398,9 @@ video {
 }
 .pt-5 {
   padding-top: 1.25rem;
+}
+.pe-3 {
+  padding-inline-end: 0.75rem;
 }
 .text-center {
   text-align: center;
@@ -1803,6 +1809,10 @@ video {
 
   .sm\:w-full {
     width: 100%;
+  }
+
+  .sm\:w-2\/3 {
+    width: 66.666667%;
   }
 
   .sm\:grid-cols-2 {
