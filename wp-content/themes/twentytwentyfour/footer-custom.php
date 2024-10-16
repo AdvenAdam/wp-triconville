@@ -76,7 +76,7 @@
                             </p>
                         </div>
                         <div class="about w-full p-3">
-                            <p class='mb-3 uppercasefont-bold text-sm uppercase tracking-widest'>triconville head office</p>
+                            <p class='mb-3 font-bold text-sm uppercase tracking-widest'>triconville head office</p>
                             <p class='md:mb-3 text-sm'>Jl.Bukit Panorama no.6, <br />
                                 Kota Semarang, Jawa Tengah,<br /> Indonesia 50274</p>
                             <p class='text-sm md:mb-3'>+62 21 27084824</p>

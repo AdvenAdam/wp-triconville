@@ -138,13 +138,13 @@
                 </a>
             </div>
         </div>
-        <div class="w-full md:px-5 px-3 py-3 bg-[#F4F6F6]  transition-opacity duration-500 ease-in-out fixed top-16"
+        <div class="w-full md:px-5 px-3 py-3 bg-[#F4F6F6] opacity-0 invisible transition-opacity duration-500 ease-in-out fixed top-16"
              style="z-index: 1;"
              id="sub-products"
              onMouseOut="showSubProducts(false)"
              onMouseOver="showSubProducts(true)">
-            <div class="flex w-full justify-end uppercase text-xs">
-                <div class="flex overflow-x-auto w-full">
+            <div class="uppercase text-xs">
+                <div class="flex md:justify-end overflow-x-auto w-full">
                     <a href="<?= BASE_LINK; ?>/products/sofa/">
                         <p class="px-3 hover:text-cyan-500 whitespace-nowrap"
                            id="sofa-link">Sofa</p>
