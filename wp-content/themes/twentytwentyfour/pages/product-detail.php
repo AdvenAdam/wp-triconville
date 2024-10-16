@@ -235,7 +235,7 @@ function renderOverview(res) {
             <div class='max-w-lg'>
                 <h1 class="text-3xl font-semibold text-gray-900 tracking-wide line-clamp-2">${res.name}</h1>
                 <p class="text-slate-500 tracking-widest text-sm mb-3">Designed by 
-                    <span class="text-black font-medium hover:underline"><a href="https://indospacegroup.com/dezign-s2dio/">Dezign S2dio </a></span>
+                    <span class="text-black font-medium hover:underline"><a href="https://indospacegroup.com/dezign-s2dio/">Indospace R&D </a></span>
                 </p>
                 <p class="text-center line-clamp-4">${res.description.replace(/<li[^>]*>(.*?)<\/li>/g, '')}</p>
             </div>

@@ -71,6 +71,12 @@
       "collection_id": 33,
       "image_banner": "/collection/banner-list/vento-teak.jpg",
       "image_grid": "/collection/grid/vento-teak.jpg"
+    },
+    {
+      "name": "Planka",
+      "collection_id": 22,
+      "image_banner": "/collection/banner-list/planka.png",
+      "image_grid": "/collection/grid/planka.png"
     }
   ],
   "homePageCollection": [19, 13, 33, 28]

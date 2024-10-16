@@ -23,7 +23,7 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
     <!-- NOTE: Banner -->
     <div class="homepage-banner">
         <div class="flex items-center justify-center min-h-full bg-black bg-opacity-25">
-            <h1 class="text-5xl font-extrabold text-center uppercase text-white tracking-widest"
+            <h1 class="text-3xl md:text-5xl font-medium text-center uppercase text-white tracking-widest"
                 id="category__name">PREMIER OUTDOOR FURNITURE</h1>
 
         </div>
@@ -31,12 +31,12 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
     <div class="p-3 md:p-5">
         <div class="max-w-[1440px] mx-auto">
             <div class="grid md:grid-cols-2 items-center my-5">
-                <div class="txt max-w-xl text-justify py-5">
+                <div class="txt max-w-xl md:text-justify py-5">
                     <p class="uppercase text-xs tracking-widest">our story</p>
-                    <h2 class='text-3xl tracking-wider'>
+                    <h2 class='text-2xl md:text-3xl tracking-wider'>
                         20 Years of Excellence Experience on Outdoor Living
                     </h2>
-                    <p class="tracking-wide text-sm mb-5">
+                    <p class="tracking-wide text-sm my-5">
                         In line with cutting-edge design trends, Triconville manufactures furniture that is beautiful yet functional,
                         versatile products, for outdoors. And all combined in an excellence that guides Triconville towards new solutions for
                         the world of architecture and hospitality.
@@ -56,12 +56,12 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                     <p class='uppercase text-xs tracking-widest'>
                         inspiration
                     </p>
-                    <h2 class='text-3xl tracking-wider max-w-xl'>
+                    <h2 class='text-2xl md:text-3xl tracking-wider max-w-xl'>
                         25 Years of Excellence Experience on Outdoor Living
                     </h2>
                 </div>
                 <div class='md:w-2/4 w-full'>
-                    <p class='tracking-wide text-sm mb-5'>
+                    <p class='tracking-wide text-sm my-5'>
                         An outdoor sofa that hugs you with the specially built cushion designed ergonomically to improve comfort,
                         while the angular backrest makes the recline easy with books or drinks in hand.
                         An outdoor sofa that hugs you with the specially built cushion designed ergonomically to improve comfort,
@@ -149,13 +149,14 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
         <div class="max-w-[1440px] mx-auto">
             <!-- ANCHOR : Collection -->
             <div class="py-10">
-                <h2 class="text-center text-3xl tracking-wider mb-5">Collections</h2>
+                <p class="text-center text-xs uppercase tracking-wider mb-5">Collections</p>
+                <h2 class="text-center text-3xl tracking-wider mb-5">Signature Selections for Every Style</h2>
                 <!-- sm:grid sm:grid-cols-2 gap-3 my-5 -->
                 <div class="block sm:grid sm:grid-cols-2 gap-3 my-5 collection__wrapper"
                      id="colection-selected"></div>
                 <div class="text-center">
                     <a href="<?= BASE_LINK ?>/collections"
-                       class='btn-ghost uppercase text-xs tracking-widest '>
+                       class='btn-ghost uppercase text-xs tracking-widest'>
                         more collections
                     </a>
                 </div>
@@ -164,26 +165,26 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
             <div class="py-10">
                 <div class="text-center mx-auto max-w-2xl mb-5">
                     <p class="uppercase tracking-widest text-xs">news </p>
-                    <h4 class="text-3xl tracking-wider">
+                    <h4 class="text-2xl md:text-3xl tracking-wider">
                         Our Latest News
                     </h4>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-3 lg:gap-5">
                     <?php foreach ($posts as $post): ?>
-                    <div class="news-card flex items-center gap-3 sm:block">
-                        <div class="news-image w-3/5 sm:w-full sm:h-auto h-[300px]">
+                    <div class="news-card flex items-center gap-3 md:block">
+                        <div class="news-image w-1/2 md:w-auto md:h-auto sm:h-[240px] object-cover h-[124px]">
                             <?php echo get_the_post_thumbnail($post->ID, 'large'); ?>
                         </div>
-                        <div class="desc w-2/5 sm:w-full ">
+                        <div class="desc w-1/2 md:w-full flex flex-col justify-center">
                             <div class=" overflow-hidden">
-                                <h2 class="text-3xl tracking-wider mb-5">
+                                <h2 class="text-2xl md:text-3xl tracking-wider md:mb-5">
                                     <a href="<?php echo get_permalink($post->ID); ?>"
-                                       class="hover:underline line-clamp-1">
+                                       class="hover:underline line-clamp-2 md:line-clamp-1">
                                         <?php echo get_the_title($post->ID); ?>
                                     </a>
                                 </h2>
                             </div>
-                            <div class="mb-10">
+                            <div class="md:mb-10">
                                 <p class=" text-sm line-clamp-2">
                                     <?php echo get_the_excerpt($post->ID); ?>
                                 </p>
@@ -207,11 +208,11 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                              class="w-auto h-auto object-cover" />
                     </div>
 
-                    <div class="flex justify-center items-center p-5">
-                        <div class="p-5">
+                    <div class="flex justify-center items-center p-3 md:p-5">
+                        <div class="md:p-5">
                             <p class="uppercase text-xs tracking-widest">catalog</p>
                             <h2 class="text-3xl tracking-wider">Triconville - 2024 Catalog</h2>
-                            <p class="text-sm text-justify mb-5">
+                            <p class="text-sm text-justify tracking-wide mb-5">
                                 Discover an unrivaled selection of luxuriant designs from Triconville. Brought to life with captivating imagery,
                                 the 2024 Triconville catalogue is a go-to resource for inspiration and information. Qualified trade members can
                                 reserve a copy by filling out the form below.
@@ -283,7 +284,7 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
 
     function renderCollections(collection) {
         $('#colection-selected').append(`
-            <div style="background-image: url(${collection.collection_image_768});" class="bg-cover bg-no-repeat bg-center h-[300px] sm:h-[365px] sm:mx-0 mx-2 w-auto">
+            <div style="background-image: url(${collection.collection_image_1024});" class="bg-cover bg-no-repeat bg-center h-[300px] sm:h-[365px] sm:mx-0 mx-2 w-auto">
                 <a href= "<?= BASE_LINK; ?>/collections/${slugify(collection.name)}">
                     <div class=" sm:h-full sm:w-full h-[65vh] w-[calc(100vw-20px)] flex items-end p-5 mx-2">
                         <h1 class="text-5xl text-white line-clamp-2 max-w-xs">

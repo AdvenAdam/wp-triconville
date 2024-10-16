@@ -6,9 +6,9 @@
     @apply bg-[#10A1CF] text-white hover:bg-cyan-600 outline-none;
 }
 .btn-ghost {
-    @apply py-3 px-4 bg-transparent text-black border-black border hover:text-white hover:bg-black outline-none;
+    @apply py-3 px-5 bg-transparent text-[#4D4D4D] border-[#4D4D4D] border hover:text-white hover:bg-[#4D4D4D] outline-none;
 }
 .btn-ghost-dark {
-    @apply py-3 px-4 bg-black text-white border-black border hover:bg-slate-800 outline-none;
+    @apply py-3 px-5 bg-[#4D4D4D] text-white border-[#4D4D4D] border hover:bg-slate-800 outline-none;
 
 }

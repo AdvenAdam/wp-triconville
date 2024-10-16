@@ -24,14 +24,15 @@ $character_slug = get_query_var('product');
     </div>
     <!-- NOTE: filter product by category -->
     <div class="max-w-[1440px] my-5 mx-auto">
-        <h3 class="text-xl font-semibold tracking-widest text-center uppercase my-5">CATEGORY</h3>
+        <h3 class="text-2xl md:text-3xl text-center my-10"
+            id="category__name-title">CATEGORY</h3>
         <div id='filter__product'
-             class="flex items-center justify-center gap-3 flex-wrap"></div>
+             class="flex items-center my-10 text-sm justify-center gap-3 flex-wrap"></div>
     </div>
 
     <!-- NOTE : PRODUCT LIST -->
     <div class="max-w-[1440px] my-8 mx-auto border-b border-black">
-        <h3 class="text-xl font-semibold tracking-widest uppercase"
+        <h3 class="text-2xl md:text-3xl tracking-widest"
             id="category__name-label"></h3>
     </div>
 
@@ -86,6 +87,8 @@ function renderMaster() {
     try {
         $('.product-detail-banner').css('background-image', `url("<?php echo get_stylesheet_directory_uri(); ?>/assets/images/category/banner/${categoriesData.image}")`);
         $('#category__name').text(categoriesData.name);
+        $('#category__name-title').text(`Explore Our Outdoor ${categoriesData.name}`);
+
         renderFilterProduct('All Products', 0);
         // NOTE : Render all Filter Product
         renderFilterAllProduct();
@@ -168,7 +171,7 @@ async function fetchProducts(id, param) {
 function renderFilterProduct(name, id, param = '') {
     const classes = id === 0 ? 'onclick="renderFilterAllProduct()"' : `onclick="subCategoryOnClick('${name}', ${id}, '${param}')"`;
     $('#filter__product').append(`
-        <button type="button" id="${slugify(name)}" class="border border-slate-800 p-3 transition duration-300 text-black hover:bg-black hover:text-white" ${classes}>
+        <button type="button" id="${slugify(name)}" class="btn-ghost" ${classes}>
             ${name}
         </button>
     `);
@@ -176,8 +179,8 @@ function renderFilterProduct(name, id, param = '') {
 
 async function subCategoryOnClick(name, id, param) {
     $('#category__name-label').text(name);
-    $('#filter__product button').removeClass('text-white bg-black');
-    $(`#${slugify(name)}`).removeClass('text-black hover:bg-black hover:text-white').addClass('text-white bg-black');
+    $('#filter__product button').removeClass('btn-ghost-dark').addClass('btn-ghost')
+    $(`#${slugify(name)}`).removeClass('btn-ghost').addClass('btn-ghost-dark');
     if (id !== 0) {
         try {
             const data = await fetchProducts(id, param);
@@ -195,7 +198,7 @@ function renderProducts(data) {
             <a href= "<?= BASE_LINK; ?>/product-detail/${slugify(e.name)}">
                 <div class='flex justify-center items-center flex-col p-3'>
                     <img class="w-auto md:h-[384px] h-[250px] object-cover md:object-contain" src="${e.product_image_384}" />
-                    <p class="text-center md:mt-[-30px] max-w-[90%]">${e.name}</p>
+                    <p class="text-center md:mt-[-30px] max-w-[90%] uppercase">${e.name}</p>
                 </div>
             </a>
         `);

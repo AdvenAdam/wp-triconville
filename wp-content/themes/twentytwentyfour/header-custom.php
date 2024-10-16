@@ -95,17 +95,18 @@
                     </a>
                 </div>
                 <!-- NOTE : Drawer -->
-                <button class="group bg-transparent border-transparent outline-none flex items-center py-5 gap-2 md:hidden "
+                <button class="group bg-transparent border-transparent outline-none flex items-center py-5 md:hidden "
                         type="button"
                         data-drawer-target="drawer-navigation"
                         data-drawer-show="drawer-navigation"
                         aria-controls="drawer-navigation">
+                    <p class="text-xs uppercase group-hover:text-cyan-500 pt-1 ">Menu</p>
                     <svg xmlns="http://www.w3.org/2000/svg"
                          fill="none"
                          viewBox="0 0 24 24"
                          stroke-width="1.5"
                          stroke="currentColor"
-                         class="size-6 group-hover:text-gray-400">
+                         class="size-6 group-hover:text-cyan-500">
                         <path stroke-linecap="round"
                               stroke-linejoin="round"
                               d="M3.75 9h16.5m-16.5 6.75h16.5" />
@@ -113,7 +114,7 @@
                 </button>
             </div>
         </div>
-        <div class="w-full md:px-8 py-3 px-5 bg-[#F4F6F6] opacity-0 invisible transition-opacity duration-500 ease-in-out fixed top-16"
+        <div class="w-full md:px-5 px-3 py-3 bg-[#F4F6F6] opacity-0 invisible transition-opacity duration-500 ease-in-out fixed top-16"
              style="z-index: 2;"
              id="sub-header"
              onMouseOut="showSubHeader(false)"
@@ -137,31 +138,33 @@
                 </a>
             </div>
         </div>
-        <div class="w-full md:px-8 py-3 px-5 bg-[#F4F6F6] opacity-0 invisible transition-opacity duration-500 ease-in-out fixed top-16"
+        <div class="w-full md:px-5 px-3 py-3 bg-[#F4F6F6]  transition-opacity duration-500 ease-in-out fixed top-16"
              style="z-index: 1;"
              id="sub-products"
              onMouseOut="showSubProducts(false)"
              onMouseOver="showSubProducts(true)">
             <div class="flex w-full justify-end uppercase text-xs">
-                <a href="<?= BASE_LINK; ?>/products/sofa/">
-                    <p class="px-3 hover:text-cyan-500"
-                       id="sofa-link">Sofa</p>
-                </a>
-                <a href="<?= BASE_LINK; ?>/products/loungechairs/">
-                    <p class="px-3 hover:text-cyan-500"
-                       id="loungechairs-link">Lounge Chairs</p>
-                </a>
-                <a href="<?= BASE_LINK; ?>/products/loungerdaybed/">
-                    <p class="px-3 hover:text-cyan-500"
-                       id="loungerdaybed-link">Lounger & Daybed</p>
-                </a>
-                <a href="<?= BASE_LINK; ?>/products/chairs/">
-                    <p class="px-3 hover:text-cyan-500"
-                       id="chairs-link">Chairs</p>
-                </a> <a href="<?= BASE_LINK; ?>/products/tables/">
-                    <p class="px-3 hover:text-cyan-500"
-                       id="tables-link">Tables</p>
-                </a>
+                <div class="flex overflow-x-auto w-full">
+                    <a href="<?= BASE_LINK; ?>/products/sofa/">
+                        <p class="px-3 hover:text-cyan-500 whitespace-nowrap"
+                           id="sofa-link">Sofa</p>
+                    </a>
+                    <a href="<?= BASE_LINK; ?>/products/loungechairs/">
+                        <p class="px-3 hover:text-cyan-500 whitespace-nowrap"
+                           id="loungechairs-link">Lounge Chairs</p>
+                    </a>
+                    <a href="<?= BASE_LINK; ?>/products/loungerdaybed/">
+                        <p class="px-3 hover:text-cyan-500 whitespace-nowrap"
+                           id="loungerdaybed-link">Lounger & Daybed</p>
+                    </a>
+                    <a href="<?= BASE_LINK; ?>/products/chairs/">
+                        <p class="px-3 hover:text-cyan-500 whitespace-nowrap"
+                           id="chairs-link">Chairs</p>
+                    </a> <a href="<?= BASE_LINK; ?>/products/tables/">
+                        <p class="px-3 hover:text-cyan-500 whitespace-nowrap"
+                           id="tables-link">Tables</p>
+                    </a>
+                </div>
             </div>
         </div>
     </header>

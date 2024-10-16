@@ -1,10 +1,10 @@
 <div class="w-full footer snap-start">
     <div class="flex max-h-[300px] h-[30vh]  bg-cover bg-center bg-no-repeat"
          style="background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/assets/images/store/store-banner.jpeg)">
-        <div class="bg-black bg-opacity-20 h-full w-full flex items-center justify-start">
+        <div class="bg-black bg-opacity-20 h-full w-full flex items-center justify-start px-3 md:px-5">
             <a href="<?= BASE_LINK; ?>/find-a-store/"
                class="flex items-center   w-full gap-3 group max-w-[1440px] mx-auto">
-                <h1 class="text-5xl text-center uppercase font-medium tracking-wide text-white group-hover:underline">
+                <h1 class="text-3xl md:text-5xl md:text-center uppercase font-medium tracking-wide text-white group-hover:underline">
                     find the nearest store
                 </h1>
                 <svg xmlns="http://www.w3.org/2000/svg"
@@ -25,9 +25,9 @@
         <div class="max-w-[1440px] mx-auto ">
             <div class="w-full md:flex">
                 <div class="md:w-3/5 w-full">
-                    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 tracking-wide gap-3">
+                    <div class="grid grid-cols-2 sm:grid-cols-4  tracking-wide gap-3">
                         <div class="about w-full p-3">
-                            <p class='mb-3 uppercase text-sm r'>Triconville</p>
+                            <p class='mb-3 uppercase text-sm font-bold tracking-widest'>Triconville</p>
                             <p class='text-sm py-1'>
                                 <a href='<?= BASE_LINK; ?>/about-us'> Brand </a>
                             </p>
@@ -45,7 +45,7 @@
                             </p>
                         </div>
                         <div class="about w-full tracking-wider p-3">
-                            <p class='mb-3 uppercase text-sm '>products</p>
+                            <p class='mb-3 uppercase text-sm font-bold tracking-widest'>products</p>
                             <p class='text-sm py-1'>
                                 <a href='<?= BASE_LINK; ?>/products/sofa'>Sofa</a>
                             </p>
@@ -64,7 +64,7 @@
 
                         </div>
                         <div class="about w-full tracking-wider p-3">
-                            <p class='mb-3 uppercase text-sm '>moods</p>
+                            <p class='mb-3 uppercase text-sm font-bold tracking-widest'>moods</p>
                             <p class='text-sm py-1'>
                                 <a href='<?= BASE_LINK; ?>/'> Serenity Dunes </a>
                             </p>
@@ -75,14 +75,36 @@
                                 <a href='<?= BASE_LINK; ?>/'> Ocean Breeze </a>
                             </p>
                         </div>
-                        <div class="about w-full md:col-span-2 col-span-3 p-3">
-                            <p class='font-bold uppercase tracking-widest'>triconville head office</p>
-                            <p class='my-3 text-sm'>Jl.Bukit Panorama no.6, <br />
+                        <div class="about w-full p-3">
+                            <p class='mb-3 uppercasefont-bold text-sm uppercase tracking-widest'>triconville head office</p>
+                            <p class='md:mb-3 text-sm'>Jl.Bukit Panorama no.6, <br />
                                 Kota Semarang, Jawa Tengah,<br /> Indonesia 50274</p>
-                            <p class='text-sm mb-3'>+62 21 27084824</p>
-                            <p class='text-sm mb-3'>info@triconville.co.id</p>
-                            <p class='text-sm pt-5 uppercase tracking-wider'>connect</p>
-                            <div class="flex items-center gap-3 my-3">
+                            <p class='text-sm md:mb-3'>+62 21 27084824</p>
+                            <p class='text-sm md:mb-3'>info@triconville.co.id</p>
+                            <div class="md:block hidden">
+                                <p class='font-bold text-sm uppercase tracking-widest pt-5'>connect</p>
+                                <div class="flex items-center gap-2 my-3">
+                                    <a href='#'>
+                                        <img src='<?php echo get_stylesheet_directory_uri(); ?>/assets/images/icons/youtube.svg' />
+                                    </a>
+                                    <a href='#'>
+                                        <img src='<?php echo get_stylesheet_directory_uri(); ?>/assets/images/icons/pinterest.svg' />
+                                    </a>
+                                    <a href='#'>
+                                        <img src='<?php echo get_stylesheet_directory_uri(); ?>/assets/images/icons/instagram.svg' />
+                                    </a>
+                                    <a href='#'>
+                                        <img src='<?php echo get_stylesheet_directory_uri(); ?>/assets/images/icons/facebook.svg' />
+                                    </a>
+                                    <a href='#'>
+                                        <img src='<?php echo get_stylesheet_directory_uri(); ?>/assets/images/icons/linkedin.svg' />
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-3 md:hidden">
+                            <p class='font-bold text-sm uppercase tracking-widest'>connect</p>
+                            <div class="flex items-center gap-2 my-3">
                                 <a href='#'>
                                     <img src='<?php echo get_stylesheet_directory_uri(); ?>/assets/images/icons/youtube.svg' />
                                 </a>
