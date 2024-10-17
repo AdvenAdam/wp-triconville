@@ -8,7 +8,7 @@
         <!-- Note :Banner -->
         <div class="max-w-[1440px] mx-auto">
             <div id="mood__title"
-                 class="flex py-10 gap-20 items-center md:flex-row flex-col ">
+                 class="flex py-5 md:py-10 gap-5 md:gap-20 md:items-center md:flex-row flex-col">
             </div>
             <div id="mood__banner"></div>
             <div id="mood__subtitle"></div>
@@ -61,13 +61,13 @@ function renderMaster() {
         renderBanner()
         // Note : Set Materials
         $('#mood__materials').append(`
-            <div class="py-10 grid grid-cols-1 sm:grid-cols-2 gap-3 items-center">
-                <div class="p-5 flex justify-center relative">
-                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/${selectedMood.materials.image}" class="w-auto max-h-[500px] object-cover relative z-10" />
+            <div class="py-5 md:py-10 flex sm:flex-row flex-col gap-3 items-center">
+                <div class="md:p-5 w-full md:w-1/2 flex justify-end md:justify-center relative">
+                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/${selectedMood.materials.image}" class="w-3/4 md:w-auto max-h-[500px] object-cover relative z-10" />
                     <div class="absolute opacity-50 h-3/4 w-1/2 top-1/2 -translate-y-1/2 left-10 z-1" style="background-color: ${selectedMood.color.end}"></div>
                 </div>
-                <div class="p-5 max-w-xl">
-                    <h2 class="text-3xl tracking-wider text-white mb-5">
+                <div class="md:p-5 w-full md:w-1/2 max-w-xl">
+                    <h2 class="text-2xl md:text-3xl tracking-wider text-white mb-5">
                         Materials
                     </h2>
                     <p class="text-sm text-white text-justify">
@@ -78,15 +78,15 @@ function renderMaster() {
         `);
         // Note : Set Inspirations / Projects
         $('#mood__inspirations').append(`
-            <div class="py-10">
-               <div class="grid grid-cols-1 md:grid-cols-2 gap-10 py-10">
-                    <h2 class="text-3xl tracking-wider md:col-span-2 text-center text-white md:pb-60">
+            <div class="py-5 md:py-10">
+               <div class="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-10">
+                    <h2 class="text-2xl md:text-3xl tracking-wider md:col-span-2 text-center text-white md:pb-60">
                         Inspirations
                     </h2>
                    ${selectedMood.relatedProjects.map(e => `
-                        <div class="p-5 w-auto bg-no-repeat h-[450px] ${e.id % 2 === 0 ? 'mt-0' : 'md:-mt-40'} relative" style="background: url('<?php echo get_stylesheet_directory_uri(); ?>/${e.thumb}');">
-                            <div class="absolute bg-opacity-50 ${e.id % 2 === 0 ? 'md:-bottom-20 z-2' : 'md:-top-20 z-1'} p-5 max-w-lg ${e.id % 2 === 0 ? '-right-20' : '-right-20'}" style="background-color: ${selectedMood.color.end}">
-                                <h2 class="text-3xl tracking-wider text-white mb-5">
+                        <div class="md:p-5 w-auto bg-no-repeat h-[450px] ${e.id % 2 === 0 ? 'mt-0' : 'md:-mt-40'} relative" style="background: url('<?php echo get_stylesheet_directory_uri(); ?>/${e.thumb}'); background-size: cover">
+                            <div class="absolute bg-opacity-50 ${e.id % 2 === 0 ? ' md:-bottom-20 z-2' : 'md:-top-20 z-1'} p-5 max-w-lg -right-20" style="background-color: ${selectedMood.color.end}">
+                                <h2 class="text-2xl md:text-3xl max-w-sm tracking-wider text-white mb-5 ">
                                     ${e.title}
                                 </h2>
                                 <p class="text-sm text-white text-justify">
@@ -101,17 +101,17 @@ function renderMaster() {
         // Note : Set Other Moods
         $('#mood__other_moods').append(`
             <div class="py-10">
-                <h2 class="text-3xl tracking-wider text-white">
+                <h2 class="text-2xl md:text-3xl tracking-wider text-white">
                     Discover Other Moods
                 </h2>
                 <div class="flex items-center my-5 snap-x overflow-x-scroll scrollbar-none">
                     ${otherMoods.map(e => `
-                        <div class="mx-2 snap-center">
-                            <div class="h-[600px] w-[400px] max-w-screen bg-no-repeat bg-center bg-cover"
+                        <div class="me-2 snap-center">
+                            <div class="h-[322px] md:h-[600px] w-[182px] md:w-[400px] max-w-screen bg-no-repeat bg-center bg-cover"
                                 style="background-image: url('<?php echo get_stylesheet_directory_uri(); ?>/${e.thumb}')">
                                 <a href="<?= BASE_LINK ?>/moods/${e.slug}"
                                 class="h-full w-full flex items-end justify-end p-5">
-                                    <h1 class="text-5xl font-semibold text-end text-white max-w-[260px]">${e.name}</h1>
+                                    <h1 class="text-2xl md:text-5xl font-semibold text-end text-white max-w-[260px]">${e.name}</h1>
                                 </a>
                             </div>
                         </div>
@@ -133,7 +133,7 @@ function renderBanner() {
     // Note : Set Banner Title 
     $('#mood__title').append(`
         <div>
-            <h1 class="text-5xl max-w-md font-extrabold uppercase text-white tracking-widest">
+            <h1 class="text-3xl md:text-5xl max-w-md font-extrabold uppercase text-white tracking-widest">
                 ${selectedMood.name}
             </h1>
         </div>
@@ -145,12 +145,12 @@ function renderBanner() {
     `);
     // Note : Set Mood Banner
     $('#mood__banner').append(`
-        <img src="<?php echo get_stylesheet_directory_uri(); ?>/${selectedMood.banner}" class="w-auto h-auto object-cover" />
+        <img src="<?php echo get_stylesheet_directory_uri(); ?>/${selectedMood.banner}" class="w-auto h-[550px] md:h-auto object-cover" />
     `);
     // Note : Set Subtitle
     $('#mood__subtitle').append(`
-        <div class="py-10 mx-auto w-full">
-            <p class="text-sm max-w-2xl mx-auto text-center text-white py-10">
+        <div class="py-5 md:py-10 mx-auto w-full">
+            <p class="text-sm max-w-2xl mx-auto text-center text-white py-5 md:py-10">
                 ${selectedMood.subTitle.title}
             </p>
             <img src="<?php echo get_stylesheet_directory_uri(); ?>/${selectedMood.subTitle.subImage}" class="w-auto h-auto object-cover " />

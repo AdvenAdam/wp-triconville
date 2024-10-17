@@ -11,16 +11,16 @@ get_template_part('header-custom');
     <div class="px-3 md:px-5 mb-10">
         <div class="max-w-[1440px] mx-auto">
             <div class="text-center pt-10">
-                <h1 class="text-5xl uppercase">Moods</h1>
-                <p>Emotions in Every Moments</p>
+                <h1 class="text-3xl md:text-5xl uppercase">Moods</h1>
+                <p class="text-sm md:text-base">Emotions in Every Moments</p>
             </div>
-            <div class="grid py-10 lg:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-5"
+            <div class="grid py-10 lg:grid-cols-4 grid-cols-2 gap-2 md:gap-5"
                  id="mood__list">
 
             </div>
             <div class="py-10 flex flex-col justify-between items-center sm:flex-row gap-3">
-                <div class="p-3 max-w-xl">
-                    <h2 class="text-3xl ">
+                <div class="md:p-3 max-w-xl">
+                    <h2 class="text-2xl md:text-3xl ">
                         Our skilled designers find their inspiration in the allure, beauty and vibrancy of everyday environments.
                     </h2>
                     <p class="py-5 text-justify text-sm">
@@ -29,7 +29,7 @@ get_template_part('header-custom');
                         right in.
                     </p>
                 </div>
-                <div class="p-3">
+                <div class="md:p-3">
                     <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/moods/hero.png"
                          alt="">
                 </div>
@@ -65,11 +65,11 @@ function renderBanner() {
         // Note : Set background
         moods.forEach(mood => {
             $('#mood__list').append(`
-                <div class="h-[600px] w-auto bg-no-repeat bg-center bg-cover"
+                <div class="h-[322px] md:h-[600px] w-auto bg-no-repeat bg-center bg-cover"
                     style="background-image: url('<?php echo get_stylesheet_directory_uri(); ?>/${mood.thumb}')">
                     <a href="<?= BASE_LINK ?>/moods/${mood.slug}"
                         class="h-full w-full flex items-end justify-end p-5">
-                        <h1 class="text-5xl font-semibold text-end text-white max-w-[260px]">${mood.name}</h1>
+                        <h1 class="text-2xl md:text-5xl font-semibold text-end text-white max-w-[260px]">${mood.name}</h1>
                     </a>
                 </div>
             `)
