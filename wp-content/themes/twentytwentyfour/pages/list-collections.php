@@ -15,13 +15,13 @@ body {
 </style>
 <div class="content-container scroll-smooth overflow-x-hidden">
     <!-- NOTE: Banner -->
-    <h1 class="text-5xl font-semibold text-center pt-10 uppercase snap-start">triconville collections</h1>
-    <p class='font-light tracking-widest text-center'>The Luxury of Living Outdoors</p>
+    <h1 class="text-3xl md:text-5xl font-medium text-center px-5 pt-10 uppercase snap-start">triconville collections</h1>
+    <p class='font-sm font-light tracking-widest text-center'>The Luxury of Living Outdoors</p>
     <div class="flex gap-2 justify-center my-5 view-button">
         <button class="btn-ghost-dark flex gap-2 items-center"
                 id="list-button"
                 onClick="changeView('list')">
-            List View <svg xmlns="http://www.w3.org/2000/svg"
+            Gallery <svg xmlns="http://www.w3.org/2000/svg"
                  fill="none"
                  viewBox="0 0 24 24"
                  stroke-width="1.5"
@@ -55,7 +55,7 @@ body {
          id="grid-container">
         <div class="max-w-[1440px] mx-auto">
             <div id="grid__collections"
-                 class='p-5 mb-5 grid grid-cols-1 sm:grid-cols-2 gap-3'>
+                 class='md:p-5 mb-5 grid grid-cols-1 sm:grid-cols-2 gap-3'>
             </div>
         </div>
     </div>
@@ -163,7 +163,7 @@ function renderCollections(e, index, type = 'grid') {
                     ${count < 10 ? '0' + (count) : count}. 
                 </p>
                 <hr class='w-2/5 mt-3 border-black'/>
-                <h1 class="text-5xl mt-3 font-medium tracking-wider uppercase">${e.name}</h1>
+                <h1 class="text-3xl md:text-5xl mt-3 font-medium tracking-wider uppercase">${e.name}</h1>
                 <p class='text-sm mt-3 line-clamp-2 text-ellipsis'>
                     ${e.description}
                 </p>
@@ -188,8 +188,8 @@ function renderCollections(e, index, type = 'grid') {
                             ${count < 10 ? '0' + (count) : count}. 
                             </p>
                             <hr class='w-1/5 mt-3 border-white'/>
-                            <h1 class="text-5xl text-white mt-3 font-medium tracking-wider uppercase">${e.name}</h1>
-                            <p class='line-clamp-2 text-ellipsis md:w-1/2'>
+                            <h1 class="text-3xl md:text-5xl text-white mt-3 font-medium tracking-wider uppercase">${e.name}</h1>
+                            <p class='text-sm line-clamp-2 text-ellipsis md:w-1/2'>
                             ${e.description}
                             </p>
                         </div>

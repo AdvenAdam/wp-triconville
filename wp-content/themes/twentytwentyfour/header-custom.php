@@ -100,7 +100,7 @@
                         data-drawer-target="drawer-navigation"
                         data-drawer-show="drawer-navigation"
                         aria-controls="drawer-navigation">
-                    <p class="text-xs uppercase group-hover:text-cyan-500 pt-1 ">Menu</p>
+                    <p class="text-xs font-medium group-hover:text-cyan-500 pt-1 ">Menu</p>
                     <svg xmlns="http://www.w3.org/2000/svg"
                          fill="none"
                          viewBox="0 0 24 24"
