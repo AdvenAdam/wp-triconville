@@ -66,13 +66,16 @@
                         <div class="about w-full tracking-wider p-3">
                             <p class='mb-3 uppercase text-sm font-bold tracking-widest'>moods</p>
                             <p class='text-sm py-1'>
-                                <a href='<?= BASE_LINK; ?>/'> Serenity Dunes </a>
+                                <a href='<?= BASE_LINK; ?>/moods/rhythmic-oasis/'> Rhythmic Oasis </a>
                             </p>
                             <p class='text-sm py-1'>
-                                <a href='<?= BASE_LINK; ?>/'> Desert </a>
+                                <a href='<?= BASE_LINK; ?>/moods/whispering-ocean/'> Whispering Ocean </a>
                             </p>
                             <p class='text-sm py-1'>
-                                <a href='<?= BASE_LINK; ?>/'> Ocean Breeze </a>
+                                <a href='<?= BASE_LINK; ?>/moods/chilling-fall/'> Chilling Fall </a>
+                            </p>
+                            <p class='text-sm py-1'>
+                                <a href='<?= BASE_LINK; ?>/moods/serenity-dunes/'> Serenity Dunes </a>
                             </p>
                         </div>
                         <div class="about w-full p-3">

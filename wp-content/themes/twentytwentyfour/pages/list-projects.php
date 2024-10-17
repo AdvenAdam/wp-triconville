@@ -10,7 +10,6 @@ get_template_part('header-custom');
 <div class="content-container">
     <div id="Slider__Container"
          class="overflow-hidden">
-
     </div>
 
 </div>
@@ -53,8 +52,7 @@ function renderMaster() {
             $('#Slider__Container').append(`
                 <div class="relative"
                 id="${project.slug}__Container">
-                    <div class="h-screen w-auto" id="${project.slug}__slider">
-
+                    <div class="h-[90vh] md:h-screen w-auto" id="${project.slug}__slider">
                     </div>
                 </div>
             `)
@@ -71,14 +69,13 @@ function renderMaster() {
 
 }
 
-
 function renderSliderPages(project) {
     //    NOTE : BANNER SLIDER 
     $(`#${project.slug}__slider`).append(`
         <div class="banner mx-2 max-w-screen relative">
             <img src="<?php echo get_stylesheet_directory_uri(); ?>${project.banner}"
                     alt=""
-                    class="h-screen w-screen object-cover">
+                    class="h-[90vh] md:h-screen w-screen object-cover">
             <div class="absolute bottom-10 right-10 sm:bottom-32 lg:bottom-48 lg:right-48">
                 <div class="p-5 text-white flex flex-col sm:justify-end sm:items-end">
                     <h1 class='text-5xl tracking-wider text-white uppercase'>${project.name}</h1>
@@ -100,13 +97,13 @@ function renderSliderPages(project) {
     `)
     // NOTE : DESCRIPTION SLIDER
     $(`#${project.slug}__slider`).append(`
-        <div class="text w-auto max-w-screen bg-white mx-2 ">
-            <div class=" h-screen w-auto flex flex-col justify-end max-w-xl md:pb-40 pb-20 md:mx-40 mx-20">
-                <h2 class="text-5xl tracking-wider uppercase ">${project.name}</h2>
+        <div class="text w-screen md:w-auto max-w-screen bg-white mx-5 ">
+            <div class=" h-[90vh] md:h-screen  w-full flex flex-col justify-end max-w-xl md:pb-40 pb-20 md:mx-40 mx-3">
+                <h2 class="text-3xl md:text-5xl tracking-wider uppercase ">${project.name}</h2>
                 <p>Malaysia</p>
-                <p class="text-sm pt-10">
+                <p class="text-sm pt-10 pe-3">
                     ${project.description}
-                </p>
+                </p>    
             </div>
         </div>
     `)
@@ -116,18 +113,18 @@ function renderSliderPages(project) {
             <div class="image max-w-screen mx-2">
                 <img src="<?php echo get_stylesheet_directory_uri(); ?>${gallery}"
                     alt="${project.name}"
-                    class="h-screen w-auto object-cover">
+                    class="h-[90vh] md:h-screen w-auto object-cover">
             </div>
         `)
     })
     // NOTE : PRODUCTS SLIDER
     $(`#${project.slug}__slider`).append(`
         <div class="products w-screen max-w-screen mx-2 ">
-            <div class=" h-screen flex flex-col items-center justify-center">
+            <div class=" h-[90vh] md:h-screen flex flex-col items-center justify-center">
                 <h3 class="text-3xl tracking-wider ">
                     Featured Products
                 </h3>
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-1"
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-1 overflow-y-auto"
                         id="${project.slug}__products">
 
                 </div>
@@ -204,7 +201,7 @@ function loadProduct(slug, sku) {
             $(`#${slug}__products`).append(`
                 <a href= "<?= BASE_LINK; ?>/product-detail/${slugify(res.name)}">
                     <div class='flex justify-center items-center flex-col p-3'>
-                        <img class="w-auto md:h-[384px] h-[250px] object-cover md:object-contain" src="${res.product_image}" />
+                        <img class="w-auto md:h-[384px] h-[250px] object-contain" src="${res.product_image}" />
                         <p class="text-center md:mt-[-30px] max-w-[90%]">${res.name}</p>
                     </div>
                 </a>
