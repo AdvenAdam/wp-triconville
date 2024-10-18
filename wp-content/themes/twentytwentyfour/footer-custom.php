@@ -240,6 +240,60 @@
         </div>
     </div>
 </div>
+
+<script>
+function slugify(str) {
+    str = str.replace(/^\s+|\s+$/g, ''); // trim
+    str = str.toLowerCase();
+
+    // remove accents, swap  for "e", etc.
+    var from = "  -_";
+    var to = "  --";
+    for (var i = 0, l = from.length; i < l; i++) {
+        str = str.replace(new RegExp(from.charAt(i), 'g'), to.charAt(i));
+    }
+
+    str = str
+        .replace(/[^a-z0-9 -]/g, '') // remove invalid chars
+        .replace(/\s+/g, '-') // collapse whitespace and replace with -
+        .replace(/-+/g, '-'); // collapse dashes
+
+    return str;
+}
+
+function redirectError(status = 404) {
+    if (status === 404) {
+        window.location.href = '<?= BASE_LINK; ?>/page-not-found';
+    }
+}
+$(document).ready(function() {
+    const select = document.querySelector(".gt_selector");
+    const selectMobile = document.querySelector("#mobile_gtranslate select");
+    const options = select.options;
+    const optionsMobile = selectMobile.options;
+    select.removeChild(options[0]);
+    selectMobile.removeChild(optionsMobile[0]);
+
+    for (let i = 0; i < options.length; i++) {
+        const option = options[i];
+        // if (i === 0) {
+        //     select.removeChild(option);
+        // }
+        const value = option.getAttribute("value").split("|")[1]
+        option.innerHTML = value || option.innerHTML;
+    }
+
+    for (let i = 0; i < optionsMobile.length; i++) {
+        const option = optionsMobile[i];
+        // if (i === 0) {
+        //     select.removeChild(option);
+        // }
+        const value = option.getAttribute("value").split("|")[1]
+        option.innerHTML = value || option.innerHTML;
+    }
+});
+</script>
+
 <!-- START - We recommend to place the below code in footer or bottom of your website html  -->
 <script>
 window.REQUIRED_CODE_ERROR_MESSAGE = 'Please choose a country code';

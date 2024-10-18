@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "name": "Projects",
+    "slug": "projects",
+    "link": "/projects"
+  },
+  {
+    "id": 2,
+    "name": "News",
+    "slug": "newsroom",
+    "link": "/newsroom"
+  },
+  {
+    "id": 3,
+    "name": "Moods",
+    "slug": "moods",
+    "link": "/moods"
+  },
+  {
+    "id": 4,
+    "name": "Materials",
+    "slug": "materials",
+    "link": "/materials"
+  }
+]

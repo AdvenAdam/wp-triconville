@@ -50,23 +50,6 @@
         max-width: 120px;
     }
     </style>
-
-    <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        const select = document.querySelector(".gt_selector");
-        const options = select.options;
-        select.removeChild(options[0]);
-        for (let i = 0; i < options.length; i++) {
-            const option = options[i];
-            // if (i === 0) {
-            //     select.removeChild(option);
-            // }
-            const value = option.getAttribute("value").split("|")[1]
-            option.innerHTML = value || option.innerHTML;
-        }
-    });
-    </script>
-
 </head>
 
 <body <?php body_class(); ?>>
@@ -119,23 +102,8 @@
              id="sub-header"
              onMouseOut="showSubHeader(false)"
              onMouseOver="showSubHeader(true)">
-            <div class="flex w-full justify-end uppercase text-xs">
-                <a href="<?= BASE_LINK; ?>/projects/">
-                    <p class="px-3 hover:text-cyan-500"
-                       id="projects-link">Projects</p>
-                </a>
-                <a href="<?= BASE_LINK; ?>/newsroom/">
-                    <p class="px-3 hover:text-cyan-500"
-                       id="newsroom-link">News</p>
-                </a>
-                <a href="<?= BASE_LINK; ?>/moods/">
-                    <p class="px-3 hover:text-cyan-500"
-                       id="moods-link">Moods</p>
-                </a>
-                <a href="<?= BASE_LINK; ?>/materials/">
-                    <p class="px-3 hover:text-cyan-500"
-                       id="materials-link">Materials</p>
-                </a>
+            <div class="flex w-full justify-end uppercase text-xs"
+                 id="sub-inspiration-desktop">
             </div>
         </div>
         <div class="w-full md:px-5 px-3 py-3 bg-[#F4F6F6] opacity-0 invisible transition-opacity duration-500 ease-in-out fixed top-16"
@@ -144,98 +112,56 @@
              onMouseOut="showSubProducts(false)"
              onMouseOver="showSubProducts(true)">
             <div class="uppercase text-xs">
-                <div class="flex md:justify-end overflow-x-auto w-full">
-                    <a href="<?= BASE_LINK; ?>/products/sofa/">
-                        <p class="px-3 hover:text-cyan-500 whitespace-nowrap"
-                           id="sofa-link">Sofa</p>
-                    </a>
-                    <a href="<?= BASE_LINK; ?>/products/loungechairs/">
-                        <p class="px-3 hover:text-cyan-500 whitespace-nowrap"
-                           id="loungechairs-link">Lounge Chairs</p>
-                    </a>
-                    <a href="<?= BASE_LINK; ?>/products/loungerdaybed/">
-                        <p class="px-3 hover:text-cyan-500 whitespace-nowrap"
-                           id="loungerdaybed-link">Lounger & Daybed</p>
-                    </a>
-                    <a href="<?= BASE_LINK; ?>/products/chairs/">
-                        <p class="px-3 hover:text-cyan-500 whitespace-nowrap"
-                           id="chairs-link">Chairs</p>
-                    </a> <a href="<?= BASE_LINK; ?>/products/tables/">
-                        <p class="px-3 hover:text-cyan-500 whitespace-nowrap"
-                           id="tables-link">Tables</p>
-                    </a>
+                <div class="flex md:justify-end overflow-x-auto w-full"
+                     id="sub-products-desktop">
+
                 </div>
             </div>
         </div>
     </header>
-
     <!-- drawer component -->
     <div id="drawer-navigation"
-         class="fixed top-0 left-0 outline-none z-40 h-screen w-80 p-10 overflow-y-auto transition-transform duration-500 ease-in-out -translate-x-full bg-white"
+         class="fixed top-0 left-0 outline-none z-40 h-screen w-80 max-w-[60vw] p-5 overflow-y-auto transition-transform duration-500 ease-in-out -translate-x-full bg-white"
          tabindex="-1"
          aria-labelledby="drawer-navigation-label">
-        <h5 id="drawer-navigation-label"
-            class="uppercase divide-y">
-            Menu
-        </h5>
-        <button type="button"
-                data-drawer-hide="drawer-navigation"
-                aria-controls="drawer-navigation"
-                class="text-gray-400 bg-transparent outline-none hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 absolute top-2.5 end-2.5 inline-flex items-center justify-center dark:hover:bg-gray-600 dark:hover:text-white">
-            <svg class="w-3 h-3"
-                 aria-hidden="true"
-                 xmlns="http://www.w3.org/2000/svg"
-                 fill="none"
-                 viewBox="0 0 14 14">
-                <path stroke="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
-            </svg>
-            <span class="sr-only">Close menu</span>
-        </button>
-        <hr class="my-5">
+        <div class="flex justify-end mt-5">
+            <button type="button"
+                    data-drawer-hide="drawer-navigation"
+                    aria-controls="drawer-navigation"
+                    class="text-gray-900 bg-transparent outline-none hover:bg-gray-900 p-2 hover:text-gray-200 flex gap-2 items-center">
+                <p class="text-xs">Close</p>
+                <svg class="w-2 h-2"
+                     aria-hidden="true"
+                     xmlns="http://www.w3.org/2000/svg"
+                     fill="none"
+                     viewBox="0 0 14 14">
+                    <path stroke="currentColor"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                </svg>
+                <span class="sr-only">Close menu</span>
+            </button>
+        </div>
+        <div class="flex justify-between items-center my-5">
+            <div class="text-xs px-2 uppercase outline-none"
+                 id="mobile_gtranslate">
+                <?php echo do_shortcode('[gtranslate]') ?>
+            </div>
+            <a href="https://triconville.co.id/customer/account/login/">
+                <p class="btn-ghost text-xs">B2B Login</p>
+            </a>
+        </div>
+
         <!-- NOTE : MENU LIST  -->
         <div class="overflow-y-auto bg-transparent ">
-            <ul class="space-y-2 text-xs uppercase"
+            <ul class="space-y-2"
                 id="navbar__category">
             </ul>
-
-        </div>
-        <hr class="my-5">
-        <ul class="space-y-2 font-normal mb-5">
-            <li>
-                <a href="https://triconville.co.id/customer/account/login/">
-                    <p class="px-3 text-xs uppercase hover:text-cyan-500">B2B Login</p>
-                </a>
-            </li>
-            <li>
-                <div class="text-xs px-2 uppercase outline-none">
-                    <?php echo do_shortcode('[gtranslate]') ?>
-                </div>
-            </li>
-
-        </ul>
-
-        <div class=" flex items-center gap-3 my-3">
-            <a href='#'>
-                <img src='<?php echo get_stylesheet_directory_uri(); ?>/assets/images/icons/youtube.svg' />
-            </a>
-            <a href='#'>
-                <img src='<?php echo get_stylesheet_directory_uri(); ?>/assets/images/icons/pinterest.svg' />
-            </a>
-            <a href='#'>
-                <img src='<?php echo get_stylesheet_directory_uri(); ?>/assets/images/icons/instagram.svg' />
-            </a>
-            <a href='#'>
-                <img src='<?php echo get_stylesheet_directory_uri(); ?>/assets/images/icons/facebook.svg' />
-            </a>
-            <a href='#'>
-                <img src='<?php echo get_stylesheet_directory_uri(); ?>/assets/images/icons/linkedin.svg' />
-            </a>
         </div>
     </div>
+
     <script>
     $(document).ready(function() {
         $.ajax({
@@ -253,6 +179,8 @@
                 setActiveLink();
             }
         });
+
+
     });
 
     function showSubHeader(isShow) {
@@ -273,33 +201,101 @@
         }
     }
 
+    /*
+     * NOTE : 
+     * renderLinK, AppendSubMenu and setActiveLink function used to render menu 
+     */
     function renderLink(e) {
-        // NOTE : Drawer
-        $('#navbar__category').append(`
-            <li>
-                <a href="${e.href}" class="flex p-2 items-center text-gray-900 rounded-lg hover:bg-gray-100 group">${e.name}
-                </a>
-            </li>
-        `);
-        // NOTE : Desktop
         if (e.name === 'Inspiration') {
             $('#navbar_menu_category').append(`
                 <a href="${e.href}" id="${slugify(e.name)}-link" onMouseOver="showSubHeader(true)" class="flex py-5 px-2 items-center text-gray-900 hover:text-cyan-500">                    
                     <p class="uppercase text-xs">${e.name}</p>
                 </a>
             `);
+            $('#navbar__category').append(`
+                <li>
+                    <a href="${e.href}" class="flex p-2 items-center justify-end text-gray-900 rounded-lg hover:bg-gray-100 group"><h5 class="text-lg font-medium">${e.name}</h5>
+                    </a>
+                    <div class="text-end text-sm" id="sub-inspiration-mobile">
+                    </div>
+                </li>
+            `);
+            appendSubMenu(e.name);
         } else if (e.name === 'Products') {
             $('#navbar_menu_category').append(`
                 <a href="${e.href}" id="${slugify(e.name)}-link" onMouseOver="showSubProducts(true)" class="flex py-5 px-2 items-center text-gray-900 hover:text-cyan-500">                    
                     <p class="uppercase text-xs">${e.name}</p>
                 </a>
             `);
+
+            $('#navbar__category').append(`
+                <li>
+                    <a href="${e.href}" class="p-2 flex items-center justify-end text-gray-900 rounded-lg hover:bg-gray-100 group"><h5 class="text-lg font-medium">${e.name}</h5>
+                    </a>
+                </li>
+                <div class="text-end text-sm" id="sub-products-mobile">
+                </div>
+            `);
+            appendSubMenu(e.name);
         } else {
             $('#navbar_menu_category').append(`
                 <a href="${e.href}" id="${slugify(e.name)}-link" class="flex py-5 px-2 gap-2 items-center text-gray-900 hover:text-cyan-500">
                     <p class="uppercase text-xs">${e.name}</p>
                 </a>
             `);
+
+            $('#navbar__category').append(`
+                <li>
+                    <a href="${e.href}" class="flex p-2 items-center justify-end text-gray-900 rounded-lg hover:bg-gray-100 group"><h5 class="text-lg font-medium">${e.name}</h5>
+                    </a>
+                </li>
+            `);
+        }
+    }
+
+    function appendSubMenu(menu) {
+        if (menu === 'Products') {
+            let categoryMobile = ``;
+            let categoryDesktop = ``;
+            const products = <?php echo file_get_contents(get_template_directory() . '/api/product.json'); ?>;
+            products.forEach((e) => {
+                categoryMobile += `
+                    <a href="<?= BASE_LINK; ?>/products/${e.slug}">
+                        <p class="px-3 py-1 hover:text-cyan-500 whitespace-nowrap"
+                            id="${e.slug}-link-mobile">${e.name}</p>
+                    </a>
+                `
+                categoryDesktop += `
+                    <a href="<?= BASE_LINK; ?>/products/${e.slug}">
+                        <p class="px-3 py-1 hover:text-cyan-500 whitespace-nowrap"
+                            id="${e.slug}-link">${e.name}</p>
+                    </a>
+                `
+            })
+            $('#sub-products-mobile').append(categoryMobile)
+            $('#sub-products-desktop').append(categoryDesktop)
+            setActiveLink()
+        } else if (menu === 'Inspiration') {
+            let categoryMobile = ``;
+            let categoryDesktop = ``;
+            const inspirationSubMenu = <?php echo file_get_contents(get_template_directory() . '/api/inspirationSubmenu.json'); ?>;
+            inspirationSubMenu.forEach((e) => {
+                categoryMobile += `
+                    <a href="<?= BASE_LINK; ?>/${e.slug}/">
+                        <p class="px-3 py-1 hover:text-cyan-500"
+                        id="${e.slug}-link-mobile">${e.name}</p>
+                    </a>
+                `
+                categoryDesktop += `
+                    <a href="<?= BASE_LINK; ?>/${e.slug}/">
+                        <p class="px-3 py-1 hover:text-cyan-500"
+                        id="${e.slug}-link">${e.name}</p>
+                    </a>
+                `
+            })
+            $('#sub-inspiration-mobile').append(categoryMobile)
+            $('#sub-inspiration-desktop').append(categoryDesktop)
+            setActiveLink()
         }
     }
 
@@ -321,6 +317,7 @@
             case 'moods':
                 $(`#inspiration-link`).removeClass('text-gray-900').addClass('text-cyan-500 underline');
                 $(`#${parentUrl}-link`).removeClass('text-gray-900').addClass('text-cyan-500 underline');
+                $(`#${parentUrl}-link-mobile`).removeClass('text-gray-900').addClass('text-cyan-500 underline');
                 break;
             default:
                 $(`#${parentUrl}-link`).removeClass('text-gray-900').addClass('text-cyan-500 underline');
@@ -329,32 +326,9 @@
 
         if (childUrl) {
             $(`#${childUrl}-link`).removeClass('text-gray-900').addClass('text-cyan-500 underline');
+            $(`#${childUrl}-link-mobile`).removeClass('text-gray-900').addClass('text-cyan-500 underline');
+
         }
 
-    }
-
-    function slugify(str) {
-        str = str.replace(/^\s+|\s+$/g, ''); // trim
-        str = str.toLowerCase();
-
-        // remove accents, swap  for "e", etc.
-        var from = "  -_";
-        var to = "  --";
-        for (var i = 0, l = from.length; i < l; i++) {
-            str = str.replace(new RegExp(from.charAt(i), 'g'), to.charAt(i));
-        }
-
-        str = str
-            .replace(/[^a-z0-9 -]/g, '') // remove invalid chars
-            .replace(/\s+/g, '-') // collapse whitespace and replace with -
-            .replace(/-+/g, '-'); // collapse dashes
-
-        return str;
-    }
-
-    function redirectError(status = 404) {
-        if (status === 404) {
-            window.location.href = '<?= BASE_LINK; ?>/page-not-found';
-        }
     }
     </script>
