@@ -8,8 +8,8 @@
   {
     "id": 2,
     "name": "News",
-    "slug": "newsroom",
-    "link": "/newsroom"
+    "slug": "news",
+    "link": "/news"
   },
   {
     "id": 3,
