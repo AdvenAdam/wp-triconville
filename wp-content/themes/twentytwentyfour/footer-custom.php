@@ -28,7 +28,7 @@
                 <div class="w-full md:flex">
                     <div class="md:w-3/5 w-full">
                         <div class="grid grid-cols-2 sm:grid-cols-4  tracking-wide gap-3">
-                            <div class="about w-full p-3">
+                            <div class="about w-full md:p-3">
                                 <p class='mb-3 uppercase text-sm font-bold tracking-widest'>Triconville</p>
                                 <p class='text-sm py-1'>
                                     <a href='<?= BASE_LINK; ?>/about-us'> Brand </a>
@@ -46,7 +46,7 @@
                                     <a href='<?= BASE_LINK; ?>/'> Catalog </a>
                                 </p>
                             </div>
-                            <div class="about w-full tracking-wider p-3">
+                            <div class="about w-full tracking-wider md:p-3">
                                 <p class='mb-3 uppercase text-sm font-bold tracking-widest'>products</p>
                                 <p class='text-sm py-1'>
                                     <a href='<?= BASE_LINK; ?>/products/sofa'>Sofa</a>
@@ -65,7 +65,7 @@
                                 </p>
 
                             </div>
-                            <div class="about w-full tracking-wider p-3">
+                            <div class="about w-full tracking-wider md:p-3">
                                 <p class='mb-3 uppercase text-sm font-bold tracking-widest'>moods</p>
                                 <p class='text-sm py-1'>
                                     <a href='<?= BASE_LINK; ?>/moods/rhythmic-oasis/'> Rhythmic Oasis </a>
@@ -80,7 +80,7 @@
                                     <a href='<?= BASE_LINK; ?>/moods/serenity-dunes/'> Serenity Dunes </a>
                                 </p>
                             </div>
-                            <div class="about w-full p-3">
+                            <div class="about w-full md:p-3">
                                 <p class='mb-3 font-bold text-sm uppercase tracking-widest'>triconville head office</p>
                                 <p class='md:mb-3 text-sm'>Jl.Bukit Panorama no.6, <br />
                                     Kota Semarang, Jawa Tengah,<br /> Indonesia 50274</p>
@@ -107,7 +107,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="p-3 md:hidden">
+                            <div class="md:p-3 md:hidden">
                                 <p class='font-bold text-sm uppercase tracking-widest'>connect</p>
                                 <div class="flex items-center gap-2 my-3">
                                     <a href='#'>
@@ -129,7 +129,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="md:w-2/5 w-full p-3">
+                    <div class="md:w-2/5 w-full pt-10 md:pt-0 md:p-3">
                         <p class='font-bold uppercase tracking-widest'>newsletter</p>
                         <p>Sign up to our newsletter</p>
                         <div class="form mt-5">
