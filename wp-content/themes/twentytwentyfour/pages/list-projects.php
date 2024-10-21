@@ -223,7 +223,6 @@ $('.project__slider_1').slick({
 $(".prev-btn-1").click(function() {
     $(".project__slider_1").slick("slickPrev");
 });
-
 $(".next-btn-1").click(function() {
     $(".project__slider_1").slick("slickNext");
 });

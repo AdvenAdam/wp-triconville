@@ -289,6 +289,7 @@ h6 {
     max-width: none !important;
     font-size: 16px !important;
     width: 100% !important;
+    outline: none !important;
 }
 .sib-form .clickable__icon {
     height: 1rem !important;
