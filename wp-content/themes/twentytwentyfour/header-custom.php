@@ -311,7 +311,7 @@
             case 'about-us':
                 $(`#brand-link`).removeClass('text-gray-900').addClass('text-cyan-500 underline');
                 break;
-            case 'newsroom':
+            case 'news':
             case 'materials':
             case 'projects':
             case 'moods':

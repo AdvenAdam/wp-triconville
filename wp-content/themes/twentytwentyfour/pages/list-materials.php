@@ -33,9 +33,11 @@ get_template_part('header-custom');
                     id="btn-all">All Materials</button>
         </div>
     </div>
-    <div id="material__page"
-         class="max-w-[1440px] mt-5 mx-auto">
+    <div class="px-3 md:px-5">
+        <div id="material__page"
+             class="max-w-[1440px] mt-5 mx-auto">
 
+        </div>
     </div>
     <div id="page-loading">
         <div class="three-balls">
@@ -56,6 +58,7 @@ $(document).ready(function() {
         type: "GET",
         success: (res) => {
             selectedMaterialIds = res.selectedMaterial;
+            console.log("🚀 ~ $ ~ selectedMaterialIds:", selectedMaterialIds)
             loadMaterials();
         }
     })
@@ -75,9 +78,9 @@ function loadMaterials() {
         },
         success: async function(res) {
             res.results.forEach(e => {
-                if (selectedMaterialIds.includes(parseInt(e.id))) {
-                    readyToRenderMaterial.push(e);
-                }
+                // if (selectedMaterialIds.includes(parseInt(e.id))) {
+                readyToRenderMaterial.push(e);
+                // }
             })
         },
         error: function(xhr, status, error) {
@@ -128,11 +131,11 @@ async function renderMaterials(id) {
                     ${res.alias}
                 </div>
                 <hr class='mb-3'>
-                <div class='flex flex-wrap gap-3 my-5' id="material__image_${res.id}">
+                <div class='flex flex-wrap gap-1 md:gap-3 my-5' id="material__image_${res.id}">
                     ${res.swatch_options.map(element => `
                         <div>
-                            <img src='${element.image_512}' class='w-full max-h-[250px] max-w-[250px] h-full object-cover'/>
-                            <p class='line-clamp-2 max-w-[250px] uppercase text-center tracking-wider'>${element.name}</p>
+                            <img src='${element.image_512}' class='w-full max-w-[45vw] max-h-[45vw] md:max-h-[250px] md:max-w-[250px] h-full object-cover'/>
+                            <p class='line-clamp-2 max-w-[45vw] md:max-w-[250px] uppercase text-xs md:text-base text-center tracking-wider'>${element.name}</p>
                         </div>
 
                     `).join('')}
