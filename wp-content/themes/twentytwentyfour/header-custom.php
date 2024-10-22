@@ -55,8 +55,8 @@
 <body <?php body_class(); ?>>
     <header class="header sticky top-0 tracking-widest"
             style="z-index: 20;">
-        <div class="flex items-center justify-between md:px-5 px-3 w-full max-h-16 bg-white">
-            <div class="py-5 flex justify-center min-w-">
+        <div class="flex items-center justify-between md:px-5 px-3 w-full bg-white">
+            <div class="flex justify-center">
                 <a href="<?php echo home_url(); ?>">
                     <img src="<?= BASE_LINK ?>/wp-content/uploads/2024/09/Logo-Blue-Resized-1.png"
                          alt="Triconville logo"
@@ -70,7 +70,7 @@
                 </div>
                 <!-- Note : Login -->
                 <div class="hidden md:flex items-center">
-                    <div class="px-3 text-xs uppercase outline-none">
+                    <div class="px-3 pb-1 text-xs uppercase outline-none">
                         <?php echo do_shortcode('[gtranslate]') ?>
                     </div>
                     <a href="https://triconville.co.id/customer/account/login/">
@@ -184,8 +184,8 @@
     });
 
     function showSubHeader(isShow) {
-        $('#sub-products').removeClass('opacity-100 visible').addClass('opacity-0 invisible');
         if (isShow) {
+            $('#sub-products').removeClass('opacity-100 visible').addClass('opacity-0 invisible');
             $('#sub-header').removeClass('opacity-0 invisible').addClass('opacity-100 visible');
         } else {
             $('#sub-header').removeClass('opacity-100 visible').addClass('opacity-0 invisible');
@@ -193,8 +193,8 @@
     }
 
     function showSubProducts(isShow) {
-        $('#sub-header').removeClass('opacity-100 visible').addClass('opacity-0 invisible');
         if (isShow) {
+            $('#sub-header').removeClass('opacity-100 visible').addClass('opacity-0 invisible');
             $('#sub-products').removeClass('opacity-0 invisible').addClass('opacity-100 visible');
         } else {
             $('#sub-products').removeClass('opacity-100 visible').addClass('opacity-0 invisible');
@@ -208,7 +208,7 @@
     function renderLink(e) {
         if (e.name === 'Inspiration') {
             $('#navbar_menu_category').append(`
-                <a href="${e.href}" id="${slugify(e.name)}-link" onMouseOver="showSubHeader(true)" class="flex py-5 px-2 items-center text-gray-900 hover:text-cyan-500">                    
+                <a href="${e.href}" id="${slugify(e.name)}-link" onMouseOver="showSubHeader(true)" onMouseOut="showSubHeader(false)" class="flex py-6 px-2 items-center text-gray-900 hover:text-cyan-500">                    
                     <p class="uppercase text-xs">${e.name}</p>
                 </a>
             `);
@@ -223,7 +223,7 @@
             appendSubMenu(e.name);
         } else if (e.name === 'Products') {
             $('#navbar_menu_category').append(`
-                <a href="${e.href}" id="${slugify(e.name)}-link" onMouseOver="showSubProducts(true)" class="flex py-5 px-2 items-center text-gray-900 hover:text-cyan-500">                    
+                <a href="${e.href}" id="${slugify(e.name)}-link" onMouseOver="showSubProducts(true)" onMouseOut="showSubProducts(false)" class="flex py-6 px-2 items-center text-gray-900 hover:text-cyan-500">                    
                     <p class="uppercase text-xs">${e.name}</p>
                 </a>
             `);
@@ -239,7 +239,7 @@
             appendSubMenu(e.name);
         } else {
             $('#navbar_menu_category').append(`
-                <a href="${e.href}" id="${slugify(e.name)}-link" class="flex py-5 px-2 gap-2 items-center text-gray-900 hover:text-cyan-500">
+                <a href="${e.href}" id="${slugify(e.name)}-link" class="flex py-6 px-2 gap-2 items-center text-gray-900 hover:text-cyan-500">
                     <p class="uppercase text-xs">${e.name}</p>
                 </a>
             `);
