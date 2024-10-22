@@ -632,12 +632,6 @@ video {
 .m-5 {
   margin: 1.25rem;
 }
-.m-2 {
-  margin: 0.5rem;
-}
-.m-3 {
-  margin: 0.75rem;
-}
 .mx-2 {
   margin-left: 0.5rem;
   margin-right: 0.5rem;
@@ -889,20 +883,11 @@ video {
 .max-h-\[400px\] {
   max-height: 400px;
 }
-.max-h-\[500px\] {
-  max-height: 500px;
-}
-.max-h-\[30vw\] {
-  max-height: 30vw;
-}
-.max-h-\[50vw\] {
-  max-height: 50vw;
-}
-.max-h-\[40vw\] {
-  max-height: 40vw;
-}
 .max-h-\[45vw\] {
   max-height: 45vw;
+}
+.max-h-\[500px\] {
+  max-height: 500px;
 }
 .min-h-\[40px\] {
   min-height: 40px;
@@ -998,9 +983,6 @@ video {
 .max-w-\[1440px\] {
   max-width: 1440px;
 }
-.max-w-\[250px\] {
-  max-width: 250px;
-}
 .max-w-\[260px\] {
   max-width: 260px;
 }
@@ -1009,6 +991,9 @@ video {
 }
 .max-w-\[350px\] {
   max-width: 350px;
+}
+.max-w-\[45vw\] {
+  max-width: 45vw;
 }
 .max-w-\[500px\] {
   max-width: 500px;
@@ -1036,18 +1021,6 @@ video {
 }
 .max-w-xs {
   max-width: 20rem;
-}
-.max-w-\[30vw\] {
-  max-width: 30vw;
-}
-.max-w-\[50vw\] {
-  max-width: 50vw;
-}
-.max-w-\[40vw\] {
-  max-width: 40vw;
-}
-.max-w-\[45vw\] {
-  max-width: 45vw;
 }
 .flex-none {
   flex: none;
@@ -1291,6 +1264,9 @@ video {
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+.bg-opacity-15 {
+  --tw-bg-opacity: 0.15;
 }
 .bg-opacity-20 {
   --tw-bg-opacity: 0.2;
@@ -1952,12 +1928,12 @@ video {
     height: 100vh;
   }
 
-  .md\:max-h-\[50vh\] {
-    max-height: 50vh;
-  }
-
   .md\:max-h-\[250px\] {
     max-height: 250px;
+  }
+
+  .md\:max-h-\[50vh\] {
+    max-height: 50vh;
   }
 
   .md\:w-1\/2 {
@@ -1992,12 +1968,12 @@ video {
     width: 100%;
   }
 
-  .md\:max-w-\[50vw\] {
-    max-width: 50vw;
-  }
-
   .md\:max-w-\[250px\] {
     max-width: 250px;
+  }
+
+  .md\:max-w-\[50vw\] {
+    max-width: 50vw;
   }
 
   .md\:snap-center {
@@ -2161,14 +2137,6 @@ video {
 
   .lg\:grid-cols-4 {
     grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
-
-  .lg\:grid-cols-6 {
-    grid-template-columns: repeat(6, minmax(0, 1fr));
-  }
-
-  .lg\:grid-cols-5 {
-    grid-template-columns: repeat(5, minmax(0, 1fr));
   }
 
   .lg\:gap-28 {

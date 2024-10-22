@@ -17,16 +17,16 @@ get_template_part('header-custom');
 </style>
 <div class="content-container">
     <!-- NOTE: Banner -->
-    <div class="materials-banner">
-        <div class="flex items-center justify-center min-h-full">
-            <h1 class="text-5xl font-semibold text-center uppercase text-white"
-                id="category__name">Materials & Care</h1>
+    <div class="materials-banner ">
+        <div class="flex items-center justify-center min-h-full bg-black bg-opacity-20">
+            <h1 class="text-5xl font-medium text-center text-white"
+                id="category__name">materials</h1>
         </div>
     </div>
     <!-- NOTE : Material list -->
     <div class="mt-8">
         <div id="list__materials_filter"
-             class='flex items-center p-8 justify-center flex-wrap gap-3'>
+             class='flex items-center text-sm p-8 justify-center flex-wrap gap-3'>
             <button type="button"
                     class="btn-ghost-dark"
                     onclick="changeFilter('all')"
@@ -78,9 +78,9 @@ function loadMaterials() {
         },
         success: async function(res) {
             res.results.forEach(e => {
-                // if (selectedMaterialIds.includes(parseInt(e.id))) {
-                readyToRenderMaterial.push(e);
-                // }
+                if (selectedMaterialIds.includes(parseInt(e.id))) {
+                    readyToRenderMaterial.push(e);
+                }
             })
         },
         error: function(xhr, status, error) {
