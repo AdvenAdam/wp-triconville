@@ -129,7 +129,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="md:w-2/5 w-full pt-10 md:pt-0 md:p-3">
+                    <div class="md:w-2/5 w-full pt-10 md:pt-3 md:p-3">
                         <p class='font-bold uppercase tracking-widest'>newsletter</p>
                         <p>Sign up to our newsletter</p>
                         <div class="form mt-5">
