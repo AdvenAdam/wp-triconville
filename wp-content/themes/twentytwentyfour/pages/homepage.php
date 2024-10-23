@@ -33,10 +33,10 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
             <div class="grid md:grid-cols-2 items-center my-5">
                 <div class="txt max-w-xl md:text-justify py-5">
                     <p class="uppercase text-xs tracking-widest">our story</p>
-                    <h2 class='text-2xl md:text-3xl tracking-wider'>
+                    <h2 class='text-2xl md:text-3xl tracking-wide'>
                         20 Years of Excellence Experience on Outdoor Living
                     </h2>
-                    <p class="tracking-wide text-sm my-5">
+                    <p class="tracking-wider text-sm my-5">
                         In line with cutting-edge design trends, Triconville manufactures furniture that is beautiful yet functional,
                         versatile products, for outdoors. And all combined in an excellence that guides Triconville towards new solutions for
                         the world of architecture and hospitality.
@@ -61,7 +61,7 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                     </h2>
                 </div>
                 <div class='md:w-2/4 w-full'>
-                    <p class='tracking-wide text-sm my-5'>
+                    <p class='tracking-wider md:text-justify text-sm my-5'>
                         An outdoor sofa that hugs you with the specially built cushion designed ergonomically to improve comfort,
                         while the angular backrest makes the recline easy with books or drinks in hand.
                         An outdoor sofa that hugs you with the specially built cushion designed ergonomically to improve comfort,
@@ -185,7 +185,7 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                                 </h2>
                             </div>
                             <div class="md:mb-10">
-                                <p class=" text-sm line-clamp-2">
+                                <p class=" text-sm tracking-wider line-clamp-2">
                                     <?php echo get_the_excerpt($post->ID); ?>
                                 </p>
                             </div>
@@ -212,7 +212,7 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                         <div class="md:p-5">
                             <p class="uppercase text-xs tracking-widest">catalog</p>
                             <h2 class="text-3xl tracking-wider">Triconville - 2024 Catalog</h2>
-                            <p class="text-sm text-justify tracking-wide mb-5">
+                            <p class="text-sm text-justify tracking-wider mb-5">
                                 Discover an unrivaled selection of luxuriant designs from Triconville. Brought to life with captivating imagery,
                                 the 2024 Triconville catalogue is a go-to resource for inspiration and information. Qualified trade members can
                                 reserve a copy by filling out the form below.

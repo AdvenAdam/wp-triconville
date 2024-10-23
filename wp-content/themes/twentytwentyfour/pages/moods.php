@@ -3,7 +3,7 @@
     $character_slug = get_query_var('mood');  
 ?>
 
-<div class="content-container min-h-screen">
+<div class="content-container min-h-screen tracking-wider">
     <div class="p-3 md:p-5">
         <!-- Note :Banner -->
         <div class="max-w-[1440px] mx-auto">

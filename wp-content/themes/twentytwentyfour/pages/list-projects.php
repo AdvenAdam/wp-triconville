@@ -101,7 +101,7 @@ function renderSliderPages(project) {
             <div class=" h-[90vh] md:h-screen  w-full flex flex-col justify-end max-w-xl md:pb-40 pb-20 md:mx-40 mx-3">
                 <h2 class="text-3xl md:text-5xl tracking-wider uppercase ">${project.name}</h2>
                 <p>Malaysia</p>
-                <p class="text-sm pt-10 pe-3">
+                <p class="text-sm pt-10 tracking-wider pe-3">
                     ${project.description}
                 </p>    
             </div>
