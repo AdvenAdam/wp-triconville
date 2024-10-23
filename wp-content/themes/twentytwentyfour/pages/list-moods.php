@@ -19,7 +19,7 @@ get_template_part('header-custom');
 
             </div>
             <div class="py-10 flex flex-col justify-between items-center sm:flex-row gap-3">
-                <div class="md:p-3 max-w-xl">
+                <div class="md:p-3 max-w-xl tracking-wider">
                     <h2 class="text-2xl md:text-3xl ">
                         Our skilled designers find their inspiration in the allure, beauty and vibrancy of everyday environments.
                     </h2>

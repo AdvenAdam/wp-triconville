@@ -49,12 +49,12 @@ $character_slug = get_query_var('detail');
                     <div class="mb-5"
                          id="product__overview"></div>
 
-                    <span class="mr-3 "
+                    <span class="mr-3 uppercase text-xs tracking-widest"
                           id="label_1"></span>
                     <div class="flex mb-5 flex-wrap gap-2"
                          id="option_1">
                     </div>
-                    <span class="mr-3 "
+                    <span class="mr-3 uppercase text-xs tracking-widest"
                           id="label_2"></span>
                     <div class="flex mb-5 flex-wrap items-center gap-2"
                          id="option_2">
@@ -242,13 +242,16 @@ function renderOverview(res) {
         </div>
     `)
     if (res.name) {
+        const desc = res.description.replace(/<\/?p[^>]*>/g, '').replace(/<li[^>]*>(.*?)<\/li>/g, '')
+        console.log("  ~ renderOverview ~ desc:", desc)
+
         $('#product__overview').append(`
-            <div class='max-w-lg'>
-                <h1 class="text-2xl md:text-3xl font-medium text-gray-900 tracking-wide line-clamp-2">${res.name}</h1>
-                <p class="text-slate-500 tracking-widest text-sm mb-3">Designed by 
+            <div class=''>
+                <h1 class="text-2xl md:text-3xl text-gray-900 tracking-wide line-clamp-2">${res.name}</h1>
+                <p class="text-slate-500 text-sm tracking-widest text-sm mb-3">Designed by 
                     <span class="text-black font-medium hover:underline"><a href="https://indospacegroup.com/indospace-rnd/">Indospace R&D </a></span>
                 </p>
-                <p class="text-center line-clamp-4">${res.description.replace(/<li[^>]*>(.*?)<\/li>/g, '')}</p>
+                <p class="text-sm tracking-wider line-clamp-4">${desc}</p>
             </div>
         `);
     }
@@ -278,7 +281,7 @@ function renderDimensions(dimensions, render = "all") {
                                     id="imperial">Imperial</button>
                         </div>
                     </div>
-                    <table class="product__spec w-full md:text-sm text-xs"
+                    <table class="product__spec w-full md:text-sm text-xs tracking-wider"
                            id="table__spec"></table>
                 </div>
                 <div >

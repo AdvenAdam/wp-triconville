@@ -16,6 +16,9 @@ module.exports = {
         ],
         "4xl": "2.5rem",
       },
+      letterSpacing: {
+        wider: ".07em",
+      },
       colors: {
         "shadow-image": "#f8f8f8",
       },

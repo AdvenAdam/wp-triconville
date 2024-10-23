@@ -672,10 +672,6 @@ video {
   margin-top: 2rem;
   margin-bottom: 2rem;
 }
-.my-16 {
-  margin-top: 4rem;
-  margin-bottom: 4rem;
-}
 .mb-10 {
   margin-bottom: 2.5rem;
 }
@@ -1149,9 +1145,6 @@ video {
 .scroll-smooth {
   scroll-behavior: smooth;
 }
-.\!scroll-smooth {
-  scroll-behavior: smooth !important;
-}
 .text-ellipsis {
   text-overflow: ellipsis;
 }
@@ -1395,9 +1388,6 @@ video {
 .pt-5 {
   padding-top: 1.25rem;
 }
-.pt-3 {
-  padding-top: 0.75rem;
-}
 .text-center {
   text-align: center;
 }
@@ -1469,7 +1459,7 @@ video {
   letter-spacing: 0.025em;
 }
 .tracking-wider {
-  letter-spacing: 0.05em;
+  letter-spacing: .07em;
 }
 .tracking-widest {
   letter-spacing: 0.1em;
@@ -1609,7 +1599,12 @@ video {
 
 .btn-primary:hover {
   --tw-bg-opacity: 1;
-  background-color: rgb(8 145 178 / var(--tw-bg-opacity));
+  background-color: rgb(13 130 166 / var(--tw-bg-opacity));
+}
+
+.btn-primary:active {
+  --tw-bg-opacity: 1;
+  background-color: rgb(9 97 123 / var(--tw-bg-opacity));
 }
 .btn-ghost {
   border-width: 1px;
@@ -1627,14 +1622,13 @@ video {
 }
 .btn-ghost:hover {
   --tw-bg-opacity: 1;
-  background-color: rgb(77 77 77 / var(--tw-bg-opacity));
-  --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity));
+  background-color: rgb(236 240 241 / var(--tw-bg-opacity));
+}
+.btn-ghost:active {
+  --tw-bg-opacity: 1;
+  background-color: rgb(202 211 214 / var(--tw-bg-opacity));
 }
 .btn-ghost-dark {
-  border-width: 1px;
-  --tw-border-opacity: 1;
-  border-color: rgb(77 77 77 / var(--tw-border-opacity));
   --tw-bg-opacity: 1;
   background-color: rgb(77 77 77 / var(--tw-bg-opacity));
   padding-top: 0.75rem;
@@ -1648,7 +1642,11 @@ video {
 }
 .btn-ghost-dark:hover {
   --tw-bg-opacity: 1;
-  background-color: rgb(30 41 59 / var(--tw-bg-opacity));
+  background-color: rgb(51 65 70 / var(--tw-bg-opacity));
+}
+.btn-ghost-dark:active {
+  --tw-bg-opacity: 1;
+  background-color: rgb(13 16 16 / var(--tw-bg-opacity));
 }
 .hover\:-translate-y-1:hover {
   --tw-translate-y: -0.25rem;
@@ -2081,10 +2079,6 @@ video {
 
   .md\:pb-60 {
     padding-bottom: 15rem;
-  }
-
-  .md\:pt-0 {
-    padding-top: 0px;
   }
 
   .md\:pt-3 {
