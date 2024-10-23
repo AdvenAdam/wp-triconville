@@ -35,26 +35,38 @@ $character_slug = get_query_var('detail');
 }
 </style>
 
-<div class="content-container  overflow-hidden">
+<div class="content-container overflow-x-hidden">
     <div id="product__banner"></div>
     <!-- NOTE : PRODUCT Overview & Material -->
     <div class="md:p-5 p-3">
         <div class="max-w-[1440px] mx-auto">
-            <div id="product__header__image"></div>
+
             <div class="textproduct-overview-desc mt-6 pb-5 mb-5 flex flex-col md:flex-row">
-                <div id="product__overview"
-                     class="md:w-3/5"></div>
-                <div class="flex flex-col gap-2 item-center md:w-2/5 mt-5 md:mt-0">
-                    <span class="mr-3"
+                <div class="md:w-1/2">
+                    <div id="product__header__image"></div>
+                </div>
+                <div class=" item-center md:w-1/2 mt-5 md:mt-0">
+                    <div class="mb-5"
+                         id="product__overview"></div>
+
+                    <span class="mr-3 "
                           id="label_1"></span>
-                    <div class="flex flex-wrap gap-2"
+                    <div class="flex mb-5 flex-wrap gap-2"
                          id="option_1">
                     </div>
-                    <span class="mr-3"
+                    <span class="mr-3 "
                           id="label_2"></span>
-                    <div class="flex flex-wrap items-center gap-2"
+                    <div class="flex mb-5 flex-wrap items-center gap-2"
                          id="option_2">
                     </div>
+                    <div class="inline-flex gap-2">
+                        <a href=""
+                           class="btn-ghost-dark uppercase tracking-widest text-xs py-5"> download collection sheet</a>
+                        <a href=""
+                           class="btn-ghost uppercase tracking-widest text-xs py-5"
+                           onclick="document.querySelector('#specification__section').scrollIntoView({behavior: 'smooth'}); return false;">size</a>
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -92,14 +104,14 @@ $character_slug = get_query_var('detail');
         </button>
     </div>
     <!-- NOTE : PRODUCT Specification -->
-    <div class="md:p-5 p-3">
+    <div class="md:px-5 px-3 my-10">
         <div class="max-w-[1440px] mx-auto grid gap-4 grid-cols-1 md:grid-cols-2"
              id="specification__section">
 
         </div>
     </div>
     <!-- NOTE : PRODUCT IN THIS SECTION -->
-    <div class="md:p-5 p-3">
+    <div class="md:px-5 px-3">
         <div class="max-w-[1440px] mx-auto">
             <div class="py-10">
                 <h2 class='text-3xl collection__product__name'></h2>
@@ -138,7 +150,6 @@ jQuery(document).ready(function($) {
             $('#page-loading').show();
         },
         success: (res) => {
-            console.log("🚀 ~ jQuery ~ res:", res)
             ProductsData = res;
         },
         error: (xhr, status, error) => {

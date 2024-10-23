@@ -443,7 +443,7 @@ add_action('template_include', function ($template) {
 
 // CUSTOM product-page details
 add_action('init', function () {
-	add_rewrite_rule('^product-detail/([^/]+)/?$', 'index.php?detail=$matches[1]', 'top');
+	add_rewrite_rule('^product-detail/([^/]+)?$', 'index.php?detail=$matches[1]', 'top');
 });
 
 add_filter('query_vars', function ($query_vars) {
