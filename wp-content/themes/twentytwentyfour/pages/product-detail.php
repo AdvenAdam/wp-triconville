@@ -172,8 +172,10 @@ function getCollections(slug) {
             collectionData = res;
             $('#product__description').append(`
                 <div class="inline-flex gap-2">
-                    <a href="${collectionData.sheet}"
-                        class="btn-ghost-dark uppercase tracking-widest text-sm"> download collection sheet</a>
+                    ${collectionData.sheet !== 'False' ?
+                    `<a href="${collectionData.sheet}"
+                        class="btn-ghost-dark uppercase tracking-widest text-sm"> download collection sheet</a>`
+                    :''}
                     <a href="#"
                         class="btn-ghost uppercase tracking-widest text-sm"
                         onclick="document.querySelector('#specification__section').scrollIntoView({behavior: 'smooth'}); return false;">size</a>
