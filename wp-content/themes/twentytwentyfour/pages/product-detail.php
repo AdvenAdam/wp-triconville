@@ -45,7 +45,8 @@ $character_slug = get_query_var('detail');
                 <div class="md:w-1/2">
                     <div id="product__header__image"></div>
                 </div>
-                <div class=" item-center md:w-1/2 mt-5 md:mt-0">
+                <div class=" item-center md:w-1/2 mt-5 md:mt-0"
+                     id="product__description">
                     <div class="mb-5"
                          id="product__overview"></div>
 
@@ -58,13 +59,6 @@ $character_slug = get_query_var('detail');
                           id="label_2"></span>
                     <div class="flex mb-5 flex-wrap items-center gap-2"
                          id="option_2">
-                    </div>
-                    <div class="inline-flex gap-2">
-                        <a href=""
-                           class="btn-ghost-dark uppercase tracking-widest text-xs py-5"> download collection sheet</a>
-                        <a href=""
-                           class="btn-ghost uppercase tracking-widest text-xs py-5"
-                           onclick="document.querySelector('#specification__section').scrollIntoView({behavior: 'smooth'}); return false;">size</a>
                     </div>
 
                 </div>
@@ -138,6 +132,7 @@ $character_slug = get_query_var('detail');
 
 <script>
 let ProductsData = [];
+let collectionData = [];
 jQuery(document).ready(function($) {
     $.ajax({
         url: `<?= BASE_API; ?>/v1_products_det_slug/<?= $character_slug ?>/`,
@@ -159,11 +154,37 @@ jQuery(document).ready(function($) {
             console.error('Error fetching data:', error);
         },
         complete: () => {
-            $('#page-loading').hide();
+            getCollections(ProductsData.collection_det);
             renderMaster();
+            $('#page-loading').hide();
         }
     });
 });
+
+function getCollections(slug) {
+    $.ajax({
+        url: `<?= BASE_API; ?>/v1_collections_det_slug/${slugify(slug)}/`,
+        type: 'GET',
+        headers: {
+            'Authorization': '<?= API_KEY; ?>',
+        },
+        success: (res) => {
+            collectionData = res;
+            $('#product__description').append(`
+                <div class="inline-flex gap-2">
+                    <a href="${collectionData.sheet}"
+                        class="btn-ghost-dark uppercase tracking-widest text-sm"> download collection sheet</a>
+                    <a href="#"
+                        class="btn-ghost uppercase tracking-widest text-sm"
+                        onclick="document.querySelector('#specification__section').scrollIntoView({behavior: 'smooth'}); return false;">size</a>
+                </div>
+            `);
+        },
+        error: (xhr, status, error) => {
+            console.error('Error fetching data:', error);
+        },
+    });
+}
 
 function renderMaster() {
     try {
@@ -196,20 +217,20 @@ function renderMaster() {
         }
     } catch (error) {
         console.error("🚀 ~ renderMaster ~ error:", error)
-        redirectError()
+        // redirectError()
     }
 }
 
 function changeSize(size) {
-    $('.sizing-btn button').removeClass('bg-slate-800 hover:bg-slate-800/80 text-white').addClass('bg-transparent hover:bg-slate-800 hover:text-white');
+    $('.sizing-btn button').removeClass('btn-ghost-dark').addClass('btn-ghost');
 
     if (size == 'metric') {
         $('#table__spec').empty();
-        $('#metric').removeClass('bg-transparent hover:bg-slate-800 hover:text-white').addClass('bg-slate-800 hover:bg-slate-800/80 text-white');
+        $('#metric').removeClass('btn-ghost').addClass('btn-ghost-dark');
         renderDimensions(ProductsData.dimension, "only size");
     } else {
         $('#table__spec').empty();
-        $('#imperial').removeClass('bg-transparent hover:bg-slate-800 hover:text-white').addClass('bg-slate-800 hover:bg-slate-800/80 text-white');
+        $('#imperial').removeClass('btn-ghost').addClass('btn-ghost-dark');
         renderDimensions(ProductsData.dimension_imperial, "only size");
     }
 }
@@ -243,8 +264,6 @@ function renderOverview(res) {
     `)
     if (res.name) {
         const desc = res.description.replace(/<\/?p[^>]*>/g, '').replace(/<li[^>]*>(.*?)<\/li>/g, '')
-        console.log("  ~ renderOverview ~ desc:", desc)
-
         $('#product__overview').append(`
             <div class=''>
                 <h1 class="text-2xl md:text-3xl text-gray-900 tracking-wide line-clamp-2">${res.name}</h1>
@@ -273,10 +292,10 @@ function renderDimensions(dimensions, render = "all") {
                     <div class="flex md:flex-row flex-col items-start justify-between">
                         <h3 class="text-2xl md:text-3xl tracking-wide mb-3 line-clamp-2">SIZING</h3>
                         <div class="flex items-center sizing-btn mb-3">
-                            <button class="bg-slate-800 hover:bg-slate-800/80 border border-slate-800 text-white py-2 px-8 text-sm"
+                            <button class="btn-ghost-dark uppercase tracking-widest text-sm"
                                     onClick="changeSize('metric')"
                                     id="metric">Metric</button>
-                            <button class="bg-transparent hover:bg-slate-800 hover:text-white border border-slate-800 py-2 px-8 text-sm"
+                            <button class="btn-ghost uppercase tracking-widest text-sm"
                                     onClick="changeSize('imperial')"
                                     id="imperial">Imperial</button>
                         </div>

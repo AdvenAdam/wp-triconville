@@ -77,7 +77,7 @@ function renderMaster() {
             <div class="collection__description-content w-full md:w-3/5">
                 <h1 class="text-4xl hidden md:block uppercase font-medium tracking-widest">${collectionData.name}</h1>
                 <p class="text-justify max-w-3xl mb-5">${collectionData.description}</p>
-                <a href="<?= BASE_LINK; ?>/collections" class='btn-ghost-dark uppercase text-xs tracking-widest '>
+                <a href="${collectionData.sheet}" target="_blank" class='btn-ghost-dark uppercase text-xs tracking-widest '>
                     download collection sheet
                 </a>
             </div>
