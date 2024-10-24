@@ -41,7 +41,7 @@ define('DB_COLLATE', '');
 define('BASE_API', 'https://platform.indospacegroup.com/v1/');
 define('API_KEY', 'Token 09633df1426fce26fc53de676e8bb65f47a0dcf1');
 define('BASE_URL', 'http://dev.triconville.com');
-define('BASE_LINK', '');
+define('BASE_LINK', '/');
 
 define( 'WP_HOME', 'http://dev.triconville.com' );
 define( 'WP_SITEURL', 'http://dev.triconville.com' );
