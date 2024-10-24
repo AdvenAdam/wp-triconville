@@ -33,7 +33,7 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
             <div class="grid md:grid-cols-2 items-center my-5">
                 <div class="txt max-w-xl md:text-justify py-5">
                     <p class="uppercase text-xs tracking-widest">our story</p>
-                    <h2 class='text-2xl md:text-3xl tracking-wide '>
+                    <h2 class='text-2xl md:text-3xl tracking-wide'>
                         20 Years of Excellence Experience on Outdoor Living
                     </h2>
                     <p class="tracking-wider text-sm my-5">
