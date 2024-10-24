@@ -24,6 +24,9 @@ h6 {
   font-family: 'Lora', sans-serif;
 }
 
+p {
+  letter-spacing: 0.07em;
+}
 /* Hide scrollbar for Chrome, Safari and Opera */
 .scrollbar-none::-webkit-scrollbar {
     display: none;
