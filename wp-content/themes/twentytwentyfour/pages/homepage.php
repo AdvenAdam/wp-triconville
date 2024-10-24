@@ -217,7 +217,7 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                                 the 2024 Triconville catalogue is a go-to resource for inspiration and information. Qualified trade members can
                                 reserve a copy by filling out the form below.
                             </p>
-                            <a href="<?= BASE_LINK ?>/catalog"
+                            <a href="<?= BASE_LINK ?>/collections"
                                class="btn-ghost uppercase text-xs tracking-widest">View Catalog</a>
                         </div>
                     </div>
