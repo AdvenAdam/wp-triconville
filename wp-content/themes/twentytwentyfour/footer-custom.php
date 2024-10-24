@@ -34,7 +34,7 @@
                                     <a href='<?= BASE_LINK; ?>/about-us'> Brand </a>
                                 </p>
                                 <p class='text-sm py-1'>
-                                    <a href='<?= BASE_LINK; ?>/stores'> Stores </a>
+                                    <a href='<?= BASE_LINK; ?>/find-a-store'> Stores </a>
                                 </p>
                                 <p class='text-sm py-1'>
                                     <a href='<?= BASE_LINK; ?>/products'> Inspiration </a>
