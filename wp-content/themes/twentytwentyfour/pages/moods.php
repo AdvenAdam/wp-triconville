@@ -1,7 +1,13 @@
 <?php
-    get_template_part('header-custom');
-    $character_slug = get_query_var('mood');  
+
+$character_slug = get_query_var('mood');
+
+// Set the title to the slug
+echo '<title>'. 'Moods - ' . ucfirst( slugToTitleCase($character_slug) ) . ' | ' . wp_kses_data( get_bloginfo( 'name', 'display' ) ) . '</title>';
+get_template_part('header-custom');
+
 ?>
+
 
 <div class="content-container min-h-screen tracking-wider">
     <div class="p-3 md:p-5">
