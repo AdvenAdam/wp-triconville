@@ -1,5 +1,7 @@
 /wp-content/themes/twentytwentyfour/node_modules
 /wp-content/themes/twentytwentyfour/page-builder
+/wp-content/wp-cloudflare-super-page-cache
+/wp-content/wp-cloudflare-super-page-cache/**
 
 # Ignore wp-config.php and .htaccess files.
 wp-config.php
