@@ -1,7 +1,8 @@
 <?php
+$character_slug = get_query_var('detail');
+echo '<title>' . ucfirst( slugToTitleCase($character_slug) ) . ' | ' . wp_kses_data( get_bloginfo( 'name', 'display' ) ) . '</title>';
 get_template_part('header-custom');
 
-$character_slug = get_query_var('detail');
 ?>
 <style>
 .slick-slider {
@@ -154,38 +155,24 @@ jQuery(document).ready(function($) {
             console.error('Error fetching data:', error);
         },
         complete: () => {
-            getCollections(ProductsData.collection_det);
             renderMaster();
             $('#page-loading').hide();
         }
     });
 });
 
-function getCollections(slug) {
-    $.ajax({
-        url: `<?= BASE_API; ?>/v1_collections_det_slug/${slugify(slug)}/`,
-        type: 'GET',
-        headers: {
-            'Authorization': '<?= API_KEY; ?>',
-        },
-        success: (res) => {
-            collectionData = res;
-            $('#product__description').append(`
-                <div class="inline-flex gap-2">
-                    ${collectionData.sheet !== 'False' ?
-                    `<a href="${collectionData.sheet}"
-                        class="btn-ghost-dark uppercase tracking-widest text-sm"> download collection sheet</a>`
-                    :''}
-                    <a href="#"
-                        class="btn-ghost uppercase tracking-widest text-sm"
-                        onclick="document.querySelector('#specification__section').scrollIntoView({behavior: 'smooth'}); return false;">size</a>
-                </div>
-            `);
-        },
-        error: (xhr, status, error) => {
-            console.error('Error fetching data:', error);
-        },
-    });
+function renderSheet(sheet) {
+    $('#product__description').append(`
+        <div class="inline-flex gap-2">
+            ${sheet !== 'False' || sheet !== null ?
+            `<a href="${sheet}"
+                class="btn-ghost-dark uppercase tracking-widest text-sm"> download collection sheet</a>`
+            :''}
+            <a href="#"
+                class="btn-ghost uppercase tracking-widest text-sm"
+                onclick="document.querySelector('#specification__section').scrollIntoView({behavior: 'smooth'}); return false;">size</a>
+        </div>
+    `);
 }
 
 function renderMaster() {
@@ -217,6 +204,8 @@ function renderMaster() {
         if (Array.isArray(ProductsData.goes_well_with) && ProductsData.goes_well_with.length > 0) {
             renderWellWithProducts(ProductsData.goes_well_with);
         }
+        renderSheet(ProductsData.collection_sheet);
+
     } catch (error) {
         console.error("🚀 ~ renderMaster ~ error:", error)
         // redirectError()

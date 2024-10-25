@@ -78,42 +78,8 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
     <!-- NOTE : Slider -->
     <div class="relative my-10">
         <!-- Carousel wrapper -->
-        <div class=" slider__home">
-            <!-- Item 1 -->
-            <div class="max-w-screen duration-200 ease-linear mx-2"
-                 data-carousel-item>
-                <img src="https://storage.googleapis.com/pimassest1/asset/utils/collection/featured_image/Corda/1920/corda-sofa-lifestyle-2.jpg"
-                     class="object-cover w-auto max-w-screen h-[600px]"
-                     alt="Slider-1">
-            </div>
-            <!-- Item 2 -->
-            <div class="max-w-screen duration-200 ease-linear mx-2"
-                 data-carousel-item>
-                <img src="https://storage.googleapis.com/pimassest1/asset/utils/collection/featured_image/Emmilie/1920/Emmilie-sofa_piedra-coffee-table.jpg"
-                     class="object-cover w-auto max-w-screen h-[600px]"
-                     alt="Slider-2">
-            </div>
-            <!-- Item 3 -->
-            <div class="max-w-screen duration-200 ease-linear mx-2"
-                 data-carousel-item>
-                <img src="https://storage.googleapis.com/pimassest1/asset/utils/collection/featured_image/Karla/1920/Karla_2-1-1_Olefin-calasona-142-weathered-teak-.jpg"
-                     class="object-cover w-auto max-w-screen h-[600px]"
-                     alt="Slider-2">
-            </div>
-            <!-- Item 4 -->
-            <div class="max-w-screen duration-200 ease-linear mx-2"
-                 data-carousel-item>
-                <img src="https://storage.googleapis.com/pimassest1/asset/utils/collection/featured_image/Timo/1920/timo_sofa_lifestyle_06.jpg"
-                     class="object-cover w-auto max-w-screen h-[600px]"
-                     alt="Slider-2">
-            </div>
-            <!-- Item 5 -->
-            <div class="max-w-screen duration-200 ease-linear mx-2"
-                 data-carousel-item>
-                <img src="https://storage.googleapis.com/pimassest1/asset/utils/collection/featured_image/Vento%20Aluminium/1920/4._Vento_Alu_Ambiance_Fontelina_Blue_.jpg"
-                     class="object-cover w-auto max-w-screen h-[600px]"
-                     alt="Slider-2">
-            </div>
+        <div class="slider__home"
+             id="slider__home">
         </div>
         <button class="slick-prev prev-btn hidden md:block absolute top-1/2 -translate-y-1/2 z-1 left-5 py-10 bg-slate-50/50 p-3 hover:bg-slate-50/80"
                 aria-label="Previous"
@@ -235,8 +201,9 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
              class="hidden">Error</div>
     </div>
     <script>
-    var selectedCollectionIds = [];
-    var filteredCollections = [];
+    let selectedCollectionIds = [];
+    let filteredCollections = [];
+
     $(document).ready(function() {
         $.ajax({
             url: "<?= BASE_URL; ?>/?rest_route=/wp/v2/selected_collection",
@@ -246,6 +213,7 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
             },
             complete: () => {
                 loadCollections();
+                renderProjects();
             }
         })
     })
@@ -282,6 +250,48 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
         });
     }
 
+    function renderProjects() {
+        const products = <?php echo file_get_contents(get_template_directory() . '/api/projects.json'); ?>;
+
+        products.forEach((project) => {
+            $('#slider__home').append(`
+                <div class="max-w-screen duration-200 ease-linear mx-2 relative">
+                    <img src="<?php echo get_stylesheet_directory_uri(); ?>${project.banner}"
+                        class="object-cover w-auto max-w-screen h-[600px]"
+                        alt="${project.banner}">
+                    <div class="absolute bottom-10 right-10">
+                        <div class="p-5 text-white flex flex-col sm:justify-end sm:items-end">
+                            <h2 class="text-2xl md:text-3xl text-white tracking-wider">${toTitleCase(project.name)}</h2>
+                        </div>
+                    </div>
+                </div>
+            `)
+        })
+
+        $('.slider__home').slick({
+            slidesToScroll: 1,
+            arrows: false,
+            variableWidth: true,
+            infinite: true,
+            centerMode: true,
+            responsive: [{
+                breakpoint: 768,
+                settings: {
+                    infinite: false,
+                    centerMode: false,
+                    variableWidth: false,
+                    slidesToShow: 1.05,
+                }
+            }]
+        });
+        $(".prev-btn").click(function() {
+            $(".slider__home").slick("slickPrev");
+        });
+        $(".next-btn").click(function() {
+            $(".slider__home").slick("slickNext");
+        });
+    }
+
     function renderCollections(collection) {
         $('#colection-selected').append(`
             <div style="background-image: url(${collection.collection_image_1024});" class="bg-cover bg-no-repeat bg-center h-[300px] sm:h-[365px] sm:mx-0 mx-2 w-auto">
@@ -312,34 +322,10 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
             }
         }
     }
+
     $(window).resize(function() {
         collectionSlick();
     })
-    </script>
-
-    <script>
-    $('.slider__home').slick({
-        slidesToScroll: 1,
-        arrows: false,
-        variableWidth: true,
-        infinite: true,
-        centerMode: true,
-        responsive: [{
-            breakpoint: 768,
-            settings: {
-                infinite: false,
-                centerMode: false,
-                variableWidth: false,
-                slidesToShow: 1.05,
-            }
-        }]
-    });
-    $(".prev-btn").click(function() {
-        $(".slider__home").slick("slickPrev");
-    });
-    $(".next-btn").click(function() {
-        $(".slider__home").slick("slickNext");
-    });
     </script>
 
     <?php

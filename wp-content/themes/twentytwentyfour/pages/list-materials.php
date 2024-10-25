@@ -58,7 +58,6 @@ $(document).ready(function() {
         type: "GET",
         success: (res) => {
             selectedMaterialIds = res.selectedMaterial;
-            console.log("🚀 ~ $ ~ selectedMaterialIds:", selectedMaterialIds)
             loadMaterials();
         }
     })

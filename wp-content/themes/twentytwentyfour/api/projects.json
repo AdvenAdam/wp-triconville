@@ -26,5 +26,19 @@
       "/assets/images/projects/the-danna-langkawi/ambience-3.png"
     ],
     "products_sku": ["VENTO-01", "TORA-01", "BRIE-01", "TIMO-01", "ALP-01", "KRL-1S", "SNIX-01", "COR-01"]
+  },
+  {
+    "id": 3,
+    "name": "the danna langkawi 3",
+    "slug": "the-danna-langkawi-3",
+    "banner": "/assets/images/projects/the-danna-langkawi/banner.png",
+    "description": "Wandering the westernmost tip of Mallorca, dense pine trees unveil a hidden gem. La Trapa is a 430-square-metre family home designed by architect Joan Miquel Seguí and the Terraza Balear team. Organically shaped to its triangular plot, this retreat is a tribute to Mallorca's wild beauty. Every corner has been crafted to foster a deep connection to the lush outdoors. Glass walls invite the surroundings to become part of daily life.",
+    "country": "Malaysia",
+    "galleries": [
+      "/assets/images/projects/the-danna-langkawi/ambience-1.png",
+      "/assets/images/projects/the-danna-langkawi/ambience-2.png",
+      "/assets/images/projects/the-danna-langkawi/ambience-3.png"
+    ],
+    "products_sku": ["VENTO-01", "TORA-01", "BRIE-01", "TIMO-01", "ALP-01", "KRL-1S", "SNIX-01", "COR-01"]
   }
 ]

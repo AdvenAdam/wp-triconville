@@ -425,12 +425,19 @@ add_action('template_include', function ($template) {
 
 // CUSTOM product-category details
 add_action('init', function () {
-	add_rewrite_rule('products/([a-z0-9]+)[/]?$', 'index.php?product=$matches[1]', 'top');
+	add_rewrite_rule('products/([a-z0-9-]+)[/]?$', 'index.php?product=$matches[1]', 'top');
 });
 
 add_filter('query_vars', function ($query_vars) {
 	$query_vars[] = 'product';
 	return $query_vars;
+});
+
+add_filter('wp_title', function ($title) {
+    if (get_query_var('product')) {
+        return get_query_var('product');
+    }
+    return $title;
 });
 
 add_action('template_include', function ($template) {
@@ -511,3 +518,8 @@ function enqueue_styles()
 }
 
 add_action('wp_enqueue_scripts', 'enqueue_styles');
+
+
+function slugToTitleCase($slug) {
+    return ucwords(str_replace('-', ' ', $slug));
+}

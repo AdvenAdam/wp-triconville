@@ -1,7 +1,8 @@
 <?php
+$character_slug = get_query_var('product');
+echo '<title>' . ucfirst( slugToTitleCase($character_slug) )  . ' | ' . wp_kses_data( get_bloginfo( 'name', 'display' ) ) . '</title>';
 get_template_part('header-custom');
 
-$character_slug = get_query_var('product');
 ?>
 <style>
 .product-detail-banner {
