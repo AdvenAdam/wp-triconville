@@ -9,7 +9,7 @@
           href="https://gmpg.org/xfn/11">
     <?php wp_head(); ?>
     <title>
-        <?php wp_title('|', true, 'right'); ?> <?php echo wp_kses_data( get_bloginfo( 'name', 'display' ) ); ?>
+        <?php wp_title('|', true, 'right'); ?>
     </title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.0/flowbite.min.js"></script>
