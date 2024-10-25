@@ -50,6 +50,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 <link rel='stylesheet' id='global-css' href='http://dev.triconville.com/wp-content/themes/twentytwentyfour/global.css?ver=1.0.0' media='all' />
 <script src="http://dev.triconville.com/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" id="jquery-core-js"></script>
 <script src="http://dev.triconville.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1" id="jquery-migrate-js"></script>
+<script src="http://dev.triconville.com/wp-content/plugins/wp-cloudflare-page-cache/assets/js/lazysizes.min.js?ver=5.3.2" id="spc-lazysizes-js"></script>
 <link rel="https://api.w.org/" href="http://dev.triconville.com/wp-json/" /><link rel="alternate" type="application/json" href="http://dev.triconville.com/wp-json/wp/v2/pages/7571" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://dev.triconville.com/xmlrpc.php?rsd" />
 <meta name="generator" content="WordPress 6.5.5" />
 <link rel="canonical" href="http://dev.triconville.com/news/" />
@@ -125,12 +126,12 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 <body class="page-template page-template-ven page-template-ven-php page page-id-7571 wp-embed-responsive elementor-default elementor-kit-72">
     <header class="header sticky top-0 tracking-widest"
             style="z-index: 20;">
-        <div class="flex items-center justify-between md:px-5 px-3 w-full max-h-16 bg-white">
-            <div class="py-5 flex justify-center min-w-">
+        <div class="flex items-center justify-between md:px-5 px-3 w-full bg-white">
+            <div class="flex justify-center">
                 <a href="http://dev.triconville.com">
-                    <img src="/wp-content/uploads/2024/09/Logo-Blue-Resized-1.png"
+                    <img data-src="/wp-content/uploads/2024/09/Logo-Blue-Resized-1.png" 
                          alt="Triconville logo"
-                         class="h-6 will-auto min-w-20" />
+                         class="h-6 will-auto min-w-20 lazyload" />
                 </a>
             </div>
 
@@ -140,8 +141,8 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
                 </div>
                 <!-- Note : Login -->
                 <div class="hidden md:flex items-center">
-                    <div class="px-3 text-xs uppercase outline-none">
-                        <div class="gtranslate_wrapper" id="gt-wrapper-73740628"></div>                    </div>
+                    <div class="px-3 pb-1 text-xs uppercase outline-none">
+                        <div class="gtranslate_wrapper" id="gt-wrapper-27120663"></div>                    </div>
                     <a href="https://triconville.co.id/customer/account/login/">
                         <p class="px-3 text-xs uppercase hover:text-cyan-500">B2B Login</p>
                     </a>
@@ -216,7 +217,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
         <div class="flex justify-between items-center my-5">
             <div class="text-xs px-2 uppercase outline-none"
                  id="mobile_gtranslate">
-                <div class="gtranslate_wrapper" id="gt-wrapper-72680745"></div>            </div>
+                <div class="gtranslate_wrapper" id="gt-wrapper-51590819"></div>            </div>
             <a href="https://triconville.co.id/customer/account/login/">
                 <p class="btn-ghost text-xs">B2B Login</p>
             </a>
@@ -252,8 +253,8 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
     });
 
     function showSubHeader(isShow) {
-        $('#sub-products').removeClass('opacity-100 visible').addClass('opacity-0 invisible');
         if (isShow) {
+            $('#sub-products').removeClass('opacity-100 visible').addClass('opacity-0 invisible');
             $('#sub-header').removeClass('opacity-0 invisible').addClass('opacity-100 visible');
         } else {
             $('#sub-header').removeClass('opacity-100 visible').addClass('opacity-0 invisible');
@@ -261,8 +262,8 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
     }
 
     function showSubProducts(isShow) {
-        $('#sub-header').removeClass('opacity-100 visible').addClass('opacity-0 invisible');
         if (isShow) {
+            $('#sub-header').removeClass('opacity-100 visible').addClass('opacity-0 invisible');
             $('#sub-products').removeClass('opacity-0 invisible').addClass('opacity-100 visible');
         } else {
             $('#sub-products').removeClass('opacity-100 visible').addClass('opacity-0 invisible');
@@ -276,7 +277,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
     function renderLink(e) {
         if (e.name === 'Inspiration') {
             $('#navbar_menu_category').append(`
-                <a href="${e.href}" id="${slugify(e.name)}-link" onMouseOver="showSubHeader(true)" class="flex py-5 px-2 items-center text-gray-900 hover:text-cyan-500">                    
+                <a href="${e.href}" id="${slugify(e.name)}-link" onMouseOver="showSubHeader(true)" onMouseOut="showSubHeader(false)" class="flex py-6 px-2 items-center text-gray-900 hover:text-cyan-500">                    
                     <p class="uppercase text-xs">${e.name}</p>
                 </a>
             `);
@@ -291,7 +292,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
             appendSubMenu(e.name);
         } else if (e.name === 'Products') {
             $('#navbar_menu_category').append(`
-                <a href="${e.href}" id="${slugify(e.name)}-link" onMouseOver="showSubProducts(true)" class="flex py-5 px-2 items-center text-gray-900 hover:text-cyan-500">                    
+                <a href="${e.href}" id="${slugify(e.name)}-link" onMouseOver="showSubProducts(true)" onMouseOut="showSubProducts(false)" class="flex py-6 px-2 items-center text-gray-900 hover:text-cyan-500">                    
                     <p class="uppercase text-xs">${e.name}</p>
                 </a>
             `);
@@ -307,7 +308,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
             appendSubMenu(e.name);
         } else {
             $('#navbar_menu_category').append(`
-                <a href="${e.href}" id="${slugify(e.name)}-link" class="flex py-5 px-2 gap-2 items-center text-gray-900 hover:text-cyan-500">
+                <a href="${e.href}" id="${slugify(e.name)}-link" class="flex py-6 px-2 gap-2 items-center text-gray-900 hover:text-cyan-500">
                     <p class="uppercase text-xs">${e.name}</p>
                 </a>
             `);
@@ -615,7 +616,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
             class="wp-block-column is-vertically-aligned-center is-layout-flow wp-block-column-is-layout-flow"
             style="flex-basis: 35%"
           >
-            <figure class="news-image wp-block-post-featured-image"><a href="http://dev.triconville.com/everything-about-teak/" target="_self"  ><img decoding="async" width="2048" height="1152" src="http://dev.triconville.com/wp-content/uploads/2024/09/Turquoise-Teak.png" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="Everything About Teak" style="object-fit:cover;" /></a></figure>
+            <figure class="news-image wp-block-post-featured-image"><a href="http://dev.triconville.com/everything-about-teak/" target="_self"  ><img data-src="http://dev.triconville.com/wp-content/uploads/2024/09/Turquoise-Teak.png" decoding="async" width="2048" height="1152"  class="attachment-post-thumbnail size-post-thumbnail wp-post-image lazyload" alt="Everything About Teak" style="object-fit:cover;" /></a></figure>
           </div>
           
 
@@ -639,7 +640,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
             class="wp-block-column is-vertically-aligned-center is-layout-flow wp-block-column-is-layout-flow"
             style="flex-basis: 35%"
           >
-            <figure class="news-image wp-block-post-featured-image"><a href="http://dev.triconville.com/indospace-oem-division/" target="_self"  ><img decoding="async" width="1120" height="800" src="http://dev.triconville.com/wp-content/uploads/2024/09/emporeng-tumbnail.png" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="Empowering Global Furniture Retailers Through Innovative Manufacturing Support" style="object-fit:cover;" /></a></figure>
+            <figure class="news-image wp-block-post-featured-image"><a href="http://dev.triconville.com/indospace-oem-division/" target="_self"  ><img data-src="http://dev.triconville.com/wp-content/uploads/2024/09/emporeng-tumbnail.png" decoding="async" width="1120" height="800"  class="attachment-post-thumbnail size-post-thumbnail wp-post-image lazyload" alt="Empowering Global Furniture Retailers Through Innovative Manufacturing Support" style="object-fit:cover;" /></a></figure>
           </div>
           
 
@@ -667,7 +668,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
           class="wp-block-columns are-vertically-aligned-center flex md:flex-col md:is-layout-flow wp-block-post-template-is-layout-flow"
         >
           <div class="grid grid-cols-2 md:grid-cols-1 gap-3 is-layout-flow wp-block-post-template-is-layout-flow">
-            <figure class="max-h-[30vh] md:max-h-[50vh] w-auto object-cover max-w-[30vh]  md:max-w-[50vw] wp-block-post-featured-image"><a href="http://dev.triconville.com/the-best-choice-for-your-business-indospace-the-largest-indonesian-b2b-furniture-supplier/" target="_self"  ><img  decoding="async" width="1120" height="800" src="http://dev.triconville.com/wp-content/uploads/2024/09/the-best-choice-news-tumb.png" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="The Best Choice for Your Business: Indospace, the Largest Indonesian B2B Furniture Supplier" style="object-fit:cover;" /></a></figure>
+            <figure class="max-h-[30vh] md:max-h-[50vh] w-auto object-cover max-w-[30vh]  md:max-w-[50vw] wp-block-post-featured-image"><a href="http://dev.triconville.com/the-best-choice-for-your-business-indospace-the-largest-indonesian-b2b-furniture-supplier/" target="_self"  ><img data-src="http://dev.triconville.com/wp-content/uploads/2024/09/the-best-choice-news-tumb.png"  decoding="async" width="1120" height="800"  class="attachment-post-thumbnail size-post-thumbnail wp-post-image lazyload" alt="The Best Choice for Your Business: Indospace, the Largest Indonesian B2B Furniture Supplier" style="object-fit:cover;" /></a></figure>
             <h2 style="color:#2c272e;" class="has-text-color news-title-bottom my-3  wp-block-post-title"><a href="http://dev.triconville.com/the-best-choice-for-your-business-indospace-the-largest-indonesian-b2b-furniture-supplier/" target="_self" >The Best Choice for Your Business: Indospace, the Largest Indonesian B2B Furniture Supplier</a></h2>
           </div>
           </li><li class="wp-block-post post-3997 post type-post status-publish format-standard has-post-thumbnail hentry category-newsroom tag-shipping">
@@ -675,7 +676,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
           class="wp-block-columns are-vertically-aligned-center flex md:flex-col md:is-layout-flow wp-block-post-template-is-layout-flow"
         >
           <div class="grid grid-cols-2 md:grid-cols-1 gap-3">
-            <figure class="max-h-[30vh] md:max-h-[50vh] w-auto object-cover max-w-[30vh]  md:max-w-[50vw] wp-block-post-featured-image"><a href="http://dev.triconville.com/quick-ship-program-by-indospace-group/" target="_self"  ><img  decoding="async" width="1120" height="800" src="http://dev.triconville.com/wp-content/uploads/2024/09/quickship-news-tumb.png" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="Quick Ship Program by Indospace Group" style="object-fit:cover;" /></a></figure>
+            <figure class="max-h-[30vh] md:max-h-[50vh] w-auto object-cover max-w-[30vh]  md:max-w-[50vw] wp-block-post-featured-image"><a href="http://dev.triconville.com/quick-ship-program-by-indospace-group/" target="_self"  ><img data-src="http://dev.triconville.com/wp-content/uploads/2024/09/quickship-news-tumb.png"  decoding="async" width="1120" height="800"  class="attachment-post-thumbnail size-post-thumbnail wp-post-image lazyload" alt="Quick Ship Program by Indospace Group" style="object-fit:cover;" /></a></figure>
             <h2 style="color:#2c272e;" class="has-text-color news-title-bottom my-3  wp-block-post-title"><a href="http://dev.triconville.com/quick-ship-program-by-indospace-group/" target="_self" >Quick Ship Program by Indospace Group</a></h2>
           </div>
           </li><li class="wp-block-post post-3964 post type-post status-publish format-standard has-post-thumbnail hentry category-newsroom tag-sustainable-furniture">
@@ -683,7 +684,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
           class="wp-block-columns are-vertically-aligned-center flex md:flex-col md:is-layout-flow wp-block-post-template-is-layout-flow"
         >
           <div class="grid grid-cols-2 md:grid-cols-1 gap-3">
-            <figure class="max-h-[30vh] md:max-h-[50vh] w-auto object-cover max-w-[30vh]  md:max-w-[50vw] wp-block-post-featured-image"><a href="http://dev.triconville.com/sustainability-in-indonesian-furniture-why-it-matters-for-your-business-and-the-environment/" target="_self"  ><img  decoding="async" width="1120" height="800" src="http://dev.triconville.com/wp-content/uploads/2024/09/sustainability-news-tumb.png" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="Sustainability in Indonesian Furniture: Why It Matters for Your Business and the Environment" style="object-fit:cover;" /></a></figure>
+            <figure class="max-h-[30vh] md:max-h-[50vh] w-auto object-cover max-w-[30vh]  md:max-w-[50vw] wp-block-post-featured-image"><a href="http://dev.triconville.com/sustainability-in-indonesian-furniture-why-it-matters-for-your-business-and-the-environment/" target="_self"  ><img data-src="http://dev.triconville.com/wp-content/uploads/2024/09/sustainability-news-tumb.png"  decoding="async" width="1120" height="800"  class="attachment-post-thumbnail size-post-thumbnail wp-post-image lazyload" alt="Sustainability in Indonesian Furniture: Why It Matters for Your Business and the Environment" style="object-fit:cover;" /></a></figure>
             <h2 style="color:#2c272e;" class="has-text-color news-title-bottom my-3  wp-block-post-title"><a href="http://dev.triconville.com/sustainability-in-indonesian-furniture-why-it-matters-for-your-business-and-the-environment/" target="_self" >Sustainability in Indonesian Furniture: Why It Matters for Your Business and the Environment</a></h2>
           </div>
           </li><li class="wp-block-post post-1441 post type-post status-publish format-standard has-post-thumbnail hentry category-newsroom tag-infrastructure-smes tag-supply-chain">
@@ -691,7 +692,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
           class="wp-block-columns are-vertically-aligned-center flex md:flex-col md:is-layout-flow wp-block-post-template-is-layout-flow"
         >
           <div class="grid grid-cols-2 md:grid-cols-1 gap-3">
-            <figure class="max-h-[30vh] md:max-h-[50vh] w-auto object-cover max-w-[30vh]  md:max-w-[50vw] wp-block-post-featured-image"><a href="http://dev.triconville.com/indospace-is-digitalizing-furniture-supply-chain-infrastructure-for-smes-in-indonesia/" target="_self"  ><img  decoding="async" width="1138" height="813" src="http://dev.triconville.com/wp-content/uploads/2024/09/supply-chain-01.jpg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="Indospace is Digitalizing Furniture Supply Chain Infrastructure for SME’s in Indonesia" style="object-fit:cover;" /></a></figure>
+            <figure class="max-h-[30vh] md:max-h-[50vh] w-auto object-cover max-w-[30vh]  md:max-w-[50vw] wp-block-post-featured-image"><a href="http://dev.triconville.com/indospace-is-digitalizing-furniture-supply-chain-infrastructure-for-smes-in-indonesia/" target="_self"  ><img data-src="http://dev.triconville.com/wp-content/uploads/2024/09/supply-chain-01.jpg"  decoding="async" width="1138" height="813"  class="attachment-post-thumbnail size-post-thumbnail wp-post-image lazyload" alt="Indospace is Digitalizing Furniture Supply Chain Infrastructure for SME’s in Indonesia" style="object-fit:cover;" /></a></figure>
             <h2 style="color:#2c272e;" class="has-text-color news-title-bottom my-3  wp-block-post-title"><a href="http://dev.triconville.com/indospace-is-digitalizing-furniture-supply-chain-infrastructure-for-smes-in-indonesia/" target="_self" >Indospace is Digitalizing Furniture Supply Chain Infrastructure for SME’s in Indonesia</a></h2>
           </div>
           </li></ul>
@@ -765,7 +766,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
                                     <a href='/about-us'> Brand </a>
                                 </p>
                                 <p class='text-sm py-1'>
-                                    <a href='/stores'> Stores </a>
+                                    <a href='/find-a-store'> Stores </a>
                                 </p>
                                 <p class='text-sm py-1'>
                                     <a href='/products'> Inspiration </a>
@@ -821,19 +822,19 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
                                     <p class='font-bold text-sm uppercase tracking-widest pt-5'>connect</p>
                                     <div class="flex items-center gap-2 my-3">
                                         <a href='#'>
-                                            <img src='http://dev.triconville.com/wp-content/themes/twentytwentyfour/assets/images/icons/youtube.svg' />
+                                            <img class="lazyload" data-src="http://dev.triconville.com/wp-content/themes/twentytwentyfour/assets/images/icons/youtube.svg"  />
                                         </a>
                                         <a href='#'>
-                                            <img src='http://dev.triconville.com/wp-content/themes/twentytwentyfour/assets/images/icons/pinterest.svg' />
+                                            <img class="lazyload" data-src="http://dev.triconville.com/wp-content/themes/twentytwentyfour/assets/images/icons/pinterest.svg"  />
                                         </a>
                                         <a href='#'>
-                                            <img src='http://dev.triconville.com/wp-content/themes/twentytwentyfour/assets/images/icons/instagram.svg' />
+                                            <img class="lazyload" data-src="http://dev.triconville.com/wp-content/themes/twentytwentyfour/assets/images/icons/instagram.svg"  />
                                         </a>
                                         <a href='#'>
-                                            <img src='http://dev.triconville.com/wp-content/themes/twentytwentyfour/assets/images/icons/facebook.svg' />
+                                            <img class="lazyload" data-src="http://dev.triconville.com/wp-content/themes/twentytwentyfour/assets/images/icons/facebook.svg"  />
                                         </a>
                                         <a href='#'>
-                                            <img src='http://dev.triconville.com/wp-content/themes/twentytwentyfour/assets/images/icons/linkedin.svg' />
+                                            <img class="lazyload" data-src="http://dev.triconville.com/wp-content/themes/twentytwentyfour/assets/images/icons/linkedin.svg"  />
                                         </a>
                                     </div>
                                 </div>
@@ -842,25 +843,25 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
                                 <p class='font-bold text-sm uppercase tracking-widest'>connect</p>
                                 <div class="flex items-center gap-2 my-3">
                                     <a href='#'>
-                                        <img src='http://dev.triconville.com/wp-content/themes/twentytwentyfour/assets/images/icons/youtube.svg' />
+                                        <img class="lazyload" data-src="http://dev.triconville.com/wp-content/themes/twentytwentyfour/assets/images/icons/youtube.svg"  />
                                     </a>
                                     <a href='#'>
-                                        <img src='http://dev.triconville.com/wp-content/themes/twentytwentyfour/assets/images/icons/pinterest.svg' />
+                                        <img class="lazyload" data-src="http://dev.triconville.com/wp-content/themes/twentytwentyfour/assets/images/icons/pinterest.svg"  />
                                     </a>
                                     <a href='#'>
-                                        <img src='http://dev.triconville.com/wp-content/themes/twentytwentyfour/assets/images/icons/instagram.svg' />
+                                        <img class="lazyload" data-src="http://dev.triconville.com/wp-content/themes/twentytwentyfour/assets/images/icons/instagram.svg"  />
                                     </a>
                                     <a href='#'>
-                                        <img src='http://dev.triconville.com/wp-content/themes/twentytwentyfour/assets/images/icons/facebook.svg' />
+                                        <img class="lazyload" data-src="http://dev.triconville.com/wp-content/themes/twentytwentyfour/assets/images/icons/facebook.svg"  />
                                     </a>
                                     <a href='#'>
-                                        <img src='http://dev.triconville.com/wp-content/themes/twentytwentyfour/assets/images/icons/linkedin.svg' />
+                                        <img class="lazyload" data-src="http://dev.triconville.com/wp-content/themes/twentytwentyfour/assets/images/icons/linkedin.svg"  />
                                     </a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="md:w-2/5 w-full pt-10 md:pt-0 md:p-3">
+                    <div class="md:w-2/5 w-full pt-10 md:pt-3 md:p-3">
                         <p class='font-bold uppercase tracking-widest'>newsletter</p>
                         <p>Sign up to our newsletter</p>
                         <div class="form mt-5">
@@ -1105,12 +1106,12 @@ var uacf7_cf_object = [];
 var wpcf7iqfix = {"recaptcha_empty":"Please verify that you are not a robot.","response_err":"wpcf7-recaptcha: Could not verify reCaptcha response."};
 </script>
 <script src="https://www.recaptcha.net/recaptcha/api.js?hl=en_US&amp;onload=recaptchaCallback&amp;render=explicit&amp;ver=2.0" id="google-recaptcha-js"></script>
-<script id="gt_widget_script_73740628-js-before">
-window.gtranslateSettings = /* document.write */ window.gtranslateSettings || {};window.gtranslateSettings['73740628'] = {"default_language":"en","languages":["en","fr","it","es"],"url_structure":"none","detect_browser_language":1,"wrapper_selector":"#gt-wrapper-73740628","horizontal_position":"inline"};
-</script><script src="https://cdn.gtranslate.net/widgets/latest/dropdown.js?ver=6.5.5" data-no-optimize="1" data-no-minify="1" data-gt-orig-url="/news/" data-gt-orig-domain="dev.triconville.com" data-gt-widget-id="73740628" defer></script><script id="gt_widget_script_72680745-js-before">
-window.gtranslateSettings = /* document.write */ window.gtranslateSettings || {};window.gtranslateSettings['72680745'] = {"default_language":"en","languages":["en","fr","it","es"],"url_structure":"none","detect_browser_language":1,"wrapper_selector":"#gt-wrapper-72680745","horizontal_position":"inline"};
-</script><script src="https://cdn.gtranslate.net/widgets/latest/dropdown.js?ver=6.5.5" data-no-optimize="1" data-no-minify="1" data-gt-orig-url="/news/" data-gt-orig-domain="dev.triconville.com" data-gt-widget-id="72680745" defer></script>
+<script id="gt_widget_script_27120663-js-before">
+window.gtranslateSettings = /* document.write */ window.gtranslateSettings || {};window.gtranslateSettings['27120663'] = {"default_language":"en","languages":["en","fr","it","es"],"url_structure":"none","detect_browser_language":1,"wrapper_selector":"#gt-wrapper-27120663","horizontal_position":"inline"};
+</script><script src="https://cdn.gtranslate.net/widgets/latest/dropdown.js?ver=6.5.5" data-no-optimize="1" data-no-minify="1" data-gt-orig-url="/news/" data-gt-orig-domain="dev.triconville.com" data-gt-widget-id="27120663" defer></script><script id="gt_widget_script_51590819-js-before">
+window.gtranslateSettings = /* document.write */ window.gtranslateSettings || {};window.gtranslateSettings['51590819'] = {"default_language":"en","languages":["en","fr","it","es"],"url_structure":"none","detect_browser_language":1,"wrapper_selector":"#gt-wrapper-51590819","horizontal_position":"inline"};
+</script><script src="https://cdn.gtranslate.net/widgets/latest/dropdown.js?ver=6.5.5" data-no-optimize="1" data-no-minify="1" data-gt-orig-url="/news/" data-gt-orig-domain="dev.triconville.com" data-gt-widget-id="51590819" defer></script>
 		</body>
 
 </html>
-<!-- Page retrieved from Super Page Cache fallback cache - page generated @ 2024-10-22 02:36:06 - fallback cache expiration @ never expires - cache key 3c6bdcddc94f64bf77deb306aae490a90a6fc300.html -->
+<!-- Page retrieved from Super Page Cache fallback cache - page generated @ 2024-10-25 06:14:21 - fallback cache expiration @ never expires - cache key 3c6bdcddc94f64bf77deb306aae490a90a6fc300.html -->

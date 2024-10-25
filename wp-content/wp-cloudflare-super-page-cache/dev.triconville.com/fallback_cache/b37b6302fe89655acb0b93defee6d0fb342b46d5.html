@@ -50,6 +50,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 <link rel='stylesheet' id='global-css' href='http://dev.triconville.com/wp-content/themes/twentytwentyfour/global.css?ver=1.0.0' media='all' />
 <script src="http://dev.triconville.com/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" id="jquery-core-js"></script>
 <script src="http://dev.triconville.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1" id="jquery-migrate-js"></script>
+<script src="http://dev.triconville.com/wp-content/plugins/wp-cloudflare-page-cache/assets/js/lazysizes.min.js?ver=5.3.2" id="spc-lazysizes-js"></script>
 <link rel="https://api.w.org/" href="http://dev.triconville.com/wp-json/" /><link rel="alternate" type="application/json" href="http://dev.triconville.com/wp-json/wp/v2/pages/37" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://dev.triconville.com/xmlrpc.php?rsd" />
 <meta name="generator" content="WordPress 6.5.5" />
 <link rel="canonical" href="http://dev.triconville.com/" />
@@ -125,12 +126,12 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 <body class="home page-template page-template-pages page-template-homepage page-template-pageshomepage-php page page-id-37 wp-embed-responsive elementor-default elementor-kit-72">
     <header class="header sticky top-0 tracking-widest"
             style="z-index: 20;">
-        <div class="flex items-center justify-between md:px-5 px-3 w-full max-h-16 bg-white">
-            <div class="py-5 flex justify-center min-w-">
+        <div class="flex items-center justify-between md:px-5 px-3 w-full bg-white">
+            <div class="flex justify-center">
                 <a href="http://dev.triconville.com">
-                    <img src="/wp-content/uploads/2024/09/Logo-Blue-Resized-1.png"
+                    <img data-src="/wp-content/uploads/2024/09/Logo-Blue-Resized-1.png" 
                          alt="Triconville logo"
-                         class="h-6 will-auto min-w-20" />
+                         class="h-6 will-auto min-w-20 lazyload" />
                 </a>
             </div>
 
@@ -140,8 +141,8 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
                 </div>
                 <!-- Note : Login -->
                 <div class="hidden md:flex items-center">
-                    <div class="px-3 text-xs uppercase outline-none">
-                        <div class="gtranslate_wrapper" id="gt-wrapper-31795380"></div>                    </div>
+                    <div class="px-3 pb-1 text-xs uppercase outline-none">
+                        <div class="gtranslate_wrapper" id="gt-wrapper-11556706"></div>                    </div>
                     <a href="https://triconville.co.id/customer/account/login/">
                         <p class="px-3 text-xs uppercase hover:text-cyan-500">B2B Login</p>
                     </a>
@@ -216,7 +217,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
         <div class="flex justify-between items-center my-5">
             <div class="text-xs px-2 uppercase outline-none"
                  id="mobile_gtranslate">
-                <div class="gtranslate_wrapper" id="gt-wrapper-11350293"></div>            </div>
+                <div class="gtranslate_wrapper" id="gt-wrapper-82961511"></div>            </div>
             <a href="https://triconville.co.id/customer/account/login/">
                 <p class="btn-ghost text-xs">B2B Login</p>
             </a>
@@ -252,8 +253,8 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
     });
 
     function showSubHeader(isShow) {
-        $('#sub-products').removeClass('opacity-100 visible').addClass('opacity-0 invisible');
         if (isShow) {
+            $('#sub-products').removeClass('opacity-100 visible').addClass('opacity-0 invisible');
             $('#sub-header').removeClass('opacity-0 invisible').addClass('opacity-100 visible');
         } else {
             $('#sub-header').removeClass('opacity-100 visible').addClass('opacity-0 invisible');
@@ -261,8 +262,8 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
     }
 
     function showSubProducts(isShow) {
-        $('#sub-header').removeClass('opacity-100 visible').addClass('opacity-0 invisible');
         if (isShow) {
+            $('#sub-header').removeClass('opacity-100 visible').addClass('opacity-0 invisible');
             $('#sub-products').removeClass('opacity-0 invisible').addClass('opacity-100 visible');
         } else {
             $('#sub-products').removeClass('opacity-100 visible').addClass('opacity-0 invisible');
@@ -276,7 +277,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
     function renderLink(e) {
         if (e.name === 'Inspiration') {
             $('#navbar_menu_category').append(`
-                <a href="${e.href}" id="${slugify(e.name)}-link" onMouseOver="showSubHeader(true)" class="flex py-5 px-2 items-center text-gray-900 hover:text-cyan-500">                    
+                <a href="${e.href}" id="${slugify(e.name)}-link" onMouseOver="showSubHeader(true)" onMouseOut="showSubHeader(false)" class="flex py-6 px-2 items-center text-gray-900 hover:text-cyan-500">                    
                     <p class="uppercase text-xs">${e.name}</p>
                 </a>
             `);
@@ -291,7 +292,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
             appendSubMenu(e.name);
         } else if (e.name === 'Products') {
             $('#navbar_menu_category').append(`
-                <a href="${e.href}" id="${slugify(e.name)}-link" onMouseOver="showSubProducts(true)" class="flex py-5 px-2 items-center text-gray-900 hover:text-cyan-500">                    
+                <a href="${e.href}" id="${slugify(e.name)}-link" onMouseOver="showSubProducts(true)" onMouseOut="showSubProducts(false)" class="flex py-6 px-2 items-center text-gray-900 hover:text-cyan-500">                    
                     <p class="uppercase text-xs">${e.name}</p>
                 </a>
             `);
@@ -307,7 +308,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
             appendSubMenu(e.name);
         } else {
             $('#navbar_menu_category').append(`
-                <a href="${e.href}" id="${slugify(e.name)}-link" class="flex py-5 px-2 gap-2 items-center text-gray-900 hover:text-cyan-500">
+                <a href="${e.href}" id="${slugify(e.name)}-link" class="flex py-6 px-2 gap-2 items-center text-gray-900 hover:text-cyan-500">
                     <p class="uppercase text-xs">${e.name}</p>
                 </a>
             `);
@@ -550,10 +551,10 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
             <div class="grid md:grid-cols-2 items-center my-5">
                 <div class="txt max-w-xl md:text-justify py-5">
                     <p class="uppercase text-xs tracking-widest">our story</p>
-                    <h2 class='text-2xl md:text-3xl tracking-wider'>
+                    <h2 class='text-2xl md:text-3xl tracking-wide'>
                         20 Years of Excellence Experience on Outdoor Living
                     </h2>
-                    <p class="tracking-wide text-sm my-5">
+                    <p class="tracking-wider text-sm my-5">
                         In line with cutting-edge design trends, Triconville manufactures furniture that is beautiful yet functional,
                         versatile products, for outdoors. And all combined in an excellence that guides Triconville towards new solutions for
                         the world of architecture and hospitality.
@@ -564,8 +565,8 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
                     </a>
                 </div>
                 <div class="image">
-                    <img src="/wp-content/uploads/2024/09/home-our-story.png"
-                         class="w-full h-full object-cover" />
+                    <img data-src="/wp-content/uploads/2024/09/home-our-story.png" 
+                         class="w-full h-full object-cover lazyload" />
                 </div>
             </div>
             <div class="md:flex items-center my-5">
@@ -578,7 +579,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
                     </h2>
                 </div>
                 <div class='md:w-2/4 w-full'>
-                    <p class='tracking-wide text-sm my-5'>
+                    <p class='tracking-wider md:text-justify text-sm my-5'>
                         An outdoor sofa that hugs you with the specially built cushion designed ergonomically to improve comfort,
                         while the angular backrest makes the recline easy with books or drinks in hand.
                         An outdoor sofa that hugs you with the specially built cushion designed ergonomically to improve comfort,
@@ -599,36 +600,36 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
             <!-- Item 1 -->
             <div class="max-w-screen duration-200 ease-linear mx-2"
                  data-carousel-item>
-                <img src="https://storage.googleapis.com/pimassest1/asset/utils/collection/featured_image/Corda/1920/corda-sofa-lifestyle-2.jpg"
-                     class="object-cover w-auto max-w-screen h-[600px]"
+                <img data-src="https://storage.googleapis.com/pimassest1/asset/utils/collection/featured_image/Corda/1920/corda-sofa-lifestyle-2.jpg" 
+                     class="object-cover w-auto max-w-screen h-[600px] lazyload"
                      alt="Slider-1">
             </div>
             <!-- Item 2 -->
             <div class="max-w-screen duration-200 ease-linear mx-2"
                  data-carousel-item>
-                <img src="https://storage.googleapis.com/pimassest1/asset/utils/collection/featured_image/Emmilie/1920/Emmilie-sofa_piedra-coffee-table.jpg"
-                     class="object-cover w-auto max-w-screen h-[600px]"
+                <img data-src="https://storage.googleapis.com/pimassest1/asset/utils/collection/featured_image/Emmilie/1920/Emmilie-sofa_piedra-coffee-table.jpg" 
+                     class="object-cover w-auto max-w-screen h-[600px] lazyload"
                      alt="Slider-2">
             </div>
             <!-- Item 3 -->
             <div class="max-w-screen duration-200 ease-linear mx-2"
                  data-carousel-item>
-                <img src="https://storage.googleapis.com/pimassest1/asset/utils/collection/featured_image/Karla/1920/Karla_2-1-1_Olefin-calasona-142-weathered-teak-.jpg"
-                     class="object-cover w-auto max-w-screen h-[600px]"
+                <img data-src="https://storage.googleapis.com/pimassest1/asset/utils/collection/featured_image/Karla/1920/Karla_2-1-1_Olefin-calasona-142-weathered-teak-.jpg" 
+                     class="object-cover w-auto max-w-screen h-[600px] lazyload"
                      alt="Slider-2">
             </div>
             <!-- Item 4 -->
             <div class="max-w-screen duration-200 ease-linear mx-2"
                  data-carousel-item>
-                <img src="https://storage.googleapis.com/pimassest1/asset/utils/collection/featured_image/Timo/1920/timo_sofa_lifestyle_06.jpg"
-                     class="object-cover w-auto max-w-screen h-[600px]"
+                <img data-src="https://storage.googleapis.com/pimassest1/asset/utils/collection/featured_image/Timo/1920/timo_sofa_lifestyle_06.jpg" 
+                     class="object-cover w-auto max-w-screen h-[600px] lazyload"
                      alt="Slider-2">
             </div>
             <!-- Item 5 -->
             <div class="max-w-screen duration-200 ease-linear mx-2"
                  data-carousel-item>
-                <img src="https://storage.googleapis.com/pimassest1/asset/utils/collection/featured_image/Vento%20Aluminium/1920/4._Vento_Alu_Ambiance_Fontelina_Blue_.jpg"
-                     class="object-cover w-auto max-w-screen h-[600px]"
+                <img data-src="https://storage.googleapis.com/pimassest1/asset/utils/collection/featured_image/Vento%20Aluminium/1920/4._Vento_Alu_Ambiance_Fontelina_Blue_.jpg" 
+                     class="object-cover w-auto max-w-screen h-[600px] lazyload"
                      alt="Slider-2">
             </div>
         </div>
@@ -689,7 +690,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-3 lg:gap-5">
                                         <div class="news-card flex items-center gap-3 md:block">
                         <div class="news-image w-1/2 md:w-auto md:h-auto sm:h-[240px] object-cover h-[124px]">
-                            <img width="1024" height="576" src="http://dev.triconville.com/wp-content/uploads/2024/09/salone.png" class="attachment-large size-large wp-post-image" alt="" decoding="async" />                        </div>
+                            <img data-src="http://dev.triconville.com/wp-content/uploads/2024/09/salone.png" width="1024" height="576"  class="attachment-large size-large wp-post-image lazyload" alt="" decoding="async" />                        </div>
                         <div class="desc w-1/2 md:w-full flex flex-col justify-center">
                             <div class=" overflow-hidden">
                                 <h2 class="text-2xl md:text-3xl tracking-wider md:mb-5">
@@ -699,7 +700,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
                                 </h2>
                             </div>
                             <div class="md:mb-10">
-                                <p class=" text-sm line-clamp-2">
+                                <p class=" text-sm tracking-wider line-clamp-2">
                                     We are delighted to announce that Triconville Brand will be present at Salone Del Mobile 2024 in Milan. As we know this annual fair trade attracts more than 20,000 visitors from all over the world and we are very excited to be part of the biggest event of the year!
 
 &nbsp;
@@ -720,7 +721,7 @@ Rho Fiera Milano spaces                                </p>
                     </div>
                                         <div class="news-card flex items-center gap-3 md:block">
                         <div class="news-image w-1/2 md:w-auto md:h-auto sm:h-[240px] object-cover h-[124px]">
-                            <img width="1024" height="576" src="http://dev.triconville.com/wp-content/uploads/2024/09/Turquoise-Teak.png" class="attachment-large size-large wp-post-image" alt="" decoding="async" />                        </div>
+                            <img data-src="http://dev.triconville.com/wp-content/uploads/2024/09/Turquoise-Teak.png" width="1024" height="576"  class="attachment-large size-large wp-post-image lazyload" alt="" decoding="async" />                        </div>
                         <div class="desc w-1/2 md:w-full flex flex-col justify-center">
                             <div class=" overflow-hidden">
                                 <h2 class="text-2xl md:text-3xl tracking-wider md:mb-5">
@@ -730,7 +731,7 @@ Rho Fiera Milano spaces                                </p>
                                 </h2>
                             </div>
                             <div class="md:mb-10">
-                                <p class=" text-sm line-clamp-2">
+                                <p class=" text-sm tracking-wider line-clamp-2">
                                     Teak wood is also commonly referred to as the king of wood because of its quality, known as a tall, deciduous tree found in South and Southeast Asia. Growing up to 50 meters and living for 100 years, teak is coveted for its attractive color and grain, durability, strength, resistance to splitting, cracking, termites, fungus, and weathering. It takes at least 25 years to become a mature tree ready for harvest.                                </p>
                             </div>
 
@@ -739,7 +740,7 @@ Rho Fiera Milano spaces                                </p>
                     </div>
                                         <div class="news-card flex items-center gap-3 md:block">
                         <div class="news-image w-1/2 md:w-auto md:h-auto sm:h-[240px] object-cover h-[124px]">
-                            <img width="1024" height="731" src="http://dev.triconville.com/wp-content/uploads/2024/09/emporeng-tumbnail.png" class="attachment-large size-large wp-post-image" alt="" decoding="async" />                        </div>
+                            <img data-src="http://dev.triconville.com/wp-content/uploads/2024/09/emporeng-tumbnail.png" width="1024" height="731"  class="attachment-large size-large wp-post-image lazyload" alt="" decoding="async" />                        </div>
                         <div class="desc w-1/2 md:w-full flex flex-col justify-center">
                             <div class=" overflow-hidden">
                                 <h2 class="text-2xl md:text-3xl tracking-wider md:mb-5">
@@ -749,7 +750,7 @@ Rho Fiera Milano spaces                                </p>
                                 </h2>
                             </div>
                             <div class="md:mb-10">
-                                <p class=" text-sm line-clamp-2">
+                                <p class=" text-sm tracking-wider line-clamp-2">
                                     Getting ahead requires more than just offering products, but also strategic partnerships with manufacturing innovators. Indospace Group is shaping the future of global retail through its state-of-the-art OEM Division...                                </p>
                             </div>
 
@@ -766,20 +767,20 @@ Rho Fiera Milano spaces                                </p>
             <div class="py-10">
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 my-5">
                     <div class="">
-                        <img src="/wp-content/uploads/2024/09/our-story.png"
-                             class="w-auto h-auto object-cover" />
+                        <img data-src="/wp-content/uploads/2024/09/our-story.png" 
+                             class="w-auto h-auto object-cover lazyload" />
                     </div>
 
                     <div class="flex justify-center items-center p-3 md:p-5">
                         <div class="md:p-5">
                             <p class="uppercase text-xs tracking-widest">catalog</p>
                             <h2 class="text-3xl tracking-wider">Triconville - 2024 Catalog</h2>
-                            <p class="text-sm text-justify tracking-wide mb-5">
+                            <p class="text-sm text-justify tracking-wider mb-5">
                                 Discover an unrivaled selection of luxuriant designs from Triconville. Brought to life with captivating imagery,
                                 the 2024 Triconville catalogue is a go-to resource for inspiration and information. Qualified trade members can
                                 reserve a copy by filling out the form below.
                             </p>
-                            <a href="#"
+                            <a href="/collections"
                                class="btn-ghost uppercase text-xs tracking-widest">View Catalog</a>
                         </div>
                     </div>
@@ -940,7 +941,7 @@ Rho Fiera Milano spaces                                </p>
                                     <a href='/about-us'> Brand </a>
                                 </p>
                                 <p class='text-sm py-1'>
-                                    <a href='/stores'> Stores </a>
+                                    <a href='/find-a-store'> Stores </a>
                                 </p>
                                 <p class='text-sm py-1'>
                                     <a href='/products'> Inspiration </a>
@@ -996,19 +997,19 @@ Rho Fiera Milano spaces                                </p>
                                     <p class='font-bold text-sm uppercase tracking-widest pt-5'>connect</p>
                                     <div class="flex items-center gap-2 my-3">
                                         <a href='#'>
-                                            <img src='http://dev.triconville.com/wp-content/themes/twentytwentyfour/assets/images/icons/youtube.svg' />
+                                            <img class="lazyload" data-src="http://dev.triconville.com/wp-content/themes/twentytwentyfour/assets/images/icons/youtube.svg"  />
                                         </a>
                                         <a href='#'>
-                                            <img src='http://dev.triconville.com/wp-content/themes/twentytwentyfour/assets/images/icons/pinterest.svg' />
+                                            <img class="lazyload" data-src="http://dev.triconville.com/wp-content/themes/twentytwentyfour/assets/images/icons/pinterest.svg"  />
                                         </a>
                                         <a href='#'>
-                                            <img src='http://dev.triconville.com/wp-content/themes/twentytwentyfour/assets/images/icons/instagram.svg' />
+                                            <img class="lazyload" data-src="http://dev.triconville.com/wp-content/themes/twentytwentyfour/assets/images/icons/instagram.svg"  />
                                         </a>
                                         <a href='#'>
-                                            <img src='http://dev.triconville.com/wp-content/themes/twentytwentyfour/assets/images/icons/facebook.svg' />
+                                            <img class="lazyload" data-src="http://dev.triconville.com/wp-content/themes/twentytwentyfour/assets/images/icons/facebook.svg"  />
                                         </a>
                                         <a href='#'>
-                                            <img src='http://dev.triconville.com/wp-content/themes/twentytwentyfour/assets/images/icons/linkedin.svg' />
+                                            <img class="lazyload" data-src="http://dev.triconville.com/wp-content/themes/twentytwentyfour/assets/images/icons/linkedin.svg"  />
                                         </a>
                                     </div>
                                 </div>
@@ -1017,25 +1018,25 @@ Rho Fiera Milano spaces                                </p>
                                 <p class='font-bold text-sm uppercase tracking-widest'>connect</p>
                                 <div class="flex items-center gap-2 my-3">
                                     <a href='#'>
-                                        <img src='http://dev.triconville.com/wp-content/themes/twentytwentyfour/assets/images/icons/youtube.svg' />
+                                        <img class="lazyload" data-src="http://dev.triconville.com/wp-content/themes/twentytwentyfour/assets/images/icons/youtube.svg"  />
                                     </a>
                                     <a href='#'>
-                                        <img src='http://dev.triconville.com/wp-content/themes/twentytwentyfour/assets/images/icons/pinterest.svg' />
+                                        <img class="lazyload" data-src="http://dev.triconville.com/wp-content/themes/twentytwentyfour/assets/images/icons/pinterest.svg"  />
                                     </a>
                                     <a href='#'>
-                                        <img src='http://dev.triconville.com/wp-content/themes/twentytwentyfour/assets/images/icons/instagram.svg' />
+                                        <img class="lazyload" data-src="http://dev.triconville.com/wp-content/themes/twentytwentyfour/assets/images/icons/instagram.svg"  />
                                     </a>
                                     <a href='#'>
-                                        <img src='http://dev.triconville.com/wp-content/themes/twentytwentyfour/assets/images/icons/facebook.svg' />
+                                        <img class="lazyload" data-src="http://dev.triconville.com/wp-content/themes/twentytwentyfour/assets/images/icons/facebook.svg"  />
                                     </a>
                                     <a href='#'>
-                                        <img src='http://dev.triconville.com/wp-content/themes/twentytwentyfour/assets/images/icons/linkedin.svg' />
+                                        <img class="lazyload" data-src="http://dev.triconville.com/wp-content/themes/twentytwentyfour/assets/images/icons/linkedin.svg"  />
                                     </a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="md:w-2/5 w-full pt-10 md:pt-0 md:p-3">
+                    <div class="md:w-2/5 w-full pt-10 md:pt-3 md:p-3">
                         <p class='font-bold uppercase tracking-widest'>newsletter</p>
                         <p>Sign up to our newsletter</p>
                         <div class="form mt-5">
@@ -1265,12 +1266,12 @@ var uacf7_cf_object = [];
 var wpcf7iqfix = {"recaptcha_empty":"Please verify that you are not a robot.","response_err":"wpcf7-recaptcha: Could not verify reCaptcha response."};
 </script>
 <script src="https://www.recaptcha.net/recaptcha/api.js?hl=en_US&amp;onload=recaptchaCallback&amp;render=explicit&amp;ver=2.0" id="google-recaptcha-js"></script>
-<script id="gt_widget_script_31795380-js-before">
-window.gtranslateSettings = /* document.write */ window.gtranslateSettings || {};window.gtranslateSettings['31795380'] = {"default_language":"en","languages":["en","fr","it","es"],"url_structure":"none","detect_browser_language":1,"wrapper_selector":"#gt-wrapper-31795380","horizontal_position":"inline"};
-</script><script src="https://cdn.gtranslate.net/widgets/latest/dropdown.js?ver=6.5.5" data-no-optimize="1" data-no-minify="1" data-gt-orig-url="/" data-gt-orig-domain="dev.triconville.com" data-gt-widget-id="31795380" defer></script><script id="gt_widget_script_11350293-js-before">
-window.gtranslateSettings = /* document.write */ window.gtranslateSettings || {};window.gtranslateSettings['11350293'] = {"default_language":"en","languages":["en","fr","it","es"],"url_structure":"none","detect_browser_language":1,"wrapper_selector":"#gt-wrapper-11350293","horizontal_position":"inline"};
-</script><script src="https://cdn.gtranslate.net/widgets/latest/dropdown.js?ver=6.5.5" data-no-optimize="1" data-no-minify="1" data-gt-orig-url="/" data-gt-orig-domain="dev.triconville.com" data-gt-widget-id="11350293" defer></script>
+<script id="gt_widget_script_11556706-js-before">
+window.gtranslateSettings = /* document.write */ window.gtranslateSettings || {};window.gtranslateSettings['11556706'] = {"default_language":"en","languages":["en","fr","it","es"],"url_structure":"none","detect_browser_language":1,"wrapper_selector":"#gt-wrapper-11556706","horizontal_position":"inline"};
+</script><script src="https://cdn.gtranslate.net/widgets/latest/dropdown.js?ver=6.5.5" data-no-optimize="1" data-no-minify="1" data-gt-orig-url="/" data-gt-orig-domain="dev.triconville.com" data-gt-widget-id="11556706" defer></script><script id="gt_widget_script_82961511-js-before">
+window.gtranslateSettings = /* document.write */ window.gtranslateSettings || {};window.gtranslateSettings['82961511'] = {"default_language":"en","languages":["en","fr","it","es"],"url_structure":"none","detect_browser_language":1,"wrapper_selector":"#gt-wrapper-82961511","horizontal_position":"inline"};
+</script><script src="https://cdn.gtranslate.net/widgets/latest/dropdown.js?ver=6.5.5" data-no-optimize="1" data-no-minify="1" data-gt-orig-url="/" data-gt-orig-domain="dev.triconville.com" data-gt-widget-id="82961511" defer></script>
 		</body>
 
 </html>
-<!-- Page retrieved from Super Page Cache fallback cache - page generated @ 2024-10-22 02:36:12 - fallback cache expiration @ never expires - cache key b37b6302fe89655acb0b93defee6d0fb342b46d5.html -->
+<!-- Page retrieved from Super Page Cache fallback cache - page generated @ 2024-10-25 06:14:31 - fallback cache expiration @ never expires - cache key b37b6302fe89655acb0b93defee6d0fb342b46d5.html -->
