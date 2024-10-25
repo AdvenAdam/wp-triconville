@@ -37,13 +37,13 @@
                                     <a href='<?= BASE_LINK; ?>/find-a-store'> Stores </a>
                                 </p>
                                 <p class='text-sm py-1'>
-                                    <a href='<?= BASE_LINK; ?>/products'> Inspiration </a>
+                                    <a href='<?= BASE_LINK; ?>/projects'> Inspiration </a>
                                 </p>
                                 <p class='text-sm py-1'>
                                     <a href='<?= BASE_LINK; ?>/materials'> Materials </a>
                                 </p>
                                 <p class='text-sm py-1'>
-                                    <a href='<?= BASE_LINK; ?>/'> Catalog </a>
+                                    <a href='<?= BASE_LINK; ?>/collections'> Catalog </a>
                                 </p>
                             </div>
                             <div class="about w-full tracking-wider md:p-3">
@@ -251,6 +251,12 @@ function slugify(str) {
         .replace(/-+/g, '-'); // collapse dashes
 
     return str;
+}
+
+function toTitleCase(str) {
+    return str.replace(/\w\S*/g, function(txt) {
+        return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+    });
 }
 
 function redirectError(status = 404) {
