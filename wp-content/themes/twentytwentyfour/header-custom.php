@@ -152,7 +152,7 @@
                  id="mobile_gtranslate">
                 <?php echo do_shortcode('[gtranslate]') ?>
             </div>
-            <a href="https://triconville.co.id/customer/account/login/">
+            <a href="https://indospaceb2b.com/">
                 <p class="btn-ghost text-xs">B2B Login</p>
             </a>
         </div>
