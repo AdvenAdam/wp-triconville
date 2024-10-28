@@ -74,6 +74,7 @@ $(document).ready(function() {
         complete: () => {
             $('#page-loading').hide();
             renderMaster()
+            metaMaster()
         }
     })
     $.ajax({
@@ -84,6 +85,12 @@ $(document).ready(function() {
         },
     })
 })
+
+function metaMaster() {
+    $('head').append(`<meta name="title" content="${categoriesData.meta.title}"/>`);
+    $('head').append(`<meta name="description" content="${categoriesData.meta.description}"/>`);
+    $('head').append(`<meta name="keywords" content=" ${categoriesData.meta.keywords}"/>`);
+}
 
 function renderMaster() {
     try {

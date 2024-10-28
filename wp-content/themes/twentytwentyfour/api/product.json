@@ -22,7 +22,12 @@
         "name": "Outdoor Modular",
         "param": ""
       }
-    ]
+    ],
+    "meta": {
+      "title": "Sofas | Triconville - Explore Our Premium Outdoor Sofa Collection",
+      "description": "Discover Triconville's premium outdoor sofa collection, featuring stylish and comfortable options for your outdoor living space. From elegant loveseats to spacious modular sofas, explore our diverse range designed to enhance your outdoor experience. Shop now for the perfect addition to your patio or garden!",
+      "keywords": "outdoor sofas, Triconville sofas, premium outdoor furniture, outdoor loveseats, modular sofas, outdoor seating, patio sofas, outdoor living furniture"
+    }
   },
   {
     "id": 2,
@@ -31,7 +36,12 @@
     "slug": "lounge-chairs",
     "image": "banner_lounge-chair2.jpg",
     "thumb": "lounge-chair.png",
-    "children": []
+    "children": [],
+    "meta": {
+      "title": "Lounge Chairs | Triconville - Discover Our Stylish Outdoor Lounge Chairs",
+      "description": "Explore Triconville's collection of stylish outdoor lounge chairs, designed for comfort and elegance. Perfect for relaxing in your garden or on the patio, our lounge chairs combine quality craftsmanship with contemporary design. Browse our selection and elevate your outdoor living experience today!",
+      "keywords": "outdoor lounge chairs, Triconville lounge chairs, stylish outdoor seating, comfortable lounge chairs, patio lounge chairs, outdoor furniture, lounge chair collection"
+    }
   },
   {
     "id": 3,
@@ -40,7 +50,12 @@
     "slug": "lounger-daybed",
     "image": "banner_lounger-&-daybed2.jpg",
     "thumb": "lounger-daybed.png",
-    "children": []
+    "children": [],
+    "meta": {
+      "title": "Loungers & Daybeds | Triconville - Relax in Style with Our Outdoor Collection",
+      "description": "Discover Triconville's exquisite collection of outdoor loungers and daybeds, designed for ultimate comfort and style. Perfect for sunbathing or lounging by the pool, our premium selection combines quality craftsmanship with contemporary design. Browse our loungers and daybeds to elevate your outdoor living experience today!",
+      "keywords": "outdoor loungers, outdoor daybeds, Triconville loungers, premium outdoor furniture, sun loungers, patio daybeds, outdoor relaxation furniture, loungers and daybeds collection"
+    }
   },
   {
     "id": 4,
@@ -65,7 +80,12 @@
         "name": "Outdoor Side Chairs",
         "param": "side"
       }
-    ]
+    ],
+    "meta": {
+      "title": "Chairs | Triconville - Discover Our Elegant Outdoor Chair Collection",
+      "description": "Explore Triconville's collection of elegant outdoor chairs, designed for comfort and style. From outdoor dining chairs to bar stools, our diverse range offers perfect seating solutions for any outdoor space. Browse our selection to find the ideal chairs for your patio or garden today!",
+      "keywords": "outdoor chairs, Triconville chairs, outdoor dining chairs, outdoor bar stools, patio chairs, stylish outdoor seating, outdoor furniture collection, chairs for outdoor living"
+    }
   },
   {
     "id": 5,
@@ -95,6 +115,11 @@
         "name": "Outdoor Bar Table",
         "param": ""
       }
-    ]
+    ],
+    "meta": {
+      "title": "Tables | Triconville - Explore Our Elegant Outdoor Table Collection",
+      "description": "Discover Triconville's exquisite collection of outdoor tables, designed for functionality and style. From dining tables to side tables and coffee tables, our diverse range offers perfect solutions for your outdoor living space. Browse our selection to find the ideal table for your patio or garden today!",
+      "keywords": "outdoor tables, Triconville tables, outdoor dining tables, outdoor coffee tables, patio tables, side tables, stylish outdoor furniture, tables for outdoor living"
+    }
   }
 ]

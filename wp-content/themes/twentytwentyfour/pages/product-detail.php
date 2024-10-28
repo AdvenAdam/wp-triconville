@@ -156,10 +156,18 @@ jQuery(document).ready(function($) {
         },
         complete: () => {
             renderMaster();
+            metaMaster();
             $('#page-loading').hide();
         }
     });
 });
+
+function metaMaster() {
+    $('head').append(`<meta name="title" content="${ProductsData.meta_title}"/>`);
+    $('head').append(`<meta name="description" content="${ProductsData.meta_description}"/>`);
+    $('head').append(`<meta name="keywords" content=" ${ProductsData.meta_keyword}"/>`);
+}
+
 
 function renderSheet(sheet) {
     $('#product__description').append(`
