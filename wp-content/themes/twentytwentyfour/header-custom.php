@@ -76,7 +76,7 @@
                     <div class="px-3 pb-1 text-xs uppercase outline-none">
                         <?php echo do_shortcode('[gtranslate]') ?>
                     </div>
-                    <a href="https://triconville.co.id/customer/account/login/">
+                    <a href="https://indospaceb2b.com/">
                         <p class="px-3 text-xs uppercase hover:text-cyan-500">B2B Login</p>
                     </a>
                 </div>
