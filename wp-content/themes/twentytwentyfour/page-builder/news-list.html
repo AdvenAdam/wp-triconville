@@ -26,6 +26,9 @@
     text-overflow: ellipsis;
     font-size: 32px !important;
   }
+  .news-img img {
+    height: 100% !important;
+  }
   @media (max-width: 768px) {
     .news-title-bottom {
       line-clamp: 2;
@@ -89,7 +92,7 @@
           class="wp-block-columns are-vertically-aligned-center flex md:flex-col md:is-layout-flow wp-block-post-template-is-layout-flow"
         >
           <div class="grid grid-cols-2 md:grid-cols-1 gap-3">
-            <!-- wp:post-featured-image {"isLink":true, "className":"max-h-[30vh] md:max-h-[50vh] w-auto object-cover max-w-[30vh]  md:max-w-[50vw]"} /-->
+            <!-- wp:post-featured-image {"isLink":true, "className":"news-img h-[30vh] md:h-[50vh] w-auto object-cover max-w-[30vh]  md:max-w-[50vw]"} /-->
             <!-- wp:post-title {"level":2,"isLink":true,"style":{"typography":{},"color":{"text":"#2c272e"}},"className":"news-title-bottom my-3 "} /-->
           </div>
           <!-- /wp:column -->

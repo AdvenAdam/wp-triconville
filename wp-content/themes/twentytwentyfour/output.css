@@ -1939,6 +1939,10 @@ video {
     height: 100vh;
   }
 
+  .md\:h-\[50vh\] {
+    height: 50vh;
+  }
+
   .md\:max-h-\[250px\] {
     max-height: 250px;
   }
