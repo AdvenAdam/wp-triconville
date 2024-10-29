@@ -636,7 +636,7 @@ function renderWellWithProducts(products) {
     $('.well__with__product__name').text(`Goes well with `);
     products.forEach((e) => {
         $('.well__with__product').append(`
-            <a href="<?= BASE_LINK; ?>/product-detail/${slugify(e.name)}" class="md:h-[384px] h-[204px]">     
+            <a href="<?= BASE_LINK; ?>/product-detail/${slugify(e.name)}">     
                 <div class="product__card">
                     <img src="${e.product_image}" class="md:h-[384px] h-[204px] object-contain mx-2 w-auto object-cover" />
                     <div class="text-center">
