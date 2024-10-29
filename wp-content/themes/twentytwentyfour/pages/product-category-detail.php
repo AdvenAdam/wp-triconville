@@ -87,9 +87,11 @@ $(document).ready(function() {
 })
 
 function metaMaster() {
-    $('head').append(`<meta name="title" content="${categoriesData.meta.title}"/>`);
-    $('head').append(`<meta name="description" content="${categoriesData.meta.description}"/>`);
-    $('head').append(`<meta name="keywords" content=" ${categoriesData.meta.keywords}"/>`);
+    ['title', 'description', 'keywords'].forEach(key => {
+        if (categoriesData.meta[`${key}`] !== 'False') {
+            $(`<meta name="${key}" content="${categoriesData.meta[`${key}`]}"/>`).appendTo('head');
+        }
+    });
 }
 
 function renderMaster() {

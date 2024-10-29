@@ -77,7 +77,7 @@ function loadMaterials() {
         },
         success: async function(res) {
             res.results.forEach(e => {
-                if (selectedMaterialIds.includes(parseInt(e.id))) {
+                if (selectedMaterialIds.includes(e.slug)) {
                     readyToRenderMaterial.push(e);
                 }
             })
