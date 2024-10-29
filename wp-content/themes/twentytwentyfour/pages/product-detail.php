@@ -68,7 +68,7 @@ get_template_part('header-custom');
     </div>
     <!-- NOTE : PRODUCT Ambience Slider -->
     <div class="ambience__section relative">
-        <div class="ambience__img grid gap-4"></div>
+        <div class="ambience__img h-[350px] sm:h-[600px] lg:h-[720px]"></div>
         <button class="slick-prev prev-btn hidden md:block absolute top-1/2 -translate-y-1/2 z-10 left-5 py-10 bg-slate-50/50 p-3 hover:bg-slate-50/80"
                 aria-label="Previous"
                 type="button">
@@ -566,19 +566,19 @@ function renderImages(images) {
     if (images.ambience_image_1920.length > 0) {
         images.ambience_image_1920.forEach((e) => {
             $('.ambience__img').append(`
-                <div class="me-2">
-                    <img src="${e}"
-                        class="h-[350px] sm:h-[600px] lg:h-[700px] mx-2 w-screen md:w-auto object-cover" />
-                </div>
+                <img src="${e}"
+                    class="h-full me-2 mx-2 w-screen md:w-auto object-cover" />
             `)
         })
         $('.ambience__img').slick({
             slidesToScroll: 1,
             variableWidth: true,
             arrows: false,
+            centerMode: true,
             responsive: [{
                 breakpoint: 768,
                 settings: {
+                    centerMode: false,
                     slidesToShow: 1.02,
                     slidesToScroll: 1,
                     variableWidth: false,
