@@ -163,11 +163,12 @@ jQuery(document).ready(function($) {
 });
 
 function metaMaster() {
-    $('head').append(`<meta name="title" content="${ProductsData.meta_title}"/>`);
-    $('head').append(`<meta name="description" content="${ProductsData.meta_description}"/>`);
-    $('head').append(`<meta name="keywords" content=" ${ProductsData.meta_keyword}"/>`);
+    ['title', 'description', 'keyword'].forEach(key => {
+        if (ProductsData[`meta_${key}`] !== 'False') {
+            $(`<meta name="${key}" content="${ProductsData[`meta_${key}`]}"/>`).appendTo('head');
+        }
+    });
 }
-
 
 function renderSheet(sheet) {
     $('#product__description').append(`

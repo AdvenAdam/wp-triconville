@@ -52,10 +52,10 @@
                                     <a href='<?= BASE_LINK; ?>/products/sofa'>Sofa</a>
                                 </p>
                                 <p class='text-sm py-1'>
-                                    <a href='<?= BASE_LINK; ?>/products/loungechairs'>Lounge Chairs</a>
+                                    <a href='<?= BASE_LINK; ?>/products/lounge-chairs'>Lounge Chairs</a>
                                 </p>
                                 <p class='text-sm py-1'>
-                                    <a href='<?= BASE_LINK; ?>/products/loungerdaybed'>Lounger & Daybed</a>
+                                    <a href='<?= BASE_LINK; ?>/products/lounger-daybed'>Lounger & Daybed</a>
                                 </p>
                                 <p class='text-sm py-1'>
                                     <a href='<?= BASE_LINK; ?>/products/chairs'>Chairs</a>

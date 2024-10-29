@@ -61,9 +61,18 @@ function loadCollections() {
         complete: () => {
             $('#page-loading').hide();
             renderMaster();
+            metaMaster();
         }
     });
 };
+
+function metaMaster() {
+    ['title', 'description', 'keyword'].forEach(key => {
+        if (collectionData[`meta_${key}`] !== 'False') {
+            $(`<meta name="${key}" content="${collectionData[`meta_${key}`]}"/>`).appendTo('head');
+        }
+    });
+}
 
 function renderMaster() {
     $('#container__<?= $character_slug ?>').append(`
