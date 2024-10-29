@@ -959,6 +959,9 @@ video {
 .w-screen {
   width: 100vw;
 }
+.w-6 {
+  width: 1.5rem;
+}
 .min-w-20 {
   min-width: 5rem;
 }
@@ -2091,6 +2094,10 @@ video {
     padding-top: 0.75rem;
   }
 
+  .md\:pt-10 {
+    padding-top: 2.5rem;
+  }
+
   .md\:text-center {
     text-align: center;
   }
@@ -2126,6 +2133,11 @@ video {
   .md\:text-sm {
     font-size: 0.875rem;
     line-height: 1.25rem;
+  }
+
+  .md\:text-2xl {
+    font-size: 1.5rem;
+    line-height: 2rem;
   }
 }
 @media (min-width: 1024px) {
