@@ -3,7 +3,7 @@
          style="background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/assets/images/store/store-banner.jpeg)">
         <div class="bg-black bg-opacity-20 h-full w-full flex items-center justify-start px-3 md:px-5">
             <a href="<?= BASE_LINK; ?>/find-a-store/"
-               class="flex items-center   w-full gap-3 group max-w-[1440px] mx-auto">
+               class="flex items-center w-full gap-3 group max-w-[1440px] mx-auto">
                 <h1 class="text-3xl md:text-5xl md:text-center uppercase font-medium tracking-wide text-white group-hover:underline">
                     find the nearest store
                 </h1>
