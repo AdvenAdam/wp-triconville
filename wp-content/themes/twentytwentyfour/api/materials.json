@@ -1,3 +1,16 @@
 {
-  "selectedMaterial": [39, 54, 53, 41, 45, 47, 57, 52, 48, 50, 56, 49]
+  "selectedMaterial": [
+    "canopy-fabric",
+    "ceramic",
+    "olefin-fabric",
+    "outdoor-teak",
+    "powder-coated-aluminium",
+    "rope",
+    "sling-fabric",
+    "stainless-steel",
+    "sunbrella-fabric",
+    "throw-pillow-fabric",
+    "upholstery-sling-fabric",
+    "wicker"
+  ]
 }
