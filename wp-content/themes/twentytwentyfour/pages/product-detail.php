@@ -113,7 +113,7 @@ get_template_part('header-custom');
                 <div class="collection__product grid gap-4 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 my-10"></div>
                 <div class="collection__product__btn text-center"></div>
             </div>
-            <div class="py-10 relative"
+            <div class="py-10 relative h-fit"
                  id="well__with__product">
                 <h2 class='text-2xl md:text-3xl well__with__product__name'></h2>
                 <div class="well__with__product my-10"></div>
@@ -636,7 +636,7 @@ function renderWellWithProducts(products) {
     $('.well__with__product__name').text(`Goes well with `);
     products.forEach((e) => {
         $('.well__with__product').append(`
-            <a href="<?= BASE_LINK; ?>/product-detail/${slugify(e.name)}">     
+            <a href="<?= BASE_LINK; ?>/product-detail/${slugify(e.name)}" class="md:h-[384px] h-[204px]">     
                 <div class="product__card">
                     <img src="${e.product_image}" class="md:h-[384px] h-[204px] object-contain mx-2 w-auto object-cover" />
                     <div class="text-center">
