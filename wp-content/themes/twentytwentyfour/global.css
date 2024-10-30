@@ -53,14 +53,6 @@ p {
     background-color: #111111;
     color: white;
   }
-  .news-image img {
-    height: 400px !important;
-    max-height: 100% !important;
-    object-fit: cover !important;
-    width: 100% !important;
-    overflow: hidden;
-    
-  }
 
   .news-description-bottom .wp-block-post-excerpt__excerpt {
     line-clamp: 3;
