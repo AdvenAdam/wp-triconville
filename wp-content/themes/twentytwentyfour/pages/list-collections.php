@@ -15,7 +15,7 @@ body {
 </style>
 <div class="content-container scroll-smooth overflow-x-hidden">
     <!-- NOTE: Banner -->
-    <h1 class="text-3xl md:text-5xl font-medium text-center px-5 pt-10 uppercase snap-always snap-start">triconville collections</h1>
+    <h1 class="text-3xl md:text-5xl font-medium text-center px-5 pt-32 uppercase snap-always snap-start">triconville collections</h1>
     <p class='font-sm font-light tracking-widest text-center'>The Luxury of Living Outdoors</p>
     <div class="flex gap-2 justify-center my-5 view-button">
         <button class="btn-ghost-dark flex gap-2 items-center"

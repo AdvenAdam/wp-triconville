@@ -47,10 +47,13 @@
         overflow-x: hidden;
     }
 
-    .gtranslate_wrapper select {
+    .gtranslate_wrapper .gt_selector {
         padding-block: 1rem;
         background-color: transparent;
         max-width: 120px;
+        outline: none !important;
+        border: none !important;
+        width: 50px;
     }
     </style>
 </head>
@@ -58,7 +61,7 @@
 <body <?php body_class(); ?>>
     <header class="header sticky top-0 tracking-widest "
             style="z-index: 20;">
-        <div class="flex items-center justify-between md:px-5 px-3 w-full min-h-16 bg-white">
+        <div class="flex items-center justify-between md:px-5 px-3 w-full min-h-20 bg-white">
             <div class="flex justify-center">
                 <a href="<?php echo home_url(); ?>">
                     <img src="<?= BASE_LINK ?>/wp-content/uploads/2024/09/Logo-Blue-Resized-1.png"
@@ -73,7 +76,7 @@
                 </div>
                 <!-- Note : Login -->
                 <div class="hidden md:flex items-center">
-                    <div class="px-3 pb-1 text-xs uppercase outline-none">
+                    <div class="px-3 pb-1 text-xs uppercase outline-none hover:text-cyan-500">
                         <?php echo do_shortcode('[gtranslate]') ?>
                     </div>
                     <a href="https://indospaceb2b.com/">
@@ -100,23 +103,29 @@
                 </button>
             </div>
         </div>
-        <div class="w-full md:px-5 px-3 py-3 bg-[#F4F6F6] opacity-0 invisible transition-opacity duration-500 ease-in-out fixed top-16"
+        <div class="w-full md:px-5 px-3 py-3 bg-[#F4F6F6] opacity-0 invisible transition-opacity duration-500 ease-in-out fixed top-20"
              style="z-index: 2;"
-             id="sub-header"
-             onMouseOut="showSubHeader(false)"
-             onMouseOver="showSubHeader(true)">
+             id="sub-header">
             <div class="flex w-full justify-end uppercase text-xs"
                  id="sub-inspiration-desktop">
             </div>
         </div>
-        <div class="w-full md:px-5 px-3 py-3 bg-[#F4F6F6] opacity-0 invisible transition-opacity duration-500 ease-in-out fixed top-16"
+        <div class="w-full md:px-5 px-3 py-3 bg-[#F4F6F6] opacity-0 invisible transition-opacity duration-500 ease-in-out fixed top-20"
              style="z-index: 1;"
-             id="sub-products"
-             onMouseOut="showSubProducts(false)"
-             onMouseOver="showSubProducts(true)">
+             id="sub-products">
             <div class="uppercase text-xs">
                 <div class="flex md:justify-end overflow-x-auto w-full"
                      id="sub-products-desktop">
+
+                </div>
+            </div>
+        </div>
+        <div class="w-full md:px-5 px-3 py-3 bg-[#F4F6F6] opacity-0 invisible transition-opacity duration-500 ease-in-out fixed top-20"
+             style="z-index: 1;"
+             id="sub-collections">
+            <div class="uppercase text-xs">
+                <div class="flex md:justify-end overflow-x-auto w-full"
+                     id="sub-collections-desktop">
 
                 </div>
             </div>
@@ -180,15 +189,33 @@
             },
             complete: function() {
                 setActiveLink();
+                showSubMenu();
             }
         });
-
-
     });
+
+    function showSubMenu() {
+        const url = window.location.href;
+
+        switch (true) {
+            case /(products)/.test(url):
+                showSubProducts(true);
+                break;
+            case /(news|materials|projects|moods)/.test(url):
+                showSubHeader(true);
+                break;
+            case /(collections)/.test(url):
+                showSubCollections(true);
+                break;
+            default:
+                break;
+        }
+    }
 
     function showSubHeader(isShow) {
         if (isShow) {
             $('#sub-products').removeClass('opacity-100 visible').addClass('opacity-0 invisible');
+            $('#sub-collections').removeClass('opacity-100 visible').addClass('opacity-0 invisible');
             $('#sub-header').removeClass('opacity-0 invisible').addClass('opacity-100 visible');
         } else {
             $('#sub-header').removeClass('opacity-100 visible').addClass('opacity-0 invisible');
@@ -198,9 +225,20 @@
     function showSubProducts(isShow) {
         if (isShow) {
             $('#sub-header').removeClass('opacity-100 visible').addClass('opacity-0 invisible');
+            $('#sub-collections').removeClass('opacity-100 visible').addClass('opacity-0 invisible');
             $('#sub-products').removeClass('opacity-0 invisible').addClass('opacity-100 visible');
         } else {
             $('#sub-products').removeClass('opacity-100 visible').addClass('opacity-0 invisible');
+        }
+    }
+
+    function showSubCollections(isShow) {
+        if (isShow) {
+            $('#sub-header').removeClass('opacity-100 visible').addClass('opacity-0 invisible');
+            $('#sub-products').removeClass('opacity-100 visible').addClass('opacity-0 invisible');
+            $('#sub-collections').removeClass('opacity-0 invisible').addClass('opacity-100 visible');
+        } else {
+            $('#sub-collections').removeClass('opacity-100 visible').addClass('opacity-0 invisible');
         }
     }
 
@@ -209,12 +247,12 @@
      * renderLinK, AppendSubMenu and setActiveLink function used to render menu 
      */
     function renderLink(e) {
+        $('#navbar_menu_category').append(`
+            <a href="${e.href}" id="${slugify(e.name)}-link" class="flex py-6 px-2 gap-2 items-center text-gray-900 hover:text-cyan-500">
+                <p class="uppercase text-xs">${e.name}</p>
+            </a>
+        `);
         if (e.name === 'Inspiration') {
-            $('#navbar_menu_category').append(`
-                <a href="${e.href}" id="${slugify(e.name)}-link" onMouseOver="showSubHeader(true)" onMouseOut="showSubHeader(false)" class="flex py-6 px-2 items-center text-gray-900 hover:text-cyan-500">                    
-                    <p class="uppercase text-xs">${e.name}</p>
-                </a>
-            `);
             $('#navbar__category').append(`
                 <li>
                     <a href="${e.href}" class="flex p-2 items-center justify-end text-gray-900 rounded-lg hover:bg-gray-100 group"><h5 class="text-lg font-medium">${e.name}</h5>
@@ -225,12 +263,6 @@
             `);
             appendSubMenu(e.name);
         } else if (e.name === 'Products') {
-            $('#navbar_menu_category').append(`
-                <a href="${e.href}" id="${slugify(e.name)}-link" onMouseOver="showSubProducts(true)" onMouseOut="showSubProducts(false)" class="flex py-6 px-2 items-center text-gray-900 hover:text-cyan-500">                    
-                    <p class="uppercase text-xs">${e.name}</p>
-                </a>
-            `);
-
             $('#navbar__category').append(`
                 <li>
                     <a href="${e.href}" class="p-2 flex items-center justify-end text-gray-900 rounded-lg hover:bg-gray-100 group"><h5 class="text-lg font-medium">${e.name}</h5>
@@ -240,13 +272,9 @@
                 </div>
             `);
             appendSubMenu(e.name);
+        } else if (e.name === 'Collections') {
+            appendSubMenu(e.name);
         } else {
-            $('#navbar_menu_category').append(`
-                <a href="${e.href}" id="${slugify(e.name)}-link" class="flex py-6 px-2 gap-2 items-center text-gray-900 hover:text-cyan-500">
-                    <p class="uppercase text-xs">${e.name}</p>
-                </a>
-            `);
-
             $('#navbar__category').append(`
                 <li>
                     <a href="${e.href}" class="flex p-2 items-center justify-end text-gray-900 rounded-lg hover:bg-gray-100 group"><h5 class="text-lg font-medium">${e.name}</h5>
@@ -298,6 +326,19 @@
             })
             $('#sub-inspiration-mobile').append(categoryMobile)
             $('#sub-inspiration-desktop').append(categoryDesktop)
+            setActiveLink()
+        } else if (menu === 'Collections') {
+            let categoryDesktop = ``;
+            const collectionsSubmenu = <?php echo file_get_contents(get_template_directory() . '/api/collection.json'); ?>;
+            collectionsSubmenu.collection.forEach((e) => {
+                categoryDesktop += `
+                    <a href="<?= BASE_LINK; ?>/collections/${slugify(e.name)}">
+                        <p class="px-3 py-1 hover:text-cyan-500 whitespace-nowrap"
+                            id="${slugify(e.name)}-link">${e.name}</p>
+                    </a>
+                `
+            })
+            $('#sub-collections-desktop').append(categoryDesktop)
             setActiveLink()
         }
     }

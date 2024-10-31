@@ -279,6 +279,8 @@ $(document).ready(function() {
         // }
         const value = option.getAttribute("value").split("|")[1]
         option.innerHTML = value || option.innerHTML;
+        option.classList.add('gtranslate-option-class'); // Add the class here
+
     }
 
     for (let i = 0; i < optionsMobile.length; i++) {
@@ -288,6 +290,8 @@ $(document).ready(function() {
         // }
         const value = option.getAttribute("value").split("|")[1]
         option.innerHTML = value || option.innerHTML;
+        option.classList.add('gtranslate-option-class'); // Add the class here
+
     }
 });
 </script>
