@@ -1,4 +1,4 @@
-<div class="w-full footer snap-start">
+<div class="w-full footer snap-center">
     <div class="flex max-h-[250px] h-[30vh]  bg-cover bg-center bg-no-repeat"
          style="background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/assets/images/store/store-banner.jpeg)">
         <div class="bg-black bg-opacity-20 h-full w-full flex items-center justify-start px-3 md:px-5">

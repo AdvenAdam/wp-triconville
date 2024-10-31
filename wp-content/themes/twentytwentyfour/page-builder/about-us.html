@@ -1,6 +1,18 @@
 <style>
   .about-us-banner {
-    background: url("/triconville/wp-content/uploads/2024/09/about-us-banner.png");
+    background: url("");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  .about-us-sub-banner {
+    background: url("http://dev.triconville.com/wp-content/uploads/2024/10/brand-sub-banner.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  .jewel-banner {
+    background: url("http://dev.triconville.com/wp-content/uploads/2024/10/earth-jewel-bg.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -9,229 +21,416 @@
     list-style: decimal !important;
   }
   .scrollbar-sm::-webkit-scrollbar {
-    height: 5px;
-    width: 5px;
+    height: 5px !important;
+    width: 5px !important;
+    display: block !important;
   }
   .scrollbar-sm::-webkit-scrollbar-thumb {
-    background: #888;
+    background: #888 !important;
+  }
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  body {
+    overscroll-behavior-y: none;
+  }
+
+  ::-webkit-scrollbar {
+    display: none;
   }
 </style>
-
-<div class="about-us-banner h-screen w-screen flex items-center justify-center tracking-wider">
-  <div class="text-white text-center md:p-5 p-3">
-    <p class="uppercase tracking-wider">brand</p>
-    <h1 class="text-4xl font-extrabold text-white uppercase">journey to the milestone</h1>
-    <p class="font-bold">20 Years of Excellence Experience on Outdoor Living</p>
-  </div>
-</div>
-<div class="md:p-5 p-3 tracking-wider">
-  <div class="max-w-[1440px] mx-auto">
-    <div class="py-10">
-      <div class="max-w-4xl md:my-10 text-center mx-auto">
-        Born with a simple reason, a shortage of high quality furniture in the market. Triconville company decided to
-        fulfill the demand, and improve the manufacturing process and practices to reach the level of comfort and
-        quality.
-      </div>
-      <div class="my-10 grid md:grid-cols-2 grid-cols-1 gap-4 md:gap-8 lg:gap-28 items-center">
-        <div class="img-section">
-          <img
-            src="/triconville/wp-content/uploads/2024/09/our-story.png"
-            alt=""
-            class="w-full h-full object-cover"
-          />
-        </div>
-        <div class="text-section">
-          <h5 class="font-semibold text-2xl">How it Started</h5>
-          <p class="mb-3">
-            Triconville began the journey with an urge to create a beautiful piece of furniture with the finest quality
-            at a very nice price. This induced us to collaborate with the designers, architects, and home lovers to
-            bring their best designs to our customers. Choosing the best from their designs and combining it with
-            world-class material quality and craftsmanship, to create a new lifestyle that brings people together in
-            style and comfort.
-          </p>
-          <p class="uppercase tracking-wider">since 2003</p>
-          <p>
-            Our expertise is based on a deep knowledge of craftsmanship, and is at the origin of our manufacturing
-            skill. Our design stems from a constant comparison with the most evolved stylistic scenarios, as befits a
-            brand deeply rooted in contemporary desires.
-          </p>
-        </div>
-      </div>
+<div
+  class="content-container snap-y snap-mandatory h-screen overflow-y-auto scrollbar-none"
+  onmousewheel="onscrollHandler(event)"
+>
+  <div class="h-screen bg-black bg-aopacity-60 flex items-center justify-center tracking-wider snap-always snap-center">
+    <div class="text-white text-center md:p-5 p-3">
+      <h1 class="text-3xl md:text-5xl tracking-wider text-white font-medium">
+        Crafted with Passion, Designed for Connection
+      </h1>
     </div>
-    <div class="my-5 mx-auto max-w-5xl md:my-10 text-center">
-      <h5 class="italic text-2xl tracking-wide">
-        “There is nothing more gorgeous than having an outdoor open space with cozy seating”
-      </h5>
-      <p>
-        This drives us to create a quality outdoor furniture product that is intimately connected to nature. Keeping the
-        culture and feel alive, we offer Triconville Product Ranges that include distinct collections of sofas, chairs,
-        tables, loungers, parasols, and gazebos especially designed to reshape the outdoors to reflect the beauty of the
-        nature.
+  </div>
+  <div class="about-us-sub-banner h-screen flex items-center justify-center snap-always snap-center px-3 md:px-5">
+    <div class="text-white max-w-2xl">
+      <img
+        src="/triconville/wp-content/themes/twentytwentyfour/assets/images/icons/triconville-white.svg"
+        alt=""
+        class="w-1/2 h-auto object-cover"
+      />
+      <p class="text-sm mt-10">
+        At Triconville, we're more than just outdoor furniture designers : we're creators of moments. We design outdoor
+        furniture because we love it. Each piece is crafted not just to be beautiful, but to bring people together. When
+        the sun is shining, and the ones you care about are gathered around, you feel the connection – that’s the
+        feeling we aim to inspire with every product. <br /><br />
+        Rooted in Indonesia’s rich artisanal heritage, Triconville crafts outdoor furniture that blends Indonesian
+        craftsmanship, sustainability, and modern innovation. We source responsibly, minimizing our environmental
+        impact, while creating pieces that last for generations.
+        <br /><br />
+        Our outdoor furniture seamlessly finds its home in contemporary spaces across the globe, while remaining
+        authentic and full of soul. No matter what your style is, our diverse mood boards offer inspiration for your
+        perfect outdoor sanctuary.
+        <br /><br />
+        And by today, Triconville brings a touch of heritage and global sophistication to patios and outdoor spaces
+        worldwide.
       </p>
     </div>
   </div>
-</div>
-<div class="bg-[#F1F1F1] py-10 md:p-5 p-3 tracking-wider">
-  <h3 class="font-semibold text-2xl">The Triconville Milestone</h3>
-  <div class="flex relative">
-    <button
-      class="slick-prev 2xl:bg-white prev-btn absolute bottom-0 2xl:top-1/2 -translate-y-1/2 z-10 left-5 py-10 hover:bg-slate-50/50 p-3"
-      aria-label="Previous"
-      type="button"
-    >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke-width="1.5"
-        stroke="currentColor"
-        class="size-6"
-      >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          d="M15.75 19.5 8.25 12l7.5-7.5"
-        />
-      </svg>
-    </button>
 
-    <div class="max-w-[1440px] mx-auto">
-      <!-- NOTE : timeline -->
-      <div class="flex flex-no-wrap scrollbar-sm overflow-x-scroll snap-x snap-mandatory scrolling-touch py-5">
-        <div class="flex-none snap-start md:snap-center md:w-3/5 w-2/3 max-w-screen sm:mb-0">
-          <div class="flex items-center">
-            <div
-              class="z-10 flex items-center justify-center w-2 h-2 bg-slate-900/50 rounded-full ring-0 ring-white"
-            ></div>
-            <div class="hidden sm:flex w-full bg-gray-200 h-0.5"></div>
-          </div>
-          <div class="mt-3 sm:pe-8 pe-3">
-            <h3 class="font-semibold">2004 - 2008</h3>
-            <p class="max-w-md list-outside">
-              Debuted the first outdoor teak collection. The collection had a positive feedback and quality was much
-              appreciated by the dealers and traders.
-              <li>
-                Triconville enlarged the product range to stainless steel and wicker. During this year, they started to
-                export their furniture on a small scale.
-              </li>
-              <li>
-                The company strengthened the export presence by creating high quality outdoor furniture collections and
-                expanded export to European regions.
-              </li>
-            </p>
-          </div>
-        </div>
-        <div class="flex-none snap-start md:snap-center md:w-3/5 w-2/3 max-w-screen sm:mb-0">
-          <div class="flex items-center">
-            <div
-              class="z-10 flex items-center justify-center w-2 h-2 bg-slate-900/50 rounded-full ring-0 ring-white"
-            ></div>
-            <div class="hidden sm:flex w-full bg-gray-200 h-0.5"></div>
-          </div>
-          <div class="mt-3 sm:pe-8 pe-3">
-            <h3 class="font-semibold">2009 - 2012</h3>
-            <p class="max-w-md list-outside">
-              Added traditional powder coating section, to offer different colors to aluminium collections.
-              <li>
-                Triconville launches the Aluminum powder coated collection, the first contemporary outdoor furniture
-                design made of batyline,aluminum and teak wood.
-              </li>
-              <li>Integrated ERP systems with our Business model.</li>
-              <li>Setup of Triconville Malaysia Business.</li>
-            </p>
-          </div>
-        </div>
-        <div class="flex-none snap-start md:snap-center md:w-3/5 w-2/3 max-w-screen sm:mb-0">
-          <div class="flex items-center">
-            <div
-              class="z-10 flex items-center justify-center w-2 h-2 bg-slate-900/50 rounded-full ring-0 ring-white"
-            ></div>
-            <div class="hidden sm:flex w-full bg-gray-200 h-0.5"></div>
-          </div>
-          <div class="mt-3 sm:pe-8 pe-3">
-            <h3 class="font-semibold">2013 - 2017</h3>
-            <p class="max-w-md list-outside">
-              Demand of increasing working space resulted in opening its 2nd manufacturing plant in Demak, Indonesia.
-              <li>Added fully automated powdercoating section.</li>
-              <li>Added CNC laser-cut machine to fasten and improve the precision of working with metal sheets.</li>
-              <li>New outdoor collections that are all a clear commitment to innovation and versatile designs.</li>
-              <li>
-                Integrated Inventory, logistics and warehouse management to our ERP systems to function efficiently.
-              </li>
-            </p>
-          </div>
-        </div>
-        <div class="flex-none snap-start md:snap-center md:w-3/5 w-2/3 max-w-screen sm:mb-0">
-          <div class="flex items-center">
-            <div
-              class="z-10 flex items-center justify-center w-2 h-2 bg-slate-900/50 rounded-full ring-0 ring-white"
-            ></div>
-            <div class="hidden sm:flex w-full bg-gray-200 h-0.5"></div>
-          </div>
-          <div class="mt-3 sm:pe-8 pe-3">
-            <h3 class="font-semibold">2018 - 2022</h3>
-            <p class="max-w-md list-outside">
-              Triconville has streamlined the production lines by adding more CNC machines to increase the efficiency on
-              the ground and increased the working space.
-              <li>
-                We strive to be your one-stop supplier for Home and Living products, hence present to you a new trade
-                showroom in Jepara, of about 6000 m².
-              </li>
-              <li>
-                Triconville brings you exclusive Product Ranges that will give your home an on-trend design update.
-                Furthermore, these ranges are easily combined to create an integrated style indoors & outdoors.
-              </li>
-              <li>Added CNC woodworking in the production workspace.</li>
-              <li>Added Upholstery & Cushion factory unit to support the highest quality of craftsmanship.</li>
-              <li>
-                Introducing Trivonville B2B Portal for speedy order processing, downloadable digital assets, and
-                product-rich information pages.
-              </li>
-            </p>
-          </div>
-        </div>
-        <div class="flex-none snap-start md:snap-center md:w-3/5 w-2/3 max-w-screen sm:mb-0">
-          <div class="flex items-center">
-            <div
-              class="z-10 flex items-center justify-center w-2 h-2 bg-slate-900/50 rounded-full ring-0 ring-white"
-            ></div>
-            <div class="hidden sm:flex w-full bg-gray-200 h-0.5"></div>
-          </div>
-          <div class="mt-3 sm:pe-8 pe-3">
-            <h3 class="font-semibold uppercase">towards our future</h3>
-            <p class="max-w-md list-outside">
-              Committed to manufacture timeless modern outdoor living furniture that is comfortable, beautiful and
-              continue to fulfill our desire to inspire outdoor living
-            </p>
-          </div>
-        </div>
-        <div class="flex-none snap-start md:snap-center md:w-3/5 w-2/3 max-w-screen sm:mb-0 md:hidden"></div>
-      </div>
-
-      <button
-        class="slick-next 2xl:bg-white next-btn absolute bottom-0 2xl:top-1/2 -translate-y-1/2 z-10 right-5 py-10 hover:bg-slate-50/50 p-3"
-        aria-label="Next"
-        type="button"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke-width="1.5"
-          stroke="currentColor"
-          class="size-6"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="m8.25 4.5 7.5 7.5-7.5 7.5"
+  <div class="bg-white h-screen flex items-center justify-center px-3 md:px-5 snap-always snap-center">
+    <div class="max-w-[1440px]">
+      <img
+        src="http://dev.triconville.com/wp-content/uploads/2024/10/Built-for-Every-Climate-Perfected-for-the-Outdoors.png"
+        alt="Built-for-Every-Climate-Perfected-for-the-Outdoors"
+        class="w-full h-auto object-cover hidden md:block"
+      />
+      <div class="grid grid-cols-2 md:grid-cols-5 mt-5">
+        <div class="col-span-2 md:col-span-3 max-w-2xl">
+          <h1 class="text-3xl md:text-5xl">Built for Every Climate, Perfected for the Outdoors</h1>
+          <img
+            src="http://dev.triconville.com/wp-content/uploads/2024/10/Built-for-Every-Climate-Perfected-for-the-Outdoors.png"
+            alt="Built-for-Every-Climate-Perfected-for-the-Outdoors"
+            class="w-full min-h-44 h-auto object-cover md:hidden my-5"
           />
-        </svg>
-      </button>
+        </div>
+        <div class="col-span-1">
+          <p class="text-sm max-w-56">
+            We believe that outdoor living should be an extension of home, a sanctuary where we can relax, connect, and
+            create lasting memories. That's why we go beyond simply creating beautiful furniture.
+          </p>
+        </div>
+        <div class="col-span-1">
+          <p class="text-sm max-w-56">
+            We believe that outdoor living should be an extension of home, a sanctuary where we can relax, connect, and
+            create lasting memories. That's why we go beyond simply creating beautiful furniture.
+          </p>
+        </div>
+      </div>
     </div>
   </div>
+
+  <div class="bg-white h-screen flex items-center justify-center px-3 md:px-5 snap-always snap-center">
+    <div class="max-w-[1440px]">
+      <div class="grid grid-cols-1 md:grid-cols-2 items-end gap-3 md:gap-10">
+        <div class="flex md:justify-end">
+          <img
+            src="http://dev.triconville.com/wp-content/uploads/2024/10/story-in-every-grain.png"
+            alt="story-in-every-grain"
+            class="w-auto h-full max-h-[40vh] md:max-h-full object-cover"
+          />
+        </div>
+        <div class="max-w-lg">
+          <h1 class="text-3xl md:text-5xl">Handcrafted Heritage For Modern Living</h1>
+          <div class="flex gap-3 my-5">
+            <p class="text-sm max-w-56">
+              Our Indonesian artisans blend time-honored techniques with modern design, meticulously crafting each piece
+              by hand. This dedication to detail ensures that every piece of furniture is as unique as the environment
+              it inhabits. We select premium materials like teak and powder-coated aluminum for their beauty, strength,
+              and sustainability.
+            </p>
+            <p class="text-sm max-w-56">
+              Our passion for innovation drives us to explore new techniques, ensuring that our furniture is not only
+              crafted with heritage but also designed for many years to come.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bg-white h-screen flex items-center justify-center px-3 md:px-5 snap-always snap-center">
+    <div class="max-w-[1440px]">
+      <div class="flex md:flex-row flex-col gap-3 md:gap-10 items-end">
+        <div class="max-w-lg flex flex-col">
+          <h1 class="text-3xl md:text-5xl">Design That Speaks To The Soul</h1>
+          <div class="flex gap-3 my-5">
+            <p class="text-sm max-w-56">
+              Our expert team finds inspiration in the world around us – the rich tapestry of cultures, the tranquility
+              of nature, and the ever-evolving needs of modern living.
+            </p>
+            <p class="text-sm max-w-56">
+              This global perspective allows us to create furniture that resonates with diverse tastes and lifestyles,
+              bringing harmony to any outdoor space.
+            </p>
+          </div>
+        </div>
+        <div class="">
+          <img
+            src="http://dev.triconville.com/wp-content/uploads/2024/10/design_1.png"
+            alt="story-in-every-grain"
+            class="w-auto h-full object-cover"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="jewel-banner h-screen flex items-center justify-center px-3 md:px-5 snap-always snap-center">
+    <div class="max-w-[1440px] flex md:flex-row flex-col md:justify-between md:items-center gap-3 w-full">
+      <div class="inline-block">
+        <img
+          src="http://dev.triconville.com/wp-content/uploads/2024/10/main_image.png"
+          alt="story-in-every-grain"
+          class="w-auto md:h-[550px] h-[300px] object-cover"
+        />
+      </div>
+      <div class="inline-block max-w-xl">
+        <h2 class="text-white text-3xl">The Earth Jewel — Our Signature Teak</h2>
+        <p class="text-white text-sm mt-5">
+          Teak is the heart and soul of Triconville. We work with only the finest materials. Its natural warmth,
+          uniqueness, durability, and resistance to the elements make it the perfect choice for outdoor living. It’s a
+          material that gets better with time, weathering elegantly to give your one-of-a-kind outdoor space look a
+          sense of timeless beauty.
+        </p>
+      </div>
+      <div class="inline-flex md:justify-end">
+        <img
+          src="http://dev.triconville.com/wp-content/uploads/2024/10/earth-jewel.png"
+          alt="story-in-every-grain"
+          class="w-auto h-[200px] md:h-auto object-cover"
+        />
+      </div>
+    </div>
+  </div>
+
+  <div class="bg-white h-screen max-w-[1440px] mx-auto flex items-center px-3 md:px-5 snap-always snap-center">
+    <div class="">
+      <div class="max-w-md">
+        <h1 class="text-3xl md:text-5xl">Our Promise to You</h1>
+        <p class="text-sm font-bold my-5">
+          Our belief is woven into the very fabric of our company, guided by three core principles:
+        </p>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-3 md:w-3/4">
+        <div class="">
+          <li class="text-sm font-bold list-disc">Innovation in Outdoor Technology</li>
+          <p class="text-sm ps-3 md:ps-5">
+            We're constantly exploring new materials and techniques to create beautiful, durable furniture that
+            withstands the elements and complements any style.
+          </p>
+        </div>
+        <div class="">
+          <li class="text-sm font-bold list-disc">Craftsmanship of Indonesian Heritage</li>
+          <p class="text-sm ps-3 md:ps-5">
+            Our furniture is handcrafted by skilled artisans, preserving traditional techniques passed down through
+            generations.
+          </p>
+        </div>
+        <div class="">
+          <li class="text-sm font-bold list-disc">Sustainability at Heart</li>
+          <p class="text-sm ps-3 md:ps-5">
+            We are committed to responsible sourcing and environmentally friendly practices, ensuring that our furniture
+            is as good for the planet as it is for your soul
+          </p>
+        </div>
+      </div>
+      <div class="md:flex md:justify-between mt-5">
+        <div class="mt-5">
+          <a
+            href="/collections/"
+            class="btn-ghost uppercase text-xs tracking-wider"
+            >Explore collections</a
+          >
+        </div>
+        <img
+          src="http://dev.triconville.com/wp-content/uploads/2024/10/our_promise_to_you.png"
+          alt="Rooted in Tradition Committed to Innovation"
+          class="w-full h-auto object-cover my-5 md:w-3/4 flex justify-end"
+        />
+      </div>
+    </div>
+  </div>
+
+  <div class="bg-black h-screen flex items-center justify-center px-3 md:px-5 snap-always snap-center">
+    <div class="w-full">
+      <div class="mx-auto max-w-[1440px] mb-10">
+        <p class="text-sm text-white font-bold">Our Milestones:</p>
+        <h1 class="text-3xl text-white md:text-5xl">A Journey Through Time</h1>
+      </div>
+      <div class="relative">
+        <button
+          class="slick-prev 2xl:bg-white prev-btn absolute bottom-0 2xl:top-1/2 -translate-y-1/2 z-10 left-5 py-10 hover:bg-slate-50/50 p-3"
+          aria-label="Previous"
+          type="button"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="size-6"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M15.75 19.5 8.25 12l7.5-7.5"
+            />
+          </svg>
+        </button>
+        <!-- NOTE : timeline -->
+        <div class="mx-auto max-w-[1440px]">
+          <div
+            class="flex flex-no-wrap scrollbar-sm overflow-x-scroll snap-x snap-mandatory scrolling-touch h-[450px] py-5"
+          >
+            <!-- odd timeline -->
+            <div class="flex-none grid grid-rows-5 h-full max-w-80 snap-start md:snap-center">
+              <div class="row-span-2"></div>
+              <h2 class="text-3xl h-full flex items-center text-white font-bold">2003</h2>
+              <div class="row-span-2">
+                <div class="h-10 mb-3 border-white border-l"></div>
+                <p class="text-white text-sm">
+                  A group of friends in Indonesia shared a dream: to craft outdoor furniture that would transform
+                  ordinary gatherings into lasting memories by marrying style, comfort, and durability.
+                </p>
+              </div>
+            </div>
+            <!-- even timeline -->
+            <div class="flex-none grid grid-rows-5 h-full max-w-80 snap-start md:snap-center">
+              <div class="row-span-2 flex flex-col justify-end">
+                <p class="text-white text-sm">
+                  Triconville’s debut teak collection quickly captivated European buyers, introducing the world to our
+                  unique blend of Indonesian craftsmanship and modern appeal.
+                </p>
+                <div class="h-10 mt-3 border-white border-l"></div>
+              </div>
+              <h2 class="text-3xl h-full flex items-center text-white font-bold">2004</h2>
+              <div class="row-span-2"></div>
+            </div>
+            <!-- odd timeline -->
+            <div class="flex-none grid grid-rows-5 h-full max-w-80 snap-start md:snap-center">
+              <div class="row-span-2"></div>
+              <h2 class="text-3xl h-full flex items-center text-white font-bold">2009</h2>
+              <div class="row-span-2">
+                <div class="h-10 mb-3 border-white border-l"></div>
+                <p class="text-white text-sm">
+                  Embracing innovation, Triconville pioneered contemporary designs with aluminum and batyline.
+                </p>
+              </div>
+            </div>
+            <!-- even timeline -->
+            <div class="flex-none grid grid-rows-5 h-full max-w-80 snap-start md:snap-center">
+              <div class="row-span-2 flex flex-col justify-end">
+                <p class="text-white text-sm">
+                  Triconville expanded its manufacturing capabilities and explored new design possibilities, broadening
+                  its range of outdoor furniture styles.
+                </p>
+                <div class="h-10 mt-3 border-white border-l"></div>
+              </div>
+              <h2 class="text-3xl h-full flex items-center text-white font-bold">2013 - 2015</h2>
+              <div class="row-span-2"></div>
+            </div>
+            <!-- odd timeline -->
+            <div class="flex-none grid grid-rows-5 h-full max-w-80 snap-start md:snap-center">
+              <div class="row-span-2"></div>
+              <h2 class="text-3xl h-full flex items-center text-white font-bold">2017</h2>
+              <div class="row-span-2">
+                <div class="h-10 mb-3 border-white border-l"></div>
+                <p class="text-white text-sm">
+                  Deepening connection to worldwide customers through a user-friendly B2B portal.
+                </p>
+              </div>
+            </div>
+            <!-- even timeline -->
+            <div class="flex-none grid grid-rows-5 h-full max-w-80 snap-start md:snap-center">
+              <div class="row-span-2 flex flex-col justify-end">
+                <p class="text-white text-sm">
+                  Triconville expanded globally, introducing its premier outdoor furniture to new markets and opening a
+                  trade showroom in Jakarta.
+                </p>
+                <div class="h-10 mt-3 border-white border-l"></div>
+              </div>
+              <h2 class="text-3xl h-full flex items-center text-white font-bold">2019-2021</h2>
+              <div class="row-span-2"></div>
+            </div>
+            <!-- odd timeline -->
+            <div class="flex-none grid grid-rows-5 h-full max-w-80 snap-start md:snap-center">
+              <div class="row-span-2"></div>
+              <h2 class="text-3xl h-full flex items-center text-white font-bold">2023</h2>
+              <div class="row-span-2">
+                <div class="h-10 mb-3 border-white border-l"></div>
+                <p class="text-white text-sm">
+                  Continuing to innovate, Triconville invested in technology and talent to create holistic outdoor
+                  experiences that go beyond furniture.
+                </p>
+              </div>
+            </div>
+            <!-- even timeline -->
+            <div class="flex-none grid grid-rows-5 h-full max-w-80 snap-start md:snap-center">
+              <div class="row-span-2 flex flex-col justify-end">
+                <p class="text-white text-sm">Triconville opened trade showrooms in Saudi Arabia.</p>
+                <div class="h-10 mt-3 border-white border-l"></div>
+              </div>
+              <h2 class="text-3xl h-full flex items-center text-white font-bold">2024</h2>
+              <div class="row-span-2"></div>
+            </div>
+
+            <button
+              class="slick-next 2xl:bg-white next-btn absolute bottom-0 2xl:top-1/2 -translate-y-1/2 z-10 right-5 py-10 hover:bg-slate-50/50 p-3"
+              aria-label="Next"
+              type="button"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="size-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="m8.25 4.5 7.5 7.5-7.5 7.5"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bg-white px-3 md:px-5 snap-always snap-center">
+    <div class="max-w-[1440px] flex flex-col justify-center h-screen my-auto mx-auto">
+      <div class="md:flex justify-between md:w-3/4">
+        <div class="inline-block">
+          <h1 class="text-3xl md:text-5xl">
+            Your World. Your Style.<br />
+            Your Outdoors.
+          </h1>
+        </div>
+        <div class="inline-block">
+          <p class="text-sm max-w-sm">
+            We believe every outdoor space has a story to tell. It should be as unique as you are. Hence we've curated a
+            diverse collection of furniture styles to complement any outdoor space and reflect your personal taste:
+          </p>
+        </div>
+      </div>
+      <div
+        class="grid pt-10 lg:grid-cols-4 grid-cols-2 gap-2 md:gap-5"
+        id="mood__list"
+      ></div>
+    </div>
+  </div>
+  <?php  get_template_part('footer-custom'); ?>
 </div>
+
 <script>
+  let timeout;
+  function onscrollHandler(event) {
+    if (timeout) return;
+    timeout = setTimeout(() => (timeout = null), 20);
+
+    const direction = event.deltaY > 0 ? "nextElementSibling" : "previousElementSibling";
+    const scrollTarget = event.target.closest(".snap-always")[direction];
+
+    if (scrollTarget) {
+      event.preventDefault();
+      event.target.scrollTo({
+        top: scrollTarget.offsetTop,
+        behavior: "smooth",
+      });
+    }
+  }
+
   document.querySelector(".slick-next").addEventListener("click", () => {
     document.querySelector(".scrollbar-sm").scrollBy({
       left: 500,
@@ -244,4 +443,46 @@
       behavior: "smooth",
     });
   });
+</script>
+
+<script>
+  let moods = [];
+
+  $(document).ready(function () {
+    $.ajax({
+      url: "<?= BASE_URL; ?>/?rest_route=/wp/v2/selected_moods",
+      type: "GET",
+
+      success: (res) => {
+        moods = res;
+      },
+      error: function (xhr, status, error) {
+        console.error("Error fetching data:", error);
+      },
+      complete: () => {
+        renderBanner();
+      },
+    });
+  });
+
+  function renderBanner() {
+    try {
+      // Note : Set background
+      moods.forEach((mood) => {
+        $("#mood__list").append(`
+                  <div class="h-[322px] md:h-[600px] w-auto bg-no-repeat bg-center bg-cover"
+                      style="background-image: url('<?php echo get_stylesheet_directory_uri(); ?>/${mood.thumb}')">
+                      <a href="<?= BASE_LINK ?>/moods/${mood.slug}"
+                          class="h-full w-full flex items-end justify-end p-5">
+                          <h1 class="text-2xl md:text-5xl font-semibold text-end text-white max-w-[260px]">${mood.name}</h1>
+                      </a>
+                  </div>
+              `);
+      });
+    } catch (error) {
+      redirectError();
+    } finally {
+      $("#page-loading").hide();
+    }
+  }
 </script>
