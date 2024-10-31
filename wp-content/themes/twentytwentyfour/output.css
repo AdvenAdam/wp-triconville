@@ -1847,6 +1847,14 @@ video {
     height: 100%;
   }
 
+  .sm\:h-\[350px\] {
+    height: 350px;
+  }
+
+  .sm\:h-\[450px\] {
+    height: 450px;
+  }
+
   .sm\:w-1\/5 {
     width: 20%;
   }

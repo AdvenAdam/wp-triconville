@@ -15,7 +15,7 @@ body {
 </style>
 <div class="content-container scroll-smooth overflow-x-hidden">
     <!-- NOTE: Banner -->
-    <h1 class="text-3xl md:text-5xl font-medium text-center px-5 pt-10 uppercase snap-start">triconville collections</h1>
+    <h1 class="text-3xl md:text-5xl font-medium text-center px-5 pt-10 uppercase snap-always snap-start">triconville collections</h1>
     <p class='font-sm font-light tracking-widest text-center'>The Luxury of Living Outdoors</p>
     <div class="flex gap-2 justify-center my-5 view-button">
         <button class="btn-ghost-dark flex gap-2 items-center"
@@ -76,12 +76,11 @@ body {
     ?>
 </div>
 <script>
-let page = 1;
-let isLoading = false;
 let stop = false;
 let count = 0;
 let selectedCollectionId = [];
 let filteredCollection = [];
+let timeout;
 
 $(document).ready(function() {
     $.ajax({
@@ -111,11 +110,8 @@ function loadCollections() {
                     ...selectedCollection
                 };
             });
-            isLoading = false;
         },
         error: function(xhr, status, error) {
-            isLoading = false;
-            stop = true;
             $('#page-loading').hide();
             $('#errorIndicator').show();
         },
@@ -123,7 +119,6 @@ function loadCollections() {
             $('#grid-container').hide();
             sortedCollection = filteredCollection.sort((a, b) => (a.name > b.name) ? 1 : -1)
             sortedCollection.forEach((e, index) => renderCollections(e, index, 'list'));
-            stop = true;
             $('#page-loading').hide();
         }
     });
@@ -171,9 +166,10 @@ function renderCollections(e, index, type = 'grid') {
         `);
     } else if (type == 'list') {
         $('.content-container').addClass('snap-y snap-mandatory transition duration-500 ease-in-out overflow-y-scroll h-screen scrollbar-none')
+        $('.content-container').on('wheel', onscrollHandler);
         $('#grid__collections').empty();
         $('#list__collections').append(`
-            <div class="h-screen w-screen relative text-white snap-start" 
+            <div class="h-screen w-screen relative text-white snap-always snap-start" 
                 style="
                     background-position:center; 
                     background-image: url('<?php echo get_stylesheet_directory_uri(); ?>/assets/images/${e.image_banner}'); 
@@ -197,6 +193,22 @@ function renderCollections(e, index, type = 'grid') {
                 </a>
            </div>
         `);
+    }
+}
+
+function onscrollHandler(event) {
+    if (timeout) return;
+    timeout = setTimeout(() => (timeout = null), 20);
+
+    const direction = event.deltaY > 0 ? "nextElementSibling" : "previousElementSibling";
+    const scrollTarget = event.target.closest(".snap-always")[direction];
+
+    if (scrollTarget) {
+        event.preventDefault();
+        event.target.scrollTo({
+            top: scrollTarget.offsetTop,
+            behavior: "smooth",
+        });
     }
 }
 </script>

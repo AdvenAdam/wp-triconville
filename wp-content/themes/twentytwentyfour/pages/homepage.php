@@ -18,6 +18,12 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
     background-repeat: no-repeat;
     background-position: center;
 }
+
+.news-image img {
+    height: 240px !important;
+    width: 100% !important;
+    object-fit: cover;
+}
 </style>
 <div class="content-container">
     <!-- NOTE: Banner -->
