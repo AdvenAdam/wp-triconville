@@ -56,9 +56,9 @@
 </head>
 
 <body <?php body_class(); ?>>
-    <header class="header sticky top-0 tracking-widest"
+    <header class="header sticky top-0 tracking-widest "
             style="z-index: 20;">
-        <div class="flex items-center justify-between md:px-5 px-3 w-full bg-white">
+        <div class="flex items-center justify-between md:px-5 px-3 w-full min-h-16 bg-white">
             <div class="flex justify-center">
                 <a href="<?php echo home_url(); ?>">
                     <img src="<?= BASE_LINK ?>/wp-content/uploads/2024/09/Logo-Blue-Resized-1.png"
