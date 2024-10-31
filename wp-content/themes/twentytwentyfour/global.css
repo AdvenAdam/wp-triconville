@@ -71,6 +71,15 @@ p {
   .gtranslate_wrapper .gt_selector:focus-visible{
     outline: none;
   }
+  .gtranslate-option-class {
+    background-color: #F4F6F6;
+    outline: none;
+    border: none;
+    color: #212121;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+  }
+
 #page-loading {
     position: fixed;
     top: 0;
