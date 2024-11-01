@@ -32,14 +32,9 @@ get_template_part('header-custom');
     </div>
 
     <!-- NOTE : PRODUCT LIST -->
-    <div class="max-w-[1440px] px-3 md:px-5 my-8 mx-auto ">
-        <h3 class="text-2xl md:text-3xl tracking-widest"
-            id="category__name-label"></h3>
-        <hr style="border-width: 2px;" />
-    </div>
-
-    <div class="max-w-[1440px] my-10 mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
+    <div class="max-w-[1440px] my-10 mx-auto "
          id="product__list">
+
     </div>
 </div>
 <div id="page-loading">
@@ -51,6 +46,7 @@ get_template_part('header-custom');
 </div>
 <script>
 let categoriesData;
+let haveSubCategory = false;
 let productListSelected = [];
 let selectedCollectionId = [];
 
@@ -73,6 +69,7 @@ $(document).ready(function() {
         },
         complete: () => {
             $('#page-loading').hide();
+            haveSubCategory = categoriesData.children.length > 0;
             renderMaster()
             metaMaster()
         }
@@ -100,35 +97,32 @@ function renderMaster() {
         $('#category__name').text(categoriesData.name);
         $('#category__name-title').text(`Explore Our Outdoor ${categoriesData.name}`);
 
-        renderFilterProduct('All Products', 0);
         // NOTE : Render all Filter Product
-        renderFilterAllProduct();
-
-        // TODO : Render Each SubCategory
-        categoriesData.children.forEach((e, index) => {
-            renderFilterProduct(e.name, e.id, e.param);
-        })
+        if (haveSubCategory) {
+            renderFilterProduct('All Products', 0);
+            categoriesData.children.forEach((e, index) => {
+                renderFilterProduct(e.name, e.id);
+            })
+        }
+        renderAllProducts();
     } catch (error) {
         console.error("🚀 ~ renderMaster ~ error:", error)
         redirectError()
     }
 }
 
-async function renderFilterAllProduct() {
-    subCategoryOnClick('All Products', 0);
+async function renderAllProducts() {
     // TODO : Render All Products Each SubCategory
-    if (categoriesData.children.length > 0) {
-        const fetchAllProduct = async () => {
-            const allPromise = categoriesData.children.map(e => fetchProducts(e.id, e.param));
-            const allResult = await Promise.all(allPromise);
-            return allResult.flat();
+    if (haveSubCategory) {
+        for (const data of categoriesData.children) {
+            try {
+                const res = await fetchProducts(data.id, data.param);
+                console.log("🚀 ~ renderAllProducts ~ res:", res)
+                renderProducts(res, data.name);
+            } catch (error) {
+                console.error(`Error fetching products for ${data.name}:`, error);
+            }
         }
-        fetchAllProduct().then(res => {
-            productListSelected = [...new Set([...productListSelected, ...res])];
-            renderProducts(productListSelected)
-        }).catch(err => {
-            console.error("🚀 ~ renderFilterAllProduct ~ err:", err)
-        })
     } else {
         const ids = categoriesData.ids;
         const fetchAllProduct = async () => {
@@ -138,9 +132,9 @@ async function renderFilterAllProduct() {
         }
         fetchAllProduct().then(res => {
             productListSelected = [...new Set([...productListSelected, ...res])];
-            renderProducts(productListSelected)
+            renderProducts(productListSelected, categoriesData.name);
         }).catch(err => {
-            console.error("🚀 ~ renderFilterAllProduct ~ err:", err)
+            console.error("🚀 ~ renderAllProducts ~ err:", err)
         })
     }
 }
@@ -148,7 +142,6 @@ async function renderFilterAllProduct() {
 async function fetchProducts(id, param) {
     try {
         $('#page-loading').show();
-        productListSelected = [];
         const res = await $.ajax({
             url: `<?= BASE_API; ?>/v1_categories_det/${id}/`,
             type: 'GET',
@@ -156,12 +149,10 @@ async function fetchProducts(id, param) {
                 Authorization: '<?= API_KEY; ?>'
             }
         });
-        // NOTE : Get Triconville Product by id == 3
+        // NOTE : Get Triconville Product by listed collection
         filteredCollection = res.product_list.filter(e => selectedCollectionId.some(element => element.collection_id === parseInt(e.collection))).map(e => {
-            const selectedCollection = selectedCollectionId.find(element => element.collection_id === parseInt(e.collection_id));
             return {
-                ...e,
-                ...selectedCollection
+                ...e
             };
         });
         const products = param !== '' ?
@@ -170,7 +161,7 @@ async function fetchProducts(id, param) {
             }) => param.split(",").some(p => name.toLowerCase().includes(p))) :
             filteredCollection;
 
-        return [...productListSelected, ...products];
+        return [...products];
     } catch (error) {
         $('#page-loading').hide();
         throw error;
@@ -179,33 +170,45 @@ async function fetchProducts(id, param) {
     }
 }
 
-function renderFilterProduct(name, id, param = '') {
-    const classes = id === 0 ? 'onclick="renderFilterAllProduct()"' : `onclick="subCategoryOnClick('${name}', ${id}, '${param}')"`;
+function renderFilterProduct(name, id) {
+    const action = id === 0 ? `onclick="subCategoryOnClick('all-products')"` : `onclick="subCategoryOnClick('${slugify(name)}')"`;
+    const classes = id === 0 ? 'btn-ghost-dark' : 'btn-ghost';
     $('#filter__product').append(`
-        <button type="button" id="${slugify(name)}" class="btn-ghost" ${classes}>
+        <button type="button" id="${slugify(name)}-btn" class="${classes}" ${action}>
             ${name}
         </button>
     `);
 }
 
-async function subCategoryOnClick(name, id, param) {
-    $('#category__name-label').text(name);
-    $('#filter__product button').removeClass('btn-ghost-dark').addClass('btn-ghost')
-    $(`#${slugify(name)}`).removeClass('btn-ghost').addClass('btn-ghost-dark');
-    if (id !== 0) {
-        try {
-            const data = await fetchProducts(id, param);
-            renderProducts(data);
-        } catch (error) {
-            console.error(error);
-        }
+function subCategoryOnClick(name) {
+    $('.product-list').addClass('hidden');
+    $('#filter__product button').removeClass('btn-ghost-dark').addClass('btn-ghost');
+    $(`#${name}-btn`).toggleClass('btn-ghost btn-ghost-dark');
+    if (name === 'all-products') {
+        $('.product-list').removeClass('hidden');
+        return;
+    } else {
+        $(`#product__${name}`).removeClass('hidden');
     }
 }
 
-function renderProducts(data) {
-    $('#product__list').empty();
+function renderProducts(data, headerTitle = 'All Products') {
+    $('#product__list').append(`
+        <!-- NOTE: ${headerTitle} -->
+        <div id="product__${slugify(headerTitle)}" class="product-list">
+            <div class="-mb-5">
+                <h3 class="text-2xl md:text-3xl tracking-widest" id="category__name-label">
+                    ${headerTitle}
+                </h3>
+                <hr style="border-width: 2px;" />
+            </div>
+            <div id="product__list__${slugify(headerTitle)}" class ="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-10">
+            </div>
+        </div>
+    `);
+
     data.sort((a, b) => a.name.localeCompare(b.name)).forEach(e => {
-        $('#product__list').append(`
+        $(`#product__list__${slugify(headerTitle)}`).append(`
             <a href= "<?= BASE_LINK; ?>/product-detail/${slugify(e.name)}">
                 <div class='flex justify-center items-center flex-col p-3'>
                     <img class="w-auto md:h-[384px] h-[204px] object-contain" src="${e.product_image_384}" />

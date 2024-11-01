@@ -15,40 +15,42 @@ body {
 </style>
 <div class="content-container scroll-smooth overflow-x-hidden">
     <!-- NOTE: Banner -->
-    <h1 class="text-3xl md:text-5xl font-medium text-center px-5 pt-32 uppercase snap-always snap-start">triconville collections</h1>
-    <p class='font-sm font-light tracking-widest text-center'>The Luxury of Living Outdoors</p>
-    <div class="flex gap-2 justify-center my-5 view-button">
-        <button class="btn-ghost-dark flex gap-2 items-center"
-                id="list-button"
-                onClick="changeView('list')">
-            Gallery <svg xmlns="http://www.w3.org/2000/svg"
-                 fill="none"
-                 viewBox="0 0 24 24"
-                 stroke-width="1.5"
-                 stroke="currentColor"
-                 class="size-5">
-                <path stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M8.25 6.75h12M8.25 12h12m-12 5.25h12M3.75 6.75h.007v.008H3.75V6.75Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0ZM3.75 12h.007v.008H3.75V12Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm-.375 5.25h.007v.008H3.75v-.008Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
-            </svg>
+    <div class="min-h-[40vh] flex flex-col justify-center  px-3 md:px-5 snap-always snap-start">
+        <h1 class="text-3xl md:text-5xl font-medium text-center uppercase ">triconville collections</h1>
+        <p class='font-sm font-light tracking-widest text-center'>The Luxury of Living Outdoors</p>
+        <div class="flex gap-2 justify-center my-5 view-button">
+            <button class="btn-ghost-dark flex gap-2 items-center"
+                    id="list-button"
+                    onClick="changeView('list')">
+                Gallery <svg xmlns="http://www.w3.org/2000/svg"
+                     fill="none"
+                     viewBox="0 0 24 24"
+                     stroke-width="1.5"
+                     stroke="currentColor"
+                     class="size-5">
+                    <path stroke-linecap="round"
+                          stroke-linejoin="round"
+                          d="M8.25 6.75h12M8.25 12h12m-12 5.25h12M3.75 6.75h.007v.008H3.75V6.75Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0ZM3.75 12h.007v.008H3.75V12Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm-.375 5.25h.007v.008H3.75v-.008Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
+                </svg>
 
-        </button>
-        <button class="btn-ghost flex gap-2 items-center"
-                id="grid-button"
-                onClick="changeView('grid')">
-            Grid View
-            <svg xmlns="http://www.w3.org/2000/svg"
-                 fill="none"
-                 viewBox="0 0 24 24"
-                 stroke-width="1.5"
-                 stroke="currentColor"
-                 class="size-5">
-                <path stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M3.75 6A2.25 2.25 0 0 1 6 3.75h2.25A2.25 2.25 0 0 1 10.5 6v2.25a2.25 2.25 0 0 1-2.25 2.25H6a2.25 2.25 0 0 1-2.25-2.25V6ZM3.75 15.75A2.25 2.25 0 0 1 6 13.5h2.25a2.25 2.25 0 0 1 2.25 2.25V18a2.25 2.25 0 0 1-2.25 2.25H6A2.25 2.25 0 0 1 3.75 18v-2.25ZM13.5 6a2.25 2.25 0 0 1 2.25-2.25H18A2.25 2.25 0 0 1 20.25 6v2.25A2.25 2.25 0 0 1 18 10.5h-2.25a2.25 2.25 0 0 1-2.25-2.25V6ZM13.5 15.75a2.25 2.25 0 0 1 2.25-2.25H18a2.25 2.25 0 0 1 2.25 2.25V18A2.25 2.25 0 0 1 18 20.25h-2.25A2.25 2.25 0 0 1 13.5 18v-2.25Z" />
-            </svg>
+            </button>
+            <button class="btn-ghost flex gap-2 items-center"
+                    id="grid-button"
+                    onClick="changeView('grid')">
+                Grid View
+                <svg xmlns="http://www.w3.org/2000/svg"
+                     fill="none"
+                     viewBox="0 0 24 24"
+                     stroke-width="1.5"
+                     stroke="currentColor"
+                     class="size-5">
+                    <path stroke-linecap="round"
+                          stroke-linejoin="round"
+                          d="M3.75 6A2.25 2.25 0 0 1 6 3.75h2.25A2.25 2.25 0 0 1 10.5 6v2.25a2.25 2.25 0 0 1-2.25 2.25H6a2.25 2.25 0 0 1-2.25-2.25V6ZM3.75 15.75A2.25 2.25 0 0 1 6 13.5h2.25a2.25 2.25 0 0 1 2.25 2.25V18a2.25 2.25 0 0 1-2.25 2.25H6A2.25 2.25 0 0 1 3.75 18v-2.25ZM13.5 6a2.25 2.25 0 0 1 2.25-2.25H18A2.25 2.25 0 0 1 20.25 6v2.25A2.25 2.25 0 0 1 18 10.5h-2.25a2.25 2.25 0 0 1-2.25-2.25V6ZM13.5 15.75a2.25 2.25 0 0 1 2.25-2.25H18a2.25 2.25 0 0 1 2.25 2.25V18A2.25 2.25 0 0 1 18 20.25h-2.25A2.25 2.25 0 0 1 13.5 18v-2.25Z" />
+                </svg>
 
-        </button>
+            </button>
+        </div>
     </div>
     <!-- NOTE : Material list -->
     <div class="md:p-5 p-3"
@@ -117,7 +119,7 @@ function loadCollections() {
         },
         complete: () => {
             $('#grid-container').hide();
-            sortedCollection = filteredCollection.sort((a, b) => (a.name > b.name) ? 1 : -1)
+            sortedCollection = filteredCollection.sort((a, b) => (a.id > b.id) ? 1 : -1)
             sortedCollection.forEach((e, index) => renderCollections(e, index, 'list'));
             $('#page-loading').hide();
         }
@@ -143,6 +145,7 @@ function renderCollections(e, index, type = 'grid') {
     count += 1;
     if (type == 'grid') {
         $('#list__collections').empty();
+        $('.content-container').off('wheel', onscrollHandler);
         $('#grid__collections').append(`
             <a href= "<?= BASE_LINK; ?>/collections/${slugify(e.name)}" class="mb-5">
                 <div class="h-[365px] w-full flex items-center justify-center transition duration-500 ease-in-out transform hover:-translate-y-1 hover:shadow-md" 
@@ -158,7 +161,7 @@ function renderCollections(e, index, type = 'grid') {
                     ${count < 10 ? '0' + (count) : count}. 
                 </p>
                 <hr class='w-2/5 mt-3 border-black'/>
-                <h1 class="text-3xl md:text-5xl mt-3 font-medium tracking-wider uppercase">${e.name}</h1>
+                <h1 class="text-3xl md:text-5xl mt-3 font-medium tracking-wider uppercase">${e.display_name}</h1>
                 <p class='text-sm mt-3 line-clamp-2 text-ellipsis'>
                     ${e.description}
                 </p>
@@ -184,7 +187,7 @@ function renderCollections(e, index, type = 'grid') {
                             ${count < 10 ? '0' + (count) : count}. 
                             </p>
                             <hr class='w-1/5 mt-3 border-white'/>
-                            <h1 class="text-3xl md:text-5xl text-white mt-3 font-medium tracking-wider uppercase">${e.name}</h1>
+                            <h1 class="text-3xl md:text-5xl text-white mt-3 font-medium tracking-wider uppercase">${e.display_name}</h1>
                             <p class='text-sm line-clamp-2 text-ellipsis md:w-1/2'>
                             ${e.description}
                             </p>
