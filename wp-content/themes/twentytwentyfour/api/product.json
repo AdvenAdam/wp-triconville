@@ -31,7 +31,7 @@
   },
   {
     "id": 2,
-    "ids": [32, 10],
+    "ids": [32, 34],
     "name": "Lounge Chairs",
     "slug": "lounge-chairs",
     "image": "banner_lounge-chair2.jpg",
@@ -43,7 +43,7 @@
         "param": ""
       },
       {
-        "id": 10,
+        "id": 34,
         "name": "Ottoman",
         "param": ""
       }
@@ -101,19 +101,19 @@
   },
   {
     "id": 5,
-    "ids": [15, 12],
+    "ids": [38, 31],
     "name": "Coffee & Low Table",
     "slug": "coffee-low-table",
     "image": "banner_table2.jpg",
     "thumb": "coffee-low-table.png",
     "children": [
       {
-        "id": 15,
+        "id": 38,
         "name": "Outdoor Coffe Tables & Low Table",
         "param": ""
       },
       {
-        "id": 12,
+        "id": 31,
         "name": "Outdoor Side Tables",
         "param": ""
       }
@@ -126,12 +126,18 @@
   },
   {
     "id": 6,
-    "ids": [37, 5],
+    "ids": [37],
     "name": "Lounger & Daybed",
     "slug": "lounger-daybed",
     "image": "banner_lounger-&-daybed2.jpg",
     "thumb": "lounger-daybed.png",
-    "children": [],
+    "children": [
+      {
+        "id": 37,
+        "name": "Lounger & Daybed",
+        "param": "lounger"
+      }
+    ],
     "meta": {
       "title": "Loungers & Daybeds | Triconville - Relax in Style with Our Outdoor Collection",
       "description": "Discover Triconville's exquisite collection of outdoor loungers and daybeds, designed for ultimate comfort and style. Perfect for sunbathing or lounging by the pool, our premium selection combines quality craftsmanship with contemporary design. Browse our loungers and daybeds to elevate your outdoor living experience today!",

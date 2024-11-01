@@ -46,7 +46,7 @@ get_template_part('header-custom');
 </div>
 <script>
 let categoriesData;
-let haveSubCategory = false;
+let haveSubCategories = false;
 let productListSelected = [];
 let selectedCollectionId = [];
 
@@ -69,7 +69,7 @@ $(document).ready(function() {
         },
         complete: () => {
             $('#page-loading').hide();
-            haveSubCategory = categoriesData.children.length > 0;
+            haveSubCategories = categoriesData.children.length;
             renderMaster()
             metaMaster()
         }
@@ -98,7 +98,8 @@ function renderMaster() {
         $('#category__name-title').text(`Explore Our Outdoor ${categoriesData.name}`);
 
         // NOTE : Render all Filter Product
-        if (haveSubCategory) {
+
+        if (haveSubCategories > 1) {
             renderFilterProduct('All Products', 0);
             categoriesData.children.forEach((e, index) => {
                 renderFilterProduct(e.name, e.id);
@@ -113,7 +114,7 @@ function renderMaster() {
 
 async function renderAllProducts() {
     // TODO : Render All Products Each SubCategory
-    if (haveSubCategory) {
+    if (haveSubCategories) {
         for (const data of categoriesData.children) {
             try {
                 const res = await fetchProducts(data.id, data.param);
