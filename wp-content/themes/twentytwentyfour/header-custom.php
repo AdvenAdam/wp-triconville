@@ -305,7 +305,6 @@
             })
             $('#sub-products-mobile').append(categoryMobile)
             $('#sub-products-desktop').append(categoryDesktop)
-            setActiveLink()
         } else if (menu === 'Inspiration') {
             let categoryMobile = ``;
             let categoryDesktop = ``;
@@ -326,7 +325,6 @@
             })
             $('#sub-inspiration-mobile').append(categoryMobile)
             $('#sub-inspiration-desktop').append(categoryDesktop)
-            setActiveLink()
         } else if (menu === 'Collections') {
             let categoryDesktop = ``;
             const collectionsSubmenu = <?php echo file_get_contents(get_template_directory() . '/api/collection.json'); ?>;
@@ -339,8 +337,8 @@
                 `
             })
             $('#sub-collections-desktop').append(categoryDesktop)
-            setActiveLink()
         }
+        setActiveLink()
     }
 
     function setActiveLink() {

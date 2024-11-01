@@ -85,7 +85,7 @@ function renderMaster() {
         <section class="collection__description my-5 flex max-w-[1440px] mx-auto justify-end p-3 md:p-5 ">
             <div class="collection__description-content w-full md:w-3/5">
                 <h1 class="text-4xl hidden md:block uppercase font-medium tracking-widest">${collectionData.name}</h1>
-                <p class="text-justify max-w-3xl mb-5">${collectionData.description}</p>
+                <p class="text-justify text-sm max-w-3xl my-5">${collectionData.description}</p>
                 ${collectionData.sheet !== 'False' ? `
                     <a href="${collectionData.sheet}" target="_blank" class='btn-ghost-dark uppercase text-sm tracking-widest '>
                         download collection sheet
