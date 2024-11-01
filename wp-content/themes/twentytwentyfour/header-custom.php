@@ -344,8 +344,8 @@
     function setActiveLink() {
         const url = window.location.href;
         const slug = url.split('/');
-        const parentUrl = slug[4];
-        const childUrl = slug[5];
+        const parentUrl = slug[3];
+        const childUrl = slug[4];
         switch (parentUrl) {
             case 'product-detail':
                 $(`#products-link`).removeClass('text-gray-900').addClass('text-cyan-500 underline');
