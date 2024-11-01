@@ -100,7 +100,7 @@
       "id": 13,
       "name": "Vino",
       "display_name": "Vino",
-      "collection_id": 79,
+      "collection_id": 17,
       "image_banner": "/collection/banner-list/vino.jpg",
       "image_grid": "/collection/grid/vino.jpg"
     },
@@ -115,9 +115,9 @@
 
     {
       "id": 15,
-      "name": "Planka",
+      "name": "Planka Aluminium Tables",
       "display_name": "Planka",
-      "collection_id": 22,
+      "collection_id": 18,
       "image_banner": "/collection/banner-list/planka.png",
       "image_grid": "/collection/grid/planka.png"
     }
