@@ -247,7 +247,6 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                 $('#errorIndicator').show();
             },
             complete: () => {
-                $('#grid-container').hide();
                 sortedCollections = filteredCollections.sort((a, b) => (b.collection_id > a.collection_id) ? 1 : -1)
                 sortedCollections.slice(0, 4).forEach((colection) => renderCollections(colection));
                 $('#page-loading').hide();
@@ -310,8 +309,6 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                 </a>
             </div>
         `);
-
-
     }
 
     function collectionSlick() {

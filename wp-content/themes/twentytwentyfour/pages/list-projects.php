@@ -213,20 +213,6 @@ function loadProduct(slug, sku) {
     })
 }
 </script>
-<script>
-$('.project__slider_1').slick({
-    variableWidth: true,
-    infinite: true,
-    slidesToScroll: 1,
-    arrows: false,
-})
-$(".prev-btn-1").click(function() {
-    $(".project__slider_1").slick("slickPrev");
-});
-$(".next-btn-1").click(function() {
-    $(".project__slider_1").slick("slickNext");
-});
-</script>
 
 <?php
 // Include your custom footer
