@@ -118,7 +118,6 @@ async function renderAllProducts() {
         for (const data of categoriesData.children) {
             try {
                 const res = await fetchProducts(data.id, data.param);
-                console.log("🚀 ~ renderAllProducts ~ res:", res)
                 renderProducts(res, data.name);
             } catch (error) {
                 console.error(`Error fetching products for ${data.name}:`, error);
@@ -151,9 +150,9 @@ async function fetchProducts(id, param) {
             }
         });
         // NOTE : Get Triconville Product by listed collection
-        filteredCollection = res.product_list.filter(e => selectedCollectionId.some(element => element.collection_id === parseInt(e.collection))).map(e => {
+        filteredCollection = res.product_list.filter(data => selectedCollectionId.some(element => element.collection_id === parseInt(data.collection))).map(selectedData => {
             return {
-                ...e
+                ...selectedData
             };
         });
         const products = param !== '' ?
