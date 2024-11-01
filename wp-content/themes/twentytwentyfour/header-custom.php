@@ -11,7 +11,7 @@
     <title>
         <?php wp_title('|', true, 'right'); ?>
     </title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.0/flowbite.min.js"></script>
     <!-- Google Fonts -->
     <link rel="preconnect"
@@ -334,7 +334,7 @@
                 categoryDesktop += `
                     <a href="<?= BASE_LINK; ?>/collections/${slugify(e.name)}">
                         <p class="px-3 py-1 hover:text-cyan-500 whitespace-nowrap"
-                            id="${slugify(e.name)}-link">${e.name}</p>
+                            id="${slugify(e.name)}-link">${e.display_name}</p>
                     </a>
                 `
             })

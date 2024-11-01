@@ -8,18 +8,18 @@
     "thumb": "sofa.png",
     "children": [
       {
-        "id": 39,
-        "name": "Outdoor Loveseats",
+        "id": 30,
+        "name": "Sofa",
         "param": ""
       },
       {
-        "id": 30,
-        "name": "Outdoor Sofa",
+        "id": 39,
+        "name": "Loveseats Sofa",
         "param": ""
       },
       {
         "id": 36,
-        "name": "Outdoor Modular",
+        "name": "Modular Sofa",
         "param": ""
       }
     ],
@@ -31,12 +31,23 @@
   },
   {
     "id": 2,
-    "ids": [32],
+    "ids": [32, 10],
     "name": "Lounge Chairs",
     "slug": "lounge-chairs",
     "image": "banner_lounge-chair2.jpg",
     "thumb": "lounge-chair.png",
-    "children": [],
+    "children": [
+      {
+        "id": 32,
+        "name": "Lounge Chair",
+        "param": ""
+      },
+      {
+        "id": 10,
+        "name": "Ottoman",
+        "param": ""
+      }
+    ],
     "meta": {
       "title": "Lounge Chairs | Triconville - Discover Our Stylish Outdoor Lounge Chairs",
       "description": "Explore Triconville's collection of stylish outdoor lounge chairs, designed for comfort and elegance. Perfect for relaxing in your garden or on the patio, our lounge chairs combine quality craftsmanship with contemporary design. Browse our selection and elevate your outdoor living experience today!",
@@ -45,20 +56,6 @@
   },
   {
     "id": 3,
-    "ids": [37, 5],
-    "name": "Lounger & Daybed",
-    "slug": "lounger-daybed",
-    "image": "banner_lounger-&-daybed2.jpg",
-    "thumb": "lounger-daybed.png",
-    "children": [],
-    "meta": {
-      "title": "Loungers & Daybeds | Triconville - Relax in Style with Our Outdoor Collection",
-      "description": "Discover Triconville's exquisite collection of outdoor loungers and daybeds, designed for ultimate comfort and style. Perfect for sunbathing or lounging by the pool, our premium selection combines quality craftsmanship with contemporary design. Browse our loungers and daybeds to elevate your outdoor living experience today!",
-      "keywords": "outdoor loungers, outdoor daybeds, Triconville loungers, premium outdoor furniture, sun loungers, patio daybeds, outdoor relaxation furniture, loungers and daybeds collection"
-    }
-  },
-  {
-    "id": 4,
     "ids": [23, 25],
     "name": "Chairs",
     "slug": "chairs",
@@ -87,39 +84,93 @@
       "keywords": "outdoor chairs, Triconville chairs, outdoor dining chairs, outdoor bar stools, patio chairs, stylish outdoor seating, outdoor furniture collection, chairs for outdoor living"
     }
   },
+
   {
-    "id": 5,
-    "ids": [28, 15, 31, 24],
-    "name": "Tables",
-    "slug": "tables",
+    "id": 4,
+    "ids": [28, 24],
+    "name": "Table",
+    "slug": "table",
     "image": "banner_table2.jpg",
     "thumb": "table.png",
+    "children": [],
+    "meta": {
+      "title": "Table | Triconville - Explore Our Elegant Outdoor Table Collection",
+      "description": "Discover Triconville's exquisite collection of outdoor tables, designed for functionality and style. From dining tables to side tables and coffee tables, our diverse range offers perfect solutions for your outdoor living space. Browse our selection to find the ideal table for your patio or garden today!",
+      "keywords": "outdoor tables, Triconville tables, outdoor dining tables, outdoor coffee tables, patio tables, side tables, stylish outdoor furniture, tables for outdoor living"
+    }
+  },
+  {
+    "id": 5,
+    "ids": [15, 12],
+    "name": "Coffee & Low Table",
+    "slug": "coffee-low-table",
+    "image": "banner_table2.jpg",
+    "thumb": "coffee-low-table.png",
     "children": [
-      {
-        "id": 28,
-        "name": "Outdoor Dining Tables",
-        "param": ""
-      },
       {
         "id": 15,
         "name": "Outdoor Coffe Tables & Low Table",
         "param": ""
       },
       {
-        "id": 31,
-        "name": "Outdoor Side Table",
-        "param": ""
-      },
-      {
-        "id": 24,
-        "name": "Outdoor Bar Table",
+        "id": 12,
+        "name": "Outdoor Side Tables",
         "param": ""
       }
     ],
     "meta": {
-      "title": "Tables | Triconville - Explore Our Elegant Outdoor Table Collection",
-      "description": "Discover Triconville's exquisite collection of outdoor tables, designed for functionality and style. From dining tables to side tables and coffee tables, our diverse range offers perfect solutions for your outdoor living space. Browse our selection to find the ideal table for your patio or garden today!",
-      "keywords": "outdoor tables, Triconville tables, outdoor dining tables, outdoor coffee tables, patio tables, side tables, stylish outdoor furniture, tables for outdoor living"
+      "title": "Coffee & Low Table | Triconville - Explore Our Elegant Outdoor Table Collection",
+      "description": "",
+      "keywords": ""
+    }
+  },
+  {
+    "id": 6,
+    "ids": [37, 5],
+    "name": "Lounger & Daybed",
+    "slug": "lounger-daybed",
+    "image": "banner_lounger-&-daybed2.jpg",
+    "thumb": "lounger-daybed.png",
+    "children": [],
+    "meta": {
+      "title": "Loungers & Daybeds | Triconville - Relax in Style with Our Outdoor Collection",
+      "description": "Discover Triconville's exquisite collection of outdoor loungers and daybeds, designed for ultimate comfort and style. Perfect for sunbathing or lounging by the pool, our premium selection combines quality craftsmanship with contemporary design. Browse our loungers and daybeds to elevate your outdoor living experience today!",
+      "keywords": "outdoor loungers, outdoor daybeds, Triconville loungers, premium outdoor furniture, sun loungers, patio daybeds, outdoor relaxation furniture, loungers and daybeds collection"
+    }
+  },
+  {
+    "id": 7,
+    "ids": [70, 6, 8, 37],
+    "name": "Accessories",
+    "slug": "accessories",
+    "image": "banner_lounger-&-daybed2.jpg",
+    "thumb": "accessories.png",
+    "children": [
+      {
+        "id": 70,
+        "name": "Storage",
+        "param": ""
+      },
+      {
+        "id": 6,
+        "name": "Parasol",
+        "param": ""
+      },
+      {
+        "id": 8,
+        "name": "Pillow",
+        "param": ""
+      },
+      {
+        "id": 37,
+        "name": "Swing",
+        "param": "Swing"
+      }
+    ],
+    "meta": {
+      "title": "",
+      "description": "",
+      "keywords": ""
     }
   }
 ]
