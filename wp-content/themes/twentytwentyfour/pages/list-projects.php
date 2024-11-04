@@ -52,10 +52,12 @@ body {
 }
 </style>
 
-<div class="content-container ">
-    <div id="main__container"
-         class="overflow-hidden">
-    </div>
+<div class="content-container snap-y snap-mandatory h-screen overflow-y-auto scrollbar-none">
+    <div id="main__container"></div>
+    <?php
+    // Include your custom footer
+    get_template_part('footer-custom');
+    ?>
 </div>
 <div id="page-loading">
     <div class="three-balls">
@@ -94,10 +96,9 @@ function renderMaster() {
         // NOTE : Init Slider First
         projects.forEach(project => {
             $('#main__container').append(`
-                <div class="-ms-1 flex flex-no-wrap h-screen md:h-[95vh] overflow-x-scroll overflow-y-hidden snap-x snap-mandatory scrolling-touch cursor-pointer" id="${project.slug}__main">
+                <div class="-ms-1 flex flex-no-wrap h-screen md:h-[95vh] overflow-x-scroll overflow-y-hidden snap-x snap-mandatory scrolling-touch cursor-pointer snap-start snap-always" id="${project.slug}__main">
                     <div class="flex-none snap-start snap-always">
-                        <div class="flex md:flex-row flex-col w-screen items-center">
-                        
+                        <div class="flex md:flex-row flex-col w-screen items-center">          
                             <div class="relative h-[50vh] md:h-full w-full md:w-3/5" id="${project.slug}__Container">
                                 <div class="h-full w-full" id="${project.slug}__galleries__slider">
                                 </div>
@@ -121,10 +122,8 @@ function renderMaster() {
                                     </a>
                                 </div>
                             </div>
-                            
                         </div>
                     </div>
-                    // NOTE : PRODUCTS
                     <div class="flex-none snap-start md:snap-center snap-always" id="${project.slug}__products__Container">
                         
                     </div>
@@ -270,7 +269,7 @@ function onscrollHandler(event) {
     timeout = setTimeout(() => (timeout = null), 20);
 
     const direction = event.deltaY > 0 ? "nextElementSibling" : "previousElementSibling";
-    const scrollTarget = event.target.closest(".snap-mandatory")[direction];
+    const scrollTarget = event.target.closest(".snap-always")[direction];
 
     if (scrollTarget) {
         event.preventDefault();
@@ -288,8 +287,3 @@ function slideProjectHandler(id, direction) {
     });
 }
 </script>
-
-<?php
-// Include your custom footer
-get_template_part('footer-custom');
-?>
