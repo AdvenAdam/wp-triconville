@@ -6,7 +6,7 @@ get_template_part('header-custom');
 ?>
 <style>
 .materials-banner {
-    background: url('<?php echo get_stylesheet_directory_uri(); ?>/assets/images/material-banner.png');
+    background: url('https://storage.googleapis.com/back-bucket/wp_triconville/images/material-banner.png');
     height: 60vh;
     width: 100%;
     overflow: hidden;

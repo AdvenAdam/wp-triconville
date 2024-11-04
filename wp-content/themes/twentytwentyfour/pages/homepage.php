@@ -10,7 +10,7 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
 ?>
 <style>
 .homepage-banner {
-    background: url('<?php echo get_stylesheet_directory_uri(); ?>/assets/images/home/home-banner.png');
+    background: url('https://storage.googleapis.com/back-bucket/wp_triconville/images/home/home-banner.png');
     height: 100vh;
     width: 100%;
     overflow: hidden;
@@ -261,7 +261,7 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
         products.forEach((project) => {
             $('#slider__home').append(`
                 <div class="max-w-screen duration-200 ease-linear mx-2 relative">
-                    <img src="<?php echo get_stylesheet_directory_uri(); ?>${project.banner}"
+                    <img src="https://storage.googleapis.com/back-bucket/wp_triconville${project.banner}"
                         class="object-cover w-auto max-w-screen h-[600px]"
                         alt="${project.banner}">
                     <div class="absolute bottom-10 right-10">

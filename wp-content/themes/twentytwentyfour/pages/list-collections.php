@@ -151,7 +151,7 @@ function renderCollections(e, index, type = 'grid') {
                 <div class="h-[365px] w-full flex items-center justify-center transition duration-500 ease-in-out transform hover:-translate-y-1 hover:shadow-md" 
                     style="
                         background-position:center; 
-                        background-image: url('<?php echo get_stylesheet_directory_uri(); ?>/assets/images/${e.image_grid}'); 
+                        background-image: url('https://storage.googleapis.com/back-bucket/wp_triconville/images/${e.image_grid}'); 
                         background-repeat: no-repeat;
                         background-size: cover;
                     "
@@ -175,7 +175,7 @@ function renderCollections(e, index, type = 'grid') {
             <div class="h-screen w-screen relative text-white snap-always snap-start" 
                 style="
                     background-position:center; 
-                    background-image: url('<?php echo get_stylesheet_directory_uri(); ?>/assets/images/${e.image_banner}'); 
+                    background-image: url('https://storage.googleapis.com/back-bucket/wp_triconville/images/${e.image_banner}'); 
                     background-repeat: no-repeat;
                     background-size: cover;
                 "

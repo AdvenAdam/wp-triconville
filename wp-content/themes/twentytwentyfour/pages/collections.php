@@ -94,7 +94,7 @@ function metaMaster() {
 function renderMaster() {
     $('#collection__header').append(`
         <section class="banner mb-5 relative">
-            <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/${collectionData.image_banner}" alt="${collectionData.name}" class="w-full h-screen object-cover">
+            <img src="https://storage.googleapis.com/back-bucket/wp_triconville/images/${collectionData.image_banner}" alt="${collectionData.name}" class="w-full h-screen object-cover">
             <div class='bg-black bg-opacity-25 h-full w-full absolute inset-0 flex items-center justify-center'>
                 <h1 class='text-white text-3xl md:text-5xl uppercase'>${collectionData.name}</h1>
             </div>
@@ -164,7 +164,7 @@ function renderMoreCollections(collection) {
             <div class="h-[365px] w-full flex items-center justify-center" 
                 style="
                     background-position:center; 
-                    background-image: url('<?php echo get_stylesheet_directory_uri(); ?>/assets/images/${collection.image_grid}'); 
+                    background-image: url('https://storage.googleapis.com/back-bucket/wp_triconville/images/${collection.image_grid}'); 
                     background-repeat: no-repeat;
                     background-size: cover;
                 "

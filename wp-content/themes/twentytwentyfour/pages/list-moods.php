@@ -8,9 +8,9 @@ get_template_part('header-custom');
 ?>
 
 <div class="content-container">
-    <div class="px-3 md:px-5 mb-10">
+    <div class="px-3 md:px-5 my-10">
         <div class="max-w-[1440px] mx-auto">
-            <div class="text-center pt-10">
+            <div class="text-center pt-20">
                 <h1 class="text-3xl md:text-5xl uppercase">Moods</h1>
                 <p class="text-sm md:text-base">Emotions in Every Moments</p>
             </div>
@@ -30,7 +30,7 @@ get_template_part('header-custom');
                     </p>
                 </div>
                 <div class="md:p-3">
-                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/moods/hero.png"
+                    <img src="https://storage.googleapis.com/back-bucket/wp_triconville/images/moods/hero.png"
                          alt="">
                 </div>
 
@@ -66,7 +66,7 @@ function renderBanner() {
         moods.forEach(mood => {
             $('#mood__list').append(`
                 <div class="h-[322px] md:h-[600px] w-auto bg-no-repeat bg-center bg-cover"
-                    style="background-image: url('<?php echo get_stylesheet_directory_uri(); ?>/${mood.thumb}')">
+                    style="background-image: url('https://storage.googleapis.com/back-bucket/wp_triconville/${mood.thumb}')">
                     <a href="<?= BASE_LINK ?>/moods/${mood.slug}"
                         class="h-full w-full flex items-end justify-end p-5">
                         <h1 class="text-2xl md:text-5xl font-semibold text-end text-white max-w-[260px]">${mood.name}</h1>

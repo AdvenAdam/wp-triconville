@@ -52,10 +52,13 @@ body {
 }
 </style>
 
-<div class="content-container ">
-    <div id="main__container"
-         class="overflow-hidden">
-    </div>
+<div class="content-container snap-y snap-mandatory h-screen overflow-y-auto scrollbar-none"
+     onmousewheel="onscrollHandler(event)">
+    <div id="main__container"></div>
+    <?php
+    // Include your custom footer
+    get_template_part('footer-custom');
+    ?>
 </div>
 <div id="page-loading">
     <div class="three-balls">
@@ -66,6 +69,8 @@ body {
 </div>
 <script>
 let projects = [];
+let timeout;
+
 $(document).ready(function() {
     $.ajax({
         url: "<?= BASE_URL; ?>/?rest_route=/wp/v2/selected_projects",
@@ -84,6 +89,9 @@ $(document).ready(function() {
         },
         complete: () => {
             renderMaster();
+            document.querySelector('.content-container').scrollTo({
+                top: 0,
+            });
         }
     })
 })
@@ -93,43 +101,7 @@ function renderMaster() {
     try {
         // NOTE : Init Slider First
         projects.forEach(project => {
-            $('#main__container').append(`
-                <div class="-ms-1 flex flex-no-wrap h-screen md:h-[95vh] overflow-x-scroll overflow-y-hidden snap-x snap-mandatory scrolling-touch cursor-pointer" id="${project.slug}__main">
-                    <div class="flex-none snap-start snap-always">
-                        <div class="flex md:flex-row flex-col w-screen items-center">
-                        
-                            <div class="relative h-[50vh] md:h-full w-full md:w-3/5" id="${project.slug}__Container">
-                                <div class="h-full w-full" id="${project.slug}__galleries__slider">
-                                </div>
-                            </div>
-                            <div class="h-[50vh] md:h-full w-full md:w-2/5" id="${project.slug}__desc">
-                                <div class="flex flex-col justify-center p-3 mx-auto max-w-md">
-                                    <h3 class="text-3xl ">
-                                        ${toTitleCase(project.name)}
-                                    </h3>
-                                    <p class="text-sm mb-5">
-                                        ${project.country}
-                                    </p>
-                                    <p class="text-sm mb-5">
-                                        ${project.description}
-                                    </p>
-                                    <a class="text-sm font-medium flex items-baseline gap-1 mt-5" onClick="slideProjectHandler('${project.slug}__main', 'next')">
-                                        <p>View featured products</p>
-                                        <svg width="101" height="10" viewBox="0 0 101 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M100.707 8.20711C101.098 7.81658 101.098 7.18342 100.707 6.79289L94.3431 0.428932C93.9526 0.0384078 93.3195 0.0384078 92.9289 0.428932C92.5384 0.819457 92.5384 1.45262 92.9289 1.84315L98.5858 7.5L92.9289 13.1569C92.5384 13.5474 92.5384 14.1805 92.9289 14.5711C93.3195 14.9616 93.9526 14.9616 94.3431 14.5711L100.707 8.20711ZM0 8.5H100V6.5H0V8.5Z" fill="#4D4D4D"/>
-                                        </svg>
-                                    </a>
-                                </div>
-                            </div>
-                            
-                        </div>
-                    </div>
-                    // NOTE : PRODUCTS
-                    <div class="flex-none snap-start md:snap-center snap-always" id="${project.slug}__products__Container">
-                        
-                    </div>
-                </div>
-            `)
+            renderProjectContainer(project)
             renderPerProject(project)
             renderButton(project.slug)
             initSlick(project.slug)
@@ -139,7 +111,44 @@ function renderMaster() {
         console.error("Error Rendering data:", error)
     } finally {
         $('#page-loading').hide();
+
     }
+}
+
+function renderProjectContainer(project) {
+    $('#main__container').append(`
+        <div class="-ms-1 flex flex-no-wrap h-screen overflow-x-scroll overflow-y-hidden snap-x snap-mandatory scrolling-touch cursor-pointer snap-always snap-center" id="${project.slug}__main">
+            <div class="flex-none snap-start snap-always">
+                <div class="flex md:flex-row flex-col w-screen items-center">          
+                    <div class="relative h-[50vh] md:h-full w-full md:w-3/5" id="${project.slug}__Container">
+                        <div class="h-full w-full" id="${project.slug}__galleries__slider">
+                        </div>
+                    </div>
+                    <div class="h-[50vh] md:h-full w-full md:w-2/5" id="${project.slug}__desc">
+                        <div class="flex flex-col justify-center p-3 mx-auto max-w-md">
+                            <h3 class="text-3xl ">
+                                ${toTitleCase(project.name)}
+                            </h3>
+                            <p class="text-sm mb-5">
+                                ${project.country}
+                            </p>
+                            <p class="text-sm mb-5">
+                                ${project.description}
+                            </p>
+                            <a class="text-sm font-medium flex items-baseline gap-1 mt-5" onClick="slideProjectHandler('${project.slug}__main', 'next')">
+                                <p>View featured products</p>
+                                <svg width="101" height="10" viewBox="0 0 101 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M100.707 8.20711C101.098 7.81658 101.098 7.18342 100.707 6.79289L94.3431 0.428932C93.9526 0.0384078 93.3195 0.0384078 92.9289 0.428932C92.5384 0.819457 92.5384 1.45262 92.9289 1.84315L98.5858 7.5L92.9289 13.1569C92.5384 13.5474 92.5384 14.1805 92.9289 14.5711C93.3195 14.9616 93.9526 14.9616 94.3431 14.5711L100.707 8.20711ZM0 8.5H100V6.5H0V8.5Z" fill="#4D4D4D"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="flex-none snap-start md:snap-center snap-always" id="${project.slug}__products__Container"> 
+            </div>
+        </div>
+    `)
 }
 
 function renderPerProject(project) {
@@ -147,7 +156,7 @@ function renderPerProject(project) {
     project.galleries.forEach(gallery => {
         $(`#${project.slug}__galleries__slider`).append(`
             <div class="image max-w-screen me-2">
-                <img src="<?php echo get_stylesheet_directory_uri(); ?>${gallery}"
+                <img src="https://storage.googleapis.com/back-bucket/wp_triconville${gallery}"
                     alt="${project.name}"
                     class="h-[50vh] md:h-screen w-auto object-cover">
             </div>
@@ -263,14 +272,13 @@ function loadProduct(slug, sku) {
         }
     })
 }
-let timeout;
 
 function onscrollHandler(event) {
     if (timeout) return;
     timeout = setTimeout(() => (timeout = null), 20);
 
     const direction = event.deltaY > 0 ? "nextElementSibling" : "previousElementSibling";
-    const scrollTarget = event.target.closest(".snap-mandatory")[direction];
+    const scrollTarget = event.target.closest(".snap-always")[direction];
 
     if (scrollTarget) {
         event.preventDefault();
@@ -288,8 +296,3 @@ function slideProjectHandler(id, direction) {
     });
 }
 </script>
-
-<?php
-// Include your custom footer
-get_template_part('footer-custom');
-?>
