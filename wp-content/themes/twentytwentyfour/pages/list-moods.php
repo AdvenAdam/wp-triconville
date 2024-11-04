@@ -8,9 +8,9 @@ get_template_part('header-custom');
 ?>
 
 <div class="content-container">
-    <div class="px-3 md:px-5 mb-10">
+    <div class="px-3 md:px-5 my-10">
         <div class="max-w-[1440px] mx-auto">
-            <div class="text-center pt-10">
+            <div class="text-center pt-20">
                 <h1 class="text-3xl md:text-5xl uppercase">Moods</h1>
                 <p class="text-sm md:text-base">Emotions in Every Moments</p>
             </div>
