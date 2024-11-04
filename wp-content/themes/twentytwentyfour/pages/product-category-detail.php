@@ -93,7 +93,7 @@ function metaMaster() {
 
 function renderMaster() {
     try {
-        $('.product-detail-banner').css('background-image', `url("<?php echo get_stylesheet_directory_uri(); ?>/assets/images/category/banner/${categoriesData.image}")`);
+        $('.product-detail-banner').css('background-image', `url("https://storage.googleapis.com/back-bucket/wp_triconville/images/category/banner/${categoriesData.image}")`);
         $('#category__name').text(categoriesData.name);
         $('#category__name-title').text(`Explore Our Outdoor ${categoriesData.name}`);
 

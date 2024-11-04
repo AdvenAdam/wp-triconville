@@ -7,7 +7,7 @@ get_template_part('header-custom');
 
 <style>
 .product-header {
-    background: url('<?php echo get_stylesheet_directory_uri(); ?>/assets/images/products-banner.webp');
+    background: url('https://storage.googleapis.com/back-bucket/wp_triconville/images/products-banner.webp');
     height: 100vh;
     width: 100%;
     overflow: hidden;
@@ -66,7 +66,7 @@ $(document).ready(function() {
 function renderProducts(e) {
     $('#product__list').append(`
         <a href= "<?= BASE_LINK; ?>/products/${e.slug}">
-            <img class="w-full h-full object-cover md:object-contain" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/category/${e.thumb}" />
+            <img class="w-full h-full object-cover md:object-contain" src="https://storage.googleapis.com/back-bucket/wp_triconville/images/category/${e.thumb}" />
             <p class="text-xs md:text-sm uppercase font-medium text-center md:-mt-5">${e.name}</p>
         </a>
     `);

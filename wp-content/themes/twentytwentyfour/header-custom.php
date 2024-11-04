@@ -55,6 +55,17 @@
         border: none !important;
         width: 50px;
     }
+
+    .collapsible:before {
+        content: "\002B";
+        font-weight: bold;
+        float: right;
+        margin-left: 5px;
+    }
+
+    .active:before {
+        content: "\2212";
+    }
     </style>
 </head>
 
@@ -179,9 +190,9 @@
         $.ajax({
             url: '<?php echo BASE_URL; ?>/?rest_route=/wp/v2/top-nav',
             type: 'GET',
-            success: function(res) {
-                res.forEach((e) => {
-                    renderLink(e);
+            success: function(menus) {
+                menus.forEach((menu) => {
+                    renderLink(menu);
                 });
             },
             error: function(xhr, status, error) {
@@ -196,7 +207,6 @@
 
     function showSubMenu() {
         const url = window.location.href;
-
         switch (true) {
             case /(products)/.test(url):
                 showSubProducts(true);
@@ -246,131 +256,120 @@
      * NOTE : 
      * renderLinK, AppendSubMenu and setActiveLink function used to render menu 
      */
-    function renderLink(e) {
+    function renderLink(menu) {
+        const mobileClass = "flex p-2 items-center justify-end text-gray-900 rounded-lg hover:bg-gray-100 active:bg-gray-100 group";
+
+        // Append main link to the navbar menu
         $('#navbar_menu_category').append(`
-            <a href="${e.href}" id="${slugify(e.name)}-link" class="flex py-6 px-2 gap-2 items-center text-gray-900 hover:text-cyan-500">
-                <p class="uppercase text-xs">${e.name}</p>
+            <a href="${menu.href}" id="${slugify(menu.name)}-link" class="flex py-6 px-2 gap-2 items-center text-gray-900 hover:text-cyan-500">
+                <p class="uppercase text-xs">${menu.name}</p>
             </a>
         `);
-        if (e.name === 'Inspiration') {
+
+        // Check if the link needs a submenu
+        const hasSubMenu = ['Products', 'Inspiration', 'Collections'].includes(menu.name);
+        const subMenuId = `sub-${slugify(menu.name)}-mobile`;
+
+        if (hasSubMenu) {
+            // Append collapsible submenu container
             $('#navbar__category').append(`
                 <li>
-                    <a href="${e.href}" class="flex p-2 items-center justify-end text-gray-900 rounded-lg hover:bg-gray-100 group"><h5 class="text-lg font-medium">${e.name}</h5>
+                    <a class="${mobileClass}"
+                        href="${menu.href}"
+                    >
+                        <h5 class="text-lg font-medium">${menu.name}</h5>
                     </a>
-                    <div class="text-end text-sm" id="sub-inspiration-mobile">
-                    </div>
+                    <div class="text-end text-sm" id="${subMenuId}"></div>
                 </li>
             `);
-            appendSubMenu(e.name);
-        } else if (e.name === 'Products') {
-            $('#navbar__category').append(`
-                <li>
-                    <a href="${e.href}" class="p-2 flex items-center justify-end text-gray-900 rounded-lg hover:bg-gray-100 group"><h5 class="text-lg font-medium">${e.name}</h5>
-                    </a>
-                </li>
-                <div class="text-end text-sm" id="sub-products-mobile">
-                </div>
-            `);
-            appendSubMenu(e.name);
-        } else if (e.name === 'Collections') {
-            appendSubMenu(e.name);
+            appendSubMenu(menu.name);
         } else {
+            // Append regular link without submenu
             $('#navbar__category').append(`
-                <li>
-                    <a href="${e.href}" class="flex p-2 items-center justify-end text-gray-900 rounded-lg hover:bg-gray-100 group"><h5 class="text-lg font-medium">${e.name}</h5>
-                    </a>
-                </li>
-            `);
+            <li>
+                <a href="${menu.href}" class="${mobileClass}">
+                    <h5 class="text-lg font-medium">${menu.name}</h5>
+                </a>
+            </li>
+        `);
         }
     }
 
     function appendSubMenu(menu) {
-        if (menu === 'Products') {
-            let categoryMobile = ``;
-            let categoryDesktop = ``;
-            const products = <?php echo file_get_contents(get_template_directory() . '/api/product.json'); ?>;
-            products.forEach((e) => {
-                categoryMobile += `
-                    <a href="<?= BASE_LINK; ?>/products/${e.slug}">
-                        <p class="px-3 py-1 hover:text-cyan-500 whitespace-nowrap"
-                            id="${e.slug}-link-mobile">${e.name}</p>
-                    </a>
-                `
-                categoryDesktop += `
-                    <a href="<?= BASE_LINK; ?>/products/${e.slug}">
-                        <p class="px-3 py-1 hover:text-cyan-500 whitespace-nowrap"
-                            id="${e.slug}-link">${e.name}</p>
-                    </a>
-                `
-            })
-            $('#sub-products-mobile').append(categoryMobile)
-            $('#sub-products-desktop').append(categoryDesktop)
-        } else if (menu === 'Inspiration') {
-            let categoryMobile = ``;
-            let categoryDesktop = ``;
-            const inspirationSubMenu = <?php echo file_get_contents(get_template_directory() . '/api/inspirationSubmenu.json'); ?>;
-            inspirationSubMenu.forEach((e) => {
-                categoryMobile += `
-                    <a href="<?= BASE_LINK; ?>/${e.slug}/">
-                        <p class="px-3 py-1 hover:text-cyan-500"
-                        id="${e.slug}-link-mobile">${e.name}</p>
-                    </a>
-                `
-                categoryDesktop += `
-                    <a href="<?= BASE_LINK; ?>/${e.slug}/">
-                        <p class="px-3 py-1 hover:text-cyan-500"
-                        id="${e.slug}-link">${e.name}</p>
-                    </a>
-                `
-            })
-            $('#sub-inspiration-mobile').append(categoryMobile)
-            $('#sub-inspiration-desktop').append(categoryDesktop)
-        } else if (menu === 'Collections') {
-            let categoryDesktop = ``;
-            const collectionsSubmenu = <?php echo file_get_contents(get_template_directory() . '/api/collection.json'); ?>;
-            collectionsSubmenu.collection.forEach((e) => {
-                categoryDesktop += `
-                    <a href="<?= BASE_LINK; ?>/collections/${slugify(e.name)}">
-                        <p class="px-3 py-1 hover:text-cyan-500 whitespace-nowrap"
-                            id="${slugify(e.name)}-link">${e.display_name}</p>
-                    </a>
-                `
-            })
-            $('#sub-collections-desktop').append(categoryDesktop)
+        let categoryMobile = ``;
+        let categoryDesktop = ``;
+        let submenuData = [];
+        const subMenuIds = {
+            'Products': 'sub-products',
+            'Inspiration': 'sub-inspiration',
+            'Collections': 'sub-collections'
+        };
+
+        // Fetch submenu data based on menu type
+        switch (menu) {
+            case 'Products':
+                submenuData = <?php echo file_get_contents(get_template_directory() . '/api/product.json'); ?>;
+                break;
+            case 'Inspiration':
+                submenuData = <?php echo file_get_contents(get_template_directory() . '/api/inspirationSubmenu.json'); ?>;
+                break;
+            case 'Collections':
+                submenuData = <?php echo file_get_contents(get_template_directory() . '/api/collection.json'); ?>.collection;
+                break;
         }
-        setActiveLink()
+
+        // Generate submenu items
+        submenuData.forEach((item) => {
+            const href = menu === 'Products' ?
+                `<?= BASE_LINK; ?>/products/${item.slug}` :
+                menu === 'Inspiration' ?
+                `<?= BASE_LINK; ?>/${item.slug}/` :
+                `<?= BASE_LINK; ?>/collections/${slugify(item.name)}`;
+
+            const displayName = item.display_name || item.name;
+
+            categoryMobile += `
+            <a href="${href}">
+                <p class="px-3 py-1 hover:text-cyan-500 whitespace-nowrap" id="${slugify(item.name)}-link-mobile">${displayName}</p>
+            </a>
+        `;
+            categoryDesktop += `
+            <a href="${href}">
+                <p class="px-3 py-1 hover:text-cyan-500 whitespace-nowrap" id="${slugify(item.name)}-link">${displayName}</p>
+            </a>
+        `;
+        });
+
+        // Append generated submenu items to the respective containers
+        if (menu !== 'Collections') {
+            $(`#${subMenuIds[menu]}-mobile`).append(categoryMobile);
+        }
+        $(`#${subMenuIds[menu]}-desktop`).append(categoryDesktop);
     }
 
     function setActiveLink() {
         const url = window.location.href;
-        const slug = url.split('/');
-        const parentUrl = slug[4];
-        const childUrl = slug[5];
-        switch (parentUrl) {
-            case 'product-detail':
-                $(`#products-link`).removeClass('text-gray-900').addClass('text-cyan-500 underline');
-                break;
-            case 'about-us':
-                $(`#brand-link`).removeClass('text-gray-900').addClass('text-cyan-500 underline');
-                break;
-            case 'news':
-            case 'materials':
-            case 'projects':
-            case 'moods':
-                $(`#inspiration-link`).removeClass('text-gray-900').addClass('text-cyan-500 underline');
-                $(`#${parentUrl}-link`).removeClass('text-gray-900').addClass('text-cyan-500 underline');
-                $(`#${parentUrl}-link-mobile`).removeClass('text-gray-900').addClass('text-cyan-500 underline');
-                break;
-            default:
-                $(`#${parentUrl}-link`).removeClass('text-gray-900').addClass('text-cyan-500 underline');
-                break;
+        const [, , , , parentUrl, childUrl] = url.split('/');
+
+        const linkSelectors = {
+            'product-detail': '#products-link',
+            'about-us': '#brand-link',
+            'inspiration': '#inspiration-link',
+        };
+
+        // Activate specific links based on the parentUrl
+        if (linkSelectors[parentUrl]) {
+            $(linkSelectors[parentUrl]).removeClass('text-gray-900').addClass('text-cyan-500 underline');
         }
 
+        // Highlight the current parent link if present
+        if (parentUrl) {
+            $(`#${parentUrl}-link, #${parentUrl}-link-mobile`).removeClass('text-gray-900').addClass('text-cyan-500 underline');
+        }
+
+        // Highlight the child link if present
         if (childUrl) {
-            $(`#${childUrl}-link`).removeClass('text-gray-900').addClass('text-cyan-500 underline');
-            $(`#${childUrl}-link-mobile`).removeClass('text-gray-900').addClass('text-cyan-500 underline');
-
+            $(`#${childUrl}-link, #${childUrl}-link-mobile`).removeClass('text-gray-900').addClass('text-cyan-500 underline');
         }
-
     }
     </script>

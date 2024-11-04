@@ -16,7 +16,7 @@ get_template_part('header-custom');
             <h2 class="text-3xl block sm:hidden mb-5 ">
                 Looks like you’ve lost
             </h2>
-            <img src='<?php echo get_stylesheet_directory_uri(); ?>/assets/images/404.png'
+            <img src='https://storage.googleapis.com/back-bucket/wp_triconville/images/404.png'
                  class="w-full h-full object-cover" />
             <a href="<?= BASE_LINK; ?>"
                class="btn-primary w-fit block mt-10 sm:hidden text-sm py-4 px-10">Take me Home</a>

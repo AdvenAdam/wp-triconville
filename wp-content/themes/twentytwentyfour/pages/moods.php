@@ -69,7 +69,7 @@ function renderMaster() {
         $('#mood__materials').append(`
             <div class="py-5 md:py-10 flex sm:flex-row flex-col gap-3 items-center">
                 <div class="md:p-5 w-full md:w-1/2 flex justify-end md:justify-center relative">
-                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/${selectedMood.materials.image}" class="w-3/4 md:w-auto max-h-[500px] object-cover relative z-10" />
+                    <img src="https://storage.googleapis.com/back-bucket/wp_triconville/${selectedMood.materials.image}" class="w-3/4 md:w-auto max-h-[500px] object-cover relative z-10" />
                     <div class="absolute opacity-50 h-3/4 w-1/2 top-1/2 -translate-y-1/2 left-10 z-1" style="background-color: ${selectedMood.color.end}"></div>
                 </div>
                 <div class="md:p-5 w-full md:w-1/2 max-w-xl">
@@ -90,7 +90,7 @@ function renderMaster() {
                         Inspirations
                     </h2>
                    ${selectedMood.relatedProjects.map(e => `
-                        <div class="md:p-5 w-auto bg-no-repeat h-[450px] ${e.id % 2 === 0 ? 'mt-0' : 'md:-mt-40'} relative" style="background: url('<?php echo get_stylesheet_directory_uri(); ?>/${e.thumb}'); background-size: cover">
+                        <div class="md:p-5 w-auto bg-no-repeat h-[450px] ${e.id % 2 === 0 ? 'mt-0' : 'md:-mt-40'} relative" style="background: url('https://storage.googleapis.com/back-bucket/wp_triconville/${e.thumb}'); background-size: cover">
                             <div class="absolute bg-opacity-50 ${e.id % 2 === 0 ? ' md:-bottom-20 z-2' : 'md:-top-20 z-1'} p-5 max-w-lg -right-20" style="background-color: ${selectedMood.color.end}">
                                 <h2 class="text-2xl md:text-3xl max-w-sm tracking-wider text-white mb-5 ">
                                     ${e.title}
@@ -114,7 +114,7 @@ function renderMaster() {
                     ${otherMoods.map(e => `
                         <div class="me-2 snap-center">
                             <div class="h-[322px] md:h-[600px] w-[182px] md:w-[400px] max-w-screen bg-no-repeat bg-center bg-cover"
-                                style="background-image: url('<?php echo get_stylesheet_directory_uri(); ?>/${e.thumb}')">
+                                style="background-image: url('https://storage.googleapis.com/back-bucket/wp_triconville/${e.thumb}')">
                                 <a href="<?= BASE_LINK ?>/moods/${e.slug}"
                                 class="h-full w-full flex items-end justify-end p-5">
                                     <h1 class="text-2xl md:text-5xl font-semibold text-end text-white max-w-[260px]">${e.name}</h1>
@@ -151,7 +151,7 @@ function renderBanner() {
     `);
     // Note : Set Mood Banner
     $('#mood__banner').append(`
-        <img src="<?php echo get_stylesheet_directory_uri(); ?>/${selectedMood.banner}" class="w-auto h-[550px] md:h-auto object-cover" />
+        <img src="https://storage.googleapis.com/back-bucket/wp_triconville/${selectedMood.banner}" class="w-auto h-[550px] md:h-auto object-cover" />
     `);
     // Note : Set Subtitle
     $('#mood__subtitle').append(`
@@ -159,7 +159,7 @@ function renderBanner() {
             <p class="text-sm max-w-2xl mx-auto text-center text-white py-5 md:py-10">
                 ${selectedMood.subTitle.title}
             </p>
-            <img src="<?php echo get_stylesheet_directory_uri(); ?>/${selectedMood.subTitle.subImage}" class="w-auto h-auto object-cover " />
+            <img src="https://storage.googleapis.com/back-bucket/wp_triconville/${selectedMood.subTitle.subImage}" class="w-auto h-auto object-cover " />
         </div>
     `);
 }

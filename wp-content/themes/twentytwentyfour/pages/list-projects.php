@@ -156,7 +156,7 @@ function renderPerProject(project) {
     project.galleries.forEach(gallery => {
         $(`#${project.slug}__galleries__slider`).append(`
             <div class="image max-w-screen me-2">
-                <img src="<?php echo get_stylesheet_directory_uri(); ?>${gallery}"
+                <img src="https://storage.googleapis.com/back-bucket/wp_triconville${gallery}"
                     alt="${project.name}"
                     class="h-[50vh] md:h-screen w-auto object-cover">
             </div>

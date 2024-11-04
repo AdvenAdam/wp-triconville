@@ -1,6 +1,6 @@
 <div class="w-full footer snap-center">
     <div class="flex max-h-[250px] h-[30vh]  bg-cover bg-center bg-no-repeat"
-         style="background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/assets/images/store/store-banner.jpeg)">
+         style="background-image: url(https://storage.googleapis.com/back-bucket/wp_triconville/images/store/store-banner.jpeg)">
         <div class="bg-black bg-opacity-20 h-full w-full flex items-center justify-start px-3 md:px-5">
             <a href="<?= BASE_LINK; ?>/find-a-store/"
                class="flex items-center w-full gap-3 group max-w-[1440px] mx-auto">
@@ -22,7 +22,7 @@
         </div>
     </div>
     <div class=" bg-cover bg-center bg-no-repeat"
-         style="background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/assets/images/store/footer.png)">
+         style="background-image: url(https://storage.googleapis.com/back-bucket/wp_triconville/images/store/footer.png)">
         <div class="py-10 md:px-5 px-3 bg-[#F4F6F6] bg-opacity-85">
             <div class="max-w-[1440px] mx-auto ">
                 <div class="w-full md:flex">
@@ -90,19 +90,19 @@
                                     <p class='font-bold text-sm uppercase tracking-widest pt-5'>connect</p>
                                     <div class="flex items-center gap-2 my-3">
                                         <a href='#'>
-                                            <img src='<?php echo get_stylesheet_directory_uri(); ?>/assets/images/icons/youtube.svg' />
+                                            <img src='https://storage.googleapis.com/back-bucket/wp_triconville/images/icons/youtube.svg' />
                                         </a>
                                         <a href='#'>
-                                            <img src='<?php echo get_stylesheet_directory_uri(); ?>/assets/images/icons/pinterest.svg' />
+                                            <img src='https://storage.googleapis.com/back-bucket/wp_triconville/images/icons/pinterest.svg' />
                                         </a>
                                         <a href='#'>
-                                            <img src='<?php echo get_stylesheet_directory_uri(); ?>/assets/images/icons/instagram.svg' />
+                                            <img src='https://storage.googleapis.com/back-bucket/wp_triconville/images/icons/instagram.svg' />
                                         </a>
                                         <a href='#'>
-                                            <img src='<?php echo get_stylesheet_directory_uri(); ?>/assets/images/icons/facebook.svg' />
+                                            <img src='https://storage.googleapis.com/back-bucket/wp_triconville/images/icons/facebook.svg' />
                                         </a>
                                         <a href='#'>
-                                            <img src='<?php echo get_stylesheet_directory_uri(); ?>/assets/images/icons/linkedin.svg' />
+                                            <img src='https://storage.googleapis.com/back-bucket/wp_triconville/images/icons/linkedin.svg' />
                                         </a>
                                     </div>
                                 </div>
@@ -111,19 +111,19 @@
                                 <p class='font-bold text-sm uppercase tracking-widest'>connect</p>
                                 <div class="flex items-center gap-2 my-3">
                                     <a href='#'>
-                                        <img src='<?php echo get_stylesheet_directory_uri(); ?>/assets/images/icons/youtube.svg' />
+                                        <img src='https://storage.googleapis.com/back-bucket/wp_triconville/images/icons/youtube.svg' />
                                     </a>
                                     <a href='#'>
-                                        <img src='<?php echo get_stylesheet_directory_uri(); ?>/assets/images/icons/pinterest.svg' />
+                                        <img src='https://storage.googleapis.com/back-bucket/wp_triconville/images/icons/pinterest.svg' />
                                     </a>
                                     <a href='#'>
-                                        <img src='<?php echo get_stylesheet_directory_uri(); ?>/assets/images/icons/instagram.svg' />
+                                        <img src='https://storage.googleapis.com/back-bucket/wp_triconville/images/icons/instagram.svg' />
                                     </a>
                                     <a href='#'>
-                                        <img src='<?php echo get_stylesheet_directory_uri(); ?>/assets/images/icons/facebook.svg' />
+                                        <img src='https://storage.googleapis.com/back-bucket/wp_triconville/images/icons/facebook.svg' />
                                     </a>
                                     <a href='#'>
-                                        <img src='<?php echo get_stylesheet_directory_uri(); ?>/assets/images/icons/linkedin.svg' />
+                                        <img src='https://storage.googleapis.com/back-bucket/wp_triconville/images/icons/linkedin.svg' />
                                     </a>
                                 </div>
                             </div>
