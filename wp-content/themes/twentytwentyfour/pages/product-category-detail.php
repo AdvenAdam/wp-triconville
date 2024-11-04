@@ -150,7 +150,8 @@ async function fetchProducts(id, param) {
             }
         });
         // NOTE : Get Triconville Product by listed collection
-        filteredCollection = res.product_list.filter(data => selectedCollectionId.some(element => element.collection_id === parseInt(data.collection))).map(selectedData => {
+        // REVIEW - this code still hard code
+        filteredCollection = res.product_list.filter(data => selectedCollectionId.some(element => element.collection_id === parseInt(data.collection)) || parseInt(data.collection) === 258).map(selectedData => {
             return {
                 ...selectedData
             };
