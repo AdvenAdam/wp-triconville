@@ -38,17 +38,19 @@
   }
 </style>
 <div
-  class="content-container snap-y snap-mandatory h-screen overflow-y-auto scrollbar-none"
+  class="content-container snap-y snap-mandatory full-screen overflow-y-auto scrollbar-none"
   onmousewheel="onscrollHandler(event)"
 >
-  <div class="h-screen bg-black bg-aopacity-60 flex items-center justify-center tracking-wider snap-always snap-center">
+  <div
+    class="full-screen bg-black bg-aopacity-60 flex items-center justify-center tracking-wider snap-always snap-center"
+  >
     <div class="text-white text-center md:p-5 p-3">
       <h1 class="text-3xl md:text-5xl tracking-wider text-white font-medium">
         Crafted with Passion, Designed for Connection
       </h1>
     </div>
   </div>
-  <div class="about-us-sub-banner h-screen flex items-center justify-center snap-always snap-center px-3 md:px-5">
+  <div class="about-us-sub-banner full-screen flex items-center justify-center snap-always snap-center px-3 md:px-5">
     <div class="text-white max-w-2xl">
       <img
         src="https://storage.googleapis.com/back-bucket/wp_triconville/images/icons/triconville-white.svg"
@@ -74,7 +76,7 @@
     </div>
   </div>
 
-  <div class="bg-white h-screen flex items-center justify-center px-3 md:px-5 snap-always snap-center">
+  <div class="bg-white full-screen flex items-center justify-center px-3 md:px-5 snap-always snap-center">
     <div class="max-w-[1440px]">
       <img
         src="http://dev.triconville.com/wp-content/uploads/2024/10/Built-for-Every-Climate-Perfected-for-the-Outdoors.png"
@@ -106,7 +108,7 @@
     </div>
   </div>
 
-  <div class="bg-white h-screen flex items-center justify-center px-3 md:px-5 snap-always snap-center">
+  <div class="bg-white full-screen flex items-center justify-center px-3 md:px-5 snap-always snap-center">
     <div class="max-w-[1440px]">
       <div class="grid grid-cols-1 md:grid-cols-2 items-end gap-3 md:gap-10">
         <div class="flex md:justify-end">
@@ -135,7 +137,7 @@
     </div>
   </div>
 
-  <div class="bg-white h-screen flex items-center justify-center px-3 md:px-5 snap-always snap-center">
+  <div class="bg-white full-screen flex items-center justify-center px-3 md:px-5 snap-always snap-center">
     <div class="max-w-[1440px]">
       <div class="flex md:flex-row flex-col gap-3 md:gap-10 items-end">
         <div class="max-w-lg flex flex-col">
@@ -162,7 +164,7 @@
     </div>
   </div>
 
-  <div class="jewel-banner h-screen flex items-center justify-center px-3 md:px-5 snap-always snap-center">
+  <div class="jewel-banner full-screen flex items-center justify-center px-3 md:px-5 snap-always snap-center">
     <div class="max-w-[1440px] flex md:flex-row flex-col md:justify-between md:items-center gap-3 w-full">
       <div class="inline-block">
         <img
@@ -190,7 +192,7 @@
     </div>
   </div>
 
-  <div class="bg-white h-screen max-w-[1440px] mx-auto flex items-center px-3 md:px-5 snap-always snap-center">
+  <div class="bg-white full-screen max-w-[1440px] mx-auto flex items-center px-3 md:px-5 snap-always snap-center">
     <div class="">
       <div class="max-w-md">
         <h1 class="text-3xl md:text-5xl">Our Promise to You</h1>
@@ -238,7 +240,7 @@
     </div>
   </div>
 
-  <div class="bg-black h-screen flex items-center justify-center px-3 md:px-5 snap-always snap-center">
+  <div class="bg-black full-screen flex items-center justify-center px-3 md:px-5 snap-always snap-center">
     <div class="w-full">
       <div class="mx-auto max-w-[1440px] mb-10">
         <p class="text-sm text-white font-bold">Our Milestones:</p>
@@ -389,7 +391,7 @@
   </div>
 
   <div class="bg-white px-3 md:px-5 snap-always snap-center">
-    <div class="max-w-[1440px] flex flex-col justify-center h-screen my-auto mx-auto">
+    <div class="max-w-[1440px] flex flex-col justify-center full-screen my-auto mx-auto">
       <div class="md:flex justify-between md:w-3/4">
         <div class="inline-block">
           <h1 class="text-3xl md:text-5xl">
@@ -405,7 +407,7 @@
         </div>
       </div>
       <div
-        class="grid pt-10 lg:grid-cols-4 grid-cols-2 gap-2 md:gap-5"
+        class="grid pt:5 md:pt-10 lg:grid-cols-4 grid-cols-2 gap-2 md:gap-5"
         id="mood__list"
       ></div>
     </div>
@@ -470,14 +472,14 @@
       // Note : Set background
       moods.forEach((mood) => {
         $("#mood__list").append(`
-                  <div class="h-[322px] md:h-[600px] w-auto bg-no-repeat bg-center bg-cover"
-                      style="background-image: url('https://storage.googleapis.com/back-bucket/wp_triconville/${mood.thumb}')">
-                      <a href="<?= BASE_LINK ?>/moods/${mood.slug}"
-                          class="h-full w-full flex items-end justify-end p-5">
-                          <h1 class="text-2xl md:text-5xl font-semibold text-end text-white max-w-[260px]">${mood.name}</h1>
-                      </a>
-                  </div>
-              `);
+            <div class="h-[300px] md:h-[600px] w-auto bg-no-repeat bg-center bg-cover"
+                style="background-image: url('https://storage.googleapis.com/back-bucket/wp_triconville/${mood.thumb}')">
+                <a href="<?= BASE_LINK ?>/moods/${mood.slug}"
+                    class="h-full w-full flex items-end justify-end p-5">
+                    <h1 class="text-2xl md:text-5xl font-semibold text-end text-white max-w-[260px]">${mood.name}</h1>
+                </a>
+            </div>
+        `);
       });
     } catch (error) {
       redirectError();

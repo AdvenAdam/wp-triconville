@@ -79,6 +79,9 @@ p {
     padding: 0.5rem 1rem;
     cursor: pointer;
   }
+  .grecaptcha-badge {
+    visibility: hidden;
+  }
 
 #page-loading {
     position: fixed;

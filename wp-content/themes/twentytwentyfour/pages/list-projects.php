@@ -9,12 +9,13 @@ get_template_part('header-custom');
 <style>
 /* Hide scrollbar for Chrome, Safari and Opera */
 body {
-    overscroll-behavior-y: none;
+    overscroll-behavior-y: contain;
+    height: 100%;
 }
 
-::-webkit-scrollbar {
+/* ::-webkit-scrollbar {
     display: none;
-}
+} */
 
 .slick-dots {
     display: flex;
@@ -52,7 +53,7 @@ body {
 }
 </style>
 
-<div class="content-container snap-y snap-mandatory h-screen overflow-y-auto scrollbar-none"
+<div class="content-container snap-y snap-mandatory full-screen overflow-y-scroll scrollbar-none mt-20"
      onmousewheel="onscrollHandler(event)">
     <div id="main__container"></div>
     <?php
@@ -117,14 +118,14 @@ function renderMaster() {
 
 function renderProjectContainer(project) {
     $('#main__container').append(`
-        <div class="-ms-1 flex flex-no-wrap h-screen overflow-x-scroll overflow-y-hidden snap-x snap-mandatory scrolling-touch cursor-pointer snap-always snap-center" id="${project.slug}__main">
+        <div class="flex flex-no-wrap full-screen overflow-x-scroll scrollbar-none overflow-y-hidden snap-x snap-mandatory scrolling-touch cursor-pointer snap-always snap-center" id="${project.slug}__main">
             <div class="flex-none snap-start snap-always">
                 <div class="flex md:flex-row flex-col w-screen items-center">          
-                    <div class="relative h-[50vh] md:h-full w-full md:w-3/5" id="${project.slug}__Container">
+                    <div class="relative half-screen md:h-full w-full md:w-3/5" id="${project.slug}__Container">
                         <div class="h-full w-full" id="${project.slug}__galleries__slider">
                         </div>
                     </div>
-                    <div class="h-[50vh] md:h-full w-full md:w-2/5" id="${project.slug}__desc">
+                    <div class="half-screen md:h-full w-full md:w-2/5" id="${project.slug}__desc">
                         <div class="flex flex-col justify-center p-3 mx-auto max-w-md">
                             <h3 class="text-3xl ">
                                 ${toTitleCase(project.name)}
@@ -158,7 +159,7 @@ function renderPerProject(project) {
             <div class="image max-w-screen me-2">
                 <img src="https://storage.googleapis.com/back-bucket/wp_triconville/images/${gallery}"
                     alt="${project.name}"
-                    class="h-[50vh] md:h-screen w-auto object-cover">
+                    class="half-screen md:h-screen w-auto object-cover">
             </div>
         `)
     })

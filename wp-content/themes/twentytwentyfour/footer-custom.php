@@ -1,5 +1,5 @@
-<footer class="w-full footer snap-center">
-    <div class="flex max-h-[250px] h-[30vh]  bg-cover bg-center bg-no-repeat"
+<footer class="w-full footer ">
+    <div class="flex max-h-[250px] h-[30vh]  bg-cover bg-center bg-no-repeat snap-center snap-always"
          style="background-image: url(https://storage.googleapis.com/back-bucket/wp_triconville/images/store/store-banner.jpeg)">
         <div class="bg-black bg-opacity-20 h-full w-full flex items-center justify-start px-3 md:px-5">
             <a href="<?= BASE_LINK; ?>/find-a-store/"
@@ -21,7 +21,7 @@
             </a>
         </div>
     </div>
-    <div class=" bg-cover bg-center bg-no-repeat"
+    <div class=" bg-cover bg-center bg-no-repeat snap-center snap-always"
          style="background-image: url(https://storage.googleapis.com/back-bucket/wp_triconville/images/store/footer.png)">
         <div class="py-10 md:px-5 px-3 bg-[#F4F6F6] bg-opacity-85">
             <div class="max-w-[1440px] mx-auto ">
