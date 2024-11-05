@@ -13,7 +13,7 @@ body {
     display: none;
 }
 </style>
-<div class="content-container scroll-smooth overflow-x-hidden">
+<div class="content-container scroll-smooth overflow-x-hidden mt-20">
     <!-- NOTE: Banner -->
     <div class="min-h-[40vh] flex flex-col justify-center  px-3 md:px-5 snap-always snap-start">
         <h1 class="text-3xl md:text-5xl font-medium text-center uppercase ">triconville collections</h1>
@@ -62,7 +62,7 @@ body {
         </div>
     </div>
     <div id="list__collections"
-         class='mt-16 scrollbar-none'>
+         class='md:mt-16 scrollbar-none'>
     </div>
     <div id="page-loading">
         <div class="three-balls">
@@ -168,11 +168,11 @@ function renderCollections(e, index, type = 'grid') {
             </a>
         `);
     } else if (type == 'list') {
-        $('.content-container').addClass('snap-y snap-mandatory transition duration-500 ease-in-out overflow-y-scroll h-screen scrollbar-none')
+        $('.content-container').addClass('snap-y snap-mandatory transition duration-500 ease-in-out overflow-y-scroll full-screen scrollbar-none')
         $('.content-container').on('wheel', onscrollHandler);
         $('#grid__collections').empty();
         $('#list__collections').append(`
-            <div class="h-screen w-screen relative text-white snap-always snap-start" 
+            <div class="full-screen w-screen relative text-white snap-always snap-start" 
                 style="
                     background-position:center; 
                     background-image: url('https://storage.googleapis.com/back-bucket/wp_triconville/images/${e.image_banner}'); 

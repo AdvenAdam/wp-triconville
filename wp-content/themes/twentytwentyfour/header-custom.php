@@ -70,7 +70,7 @@
 </head>
 
 <body <?php body_class(); ?>>
-    <header class="header sticky top-0 tracking-widest "
+    <header class="header fixed w-full top-0 tracking-widest "
             style="z-index: 20;">
         <nav class="flex items-center justify-between md:px-5 px-3 w-full min-h-20 bg-white">
             <div class="flex justify-center">
@@ -356,7 +356,17 @@
             'about-us': '#brand-link',
             'inspiration': '#inspiration-link',
         };
+        // special case for inspiration
+        const inspiration = {
+            'projects': '#projects-link',
+            'news': '#news-link',
+            'moods': '#moods-link',
+            'materials': '#materials-link',
+        }
 
+        if (inspiration[parentUrl]) {
+            $(linkSelectors['inspiration']).removeClass('text-gray-900').addClass('text-cyan-500 underline');
+        }
         // Activate specific links based on the parentUrl
         if (linkSelectors[parentUrl]) {
             $(linkSelectors[parentUrl]).removeClass('text-gray-900').addClass('text-cyan-500 underline');
