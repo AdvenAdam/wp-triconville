@@ -1,4 +1,4 @@
-<div class="w-full footer snap-center">
+<footer class="w-full footer snap-center">
     <div class="flex max-h-[250px] h-[30vh]  bg-cover bg-center bg-no-repeat"
          style="background-image: url(https://storage.googleapis.com/back-bucket/wp_triconville/images/store/store-banner.jpeg)">
         <div class="bg-black bg-opacity-20 h-full w-full flex items-center justify-start px-3 md:px-5">
@@ -231,7 +231,7 @@
             </div>
         </div>
     </div>
-</div>
+</footer>
 
 <script>
 function slugify(str) {

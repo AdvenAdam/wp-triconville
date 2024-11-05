@@ -72,7 +72,7 @@
 <body <?php body_class(); ?>>
     <header class="header sticky top-0 tracking-widest "
             style="z-index: 20;">
-        <div class="flex items-center justify-between md:px-5 px-3 w-full min-h-20 bg-white">
+        <nav class="flex items-center justify-between md:px-5 px-3 w-full min-h-20 bg-white">
             <div class="flex justify-center">
                 <a href="<?php echo home_url(); ?>">
                     <img src="<?= BASE_LINK ?>/wp-content/uploads/2024/09/Logo-Blue-Resized-1.png"
@@ -113,7 +113,7 @@
                     </svg>
                 </button>
             </div>
-        </div>
+        </nav>
         <div class="w-full md:px-5 px-3 py-3 bg-[#F4F6F6] opacity-0 invisible transition-opacity duration-500 ease-in-out fixed top-20"
              style="z-index: 2;"
              id="sub-header">
