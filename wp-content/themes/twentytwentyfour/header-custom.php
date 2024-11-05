@@ -349,30 +349,7 @@
 
     function setActiveLink() {
         const url = window.location.href;
-<<<<<<< HEAD
-        const slug = url.split('/');
-        const parentUrl = slug[3];
-        const childUrl = slug[4];
-        switch (parentUrl) {
-            case 'product-detail':
-                $(`#products-link`).removeClass('text-gray-900').addClass('text-cyan-500 underline');
-                break;
-            case 'about-us':
-                $(`#brand-link`).removeClass('text-gray-900').addClass('text-cyan-500 underline');
-                break;
-            case 'news':
-            case 'materials':
-            case 'projects':
-            case 'moods':
-                $(`#inspiration-link`).removeClass('text-gray-900').addClass('text-cyan-500 underline');
-                $(`#${parentUrl}-link`).removeClass('text-gray-900').addClass('text-cyan-500 underline');
-                $(`#${parentUrl}-link-mobile`).removeClass('text-gray-900').addClass('text-cyan-500 underline');
-                break;
-            default:
-                $(`#${parentUrl}-link`).removeClass('text-gray-900').addClass('text-cyan-500 underline');
-                break;
-=======
-        const [, , , , parentUrl, childUrl] = url.split('/');
+        const [ , , , parentUrl, childUrl] = url.split('/');
 
         const linkSelectors = {
             'product-detail': '#products-link',
@@ -383,7 +360,6 @@
         // Activate specific links based on the parentUrl
         if (linkSelectors[parentUrl]) {
             $(linkSelectors[parentUrl]).removeClass('text-gray-900').addClass('text-cyan-500 underline');
->>>>>>> f2d6f5f659370f12630f8071528d2e7c91c66a34
         }
 
         // Highlight the current parent link if present
