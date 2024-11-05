@@ -261,9 +261,9 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
         products.forEach((project) => {
             $('#slider__home').append(`
                 <div class="max-w-screen duration-200 ease-linear mx-2 relative">
-                    <img src="https://storage.googleapis.com/back-bucket/wp_triconville${project.banner}"
+                    <img src="https://storage.googleapis.com/back-bucket/wp_triconville/images/${project.banner}"
                         class="object-cover w-auto max-w-screen h-[600px]"
-                        alt="${project.banner}">
+                        alt="${project.name}">
                     <div class="absolute bottom-10 right-10">
                         <div class="p-5 text-white flex flex-col sm:justify-end sm:items-end">
                             <h2 class="text-2xl md:text-3xl text-white tracking-wider">${toTitleCase(project.name)}</h2>
