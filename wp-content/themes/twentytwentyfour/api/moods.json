@@ -1,8 +1,8 @@
 [
   {
     "id": 1,
-    "name": "Rhythmic Oasis",
-    "slug": "rhythmic-oasis",
+    "name": "Dune Essence",
+    "slug": "dune-essence",
     "thumb": "images/moods/rhythmic-oasis/Rhythmic-Oasis.png",
     "banner": "images/moods/rhythmic-oasis/mood_rhythmic_oasis-banner.png",
     "desc": "Discover the perfect mix of old and new. Amble past impressive art deco houses surrounded by landscaped gardens or take a stroll in one of the many flower-filled city parks. Enjoy a day on the harbour connect with the cultural offering in a city that never sleeps. Come together in electrifying places to enjoy sparkling diversions. Find yourself seated under lush plane trees, on lavish rooftop terraces in a sphere of constant animation. Surrender to the sights and sounds of the moment.",
@@ -35,8 +35,8 @@
   },
   {
     "id": 2,
-    "name": "Whispering Ocean",
-    "slug": "whispering-ocean",
+    "name": "Leafscape",
+    "slug": "leafscape",
     "thumb": "images/moods/whispering-ocean/Whispering-Ocean.png",
     "banner": "images/moods/rhythmic-oasis/mood_rhythmic_oasis-banner.png",
     "desc": "Discover the perfect mix of old and new. Amble past impressive art deco houses surrounded by landscaped gardens or take a stroll in one of the many flower-filled city parks. Enjoy a day on the harbour connect with the cultural offering in a city that never sleeps. Come together in electrifying places to enjoy sparkling diversions. Find yourself seated under lush plane trees, on lavish rooftop terraces in a sphere of constant animation. Surrender to the sights and sounds of the moment.",
@@ -69,8 +69,8 @@
   },
   {
     "id": 3,
-    "name": "Chilling Fall",
-    "slug": "chilling-fall",
+    "name": "Coastal Bliss",
+    "slug": "coastal-bliss",
     "thumb": "images/moods/chilling-fall/Chilling-Fall.png",
     "banner": "images/moods/rhythmic-oasis/mood_rhythmic_oasis-banner.png",
     "desc": "Discover the perfect mix of old and new. Amble past impressive art deco houses surrounded by landscaped gardens or take a stroll in one of the many flower-filled city parks. Enjoy a day on the harbour connect with the cultural offering in a city that never sleeps. Come together in electrifying places to enjoy sparkling diversions. Find yourself seated under lush plane trees, on lavish rooftop terraces in a sphere of constant animation. Surrender to the sights and sounds of the moment.",
@@ -103,8 +103,8 @@
   },
   {
     "id": 4,
-    "name": "Serenity Dunes",
-    "slug": "serenity-dunes",
+    "name": "Bare Essence",
+    "slug": "bare-essence",
     "thumb": "images/moods/serenity-dunes/Serenity-Dunes.png",
     "banner": "images/moods/rhythmic-oasis/mood_rhythmic_oasis-banner.png",
     "desc": "Discover the perfect mix of old and new. Amble past impressive art deco houses surrounded by landscaped gardens or take a stroll in one of the many flower-filled city parks. Enjoy a day on the harbour connect with the cultural offering in a city that never sleeps. Come together in electrifying places to enjoy sparkling diversions. Find yourself seated under lush plane trees, on lavish rooftop terraces in a sphere of constant animation. Surrender to the sights and sounds of the moment.",

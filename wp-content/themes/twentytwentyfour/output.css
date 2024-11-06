@@ -867,6 +867,12 @@ video {
 .h-screen {
   height: 100vh;
 }
+.h-5 {
+  height: 1.25rem;
+}
+.h-20 {
+  height: 5rem;
+}
 .max-h-\[250px\] {
   max-height: 250px;
 }
@@ -1233,6 +1239,9 @@ video {
 .bg-slate-200\/50 {
   background-color: rgb(226 232 240 / 0.5);
 }
+.bg-slate-50\/30 {
+  background-color: rgb(248 250 252 / 0.3);
+}
 .bg-slate-50\/50 {
   background-color: rgb(248 250 252 / 0.5);
 }
@@ -1242,6 +1251,9 @@ video {
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+.bg-slate-50\/80 {
+  background-color: rgb(248 250 252 / 0.8);
 }
 .bg-opacity-20 {
   --tw-bg-opacity: 0.2;
@@ -1328,6 +1340,10 @@ video {
   padding-top: 2.5rem;
   padding-bottom: 2.5rem;
 }
+.py-12 {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
 .py-2 {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
@@ -1411,6 +1427,10 @@ video {
 .text-xs {
   font-size: 0.75rem;
   line-height: 1rem;
+}
+.text-base {
+  font-size: 1rem;
+  line-height: 1.5rem;
 }
 .font-bold {
   font-weight: 700;
@@ -1509,6 +1529,11 @@ video {
 }
 .filter {
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
+.backdrop-blur-sm {
+  --tw-backdrop-blur: blur(4px);
+  -webkit-backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
+          backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
 }
 .backdrop-filter {
   -webkit-backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
@@ -1656,12 +1681,18 @@ video {
 .hover\:bg-slate-50\/50:hover {
   background-color: rgb(248 250 252 / 0.5);
 }
+.hover\:bg-slate-50\/60:hover {
+  background-color: rgb(248 250 252 / 0.6);
+}
 .hover\:bg-slate-50\/80:hover {
   background-color: rgb(248 250 252 / 0.8);
 }
 .hover\:bg-white:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+.hover\:bg-slate-50\/30:hover {
+  background-color: rgb(248 250 252 / 0.3);
 }
 .hover\:text-black:hover {
   --tw-text-opacity: 1;
@@ -1727,6 +1758,10 @@ video {
   .sm\:mx-0 {
     margin-left: 0px;
     margin-right: 0px;
+  }
+
+  .sm\:mb-5 {
+    margin-bottom: 1.25rem;
   }
 
   .sm\:block {
@@ -1795,6 +1830,10 @@ video {
 }
 @media (min-width: 768px) {
 
+  .md\:visible {
+    visibility: visible;
+  }
+
   .md\:-bottom-20 {
     bottom: -5rem;
   }
@@ -1848,16 +1887,16 @@ video {
     margin-top: 0px;
   }
 
+  .md\:mt-16 {
+    margin-top: 4rem;
+  }
+
   .md\:mt-5 {
     margin-top: 1.25rem;
   }
 
   .md\:mt-\[-30px\] {
     margin-top: -30px;
-  }
-
-  .md\:mt-16 {
-    margin-top: 4rem;
   }
 
   .md\:line-clamp-1 {
@@ -2067,12 +2106,12 @@ video {
     padding-inline-start: 1.25rem;
   }
 
-  .md\:pt-3 {
-    padding-top: 0.75rem;
-  }
-
   .md\:pt-10 {
     padding-top: 2.5rem;
+  }
+
+  .md\:pt-3 {
+    padding-top: 0.75rem;
   }
 
   .md\:text-center {

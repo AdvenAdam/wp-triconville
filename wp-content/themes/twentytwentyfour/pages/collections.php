@@ -62,11 +62,15 @@ function loadCollections() {
             $('#page-loading').show();
         },
         success: function(res) {
+            // Join Local Json Data with Rest API
             selectedCollection = selectedCollection.filter(data => data.collection_id == res.collection_id);
             collectionData = {
                 ...res,
                 ...selectedCollection[0]
             };
+            console.log("🚀 ~ loadCollections ~ collectionData:", collectionData)
+            console.log("🚀 ~ renderMaster ~ collectionData.ambience_image.length:", collectionData.ambience_image.length)
+
         },
         error: function(xhr, status, error) {
             if (xhr.status === 404) {
@@ -112,6 +116,8 @@ function renderMaster() {
                 `:''}
             </div>
         </section>
+        <section class="collection__ambiance my-10 py-5">
+        </section>
         <section class="collection__product relative my-10 py-5">
             <h3 class="text-2xl md:text-3xl tracking-wide ">Products on ${collectionData.name} Collection</h3>
             <div class=" grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 mt-5 gap-4 justify-center container mx-auto mt-5 mb-10">
@@ -126,6 +132,24 @@ function renderMaster() {
             </div>
         </section>
     `);
+    if (collectionData.ambience_image.length > 0) {
+        $('.collection__ambiance').append(`
+            ${collectionData.ambience_image.map((img, i) => `
+                <img src="${img.image_1920}" alt="${collectionData.name}-${i}" class="w-fit h-auto object-contain me-2">
+            `)}
+        `)
+        $('.collection__ambiance').slick({
+            dots: false,
+            arrows: false,
+            infinite: true,
+            speed: 300,
+            slidesToShow: 1.03,
+            slidesToScroll: 1
+        });
+    } else {
+        $('.collection__ambiance').remove();
+    }
+
     loadMoreCollections();
 }
 

@@ -15,7 +15,7 @@ get_template_part('header-custom');
     background-position: center;
 }
 </style>
-<div class="content-container">
+<div class="content-container mt-20">
     <!-- NOTE: Banner -->
     <div class="materials-banner ">
         <div class="flex items-center justify-center min-h-full bg-black bg-opacity-20">

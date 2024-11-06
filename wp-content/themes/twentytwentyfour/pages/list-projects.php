@@ -27,9 +27,9 @@ body {
     transform: translateX(-50%);
     bottom: 10%;
     list-style-type: none;
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255, 0.3);
     border-radius: 16px;
-    backdrop-filter: blur(40%);
+    backdrop-filter: blur(4px);
 
     li {
         margin: 0 0.25rem;
@@ -97,10 +97,8 @@ $(document).ready(function() {
     })
 })
 
-// ANCHOR RENDERER SLIDER
 function renderMaster() {
     try {
-        // NOTE : Init Slider First
         projects.forEach(project => {
             renderProjectContainer(project)
             renderPerProject(project)
@@ -125,7 +123,7 @@ function renderProjectContainer(project) {
                         <div class="h-full w-full" id="${project.slug}__galleries__slider">
                         </div>
                     </div>
-                    <div class="half-screen md:h-full w-full md:w-2/5" id="${project.slug}__desc">
+                    <div class="half-screen overflow-y-auto md:h-full w-full md:w-2/5" id="${project.slug}__desc">
                         <div class="flex flex-col justify-center p-3 mx-auto max-w-md">
                             <h3 class="text-3xl ">
                                 ${toTitleCase(project.name)}
@@ -133,10 +131,10 @@ function renderProjectContainer(project) {
                             <p class="text-sm mb-5">
                                 ${project.country}
                             </p>
-                            <p class="text-sm mb-5">
+                            <p class="text-sm sm:mb-5">
                                 ${project.description}
                             </p>
-                            <a class="text-sm font-medium flex items-baseline gap-1 mt-5" onClick="slideProjectHandler('${project.slug}__main', 'next')">
+                            <a class="text-sm font-medium flex items-baseline gap-1 my-5" onClick="slideProjectHandler('${project.slug}__main', 'next')">
                                 <p>View featured products</p>
                                 <svg width="101" height="10" viewBox="0 0 101 15" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M100.707 8.20711C101.098 7.81658 101.098 7.18342 100.707 6.79289L94.3431 0.428932C93.9526 0.0384078 93.3195 0.0384078 92.9289 0.428932C92.5384 0.819457 92.5384 1.45262 92.9289 1.84315L98.5858 7.5L92.9289 13.1569C92.5384 13.5474 92.5384 14.1805 92.9289 14.5711C93.3195 14.9616 93.9526 14.9616 94.3431 14.5711L100.707 8.20711ZM0 8.5H100V6.5H0V8.5Z" fill="#4D4D4D"/>
@@ -198,7 +196,7 @@ function renderPerProject(project) {
 
 function renderButton(slug) {
     $(`#${slug}__Container`).append(`
-        <button class="slick-prev absolute top-1/2 -translate-y-1/2 z-10 left-0 py-10 bg-slate-50/50 px-2 hover:bg-slate-50/80"
+        <button class="slick-prev absolute backdrop-blur-sm top-1/2 -translate-y-1/2 z-10 left-0 py-12 bg-slate-50/30 px-2 hover:bg-slate-50/60"
             aria-label=""
             id="${slug}__prev-btn"
             type="button">
@@ -213,7 +211,7 @@ function renderButton(slug) {
                     d="M15.75 19.5 8.25 12l7.5-7.5" />
             </svg>
         </button>
-        <button class="slick-next absolute top-1/2 -translate-y-1/2 z-10 right-0 py-10 bg-slate-50/50 px-2 hover:bg-slate-50/80"
+        <button class="slick-next absolute backdrop-blur-sm top-1/2 -translate-y-1/2 z-10 right-0 py-12 bg-slate-50/30 px-2 hover:bg-slate-50/60"
                 aria-label=""
                 id="${slug}__next-btn"
                 type="button">

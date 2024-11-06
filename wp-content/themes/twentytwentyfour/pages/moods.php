@@ -9,7 +9,7 @@ get_template_part('header-custom');
 ?>
 
 
-<div class="content-container min-h-screen tracking-wider">
+<div class="content-container min-h-screen tracking-wider mt-20">
     <div class="p-3 md:p-5">
         <!-- Note :Banner -->
         <div class="max-w-[1440px] mx-auto">
