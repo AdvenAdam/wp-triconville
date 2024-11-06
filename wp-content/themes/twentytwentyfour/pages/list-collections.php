@@ -181,9 +181,9 @@ function renderCollections(e, index, type = 'grid') {
                 "
             >
                 <a href= "<?= BASE_LINK; ?>/collections/${slugify(e.name)}">
-                    <div class="bg-black/25 h-full w-full absolute top-0 left-0 p-3 md:p-5 lg:p-10">
+                    <div class="bg-black/25 h-full w-full absolute top-0 left-0 p-5 lg:p-10">
                         <div class="max-w-[1440px] mx-auto">
-                            <p class='font-medium mt-3 md:mt-5 lg:mt-10 '>
+                            <p class='font-medium mt-20 lg:mt-10 '>
                             ${count < 10 ? '0' + (count) : count}. 
                             </p>
                             <hr class='w-1/5 mt-3 border-white'/>

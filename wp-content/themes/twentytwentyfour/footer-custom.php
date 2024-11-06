@@ -46,39 +46,13 @@
                                     <a href='<?= BASE_LINK; ?>/collections'> Catalog </a>
                                 </p>
                             </div>
-                            <div class="about w-full tracking-wider md:p-3">
+                            <div class="about w-full tracking-wider md:p-3"
+                                 id="products-categories-footer">
                                 <p class='mb-3 uppercase text-sm font-bold tracking-widest'>products</p>
-                                <p class='text-sm py-1'>
-                                    <a href='<?= BASE_LINK; ?>/products/sofa'>Sofa</a>
-                                </p>
-                                <p class='text-sm py-1'>
-                                    <a href='<?= BASE_LINK; ?>/products/lounge-chairs'>Lounge Chairs</a>
-                                </p>
-                                <p class='text-sm py-1'>
-                                    <a href='<?= BASE_LINK; ?>/products/lounger-daybed'>Lounger & Daybed</a>
-                                </p>
-                                <p class='text-sm py-1'>
-                                    <a href='<?= BASE_LINK; ?>/products/chairs'>Chairs</a>
-                                </p>
-                                <p class='text-sm py-1'>
-                                    <a href='<?= BASE_LINK; ?>/products/tables'>Tables</a>
-                                </p>
-
                             </div>
-                            <div class="about w-full tracking-wider md:p-3">
+                            <div class="about w-full tracking-wider md:p-3"
+                                 id="moods-categories-footer">
                                 <p class='mb-3 uppercase text-sm font-bold tracking-widest'>moods</p>
-                                <p class='text-sm py-1'>
-                                    <a href='<?= BASE_LINK; ?>/moods/rhythmic-oasis/'> Rhythmic Oasis </a>
-                                </p>
-                                <p class='text-sm py-1'>
-                                    <a href='<?= BASE_LINK; ?>/moods/whispering-ocean/'> Whispering Ocean </a>
-                                </p>
-                                <p class='text-sm py-1'>
-                                    <a href='<?= BASE_LINK; ?>/moods/chilling-fall/'> Chilling Fall </a>
-                                </p>
-                                <p class='text-sm py-1'>
-                                    <a href='<?= BASE_LINK; ?>/moods/serenity-dunes/'> Serenity Dunes </a>
-                                </p>
                             </div>
                             <div class="about w-full md:p-3">
                                 <p class='mb-3 font-bold text-sm uppercase tracking-widest'>triconville head office</p>
@@ -234,6 +208,24 @@
 </footer>
 
 <script>
+$(document).ready(function() {
+    const Moods = <?php echo file_get_contents(get_template_directory() . '/api/moods.json'); ?>
+    productCategories.forEach((category) => {
+        $('#products-categories-footer').append(`
+            <p class='text-sm py-1'>
+                <a href='<?= BASE_LINK; ?>/products/${category.slug}'>${category.name}</a>
+            </p>
+        `)
+    })
+    Moods.forEach((mood) => {
+        $('#moods-categories-footer').append(`
+            <p class='text-sm py-1'>
+                <a href='<?= BASE_LINK; ?>/moods/${mood.slug}'>${mood.name}</a>
+            </p>
+        `)
+    })
+})
+
 function slugify(str) {
     str = str.replace(/^\s+|\s+$/g, ''); // trim
     str = str.toLowerCase();

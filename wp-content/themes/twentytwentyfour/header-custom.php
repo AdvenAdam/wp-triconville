@@ -186,6 +186,7 @@
     </div>
 
     <script>
+    const productCategories = <?php echo file_get_contents(get_template_directory() . '/api/product.json'); ?>
     $(document).ready(function() {
         $.ajax({
             url: '<?php echo BASE_URL; ?>/?rest_route=/wp/v2/top-nav',
@@ -308,7 +309,7 @@
         // Fetch submenu data based on menu type
         switch (menu) {
             case 'Products':
-                submenuData = <?php echo file_get_contents(get_template_directory() . '/api/product.json'); ?>;
+                submenuData = productCategories;
                 break;
             case 'Inspiration':
                 submenuData = <?php echo file_get_contents(get_template_directory() . '/api/inspirationSubmenu.json'); ?>;

@@ -1,6 +1,6 @@
 <style>
   .about-us-banner {
-    background: url("");
+    background: url("https://storage.googleapis.com/back-bucket/wp_triconville/images/brand_banner.gif");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -41,12 +41,10 @@
   class="content-container snap-y snap-mandatory full-screen overflow-y-auto scrollbar-none"
   onmousewheel="onscrollHandler(event)"
 >
-  <div
-    class="full-screen bg-black bg-aopacity-60 flex items-center justify-center tracking-wider snap-always snap-center"
-  >
+  <div class="full-screen about-us-banner flex items-center justify-center tracking-wider snap-always snap-center">
     <div class="text-white text-center md:p-5 p-3">
       <h1 class="text-3xl md:text-5xl tracking-wider text-white font-medium">
-        Crafted with Passion, Designed for Connection
+        Crafting Outdoor Spaces with Passion and...
       </h1>
     </div>
   </div>
@@ -138,7 +136,7 @@
   </div>
 
   <div class="bg-white full-screen flex items-center justify-center px-3 md:px-5 snap-always snap-center">
-    <div class="max-w-[1440px]">
+    <div class="max-w-[1440px] h-full">
       <div class="flex md:flex-row flex-col gap-3 md:gap-10 items-end">
         <div class="max-w-lg flex flex-col">
           <h1 class="text-3xl md:text-5xl">Design That Speaks To The Soul</h1>
@@ -165,12 +163,14 @@
   </div>
 
   <div class="jewel-banner full-screen flex items-center justify-center px-3 md:px-5 snap-always snap-center">
-    <div class="max-w-[1440px] flex md:flex-row flex-col md:justify-between md:items-center gap-3 w-full">
+    <div
+      class="max-w-[1440px] h-full overflow-hidden flex md:flex-row flex-col md:justify-between md:items-center gap-3 w-full"
+    >
       <div class="inline-block">
         <img
           src="http://dev.triconville.com/wp-content/uploads/2024/10/main_image.png"
           alt="story-in-every-grain"
-          class="w-auto md:h-[550px] h-[300px] object-cover"
+          class="w-auto md:h-[550px] h-[200px] object-cover"
         />
       </div>
       <div class="inline-block max-w-xl">
@@ -180,6 +180,17 @@
           uniqueness, durability, and resistance to the elements make it the perfect choice for outdoor living. It’s a
           material that gets better with time, weathering elegantly to give your one-of-a-kind outdoor space look a
           sense of timeless beauty.
+          <br /><br />
+          <span class="text-base">FSC <br /></span>
+          <span class="flex items-center gap-2"
+            >Our commitment to the environment is reflected by the FSC® CoC (Chain of Custody) certification of our
+            distribution centers.
+            <img
+              src="https://storage.googleapis.com/back-bucket/wp_triconville/images/icons/FSC.svg"
+              alt="story-in-every-grain"
+              class="w-auto h-20 object-cover"
+            />
+          </span>
         </p>
       </div>
       <div class="inline-flex md:justify-end">
@@ -248,7 +259,7 @@
       </div>
       <div class="relative">
         <button
-          class="slick-prev 2xl:bg-white prev-btn absolute bottom-0 2xl:top-1/2 -translate-y-1/2 z-10 left-5 py-10 hover:bg-slate-50/50 p-3"
+          class="slick-prev invisible md:visible bg-slate-50/50 prev-btn absolute bottom-0 top-1/2 -translate-y-1/2 z-10 left-5 py-10 hover:bg-slate-50/30 p-3"
           aria-label="Previous"
           type="button"
         >
@@ -270,7 +281,8 @@
         <!-- NOTE : timeline -->
         <div class="mx-auto max-w-[1440px]">
           <div
-            class="flex flex-no-wrap scrollbar-sm overflow-x-scroll snap-x snap-mandatory scrolling-touch h-[450px] py-5"
+            class="flex flex-no-wrap scrollbar-none overflow-x-scroll snap-x snap-mandatory scrolling-touch h-[450px] py-5"
+            id="timeline-content"
           >
             <!-- odd timeline -->
             <div class="flex-none grid grid-rows-5 h-full max-w-80 snap-start md:snap-center">
@@ -365,7 +377,7 @@
             </div>
 
             <button
-              class="slick-next 2xl:bg-white next-btn absolute bottom-0 2xl:top-1/2 -translate-y-1/2 z-10 right-5 py-10 hover:bg-slate-50/50 p-3"
+              class="slick-next invisible md:visible bg-slate-50/50 next-btn absolute bottom-0 top-1/2 -translate-y-1/2 z-10 right-5 py-10 hover:bg-slate-50/30 p-3"
               aria-label="Next"
               type="button"
             >
@@ -434,13 +446,13 @@
   }
 
   document.querySelector(".slick-next").addEventListener("click", () => {
-    document.querySelector(".scrollbar-sm").scrollBy({
+    document.querySelector("#timeline-content").scrollBy({
       left: 500,
       behavior: "smooth",
     });
   });
   document.querySelector(".slick-prev").addEventListener("click", () => {
-    document.querySelector(".scrollbar-sm").scrollBy({
+    document.querySelector("#timeline-content").scrollBy({
       left: -500,
       behavior: "smooth",
     });
