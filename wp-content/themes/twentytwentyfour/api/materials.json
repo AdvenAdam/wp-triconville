@@ -12,5 +12,175 @@
     "throw-pillow-fabric",
     "upholstery-sling-fabric",
     "wicker"
+  ],
+  "groups": [
+    {
+      "id": 1,
+      "name": "Discover our fabrics",
+      "alias": "Fabrics",
+      "banner": "https://storage.googleapis.com/back-bucket/wp_triconville/images/material/banner/fabric.png",
+      "slugs": ["olefin-fabric", "sunbrella-fabric"],
+      "subGroups": [
+        {
+          "name": "Solution Dyed Polyster / Olefin Fabric",
+          "description": "Solution dyed polyster is premium quality of outdoor fabric which provides the exclusive solution for your comfort. Color fastness to light, chlorinated pool water, anti bacterial, anti mildew, and UV resistance.",
+          "materials": {
+            "slug": "olefin-fabric",
+            "keyword": ""
+          }
+        },
+        {
+          "name": "Acrylic Outdoor Fabric",
+          "description": "Sunbrella premium is the softly textured outdoor fabric with stunning premium color options. Made of solution dyed acrylic, this fabric has the touch and feel of indoor fabrics but are much easier to care for and clean.",
+          "materials": {
+            "slug": "sunbrella-fabric",
+            "keyword": ""
+          }
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Wander through our teaks",
+      "alias": "Teak",
+      "banner": "https://storage.googleapis.com/back-bucket/wp_triconville/images/material/banner/teak.png",
+      "slugs": ["outdoor-teak"],
+      "subGroups": [
+        {
+          "name": "Outdoor Teak",
+          "description": "Our teak is kiln dried to a moisture content of 12%. Once dry, the timber can still absorb moisture, which causes ‘movement’. Timber will naturally expand and contract with changes in temperature and humidity. Outdoors this is more extreme than indoors. This is why outdoor furniture traditionally has slats rather than wide boards. Although we design our furniture to minimize and accommodate timber movement as much as possible, it cannot be prevented entirely. If you intend to store your furniture over the winter, we recommend that you do so in a dry garden shed or garage. However, we advise that you do not move teak furniture from the garden straight into a heated indoor room for storage, as the sharp differences in temperature and humidity may cause excessive ‘movement’ and result in splits.",
+          "materials": {
+            "slug": "outdoor-teak",
+            "keyword": ""
+          }
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Sleekly stylish in stainless steel",
+      "alias": "Stainless Steel",
+      "banner": "https://storage.googleapis.com/back-bucket/wp_triconville/images/material/banner/steel.png",
+      "slugs": ["stainless-steel"],
+      "subGroups": [
+        {
+          "name": "Brushed Stainless Steel",
+          "description": "We use #304 grade stainless steel. It is the most versatile and the most widely used of all stainless steels. Its chemical composition, mechanical properties, weld ability and corrosion resistance provide the best all-round performance stainless steel. Low maintenance, long life and versatile, stainless steel is practical, durable and aesthetically pleasing on the eye. It has excellent bending and welding characteristics, thus easy to give any shape regardless of losing properties.",
+          "materials": {
+            "slug": "stainless-steel",
+            "keyword": "hairline"
+          }
+        },
+        {
+          "name": "Powder-Coated Stainless Steel",
+          "description": "Stainless steel is the generic name for a number of different steels used primarily for their resistance to corrosion. The one key element they all share is a certain minimum percentage of chromium of 10.5%. Although other elements, particularly nickel and molybdenum, are added to improve corrosion resistance, chromium is always the deciding factor. However, despite its various additions, stainless steel still behaves much the same as steel, and even the highly alloyed stainless steel grades (such as 316) still contain a minimum of 62% iron.",
+          "materials": {
+            "slug": "stainless-steel",
+            "keyword": "!hairline"
+          }
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Unveil the beauty of ceramic",
+      "alias": "Ceramic",
+      "banner": "https://storage.googleapis.com/back-bucket/wp_triconville/images/material/banner/ceramic.png",
+      "slugs": ["ceramic"],
+      "subGroups": [
+        {
+          "name": "Ceramic",
+          "description": "Our ceramic table tops are made from a solid ceramic slab. Whilst the name suggests fragility, ceramic is actually harder than granite and is workable using techniques normally applied to glass and natural stone. Ceramic table tops are chemical resistant, fireproof, UV and heat resistant. Water absorption is close to zero, therefore, table tops are also completely frost-proof and weather resistant.",
+          "materials": {
+            "slug": "ceramic",
+            "keyword": ""
+          }
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Weave through our wickers",
+      "alias": "Wicker",
+      "banner": "https://storage.googleapis.com/back-bucket/wp_triconville/images/material/banner/wicker.png",
+      "slugs": ["wicker"],
+      "subGroups": [
+        {
+          "name": "Wicker",
+          "description": "Our wicker furniture is made of premium synthetic fiber as weaving material that comes with different colors, patterns, looms, and effects. The materials are tear free, weather resistant, and colorfast. It is 100% recyclable and resistant to chlorine and salt water. When the temperature is low, the weave will become somewhat stiffer than normal and in extremely high temperature the weave will become more elastic. The furniture will retain its normal elastic property once the temperature stabilizes.",
+          "materials": {
+            "slug": "wicker",
+            "keyword": ""
+          }
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Unravel the ropes",
+      "alias": "Rope",
+      "banner": "https://storage.googleapis.com/back-bucket/wp_triconville/images/material/banner/rope.png",
+      "slugs": ["rope"],
+      "subGroups": [
+        {
+          "name": "Flat Rope",
+          "description": "Polyester blended ropes are stronger and more abrasion resistant than nylon rope. Unlike nylon rope, polyester has a low stretch factor. This is the exact reason on why polyester a popular choice for boating, marine, and outdoor furniture applications. 100% Olefin, the best material for outdoor use Swimming pool and sea water resistant and repellent, Color is solution-dyed, will not absorb chemicals, mildew and fungi repellent, Water-based stains can be easily cleaned",
+          "materials": {
+            "slug": "rope",
+            "keyword": "flat rope"
+          }
+        },
+        {
+          "name": "Round Rope",
+          "description": "",
+          "materials": {
+            "slug": "rope",
+            "keyword": "round rope"
+          }
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Swing by our slings",
+      "alias": "Sling",
+      "banner": "https://storage.googleapis.com/back-bucket/wp_triconville/images/material/banner/sling.png",
+      "slugs": ["sling-fabric"],
+      "subGroups": [
+        {
+          "name": "Batyline",
+          "description": "The modern and luxurious statement of outdoor slings is widely used in premium outdoor furniture. The fabric Batyline is extremely durable and high quality material consisting of a polyester fiber covered by PVC coating, making it nearly impossible to tear. <br/> Ultimately comfortable and allows the air to flow through, releasing heat and providing you with the coolness as you relax on the seat. Sling is an amazing material to withstand extreme temperatures, ranging from 30C to 70C.",
+          "materials": {
+            "slug": "sling-fabric",
+            "keyword": "batyline"
+          }
+        },
+        {
+          "name": "Round Rope",
+          "description": "",
+          "materials": {
+            "slug": "sling-fabric",
+            "keyword": "sling"
+          }
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "name": "Strength meets style in our aluminium",
+      "alias": "Powder Coated Aluminium",
+      "banner": "https://storage.googleapis.com/back-bucket/wp_triconville/images/material/banner/aluminium.png",
+      "slugs": ["powder-coated-aluminium"],
+      "subGroups": [
+        {
+          "name": "Powder-Coated Aluminium",
+          "description": "Light and tough material with an excellent strength. The aluminum is coated with layers of powder coat finish applied electrostatically. This electrostatic application ensures 100& coverage of metal's surface area and provides a consistent and tough finish that makes the aluminum impervious to moisture, highly resistant to corrosion and easy to clean.",
+          "materials": {
+            "slug": "powder-coated-aluminium",
+            "keyword": ""
+          }
+        }
+      ]
+    }
   ]
 }
