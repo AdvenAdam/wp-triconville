@@ -36,7 +36,6 @@ get_template_part('header-custom');
     <div class="px-3 md:px-5">
         <div id="material__page"
              class="max-w-[1440px] mt-5 mx-auto">
-
         </div>
     </div>
     <div id="page-loading">
@@ -48,6 +47,10 @@ get_template_part('header-custom');
     </div>
     <div id="errorIndicator"
          class="hidden">Error</div>
+    <div class="fixed z-0 h-screen w-screen invisible bg-black bg-opacity-20 transition-opacity duration-500 ease-in-out top-0"
+         id="page-modal">
+    </div>
+
 </div>
 <script>
 let selectedMaterialIds = [];
@@ -86,7 +89,7 @@ async function renderMaster() {
         redirectError();
         console.error(error);
     } finally {
-        $('#page-loading').hide();
+        $('#page-loading').hide()
     }
 }
 
@@ -101,7 +104,6 @@ function renderGroupContainer(data) {
         <div class="material-container visible" id="material__container_${data.id}">
             <h1 class="text-3xl font-medium">${toTitleCase(data.name)}</h1>
             <img class="w-full h-auto min-h-40 mb-5" src="${data.banner}" alt="${data.name}-banner">
-            
         </div>
     `)
 }
@@ -150,17 +152,35 @@ function renderSubGroups(data) {
                     <p class="text-sm mb-5">${subGroup.description}</p>
                     <div id="material__list__${slugify(subGroup.name)}" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
                         ${products.map(product => `
-                            <div class="product-item mb-5">
+                            <div class="product-item mb-5 cursor-pointer" onclick='bannerClick(${JSON.stringify(product)})'>
                                 <img class="w-full h-full object-contain" src="${product.image_384}" />
                                 <p class="text-center text-sm max-w-[90%] mx-auto">${product.alias} (${product.code})</p>
                             </div>
                         `).join('')}
                     </div>
                 </div>
-                <hr class="mb-10 mt-5 border-2" />
+                <hr class="mb-20 mt-5 border-2" />
             `);
         }
     }
+}
+
+function bannerClick(product) {
+    $('#page-modal').empty();
+    $('#page-modal').removeClass('invisible z-0').addClass('z-10');
+    $('#page-modal').append(`
+        <div class="w-full h-full flex items-center justify-center">
+            <div class="bg-white flex items-center relative">
+                <img class="w-auto h-auto max-w-[50vw] object-contain" src="${product.image_384}" />
+                <div class="p-5 w-[50vw] max-w-xl">
+                    <h3 class="text-center text-2xl mx-auto">${product.alias} (${product.code})</h3>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 cursor-pointer absolute top-5 right-5" onclick="$('#page-modal').addClass('invisible z-0').removeClass('z-10')">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+    `);
 }
 
 function changeFilter(id) {

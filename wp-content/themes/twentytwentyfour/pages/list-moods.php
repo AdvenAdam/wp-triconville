@@ -7,7 +7,7 @@ Template Name: List Moods
 get_template_part('header-custom');
 ?>
 
-<div class="content-container">
+<div class="content-container mt-20">
     <div class="px-3 md:px-5 my-10">
         <div class="max-w-[1440px] mx-auto">
             <div class="text-center pt-20">
