@@ -2,24 +2,24 @@
   {
     "id": 1,
     "ids": [39, 30, 36],
-    "name": "Sofa",
-    "slug": "sofa",
+    "name": "Sofas",
+    "slug": "sofas",
     "image": "banner_sofa2.jpg",
     "thumb": "sofa.png",
     "children": [
       {
         "id": 30,
-        "name": "Sofa",
+        "name": "Sofas",
         "param": ""
       },
       {
         "id": 39,
-        "name": "Loveseats Sofa",
+        "name": "Loveseats Sofas",
         "param": ""
       },
       {
         "id": 36,
-        "name": "Modular Sofa",
+        "name": "Modular Sofas",
         "param": ""
       }
     ],
@@ -39,7 +39,7 @@
     "children": [
       {
         "id": 32,
-        "name": "Lounge Chair",
+        "name": "Lounge Chairs",
         "param": ""
       },
       {
@@ -88,8 +88,8 @@
   {
     "id": 4,
     "ids": [28, 24],
-    "name": "Table",
-    "slug": "table",
+    "name": "Tables",
+    "slug": "tables",
     "image": "banner_table2.jpg",
     "thumb": "table.png",
     "children": [],
@@ -102,14 +102,14 @@
   {
     "id": 5,
     "ids": [38, 31],
-    "name": "Coffee & Low Table",
+    "name": "Coffee & Low Tables",
     "slug": "coffee-low-table",
     "image": "banner_table2.jpg",
     "thumb": "coffee-low-table.png",
     "children": [
       {
         "id": 38,
-        "name": "Outdoor Coffe Tables & Low Table",
+        "name": "Outdoor Coffe Tables & Low Tables",
         "param": ""
       },
       {
@@ -127,14 +127,14 @@
   {
     "id": 6,
     "ids": [37],
-    "name": "Lounger & Daybed",
-    "slug": "lounger-daybed",
+    "name": "Loungers & Daybeds",
+    "slug": "loungers-daybeds",
     "image": "banner_lounger-&-daybed2.jpg",
     "thumb": "lounger-daybed.png",
     "children": [
       {
         "id": 37,
-        "name": "Lounger & Daybed",
+        "name": "Loungers & Daybeds",
         "param": "lounger"
       }
     ],
