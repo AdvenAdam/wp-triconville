@@ -632,6 +632,9 @@ video {
 .z-40 {
   z-index: 40;
 }
+.z-30 {
+  z-index: 30;
+}
 .col-span-1 {
   grid-column: span 1 / span 1;
 }
@@ -1281,6 +1284,9 @@ video {
 }
 .bg-opacity-85 {
   --tw-bg-opacity: 0.85;
+}
+.bg-opacity-40 {
+  --tw-bg-opacity: 0.4;
 }
 .bg-cover {
   background-size: cover;

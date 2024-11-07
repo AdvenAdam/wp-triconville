@@ -47,7 +47,7 @@ get_template_part('header-custom');
     </div>
     <div id="errorIndicator"
          class="hidden">Error</div>
-    <div class="fixed z-0 h-screen w-screen invisible bg-black bg-opacity-20 transition-opacity duration-500 ease-in-out top-0"
+    <div class="fixed z-0 h-screen w-screen invisible bg-black bg-opacity-40 transition-opacity duration-500 ease-in-out top-0"
          id="page-modal">
     </div>
 
@@ -167,14 +167,14 @@ function renderSubGroups(data) {
 
 function bannerClick(product) {
     $('#page-modal').empty();
-    $('#page-modal').removeClass('invisible z-0').addClass('z-10');
+    $('#page-modal').removeClass('invisible z-0').addClass('z-30');
     $('#page-modal').append(`
-        <div class="w-full h-full flex items-center justify-center">
-            <div class="bg-white flex items-center relative">
+        <div class="w-full h-full flex items-center justify-center" onclick="event.stopPropagation(); $('#page-modal').addClass('invisible z-0').removeClass('z-30')">
+            <div class="bg-white flex items-center relative" onclick="event.stopPropagation()">
                 <img class="w-auto h-auto max-w-[50vw] object-contain" src="${product.image_384}" />
                 <div class="p-5 w-[50vw] max-w-xl">
                     <h3 class="text-center text-2xl mx-auto">${product.alias} (${product.code})</h3>
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 cursor-pointer absolute top-5 right-5" onclick="$('#page-modal').addClass('invisible z-0').removeClass('z-10')">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 cursor-pointer absolute top-5 right-5" onclick="event.stopPropagation(); $('#page-modal').addClass('invisible z-0').removeClass('z-30')">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
                     </svg>
                 </div>
