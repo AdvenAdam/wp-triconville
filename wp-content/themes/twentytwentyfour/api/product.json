@@ -4,8 +4,8 @@
     "ids": [39, 30, 36],
     "name": "Sofas",
     "slug": "sofas",
-    "image": "banner_sofa2.jpg",
-    "thumb": "sofa.png",
+    "image": "https://storage.googleapis.com/back-bucket/wp_triconville/images/category/banner/banner_sofa2.jpg",
+    "thumb": "https://storage.googleapis.com/back-bucket/wp_triconville/images/category/sofa.png",
     "children": [
       {
         "id": 30,
@@ -34,8 +34,8 @@
     "ids": [32, 34],
     "name": "Lounge Chairs",
     "slug": "lounge-chairs",
-    "image": "banner_lounge-chair2.jpg",
-    "thumb": "lounge-chair.png",
+    "image": "https://storage.googleapis.com/back-bucket/wp_triconville/images/category/banner/banner_lounge-chair2.jpg",
+    "thumb": "https://storage.googleapis.com/back-bucket/wp_triconville/images/category/lounge-chair.png",
     "children": [
       {
         "id": 32,
@@ -59,8 +59,8 @@
     "ids": [23, 25],
     "name": "Chairs",
     "slug": "chairs",
-    "image": "banner_chair2.jpg",
-    "thumb": "chair.png",
+    "image": "https://storage.googleapis.com/back-bucket/wp_triconville/images/category/banner/banner_chair2.jpg",
+    "thumb": "https://storage.googleapis.com/back-bucket/wp_triconville/images/category/chair.png",
     "children": [
       {
         "id": 23,
@@ -90,8 +90,8 @@
     "ids": [28, 24],
     "name": "Tables",
     "slug": "tables",
-    "image": "banner_table2.jpg",
-    "thumb": "table.png",
+    "image": "https://storage.googleapis.com/back-bucket/wp_triconville/images/category/banner/banner_table2.jpg",
+    "thumb": "https://storage.googleapis.com/back-bucket/wp_triconville/images/category/table.png",
     "children": [],
     "meta": {
       "title": "Table | Triconville - Explore Our Elegant Outdoor Table Collection",
@@ -103,9 +103,9 @@
     "id": 5,
     "ids": [38, 31],
     "name": "Coffee & Low Tables",
-    "slug": "coffee-low-table",
-    "image": "banner_table2.jpg",
-    "thumb": "coffee-low-table.png",
+    "slug": "coffee-low-tables",
+    "image": "https://storage.googleapis.com/back-bucket/wp_triconville/images/category/banner/banner_coffee-&-end-table2.jpg",
+    "thumb": "https://storage.googleapis.com/back-bucket/wp_triconville/images/category/coffee-low-table.png",
     "children": [
       {
         "id": 38,
@@ -129,8 +129,8 @@
     "ids": [37],
     "name": "Loungers & Daybeds",
     "slug": "loungers-daybeds",
-    "image": "banner_lounger-&-daybed2.jpg",
-    "thumb": "lounger-daybed.png",
+    "image": "https://storage.googleapis.com/back-bucket/wp_triconville/images/category/banner/banner_lounger-&-daybed2.jpg",
+    "thumb": "https://storage.googleapis.com/back-bucket/wp_triconville/images/category/lounger-daybed.png",
     "children": [
       {
         "id": 37,
@@ -149,8 +149,8 @@
     "ids": [70, 6, 8, 37],
     "name": "Accessories",
     "slug": "accessories",
-    "image": "banner_lounger-&-daybed2.jpg",
-    "thumb": "accessories.png",
+    "image": "https://storage.googleapis.com/back-bucket/wp_triconville/images/category/banner/banner_accessories2.jpg",
+    "thumb": "https://storage.googleapis.com/back-bucket/wp_triconville/images/category/accessories.png",
     "children": [
       {
         "id": 70,

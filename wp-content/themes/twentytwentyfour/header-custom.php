@@ -55,17 +55,6 @@
         border: none !important;
         width: 50px;
     }
-
-    .collapsible:before {
-        content: "\002B";
-        font-weight: bold;
-        float: right;
-        margin-left: 5px;
-    }
-
-    .active:before {
-        content: "\2212";
-    }
     </style>
 </head>
 
@@ -212,7 +201,7 @@
             case /(products)/.test(url):
                 showSubProducts(true);
                 break;
-            case /(news|materials|projects|moods)/.test(url):
+            case /(news|materials|inspiration|moods)/.test(url):
                 showSubHeader(true);
                 break;
             case /(collections)/.test(url):
@@ -287,12 +276,12 @@
         } else {
             // Append regular link without submenu
             $('#navbar__category').append(`
-            <li>
-                <a href="${menu.href}" class="${mobileClass}">
-                    <h5 class="text-lg font-medium">${menu.name}</h5>
-                </a>
-            </li>
-        `);
+                <li>
+                    <a href="${menu.href}" class="${mobileClass}">
+                        <h5 class="text-lg font-medium">${menu.name}</h5>
+                    </a>
+                </li>
+            `);
         }
     }
 
@@ -330,15 +319,15 @@
             const displayName = item.display_name || item.name;
 
             categoryMobile += `
-            <a href="${href}">
-                <p class="px-3 py-1 hover:text-cyan-500 whitespace-nowrap" id="${slugify(item.name)}-link-mobile">${displayName}</p>
-            </a>
-        `;
+                <a href="${href}">
+                    <p class="px-3 py-1 hover:text-cyan-500 whitespace-nowrap" id="${slugify(item.name)}-link-mobile">${displayName}</p>
+                </a>
+            `;
             categoryDesktop += `
-            <a href="${href}">
-                <p class="px-3 py-1 hover:text-cyan-500 whitespace-nowrap" id="${slugify(item.name)}-link">${displayName}</p>
-            </a>
-        `;
+                <a href="${href}">
+                    <p class="px-3 py-1 hover:text-cyan-500 whitespace-nowrap" id="${slugify(item.name)}-link">${displayName}</p>
+                </a>
+            `;
         });
 
         // Append generated submenu items to the respective containers
@@ -356,8 +345,10 @@
             'product-detail': '#products-link',
             'about-us': '#brand-link',
             'inspiration': '#inspiration-link',
+            'contact-us': '#contact-link',
+            'find-a-store': '#stores-link',
         };
-        // special case for inspiration
+        // special case for inspiration 
         const inspiration = {
             'projects': '#projects-link',
             'news': '#news-link',
