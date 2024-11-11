@@ -840,9 +840,6 @@ video {
 .h-\[450px\] {
   height: 450px;
 }
-.h-\[460px\] {
-  height: 460px;
-}
 .h-\[65vh\] {
   height: 65vh;
 }
@@ -1247,9 +1244,6 @@ video {
 .bg-opacity-0 {
   --tw-bg-opacity: 0;
 }
-.bg-opacity-100 {
-  --tw-bg-opacity: 1;
-}
 .bg-opacity-20 {
   --tw-bg-opacity: 0.2;
 }
@@ -1268,9 +1262,6 @@ video {
 .bg-opacity-85 {
   --tw-bg-opacity: 0.85;
 }
-.bg-gradient-to-t {
-  background-image: linear-gradient(to top, var(--tw-gradient-stops));
-}
 .bg-gradient-to-b {
   background-image: linear-gradient(to bottom, var(--tw-gradient-stops));
 }
@@ -1278,12 +1269,6 @@ video {
   --tw-gradient-from: transparent var(--tw-gradient-from-position);
   --tw-gradient-to: rgb(0 0 0 / 0) var(--tw-gradient-to-position);
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
-}
-.to-black {
-  --tw-gradient-to: #000 var(--tw-gradient-to-position);
-}
-.to-black\/20 {
-  --tw-gradient-to: rgb(0 0 0 / 0.2) var(--tw-gradient-to-position);
 }
 .to-black\/30 {
   --tw-gradient-to: rgb(0 0 0 / 0.3) var(--tw-gradient-to-position);
@@ -1699,9 +1684,6 @@ video {
 .hover\:bg-opacity-20:hover {
   --tw-bg-opacity: 0.2;
 }
-.hover\:bg-opacity-50:hover {
-  --tw-bg-opacity: 0.5;
-}
 .hover\:text-black:hover {
   --tw-text-opacity: 1;
   color: rgb(0 0 0 / var(--tw-text-opacity));
@@ -1756,12 +1738,6 @@ video {
   --tw-scale-x: 1.1;
   --tw-scale-y: 1.1;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-}
-.group:hover .group-hover\:bg-opacity-50 {
-  --tw-bg-opacity: 0.5;
-}
-.group:hover .group-hover\:bg-opacity-30 {
-  --tw-bg-opacity: 0.3;
 }
 .group:hover .group-hover\:text-cyan-500 {
   --tw-text-opacity: 1;
@@ -1922,6 +1898,10 @@ video {
     height: 384px;
   }
 
+  .md\:h-\[462px\] {
+    height: 462px;
+  }
+
   .md\:h-\[550px\] {
     height: 550px;
   }
@@ -1932,10 +1912,6 @@ video {
 
   .md\:h-auto {
     height: auto;
-  }
-
-  .md\:h-\[462px\] {
-    height: 462px;
   }
 
   .md\:max-h-full {
