@@ -8,19 +8,31 @@ get_template_part('header-custom');
 
 ?>
 
+<style>
+.mood-color {
+    color: var(--mood-color);
+}
+</style>
 
-<div class="content-container min-h-screen tracking-wider mt-20">
+<div class="content-container min-h-screen tracking-wider mt-20"
+     id="mood__container">
+    <div id="mood__title">
+    </div>
     <div class="p-3 md:p-5">
         <!-- Note :Banner -->
         <div class="max-w-[1440px] mx-auto">
-            <div id="mood__title"
-                 class="flex py-5 md:py-10 gap-5 md:gap-20 md:items-center md:flex-row flex-col">
-            </div>
-            <div id="mood__banner"></div>
-            <div id="mood__subtitle"></div>
-            <div id="mood__materials"></div>
-            <div id="mood__inspirations"></div>
-            <div id="mood__other_moods"></div>
+            <div class="py-10"
+                 id="mood__subtitle"></div>
+            <div class="py-10"
+                 id="mood__gallery"></div>
+            <div class="py-20"
+                 id="mood__materials"></div>
+            <div class="py-20"
+                 id="mood__inspirations"></div>
+            <div class="py-20"
+                 id="mood__catalogue"></div>
+            <div class="py-20"
+                 id="mood__other_moods"></div>
         </div>
     </div>
 </div>
@@ -65,56 +77,111 @@ $(document).ready(function() {
 function renderMaster() {
     try {
         renderBanner()
+        renderGallery(selectedMood.galleries)
+        renderMaterials(selectedMood.materials)
+        renderCatalogue(selectedMood.catalogueImage)
+        renderInspirations(selectedMood.inspirations)
+        renderOtherMoods()
+    } catch (error) {
+        console.error('Error rendering data:', error);
+        // redirectError()
+    } finally {
+        $('#page-loading').hide();
+    }
+}
+
+function renderBanner() {
+    $('#mood__container').addClass('mood-color');
+    $(':root').css('--mood-color', selectedMood.color);
+    // Note : Set Banner Title 
+    const descriptionTitle = selectedMood.desc.split('<br/>')[0]
+    const description = selectedMood.desc.split('<br/>')[1]
+    $('#mood__title').append(`
+        <div class="flex gap-5 items-end md:w-3/4 mt-20 sm:flex-row flex-col">
+            <img src="<?php echo esc_attr(get_template_directory_uri()); ?>/assets/${selectedMood.banner}" class="w-full md:w-3/4 h-auto object-cover" />
+            <div class="">
+                <h1 class="text-3xl md:text-9xl mood-color font-bold tracking-wider mb-5">${selectedMood.name}</h1>
+                <div class="max-w-sm">
+                    <h3 class="font-medium  mood-color tracking-wider mb-3">${descriptionTitle}</h3>
+                    <p class="text-sm">${description}</p>
+                </div>
+            </div>
+        </div>
+    `);
+    // Note : Set Subtitle
+    $('#mood__subtitle').append(`
+        <div class="py-5 md:py-10 mx-auto w-full mt-20">
+            <img src="<?php echo esc_attr(get_template_directory_uri()); ?>/assets/${selectedMood.subTitle.subImage}" class="w-full h-auto object-cover " />
+            <div class="max-w-3xl mx-auto text-center  mood-color py-5 md:py-10">
+                <h3 class="tracking-wider mood-color font-medium">${selectedMood.subTitle.title}</h3>
+                <p class="text-sm mt-5 md:px-5">${selectedMood.subTitle.description}</p>
+            </div>
+        </div>
+    `);
+}
+
+function renderGallery(galleries) {
+    if (galleries) {
+        $('#mood__gallery').append(`
+            <div class="py-5 md:py-10 grid md:grid-cols-4 grid-cols-2 gap-5 w-full">
+                ${galleries.map((gallery, i) => `
+                    <div class="gallery-item ${i%2 !== 0 && 'mt-10 -mb-10'}">
+                        <img src="<?php echo esc_attr(get_template_directory_uri()); ?>/assets/${gallery.image}" class="w-full h-auto object-cover" alt="${gallery.name}" />
+                    </div>
+                `).join('')}
+            </div>
+        `);
+    }
+}
+
+function renderMaterials(materials) {
+    if (materials) {
         // Note : Set Materials
         $('#mood__materials').append(`
             <div class="py-5 md:py-10 flex sm:flex-row flex-col gap-3 items-center">
                 <div class="md:p-5 w-full md:w-1/2 flex justify-end md:justify-center relative">
-                    <img src="https://storage.googleapis.com/back-bucket/wp_triconville/${selectedMood.materials.image}" class="w-3/4 md:w-auto max-h-[500px] object-cover relative z-10" />
-                    <div class="absolute opacity-50 h-3/4 w-1/2 top-1/2 -translate-y-1/2 left-10 z-1" style="background-color: ${selectedMood.color.end}"></div>
+                    <img src="<?php echo esc_attr(get_template_directory_uri()); ?>/assets/${selectedMood.materials.image}" class="w-3/4 md:w-auto max-h-[500px] object-cover relative z-10" />
                 </div>
                 <div class="md:p-5 w-full md:w-1/2 max-w-xl">
-                    <h2 class="text-2xl md:text-3xl tracking-wider text-white mb-5">
+                    <h2 class="text-2xl mood-color md:text-3xl tracking-wider text-white mb-5">
                         Materials
                     </h2>
-                    <p class="text-sm text-white text-justify">
+                    <p class="text-sm text-justify">
                         ${selectedMood.materials.desc}
                     </p>
                 </div>
             </div>
         `);
-        // Note : Set Inspirations / Projects
-        $('#mood__inspirations').append(`
-            <div class="py-5 md:py-10">
-               <div class="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-10">
-                    <h2 class="text-2xl md:text-3xl tracking-wider md:col-span-2 text-center text-white md:pb-60">
-                        Inspirations
-                    </h2>
-                   ${selectedMood.relatedProjects.map(e => `
-                        <div class="md:p-5 w-auto bg-no-repeat h-[450px] ${e.id % 2 === 0 ? 'mt-0' : 'md:-mt-40'} relative" style="background: url('https://storage.googleapis.com/back-bucket/wp_triconville/${e.thumb}'); background-size: cover">
-                            <div class="absolute bg-opacity-50 ${e.id % 2 === 0 ? ' md:-bottom-20 z-2' : 'md:-top-20 z-1'} p-5 max-w-lg -right-20" style="background-color: ${selectedMood.color.end}">
-                                <h2 class="text-2xl md:text-3xl max-w-sm tracking-wider text-white mb-5 ">
-                                    ${e.title}
-                                </h2>
-                                <p class="text-sm text-white text-justify">
-                                    ${e.location}
-                                </p>
-                            </div>
-                        </div>
-                    `).join('')}
-               </div>
+    }
+}
+
+function renderCatalogue(catalogueImage) {
+    if (catalogueImage) {
+        $('#mood__catalogue').append(`
+            <div class="grid grid-cols-1 sm:grid-cols-2 items-center gap-5">
+                <div class="md:p-5 max-w-lg">
+                    <p class="text-xs uppercase">CATALOG</p>
+                    <h2 class="mood-color text-3xl">Triconville - 2024 Catalog</h2>
+                    <p class="text-sm text-justify">Discover an unrivaled selection of luxuriant designs from Triconville. Brought to life with captivating imagery, the 2024 Triconville catalogue is a go-to resource for inspiration and information. Qualified trade members can reserve a copy by filling out the form below.</p>
+                </div>
+                <img src="<?php echo esc_attr(get_template_directory_uri()); ?>/assets/${catalogueImage}" class="w-full h-auto object-cover" />
             </div>
         `);
-        // Note : Set Other Moods
-        $('#mood__other_moods').append(`
-            <div class="py-10">
-                <h2 class="text-2xl md:text-3xl tracking-wider text-white">
+    }
+}
+
+function renderOtherMoods() {
+    // Note : Set Other Moods
+    $('#mood__other_moods').append(`
+            <div class="py-10 text-center">
+                <h2 class="text-2xl md:text-3xl tracking-wider mood-color">
                     Discover Other Moods
                 </h2>
-                <div class="flex items-center my-5 snap-x overflow-x-scroll scrollbar-none">
+                <div class="flex items-center justify-center my-5 snap-x overflow-x-scroll scrollbar-none">
                     ${otherMoods.map(e => `
                         <div class="me-2 snap-center">
                             <div class="h-[322px] md:h-[600px] w-[182px] md:w-[400px] max-w-screen bg-no-repeat bg-center bg-cover"
-                                style="background-image: url('https://storage.googleapis.com/back-bucket/wp_triconville/${e.thumb}')">
+                                style="background-image: url('<?php echo esc_attr(get_template_directory_uri()); ?>/assets/${e.thumb}')">
                                 <a href="<?= BASE_LINK ?>/moods/${e.slug}"
                                 class="h-full w-full flex items-end justify-end p-5">
                                     <h1 class="text-2xl md:text-5xl font-semibold text-end text-white max-w-[260px]">${e.name}</h1>
@@ -125,43 +192,35 @@ function renderMaster() {
                 </div>
             </div>
         `);
-    } catch (error) {
-        console.error('Error rendering data:', error);
-        redirectError()
-    } finally {
-        $('#page-loading').hide();
-    }
 }
 
-function renderBanner() {
-    // Note : Set background
-    $('.content-container').attr('style', `background-image: linear-gradient(to bottom, ${selectedMood.color.start}, ${selectedMood.color.end});`);
-    // Note : Set Banner Title 
-    $('#mood__title').append(`
-        <div>
-            <h1 class="text-3xl md:text-5xl max-w-md font-extrabold uppercase text-white tracking-widest">
-                ${selectedMood.name}
-            </h1>
-        </div>
-        <div>
-            <p class="text-sm max-w-2xl text-justify text-white">
-                ${selectedMood.desc}
-            </p>
-        </div>
-    `);
-    // Note : Set Mood Banner
-    $('#mood__banner').append(`
-        <img src="https://storage.googleapis.com/back-bucket/wp_triconville/${selectedMood.banner}" class="w-auto h-[550px] md:h-auto object-cover" />
-    `);
-    // Note : Set Subtitle
-    $('#mood__subtitle').append(`
-        <div class="py-5 md:py-10 mx-auto w-full">
-            <p class="text-sm max-w-2xl mx-auto text-center text-white py-5 md:py-10">
-                ${selectedMood.subTitle.title}
-            </p>
-            <img src="https://storage.googleapis.com/back-bucket/wp_triconville/${selectedMood.subTitle.subImage}" class="w-auto h-auto object-cover " />
-        </div>
-    `);
+function renderInspirations(inspirations) {
+    if (inspirations) {
+        $('#mood__inspirations').append(`
+            <h1 class="text-3xl md:text-5xl font-medium mood-color text-center tracking-wider">Inspirations</h1>
+            <div id="inspiration__container"
+                class="my-10 mx-auto grid grid-cols-3 gap-1 sm:gap-3">
+            </div>
+        `);
+        $.ajax({
+            url: "<?= BASE_URL; ?>/?rest_route=/wp/v2/selected_inspirations",
+            type: "GET",
+            success: (res) => {
+                const inspirationsData = res.inspirationList.filter(e => inspirations.includes(e.id));
+                inspirationsData.forEach(inspiration => {
+                    $('#inspiration__container').append(`
+                        <a class="inspiration__card relative" href="${inspiration.link}" target="_blank">
+                            <div class="inspiration__card__overlay absolute inset-0 bg-black bg-opacity-0 group hover:bg-opacity-20 transition duration-300 flex flex-col items-center justify-center">
+                                <img src="https://storage.googleapis.com/back-bucket/wp_triconville/images/icons/Instagram-white.svg" alt="Triconville" class="w-10 h-10 hidden group-hover:block">
+                                <h3 class="text-white font-medium text-center hidden group-hover:block">@triconville</h3>
+                            </div>
+                            <img src="${inspiration.img}" alt="${inspiration.alt}" class="w-full h-full object-contain" />
+                        </a>
+                    `);
+                });
+            }
+        });
+    }
 }
 </script>
 

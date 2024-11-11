@@ -289,9 +289,9 @@ add_action('rest_api_init', function () {
 
 // JSON SELECTED PROJECTS
 add_action('rest_api_init', function () {
-	register_rest_route('wp/v2', '/selected_projects/', array(
+	register_rest_route('wp/v2', '/selected_inspirations/', array(
 		'methods' => 'GET',
-		'callback' => 'getProjectList',
+		'callback' => 'getInspirationsList',
 	));
 });
 
@@ -318,9 +318,9 @@ function getMoodList($request)
 	}
 	return new WP_REST_Response($data, 200);
 }
-function getProjectList($request)
+function getInspirationsList($request)
 {
-	$json_file_path = get_template_directory() . '/api/projects.json';
+	$json_file_path = get_template_directory() . '/api/inspirations.json';
 	if (!file_exists($json_file_path)) {
 		return new WP_Error('no_file', 'File not found', array('status' => 404));
 	}

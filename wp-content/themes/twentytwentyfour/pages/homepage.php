@@ -20,9 +20,21 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
 }
 
 .news-image img {
-    height: 240px !important;
+    height: 300px !important;
     width: 100% !important;
     object-fit: cover;
+}
+
+@media (max-width: 768px) {
+    .news-image img {
+        height: 230px !important;
+    }
+}
+
+@media (max-width: 640px) {
+    .news-image img {
+        height: 130px !important;
+    }
 }
 </style>
 <div class="content-container">
@@ -36,7 +48,7 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
     </div>
     <div class="p-3 md:p-5">
         <div class="max-w-[1440px] mx-auto">
-            <div class="grid md:grid-cols-2 items-center my-5">
+            <div class="grid md:grid-cols-2 items-center my-20">
                 <div class="txt max-w-xl md:text-justify py-5">
                     <p class="uppercase text-xs tracking-widest">our story</p>
                     <h2 class='text-2xl md:text-3xl tracking-wide'>
@@ -57,73 +69,15 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                          class="w-full h-full object-cover" />
                 </div>
             </div>
-            <div class="md:flex items-center my-5">
-                <div class="md:w-2/4 w-full">
-                    <p class='uppercase text-xs tracking-widest'>
-                        inspiration
-                    </p>
-                    <h2 class='text-2xl md:text-3xl tracking-wider max-w-xl'>
-                        25 Years of Excellence Experience on Outdoor Living
-                    </h2>
-                </div>
-                <div class='md:w-2/4 w-full'>
-                    <p class='tracking-wider md:text-justify text-sm my-5'>
-                        An outdoor sofa that hugs you with the specially built cushion designed ergonomically to improve comfort,
-                        while the angular backrest makes the recline easy with books or drinks in hand.
-                        An outdoor sofa that hugs you with the specially built cushion designed ergonomically to improve comfort,
-                        while the angular backrest makes the recline easy with books or drinks in hand.
-                    </p>
-                    <a href="<?= BASE_LINK ?>/projects"
-                       class='btn-ghost uppercase tracking-widest text-xs'>
-                        inspiration
-                    </a>
-                </div>
-            </div>
         </div>
     </div>
-    <!-- NOTE : Slider -->
-    <div class="relative my-10">
-        <!-- Carousel wrapper -->
-        <div class="slider__home"
-             id="slider__home">
-        </div>
-        <button class="slick-prev prev-btn hidden md:block absolute top-1/2 -translate-y-1/2 z-1 left-5 py-10 bg-slate-50/50 p-3 hover:bg-slate-50/80"
-                aria-label="Previous"
-                type="button">
-            <svg xmlns="http://www.w3.org/2000/svg"
-                 fill="none"
-                 viewBox="0 0 24 24"
-                 stroke-width="1.5"
-                 stroke="currentColor"
-                 class="size-6">
-                <path stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M15.75 19.5 8.25 12l7.5-7.5" />
-            </svg>
-        </button>
-        <button class="slick-next next-btn hidden md:block absolute top-1/2 -translate-y-1/2 z-1 right-5 py-10 bg-slate-50/50 p-3 hover:bg-slate-50/80"
-                aria-label="Next"
-                type="button">
-            <svg xmlns="http://www.w3.org/2000/svg"
-                 fill="none"
-                 viewBox="0 0 24 24"
-                 stroke-width="1.5"
-                 stroke="currentColor"
-                 class="size-6">
-                <path stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-            </svg>
-        </button>
-    </div>
-    <!-- NOTE : Collection & News List &Catalog -->
+    <!-- NOTE : Collection & Inspiration & News List &Catalog -->
     <div class="p-3 md:p-5">
         <div class="max-w-[1440px] mx-auto">
             <!-- ANCHOR : Collection -->
-            <div class="py-10">
-                <p class="text-center text-xs uppercase tracking-wider mb-5">Collections</p>
+            <div class="py-20">
+                <p class="text-center text-xs uppercase tracking-wider">Collections</p>
                 <h2 class="text-center text-3xl tracking-wider mb-5">Signature Selections for Every Style</h2>
-                <!-- sm:grid sm:grid-cols-2 gap-3 my-5 -->
                 <div class="block sm:grid sm:grid-cols-2 gap-3 my-5 collection__wrapper"
                      id="colection-selected"></div>
                 <div class="text-center">
@@ -131,6 +85,35 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                        class='btn-ghost uppercase text-xs tracking-widest'>
                         more collections
                     </a>
+                </div>
+            </div>
+            <!-- ANCHOR : Inspiration -->
+            <div class="py-20">
+                <p class="text-center text-xs uppercase tracking-wider">INSPIRATION</p>
+                <h2 class="text-center text-3xl tracking-wider mb-5">25 Years of Excellence Experience on Outdoor Living</h2>
+                <div class="grid grid-cols-3 gap-1 sm:gap-3 my-5"
+                     id="inspiration-selected"></div>
+                <div class="text-center">
+                    <a href="<?= BASE_LINK ?>/inspiration"
+                       class='btn-ghost uppercase text-xs tracking-widest'>
+                        Get Inspired
+                    </a>
+                </div>
+            </div>
+            <div class="py-20">
+                <div class="flex gap-5 md:flex-row flex-col items-center justify-between">
+                    <div class="max-w-lg">
+                        <p class="text-xs uppercase tracking-wider">MOODS</p>
+                        <h2 class="text-3xl tracking-wider mb-5">Your World, Your Style, Your Outdoors.</h2>
+                        <p class="text-sm mb-5">We believe every outdoor space has a story to tell. It should be as unique as you are. Hence we've curated a diverse collection of furniture styles to complement any outdoor space and reflect your personal taste:</p>
+                        <a href="<?= BASE_LINK ?>/moods"
+                           class='btn-ghost uppercase text-xs tracking-widest'>
+                            EXPLORE MOODS
+                        </a>
+                    </div>
+                    <div class="grid grid-cols-4 gap-3 w-full md:w-3/5"
+                         id="moods-selected">
+                    </div>
                 </div>
             </div>
             <!-- ANCHOR : News List -->
@@ -141,12 +124,14 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                         Our Latest News
                     </h4>
                 </div>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-3 lg:gap-5">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-3 lg:gap-5">
                     <?php foreach ($posts as $post): ?>
                     <div class="news-card flex items-center gap-3 md:block">
-                        <div class="news-image w-1/2 md:w-auto md:h-auto sm:h-[240px] object-cover h-[124px]">
+                        <a class="news-image w-1/2 md:w-auto md:h-auto sm:h-[240px] object-cover h-[124px] relative group hover:cursor-pointer"
+                           href="<?php echo get_permalink($post->ID); ?>">
                             <?php echo get_the_post_thumbnail($post->ID, 'large'); ?>
-                        </div>
+                            <div class="overlay absolute inset-0 bg-gradient-to-b from-transparent to-black/30 invisible group-hover:visible transition duration-300"></div>
+                        </a>
                         <div class="desc w-1/2 md:w-full flex flex-col justify-center">
                             <div class=" overflow-hidden">
                                 <h2 class="text-2xl md:text-3xl tracking-wider md:mb-5">
@@ -209,20 +194,52 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
     <script>
     let selectedCollectionIds = [];
     let filteredCollections = [];
+    let inspirationList = [];
+    let moodList = [];
 
     $(document).ready(function() {
-        $.ajax({
-            url: "<?= BASE_URL; ?>/?rest_route=/wp/v2/selected_collection",
-            type: "GET",
-            success: (res) => {
-                selectedCollectionIds = res.homePageCollection;
+        const fetchData = (url, successCallback, completeCallback) => {
+            $.ajax({
+                url: "<?= BASE_URL; ?>" + url,
+                type: "GET",
+                success: successCallback,
+                error: (xhr, status, error) => {
+                    console.error('Error fetching data:', error);
+                },
+                complete: completeCallback
+            });
+        };
+
+        fetchData(
+            "/?rest_route=/wp/v2/selected_collection",
+            (res) => {
+                selectedCollectionIds = res?.homePageCollection || [];
             },
-            complete: () => {
+            () => {
                 loadCollections();
-                renderProjects();
             }
-        })
-    })
+        );
+
+        fetchData(
+            "/?rest_route=/wp/v2/selected_inspirations",
+            (res) => {
+                inspirationList = (res?.inspirationList || []).filter((e) => (res?.selectedInspirations || []).includes(e.id));
+            },
+            () => {
+                renderInspirations();
+            }
+        );
+
+        fetchData(
+            "/?rest_route=/wp/v2/selected_moods",
+            (res) => {
+                moodList = res || [];
+            },
+            () => {
+                renderMoods();
+            }
+        );
+    });
 
     function loadCollections() {
         $.ajax({
@@ -255,48 +272,6 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
         });
     }
 
-    function renderProjects() {
-        const products = <?php echo file_get_contents(get_template_directory() . '/api/projects.json'); ?>;
-
-        products.forEach((project) => {
-            $('#slider__home').append(`
-                <div class="max-w-screen duration-200 ease-linear mx-2 relative">
-                    <img src="https://storage.googleapis.com/back-bucket/wp_triconville/images/${project.banner}"
-                        class="object-cover w-auto max-w-screen h-[600px]"
-                        alt="${project.name}">
-                    <div class="absolute bottom-10 right-10">
-                        <div class="p-5 text-white flex flex-col sm:justify-end sm:items-end">
-                            <h2 class="text-2xl md:text-3xl text-white tracking-wider">${toTitleCase(project.name)}</h2>
-                        </div>
-                    </div>
-                </div>
-            `)
-        })
-
-        $('.slider__home').slick({
-            slidesToScroll: 1,
-            arrows: false,
-            variableWidth: true,
-            infinite: true,
-            centerMode: true,
-            responsive: [{
-                breakpoint: 768,
-                settings: {
-                    infinite: false,
-                    centerMode: false,
-                    variableWidth: false,
-                    slidesToShow: 1.05,
-                }
-            }]
-        });
-        $(".prev-btn").click(function() {
-            $(".slider__home").slick("slickPrev");
-        });
-        $(".next-btn").click(function() {
-            $(".slider__home").slick("slickNext");
-        });
-    }
-
     function renderCollections(collection) {
         $('#colection-selected').append(`
             <div style="background-image: url(${collection.collection_image_1024});" class="bg-cover bg-no-repeat bg-center h-[300px] sm:h-[365px] sm:mx-0 mx-2 w-auto">
@@ -309,6 +284,34 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                 </a>
             </div>
         `);
+    }
+
+    function renderInspirations() {
+        inspirationList.forEach((inspiration) => {
+            $('#inspiration-selected').append(`
+                <a class="inspiration__card relative" href="${inspiration.link}">
+                    <div class="inspiration__card__overlay absolute inset-0 bg-black bg-opacity-0 group hover:bg-opacity-20 transition duration-300 flex flex-col items-center justify-center">
+                        <img src="https://storage.googleapis.com/back-bucket/wp_triconville/images/icons/Instagram-white.svg" alt="Triconville" class="w-10 h-10 hidden group-hover:block">
+                        <h3 class="text-white font-medium text-center hidden group-hover:block">@triconville</h3>
+                    </div>
+                    <img src="${inspiration.img}" alt="${inspiration.alt}" class="w-full h-full object-contain" />
+                </a>
+            `);
+        })
+    }
+
+    function renderMoods() {
+        moodList.forEach((mood, i) => {
+            $('#moods-selected').append(`
+                <div class="h-[322px] md:h-[462px] w-auto bg-no-repeat bg-center bg-cover gallery-item ${i % 2 !== 0 ? 'mt-10 -mb-10' : ''}"
+                    style="background-image: url('<?php echo esc_attr(get_template_directory_uri()); ?>/assets/${mood.thumb}')">
+                    <a href="<?= BASE_LINK ?>/moods/${mood.slug}"
+                        class="h-full w-full flex items-end justify-end p-5">
+                        <h1 class="text-2xl font-semibold text-end text-white max-w-[260px]">${mood.name}</h1>
+                    </a>
+                </div>
+            `);
+        });
     }
 
     function collectionSlick() {

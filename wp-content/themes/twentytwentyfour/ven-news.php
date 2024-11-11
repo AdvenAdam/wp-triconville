@@ -7,8 +7,26 @@ Template Post Type: post, page, event
 // Include your custom header
 get_template_part('header-custom');
 ?>
+<style>
+.news-image img {
+    height: 300px !important;
+    width: 100% !important;
+    object-fit: cover;
+}
 
-<div class="px-3 md:px-5">
+@media (max-width: 768px) {
+    .news-image img {
+        height: 230px !important;
+    }
+}
+
+@media (max-width: 640px) {
+    .news-image img {
+        height: 130px !important;
+    }
+}
+</style>
+<div class="px-3 md:px-5 mt-20">
     <div class="max-w-[1440px] mx-auto">
         <div class="inline-flex gap-1 items-center mb-5">
             <svg xmlns="http://www.w3.org/2000/svg"

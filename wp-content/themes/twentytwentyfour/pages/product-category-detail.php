@@ -14,10 +14,9 @@ get_template_part('header-custom');
     background-position: center;
 }
 </style>
-<div class="content-container overflow-hidden">
-
+<div class="content-container overflow-hidden mt-20">
     <!-- NOTE: Banner -->
-    <div class="product-detail-banner">
+    <div class="product-detail-banner mt-10">
         <div class="flex items-center justify-center min-h-full bg-black bg-opacity-35">
             <h1 class="text-4xl font-extrabold text-center tracking-wider text-white uppercase"
                 id="category__name"></h1>
@@ -93,7 +92,7 @@ function metaMaster() {
 
 function renderMaster() {
     try {
-        $('.product-detail-banner').css('background-image', `url("https://storage.googleapis.com/back-bucket/wp_triconville/images/category/banner/${categoriesData.image}")`);
+        $('.product-detail-banner').css('background-image', `url("${categoriesData.image}")`);
         $('#category__name').text(categoriesData.name);
         $('#category__name-title').text(`Explore Our Outdoor ${categoriesData.name}`);
 

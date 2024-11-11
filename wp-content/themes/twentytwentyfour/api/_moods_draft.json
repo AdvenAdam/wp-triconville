@@ -1,0 +1,126 @@
+[
+  {
+    "id": 1,
+    "name": "Dune Essence",
+    "slug": "dune-essence",
+    "thumb": "images/moods/dune-essence/dune-essence.png",
+    "banner": "images/moods/dune-essence/dune-essence-banner.png",
+    "desc": "Discover the perfect mix of old and new. Amble past impressive art deco houses surrounded by landscaped gardens or take a stroll in one of the many flower-filled city parks. Enjoy a day on the harbour connect with the cultural offering in a city that never sleeps. Come together in electrifying places to enjoy sparkling diversions. Find yourself seated under lush plane trees, on lavish rooftop terraces in a sphere of constant animation. Surrender to the sights and sounds of the moment.",
+    "color": "#4C7B6F",
+    "subTitle": {
+      "title": "Embrace the urban vibe: chill, comfy and vibrant. Explore the grandeur and excitement of city life, with its grand boulevards, open squares and dazzling architecture.",
+      "subImage": "images/moods/dune-essence/dune-essence-sub.png"
+    },
+    "materials": {
+      "desc": "Characterised by the fusion of robust materials with royal nautical colours, your poolside furniture is sure to inspire and catalyse. Finish off your light metallic or white frame with silver ropes or aluminium that match with minimalist surroundings and pearly white, concrete settings. Or, opt for the lava variant for a more sophisticated flair. <br/> <br/> Add a contrasting black teak nero tabletop or choose Carrara white marble for a more diffused effect, paired with an umbrella designed to both shade and attract the eyes. Stretch your legs over generous, luxurious poufs, or rest with cool glass in hand on a matching stool. Sofa and lounge chair cushions come in nautical, leather or white varieties. Complete your outdoor pool deck look with stylish accent lighting and blue-tinted accessories.",
+      "image": "images/moods/dune-essence/dune-essence-materials.png"
+    },
+    "relatedProjects": [
+      {
+        "id": 1,
+        "title": "Soaking in The Summer Warmth",
+        "location": "One & Only Resort Desaru",
+        "thumb": "images/moods/dune-essence/dune-essence-project-1.png"
+      },
+      {
+        "id": 2,
+        "title": "Unwind in the Sun-Kissed Lounge",
+        "location": "SS Family Villa",
+        "thumb": "images/moods/dune-essence/dune-essence-project-2.png"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Leafscape",
+    "slug": "leafscape",
+    "thumb": "images/moods/leafscape/Leafscape.png",
+    "banner": "images/moods/leafscape/leafscape-banner.png",
+    "desc": "Discover the perfect mix of old and new. Amble past impressive art deco houses surrounded by landscaped gardens or take a stroll in one of the many flower-filled city parks. Enjoy a day on the harbour connect with the cultural offering in a city that never sleeps. Come together in electrifying places to enjoy sparkling diversions. Find yourself seated under lush plane trees, on lavish rooftop terraces in a sphere of constant animation. Surrender to the sights and sounds of the moment.",
+    "color": "#2E8A99",
+    "subTitle": {
+      "title": "Embrace the urban vibe: chill, comfy and vibrant. Explore the grandeur and excitement of city life, with its grand boulevards, open squares and dazzling architecture.",
+      "subImage": "images/moods/leafscape/leafscape-sub.png"
+    },
+    "materials": {
+      "desc": "Characterised by the fusion of robust materials with royal nautical colours, your poolside furniture is sure to inspire and catalyse. Finish off your light metallic or white frame with silver ropes or aluminium that match with minimalist surroundings and pearly white, concrete settings. Or, opt for the lava variant for a more sophisticated flair. <br/> <br/> Add a contrasting black teak nero tabletop or choose Carrara white marble for a more diffused effect, paired with an umbrella designed to both shade and attract the eyes. Stretch your legs over generous, luxurious poufs, or rest with cool glass in hand on a matching stool. Sofa and lounge chair cushions come in nautical, leather or white varieties. Complete your outdoor pool deck look with stylish accent lighting and blue-tinted accessories.",
+      "image": "images/moods/leafscape/leafscape-materials.png"
+    },
+    "relatedProjects": [
+      {
+        "id": 1,
+        "title": "Soaking in The Summer Warmth",
+        "location": "One & Only Resort Desaru",
+        "thumb": "images/moods/leafscape/leafscape-project-1.png"
+      },
+      {
+        "id": 2,
+        "title": "Unwind in the Sun-Kissed Lounge",
+        "location": "SS Family Villa",
+        "thumb": "images/moods/leafscape/leafscape-project-2.png"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Coastal Bliss",
+    "slug": "coastal-bliss",
+    "thumb": "images/moods/coastal-bliss/Coastal-bliss.png",
+    "banner": "images/moods/coastal-bliss/coastal-bliss-banner.png",
+    "desc": "Discover the perfect mix of old and new. Amble past impressive art deco houses surrounded by landscaped gardens or take a stroll in one of the many flower-filled city parks. Enjoy a day on the harbour connect with the cultural offering in a city that never sleeps. Come together in electrifying places to enjoy sparkling diversions. Find yourself seated under lush plane trees, on lavish rooftop terraces in a sphere of constant animation. Surrender to the sights and sounds of the moment.",
+    "color": "#FAD6A5",
+    "subTitle": {
+      "title": "Embrace the urban vibe: chill, comfy and vibrant. Explore the grandeur and excitement of city life, with its grand boulevards, open squares and dazzling architecture.",
+      "subImage": "images/moods/coastal-bliss/coastal-bliss-sub.png"
+    },
+    "materials": {
+      "desc": "Characterised by the fusion of robust materials with royal nautical colours, your poolside furniture is sure to inspire and catalyse. Finish off your light metallic or white frame with silver ropes or aluminium that match with minimalist surroundings and pearly white, concrete settings. Or, opt for the lava variant for a more sophisticated flair. <br/> <br/> Add a contrasting black teak nero tabletop or choose Carrara white marble for a more diffused effect, paired with an umbrella designed to both shade and attract the eyes. Stretch your legs over generous, luxurious poufs, or rest with cool glass in hand on a matching stool. Sofa and lounge chair cushions come in nautical, leather or white varieties. Complete your outdoor pool deck look with stylish accent lighting and blue-tinted accessories.",
+      "image": "images/moods/coastal-bliss/coastal-bliss-materials.png"
+    },
+    "relatedProjects": [
+      {
+        "id": 1,
+        "title": "Soaking in The Summer Warmth",
+        "location": "One & Only Resort Desaru",
+        "thumb": "images/moods/coastal-bliss/coastal-bliss-project-1.png"
+      },
+      {
+        "id": 2,
+        "title": "Unwind in the Sun-Kissed Lounge",
+        "location": "SS Family Villa",
+        "thumb": "images/moods/coastal-bliss/coastal-bliss-project-2.png"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Bare Essence",
+    "slug": "bare-essence",
+    "thumb": "images/moods/bare-essence/Bare-essence.png",
+    "banner": "images/moods/bare-essence/bare-essence-banner.png",
+    "desc": "Discover the perfect mix of old and new. Amble past impressive art deco houses surrounded by landscaped gardens or take a stroll in one of the many flower-filled city parks. Enjoy a day on the harbour connect with the cultural offering in a city that never sleeps. Come together in electrifying places to enjoy sparkling diversions. Find yourself seated under lush plane trees, on lavish rooftop terraces in a sphere of constant animation. Surrender to the sights and sounds of the moment.",
+    "color": "#F2B07C",
+    "subTitle": {
+      "title": "Embrace the urban vibe: chill, comfy and vibrant. Explore the grandeur and excitement of city life, with its grand boulevards, open squares and dazzling architecture.",
+      "subImage": "images/moods/bare-essence/bare-essence-sub.png"
+    },
+    "materials": {
+      "desc": "Characterised by the fusion of robust materials with royal nautical colours, your poolside furniture is sure to inspire and catalyse. Finish off your light metallic or white frame with silver ropes or aluminium that match with minimalist surroundings and pearly white, concrete settings. Or, opt for the lava variant for a more sophisticated flair. <br/> <br/> Add a contrasting black teak nero tabletop or choose Carrara white marble for a more diffused effect, paired with an umbrella designed to both shade and attract the eyes. Stretch your legs over generous, luxurious poufs, or rest with cool glass in hand on a matching stool. Sofa and lounge chair cushions come in nautical, leather or white varieties. Complete your outdoor pool deck look with stylish accent lighting and blue-tinted accessories.",
+      "image": "images/moods/bare-essence/bare-essence-materials.png"
+    },
+    "relatedProjects": [
+      {
+        "id": 1,
+        "title": "Soaking in The Summer Warmth",
+        "location": "One & Only Resort Desaru",
+        "thumb": "images/moods/bare-essence/bare-essence-project-1.png"
+      },
+      {
+        "id": 2,
+        "title": "Unwind in the Sun-Kissed Lounge",
+        "location": "SS Family Villa",
+        "thumb": "images/moods/bare-essence/bare-essence-project-2.png"
+      }
+    ]
+  }
+]

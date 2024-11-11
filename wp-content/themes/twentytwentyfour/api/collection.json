@@ -112,7 +112,6 @@
       "image_banner": "collection/banner-list/gera-tables-benches.jpg",
       "image_grid": "collection/grid/gera-tables-benches.jpg"
     },
-
     {
       "id": 15,
       "name": "Planka Aluminium Tables",
@@ -120,6 +119,14 @@
       "collection_id": 18,
       "image_banner": "collection/banner-list/planka.png",
       "image_grid": "collection/grid/planka.png"
+    },
+    {
+      "id": 16,
+      "name": "Gazelig",
+      "display_name": "Gazelig",
+      "collection_id": 14,
+      "image_banner": "collection/banner-list/gazelig.jpg",
+      "image_grid": "collection/grid/gazelig.png"
     }
   ],
   "homePageCollection": [19, 13, 33, 28]

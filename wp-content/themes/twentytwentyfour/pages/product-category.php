@@ -17,21 +17,19 @@ get_template_part('header-custom');
 }
 </style>
 <div class="content-container">
-
     <div class="product-header w-full">
         <div class="flex items-center justify-center min-h-full bg-black bg-opacity-25">
             <h1 class="text-3xl md:text-4xl font-medium text-center tracking-wider text-white">PRODUCTS</h1>
         </div>
     </div>
-    <h2 class="text-center uppercase text-2xl tracking-wider my-10">
-        Explore Our Outdoor
-        Product Range
-    </h2>
     <!-- NOTE : PRODUCT LIST -->
-    <div class="md:p-5 p-3 my-10">
+    <div class="md:p-5 p-3 my-20">
+        <h2 class="text-center uppercase text-2xl tracking-wider my-10">
+            Explore Our Outdoor
+            Product Range
+        </h2>
         <div class="max-w-[1440px] mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 md:gap-3"
              id="product__list">
-
         </div>
 
     </div>
@@ -66,7 +64,7 @@ $(document).ready(function() {
 function renderProducts(e) {
     $('#product__list').append(`
         <a href= "<?= BASE_LINK; ?>/products/${e.slug}">
-            <img class="w-full h-full object-cover md:object-contain" src="https://storage.googleapis.com/back-bucket/wp_triconville/images/category/${e.thumb}" />
+            <img class="w-full h-full object-cover md:object-contain" src="${e.thumb}" />
             <p class="text-xs md:text-sm uppercase font-medium text-center md:-mt-5">${e.name}</p>
         </a>
     `);
