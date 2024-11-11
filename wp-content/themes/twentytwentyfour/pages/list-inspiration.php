@@ -82,7 +82,7 @@ let timeout;
 
 $(document).ready(function() {
     $.ajax({
-        url: "<?= BASE_URL; ?> /?rest_route=/wp/v2/selected_inspirations ",
+        url: "<?= BASE_URL; ?>/?rest_route=/wp/v2/selected_inspirations ",
         type: "GET",
         beforeSend: () => {
             $('#page-loading').show();
