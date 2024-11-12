@@ -49,19 +49,16 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
     <div class="p-3 md:p-5">
         <div class="max-w-[1440px] mx-auto">
             <div class="grid md:grid-cols-2 items-center my-20">
-                <div class="txt max-w-xl md:text-justify py-5">
-                    <p class="uppercase text-xs tracking-widest">our story</p>
-                    <h2 class='text-2xl md:text-3xl tracking-wide'>
+                <div class="txt max-w-xl py-5">
+                    <h2 class='text-2xl md:text-3xl'>
                         20 Years of Excellence Experience on Outdoor Living
                     </h2>
-                    <p class="tracking-wider text-sm my-5">
-                        In line with cutting-edge design trends, Triconville manufactures furniture that is beautiful yet functional,
-                        versatile products, for outdoors. And all combined in an excellence that guides Triconville towards new solutions for
-                        the world of architecture and hospitality.
+                    <p class="tracking-wider text-sm mt-3 mb-12">
+                        For decades, Triconville has grown steadily, rooted in core values that honor tradition, quality, and integrity, and guided by a global vision—bringing timeless, handcrafted pieces to homes and spaces around the world.
                     </p>
                     <a href="<?= BASE_LINK ?>/about-us"
                        class='btn-ghost uppercase tracking-widest text-xs'>
-                        our story
+                        learn about our Brand
                     </a>
                 </div>
                 <div class="image">
@@ -76,22 +73,22 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
         <div class="max-w-[1440px] mx-auto">
             <!-- ANCHOR : Collection -->
             <div class="py-20">
-                <p class="text-center text-xs uppercase tracking-wider">Collections</p>
-                <h2 class="text-center text-3xl tracking-wider mb-5">Signature Selections for Every Style</h2>
-                <div class="block sm:grid sm:grid-cols-2 gap-3 my-5 collection__wrapper"
+                <p class="text-center text-xs uppercase tracking-widest mb-2">Collections</p>
+                <h2 class="text-center text-3xl mb-5">Signature Selections for Every Style</h2>
+                <div class="block sm:grid sm:grid-cols-2 gap-3 mt-5 mb-10 collection__wrapper"
                      id="colection-selected"></div>
                 <div class="text-center">
                     <a href="<?= BASE_LINK ?>/collections"
                        class='btn-ghost uppercase text-xs tracking-widest'>
-                        more collections
+                        all collections
                     </a>
                 </div>
             </div>
             <!-- ANCHOR : Inspiration -->
             <div class="py-20">
-                <p class="text-center text-xs uppercase tracking-wider">INSPIRATION</p>
-                <h2 class="text-center text-3xl tracking-wider mb-5">25 Years of Excellence Experience on Outdoor Living</h2>
-                <div class="grid grid-cols-3 gap-1 sm:gap-3 my-5"
+                <p class="text-center text-xs uppercase tracking-widest mb-2">INSPIRATION</p>
+                <h2 class="text-center text-3xl mb-5">The Art of Living</h2>
+                <div class="grid grid-cols-3 gap-1 sm:gap-3 mt-5 mb-10"
                      id="inspiration-selected"></div>
                 <div class="text-center">
                     <a href="<?= BASE_LINK ?>/inspiration"
@@ -100,12 +97,13 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                     </a>
                 </div>
             </div>
+            <!-- ANCHOR : Moods  -->
             <div class="py-20">
-                <div class="flex gap-5 md:flex-row flex-col items-center justify-between">
+                <div class="flex gap-5 lg:flex-row flex-col items-center justify-between">
                     <div class="max-w-lg">
-                        <p class="text-xs uppercase tracking-wider">MOODS</p>
-                        <h2 class="text-3xl tracking-wider mb-5">Your World, Your Style, Your Outdoors.</h2>
-                        <p class="text-sm mb-5">We believe every outdoor space has a story to tell. It should be as unique as you are. Hence we've curated a diverse collection of furniture styles to complement any outdoor space and reflect your personal taste:</p>
+                        <p class="text-xs uppercase tracking-widest mb-2">MOODS</p>
+                        <h2 class="text-3xl">Your World, Your Style, Your Outdoors.</h2>
+                        <p class="text-sm mt-3 mb-10">We believe every outdoor space has a story to tell. It should be as unique as you are. Hence we've curated a diverse collection of furniture styles to complement any outdoor space and reflect your personal taste:</p>
                         <a href="<?= BASE_LINK ?>/moods"
                            class='btn-ghost uppercase text-xs tracking-widest'>
                             EXPLORE MOODS
@@ -119,8 +117,8 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
             <!-- ANCHOR : News List -->
             <div class="py-10">
                 <div class="text-center mx-auto max-w-2xl mb-5">
-                    <p class="uppercase tracking-widest text-xs">news </p>
-                    <h4 class="text-2xl md:text-3xl tracking-wider">
+                    <p class="uppercase tracking-widest text-xs mb-2">news </p>
+                    <h4 class="text-2xl md:text-3xl ">
                         Our Latest News
                     </h4>
                 </div>
@@ -132,23 +130,21 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                             <?php echo get_the_post_thumbnail($post->ID, 'large'); ?>
                             <div class="overlay absolute inset-0 bg-gradient-to-b from-transparent to-black/30 invisible group-hover:visible transition duration-300"></div>
                         </a>
-                        <div class="desc w-1/2 md:w-full flex flex-col justify-center">
-                            <div class=" overflow-hidden">
-                                <h2 class="text-2xl md:text-3xl tracking-wider md:mb-5">
+                        <div class="desc w-1/2 md:w-[95%] flex flex-col justify-center">
+                            <div class="h-20 overflow-hidden">
+                                <h2 class="text-2xl md:mb-5 md:mt-3">
                                     <a href="<?php echo get_permalink($post->ID); ?>"
-                                       class="hover:underline line-clamp-2 md:line-clamp-1">
+                                       class="hover:underline line-clamp-2">
                                         <?php echo get_the_title($post->ID); ?>
                                     </a>
                                 </h2>
                             </div>
                             <div class="md:mb-10">
-                                <p class=" text-sm tracking-wider line-clamp-2">
+                                <p class=" text-sm tracking-wider line-clamp-2 md:line-clamp-3">
                                     <?php echo get_the_excerpt($post->ID); ?>
                                 </p>
                             </div>
-
                         </div>
-
                     </div>
                     <?php  endforeach; ?>
                 </div>
@@ -158,18 +154,17 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                 </div>
             </div>
             <!-- ANCHOR : Catalog -->
-            <div class="py-10">
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 my-5">
+            <div class="py-20">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-20 my-5">
                     <div class="">
                         <img src="<?= BASE_LINK ?>/wp-content/uploads/2024/09/our-story.png"
                              class="w-auto h-auto object-cover" />
                     </div>
-
                     <div class="flex justify-center items-center p-3 md:p-5">
-                        <div class="md:p-5">
-                            <p class="uppercase text-xs tracking-widest">catalog</p>
-                            <h2 class="text-3xl tracking-wider">Triconville - 2024 Catalog</h2>
-                            <p class="text-sm text-justify tracking-wider mb-5">
+                        <div class="">
+                            <p class="uppercase text-xs tracking-widest mb-2">catalog</p>
+                            <h2 class="text-3xl">Triconville - 2024 Catalog</h2>
+                            <p class="text-sm tracking-wider mt-3 mb-12">
                                 Discover an unrivaled selection of luxuriant designs from Triconville. Brought to life with captivating imagery,
                                 the 2024 Triconville catalogue is a go-to resource for inspiration and information. Qualified trade members can
                                 reserve a copy by filling out the form below.
@@ -277,7 +272,7 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
             <div style="background-image: url(${collection.collection_image_1024});" class="bg-cover bg-no-repeat bg-center h-[300px] sm:h-[365px] sm:mx-0 mx-2 w-auto">
                 <a href= "<?= BASE_LINK; ?>/collections/${slugify(collection.name)}">
                     <div class=" sm:h-full sm:w-full h-[65vh] w-[calc(100vw-20px)] flex items-end p-5 mx-2">
-                        <h1 class="text-5xl text-white line-clamp-2 max-w-xs">
+                        <h1 class="text-3xl md:text-5xl text-white max-w-md">
                             ${collection.name}
                         </h1>
                     </div>
@@ -305,10 +300,9 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
             $('#moods-selected').append(`
                 <div class="h-[322px] md:h-[462px] w-auto bg-no-repeat bg-center bg-cover gallery-item ${i % 2 !== 0 ? 'mt-10 -mb-10' : ''}"
                     style="background-image: url('<?php echo esc_attr(get_template_directory_uri()); ?>/assets/${mood.thumb}')">
-                    <a href="<?= BASE_LINK ?>/moods/${mood.slug}"
-                        class="h-full w-full flex items-end justify-end p-5">
-                        <h1 class="text-2xl font-semibold text-end text-white max-w-[260px]">${mood.name}</h1>
-                    </a>
+                    <div class="h-full w-full flex items-end justify-end p-5">
+                        <h2 class="invisible sm:visible text-xl xl:text-2xl font-semibold text-end text-white max-w-[260px]">${mood.name}</h2>
+                    </div>
                 </div>
             `);
         });
