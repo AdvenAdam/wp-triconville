@@ -3,20 +3,20 @@
          style="background-image: url(https://storage.googleapis.com/back-bucket/wp_triconville/images/store/store-banner.jpeg)">
         <div class="bg-black bg-opacity-20 h-full w-full flex items-center justify-start px-3 md:px-5">
             <a href="<?= BASE_LINK; ?>/find-a-store/"
-               class="flex items-center w-full gap-3 group max-w-[1440px] mx-auto">
-                <h1 class="text-3xl md:text-5xl md:text-center uppercase font-medium tracking-wide text-white group-hover:underline">
-                    find the nearest store
+               class="flex items-center w-full gap-3 max-w-[1440px] mx-auto">
+                <h1 class="text-3xl md:text-5xl md:text-center font-medium text-white">
+                    Find The Nearest Store
                 </h1>
-                <svg xmlns="http://www.w3.org/2000/svg"
+                <svg width="101"
+                     height="16"
+                     viewBox="0 0 101 16"
+                     class="pt-2"
                      fill="none"
-                     viewBox="0 0 24 24"
-                     stroke-width="1.5"
-                     stroke="currentColor"
-                     class="size-12 text-white hidden md:block group-hover:translate-x-2 transition duration-300">
-                    <path stroke-linecap="round"
-                          stroke-linejoin="round"
-                          d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" />
+                     xmlns="http://www.w3.org/2000/svg">
+                    <path d="M100.707 8.70711C101.098 8.31658 101.098 7.68342 100.707 7.29289L94.3431 0.928932C93.9526 0.538408 93.3195 0.538408 92.9289 0.928932C92.5384 1.31946 92.5384 1.95262 92.9289 2.34315L98.5858 8L92.9289 13.6569C92.5384 14.0474 92.5384 14.6805 92.9289 15.0711C93.3195 15.4616 93.9526 15.4616 94.3431 15.0711L100.707 8.70711ZM0 9H100V7H0V9Z"
+                          fill="white" />
                 </svg>
+
 
             </a>
         </div>
@@ -25,9 +25,9 @@
          style="background-image: url(https://storage.googleapis.com/back-bucket/wp_triconville/images/store/footer.png)">
         <div class="py-10 md:px-5 px-3 bg-[#F4F6F6] bg-opacity-85">
             <div class="max-w-[1440px] mx-auto ">
-                <div class="w-full md:flex">
-                    <div class="md:w-3/5 w-full">
-                        <div class="grid grid-cols-2 sm:grid-cols-4  tracking-wide gap-3">
+                <div class="w-full md:flex gap-10">
+                    <div class="md:w-2/3 w-full">
+                        <div class="grid grid-cols-2 md:grid-cols-5 gap-3 tracking-wide">
                             <div class="about w-full md:p-3">
                                 <p class='mb-3 uppercase text-sm font-bold tracking-widest'>Triconville</p>
                                 <p class='text-sm py-1'>
@@ -54,7 +54,7 @@
                                  id="moods-categories-footer">
                                 <p class='mb-3 uppercase text-sm font-bold tracking-widest'>moods</p>
                             </div>
-                            <div class="about w-full md:p-3">
+                            <div class="about w-full md:p-3 md:col-span-2">
                                 <p class='mb-3 font-bold text-sm uppercase tracking-widest'>triconville head office</p>
                                 <p class='md:mb-3 text-sm'>Jl.Bukit Panorama no.6, <br />
                                     Kota Semarang, Jawa Tengah,<br /> Indonesia 50274</p>
@@ -103,7 +103,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="md:w-2/5 w-full pt-10 md:pt-3 md:p-3">
+                    <div class="md:w-1/3 w-full pt-10 md:pt-3 md:p-3">
                         <p class='font-bold uppercase tracking-widest'>newsletter</p>
                         <p>Sign up to our newsletter</p>
                         <div class="form mt-5">

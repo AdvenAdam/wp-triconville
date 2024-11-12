@@ -55,13 +55,17 @@
         border: none !important;
         width: 50px;
     }
+
+    .gt_selector::after {
+        content: "" !important;
+    }
     </style>
 </head>
 
 <body <?php body_class(); ?>>
-    <header class="header fixed w-full top-0 tracking-widest "
+    <header class="header fixed w-full top-0 tracking-widest"
             style="z-index: 20;">
-        <nav class="flex items-center justify-between md:px-5 px-3 w-full min-h-20 bg-white">
+        <nav class="flex items-center justify-between sm:px-5 lg:px-20 px-3 w-full min-h-20 bg-white">
             <div class="flex justify-center">
                 <a href="<?php echo home_url(); ?>">
                     <img src="<?= BASE_LINK ?>/wp-content/uploads/2024/09/Logo-Blue-Resized-1.png"
@@ -70,17 +74,29 @@
                 </a>
             </div>
 
-            <div class="flex items-center justify-end gap-2">
+            <div class="flex items-center justify-end pt-4 gap-5 lg:gap-10">
                 <div id="navbar_menu_category"
-                     class='md:flex hidden '>
+                     class='md:flex hidden'>
                 </div>
                 <!-- Note : Login -->
-                <div class="hidden md:flex items-center">
-                    <div class="px-3 pb-1 text-xs uppercase outline-none hover:text-cyan-500">
+                <div class="hidden md:flex items-center gap-3">
+                    <div class="pb-1 text-xs uppercase outline-none text-[#4D4D4D] hover:text-cyan-500">
                         <?php echo do_shortcode('[gtranslate]') ?>
                     </div>
-                    <a href="https://indospaceb2b.com/">
-                        <p class="px-3 text-xs uppercase hover:text-cyan-500">B2B Login</p>
+                    <a href="https://indospaceb2b.com/"
+                       class="flex gap-1 items-center group-hover:text-cyan-500 pb-1">
+                        <p class="text-xs uppercase pt-3 pb-2">B2B Login</p>
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                             fill="none"
+                             viewBox="0 0 24 24"
+                             stroke-width="1.5"
+                             stroke="currentColor"
+                             class="size-4">
+                            <path stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                  d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+                        </svg>
+
                     </a>
                 </div>
                 <!-- NOTE : Drawer -->
@@ -89,7 +105,7 @@
                         data-drawer-target="drawer-navigation"
                         data-drawer-show="drawer-navigation"
                         aria-controls="drawer-navigation">
-                    <p class="text-xs font-medium group-hover:text-cyan-500 pt-1 ">Menu</p>
+                    <p class="text-xs font-medium group-hover:text-cyan-500 pt-1">Menu</p>
                     <svg xmlns="http://www.w3.org/2000/svg"
                          fill="none"
                          viewBox="0 0 24 24"
@@ -103,14 +119,14 @@
                 </button>
             </div>
         </nav>
-        <div class="w-full md:px-5 px-3 py-3 bg-[#F4F6F6] opacity-0 invisible transition-opacity duration-500 ease-in-out fixed top-20"
+        <nav class="w-full sm:px-5 lg:px-20 px-3 py-3 bg-[#F4F6F6] opacity-0 invisible transition-opacity duration-500 ease-in-out fixed top-20"
              style="z-index: 2;"
              id="sub-header">
             <div class="flex w-full justify-end uppercase text-xs"
                  id="sub-inspiration-desktop">
             </div>
-        </div>
-        <div class="w-full md:px-5 px-3 py-3 bg-[#F4F6F6] opacity-0 invisible transition-opacity duration-500 ease-in-out fixed top-20"
+        </nav>
+        <nav class="w-full sm:px-5 lg:px-20 px-3 py-3 bg-[#F4F6F6] opacity-0 invisible transition-opacity duration-500 ease-in-out fixed top-20"
              style="z-index: 1;"
              id="sub-products">
             <div class="uppercase text-xs">
@@ -119,8 +135,8 @@
 
                 </div>
             </div>
-        </div>
-        <div class="w-full md:px-5 px-3 py-3 bg-[#F4F6F6] opacity-0 invisible transition-opacity duration-500 ease-in-out fixed top-20"
+        </nav>
+        <nav class="w-full sm:px-5 lg:px-20 px-3 py-3 bg-[#F4F6F6] opacity-0 invisible transition-opacity duration-500 ease-in-out fixed top-20"
              style="z-index: 1;"
              id="sub-collections">
             <div class="uppercase text-xs">
@@ -129,7 +145,7 @@
 
                 </div>
             </div>
-        </div>
+        </nav>
     </header>
     <!-- drawer component -->
     <div id="drawer-navigation"
@@ -251,8 +267,8 @@
 
         // Append main link to the navbar menu
         $('#navbar_menu_category').append(`
-            <a href="${menu.href}" id="${slugify(menu.name)}-link" class="flex py-6 px-2 gap-2 items-center text-gray-900 hover:text-cyan-500">
-                <p class="uppercase text-xs">${menu.name}</p>
+            <a href="${menu.href}" class="flex py-6 px-2 gap-2 items-center">
+                <p class="uppercase text-xs hover:text-cyan-500" id="${slugify(menu.name)}-link">${menu.name}</p>
             </a>
         `);
 

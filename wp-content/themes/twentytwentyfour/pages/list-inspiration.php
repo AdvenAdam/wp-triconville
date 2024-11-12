@@ -16,41 +16,6 @@ body {
 /* ::-webkit-scrollbar {
     display: none;
 } */
-
-.slick-dots {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 0.5rem;
-    padding: 0.5rem;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: 10%;
-    list-style-type: none;
-    background-color: rgba(255, 255, 255, 0.3);
-    border-radius: 16px;
-    backdrop-filter: blur(4px);
-
-    li {
-        margin: 0 0.25rem;
-    }
-
-    button {
-        display: block;
-        width: 0.5rem;
-        height: 0.5rem;
-        padding: 0;
-        border: none;
-        border-radius: 100%;
-        background-color: rgba(0, 0, 0, 0.3);
-        text-indent: -9999px;
-    }
-
-    li.slick-active button {
-        background-color: black;
-    }
-
-}
 </style>
 
 <div class="content-container mt-20">
@@ -92,7 +57,7 @@ $(document).ready(function() {
         },
         error: function(xhr, status, error) {
             if (xhr.status === 404) {
-                // redirectError(404)
+                redirectError(404)
             }
             console.error('Error fetching data:', error);
         },
@@ -106,7 +71,7 @@ function renderMaster() {
     try {
         renderInspirations()
     } catch (error) {
-        // redirectError()
+        redirectError()
         console.error("Error Rendering data:", error)
     } finally {
         $('#page-loading').hide();
