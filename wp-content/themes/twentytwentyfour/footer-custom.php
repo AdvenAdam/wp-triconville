@@ -1,3 +1,20 @@
+<style>
+/* NOTE : Custom Scroll to Top */
+.scroll-top-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 0px;
+    padding: 10px 15px;
+    background-color: rgba(0, 0, 0, 0.4);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    z-index: 1;
+    display: block;
+    /* Initially hidden */
+}
+</style>
+
 <footer class="w-full footer ">
     <div class="flex max-h-[250px] h-[30vh]  bg-cover bg-center bg-no-repeat snap-center snap-always"
          style="background-image: url(https://storage.googleapis.com/back-bucket/wp_triconville/images/store/store-banner.jpeg)">
@@ -206,6 +223,20 @@
         </div>
     </div>
 </footer>
+<a aria-label="Scroll to the top of the page"
+   id="scroll-top-btn"
+   class="!p-2 btn-ghost-dark fixed bottom-5 right-5 z-10 cursor-pointer invisible ">
+    <svg xmlns="http://www.w3.org/2000/svg"
+         fill="none"
+         viewBox="0 0 24 24"
+         stroke-width="1.5"
+         stroke="currentColor"
+         class="size-5">
+        <path stroke-linecap="round"
+              stroke-linejoin="round"
+              d="m4.5 15.75 7.5-7.5 7.5 7.5" />
+    </svg>
+</a>
 
 <script>
 $(document).ready(function() {
@@ -286,6 +317,37 @@ $(document).ready(function() {
 
     }
 });
+
+
+// NOTE : Scroll to Top
+const url = window.location.href;
+const magnetic__container = document.getElementById("magnetic__container");
+const isMagnetic = (url.includes("about-us") || url.includes("collections")) && magnetic__container;
+
+var scrollTopButton = document.getElementById("scroll-top-btn");
+if (isMagnetic) {
+    magnetic__container.addEventListener("scroll", function() {
+        scrollTopButton.style.visibility = this.scrollTop > 0 ? "visible" : "hidden";
+    });
+    scrollTopButton.addEventListener("click", function() {
+        magnetic__container.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+        this.style.visibility = "hidden";
+    });
+} else {
+    window.addEventListener("wheel", function() {
+        scrollTopButton.style.visibility = window.scrollY > 0 ? "visible" : "hidden";
+    });
+    scrollTopButton.addEventListener("click", function() {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+        this.style.visibility = "hidden";
+    });
+}
 </script>
 
 <!-- START - We recommend to place the below code in footer or bottom of your website html  -->
