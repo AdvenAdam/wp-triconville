@@ -8,12 +8,9 @@ get_template_part('header-custom');
 body {
     overscroll-behavior-y: contain;
 }
-
-::-webkit-scrollbar {
-    display: none;
-}
 </style>
-<div class="content-container scroll-smooth overflow-x-hidden mt-20">
+<div class="content-container scroll-smooth overflow-x-hidden mt-20"
+     id="magnetic__container">
     <!-- NOTE: Banner -->
     <div class="min-h-[40vh] flex flex-col justify-center  px-3 md:px-5 snap-always snap-start">
         <h1 class="text-3xl md:text-5xl font-medium text-center uppercase ">triconville collections</h1>
@@ -62,7 +59,7 @@ body {
         </div>
     </div>
     <div id="list__collections"
-         class='md:mt-16 scrollbar-none'>
+         class='md:mt-16 '>
     </div>
     <div id="page-loading">
         <div class="three-balls">
@@ -130,7 +127,7 @@ function changeView(type) {
     count = 0;
     $('.view-button button').removeClass('btn-ghost-dark').addClass('btn-ghost');
     if (type == 'grid') {
-        $('.content-container').removeClass('snap-y snap-mandatory overflow-y-scroll h-screen scrollbar-none')
+        $('.content-container').removeClass('snap-y snap-mandatory overflow-y-scroll h-screen ')
         $('#grid-container').show();
         $('#grid-button').removeClass('btn-ghost').addClass('btn-ghost-dark');
         sortedCollection.forEach((e, index) => renderCollections(e, index, 'grid'));
@@ -168,7 +165,7 @@ function renderCollections(e, index, type = 'grid') {
             </a>
         `);
     } else if (type == 'list') {
-        $('.content-container').addClass('snap-y snap-mandatory transition duration-500 ease-in-out overflow-y-scroll full-screen scrollbar-none')
+        $('.content-container').addClass('snap-y snap-mandatory transition duration-500 ease-in-out overflow-y-scroll full-screen ')
         $('.content-container').on('wheel', onscrollHandler);
         $('#grid__collections').empty();
         $('#list__collections').append(`
