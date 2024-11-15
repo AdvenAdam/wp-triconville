@@ -5,8 +5,7 @@ Template Name: Homepage
 get_template_part('header-custom');
 
 // get latest 3 news
-$posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&category_name=newsroom');
-
+$posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&category_name=news');
 ?>
 <style>
 .homepage-banner {

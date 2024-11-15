@@ -26,7 +26,7 @@ get_template_part('header-custom');
     }
 }
 </style>
-<div class="px-3 md:px-5 mt-20">
+<div class="px-3 md:px-5 mt-36">
     <div class="max-w-[1440px] mx-auto">
         <div class="inline-flex gap-1 items-center mb-5">
             <svg xmlns="http://www.w3.org/2000/svg"
@@ -39,7 +39,7 @@ get_template_part('header-custom');
                       stroke-linejoin="round"
                       d="M15.75 19.5 8.25 12l7.5-7.5" />
             </svg>
-            <a href="javascript:history.back()"
+            <a href="<?= BASE_LINK ?>/news"
                aria-label="Back"
                class="text-sm">
                 <h5>Back</h5>
@@ -57,7 +57,7 @@ get_template_part('header-custom');
                     Recommended From Triconville
                 </h2>
             </div>
-            <?php $Latestposts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&category_name=newsroom'); ?>
+            <?php $Latestposts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&category_name=news'); ?>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-3 lg:gap-5">
                 <?php foreach ($Latestposts as $post): ?>
                 <div class="news-card flex items-center gap-3 md:block">
@@ -66,9 +66,9 @@ get_template_part('header-custom');
                     </div>
                     <div class="desc w-1/2 md:w-full flex flex-col justify-center">
                         <div class=" overflow-hidden">
-                            <h2 class="text-lg md:text-3xl md:mb-5">
+                            <h2 class="text-lg md:text-2xl md:mb-5">
                                 <a href="<?php echo get_permalink($post->ID); ?>"
-                                   class="hover:underline line-clamp-2 md:line-clamp-1">
+                                   class="hover:underline line-clamp-2">
                                     <?php echo get_the_title($post->ID); ?>
                                 </a>
                             </h2>
