@@ -18,7 +18,7 @@
                 </div>
                 <div class="flex justify-center mt-5">
                     <a href="<?= BASE_LINK; ?>/collections/"
-                       class='btn-ghost uppercase text-sm tracking-wider  mt-5'> view all collections</a>
+                       class='btn-ghost !py-2.5 uppercase text-sm tracking-wider mt-5'> view all collections</a>
                 </div>
             </div>
 
@@ -107,10 +107,10 @@ function renderMaster() {
     $('#container__<?= $character_slug ?>').append(`
         <section class="collection__description my-5 flex max-w-[1440px] mx-auto justify-end p-3 md:p-5 ">
             <div class="collection__description-content w-full md:w-3/5">
-                <h1 class="text-4xl hidden md:block uppercase font-medium tracking-widest">${collectionData.name}</h1>
-                <p class="text-justify text-sm max-w-3xl my-5">${collectionData.description}</p>
+                <h1 class="text-4xl hidden md:block uppercase font-medium">${collectionData.name}</h1>
+                <p class="text-justify text-sm max-w-3xl mt-5 mb-10">${collectionData.description}</p>
                 ${collectionData.sheet !== 'False' ? `
-                    <a href="${collectionData.sheet}" target="_blank" class='btn-ghost-dark uppercase text-sm tracking-widest '>
+                    <a href="${collectionData.sheet}" target="_blank" class='btn-ghost-dark uppercase text-sm tracking-wider'>
                         download collection sheet
                     </a>
                 `:''}
@@ -125,7 +125,7 @@ function renderMaster() {
                     <div class='overflow-hidden '>
                         <a href="<?= BASE_LINK; ?>/product-detail/${slugify(pr.name)}" class="">
                             <img src="${pr.product_image_384}" alt="${pr.alt_text}" class="w-full h-[120px] md:h-[384px] object-contain group-hover:scale-110 transition duration-300"> 
-                            <h3 class="text-center mb-5 uppercase tracking-wider line-clamp-2 max-w-xs">${pr.name}</h3>
+                            <h3 class="text-center mb-5 uppercase line-clamp-2 max-w-xs">${pr.name}</h3>
                         </a>
                     </div>
                 `).join('')}
@@ -198,7 +198,7 @@ function renderMoreCollections(collection) {
                 ${collection.id < 10 ? '0' + (collection.id) : collection.id}. 
             </p>
             <hr class='w-2/5 mt-3 border-black'/>
-            <h1 class="text-3xl md:text-5xl mt-3 font-medium tracking-wider uppercase">${collection.display_name}</h1>
+            <h1 class="text-3xl md:text-5xl mt-3 font-medium uppercase">${collection.display_name}</h1>
             <p class='text-sm mt-3 line-clamp-2 text-ellipsis'>
                 ${collection.description}
             </p>

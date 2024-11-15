@@ -8,15 +8,19 @@ get_template_part('header-custom');
 body {
     overscroll-behavior-y: contain;
 }
+
+::-webkit-scrollbar {
+    display: none;
+}
 </style>
-<div class="content-container scroll-smooth overflow-x-hidden mt-20"
+<div class="content-container scroll-smooth overflow-x-hidden h-[calc(100vh-7rem)] mt-28"
      id="magnetic__container">
     <!-- NOTE: Banner -->
-    <div class="min-h-[40vh] flex flex-col justify-center  px-3 md:px-5 snap-always snap-start">
-        <h1 class="text-3xl md:text-5xl font-medium text-center uppercase ">triconville collections</h1>
+    <div class="flex flex-col justify-center py-28 px-3 md:px-5 snap-always snap-start">
+        <h1 class="text-3xl md:text-5xl font-medium text-center capitalize ">triconville collections</h1>
         <p class='font-sm font-light tracking-widest text-center'>The Luxury of Living Outdoors</p>
-        <div class="flex gap-2 justify-center my-5 view-button">
-            <button class="btn-ghost-dark flex gap-2 items-center"
+        <div class="flex gap-2 justify-center mt-10 view-button">
+            <button class="btn-ghost-dark !py-2 flex gap-2 items-center"
                     id="list-button"
                     onClick="changeView('list')">
                 Gallery <svg xmlns="http://www.w3.org/2000/svg"
@@ -31,7 +35,7 @@ body {
                 </svg>
 
             </button>
-            <button class="btn-ghost flex gap-2 items-center"
+            <button class="btn-ghost !py-2 flex gap-2 items-center"
                     id="grid-button"
                     onClick="changeView('grid')">
                 Grid View
@@ -50,16 +54,16 @@ body {
         </div>
     </div>
     <!-- NOTE : Material list -->
-    <div class="md:p-5 p-3"
+    <div class="md:p-5 p-3 mb-10"
          id="grid-container">
         <div class="max-w-[1440px] mx-auto">
             <div id="grid__collections"
-                 class='md:p-5 mb-5 grid grid-cols-1 sm:grid-cols-2 gap-3'>
+                 class='mb-5 grid grid-cols-1 sm:grid-cols-2 gap-x-5 sm:gap-y-10 gap-y-20'>
             </div>
         </div>
     </div>
     <div id="list__collections"
-         class='md:mt-16 '>
+         class=' '>
     </div>
     <div id="page-loading">
         <div class="three-balls">
@@ -127,7 +131,7 @@ function changeView(type) {
     count = 0;
     $('.view-button button').removeClass('btn-ghost-dark').addClass('btn-ghost');
     if (type == 'grid') {
-        $('.content-container').removeClass('snap-y snap-mandatory overflow-y-scroll h-screen ')
+        $('.content-container').removeClass('snap-y snap-mandatory overflow-y-scroll')
         $('#grid-container').show();
         $('#grid-button').removeClass('btn-ghost').addClass('btn-ghost-dark');
         sortedCollection.forEach((e, index) => renderCollections(e, index, 'grid'));
@@ -144,7 +148,7 @@ function renderCollections(e, index, type = 'grid') {
         $('#list__collections').empty();
         $('.content-container').off('wheel', onscrollHandler);
         $('#grid__collections').append(`
-            <a href= "<?= BASE_LINK; ?>/collections/${slugify(e.name)}" class="mb-5">
+            <a href= "<?= BASE_LINK; ?>/collections/${slugify(e.name)}" >
                 <div class="h-[365px] w-full flex items-center justify-center transition duration-500 ease-in-out transform hover:-translate-y-1 hover:shadow-md" 
                     style="
                         background-position:center; 
@@ -158,14 +162,14 @@ function renderCollections(e, index, type = 'grid') {
                     ${count < 10 ? '0' + (count) : count}. 
                 </p>
                 <hr class='w-2/5 mt-3 border-black'/>
-                <h1 class="text-3xl md:text-5xl mt-3 font-medium tracking-wider uppercase">${e.display_name}</h1>
+                <h1 class="text-3xl md:text-5xl font-medium capitalize">${e.display_name}</h1>
                 <p class='text-sm mt-3 line-clamp-2 text-ellipsis'>
                     ${e.description}
                 </p>
             </a>
         `);
     } else if (type == 'list') {
-        $('.content-container').addClass('snap-y snap-mandatory transition duration-500 ease-in-out overflow-y-scroll full-screen ')
+        $('.content-container').addClass('snap-y snap-mandatory transition duration-500 ease-in-out overflow-y-scroll')
         $('.content-container').on('wheel', onscrollHandler);
         $('#grid__collections').empty();
         $('#list__collections').append(`
@@ -184,7 +188,7 @@ function renderCollections(e, index, type = 'grid') {
                                 ${count < 10 ? '0' + (count) : count}. 
                             </p>
                             <hr class='w-1/5 mt-3 border-white'/>
-                            <h1 class="text-3xl md:text-5xl text-white mt-3 font-medium tracking-wider uppercase">${e.display_name}</h1>
+                            <h1 class="text-3xl md:text-5xl text-white font-medium capitalize">${e.display_name}</h1>
                             <p class='text-sm line-clamp-2 text-ellipsis md:w-1/2 text-white'>
                                 ${e.description}
                             </p>
@@ -201,7 +205,7 @@ function onscrollHandler(event) {
     timeout = setTimeout(() => (timeout = null), 20);
 
     const direction = event.deltaY > 0 ? "nextElementSibling" : "previousElementSibling";
-    const scrollTarget = event.target.closest(".snap-always")[direction];
+    const scrollTarget = event.target.closest(".snap-always")[direction] || null;
 
     if (scrollTarget) {
         event.preventDefault();
