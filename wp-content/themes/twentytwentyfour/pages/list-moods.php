@@ -19,11 +19,11 @@ get_template_part('header-custom');
 
             </div>
             <div class="py-10 flex flex-col justify-between items-center sm:flex-row gap-3">
-                <div class="md:p-3 max-w-xl tracking-wider">
+                <div class="md:p-3 max-w-xl ">
                     <h2 class="text-2xl md:text-3xl ">
                         Our skilled designers find their inspiration in the allure, beauty and vibrancy of everyday environments.
                     </h2>
-                    <p class="py-5 text-justify text-sm">
+                    <p class="py-5 text-sm tracking-wider">
                         Based on our most inspiring settings, we have crafted a series of moods in materials, colours and designs to match
                         your fancy, from urban to rustic, poolside to seaside. Savour your outdoor space with furniture designed to fit
                         right in.

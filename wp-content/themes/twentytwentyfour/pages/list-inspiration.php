@@ -22,8 +22,8 @@ body {
     <div id="main__container"
          class="mt-20 px-3 md:px-5">
 
-        <h1 class="text-3xl md:text-5xl font-medium text-center tracking-wider">Inspiration</h1>
-        <h3 class="text-base tracking-wider text-center">Moments in Every Lifestyle</h3>
+        <h1 class="text-3xl md:text-5xl font-medium text-center">Inspiration</h1>
+        <h3 class="text-base text-center ">Explore endless design possibilities and create an escape that you’ll love</h3>
 
         <div id="inspiration__container"
              class="max-w-[1440px] my-10 mx-auto grid grid-cols-3 gap-1 sm:gap-3">
@@ -75,7 +75,6 @@ function renderMaster() {
         console.error("Error Rendering data:", error)
     } finally {
         $('#page-loading').hide();
-
     }
 }
 

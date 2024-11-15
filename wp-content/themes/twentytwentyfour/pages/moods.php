@@ -83,7 +83,7 @@ function renderMaster() {
         renderOtherMoods()
     } catch (error) {
         console.error('Error rendering data:', error);
-        // redirectError()
+        redirectError()
     } finally {
         $('#page-loading').hide();
     }

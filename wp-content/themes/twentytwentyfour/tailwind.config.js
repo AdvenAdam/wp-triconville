@@ -22,6 +22,7 @@ module.exports = {
           },
         ],
         "4xl": "2.5rem",
+        "5xl": ["3rem", { lineHeight: "4.5rem" }],
       },
       letterSpacing: {
         wider: ".07em",

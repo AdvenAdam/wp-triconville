@@ -54,35 +54,35 @@
   }
 </style>
 
-<div class="content-container">
+<div class="content-container mt-20">
   <!-- SHOWROOM BANNER -->
   <div class="showroom-banner">
     <div class="h-full w-full bg-black bg-opacity-25 flex items-center justify-center">
-      <h1 class="text-white text-4xl font-semibold tracking-wider">NEWS</h1>
+      <h1 class="text-white text-4xl font-semibold">NEWS</h1>
     </div>
   </div>
 
   <!-- NEWS LIST -->
-  <div class="md:p-5 p-3">
-    <div class="max-w-[1440px] mx-auto mt-5 mb-3">
+  <div class="md:px-5 px-3 mt-20">
+    <div class="max-w-[1440px] mx-auto">
       <!-- wp:query {"queryId":54,"query":{"perPage":3,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false}} -->
       <div class="wp-block-query">
         <!-- wp:post-template -->
         <!-- wp:columns {"verticalAlignment":"center"} -->
-        <div class="wp-block-columns are-vertically-aligned-center border-b pb-5">
-          <!-- wp:column {"verticalAlignment":"center","width":"25%"} -->
+        <div class="wp-block-columns are-vertically-aligned-center border-b pb-5 gap-5 sm:gap-10 lg:gap-20 xl:gap-36">
+          <!-- wp:column {"verticalAlignment":"center","width":"35%"} -->
           <div
             class="wp-block-column is-vertically-aligned-center"
-            style="flex-basis: 35%"
+            style="flex-basis: 40%"
           >
             <!-- wp:post-featured-image {"isLink":true, "className":"news-image"} /-->
           </div>
           <!-- /wp:column -->
 
-          <!-- wp:column {"verticalAlignment":"center","width":"75%"} -->
+          <!-- wp:column {"verticalAlignment":"center","width":"60%"} -->
           <div
-            class="wp-block-column is-vertically-aligned-center"
-            style="flex-basis: 65%"
+            class="wp-block-column is-vertically-aligned-center max-w-xl"
+            style="flex-basis: 60%"
           >
             <!-- wp:post-title {"level":3,"isLink":true,"style":{"typography":{"fontSize":"24px"},"color":{"text":"#2c272e"}},"className":"news-title my-1 "} /-->
 
@@ -104,7 +104,7 @@
         >
           <div class="grid grid-cols-2 md:grid-cols-1 gap-3 items-center">
             <!-- wp:post-featured-image {"isLink":true, "className":"news-img h-fit w-auto object-cover max-w-[30vh] md:max-w-[50vw]"} /-->
-            <!-- wp:post-title {"level":2,"isLink":true,"style":{"typography":{},"color":{"text":"#2c272e"}},"className":"news-title-bottom my-3 "} /-->
+            <!-- wp:post-title {"level":2,"isLink":true,"style":{"typography":{"fontSize":"24px"},"color":{"text":"#2c272e"}},"className":"news-title-bottom my-3 text-"} /-->
           </div>
           <!-- /wp:column -->
           <!-- /wp:columns -->
