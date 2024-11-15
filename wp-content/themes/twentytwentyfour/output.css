@@ -747,6 +747,12 @@ video {
 .mt-2 {
   margin-top: 0.5rem;
 }
+.mt-32 {
+  margin-top: 8rem;
+}
+.mt-36 {
+  margin-top: 9rem;
+}
 .line-clamp-2 {
   overflow: hidden;
   display: -webkit-box;
