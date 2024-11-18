@@ -24,3 +24,14 @@
 p {
     @apply text-[#4D4D4D]
 }
+
+h1 {
+    @apply md:leading-[4.5rem] leading-[3rem]
+}
+
+h1 {
+    @apply md:leading-[3rem] leading-[2.25rem]
+}
+h3 {
+    @apply leading-6
+}
