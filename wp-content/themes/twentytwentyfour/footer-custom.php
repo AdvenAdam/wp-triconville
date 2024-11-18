@@ -46,7 +46,7 @@
                     <div class="md:w-2/3 w-full">
                         <div class="grid grid-cols-2 md:grid-cols-5 gap-3 tracking-wide">
                             <div class="about w-full md:p-3">
-                                <p class='mb-3 uppercase text-sm font-bold tracking-widest'>Triconville</p>
+                                <p class='mb-3 uppercase text-sm font-bold '>Triconville</p>
                                 <p class='text-sm py-1'>
                                     <a href='<?= BASE_LINK; ?>/about-us'> Brand </a>
                                 </p>
@@ -65,20 +65,20 @@
                             </div>
                             <div class="about w-full tracking-wider md:p-3"
                                  id="products-categories-footer">
-                                <p class='mb-3 uppercase text-sm font-bold tracking-widest'>products</p>
+                                <p class='mb-3 uppercase text-sm font-bold '>products</p>
                             </div>
                             <div class="about w-full tracking-wider md:p-3"
                                  id="moods-categories-footer">
-                                <p class='mb-3 uppercase text-sm font-bold tracking-widest'>moods</p>
+                                <p class='mb-3 uppercase text-sm font-bold '>moods</p>
                             </div>
                             <div class="about w-full md:p-3 md:col-span-2">
-                                <p class='mb-3 font-bold text-sm uppercase tracking-widest'>triconville head office</p>
+                                <p class='mb-3 font-bold text-sm uppercase '>triconville head office</p>
                                 <p class='md:mb-3 text-sm'>Jl.Bukit Panorama no.6, <br />
                                     Kota Semarang, Jawa Tengah,<br /> Indonesia 50274</p>
                                 <p class='text-sm md:mb-3'>+62 21 27084824</p>
                                 <p class='text-sm md:mb-3'>info@triconville.co.id</p>
                                 <div class="md:block hidden">
-                                    <p class='font-bold text-sm uppercase tracking-widest pt-5'>connect</p>
+                                    <p class='font-bold text-sm uppercase  pt-5'>connect</p>
                                     <div class="flex items-center gap-2 my-3">
                                         <a href='#'>
                                             <img src='https://storage.googleapis.com/back-bucket/wp_triconville/images/icons/youtube.svg' />
@@ -99,7 +99,7 @@
                                 </div>
                             </div>
                             <div class="md:p-3 md:hidden">
-                                <p class='font-bold text-sm uppercase tracking-widest'>connect</p>
+                                <p class='font-bold text-sm uppercase '>connect</p>
                                 <div class="flex items-center gap-2 my-3">
                                     <a href='#'>
                                         <img src='https://storage.googleapis.com/back-bucket/wp_triconville/images/icons/youtube.svg' />
@@ -121,10 +121,10 @@
                         </div>
                     </div>
                     <div class="md:w-1/3 w-full pt-10 md:pt-3 md:p-3">
-                        <p class='font-bold uppercase tracking-widest'>newsletter</p>
+                        <p class='font-bold uppercase '>newsletter</p>
                         <p>Sign up to our newsletter</p>
                         <div class="form mt-5">
-                            <p class='uppercase text-xs tracking-widest'>EMAIL </p>
+                            <p class=' text-xs font-bold'>Email </p>
                             <!-- START - We recommend to place the below code where you want the form in your website html  -->
                             <div class="sib-form"
                                  style="text-align: left;background-color: transparent;">

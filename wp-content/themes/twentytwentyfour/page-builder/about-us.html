@@ -117,7 +117,7 @@
         <div class="max-w-lg">
           <h1 class="text-3xl md:text-5xl">Handcrafted Heritage For Modern Living</h1>
           <div class="my-5 max-w-md">
-            <h3 class="font-medium mb-5">
+            <h3 class="font-medium mb-3">
               Invest in a legacy of craftsmanship honed over centuries, bringing a timeless elegance to your outdoor
               space that speaks to the soul.
             </h3>
@@ -169,7 +169,7 @@
     </div>
   </div>
 
-  <div class="jewel-banner h-fit sm-full-screen flex items-center justify-center px-3 md:px-5 snap-always snap-center">
+  <div class="jewel-banner h-fit sm-full-screen flex items-center justify-center p-3 md:p-5 snap-always snap-center">
     <div
       class="max-w-[1440px] h-full overflow-hidden flex md:flex-row flex-col-reverse md:justify-between md:items-center gap-3 w-full"
     >
@@ -210,31 +210,38 @@
     </div>
   </div>
 
-  <div class="bg-white full-screen max-w-[1440px] mx-auto flex items-center px-3 md:px-5 snap-always snap-center">
+  <div
+    class="bg-white h-fit sm-full-screen max-w-[1440px] mx-auto flex items-center p-3 md:p-5 snap-always snap-center"
+  >
     <div class="">
-      <div class="max-w-md">
-        <h1 class="text-3xl md:text-5xl">Our Promise to You</h1>
-        <p class="text-sm font-bold my-5">
-          Our belief is woven into the very fabric of our company, guided by three core principles:
-        </p>
+      <div class="max-w-lg">
+        <h1 class="text-3xl md:text-5xl">The Art of Our Craft</h1>
+        <h3 class="font-medium my-5">These principles define our approach to crafting timeless, soulful furniture:</h3>
       </div>
-      <div class="grid grid-cols-2 md:grid-cols-3 gap-3 md:w-3/4">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
         <div class="">
-          <li class="text-sm font-bold list-disc">Innovation in Outdoor Technology</li>
+          <h3 class="font-medium mb-3"><li class="list-disc">Cognitive Design</li></h3>
           <p class="text-sm ps-3 md:ps-5">
-            We're constantly exploring new materials and techniques to create beautiful, durable furniture that
-            withstands the elements and complements any style.
+            We prioritize your experience with thoughtfully designed pieces that enhance your comfort, usability, and
+            connection with nature.
           </p>
         </div>
         <div class="">
-          <li class="text-sm font-bold list-disc">Craftsmanship of Indonesian Heritage</li>
+          <h3 class="font-medium mb-3"><li class="list-disc">Craftsmanship of Heritage</li></h3>
           <p class="text-sm ps-3 md:ps-5">
             Our furniture is handcrafted by skilled artisans, preserving traditional techniques passed down through
             generations.
           </p>
         </div>
         <div class="">
-          <li class="text-sm font-bold list-disc">Sustainability at Heart</li>
+          <h3 class="font-medium mb-3"><li class="list-disc">Innovation in Outdoor Technology</li></h3>
+          <p class="text-sm ps-3 md:ps-5">
+            We're constantly exploring new materials and techniques to create beautiful, durable furniture that
+            withstands the elements and complements any style.
+          </p>
+        </div>
+        <div class="">
+          <h3 class="font-medium mb-3"><li class="list-disc">Sustainability at Heart</li></h3>
           <p class="text-sm ps-3 md:ps-5">
             We are committed to responsible sourcing and environmentally friendly practices, ensuring that our furniture
             is as good for the planet as it is for your soul
@@ -446,7 +453,7 @@
     }
   });
 
-  if (isMobile) {
+  if (!isMobile) {
     function onscrollHandler(event) {
       if (timeout) return;
       timeout = setTimeout(() => (timeout = null), 20);
