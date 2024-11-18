@@ -121,8 +121,8 @@
                         </div>
                     </div>
                     <div class="md:w-1/3 w-full pt-10 md:pt-3 md:p-3">
-                        <p class='font-bold uppercase '>newsletter</p>
-                        <p>Sign up to our newsletter</p>
+                        <p class='font-bold text-sm uppercase '>newsletter</p>
+                        <p class='text-sm py-1'>Sign up to our newsletter</p>
                         <div class="form mt-5">
                             <p class=' text-xs font-bold'>Email </p>
                             <!-- START - We recommend to place the below code where you want the form in your website html  -->
