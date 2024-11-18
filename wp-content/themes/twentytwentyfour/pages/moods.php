@@ -101,8 +101,8 @@ function renderBanner() {
             <div class="ps-3 md:ps-0">
                 <h1 class="text-3xl md:text-5xl lg:text-6xl xl:text-8xl mood-color font-bold tracking-wider mb-5">${selectedMood.name}</h1>
                 <div class="max-w-sm ">
-                    <h3 class="font-medium  mood-color tracking-wider mb-3">${descriptionTitle}</h3>
-                    <p class="text-sm">${description}</p>
+                    <h3 class="font-medium mood-color tracking-wider mb-3">${descriptionTitle}</h3>
+                    <p class="text-sm mood-color">${description}</p>
                 </div>
             </div>
         </div>
@@ -113,7 +113,7 @@ function renderBanner() {
             <img src="<?php echo esc_attr(get_template_directory_uri()); ?>/assets/${selectedMood.subTitle.subImage}" class="w-full h-[300px] md:h-auto object-cover " />
             <div class="max-w-3xl mx-auto px-3 md:px-5 text-center  mood-color py-5 md:py-10">
                 <h3 class="tracking-wider mood-color font-medium">${selectedMood.subTitle.title}</h3>
-                <p class="text-sm mt-5">${selectedMood.subTitle.description}</p>
+                <p class="text-sm mt-5 mood-color">${selectedMood.subTitle.description}</p>
             </div>
         </div>
     `);
@@ -145,7 +145,7 @@ function renderMaterials(materials) {
                     <h2 class="text-2xl mood-color md:text-3xl tracking-wider text-white mb-5">
                         Materials
                     </h2>
-                    <p class="text-sm text-justify">
+                    <p class="text-sm text-justify mood-color">
                         ${selectedMood.materials.desc}
                     </p>
                 </div>
@@ -159,9 +159,9 @@ function renderCatalogue(catalogueImage) {
         $('#mood__catalogue').append(`
             <div class="grid grid-cols-1 sm:grid-cols-2 items-center gap-5">
                 <div class="max-w-lg order-2 sm:order-1 px-3 md:px-5">
-                    <p class="text-xs uppercase">CATALOG</p>
+                    <p class="text-xs uppercase mood-color">CATALOG</p>
                     <h2 class="mood-color text-3xl">Triconville - 2024 Catalog</h2>
-                    <p class="text-sm text-justify pb-10">Discover an unrivaled selection of luxuriant designs from Triconville. Brought to life with captivating imagery, the 2024 Triconville catalogue is a go-to resource for inspiration and information. Qualified trade members can reserve a copy by filling out the form below.</p>
+                    <p class="text-sm text-justify pb-10 mood-color">Discover an unrivaled selection of luxuriant designs from Triconville. Brought to life with captivating imagery, the 2024 Triconville catalogue is a go-to resource for inspiration and information. Qualified trade members can reserve a copy by filling out the form below.</p>
                     <a href="<?= BASE_LINK ?>/collections" class="btn-ghost text-xs">View Catalog</a>
                 </div>
                 <img src="<?php echo esc_attr(get_template_directory_uri()); ?>/assets/${catalogueImage}" class=" w-full h-auto object-cover order-1 sm:order-2" />
