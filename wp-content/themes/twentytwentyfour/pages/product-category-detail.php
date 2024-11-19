@@ -154,11 +154,17 @@ async function fetchProducts(id, param) {
                 ...selectedData
             };
         });
-        const products = param !== '' ?
-            filteredCollection.filter(({
-                name
-            }) => param.split(",").some(p => name.toLowerCase().includes(p))) :
-            filteredCollection;
+
+        if (!param) {
+            return filteredCollection;
+        }
+
+        const products = filteredCollection.filter(({
+            name
+        }) => {
+            const keywords = param.split(",");
+            return keywords.every(k => k.startsWith("!") ? !name.toLowerCase().includes(k.substring(1)) : name.toLowerCase().includes(k));
+        });
 
         return [...products];
     } catch (error) {
@@ -211,7 +217,7 @@ function renderProducts(data, headerTitle = 'All Types') {
             <a href= "<?= BASE_LINK; ?>/product-detail/${slugify(e.name)}">
                 <div class='flex justify-center items-center flex-col p-3'>
                     <img class="w-auto md:h-[384px] h-[204px] object-contain" src="${e.product_image_384}" />
-                    <p class="text-center text-xs md:mt-[-30px] max-w-[90%] capitalize">${e.name}</p>
+                    <p class="text-center text-sm md:mt-[-30px] max-w-[90%] capitalize">${e.name}</p>
                 </div>
             </a>
         `);
