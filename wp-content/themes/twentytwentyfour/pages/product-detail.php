@@ -39,10 +39,10 @@ get_template_part('header-custom');
 <div class="content-container overflow-x-hidden">
     <div id="product__banner"></div>
     <!-- NOTE : PRODUCT Overview & Material -->
-    <div class="md:p-5 p-3">
+    <div class="md:px-5 px-3">
         <div class="max-w-[1440px] mx-auto">
 
-            <div class="textproduct-overview-desc mt-6 pb-5 mb-5 flex flex-col md:flex-row">
+            <div class="textproduct-overview-desc flex items-center justify-center flex-col md:flex-row gap-10 md:gap-20 mb-10 md:mb-20">
                 <div class="md:w-1/2">
                     <div id="product__header__image"></div>
                 </div>
@@ -67,7 +67,7 @@ get_template_part('header-custom');
         </div>
     </div>
     <!-- NOTE : PRODUCT Ambience Slider -->
-    <div class="ambience__section relative">
+    <div class="ambience__section relative mb-10 md:mb-20">
         <div class="ambience__img h-[350px] sm:h-[600px] lg:h-[720px]"></div>
         <button class="slick-prev prev-btn hidden md:block absolute top-1/2 -translate-y-1/2 z-10 left-5 py-10 bg-slate-50/50 p-3 hover:bg-slate-50/80"
                 aria-label="Previous"
@@ -99,21 +99,21 @@ get_template_part('header-custom');
         </button>
     </div>
     <!-- NOTE : PRODUCT Specification -->
-    <div class="md:px-5 px-3 my-10">
+    <div class="md:px-5 px-3 mt-10 mb-10 md:mb-20">
         <div class="max-w-[1440px] mx-auto grid gap-4 grid-cols-1 md:grid-cols-2"
              id="specification__section">
 
         </div>
     </div>
     <!-- NOTE : PRODUCT IN THIS SECTION -->
-    <div class="md:px-5 px-3">
+    <div class="md:px-5 px-3 mb-10 md:mb-20">
         <div class="max-w-[1440px] mx-auto">
-            <div class="py-10">
+            <div class="py-10 md:pb-20">
                 <h2 class='text-3xl collection__product__name'></h2>
                 <div class="collection__product grid gap-4 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 my-10"></div>
                 <div class="collection__product__btn text-center"></div>
             </div>
-            <div class="py-10 relative h-fit"
+            <div class="py-10 md:pb-20 relative h-fit hidden"
                  id="well__with__product">
                 <h2 class='text-2xl md:text-3xl well__with__product__name'></h2>
                 <div class="well__with__product my-10"></div>
@@ -170,20 +170,6 @@ function metaMaster() {
     });
 }
 
-function renderSheet(sheet) {
-    $('#product__description').append(`
-        <div class="inline-flex gap-2">
-            ${sheet !== 'False' || sheet !== null ?
-            `<a href="${sheet}"
-                class="btn-ghost-dark uppercase text-sm"> download collection sheet</a>`
-            :''}
-            <a href="#"
-                class="btn-ghost uppercase text-sm"
-                onclick="document.querySelector('#specification__section').scrollIntoView({behavior: 'smooth'}); return false;">size</a>
-        </div>
-    `);
-}
-
 function renderMaster() {
     try {
         // NOTE : PRODUCT HEADER 
@@ -217,7 +203,7 @@ function renderMaster() {
 
     } catch (error) {
         console.error("🚀 ~ renderMaster ~ error:", error)
-        // redirectError()
+        redirectError()
     }
 }
 
@@ -633,6 +619,7 @@ function renderCollectionProducts(products, name) {
 
 function renderWellWithProducts(products) {
     // Goes Well with product
+    $('#well__with__product').removeClass('hidden');
     $('.well__with__product__name').text(`Goes well with `);
     products.forEach((e) => {
         $('.well__with__product').append(`

@@ -28,7 +28,7 @@ get_template_part('header-custom');
             Explore Our Outdoor
             Product Range
         </h2>
-        <div class="max-w-[1440px] mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 md:gap-3"
+        <div class="max-w-[1440px] mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 md:gap-3 mb-20"
              id="product__list">
         </div>
 

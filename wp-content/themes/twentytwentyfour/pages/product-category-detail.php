@@ -23,8 +23,8 @@ get_template_part('header-custom');
         </div>
     </div>
     <!-- NOTE: filter product by category -->
-    <div class="max-w-[1440px] my-5 mx-auto">
-        <h3 class="text-2xl md:text-3xl text-center my-10"
+    <div class="max-w-[1440px] mt-5 mb-10 md:mb-20 mx-auto">
+        <h3 class="text-2xl md:text-3xl text-center mt-10 md:mt-20"
             id="category__name-title">CATEGORY</h3>
         <div id='filter__product'
              class="flex items-center my-10 text-sm justify-center gap-3 flex-wrap"></div>
@@ -97,7 +97,6 @@ function renderMaster() {
         $('#category__name-title').text(`Explore Our Outdoor ${categoriesData.name}`);
 
         // NOTE : Render all Filter Product
-
         if (haveSubCategories > 1) {
             renderFilterProduct('All Types', 0);
             categoriesData.children.forEach((e, index) => {
@@ -195,9 +194,9 @@ function subCategoryOnClick(name) {
 function renderProducts(data, headerTitle = 'All Types') {
     $('#product__list').append(`
         <!-- NOTE: ${headerTitle} -->
-        <div id="product__${slugify(headerTitle)}" class="product-list">
+        <div id="product__${slugify(headerTitle)}" class="product-list mb-20">
             <div class="-mb-5">
-                <h3 class="text-2xl md:text-3xl" id="category__name-label">
+                <h3 class="text-2xl md:text-3xl md:ps-5" id="category__name-label">
                     ${headerTitle}
                 </h3>
                 <hr style="border-width: 2px;" />
