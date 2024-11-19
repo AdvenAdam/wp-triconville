@@ -51,12 +51,12 @@ get_template_part('header-custom');
                     <div class="mb-5"
                          id="product__overview"></div>
 
-                    <span class="mr-3 uppercase text-xs tracking-widest"
+                    <span class="mr-3 uppercase text-xs"
                           id="label_1"></span>
                     <div class="flex mb-5 flex-wrap gap-2"
                          id="option_1">
                     </div>
-                    <span class="mr-3 uppercase text-xs tracking-widest"
+                    <span class="mr-3 uppercase text-xs"
                           id="label_2"></span>
                     <div class="flex mb-5 flex-wrap items-center gap-2"
                          id="option_2">
@@ -175,10 +175,10 @@ function renderSheet(sheet) {
         <div class="inline-flex gap-2">
             ${sheet !== 'False' || sheet !== null ?
             `<a href="${sheet}"
-                class="btn-ghost-dark uppercase tracking-widest text-sm"> download collection sheet</a>`
+                class="btn-ghost-dark uppercase text-sm"> download collection sheet</a>`
             :''}
             <a href="#"
-                class="btn-ghost uppercase tracking-widest text-sm"
+                class="btn-ghost uppercase text-sm"
                 onclick="document.querySelector('#specification__section').scrollIntoView({behavior: 'smooth'}); return false;">size</a>
         </div>
     `);
@@ -196,7 +196,7 @@ function renderMaster() {
                         background-repeat: no-repeat;
                     ">
                     <div class ='bg-black bg-opacity-30 h-full w-full flex items-center justify-center'>
-                        <h1 class="text-3xl md:text-4xl font-medium text-center tracking-wider text-white uppercase">${ProductsData.name}</h1>
+                        <h1 class="text-3xl md:text-5xl font-medium text-center tracking-wider text-white uppercase">${ProductsData.name}</h1>
                     </div>
                 </div>`
         );
@@ -267,7 +267,7 @@ function renderOverview(res) {
         $('#product__overview').append(`
             <div class=''>
                 <h1 class="text-2xl md:text-3xl text-gray-900 tracking-wide line-clamp-2">${res.name}</h1>
-                <p class="text-slate-500 text-sm tracking-widest text-sm mb-3">Designed by 
+                <p class="text-slate-500 text-sm text-sm mb-3">Designed by 
                     <span class="text-black font-medium hover:underline"><a href="https://indospacegroup.com/indospace-rnd/">Indospace R&D </a></span>
                 </p>
                 <p class="text-sm tracking-wider line-clamp-4">${desc}</p>
@@ -290,12 +290,12 @@ function renderDimensions(dimensions, render = "all") {
             <div class="md:p-3">
                 <div >
                     <div class="flex md:flex-row flex-col items-start justify-between">
-                        <h3 class="text-2xl md:text-3xl tracking-wide mb-3 line-clamp-2">SIZING</h3>
+                        <h3 class="text-2xl md:text-3xl mb-3 line-clamp-2">SIZING</h3>
                         <div class="flex items-center sizing-btn mb-3">
-                            <button class="btn-ghost-dark uppercase tracking-widest text-sm"
+                            <button class="btn-ghost-dark !py-2 uppercase text-sm"
                                     onClick="changeSize('metric')"
                                     id="metric">Metric</button>
-                            <button class="btn-ghost uppercase tracking-widest text-sm"
+                            <button class="btn-ghost !py-2 uppercase text-sm"
                                     onClick="changeSize('imperial')"
                                     id="imperial">Imperial</button>
                         </div>
@@ -304,7 +304,7 @@ function renderDimensions(dimensions, render = "all") {
                            id="table__spec"></table>
                 </div>
                 <div >
-                    <h3 class="text-2xl md:text-3xl tracking-wide my-3 line-clamp-2">DOWNLOAD</h3>
+                    <h3 class="text-2xl md:text-3xl  my-3 line-clamp-2">DOWNLOADS</h3>
                     <div id="product__downloadable"
                          class="grid grid-cols-2 gap-4">
                     </div>
@@ -624,7 +624,7 @@ function renderCollectionProducts(products, name) {
 
     $('.collection__product__btn').append(`
         <a href="<?= BASE_LINK ?>/collections/${slugify(name)}"
-            class='btn-ghost uppercase tracking-widest text-xs py-5'>
+            class='btn-ghost uppercase text-xs'>
             discover ${name} collection
         </a>
     `)
