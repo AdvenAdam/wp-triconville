@@ -19,6 +19,8 @@ get_template_part('header-custom');
             case (strpos($url, 'about-us') !== false):
                 include(get_template_directory() . '/page-builder/about-us.html');
                 break;
+            case (strpos($url, 'contact-us') !== false):
+                include(get_template_directory() . '/page-builder/contact-us.html');
         }
         
     ?>
