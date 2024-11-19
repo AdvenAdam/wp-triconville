@@ -300,7 +300,7 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                 <div class="h-[322px] md:h-[462px] w-auto bg-no-repeat bg-center bg-cover gallery-item ${i % 2 !== 0 ? 'mt-10 -mb-10' : ''}"
                     style="background-image: url('<?php echo esc_attr(get_template_directory_uri()); ?>/assets/${mood.thumb}')">
                     <div class="h-full w-full flex items-end justify-end p-5">
-                        <h2 class="invisible sm:visible text-xl xl:text-2xl font-semibold text-end text-white max-w-[260px]">${mood.name}</h2>
+                        <h2 class="invisible sm:visible text-xl xl:text-3xl text-end text-white max-w-[260px]">${mood.name}</h2>
                     </div>
                 </div>
             `);
