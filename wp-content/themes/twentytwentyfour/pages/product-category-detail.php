@@ -18,7 +18,7 @@ get_template_part('header-custom');
     <!-- NOTE: Banner -->
     <div class="product-detail-banner mt-10">
         <div class="flex items-center justify-center min-h-full bg-black bg-opacity-35">
-            <h1 class="text-4xl font-extrabold text-center tracking-wider text-white uppercase"
+            <h1 class="text-3xl md:text-5xl font-medium text-center text-white uppercase"
                 id="category__name"></h1>
         </div>
     </div>
@@ -99,7 +99,7 @@ function renderMaster() {
         // NOTE : Render all Filter Product
 
         if (haveSubCategories > 1) {
-            renderFilterProduct('All Products', 0);
+            renderFilterProduct('All Types', 0);
             categoriesData.children.forEach((e, index) => {
                 renderFilterProduct(e.name, e.id);
             })
@@ -171,8 +171,8 @@ async function fetchProducts(id, param) {
 }
 
 function renderFilterProduct(name, id) {
-    const action = id === 0 ? `onclick="subCategoryOnClick('all-products')"` : `onclick="subCategoryOnClick('${slugify(name)}')"`;
-    const classes = id === 0 ? 'btn-ghost-dark' : 'btn-ghost';
+    const action = id === 0 ? `onclick="subCategoryOnClick('all-types')"` : `onclick="subCategoryOnClick('${slugify(name)}')"`;
+    const classes = id === 0 ? 'btn-ghost-dark !py-2' : 'btn-ghost !py-2';
     $('#filter__product').append(`
         <button type="button" id="${slugify(name)}-btn" class="${classes}" ${action}>
             ${name}
@@ -184,7 +184,7 @@ function subCategoryOnClick(name) {
     $('.product-list').addClass('hidden');
     $('#filter__product button').removeClass('btn-ghost-dark').addClass('btn-ghost');
     $(`#${name}-btn`).toggleClass('btn-ghost btn-ghost-dark');
-    if (name === 'all-products') {
+    if (name === 'all-types') {
         $('.product-list').removeClass('hidden');
         return;
     } else {
@@ -192,12 +192,12 @@ function subCategoryOnClick(name) {
     }
 }
 
-function renderProducts(data, headerTitle = 'All Products') {
+function renderProducts(data, headerTitle = 'All Types') {
     $('#product__list').append(`
         <!-- NOTE: ${headerTitle} -->
         <div id="product__${slugify(headerTitle)}" class="product-list">
             <div class="-mb-5">
-                <h3 class="text-2xl md:text-3xl tracking-widest" id="category__name-label">
+                <h3 class="text-2xl md:text-3xl" id="category__name-label">
                     ${headerTitle}
                 </h3>
                 <hr style="border-width: 2px;" />
@@ -212,7 +212,7 @@ function renderProducts(data, headerTitle = 'All Products') {
             <a href= "<?= BASE_LINK; ?>/product-detail/${slugify(e.name)}">
                 <div class='flex justify-center items-center flex-col p-3'>
                     <img class="w-auto md:h-[384px] h-[204px] object-contain" src="${e.product_image_384}" />
-                    <p class="text-center text-xs md:mt-[-30px] max-w-[90%] uppercase">${e.name}</p>
+                    <p class="text-center text-xs md:mt-[-30px] max-w-[90%] capitalize">${e.name}</p>
                 </div>
             </a>
         `);

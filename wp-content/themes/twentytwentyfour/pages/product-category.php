@@ -24,7 +24,7 @@ get_template_part('header-custom');
     </div>
     <!-- NOTE : PRODUCT LIST -->
     <div class="md:p-5 p-3 my-20">
-        <h2 class="text-center uppercase text-2xl tracking-wider my-10">
+        <h2 class="text-center text-2xl tracking-wider my-10">
             Explore Our Outdoor
             Product Range
         </h2>
@@ -65,7 +65,7 @@ function renderProducts(e) {
     $('#product__list').append(`
         <a href= "<?= BASE_LINK; ?>/products/${e.slug}">
             <img class="w-full h-full object-cover md:object-contain" src="${e.thumb}" />
-            <p class="text-xs md:text-sm uppercase font-medium text-center md:-mt-5">${e.name}</p>
+            <p class="text-xs md:text-sm capitalize text-center md:-mt-5">${e.name}</p>
         </a>
     `);
 }
