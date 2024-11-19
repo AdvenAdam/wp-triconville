@@ -1,6 +1,6 @@
 <style>
   .contact-banner {
-    background: url(/triconville/wp-content/uploads/2024/09/collection-banner.png);
+    background: url(https://storage.googleapis.com/back-bucket/wp_triconville/images/banner-contact.jpg);
     height: 50vh;
     width: 100%;
     overflow: hidden;
@@ -44,17 +44,16 @@
     color: #999999;
   }
   .content-container .contact-form-section input[type="checkbox"] {
-    max-width: 20px;
-    height: 20px;
+    max-width: 14px;
+    height: 14px;
     width: 100%;
-    margin-top: 5px;
   }
 </style>
 
 <div class="content-container">
   <!-- CONTACT BANNER -->
   <div class="contact-banner flex items-center justify-center">
-    <h1 class="text-white text-4xl font-semibold tracking-wider uppercase">contact us</h1>
+    <h1 class="text-white text-4xl font-semibold tracking-wider">Contact</h1>
   </div>
   <div class="bg-[#F5F2EE] py-10 px-3 md:px-5">
     <div class="grid grid-cols-1 md:grid-cols-2 max-w-[1440px] mx-auto py-5">
@@ -88,7 +87,9 @@
           <p class="text-sm tracking-wider font-medium">*) Required</p>
         </div>
 
-        <div class="contact-form-section md:ms-6">[contact-form-7 id="e37f08e" title="contact-us"]</div>
+        <div class="contact-form-section md:ms-6">
+          <?php echo do_shortcode('[contact-form-7 id="e37f08e" title="contact-us"]'); ?>
+        </div>
       </div>
     </div>
   </div>
