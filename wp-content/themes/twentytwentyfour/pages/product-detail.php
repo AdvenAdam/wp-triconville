@@ -203,8 +203,22 @@ function renderMaster() {
 
     } catch (error) {
         console.error("🚀 ~ renderMaster ~ error:", error)
-        redirectError()
+        // redirectError()
     }
+}
+
+function renderSheet(sheet) {
+    $('#product__description').append(`
+        <div class="inline-flex gap-2">
+            ${sheet !== 'False' || sheet !== null ?
+            `<a href="${sheet}"
+                class="btn-ghost-dark uppercase text-sm"> download collection sheet</a>`
+            :''}
+            <a href="#"
+                class="btn-ghost uppercase text-sm"
+                onclick="document.querySelector('#specification__section').scrollIntoView({behavior: 'smooth'}); return false;">size</a>
+        </div>
+    `);
 }
 
 function changeSize(size) {
