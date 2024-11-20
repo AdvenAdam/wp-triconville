@@ -81,9 +81,9 @@ function renderMaster() {
 function renderInspirations() {
     inspirations.forEach(inspiration => {
         $('#inspiration__container').append(`
-            <a class="inspiration__card relative" href="${inspiration.link}" target="_blank">
+            <a class="inspiration__card relative" href="${inspiration.link}">
                 <div class="inspiration__card__overlay absolute inset-0 bg-black bg-opacity-0 group hover:bg-opacity-20 transition duration-300 flex flex-col items-center justify-center">
-                    <img src="https://storage.googleapis.com/back-bucket/wp_triconville/images/icons/Instagram-white.svg" alt="Triconville" class="w-10 h-10 hidden group-hover:block">
+                    <img src="https://storage.googleapis.com/back-bucket/wp_triconville/images/icons/Instagram-white.svg" alt="Triconville" class="w-11 h-11 hidden group-hover:block">
                     <h3 class="text-white font-medium text-center hidden group-hover:block">@triconville</h3>
                 </div>
                 <img src="${inspiration.img}" alt="${inspiration.alt}" class="w-full h-full object-contain" />

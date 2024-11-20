@@ -271,7 +271,7 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
             <div style="background-image: url(${collection.collection_image_1024});"
                 class="bg-cover bg-no-repeat bg-center h-[300px] sm:h-[365px] sm:mx-0 mx-2 w-auto overflow-hidden">
                 <a href="<?= BASE_LINK; ?>/collections/${slugify(collection.name)}">
-                    <div class="sm:h-full w-full h-[65vh] flex group items-end hover:bg-gradient-to-b hover:from-transparent hover:to-black/40 p-5">
+                    <div class="sm:h-full w-full h-[65vh] flex md:group items-end hover:bg-gradient-to-b from-transparent to-black/40 p-5">
                         <div class="max-w-md transition duration-300 translate-y-14 group-hover:translate-y-0 ease-in-out">
                             <h1 class="text-3xl md:text-5xl text-white">
                                 ${collection.name}
@@ -292,10 +292,10 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
     function renderInspirations() {
         inspirationList.forEach((inspiration) => {
             $('#inspiration-selected').append(`
-                <a class="inspiration__card relative group overflow-hidden" href="${inspiration.link}">
-                    <div class="inspiration__card__overlay absolute inset-0 bg-gradient-to-b from-transparent to-black/40 translate-y-72 group-hover:translate-y-0 flex flex-col items-center justify-center transition duration-300 ease-in-out">
-                        <img src="https://storage.googleapis.com/back-bucket/wp_triconville/images/icons/Instagram-white.svg" alt="Triconville" class="w-12 h-12">
-                        <h3 class="text-white font-medium text-center ">@triconville</h3>
+                <a class="inspiration__card relative" href="${inspiration.link}">
+                    <div class="inspiration__card__overlay absolute inset-0 bg-black bg-opacity-0 group hover:bg-opacity-20 transition duration-300 flex flex-col items-center justify-center">
+                        <img src="https://storage.googleapis.com/back-bucket/wp_triconville/images/icons/Instagram-white.svg" alt="Triconville" class="w-11 h-11 hidden group-hover:block">
+                        <h3 class="text-white font-medium text-center hidden group-hover:block">@triconville</h3>
                     </div>
                     <img src="${inspiration.img}" alt="${inspiration.alt}" class="w-full h-full object-contain" />
                 </a>

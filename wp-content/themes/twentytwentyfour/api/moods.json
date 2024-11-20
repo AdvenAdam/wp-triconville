@@ -7,6 +7,7 @@
     "banner": "images/moods/dune-essence/dune-essence-banner.png",
     "desc": "Captures the timeless beauty and calm of the desert, where sands flow with the wind and the earth speaks of resilience. <br/>Blending raw nature with refined luxury, each piece reflects the organic curves and textures of desert landscapes, bringing a sense of serenity and sophistication.",
     "color": "#8C4A38",
+    "subName": "Captures the timeless beauty and calm of the desert",
     "inspirations": [1, 2, 3, 4, 5, 6, 7, 8, 9],
     "subTitle": {
       "title": "Imagine stepping into a space defined by neutral, sandy tones, softened by rich, earthy accents.",
@@ -45,6 +46,7 @@
     "banner": "images/moods/leafscape/leafscape-banner.png",
     "desc": "Represents a harmonious blend of modern minimalism and nature’s gentle embrace. <br/>Inspired by the tranquility of trees and the calm of nature, this mood creates a sense of peace and balance in thoughtfully designed spaces. Like an arbor offering shelter in a garden, this design brings calm and quiet reflection amid everyday chaos.",
     "color": "#3D5937",
+    "subName": "Represents a harmonious blend of modern minimalism",
     "inspirations": [1, 2, 3, 4, 5, 9],
     "subTitle": {
       "title": "Imagine a home seamlessly connected to nature, where indoor and outdoor blend to form a sanctuary of modern design.",
@@ -83,6 +85,7 @@
     "banner": "images/moods/coastal-bliss/coastal-bliss-banner.png",
     "desc": "More than a design mood—it’s an invitation to embrace the serene allure of the ocean from the comfort of your home. <br/> Inspired by the untouched beauty of the coast, it celebrates the feeling of stepping into a beachside retreat where the horizon seems to stretch forever, and the air is filled with the gentle whispers of the sea.",
     "color": "#275674",
+    "subName": "Embrace the serene allure of the ocean",
     "inspirations": [3, 4, 5, 6, 7, 8, 9],
     "subTitle": {
       "title": "Imagine walking into a space where every element is in harmony with the coastline.",
@@ -121,6 +124,7 @@
     "banner": "images/moods/bare-essence/bare-essence-banner.png",
     "desc": "a style that embraces the beauty of simplicity, stripping away excess to reveal the raw, essential elegance of outdoor living. <br/> It’s a celebration of natural forms and understated design, where every element serves a purpose, and every space breathes with quiet sophistication.",
     "color": "#3B3D3F",
+    "subName": "A style that embraces the beauty of simplicity",
     "inspirations": [1, 2, 3, 4, 5, 6, 7, 8],
     "subTitle": {
       "title": "Imagine entering a courtyard where smooth stone paths meet lush patches of moss, and seating crafted from light rattan and metal feels both natural and modern.",
