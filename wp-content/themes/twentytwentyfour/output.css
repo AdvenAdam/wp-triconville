@@ -2303,6 +2303,10 @@ h3 {
     line-height: 1.25rem;
   }
 
+  .md\:hover\:bg-gradient-to-b:hover {
+    background-image: linear-gradient(to bottom, var(--tw-gradient-stops));
+  }
+
   .group:hover .md\:group-hover\:visible {
     visibility: visible;
   }

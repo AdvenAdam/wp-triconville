@@ -271,13 +271,13 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
             <div style="background-image: url(${collection.collection_image_1024});"
                 class="bg-cover bg-no-repeat bg-center h-[300px] sm:h-[365px] sm:mx-0 mx-2 w-auto overflow-hidden">
                 <a href="<?= BASE_LINK; ?>/collections/${slugify(collection.name)}">
-                    <div class="sm:h-full w-full h-[65vh] flex md:group items-end hover:bg-gradient-to-b from-transparent to-black/40 p-5">
-                        <div class="max-w-md transition duration-300 translate-y-14 group-hover:translate-y-0 ease-in-out">
+                    <div class="sm:h-full w-full h-[65vh] flex group items-end md:hover:bg-gradient-to-b from-transparent to-black/40 p-5">
+                        <div class="max-w-md transition duration-300 translate-y-14 md:group-hover:translate-y-0 ease-in-out">
                             <h1 class="text-3xl md:text-5xl text-white">
                                 ${collection.name}
                             </h1>
                             <div class="line-clamp-2">
-                                <p class="text-white text-sm invisible group-hover:visible duration-300">
+                                <p class="text-white text-sm invisible md:group-hover:visible duration-300">
                                     ${collection.description}
                                 </p>
                             </div>
