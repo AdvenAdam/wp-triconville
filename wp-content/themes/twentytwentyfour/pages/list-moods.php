@@ -10,7 +10,7 @@ get_template_part('header-custom');
 <div class="content-container mt-20">
     <div class="px-3 md:px-5 my-10">
         <div class="max-w-[1440px] mx-auto">
-            <div class="text-center pt-20">
+            <div class="text-center pt-10 md:pt-20">
                 <h1 class="text-3xl md:text-5xl uppercase">Moods</h1>
                 <p class="text-sm md:text-base">Emotions in Every Moments</p>
             </div>
@@ -65,13 +65,16 @@ function renderBanner() {
         // Note : Set background
         moods.forEach(mood => {
             $('#mood__list').append(`
-                <div class="h-[322px] md:h-[600px] w-auto bg-no-repeat bg-center bg-cover"
+                <div class="h-[322px] md:h-[600px] w-auto bg-no-repeat bg-center bg-cover group overflow-hidden"
                     style="background-image: url('<?php echo esc_attr(get_template_directory_uri()); ?>/assets/${mood.thumb}')">
                     <a href="<?= BASE_LINK ?>/moods/${mood.slug}"
-                        class="h-full w-full flex items-end justify-end p-5">
-                        <h1 class="text-2xl md:text-5xl font-semibold text-end text-white max-w-[260px]">${mood.name}</h1>
+                        class="h-full w-full flex flex-col items-end justify-end p-5 transition duration-300 md:translate-y-14 md:group-hover:translate-y-0 ease-in-out md:group-hover:bg-gradient-to-b from-transparent to-black/40">
+                        <h1 class="text-2xl md:text-5xl !leading-none font-medium text-end text-white max-w-[260px] md:mb-6">${mood.name}</h1>
+                        <div class="text-end h-0 md:h-16">
+                            <p class="text-white text-sm invisible md:group-hover:visible duration-400 md:mb-6">${mood.subName}</p>
+                        </div>
                     </a>
-                </div>
+                </div>  
             `)
         })
     } catch (error) {

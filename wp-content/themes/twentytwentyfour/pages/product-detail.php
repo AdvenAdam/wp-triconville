@@ -150,7 +150,7 @@ jQuery(document).ready(function($) {
         },
         error: (xhr, status, error) => {
             if (xhr.status === 404) {
-                redirectError(404)
+                // redirectError(404)
             }
             console.error('Error fetching data:', error);
         },
@@ -614,7 +614,7 @@ function renderCollectionProducts(products, name) {
             <a href="<?= BASE_LINK; ?>/product-detail/${slugify(e.name)}">     
                 <div class="product__card">
                     <img src="${e.product_image}" class="md:h-[384px] h-[204px] object-contain mx-2 w-auto object-cover" />
-                    <p class="text-center text-xs md:mt-[-30px] max-w-[90%] uppercase">
+                    <p class="text-center text-xs md:mt-[-30px] max-w-[90%] capitalize">
                         ${e.name}
                     </p>
                 </div>

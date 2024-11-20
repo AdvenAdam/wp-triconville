@@ -40,8 +40,8 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
     <!-- NOTE: Banner -->
     <div class="homepage-banner">
         <div class="flex items-center justify-center min-h-full bg-black bg-opacity-25">
-            <h1 class="text-3xl md:text-5xl font-medium text-center uppercase text-white tracking-widest"
-                id="category__name">PREMIER OUTDOOR FURNITURE</h1>
+            <h1 class="text-3xl md:text-5xl font-medium text-center text-white"
+                id="category__name">Triconville Debuts at IFEX 2025</h1>
 
         </div>
     </div>
@@ -74,7 +74,7 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
             <div class="py-20">
                 <p class="text-center text-xs uppercase tracking-widest mb-2">Collections</p>
                 <h2 class="text-center text-3xl mb-5">Signature Selections for Every Style</h2>
-                <div class="block sm:grid sm:grid-cols-2 gap-3 mt-5 mb-10 collection__wrapper"
+                <div class="block sm:grid sm:grid-cols-2 gap-3 mt-5 mb-10 collection__wrapper "
                      id="colection-selected"></div>
                 <div class="text-center">
                     <a href="<?= BASE_LINK ?>/collections"
@@ -127,7 +127,7 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                         <a class="news-image w-1/2 md:w-auto md:h-auto sm:h-[240px] object-cover h-[124px] relative group hover:cursor-pointer"
                            href="<?php echo get_permalink($post->ID); ?>">
                             <?php echo get_the_post_thumbnail($post->ID, 'large'); ?>
-                            <div class="overlay absolute inset-0 bg-gradient-to-b from-transparent to-black/30 invisible group-hover:visible transition duration-300"></div>
+                            <div class="overlay absolute inset-0 bg-gradient-to-b from-transparent to-black/30 invisible group-hover:visible"></div>
                         </a>
                         <div class="desc w-1/2 md:w-[95%] flex flex-col justify-center">
                             <div class="h-20 overflow-hidden">
@@ -268,15 +268,24 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
 
     function renderCollections(collection) {
         $('#colection-selected').append(`
-            <div style="background-image: url(${collection.collection_image_1024});" class="bg-cover bg-no-repeat bg-center h-[300px] sm:h-[365px] sm:mx-0 mx-2 w-auto">
-                <a href= "<?= BASE_LINK; ?>/collections/${slugify(collection.name)}">
-                    <div class=" sm:h-full sm:w-full h-[65vh] w-[calc(100vw-20px)] flex items-end p-5 mx-2">
-                        <h1 class="text-3xl md:text-5xl text-white max-w-md">
-                            ${collection.name}
-                        </h1>
+            <div style="background-image: url(${collection.collection_image_1024});"
+                class="bg-cover bg-no-repeat bg-center h-[300px] sm:h-[365px] sm:mx-0 mx-2 w-auto overflow-hidden">
+                <a href="<?= BASE_LINK; ?>/collections/${slugify(collection.name)}">
+                    <div class="sm:h-full w-full h-[65vh] flex md:group items-end hover:bg-gradient-to-b from-transparent to-black/40 p-5">
+                        <div class="max-w-md transition duration-300 translate-y-14 group-hover:translate-y-0 ease-in-out">
+                            <h1 class="text-3xl md:text-5xl text-white">
+                                ${collection.name}
+                            </h1>
+                            <div class="line-clamp-2">
+                                <p class="text-white text-sm invisible group-hover:visible duration-300">
+                                    ${collection.description}
+                                </p>
+                            </div>
+                        </div>
                     </div>
                 </a>
             </div>
+
         `);
     }
 
@@ -285,7 +294,7 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
             $('#inspiration-selected').append(`
                 <a class="inspiration__card relative" href="${inspiration.link}">
                     <div class="inspiration__card__overlay absolute inset-0 bg-black bg-opacity-0 group hover:bg-opacity-20 transition duration-300 flex flex-col items-center justify-center">
-                        <img src="https://storage.googleapis.com/back-bucket/wp_triconville/images/icons/Instagram-white.svg" alt="Triconville" class="w-10 h-10 hidden group-hover:block">
+                        <img src="https://storage.googleapis.com/back-bucket/wp_triconville/images/icons/Instagram-white.svg" alt="Triconville" class="w-11 h-11 hidden group-hover:block">
                         <h3 class="text-white font-medium text-center hidden group-hover:block">@triconville</h3>
                     </div>
                     <img src="${inspiration.img}" alt="${inspiration.alt}" class="w-full h-full object-contain" />
