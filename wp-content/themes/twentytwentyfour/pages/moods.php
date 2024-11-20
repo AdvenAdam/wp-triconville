@@ -125,7 +125,7 @@ function renderGallery(galleries) {
             <div class="py-5 md:py-10 grid md:grid-cols-4 grid-cols-2 gap-5 w-full px-3 md:px-5">
                 ${galleries.map((gallery, i) => `
                     <div class="gallery-item ${i%2 !== 0 && 'mt-10 -mb-10'}">
-                        <img src="<?php echo esc_attr(get_template_directory_uri()); ?>/assets/${gallery.image}" class="w-full h-auto object-cover" alt="${gallery.name}" />
+                        <img src="<?php echo esc_attr(get_template_directory_uri()); ?>/assets/${gallery.image}" class="w-full h-auto object-cover" alt="${gallery.title}" />
                     </div>
                 `).join('')}
             </div>

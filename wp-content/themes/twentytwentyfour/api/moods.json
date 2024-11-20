@@ -20,19 +20,19 @@
     "galleries": [
       {
         "title": "Dune Essence",
-        "image": "images/moods/dune-essence/gallery/coastal-bliss-1.png"
+        "image": "images/moods/dune-essence/gallery/dune-essence-1.jpg"
       },
       {
         "title": "Dune Essence",
-        "image": "images/moods/dune-essence/gallery/coastal-bliss-2.png"
+        "image": "images/moods/dune-essence/gallery/dune-essence-2.jpg"
       },
       {
         "title": "Dune Essence",
-        "image": "images/moods/dune-essence/gallery/coastal-bliss-3.png"
+        "image": "images/moods/dune-essence/gallery/dune-essence-3.jpg"
       },
       {
         "title": "Dune Essence",
-        "image": "images/moods/dune-essence/gallery/coastal-bliss-4.png"
+        "image": "images/moods/dune-essence/gallery/dune-essence-4.jpg"
       }
     ],
     "catalogueImage": "images/moods/dune-essence/dune-essence-catalogue.png"
@@ -58,19 +58,19 @@
     "galleries": [
       {
         "title": "Leafscape",
-        "image": "images/moods/leafscape/gallery/coastal-bliss-1.png"
+        "image": "images/moods/leafscape/gallery/leafscape-1.jpg"
       },
       {
         "title": "Leafscape",
-        "image": "images/moods/leafscape/gallery/coastal-bliss-2.png"
+        "image": "images/moods/leafscape/gallery/leafscape-2.jpg"
       },
       {
         "title": "Leafscape",
-        "image": "images/moods/leafscape/gallery/coastal-bliss-3.png"
+        "image": "images/moods/leafscape/gallery/leafscape-3.jpg"
       },
       {
         "title": "Leafscape",
-        "image": "images/moods/leafscape/gallery/coastal-bliss-4.png"
+        "image": "images/moods/leafscape/gallery/leafscape-4.jpg"
       }
     ],
     "catalogueImage": "images/moods/leafscape/leafscape-catalogue.png"
