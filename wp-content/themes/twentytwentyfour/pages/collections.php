@@ -125,7 +125,7 @@ function renderMaster() {
                     <div class='overflow-hidden '>
                         <a href="<?= BASE_LINK; ?>/product-detail/${slugify(pr.name)}" class="">
                             <img src="${pr.product_image_384}" alt="${pr.alt_text}" class="w-full h-[120px] md:h-[384px] object-contain group-hover:scale-110 transition duration-300"> 
-                            <h3 class="text-center mb-5 uppercase line-clamp-2 max-w-xs">${pr.name}</h3>
+                            <p class="text-center mb-5 text-sm capitalize line-clamp-2 max-w-xs">${pr.name}</p>
                         </a>
                     </div>
                 `).join('')}
