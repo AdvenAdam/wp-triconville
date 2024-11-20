@@ -202,7 +202,7 @@ function renderProducts(data, headerTitle = 'All Types') {
         <!-- NOTE: ${headerTitle} -->
         <div id="product__${slugify(headerTitle)}" class="product-list mb-20">
             <div class="-mb-5">
-                <h3 class="text-2xl md:text-3xl md:ps-5" id="category__name-label">
+                <h3 class="text-2xl md:text-3xl ps-3 md:ps-5" id="category__name-label">
                     ${headerTitle}
                 </h3>
                 <hr style="border-width: 2px;" />
