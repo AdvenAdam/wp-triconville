@@ -33,14 +33,12 @@
                     <path d="M100.707 8.70711C101.098 8.31658 101.098 7.68342 100.707 7.29289L94.3431 0.928932C93.9526 0.538408 93.3195 0.538408 92.9289 0.928932C92.5384 1.31946 92.5384 1.95262 92.9289 2.34315L98.5858 8L92.9289 13.6569C92.5384 14.0474 92.5384 14.6805 92.9289 15.0711C93.3195 15.4616 93.9526 15.4616 94.3431 15.0711L100.707 8.70711ZM0 9H100V7H0V9Z"
                           fill="white" />
                 </svg>
-
-
             </a>
         </div>
     </div>
     <div class=" bg-cover bg-center bg-no-repeat snap-center snap-always"
          style="background-image: url(https://storage.googleapis.com/back-bucket/wp_triconville/images/store/footer.png)">
-        <div class="py-10 md:px-5 px-3 bg-[#F4F6F6] bg-opacity-85">
+        <div class="py-10 md:py-20 md:px-5 px-3 bg-[#F4F6F6] bg-opacity-85">
             <div class="max-w-[1440px] mx-auto ">
                 <div class="w-full md:flex gap-10">
                     <div class="md:w-2/3 w-full">
