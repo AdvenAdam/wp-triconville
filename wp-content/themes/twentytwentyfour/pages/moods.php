@@ -14,7 +14,7 @@ get_template_part('header-custom');
 }
 </style>
 
-<div class="content-container min-h-screen mt-10 md:mt-20"
+<div class="content-container min-h-screen mt-10 md:mt-32"
      id="mood__container">
     <div id="mood__title">
     </div>
@@ -98,7 +98,7 @@ function renderBanner() {
     $('#mood__title').append(`
         <div class="flex gap-5 md:items-end w-full mt-20 md:flex-row flex-col">
             <img src="<?php echo esc_attr(get_template_directory_uri()); ?>/assets/${selectedMood.banner}" class="w-full md:w-3/5 h-auto object-cover" />
-            <div class="ps-3 md:ps-0">
+            <div class="ps-3 md:ps-5">
                 <h1 class="text-3xl md:text-5xl lg:text-6xl xl:text-[7.5rem] xl:leading-[9rem] mood-color font-bold mb-5">${selectedMood.name}</h1>
                 <div class="max-w-sm ">
                     <h3 class="mood-color  mb-3">${descriptionTitle}</h3>
@@ -137,15 +137,15 @@ function renderMaterials(materials) {
     if (materials) {
         // Note : Set Materials
         $('#mood__materials').append(`
-            <div class="py-5 md:py-10 flex sm:flex-row flex-col gap-3 items-center">
-                <div class="md:p-5 w-full md:w-1/2 flex justify-end md:justify-center relative">
-                    <img src="<?php echo esc_attr(get_template_directory_uri()); ?>/assets/${selectedMood.materials.image}" class="w-full md:w-auto max-h-[500px] object-cover relative z-10" />
+            <div class="py-5 md:py-10 flex sm:flex-row flex-col items-center">
+                <div class="md:p-5 w-full md:w-[60%]">
+                    <img src="<?php echo esc_attr(get_template_directory_uri()); ?>/assets/${selectedMood.materials.image}" class="w-full md:w-auto max-h-[38rem] object-cover relative z-10" />
                 </div>
-                <div class="p-3 md:p-5 w-full md:w-1/2 max-w-xl">
+                <div class="p-3 md:p-5 w-full md:w-[40%]">
                     <h2 class="text-2xl mood-color md:text-3xl text-white mb-5">
                         Materials
                     </h2>
-                    <p class="text-sm mood-color">
+                    <p class="text-sm mood-color max-w-md">
                         ${selectedMood.materials.desc}
                     </p>
                 </div>
@@ -158,11 +158,11 @@ function renderCatalogue(catalogueImage) {
     if (catalogueImage) {
         $('#mood__catalogue').append(`
             <div class="grid grid-cols-1 sm:grid-cols-2 items-center gap-5">
-                <div class="max-w-lg order-2 sm:order-1 px-3 md:px-5">
+                <div class="max-w-xl order-2 sm:order-1 px-3 md:px-5">
                     <p class="uppercase text-xs tracking-widest mood-color mb-2">CATALOG</p>
                     <h2 class="mood-color text-3xl">Triconville - 2024 Catalog</h2>
                     <p class="text-sm tracking-wider mt-3 mb-12 mood-color">Discover an unrivaled selection of luxuriant designs from Triconville. Brought to life with captivating imagery, the 2024 Triconville catalogue is a go-to resource for inspiration and information. Qualified trade members can reserve a copy by filling out the form below.</p>
-                    <a href="<?= BASE_LINK ?>/collections" class="btn-ghost uppercase text-xs tracking-widest">View Catalog</a>
+                    <a href="<?= BASE_LINK ?>/collections" class="btn-ghost uppercase text-xs">View Catalog</a>
                 </div>
                 <img src="<?php echo esc_attr(get_template_directory_uri()); ?>/assets/${catalogueImage}" class=" w-full h-auto object-cover order-1 sm:order-2" />
             </div>
@@ -185,8 +185,8 @@ function renderOtherMoods() {
                             <a href="<?= BASE_LINK ?>/moods/${mood.slug}"
                                 class="h-full w-full flex flex-col items-end justify-end p-5 transition duration-300 md:translate-y-14 md:group-hover:translate-y-0 ease-in-out md:group-hover:bg-gradient-to-b from-transparent to-black/40">
                                 <h1 class="text-2xl md:text-5xl !leading-none font-medium text-end text-white max-w-[260px] md:mb-6">${mood.name}</h1>
-                                <div class="text-end h-0 md:h-16">
-                                    <p class="text-white text-sm invisible md:group-hover:visible duration-400 md:mb-6">${mood.subName}</p>
+                                <div class="text-end h-0 md:h-8">
+                                    <p class="text-white text-sm invisible md:group-hover:visible duration-300 md:mb-6">${mood.subName}</p>
                                 </div>
                             </a>
                         </div>

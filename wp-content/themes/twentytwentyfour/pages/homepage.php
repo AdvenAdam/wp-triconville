@@ -72,8 +72,8 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
         <div class="max-w-[1440px] mx-auto">
             <!-- ANCHOR : Collection -->
             <div class="py-20">
-                <p class="text-center text-xs uppercase tracking-widest mb-2">Collections</p>
-                <h2 class="text-center text-3xl mb-5">Signature Selections for Every Style</h2>
+                <p class="text-center text-xs uppercase tracking-widest">Collections</p>
+                <h2 class="text-center text-3xl mb-8">Signature Selections for Every Style</h2>
                 <div class="block sm:grid sm:grid-cols-2 gap-3 mt-5 mb-10 collection__wrapper "
                      id="colection-selected"></div>
                 <div class="text-center">
@@ -85,8 +85,8 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
             </div>
             <!-- ANCHOR : Inspiration -->
             <div class="py-20">
-                <p class="text-center text-xs uppercase tracking-widest mb-2">INSPIRATION</p>
-                <h2 class="text-center text-3xl mb-5">The Art of Living</h2>
+                <p class="text-center text-xs uppercase tracking-widest">INSPIRATION</p>
+                <h2 class="text-center text-3xl mb-8">The Art of Living</h2>
                 <div class="grid grid-cols-3 gap-1 sm:gap-3 mt-5 mb-10"
                      id="inspiration-selected"></div>
                 <div class="text-center">
@@ -97,10 +97,10 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                 </div>
             </div>
             <!-- ANCHOR : Moods  -->
-            <div class="py-20">
+            <div class="py-10 md:py-20 lg:py-28">
                 <div class="flex gap-5 lg:flex-row flex-col items-center justify-between">
                     <div class="max-w-lg">
-                        <p class="text-xs uppercase tracking-widest mb-2">MOODS</p>
+                        <p class="text-xs uppercase tracking-widest">MOODS</p>
                         <h2 class="text-3xl">Your World, Your Style, Your Outdoors.</h2>
                         <p class="text-sm mt-3 mb-10">We believe every outdoor space has a story to tell. It should be as unique as you are. Hence we've curated a diverse collection of furniture styles to complement any outdoor space and reflect your personal taste:</p>
                         <a href="<?= BASE_LINK ?>/moods"
@@ -114,10 +114,10 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                 </div>
             </div>
             <!-- ANCHOR : News List -->
-            <div class="py-10">
+            <div class="py-10 md:py-20 lg:py-28">
                 <div class="text-center mx-auto max-w-2xl mb-5">
-                    <p class="uppercase tracking-widest text-xs mb-2">news </p>
-                    <h4 class="text-2xl md:text-3xl ">
+                    <p class="uppercase tracking-widest text-xs">news </p>
+                    <h4 class="text-2xl md:text-3xl mb-8">
                         Our Latest News
                     </h4>
                 </div>

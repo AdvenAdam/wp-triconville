@@ -273,7 +273,7 @@
         `);
 
         // Check if the link needs a submenu
-        const hasSubMenu = ['Products', 'Inspiration', 'Collections'].includes(menu.name);
+        const hasSubMenu = ['Products', 'Inspirations', 'Collections'].includes(menu.name);
         const subMenuId = `sub-${slugify(menu.name)}-mobile`;
 
         if (hasSubMenu) {
@@ -307,7 +307,7 @@
         let submenuData = [];
         const subMenuIds = {
             'Products': 'sub-products',
-            'Inspiration': 'sub-inspiration',
+            'Inspirations': 'sub-inspiration',
             'Collections': 'sub-collections'
         };
 
@@ -316,7 +316,7 @@
             case 'Products':
                 submenuData = productCategories;
                 break;
-            case 'Inspiration':
+            case 'Inspirations':
                 submenuData = <?php echo file_get_contents(get_template_directory() . '/api/inspirationSubmenu.json'); ?>;
                 break;
             case 'Collections':
@@ -328,7 +328,7 @@
         submenuData.forEach((item) => {
             const href = menu === 'Products' ?
                 `<?= BASE_LINK; ?>/products/${item.slug}` :
-                menu === 'Inspiration' ?
+                menu === 'Inspirations' ?
                 `<?= BASE_LINK; ?>/${item.slug}/` :
                 `<?= BASE_LINK; ?>/collections/${slugify(item.name)}`;
 
@@ -341,11 +341,10 @@
             `;
             categoryDesktop += `
                 <a href="${href}">
-                    <p class="px-3 py-1 hover:text-cyan-500 whitespace-nowrap" id="${slugify(item.name)}-link">${displayName}</p>
+                    <p class="px-3 py-1 hover:text-cyan-500 whitespace-nowrap" id="${slugify(item.name)}-sub-link">${displayName}</p>
                 </a>
             `;
         });
-
         // Append generated submenu items to the respective containers
         if (menu !== 'Collections') {
             $(`#${subMenuIds[menu]}-mobile`).append(categoryMobile);
@@ -360,20 +359,21 @@
         const linkSelectors = {
             'product-detail': '#products-link',
             'about-us': '#brand-link',
-            'inspiration': '#inspiration-link',
+            'inspiration': '#inspirations-link',
             'contact-us': '#contact-link',
             'find-a-store': '#stores-link',
         };
         // special case for inspiration 
         const inspiration = {
-            'projects': '#projects-link',
-            'news': '#news-link',
-            'moods': '#moods-link',
-            'materials': '#materials-link',
+            'inspiration': '#inspirations-sub-link',
+            'news': '#news-sub-link',
+            'moods': '#moods-sub-link',
+            'materials': '#materials-sub-link',
         }
 
         if (inspiration[parentUrl]) {
             $(linkSelectors['inspiration']).removeClass('text-gray-900').addClass('text-cyan-500 underline');
+            $(inspiration[parentUrl]).removeClass('text-gray-900').addClass('text-cyan-500 underline');
         }
         // Activate specific links based on the parentUrl
         if (linkSelectors[parentUrl]) {
@@ -387,7 +387,7 @@
 
         // Highlight the child link if present
         if (childUrl) {
-            $(`#${childUrl}-link, #${childUrl}-link-mobile`).removeClass('text-gray-900').addClass('text-cyan-500 underline');
+            $(`#${childUrl}-link, #${childUrl}-link-mobile, #${childUrl}-sub-link`).removeClass('text-gray-900').addClass('text-cyan-500 underline');
         }
     }
     </script>
