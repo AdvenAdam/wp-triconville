@@ -46,18 +46,18 @@ get_template_part('header-custom');
                 <div class="md:w-1/2">
                     <div id="product__header__image"></div>
                 </div>
-                <div class=" item-center md:w-1/2 mt-5 md:mt-0"
+                <div class=" md:w-1/2 mt-5 md:mt-0"
                      id="product__description">
                     <div class="mb-5"
                          id="product__overview"></div>
 
-                    <span class="mr-3 uppercase text-xs"
-                          id="label_1"></span>
+                    <p class="mr-3 uppercase mb-2 text-xs"
+                       id="label_1"></p>
                     <div class="flex mb-5 flex-wrap gap-2"
                          id="option_1">
                     </div>
-                    <span class="mr-3 uppercase text-xs"
-                          id="label_2"></span>
+                    <p class="mr-3 uppercase mb-2 text-xs"
+                       id="label_2"></p>
                     <div class="flex mb-5 flex-wrap items-center gap-2"
                          id="option_2">
                     </div>
@@ -147,10 +147,11 @@ jQuery(document).ready(function($) {
         },
         success: (res) => {
             ProductsData = res;
+            console.log("🚀 ~ jQuery ~ ProductsData:", ProductsData)
         },
         error: (xhr, status, error) => {
             if (xhr.status === 404) {
-                // redirectError(404)
+                redirectError(404)
             }
             console.error('Error fetching data:', error);
         },
@@ -175,23 +176,23 @@ function renderMaster() {
         // NOTE : PRODUCT HEADER 
         $('#product__banner').append(
             `<div class="h-screen w-full transition-all duration-500 "
-                    style="
-                        background: url('${ProductsData.ambience_image_1920[0]}'); 
-                        background-position: 50% 50%;
-                        background-size: cover;
-                        background-repeat: no-repeat;
-                    ">
-                    <div class ='bg-black bg-opacity-30 h-full w-full flex items-center justify-center'>
-                        <h1 class="text-3xl md:text-5xl font-medium text-center tracking-wider text-white uppercase">${ProductsData.name}</h1>
-                    </div>
-                </div>`
+                style="
+                    background: url('${ProductsData.ambience_image_1920[0]}'); 
+                    background-position: 50% 50%;
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                ">
+                <div class ='bg-black bg-opacity-30 h-full w-full flex items-center justify-center'>
+                    <h1 class="text-3xl md:text-5xl font-medium text-center text-white uppercase">${ProductsData.name}</h1>
+                </div>
+            </div>`
         );
         // NOTE :PRODUCT OVERVIEW
         renderOverview(ProductsData);
         renderMaterial(ProductsData.combineoptionvariant);
         // APPEND DIMENSION
         renderDimensions(ProductsData.dimension);
-        renderDownloadable(ProductsData.asset3d);
+        renderDownloadable(ProductsData.asset3d, ProductsData.product_image, ProductsData.collection_sheet);
         renderImages(ProductsData);
         if (Array.isArray(ProductsData.collection_product) && ProductsData.collection_product.length > 0) {
             renderCollectionProducts(ProductsData.collection_product.slice(0, 4), ProductsData.collection_det);
@@ -209,10 +210,15 @@ function renderMaster() {
 
 function renderSheet(sheet) {
     $('#product__description').append(`
-        <div class="inline-flex gap-2">
+        <div class="inline-flex gap-1 items-center">
             ${sheet !== 'False' || sheet !== null ?
             `<a href="${sheet}"
-                class="btn-ghost-dark uppercase text-sm"> download collection sheet</a>`
+                class="btn-ghost-dark uppercase text-sm flex items-center gap-2"> download collection sheet 
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5 pb-1">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
+                </svg>
+    
+            </a>`
             :''}
             <a href="#"
                 class="btn-ghost uppercase text-sm"
@@ -266,11 +272,11 @@ function renderOverview(res) {
         const desc = res.description.replace(/<\/?p[^>]*>/g, '').replace(/<li[^>]*>(.*?)<\/li>/g, '')
         $('#product__overview').append(`
             <div class=''>
-                <h1 class="text-2xl md:text-3xl text-gray-900 tracking-wide line-clamp-2">${res.name}</h1>
+                <h1 class="text-2xl md:text-3xl text-gray-900 line-clamp-2">${res.name}</h1>
                 <p class="text-slate-500 text-sm text-sm mb-3">Designed by 
                     <span class="text-black font-medium hover:underline"><a href="https://indospacegroup.com/indospace-rnd/">Indospace R&D </a></span>
                 </p>
-                <p class="text-sm tracking-wider line-clamp-4">${desc}</p>
+                <p class="text-sm line-clamp-4">${desc}</p>
             </div>
         `);
     }
@@ -300,14 +306,15 @@ function renderDimensions(dimensions, render = "all") {
                                     id="imperial">Imperial</button>
                         </div>
                     </div>
-                    <table class="product__spec w-full md:text-sm text-xs tracking-wider"
+                    <table class="product__spec w-full md:text-sm text-xs tracking-wider text-[#4D4D4D]"
                            id="table__spec"></table>
                 </div>
-                <div >
+                <div id="product__download__container">
                     <h3 class="text-2xl md:text-3xl  my-3 line-clamp-2">DOWNLOADS</h3>
                     <div id="product__downloadable"
                          class="grid grid-cols-2 gap-4">
                     </div>
+                    <p class="text-sm text-[#798F98] mt-5">Please <span class="hover:underline"><a href="https://indospaceb2b.com/"" target="_blank">login</a></span> to access all downloadable contents</p>
                 </div>
             </div>
         `)
@@ -448,118 +455,115 @@ function renderDimensions(dimensions, render = "all") {
 
 }
 
-function renderDownloadable(asset3d) {
-    if (asset3d !== null) {
-        if (asset3d.drawing_3d_dwg) {
-            $('#product__downloadable').append(`
-                <div>
-                    <a href="${asset3d.drawing_3d_dwg}"
-                    class="text-slate-500 hover:text-slate-400">
-                        <div class='flex gap-2'>
-                            <svg xmlns="http://www.w3.org/2000/svg"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                stroke-width="1.5"
-                                stroke="currentColor"
-                                class="size-5 text-slate-500">
-                                <path stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
-                            </svg>DWG
-                        </div>
-                    </a>
-                    <hr class="my-1 me-6 border-slate-300 "/>
-                </div>
-            `);
-        }
-        if (asset3d.drawing_3d_obj) {
-            $('#product__downloadable').append(`
-                <div>
-                    <a href="${asset3d.drawing_3d_obj}"
-                    class="text-slate-500 hover:text-slate-400">
-                        <div class='flex gap-2'>
-                            <svg xmlns="http://www.w3.org/2000/svg"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                stroke-width="1.5"
-                                stroke="currentColor"
-                                class="size-5 text-slate-500">
-                                <path stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
-                            </svg>3D OBJ
-                        </div>
-                    </a>
-                    <hr class="my-1 me-6 border-slate-300 "/>
-                </div>
-            `);
-        }
-        if (asset3d.drawing_3d_3dmax) {
-            $('#product__downloadable').append(`
-                <div>
-                    <a href="${asset3d.drawing_3d_3dmax}"
-                    class="text-slate-500 hover:text-slate-400">
-                        <div class='flex gap-2'>
-                            <svg xmlns="http://www.w3.org/2000/svg"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                stroke-width="1.5"
-                                stroke="currentColor"
-                                class="size-5 text-slate-500">
-                                <path stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
-                            </svg>3D MAX
-                        </div>
-                    </a>
-                    <hr class="my-1 me-6 border-slate-300 "/>
-                </div>
-            `);
-        }
-        if (asset3d.drawing_3d_sketchup) {
-            $('#product__downloadable').append(`
-                <div>
-                    <a href="${asset3d.drawing_3d_sketchup}"
-                    class="text-slate-500 hover:text-slate-400">
-                        <div class='flex gap-2'>
-                            <svg xmlns="http://www.w3.org/2000/svg"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                stroke-width="1.5"
-                                stroke="currentColor"
-                                class="size-5 text-slate-500">
-                                <path stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
-                            </svg>SKETCHUP
-                        </div>
-                    </a>
-                    <hr class="my-1 me-6 border-slate-300 "/>
-                </div>
-            `);
-        }
-        if (asset3d.file_3d_glb) {
-            $('#product__downloadable').append(`
-                <div>
-                    <a href="${asset3d.file_3d_glb}"
-                    class="text-slate-500 hover:text-slate-400">
-                        <div class='flex gap-2'>
-                            <svg xmlns="http://www.w3.org/2000/svg"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                stroke-width="1.5"
-                                stroke="currentColor"
-                                class="size-5 text-slate-500">
-                                <path stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
-                            </svg>GLB
-                        </div>
-                    </a>
-                    <hr class="my-1 me-6 border-slate-300 "/>
-                </div>
-            `);
-        }
+function renderDownloadable(asset3d, product_image, collection_sheet) {
+    if (product_image) {
+        $('#product__downloadable').append(`
+            <div>
+                <a href="${product_image}"
+                    target="_blank"
+                    class="text-slate-700 hover:text-slate-400 text-sm">
+                    <div class='flex gap-1 items-center'>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5 pb-1">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
+                        </svg>
+                        HD Images
+                    </div>
+                </a>
+                <hr class="my-1 me-6 border-slate-300 "/>
+            </div>
+        `);
+    }
+    if (collection_sheet) {
+        $('#product__downloadable').append(`
+            <div>
+                <a href="${collection_sheet}"
+                    target="_blank"
+                    class="text-slate-700 hover:text-slate-400 text-sm">
+                    <div class='flex gap-1 items-center'>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5 pb-1">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
+                        </svg>
+                        Collection Sheet
+                    </div>
+                </a>
+                <hr class="my-1 me-6 border-slate-300 "/>
+            </div>
+        `);
+    }
+    if (asset3d.drawing_3d_dwg) {
+        $('#product__downloadable').append(`
+            <div>
+                <div class="text-slate-700 cursor-not-allowed text-sm">
+                    <div class='flex gap-1 items-center'>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5 pb-1">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z" />
+                        </svg>
+                        DWG
+                    </div>
+                </a>
+                <hr class="my-1 me-6 border-slate-300 "/>
+            </div>
+        `);
+    }
+    if (asset3d.drawing_3d_obj) {
+        $('#product__downloadable').append(`
+            <div>
+                <div class="text-slate-700 cursor-not-allowed text-sm">
+                    <div class='flex gap-1 items-center'>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5 pb-1">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z" />
+                        </svg>
+                        3D OBJ
+                    </div>
+                </a>
+                <hr class="my-1 me-6 border-slate-300 "/>
+            </div>
+        `);
+    }
+    if (asset3d.drawing_3d_3dmax) {
+        $('#product__downloadable').append(`
+            <div>
+                <div class="text-slate-700 cursor-not-allowed text-sm">
+                    <div class='flex gap-1 items-center'>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5 pb-1">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z" />
+                        </svg>
+                        3D MAX
+                    </div>
+                </a>
+                <hr class="my-1 me-6 border-slate-300 "/>
+            </div>
+        `);
+    }
+    if (asset3d.drawing_3d_sketchup) {
+        $('#product__downloadable').append(`
+            <div>
+                <div class="text-slate-700 cursor-not-allowed text-sm">
+                    <div class='flex gap-1 items-center'>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5 pb-1">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z" />
+                        </svg>
+                        SKETCHUP
+                    </div>
+                </a>
+                <hr class="my-1 me-6 border-slate-300 "/>
+            </div>
+        `);
+    }
+    if (asset3d.file_3d_glb) {
+        $('#product__downloadable').append(`
+            <div>
+                <div class="text-slate-700 cursor-not-allowed text-sm">
+                    <div class='flex gap-1 items-center'>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5 pb-1">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z" />
+                        </svg>
+                        GLB
+                    </div>
+                </a>
+                <hr class="my-1 me-6 border-slate-300 "/>
+            </div>
+        `);
     }
 }
 
@@ -656,9 +660,9 @@ function renderWellWithProducts(products) {
             <svg xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
-                    stroke-width="1.5"
+                    stroke-w1.5"1.5"
                     stroke="currentColor"
-                    class="size-6">
+                    class="h-10 w-10">
                 <path stroke-linecap="round"
                         stroke-linejoin="round"
                         d="M15.75 19.5 8.25 12l7.5-7.5" />
@@ -670,9 +674,9 @@ function renderWellWithProducts(products) {
             <svg xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
-                    stroke-width="1.5"
+                    stroke-w1.5"1.5"
                     stroke="currentColor"
-                    class="size-6">
+                    class="h-10 w-10">
                 <path stroke-linecap="round"
                         stroke-linejoin="round"
                         d="m8.25 4.5 7.5 7.5-7.5 7.5" />
