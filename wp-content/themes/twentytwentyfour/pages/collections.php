@@ -68,8 +68,6 @@ function loadCollections() {
                 ...res,
                 ...selectedCollection[0]
             };
-            console.log("🚀 ~ loadCollections ~ collectionData:", collectionData)
-            console.log("🚀 ~ renderMaster ~ collectionData.ambience_image.length:", collectionData.ambience_image.length)
 
         },
         error: function(xhr, status, error) {
@@ -123,9 +121,9 @@ function renderMaster() {
             <div class=" grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 mt-5 gap-4 justify-center container mx-auto mt-5 mb-10">
                 ${collectionData.product_list.map((pr, i) => `
                     <div class='overflow-hidden '>
-                        <a href="<?= BASE_LINK; ?>/product-detail/${slugify(pr.name)}" class="">
-                            <img src="${pr.product_image_384}" alt="${pr.alt_text}" class="w-full h-[120px] md:h-[384px] object-contain group-hover:scale-110 transition duration-300"> 
-                            <p class="text-center mb-5 text-sm capitalize line-clamp-2 max-w-xs">${pr.name}</p>
+                        <a href="<?= BASE_LINK; ?>/product-detail/${slugify(pr.name)}" class="group">
+                            <img src="${pr.product_image_384}" alt="${pr.alt_text}" class="w-full h-[120px] md:h-[384px] object-contain group-hover:scale-[.97] group-hover:brightness-110 transition duration-300"> 
+                            <p class="text-center mb-5 text-sm capitalize line-clamp-2 max-w-xs group-hover:underline">${pr.name}</p>
                         </a>
                     </div>
                 `).join('')}
