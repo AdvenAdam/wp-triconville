@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "ids": [39, 30, 36],
+    "ids": [39, 30],
     "name": "Sofas",
     "slug": "sofas",
     "image": "https://storage.googleapis.com/back-bucket/wp_triconville/images/category/banner/banner_sofa2.jpg",
@@ -18,8 +18,8 @@
         "param": ""
       },
       {
-        "id": 36,
-        "name": "Modular Sofas",
+        "id": 69,
+        "name": "Sectionals Sofas",
         "param": ""
       }
     ],

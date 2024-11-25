@@ -36,7 +36,7 @@ get_template_part('header-custom');
 }
 </style>
 
-<div class="content-container overflow-x-hidden mt-20">
+<div class="content-container overflow-x-hidden mt-16 md:mt-20">
     <div id="product__banner"></div>
     <!-- NOTE : PRODUCT Overview & Material -->
     <div class="md:px-5 px-3">

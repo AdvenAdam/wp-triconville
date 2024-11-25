@@ -122,7 +122,7 @@ function renderMaster() {
                 ${collectionData.product_list.map((pr, i) => `
                     <div class='overflow-hidden '>
                         <a href="<?= BASE_LINK; ?>/product-detail/${slugify(pr.name)}" class="group">
-                            <img src="${pr.product_image_384}" alt="${pr.alt_text}" class="w-full h-[120px] md:h-[384px] object-contain group-hover:scale-[.97] group-hover:brightness-110 transition duration-300"> 
+                            <img src="${pr.product_image_384}" alt="${pr.alt_text}" class="w-full h-[240px] md:h-[384px] object-contain group-hover:scale-[.97] group-hover:brightness-110 transition duration-300"> 
                             <p class="text-center mb-5 text-sm capitalize line-clamp-2 max-w-xs group-hover:underline">${pr.name}</p>
                         </a>
                     </div>

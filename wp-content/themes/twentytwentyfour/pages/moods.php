@@ -14,7 +14,7 @@ get_template_part('header-custom');
 }
 </style>
 
-<div class="content-container min-h-screen mt-10 md:mt-32"
+<div class="content-container min-h-screen mt-6 md:mt-32"
      id="mood__container">
     <div id="mood__title">
     </div>
@@ -162,7 +162,7 @@ function renderCatalogue(catalogueImage) {
                     <p class="uppercase text-xs tracking-widest mood-color mb-2">CATALOG</p>
                     <h2 class="mood-color text-3xl">Triconville - 2024 Catalog</h2>
                     <p class="text-sm tracking-wider mt-3 mb-12 mood-color">Discover an unrivaled selection of luxuriant designs from Triconville. Brought to life with captivating imagery, the 2024 Triconville catalogue is a go-to resource for inspiration and information. Qualified trade members can reserve a copy by filling out the form below.</p>
-                    <a href="<?= BASE_LINK ?>/collections" class="btn-ghost uppercase text-xs">View Catalog</a>
+                    <p><a href="<?= BASE_LINK ?>/collections" class="btn-ghost uppercase text-xs">View Catalog</a></p>
                 </div>
                 <img src="<?php echo esc_attr(get_template_directory_uri()); ?>/assets/${catalogueImage}" class=" w-full h-auto object-cover order-1 sm:order-2" />
             </div>

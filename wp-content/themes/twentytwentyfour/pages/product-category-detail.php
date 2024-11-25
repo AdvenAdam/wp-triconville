@@ -14,7 +14,7 @@ get_template_part('header-custom');
 </style>
 <div class="content-container overflow-hidden mt-20">
     <!-- NOTE: Banner -->
-    <div class="product-detail-banner mt-10">
+    <div class="product-detail-banner mt-6 md:mt-10">
         <div class="flex items-center justify-center w-full full-screen bg-black bg-opacity-10">
             <h1 class="text-3xl md:text-5xl font-medium text-center text-white capitalize"
                 id="category__name"></h1>
