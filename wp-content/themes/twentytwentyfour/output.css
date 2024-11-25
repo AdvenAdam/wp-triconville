@@ -2352,6 +2352,10 @@ h3 {
     gap: 1.25rem;
   }
 
+  .md\:gap-4 {
+    gap: 1rem;
+  }
+
   .md\:gap-y-9 {
     row-gap: 2.25rem;
   }
