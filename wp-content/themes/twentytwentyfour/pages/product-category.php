@@ -14,7 +14,7 @@ get_template_part('header-custom');
     background-position: center;
 }
 </style>
-<div class="content-container mt-32">
+<div class="content-container mt-24 md:mt-32">
     <div class="product-header w-full full-screen ">
         <div class="flex items-center justify-center h-full bg-black bg-opacity-10 ">
             <h1 class="text-3xl md:text-5xl font-medium text-center text-white">Products</h1>
