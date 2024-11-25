@@ -8,7 +8,7 @@ Template Post Type: post, page, event
 get_template_part('header-custom');
 ?>
 
-<div class="content-wrapper mt-20">
+<div class="content-wrapper mt-16 md:mt-20">
     <?php 
         while (have_posts()) : the_post();
             the_content();
