@@ -2419,6 +2419,10 @@ h3 {
     padding-top: 0.75rem;
   }
 
+  .md\:pt-10 {
+    padding-top: 2.5rem;
+  }
+
   .md\:text-center {
     text-align: center;
   }
