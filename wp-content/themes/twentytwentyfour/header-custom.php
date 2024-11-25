@@ -68,7 +68,7 @@
 <body <?php body_class(); ?>>
     <header class="header fixed w-full top-0 tracking-widest"
             style="z-index: 20;">
-        <nav class="flex items-center justify-between sm:px-8 xl:px-20 px-3 w-full md:min-h-20 bg-white">
+        <nav class="flex items-center justify-between px-3 sm:px-5 xl:px-20 w-full md:min-h-20 bg-white">
             <div class="flex justify-center">
                 <a href="<?php echo home_url(); ?>">
                     <img src="<?= BASE_LINK ?>/wp-content/uploads/2024/09/Logo-Blue-Resized-1.png"
@@ -76,7 +76,6 @@
                          class="h-6 will-auto min-w-20" />
                 </a>
             </div>
-
             <div class="flex items-center justify-end lg:pt-4 gap-2 lg:gap-10 xl:gap-16">
                 <div id="navbar_menu_category"
                      class='lg:flex hidden gap-1 lg:gap-6'>
@@ -123,28 +122,30 @@
                 </button>
             </div>
         </nav>
-        <nav class="w-full sm:px-8 xl:px-20 px-3 py-2 md:py-3 bg-[#F4F6F6] opacity-0 invisible transition-opacity duration-500 ease-in-out fixed top-16 md:top-20"
+        <nav class="w-full px-3 sm:px-5 lg:px-8 xl:px-20 py-2 md:py-3 bg-[#F4F6F6] opacity-0 invisible transition-opacity duration-500 ease-in-out fixed top-16 md:top-20"
              style="z-index: 2;"
              id="sub-header">
-            <div class="flex w-full justify-end uppercase text-xs"
-                 id="sub-inspiration-desktop">
+            <div class="uppercase text-xs">
+                <div class="flex gap-4 justify-end overflow-x-auto w-full"
+                     id="sub-inspiration-desktop">
+                </div>
             </div>
         </nav>
-        <nav class="w-full sm:px-8 xl:px-20 px-3 py-2 md:py-3 bg-[#F4F6F6] opacity-0 invisible transition-opacity duration-500 ease-in-out fixed top-16 md:top-20"
+        <nav class="w-full px-3 sm:px-5 lg:px-8 xl:px-20 py-2 md:py-3 bg-[#F4F6F6] opacity-0 invisible transition-opacity duration-500 ease-in-out fixed top-16 md:top-20"
              style="z-index: 1;"
              id="sub-products">
             <div class="uppercase text-xs">
-                <div class="flex md:justify-end overflow-x-auto w-full"
+                <div class="flex gap-4 mjustify-end overflow-x-auto w-full"
                      id="sub-products-desktop">
 
                 </div>
             </div>
         </nav>
-        <nav class="w-full sm:px-8 xl:px-20 px-3 py-2 md:py-3 bg-[#F4F6F6] opacity-0 invisible transition-opacity duration-500 ease-in-out fixed top-16 md:top-20"
+        <nav class="w-full px-3 sm:px-5 lg:px-8 xl:px-20 py-2 md:py-3 bg-[#F4F6F6] opacity-0 invisible transition-opacity duration-500 ease-in-out fixed top-16 md:top-20"
              style="z-index: 1;"
              id="sub-collections">
             <div class="uppercase text-xs">
-                <div class="flex md:justify-end overflow-x-auto w-full"
+                <div class="flex gap-4 mjustify-end overflow-x-auto w-full"
                      id="sub-collections-desktop">
 
                 </div>
@@ -340,12 +341,12 @@
             const displayName = item.display_name || item.name;
             categoryMobile += `
                 <a href="${href}">
-                    <p class="px-3 py-1 hover:text-cyan-500 whitespace-nowrap" id="${slugify(item.name)}-link-mobile">${displayName}</p>
+                    <p class="py-1 hover:text-cyan-500 whitespace-nowrap" id="${slugify(item.name)}-link-mobile">${displayName}</p>
                 </a>
             `;
             categoryDesktop += `
                 <a href="${href}">
-                    <p class="px-3 py-1 hover:text-cyan-500 whitespace-nowrap" id="${slugify(item.name)}-sub-link">${displayName}</p>
+                    <p class="py-1 hover:text-cyan-500 whitespace-nowrap" id="${slugify(item.name)}-sub-link">${displayName}</p>
                 </a>
             `;
         });
