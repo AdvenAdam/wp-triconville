@@ -278,6 +278,7 @@
 
         // Check if the link needs a submenu
         const hasSubMenu = ['Products', 'Inspirations', 'Collections'].includes(menu.name);
+        
         const subMenuId = `sub-${slugify(menu.name)}-mobile`;
 
         if (hasSubMenu) {
@@ -337,7 +338,6 @@
                 `<?= BASE_LINK; ?>/collections/${slugify(item.name)}`;
 
             const displayName = item.display_name || item.name;
-
             categoryMobile += `
                 <a href="${href}">
                     <p class="px-3 py-1 hover:text-cyan-500 whitespace-nowrap" id="${slugify(item.name)}-link-mobile">${displayName}</p>
@@ -358,8 +358,7 @@
 
     function setActiveLink() {
         const url = window.location.href;
-        const [ , , , parentUrl, childUrl] = url.split('/');
-
+        const [,,,parentUrl, childUrl] = url.split('/');
         const linkSelectors = {
             'product-detail': '#products-link',
             'about-us': '#brand-link',
