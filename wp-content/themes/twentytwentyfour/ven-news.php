@@ -26,7 +26,7 @@ get_template_part('header-custom');
     }
 }
 </style>
-<div class="px-3 md:px-5 mt-36">
+<div class="px-3 md:px-5 mt-28 md:mt-36">
     <div class="max-w-[1440px] mx-auto">
         <div class="inline-flex gap-1 items-center mb-5">
             <svg xmlns="http://www.w3.org/2000/svg"
@@ -80,9 +80,22 @@ get_template_part('header-custom');
         </div>
     </div>
 </div>
-<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script>
 <script>
-let clipboard = new ClipboardJS('.btn');
+$(document).ready(function() {
+    const baseUrl = window.location.href;
+    const title = $("title").text();
+    $(".link-share").click(function(e) {
+        e.preventDefault();
+        const $temp = $("<input>");
+        $("body").append($temp);
+        $temp.val(baseUrl).select();
+        document.execCommand("copy");
+        $temp.remove();
+    });
+    $(".x-share").attr("href", `http://twitter.com/intent/tweet?text=${title}&url=${baseUrl}`);
+    $(".linkedin-share").attr("href", `https://www.linkedin.com/shareArticle?mini=true&url=${baseUrl}`);
+    $(".fb-share").attr("href", `https://www.facebook.com/sharer.php?u=${baseUrl}`);
+});
 </script>
 <?php
 // Include your custom footer
