@@ -68,7 +68,7 @@
 <body <?php body_class(); ?>>
     <header class="header fixed w-full top-0 tracking-widest"
             style="z-index: 20;">
-        <nav class="flex items-center justify-between px-3 sm:px-5 xl:px-20 w-full md:min-h-20 bg-white">
+        <nav class="flex items-center justify-between px-3 sm:px-5 lg:px-8 xl:px-20 w-full md:min-h-20 bg-white">
             <div class="flex justify-center">
                 <a href="<?php echo home_url(); ?>">
                     <img src="<?= BASE_LINK ?>/wp-content/uploads/2024/09/Logo-Blue-Resized-1.png"
