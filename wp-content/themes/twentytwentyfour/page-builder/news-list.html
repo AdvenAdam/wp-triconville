@@ -72,10 +72,13 @@
         <div class="wp-block-columns are-vertically-aligned-center border-b pb-5 gap-5 sm:gap-10 lg:gap-20 xl:gap-36">
           <!-- wp:column {"verticalAlignment":"center","width":"35%"} -->
           <div
-            class="wp-block-column is-vertically-aligned-center"
+            class="wp-block-column is-vertically-aligned-center relative group hover:cursor-pointer"
             style="flex-basis: 40%"
           >
             <!-- wp:post-featured-image {"isLink":true, "className":"news-image"} /-->
+            <div
+              class="overlay absolute inset-0 bg-gradient-to-b from-transparent to-black/30 invisible group-hover:visible"
+            ></div>
           </div>
           <!-- /wp:column -->
 

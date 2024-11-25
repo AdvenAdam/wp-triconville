@@ -77,42 +77,42 @@
                                 <p class='text-sm md:mb-3'>info@triconville.co.id</p>
                                 <div class="md:block hidden">
                                     <p class='font-bold text-sm uppercase  pt-5'>connect</p>
-                                    <div class="flex items-center gap-2 my-3">
+                                    <div class="flex items-center gap-4 my-3">
                                         <a href='#'>
-                                            <img src='https://storage.googleapis.com/back-bucket/wp_triconville/images/icons/youtube.svg' />
+                                            <img src='https://storage.googleapis.com/back-bucket/wp_triconville/images/icons/instagram2.svg' />
                                         </a>
                                         <a href='#'>
-                                            <img src='https://storage.googleapis.com/back-bucket/wp_triconville/images/icons/pinterest.svg' />
+                                            <img src='https://storage.googleapis.com/back-bucket/wp_triconville/images/icons/linkedin2.svg' />
                                         </a>
                                         <a href='#'>
-                                            <img src='https://storage.googleapis.com/back-bucket/wp_triconville/images/icons/instagram.svg' />
+                                            <img src='https://storage.googleapis.com/back-bucket/wp_triconville/images/icons/youtube2.svg' />
                                         </a>
                                         <a href='#'>
-                                            <img src='https://storage.googleapis.com/back-bucket/wp_triconville/images/icons/facebook.svg' />
+                                            <img src='https://storage.googleapis.com/back-bucket/wp_triconville/images/icons/facebook2.svg' />
                                         </a>
                                         <a href='#'>
-                                            <img src='https://storage.googleapis.com/back-bucket/wp_triconville/images/icons/linkedin.svg' />
+                                            <img src='https://storage.googleapis.com/back-bucket/wp_triconville/images/icons/pinterest2.svg' />
                                         </a>
                                     </div>
                                 </div>
                             </div>
                             <div class="md:p-3 md:hidden">
                                 <p class='font-bold text-sm uppercase '>connect</p>
-                                <div class="flex items-center gap-2 my-3">
+                                <div class="flex items-center gap-4 my-3">
                                     <a href='#'>
-                                        <img src='https://storage.googleapis.com/back-bucket/wp_triconville/images/icons/youtube.svg' />
+                                        <img src='https://storage.googleapis.com/back-bucket/wp_triconville/images/icons/instagram2.svg' />
                                     </a>
                                     <a href='#'>
-                                        <img src='https://storage.googleapis.com/back-bucket/wp_triconville/images/icons/pinterest.svg' />
+                                        <img src='https://storage.googleapis.com/back-bucket/wp_triconville/images/icons/linkedin2.svg' />
                                     </a>
                                     <a href='#'>
-                                        <img src='https://storage.googleapis.com/back-bucket/wp_triconville/images/icons/instagram.svg' />
+                                        <img src='https://storage.googleapis.com/back-bucket/wp_triconville/images/icons/youtube2.svg' />
                                     </a>
                                     <a href='#'>
-                                        <img src='https://storage.googleapis.com/back-bucket/wp_triconville/images/icons/facebook.svg' />
+                                        <img src='https://storage.googleapis.com/back-bucket/wp_triconville/images/icons/facebook2.svg' />
                                     </a>
                                     <a href='#'>
-                                        <img src='https://storage.googleapis.com/back-bucket/wp_triconville/images/icons/linkedin.svg' />
+                                        <img src='https://storage.googleapis.com/back-bucket/wp_triconville/images/icons/pinterest2.svg' />
                                     </a>
                                 </div>
                             </div>

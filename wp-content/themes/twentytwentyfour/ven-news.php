@@ -61,12 +61,14 @@ get_template_part('header-custom');
             <div class="grid grid-cols-1 md:grid-cols-3 gap-3 lg:gap-5">
                 <?php foreach ($Latestposts as $post): ?>
                 <div class="news-card flex items-center gap-3 md:block">
-                    <div class="news-image w-1/2 md:w-auto md:h-auto sm:h-[240px] object-cover h-[124px]">
+                    <a class="news-image w-1/2 md:w-auto md:h-auto sm:h-[240px] object-cover h-[124px] relative group hover:cursor-pointer"
+                       href="<?php echo get_permalink($post->ID); ?>">
                         <?php echo get_the_post_thumbnail($post->ID, 'large'); ?>
-                    </div>
-                    <div class="desc w-1/2 md:w-full flex flex-col justify-center">
-                        <div class=" overflow-hidden">
-                            <h2 class="text-lg md:text-2xl md:mb-5">
+                        <div class="overlay absolute inset-0 bg-gradient-to-b from-transparent to-black/30 invisible group-hover:visible"></div>
+                    </a>
+                    <div class="desc w-1/2 md:w-[95%] flex flex-col justify-center">
+                        <div class="h-20 overflow-hidden">
+                            <h2 class="text-2xl md:mb-5 md:mt-3">
                                 <a href="<?php echo get_permalink($post->ID); ?>"
                                    class="hover:underline line-clamp-2">
                                     <?php echo get_the_title($post->ID); ?>
