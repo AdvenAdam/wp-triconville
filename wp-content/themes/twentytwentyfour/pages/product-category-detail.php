@@ -6,8 +6,6 @@ get_template_part('header-custom');
 ?>
 <style>
 .product-detail-banner {
-    height: 100vh;
-    width: 100%;
     overflow: hidden;
     background-size: cover;
     background-repeat: no-repeat;
@@ -16,9 +14,9 @@ get_template_part('header-custom');
 </style>
 <div class="content-container overflow-hidden mt-20">
     <!-- NOTE: Banner -->
-    <div class="product-detail-banner mt-10">
-        <div class="flex items-center justify-center min-h-full bg-black bg-opacity-35">
-            <h1 class="text-3xl md:text-5xl font-medium text-center text-white uppercase"
+    <div class="product-detail-banner mt-6 md:mt-10">
+        <div class="flex items-center justify-center w-full full-screen bg-black bg-opacity-10">
+            <h1 class="text-3xl md:text-5xl font-medium text-center text-white capitalize"
                 id="category__name"></h1>
         </div>
     </div>
@@ -27,7 +25,7 @@ get_template_part('header-custom');
         <h3 class="text-2xl md:text-3xl text-center mt-10 md:mt-20"
             id="category__name-title">CATEGORY</h3>
         <div id='filter__product'
-             class="flex items-center my-10 text-sm justify-center gap-3 flex-wrap"></div>
+             class="flex items-center my-10 text-sm justify-center gap-2 flex-wrap"></div>
     </div>
 
     <!-- NOTE : PRODUCT LIST -->
@@ -147,19 +145,28 @@ async function fetchProducts(id, param) {
                 Authorization: '<?= API_KEY; ?>'
             }
         });
+        let filteredProduct = [];
         // NOTE : Get Triconville Product by listed collection
         // REVIEW - this code still hard code
-        filteredCollection = res.product_list.filter(data => selectedCollectionId.some(element => element.collection_id === parseInt(data.collection)) || parseInt(data.collection) === 258).map(selectedData => {
-            return {
-                ...selectedData
-            };
-        });
-
-        if (!param) {
-            return filteredCollection;
+        if ('<?= $character_slug ?>' === 'accessories') {
+            filteredProduct = res.product_list.filter(data => selectedCollectionId.some(element => element.collection_id === parseInt(data.collection) || data.collection === 258)).map(selectedData => {
+                return {
+                    ...selectedData
+                };
+            });
+        } else {
+            filteredProduct = res.product_list.filter(data => selectedCollectionId.some(element => element.collection_id === parseInt(data.collection))).map(selectedData => {
+                return {
+                    ...selectedData
+                };
+            });
         }
 
-        const products = filteredCollection.filter(({
+        if (!param) {
+            return filteredProduct;
+        }
+
+        const products = filteredProduct.filter(({
             name
         }) => {
             const keywords = param.split(",");
@@ -179,7 +186,7 @@ function renderFilterProduct(name, id) {
     const action = id === 0 ? `onclick="subCategoryOnClick('all-types')"` : `onclick="subCategoryOnClick('${slugify(name)}')"`;
     const classes = id === 0 ? 'btn-ghost-dark !py-2' : 'btn-ghost !py-2';
     $('#filter__product').append(`
-        <button type="button" id="${slugify(name)}-btn" class="${classes}" ${action}>
+        <button type="button" id="${slugify(name)}-btn" class="${classes} tracking-wider" ${action}>
             ${name}
         </button>
     `);
@@ -202,10 +209,10 @@ function renderProducts(data, headerTitle = 'All Types') {
         <!-- NOTE: ${headerTitle} -->
         <div id="product__${slugify(headerTitle)}" class="product-list mb-20">
             <div class="-mb-5">
-                <h3 class="text-2xl md:text-3xl ps-3 md:ps-5" id="category__name-label">
+                <h3 class="text-2xl md:text-3xl ps-3 md:ps-5 mb-2" id="category__name-label">
                     ${headerTitle}
                 </h3>
-                <hr style="border-width: 2px;" />
+                <hr style="border-width: 1px;" />
             </div>
             <div id="product__list__${slugify(headerTitle)}" class ="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-10">
             </div>
@@ -215,9 +222,9 @@ function renderProducts(data, headerTitle = 'All Types') {
     data.sort((a, b) => a.name.localeCompare(b.name)).forEach(e => {
         $(`#product__list__${slugify(headerTitle)}`).append(`
             <a href= "<?= BASE_LINK; ?>/product-detail/${slugify(e.name)}">
-                <div class='flex justify-center items-center flex-col p-3'>
-                    <img class="w-auto md:h-[384px] h-[204px] object-contain" src="${e.product_image_384}" />
-                    <p class="text-center text-sm md:mt-[-30px] max-w-[90%] capitalize">${e.name}</p>
+                <div class='flex justify-center items-center flex-col p-3 group'>
+                    <img class="w-auto md:h-[384px] h-[204px] object-contain group-hover:scale-[.97] group-hover:brightness-110 transition duration-300" src="${e.product_image_384}" />
+                    <p class="text-center text-sm md:mt-[-30px] max-w-[90%] capitalize group-hover:underline">${e.name}</p>
                 </div>
             </a>
         `);

@@ -103,7 +103,7 @@ function renderGroupContainer(data) {
     $('#material__page').append(`
         <div class="material-container visible" id="material__container_${data.id}">
             <h1 class="text-3xl font-medium">${toTitleCase(data.name)}</h1>
-            <img class="w-full h-auto min-h-40 mb-5" src="${data.banner}" alt="${data.name}-banner">
+            <img class="w-full h-auto min-h-56 mb-5 object-cover" src="${data.banner}" alt="${data.name}-banner">
         </div>
     `)
 }

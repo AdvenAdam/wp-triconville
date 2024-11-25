@@ -48,12 +48,15 @@
     }
 
     .gtranslate_wrapper .gt_selector {
-        padding-block: 1rem;
+        padding-bottom: 16px;
+        padding-top: 19px;
         background-color: transparent;
         max-width: 120px;
         outline: none !important;
         border: none !important;
-        width: 50px;
+        width: 24px;
+        text-align: center;
+        -webkit-appearance: none;
     }
 
     .gt_selector::after {
@@ -65,7 +68,7 @@
 <body <?php body_class(); ?>>
     <header class="header fixed w-full top-0 tracking-widest"
             style="z-index: 20;">
-        <nav class="flex items-center justify-between sm:px-5 lg:px-20 px-3 w-full min-h-20 bg-white">
+        <nav class="flex items-center justify-between sm:px-5 xl:px-20 px-3 w-full md:min-h-20 bg-white">
             <div class="flex justify-center">
                 <a href="<?php echo home_url(); ?>">
                     <img src="<?= BASE_LINK ?>/wp-content/uploads/2024/09/Logo-Blue-Resized-1.png"
@@ -74,24 +77,24 @@
                 </a>
             </div>
 
-            <div class="flex items-center justify-end pt-4 gap-5 lg:gap-10">
+            <div class="flex items-center justify-end lg:pt-4 gap-2 lg:gap-10 xl:gap-16">
                 <div id="navbar_menu_category"
-                     class='md:flex hidden'>
+                     class='lg:flex hidden gap-1 lg:gap-6'>
                 </div>
                 <!-- Note : Login -->
-                <div class="hidden md:flex items-center gap-3">
-                    <div class="pb-1 text-xs uppercase outline-none text-[#4D4D4D] hover:text-cyan-500">
+                <div class="hidden lg:flex items-center gap-6">
+                    <div class="pb-1 text-xs uppercase outline-none text-[#4D4D4D] hover:text-cyan-500 flex gap-1 items-center">
                         <?php echo do_shortcode('[gtranslate]') ?>
                     </div>
                     <a href="https://indospaceb2b.com/"
-                       class="flex gap-1 items-center group-hover:text-cyan-500 pb-1">
-                        <p class="text-xs uppercase pt-3 pb-2">B2B Login</p>
+                       class="flex gap-1 items-center group pb-1">
+                        <p class="text-xs uppercase pt-3 pb-2 group-hover:text-cyan-500">B2B Login</p>
                         <svg xmlns="http://www.w3.org/2000/svg"
                              fill="none"
                              viewBox="0 0 24 24"
                              stroke-width="1.5"
                              stroke="currentColor"
-                             class="size-4">
+                             class="size-4 group-hover:text-cyan-500">
                             <path stroke-linecap="round"
                                   stroke-linejoin="round"
                                   d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
@@ -100,9 +103,10 @@
                     </a>
                 </div>
                 <!-- NOTE : Drawer -->
-                <button class="group bg-transparent border-transparent outline-none flex items-center py-5 md:hidden "
+                <button class="group bg-transparent border-transparent outline-none flex items-center py-5 lg:hidden "
                         type="button"
                         data-drawer-target="drawer-navigation"
+                        data-drawer-placement="right"
                         data-drawer-show="drawer-navigation"
                         aria-controls="drawer-navigation">
                     <p class="text-xs font-medium group-hover:text-cyan-500 pt-1">Menu</p>
@@ -119,14 +123,14 @@
                 </button>
             </div>
         </nav>
-        <nav class="w-full sm:px-5 lg:px-20 px-3 py-3 bg-[#F4F6F6] opacity-0 invisible transition-opacity duration-500 ease-in-out fixed top-20"
+        <nav class="w-full sm:px-5 xl:px-20 px-3 py-2 md:py-3 bg-[#F4F6F6] opacity-0 invisible transition-opacity duration-500 ease-in-out fixed top-16 md:top-20"
              style="z-index: 2;"
              id="sub-header">
             <div class="flex w-full justify-end uppercase text-xs"
                  id="sub-inspiration-desktop">
             </div>
         </nav>
-        <nav class="w-full sm:px-5 lg:px-20 px-3 py-3 bg-[#F4F6F6] opacity-0 invisible transition-opacity duration-500 ease-in-out fixed top-20"
+        <nav class="w-full sm:px-5 xl:px-20 px-3 py-2 md:py-3 bg-[#F4F6F6] opacity-0 invisible transition-opacity duration-500 ease-in-out fixed top-16 md:top-20"
              style="z-index: 1;"
              id="sub-products">
             <div class="uppercase text-xs">
@@ -136,7 +140,7 @@
                 </div>
             </div>
         </nav>
-        <nav class="w-full sm:px-5 lg:px-20 px-3 py-3 bg-[#F4F6F6] opacity-0 invisible transition-opacity duration-500 ease-in-out fixed top-20"
+        <nav class="w-full sm:px-5 xl:px-20 px-3 py-2 md:py-3 bg-[#F4F6F6] opacity-0 invisible transition-opacity duration-500 ease-in-out fixed top-16 md:top-20"
              style="z-index: 1;"
              id="sub-collections">
             <div class="uppercase text-xs">
@@ -149,7 +153,7 @@
     </header>
     <!-- drawer component -->
     <div id="drawer-navigation"
-         class="fixed top-0 left-0 outline-none z-40 h-screen w-80 max-w-[60vw] p-5 overflow-y-auto transition-transform duration-500 ease-in-out -translate-x-full bg-white"
+         class="fixed top-0 right-0 outline-none z-40 h-screen w-80 max-w-[60vw] p-5 overflow-y-auto transition-transform duration-500 ease-in-out translate-x-full bg-white"
          tabindex="-1"
          aria-labelledby="drawer-navigation-label">
         <div class="flex justify-end mt-5">
@@ -267,7 +271,7 @@
 
         // Append main link to the navbar menu
         $('#navbar_menu_category').append(`
-            <a href="${menu.href}" class="flex py-6 px-2 gap-2 items-center">
+            <a href="${menu.href}" class="flex py-6 items-center">
                 <p class="uppercase text-xs hover:text-cyan-500" id="${slugify(menu.name)}-link">${menu.name}</p>
             </a>
         `);

@@ -8,27 +8,25 @@ get_template_part('header-custom');
 <style>
 .product-header {
     background: url('https://storage.googleapis.com/back-bucket/wp_triconville/images/products-banner.webp');
-    height: 100vh;
-    width: 100%;
     overflow: hidden;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
 }
 </style>
-<div class="content-container">
-    <div class="product-header w-full">
-        <div class="flex items-center justify-center min-h-full bg-black bg-opacity-25">
-            <h1 class="text-3xl md:text-4xl font-medium text-center tracking-wider text-white">PRODUCTS</h1>
+<div class="content-container mt-32">
+    <div class="product-header w-full full-screen ">
+        <div class="flex items-center justify-center h-full bg-black bg-opacity-10 ">
+            <h1 class="text-3xl md:text-5xl font-medium text-center text-white">Products</h1>
         </div>
     </div>
     <!-- NOTE : PRODUCT LIST -->
-    <div class="md:p-5 p-3 my-20">
-        <h2 class="text-center text-2xl tracking-wider my-10">
+    <div class="md:p-5 p-3 mb-20 mt-10">
+        <h2 class="text-center text-2xl md:text-3xl my-10">
             Explore Our Outdoor
             Product Range
         </h2>
-        <div class="max-w-[1440px] mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 md:gap-3 mb-20"
+        <div class="max-w-[1440px] mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 md:gap-y-9 mb-20"
              id="product__list">
         </div>
 
@@ -63,9 +61,11 @@ $(document).ready(function() {
 
 function renderProducts(e) {
     $('#product__list').append(`
-        <a href= "<?= BASE_LINK; ?>/products/${e.slug}">
-            <img class="w-full h-full object-cover md:object-contain" src="${e.thumb}" />
-            <p class="text-xs md:text-sm capitalize text-center md:-mt-5">${e.name}</p>
+        <a href= "<?= BASE_LINK; ?>/products/${e.slug}" class="group">
+            <div>
+                <img class="w-full h-full object-cover md:object-contain group-hover:scale-[.97] group-hover:brightness-110 transition duration-300" src="${e.thumb}" />
+            </div>
+            <p class="text-xs md:text-sm capitalize text-center md:-mt-5 group-hover:underline">${e.name}</p>
         </a>
     `);
 }

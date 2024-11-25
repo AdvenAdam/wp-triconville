@@ -40,9 +40,9 @@
          style="background-image: url(https://storage.googleapis.com/back-bucket/wp_triconville/images/store/footer.png)">
         <div class="py-10 md:py-20 md:px-5 px-3 bg-[#F4F6F6] bg-opacity-85">
             <div class="max-w-[1440px] mx-auto ">
-                <div class="w-full md:flex gap-10">
-                    <div class="md:w-2/3 w-full">
-                        <div class="grid grid-cols-2 md:grid-cols-5 gap-3 tracking-wide">
+                <div class="w-full lg:flex justify-center gap-3 md:gap-5 xl:gap-10">
+                    <div class="lg:w-2/3 w-full">
+                        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 tracking-wide">
                             <div class="about w-full md:p-3">
                                 <p class='mb-3 uppercase text-sm font-bold '>Triconville</p>
                                 <p class='text-sm py-1'>
@@ -118,7 +118,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="md:w-1/3 w-full pt-10 md:pt-3 md:p-3">
+                    <div class="lg:w-1/3 w-full pt-10 md:pt-3 md:p-3">
                         <p class='font-bold text-sm uppercase '>newsletter</p>
                         <p class='text-sm py-1'>Sign up to our newsletter</p>
                         <div class="form mt-5">
@@ -178,7 +178,7 @@
                                                             </div>
 
                                                             <div class="sib-form-block w-fit !border-black !border">
-                                                                <button class="sib-form-block__button sib-form-block__button-with-loader min-h-[40px] btn-ghost "
+                                                                <button class="sib-form-block__button sib-form-block__button-with-loader min-h-[40px] btn-ghost !px-3"
                                                                         form="sib-form"
                                                                         type="submit">
                                                                     <div class="flex gap-2">

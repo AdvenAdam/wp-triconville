@@ -36,7 +36,7 @@ get_template_part('header-custom');
 }
 </style>
 
-<div class="content-container overflow-x-hidden">
+<div class="content-container overflow-x-hidden mt-16 md:mt-20">
     <div id="product__banner"></div>
     <!-- NOTE : PRODUCT Overview & Material -->
     <div class="md:px-5 px-3">
@@ -175,15 +175,15 @@ function renderMaster() {
     try {
         // NOTE : PRODUCT HEADER 
         $('#product__banner').append(
-            `<div class="h-screen w-full transition-all duration-500 "
+            `<div class="full-screen w-full"
                 style="
                     background: url('${ProductsData.ambience_image_1920[0]}'); 
                     background-position: 50% 50%;
                     background-size: cover;
                     background-repeat: no-repeat;
                 ">
-                <div class ='bg-black bg-opacity-30 h-full w-full flex items-center justify-center'>
-                    <h1 class="text-3xl md:text-5xl font-medium text-center text-white uppercase">${ProductsData.name}</h1>
+                <div class ='bg-black bg-opacity-10 h-full w-full flex items-center justify-center'>
+                    <h1 class="text-3xl md:text-5xl font-medium text-center text-white capitalize">${ProductsData.name}</h1>
                 </div>
             </div>`
         );
@@ -197,9 +197,10 @@ function renderMaster() {
         if (Array.isArray(ProductsData.collection_product) && ProductsData.collection_product.length > 0) {
             renderCollectionProducts(ProductsData.collection_product.slice(0, 4), ProductsData.collection_det);
         }
-        if (Array.isArray(ProductsData.goes_well_with) && ProductsData.goes_well_with.length > 0) {
-            renderWellWithProducts(ProductsData.goes_well_with);
-        }
+        // FIXME : Related Product
+        // if (Array.isArray(ProductsData.goes_well_with) && ProductsData.goes_well_with.length > 0) {
+        //     renderWellWithProducts(ProductsData.goes_well_with);
+        // }
         renderSheet(ProductsData.collection_sheet);
 
     } catch (error) {
@@ -616,9 +617,9 @@ function renderCollectionProducts(products, name) {
     products.forEach((e) => {
         $('.collection__product').append(`
             <a href="<?= BASE_LINK; ?>/product-detail/${slugify(e.name)}">     
-                <div class="product__card">
-                    <img src="${e.product_image}" class="md:h-[384px] h-[204px] object-contain mx-2 w-auto object-cover" />
-                    <p class="text-center text-xs md:mt-[-30px] max-w-[90%] capitalize">
+                <div class="product__card group">
+                    <img src="${e.product_image}" class="md:h-[384px] h-[204px] object-contain w-auto object-contain group-hover:scale-[.97] group-hover:brightness-110 transition duration-300" />
+                    <p class="text-center w-full md:-mt-3 text-xs mx-auto capitalize group-hover:underline">
                         ${e.name}
                     </p>
                 </div>
