@@ -68,7 +68,7 @@
 <body <?php body_class(); ?>>
     <header class="header fixed w-full top-0 tracking-widest"
             style="z-index: 20;">
-        <nav class="flex items-center justify-between sm:px-5 xl:px-20 px-3 w-full md:min-h-20 bg-white">
+        <nav class="flex items-center justify-between sm:px-8 xl:px-20 px-3 w-full md:min-h-20 bg-white bg-opacity-20">
             <div class="flex justify-center">
                 <a href="<?php echo home_url(); ?>">
                     <img src="<?= BASE_LINK ?>/wp-content/uploads/2024/09/Logo-Blue-Resized-1.png"
@@ -123,14 +123,14 @@
                 </button>
             </div>
         </nav>
-        <nav class="w-full sm:px-5 xl:px-20 px-3 py-2 md:py-3 bg-[#F4F6F6] opacity-0 invisible transition-opacity duration-500 ease-in-out fixed top-16 md:top-20"
+        <nav class="w-full sm:px-8 xl:px-20 px-3 py-2 md:py-3 bg-[#F4F6F6] opacity-0 invisible transition-opacity duration-500 ease-in-out fixed top-16 md:top-20"
              style="z-index: 2;"
              id="sub-header">
             <div class="flex w-full justify-end uppercase text-xs"
                  id="sub-inspiration-desktop">
             </div>
         </nav>
-        <nav class="w-full sm:px-5 xl:px-20 px-3 py-2 md:py-3 bg-[#F4F6F6] opacity-0 invisible transition-opacity duration-500 ease-in-out fixed top-16 md:top-20"
+        <nav class="w-full sm:px-8 xl:px-20 px-3 py-2 md:py-3 bg-[#F4F6F6] opacity-0 invisible transition-opacity duration-500 ease-in-out fixed top-16 md:top-20"
              style="z-index: 1;"
              id="sub-products">
             <div class="uppercase text-xs">
@@ -140,7 +140,7 @@
                 </div>
             </div>
         </nav>
-        <nav class="w-full sm:px-5 xl:px-20 px-3 py-2 md:py-3 bg-[#F4F6F6] opacity-0 invisible transition-opacity duration-500 ease-in-out fixed top-16 md:top-20"
+        <nav class="w-full sm:px-8 xl:px-20 px-3 py-2 md:py-3 bg-[#F4F6F6] opacity-0 invisible transition-opacity duration-500 ease-in-out fixed top-16 md:top-20"
              style="z-index: 1;"
              id="sub-collections">
             <div class="uppercase text-xs">
@@ -160,8 +160,8 @@
             <button type="button"
                     data-drawer-hide="drawer-navigation"
                     aria-controls="drawer-navigation"
-                    class="text-gray-900 bg-transparent outline-none hover:bg-gray-900 p-2 hover:text-gray-200 flex gap-2 items-center">
-                <p class="text-xs">Close</p>
+                    class="text-gray-900 bg-transparent outline-none hover:bg-gray-900 p-2 hover:text-gray-200 group flex gap-2 items-center">
+                <p class="text-xs group-hover:text-gray-200 ">Close</p>
                 <svg class="w-2 h-2"
                      aria-hidden="true"
                      xmlns="http://www.w3.org/2000/svg"
