@@ -135,7 +135,7 @@
              style="z-index: 1;"
              id="sub-products">
             <div class="uppercase text-xs">
-                <div class="flex gap-4 mjustify-end overflow-x-auto w-full"
+                <div class="flex gap-4 justify-end overflow-x-auto w-full"
                      id="sub-products-desktop">
 
                 </div>
@@ -145,7 +145,7 @@
              style="z-index: 1;"
              id="sub-collections">
             <div class="uppercase text-xs">
-                <div class="flex gap-4 mjustify-end overflow-x-auto w-full"
+                <div class="flex gap-4 justify-end overflow-x-auto w-full"
                      id="sub-collections-desktop">
 
                 </div>
