@@ -130,31 +130,20 @@
              style="z-index: 2;"
              id="sub-header">
             <div class="uppercase text-xs flex justify-end w-full">
-                <div class="flex gap-4 overflow-x-auto"
+                <div class="hidden gap-4 overflow-x-auto"
                      id="sub-inspiration-desktop">
                 </div>
-            </div>
-        </nav>
-        <nav class="w-full px-3 sm:px-5 lg:px-8 xl:px-20 py-2 md:py-3 bg-[#F4F6F6] opacity-0 invisible transition-opacity duration-500 ease-in-out fixed top-16 md:top-20"
-             style="z-index: 1;"
-             id="sub-products">
-            <div class="uppercase text-xs flex justify-end w-full">
-                <div class="flex gap-4 overflow-x-auto"
+                <div class="hidden gap-4 overflow-x-auto"
+                     id="sub-collections-desktop">
+
+                </div>
+                <div class="hidden gap-4 overflow-x-auto"
                      id="sub-products-desktop">
 
                 </div>
             </div>
         </nav>
-        <nav class="w-full px-3 sm:px-5 lg:px-8 xl:px-20 py-2 md:py-3 bg-[#F4F6F6] opacity-0 invisible transition-opacity duration-500 ease-in-out fixed top-16 md:top-20"
-             style="z-index: 1;"
-             id="sub-collections">
-            <div class="uppercase text-xs flex justify-end w-full">
-                <div class="flex gap-4 overflow-x-auto"
-                     id="sub-collections-desktop">
 
-                </div>
-            </div>
-        </nav>
     </header>
     <!-- drawer component -->
     <div id="drawer-navigation"
@@ -224,48 +213,38 @@
         const url = window.location.href;
         switch (true) {
             case /(products)/.test(url):
-                showSubProducts(true);
+                showSubHeader(true, 'products');
                 break;
             case /(news|materials|inspiration|moods)/.test(url):
-                showSubHeader(true);
+                showSubHeader(true, 'inspiration');
                 break;
             case /(collections)/.test(url):
-                showSubCollections(true);
+                showSubHeader(true, 'collections');
                 break;
             default:
+                showSubHeader(false);
                 break;
         }
     }
 
-    function showSubHeader(isShow) {
+    function showSubHeader(isShow, part = '') {
         if (isShow) {
-            $('#sub-products').removeClass('opacity-100 visible').addClass('opacity-0 invisible');
-            $('#sub-collections').removeClass('opacity-100 visible').addClass('opacity-0 invisible');
             $('#sub-header').removeClass('opacity-0 invisible').addClass('opacity-100 visible');
+            if (part === 'products') {
+                $('#sub-products-desktop').removeClass('hidden').addClass('flex');
+
+            } else if (part === 'inspiration') {
+                $('#sub-inspiration-desktop').removeClass('hidden').addClass('flex');
+
+            } else if (part === 'collections') {
+                $('#sub-collections-desktop').removeClass('hidden').addClass('flex');
+
+            }
         } else {
             $('#sub-header').removeClass('opacity-100 visible').addClass('opacity-0 invisible');
         }
     }
 
-    function showSubProducts(isShow) {
-        if (isShow) {
-            $('#sub-header').removeClass('opacity-100 visible').addClass('opacity-0 invisible');
-            $('#sub-collections').removeClass('opacity-100 visible').addClass('opacity-0 invisible');
-            $('#sub-products').removeClass('opacity-0 invisible').addClass('opacity-100 visible');
-        } else {
-            $('#sub-products').removeClass('opacity-100 visible').addClass('opacity-0 invisible');
-        }
-    }
-
-    function showSubCollections(isShow) {
-        if (isShow) {
-            $('#sub-header').removeClass('opacity-100 visible').addClass('opacity-0 invisible');
-            $('#sub-products').removeClass('opacity-100 visible').addClass('opacity-0 invisible');
-            $('#sub-collections').removeClass('opacity-0 invisible').addClass('opacity-100 visible');
-        } else {
-            $('#sub-collections').removeClass('opacity-100 visible').addClass('opacity-0 invisible');
-        }
-    }
 
     /*
      * NOTE : 
