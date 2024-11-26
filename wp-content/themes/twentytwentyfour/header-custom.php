@@ -62,13 +62,17 @@
     .gt_selector::after {
         content: "" !important;
     }
+
+    .bg-opacity-50 {
+        background-color: rgba(0, 0, 0, 0.5);
+    }
     </style>
 </head>
 
 <body <?php body_class(); ?>>
     <header class="header fixed w-full top-0 tracking-widest"
             style="z-index: 20;">
-        <nav class="flex items-center justify-between px-3 sm:px-5 lg:px-8 xl:px-20 w-full md:min-h-20 bg-white">
+        <nav class="flex items-center justify-between px-3 sm:px-5 lg:px-8 xl:px-20 w-full md:min-h-20 bg-white ">
             <div class="flex justify-center">
                 <a href="<?php echo home_url(); ?>">
                     <img src="<?= BASE_LINK ?>/wp-content/uploads/2024/09/Logo-Blue-Resized-1.png"
@@ -125,8 +129,8 @@
         <nav class="w-full px-3 sm:px-5 lg:px-8 xl:px-20 py-2 md:py-3 bg-[#F4F6F6] opacity-0 invisible transition-opacity duration-500 ease-in-out fixed top-16 md:top-20"
              style="z-index: 2;"
              id="sub-header">
-            <div class="uppercase text-xs">
-                <div class="flex gap-4 justify-end overflow-x-auto w-full"
+            <div class="uppercase text-xs flex justify-end w-full">
+                <div class="flex gap-4 overflow-x-auto"
                      id="sub-inspiration-desktop">
                 </div>
             </div>
@@ -134,8 +138,8 @@
         <nav class="w-full px-3 sm:px-5 lg:px-8 xl:px-20 py-2 md:py-3 bg-[#F4F6F6] opacity-0 invisible transition-opacity duration-500 ease-in-out fixed top-16 md:top-20"
              style="z-index: 1;"
              id="sub-products">
-            <div class="uppercase text-xs">
-                <div class="flex gap-4 justify-end overflow-x-auto w-full"
+            <div class="uppercase text-xs flex justify-end w-full">
+                <div class="flex gap-4 overflow-x-auto"
                      id="sub-products-desktop">
 
                 </div>
@@ -144,8 +148,8 @@
         <nav class="w-full px-3 sm:px-5 lg:px-8 xl:px-20 py-2 md:py-3 bg-[#F4F6F6] opacity-0 invisible transition-opacity duration-500 ease-in-out fixed top-16 md:top-20"
              style="z-index: 1;"
              id="sub-collections">
-            <div class="uppercase text-xs">
-                <div class="flex gap-4 justify-end overflow-x-auto w-full"
+            <div class="uppercase text-xs flex justify-end w-full">
+                <div class="flex gap-4 overflow-x-auto"
                      id="sub-collections-desktop">
 
                 </div>
@@ -154,7 +158,7 @@
     </header>
     <!-- drawer component -->
     <div id="drawer-navigation"
-         class="fixed top-0 right-0 outline-none z-40 h-screen w-80 max-w-[60vw] p-5 overflow-y-auto transition-transform duration-500 ease-in-out translate-x-full bg-white"
+         class="fixed top-0 right-0 outline-none bg-opacity-100 z-40 h-screen w-80 max-w-[60vw] p-5 overflow-y-auto transition-transform duration-500 ease-in-out translate-x-full bg-white"
          tabindex="-1"
          aria-labelledby="drawer-navigation-label">
         <div class="flex justify-end mt-5">
