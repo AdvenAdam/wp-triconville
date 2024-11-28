@@ -39,30 +39,27 @@ get_template_part('header-custom');
 <div class="content-container overflow-x-hidden mt-16 md:mt-20">
     <div id="product__banner"></div>
     <!-- NOTE : PRODUCT Overview & Material -->
-    <div class="md:px-5 px-3">
-        <div class="max-w-[1440px] mx-auto">
+    <div class="">
+        <div class="textproduct-overview-desc grid grid-cols-1 md:grid-cols-2 items-center gap-10 md:gap-8 mb-10">
+            <div class="">
+                <div id="product__header__image"></div>
+            </div>
+            <div class=" max-w-xl mt-5 md:mt-0"
+                 id="product__description">
+                <div class="mb-16 "
+                     id="product__overview"></div>
 
-            <div class="textproduct-overview-desc flex items-center justify-center flex-col md:flex-row gap-10 md:gap-20 mb-10 md:mb-20">
-                <div class="md:w-1/2">
-                    <div id="product__header__image"></div>
+                <p class="mr-3 uppercase mb-2 text-xs"
+                   id="label_1"></p>
+                <div class="flex mb-6 flex-wrap gap-1 md:gap-4"
+                     id="option_1">
                 </div>
-                <div class=" md:w-1/2 mt-5 md:mt-0"
-                     id="product__description">
-                    <div class="mb-5"
-                         id="product__overview"></div>
-
-                    <p class="mr-3 uppercase mb-2 text-xs"
-                       id="label_1"></p>
-                    <div class="flex mb-5 flex-wrap gap-2"
-                         id="option_1">
-                    </div>
-                    <p class="mr-3 uppercase mb-2 text-xs"
-                       id="label_2"></p>
-                    <div class="flex mb-5 flex-wrap items-center gap-2"
-                         id="option_2">
-                    </div>
-
+                <p class="mr-3 uppercase mb-2 text-xs"
+                   id="label_2"></p>
+                <div class="flex mb-6 md:mb-16 flex-wrap items-center gap-1 md:gap-4"
+                     id="option_2">
                 </div>
+
             </div>
         </div>
     </div>
@@ -99,8 +96,9 @@ get_template_part('header-custom');
         </button>
     </div>
     <!-- NOTE : PRODUCT Specification -->
-    <div class="md:px-5 px-3 mt-10 mb-10 md:mb-20">
-        <div class="max-w-[1440px] mx-auto grid gap-4 grid-cols-1 md:grid-cols-2"
+    <div class="md:px-5 px-3 "
+         id="specification__link">
+        <div class="max-w-[1440px] mx-auto grid items-center gap-4 grid-cols-1 md:grid-cols-2 py-10 md:py-20 lg:py-32"
              id="specification__section">
 
         </div>
@@ -110,7 +108,7 @@ get_template_part('header-custom');
         <div class="max-w-[1440px] mx-auto">
             <div class="py-10 md:pb-20">
                 <h2 class='text-3xl collection__product__name'></h2>
-                <div class="collection__product grid gap-4 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 my-10"></div>
+                <div class="collection__product grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mb-16"></div>
                 <div class="collection__product__btn text-center"></div>
             </div>
             <div class="py-10 md:pb-20 relative h-fit hidden"
@@ -147,7 +145,6 @@ jQuery(document).ready(function($) {
         },
         success: (res) => {
             ProductsData = res;
-            console.log("🚀 ~ jQuery ~ ProductsData:", ProductsData)
         },
         error: (xhr, status, error) => {
             if (xhr.status === 404) {
@@ -211,10 +208,10 @@ function renderMaster() {
 
 function renderSheet(sheet) {
     $('#product__description').append(`
-        <div class="inline-flex gap-1 items-center">
+        <div class="inline-flex gap-2 items-center text-xs">
             ${sheet !== 'False' || sheet !== null ?
             `<a href="${sheet}"
-                class="btn-ghost-dark uppercase text-sm flex items-center gap-2"> download collection sheet 
+                class="btn-ghost-dark uppercase flex items-center gap-2"> <p class="text-white text-xs">download collection sheet</p> 
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5 pb-1">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
                 </svg>
@@ -222,8 +219,8 @@ function renderSheet(sheet) {
             </a>`
             :''}
             <a href="#"
-                class="btn-ghost uppercase text-sm"
-                onclick="document.querySelector('#specification__section').scrollIntoView({behavior: 'smooth'}); return false;">size</a>
+                class="btn-ghost uppercase "
+                onclick="document.querySelector('#specification__link').scrollIntoView({behavior: 'smooth'}); return false;"><p class="text-xs">size</p></a>
         </div>
     `);
 }
@@ -266,15 +263,15 @@ function renderMaterial(res) {
 function renderOverview(res) {
     $('#product__header__image').append(`
         <div class="text-center mx-auto ">
-            <img src="${res.product_image}" alt="${res.name}" class="w-auto h-[350px] lg:h-[720px] xl:h-[680px] object-contain mx-auto"/>
+            <img src="${res.product_image}" alt="${res.name}" class="w-auto h-[350px] lg:h-[720px] xl:h-[870px] object-contain"/>
         </div>
     `)
     if (res.name) {
         const desc = res.description.replace(/<\/?p[^>]*>/g, '').replace(/<li[^>]*>(.*?)<\/li>/g, '')
         $('#product__overview').append(`
-            <div class=''>
+            <div class='max-w-xl'>
                 <h1 class="text-2xl md:text-3xl text-gray-900 line-clamp-2">${res.name}</h1>
-                <p class="text-slate-500 text-sm text-sm mb-3">Designed by 
+                <p class="text-slate-500 text-sm text-sm mb-4">Designed by 
                     <span class="text-black font-medium hover:underline"><a href="https://indospacegroup.com/indospace-rnd/">Indospace R&D </a></span>
                 </p>
                 <p class="text-sm line-clamp-4">${desc}</p>
@@ -294,11 +291,11 @@ function renderDimensions(dimensions, render = "all") {
             <div class=""
                  id="image__spec">
             </div>
-            <div class="md:p-3">
+            <div class="lg:ps-3 xl:ps-5">
                 <div >
-                    <div class="flex md:flex-row flex-col items-start justify-between">
-                        <h3 class="text-2xl md:text-3xl mb-3 line-clamp-2">SIZING</h3>
-                        <div class="flex items-center sizing-btn mb-3">
+                    <div class="flex md:flex-row flex-col items-start justify-between mb-6">
+                        <h3 class="text-2xl md:text-3xl line-clamp-2">Sizing</h3>
+                        <div class="flex items-center sizing-btn gap-2">
                             <button class="btn-ghost-dark !py-2 uppercase text-sm"
                                     onClick="changeSize('metric')"
                                     id="metric">Metric</button>
@@ -307,11 +304,11 @@ function renderDimensions(dimensions, render = "all") {
                                     id="imperial">Imperial</button>
                         </div>
                     </div>
-                    <table class="product__spec w-full md:text-sm text-xs tracking-wider text-[#4D4D4D]"
+                    <table class="product__spec w-full md:text-sm text-xs tracking-wider text-[#4D4D4D] mb-16"
                            id="table__spec"></table>
                 </div>
                 <div id="product__download__container">
-                    <h3 class="text-2xl md:text-3xl  my-3 line-clamp-2">DOWNLOADS</h3>
+                    <h3 class="text-2xl md:text-3xl mb-6 line-clamp-2">Downloads</h3>
                     <div id="product__downloadable"
                          class="grid grid-cols-2 gap-4">
                     </div>
@@ -325,7 +322,7 @@ function renderDimensions(dimensions, render = "all") {
         dimensions.ps_overal_dimension.forEach((e) => {
             $('#table__spec').append(`
                 <tr>
-                    <td class='w-1/2'>Overall - ${e.description}</td>
+                    <td class='w-1/2 pt-2'>Overall - ${e.description}</td>
                     <td class='md:px-3'> : </td>
                     <td> ${e.width} x ${e.depth} x ${e.height}</td>
                 </tr>
@@ -337,7 +334,7 @@ function renderDimensions(dimensions, render = "all") {
         dimensions.ps_box_dimension.forEach((e) => {
             $('#table__spec').append(`
                 <tr>
-                    <td class='w-1/2'>Box - ${e.description}</td>
+                    <td class='w-1/2 pt-2'>Box - ${e.description}</td>
                     <td class='md:px-3'> : </td>
                     <td>${e.width} x ${e.depth} x ${e.height}</td>
                 </tr>
@@ -348,7 +345,7 @@ function renderDimensions(dimensions, render = "all") {
     if (dimensions.ps_clearance_from_floor) {
         $('#table__spec').append(`
                     <tr>
-                        <td class='w-1/2'>Clearance from Floor</td>
+                        <td class='w-1/2 pt-2'>Clearance from Floor</td>
                         <td class='md:px-3'> : </td>
                         <td>${dimensions.ps_clearance_from_floor}</td>
                     </tr>
@@ -357,7 +354,7 @@ function renderDimensions(dimensions, render = "all") {
     if (dimensions.ps_table_top_thickness) {
         $('#table__spec').append(`
                     <tr>
-                        <td class='w-1/2'>Table Top Thickness</td>
+                        <td class='w-1/2 pt-2'>Table Top Thickness</td>
                         <td class='md:px-3'> : </td>
                         <td>${dimensions.ps_table_top_thickness}</td>
                     </tr>
@@ -366,7 +363,7 @@ function renderDimensions(dimensions, render = "all") {
     if (dimensions.ps_distance_between_legs) {
         $('#table__spec').append(`
                     <tr>
-                        <td class='w-1/2'>Distance Between Legs</td>
+                        <td class='w-1/2 pt-2'>Distance Between Legs</td>
                         <td class='md:px-3'> : </td>
                         <td>${dimensions.ps_distance_between_legs}</td>
                     </tr>
@@ -375,7 +372,7 @@ function renderDimensions(dimensions, render = "all") {
     if (dimensions.ps_arm_height) {
         $('#table__spec').append(`
                     <tr>
-                        <td class='w-1/2'>Arm Height</td>
+                        <td class='w-1/2 pt-2'>Arm Height</td>
                         <td class='md:px-3'> : </td>
                         <td>${dimensions.ps_arm_height}</td>
                     </tr>
@@ -384,7 +381,7 @@ function renderDimensions(dimensions, render = "all") {
     if (dimensions.ps_seat_height) {
         $('#table__spec').append(`
                     <tr>
-                        <td class='w-1/2'>Seat Height</td>
+                        <td class='w-1/2 pt-2'>Seat Height</td>
                         <td class='md:px-3'> : </td>
                         <td>${dimensions.ps_seat_height}</td>
                     </tr>
@@ -393,7 +390,7 @@ function renderDimensions(dimensions, render = "all") {
     if (dimensions.ps_seat_depth) {
         $('#table__spec').append(`
                 <tr>
-                    <td class='w-1/2'>Seat Depth</td>
+                    <td class='w-1/2 pt-2'>Seat Depth</td>
                     <td class='md:px-3'> : </td>
                     <td>${dimensions.ps_seat_depth}</td>
                 </tr>
@@ -402,7 +399,7 @@ function renderDimensions(dimensions, render = "all") {
     if (dimensions.ps_nett_weight) {
         $('#table__spec').append(`
                 <tr>
-                    <td class='w-1/2'>Nett Weight</td>
+                    <td class='w-1/2 pt-2'>Nett Weight</td>
                     <td class='md:px-3'> : </td>
                     <td>${dimensions.ps_nett_weight}</td>
                 </tr>
@@ -411,7 +408,7 @@ function renderDimensions(dimensions, render = "all") {
     if (dimensions.ps_gross_weight) {
         $('#table__spec').append(`
                 <tr>
-                    <td class='w-1/2'>Gross Weight</td>
+                    <td class='w-1/2 pt-2'>Gross Weight</td>
                     <td class='md:px-3'> : </td>
                     <td>${dimensions.ps_gross_weight}</td>
                 </tr>
@@ -420,7 +417,7 @@ function renderDimensions(dimensions, render = "all") {
     if (dimensions.ps_pax) {
         $('#table__spec').append(`
                 <tr>
-                    <td class='w-1/2'>PAX</td>
+                    <td class='w-1/2 pt-2'>PAX</td>
                     <td class='md:px-3'> : </td>
                     <td>${dimensions.ps_pax}</td>
                 </tr>
@@ -429,7 +426,7 @@ function renderDimensions(dimensions, render = "all") {
     if (dimensions.ps_20ft_container) {
         $('#table__spec').append(`
                 <tr>
-                    <td class='w-1/2'>20ft Container</td>
+                    <td class='w-1/2 pt-2'>20ft Container</td>
                     <td class='md:px-3'> : </td>
                     <td>${dimensions.ps_20ft_container}</td>
                 </tr>
@@ -438,7 +435,7 @@ function renderDimensions(dimensions, render = "all") {
     if (dimensions.ps_40hq_container) {
         $('#table__spec').append(`
                 <tr>
-                    <td class='w-1/2'>40HQ Container</td>
+                    <td class='w-1/2 pt-2'>40HQ Container</td>
                     <td class='md:px-3'> : </td>
                     <td>${dimensions.ps_40hq_container}</td>
                 </tr>
@@ -447,7 +444,7 @@ function renderDimensions(dimensions, render = "all") {
     if (dimensions.cbm) {
         $('#table__spec').append(`
                 <tr>
-                    <td class='w-1/2'>CBM</td>
+                    <td class='w-1/2 pt-2'>CBM</td>
                     <td class='md:px-3'> : </td>
                     <td>${dimensions.cbm}</td>
                 </tr>
@@ -462,15 +459,15 @@ function renderDownloadable(asset3d, product_image, collection_sheet) {
             <div>
                 <a href="${product_image}"
                     target="_blank"
-                    class="text-slate-700 hover:text-slate-400 text-sm">
-                    <div class='flex gap-1 items-center'>
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5 pb-1">
+                    class="text-slate-700 text-sm">
+                    <div class='flex group items-center'>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5 pb-1 group-hover:text-slate-400">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
                         </svg>
-                        HD Images
+                        <p class="group-hover:text-slate-400">HD Images</p>
                     </div>
                 </a>
-                <hr class="my-1 me-6 border-slate-300 "/>
+                <hr class="mt-3 me-6 border-slate-300 "/>
             </div>
         `);
     }
@@ -479,90 +476,90 @@ function renderDownloadable(asset3d, product_image, collection_sheet) {
             <div>
                 <a href="${collection_sheet}"
                     target="_blank"
-                    class="text-slate-700 hover:text-slate-400 text-sm">
-                    <div class='flex gap-1 items-center'>
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5 pb-1">
+                    class="text-slate-700  text-sm">
+                    <div class='flex group items-center'>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5 pb-1 group-hover:text-slate-400">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
                         </svg>
-                        Collection Sheet
+                        <p class="group-hover:text-slate-400">Collection Sheet</p>
                     </div>
                 </a>
-                <hr class="my-1 me-6 border-slate-300 "/>
+                <hr class="mt-3 me-6 border-slate-300 "/>
             </div>
         `);
     }
     if (asset3d.drawing_3d_dwg) {
         $('#product__downloadable').append(`
             <div>
-                <div class="text-slate-700 cursor-not-allowed text-sm">
-                    <div class='flex gap-1 items-center'>
+                <div class="text-[#798F98] cursor-not-allowed text-sm">
+                    <div class='flex items-center'>
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5 pb-1">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z" />
                         </svg>
-                        DWG
+                        <p class="text-[#798F98]">DWG</p>
                     </div>
                 </a>
-                <hr class="my-1 me-6 border-slate-300 "/>
+                <hr class="mt-3 me-6 border-slate-300 "/>
             </div>
         `);
     }
     if (asset3d.drawing_3d_obj) {
         $('#product__downloadable').append(`
             <div>
-                <div class="text-slate-700 cursor-not-allowed text-sm">
-                    <div class='flex gap-1 items-center'>
+                <div class="text-[#798F98] cursor-not-allowed text-sm">
+                    <div class='flex items-center'>
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5 pb-1">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z" />
                         </svg>
-                        3D OBJ
+                        <p class="text-[#798F98]">3D OBJ</p>
                     </div>
                 </a>
-                <hr class="my-1 me-6 border-slate-300 "/>
+                <hr class="mt-3 me-6 border-slate-300 "/>
             </div>
         `);
     }
     if (asset3d.drawing_3d_3dmax) {
         $('#product__downloadable').append(`
             <div>
-                <div class="text-slate-700 cursor-not-allowed text-sm">
-                    <div class='flex gap-1 items-center'>
+                <div class="text-[#798F98] cursor-not-allowed text-sm">
+                    <div class='flex items-center'>
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5 pb-1">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z" />
                         </svg>
-                        3D MAX
+                        <p class="text-[#798F98]">3D MAX</p>
                     </div>
                 </a>
-                <hr class="my-1 me-6 border-slate-300 "/>
+                <hr class="mt-3 me-6 border-slate-300 "/>
             </div>
         `);
     }
     if (asset3d.drawing_3d_sketchup) {
         $('#product__downloadable').append(`
             <div>
-                <div class="text-slate-700 cursor-not-allowed text-sm">
-                    <div class='flex gap-1 items-center'>
+                <div class="text-[#798F98] cursor-not-allowed text-sm">
+                    <div class='flex items-center'>
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5 pb-1">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z" />
                         </svg>
-                        SKETCHUP
+                        <p class="text-[#798F98]">SKETCHUP</p>
                     </div>
                 </a>
-                <hr class="my-1 me-6 border-slate-300 "/>
+                <hr class="mt-3 me-6 border-slate-300 "/>
             </div>
         `);
     }
     if (asset3d.file_3d_glb) {
         $('#product__downloadable').append(`
             <div>
-                <div class="text-slate-700 cursor-not-allowed text-sm">
-                    <div class='flex gap-1 items-center'>
+                <div class="text-[#798F98] cursor-not-allowed text-sm">
+                    <div class='flex items-center'>
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5 pb-1">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z" />
                         </svg>
-                        GLB
+                        <p class="text-[#798F98]">GLB</p>
                     </div>
                 </a>
-                <hr class="my-1 me-6 border-slate-300 "/>
+                <hr class="mt-3 me-6 border-slate-300 "/>
             </div>
         `);
     }
@@ -605,21 +602,21 @@ function renderImages(images) {
         $('#image__spec').append(`
             <img src="${images.spec_image}"
                 alt="specification product"
-                height="512"
-                width="512" />
+                class="h-auto w-full"
+                />
         `)
     }
 }
 
 function renderCollectionProducts(products, name) {
     // Collection product
-    $('.collection__product__name').text(`in ${name} Collection`);
+    $('.collection__product__name').text(`In ${name} Collection`);
     products.forEach((e) => {
         $('.collection__product').append(`
             <a href="<?= BASE_LINK; ?>/product-detail/${slugify(e.name)}">     
                 <div class="product__card group">
                     <img src="${e.product_image}" class="md:h-[384px] h-[204px] object-contain w-auto object-contain group-hover:scale-[.97] group-hover:brightness-110 transition duration-300" />
-                    <p class="text-center w-full md:-mt-3 text-xs mx-auto capitalize group-hover:underline">
+                    <p class="text-center w-full md:-mt-3 text-sm mx-auto capitalize group-hover:underline">
                         ${e.name}
                     </p>
                 </div>

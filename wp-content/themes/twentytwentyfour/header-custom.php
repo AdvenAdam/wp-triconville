@@ -72,7 +72,7 @@
 <body <?php body_class(); ?>>
     <header class="header fixed w-full top-0 tracking-widest"
             style="z-index: 20;">
-        <nav class="flex items-center justify-between px-3 sm:px-5 lg:px-8 xl:px-20 w-full md:min-h-20 bg-white ">
+        <nav class="flex items-center justify-between px-3 md:px-5 xl:px-20 w-full md:min-h-20 bg-white ">
             <div class="flex justify-center">
                 <a href="<?php echo home_url(); ?>">
                     <img src="<?= BASE_LINK ?>/wp-content/uploads/2024/09/Logo-Blue-Resized-1.png"
@@ -82,10 +82,10 @@
             </div>
             <div class="flex items-center justify-end lg:pt-4 gap-2 lg:gap-10 xl:gap-16">
                 <div id="navbar_menu_category"
-                     class='lg:flex hidden gap-1 lg:gap-6'>
+                     class='lg:flex hidden gap-1 md:gap-3 xl:gap-6'>
                 </div>
                 <!-- Note : Login -->
-                <div class="hidden lg:flex items-center gap-6">
+                <div class="hidden lg:flex items-center gap-1 md:gap-3 xl:gap-6">
                     <div class="pb-1 text-xs uppercase outline-none text-[#4D4D4D] hover:text-cyan-500 flex gap-1 items-center">
                         <?php echo do_shortcode('[gtranslate]') ?>
                     </div>
