@@ -3,13 +3,13 @@
 @tailwind utilities;
 
 .btn-primary {
-    @apply bg-[#10A1CF] text-white hover:bg-[#0D82A6] active:bg-[#09617B] outline-none;
+    @apply bg-[#10A1CF] tracking-widest text-white hover:bg-[#0D82A6] active:bg-[#09617B] outline-none;
 }
 .btn-ghost {
-    @apply  py-3 md:py-4 px-3 md:px-6 bg-transparent text-[#4D4D4D] border-[#4D4D4D] hover:bg-[#ECF0F1] active:bg-[#CAD3D6] border outline-none;
+    @apply  py-3 md:py-4 tracking-widest px-3 md:px-6 bg-transparent text-[#4D4D4D] border-[#4D4D4D] hover:bg-[#ECF0F1] active:bg-[#CAD3D6] border outline-none;
 }
 .btn-ghost-dark {
-    @apply  py-3 md:py-4 px-3 md:px-6 bg-[#4D4D4D] border-[#4D4D4D] text-white hover:bg-[#334146] active:bg-[#0D1010] border outline-none;
+    @apply  py-3 md:py-4 tracking-widest px-3 md:px-6 bg-[#4D4D4D] border-[#4D4D4D] text-white hover:bg-[#334146] active:bg-[#0D1010] border outline-none;
 }
 
 .half-screen {
