@@ -74,7 +74,7 @@
                                 <p class='md:mb-3 text-sm'>Jl.Bukit Panorama no.6, <br />
                                     Kota Semarang, Jawa Tengah,<br /> Indonesia 50274</p>
                                 <p class='text-sm md:mb-3'>+62 21 27084824</p>
-                                <p class='text-sm md:mb-3'>info@triconville.co.id</p>
+                                <p class='text-sm md:mb-3'>info@triconville.com</p>
                                 <div class="md:block hidden">
                                     <p class='font-bold text-sm uppercase  pt-5'>connect</p>
                                     <div class="flex items-center gap-4 my-3">

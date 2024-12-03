@@ -4,39 +4,8 @@ echo '<title>' . ucfirst( slugToTitleCase($character_slug) ) . ' | ' . wp_kses_d
 get_template_part('header-custom');
 
 ?>
-<style>
-.slick-slider {
-    max-width: 100vw;
-    width: 100%;
-    overflow: hidden !important;
-}
 
-.product-overview-desc ul {
-    list-style-type: disc;
-    list-style-position: inside;
-    padding-top: 8px;
-}
-
-#main_slider img {
-    border-radius: 8px;
-}
-
-#thumbnail_slider img {
-    border-radius: 8px;
-    border: 2px solid transparent;
-    transition: border-color 0.3s ease;
-}
-
-#thumbnail_slider .slick-current img {
-    border-color: #4a90e2;
-}
-
-.fancybox__container {
-    z-index: 1 !important;
-}
-</style>
-
-<div class="content-container overflow-x-hidden mt-16 md:mt-20">
+<div class="content-container mt-16 md:mt-20">
     <div id="product__banner"></div>
     <!-- NOTE : PRODUCT Overview & Material -->
     <div class="">
@@ -44,11 +13,10 @@ get_template_part('header-custom');
             <div class="">
                 <div id="product__header__image"></div>
             </div>
-            <div class=" max-w-xl mt-5 md:mt-0"
+            <div class=" max-w-xl mt-5 md:mt-0 "
                  id="product__description">
                 <div class="mb-16 "
                      id="product__overview"></div>
-
                 <p class="mr-3 uppercase mb-2 text-xs"
                    id="label_1"></p>
                 <div class="flex mb-6 flex-wrap gap-1 md:gap-4"
@@ -66,7 +34,7 @@ get_template_part('header-custom');
     <!-- NOTE : PRODUCT Ambience Slider -->
     <div class="ambience__section relative mb-10 md:mb-20">
         <div class="ambience__img h-[350px] sm:h-[600px] lg:h-[720px]"></div>
-        <button class="slick-prev prev-btn hidden md:block absolute top-1/2 -translate-y-1/2 z-10 left-5 py-10 bg-slate-50/50 p-3 hover:bg-slate-50/80"
+        <button class="slick-prev prev-btn hidden md:block transition-all duration-300 absolute top-1/2 -translate-y-1/2 z-10 left-5 py-10 bg-slate-50/50 p-3 hover:bg-slate-50/80"
                 aria-label="Previous"
                 type="button">
             <svg xmlns="http://www.w3.org/2000/svg"
@@ -80,7 +48,7 @@ get_template_part('header-custom');
                       d="M15.75 19.5 8.25 12l7.5-7.5" />
             </svg>
         </button>
-        <button class="slick-next next-btn hidden md:block absolute top-1/2 -translate-y-1/2 z-10 right-5 py-10 bg-slate-50/50 p-3 hover:bg-slate-50/80"
+        <button class="slick-next next-btn hidden md:block transition-all duration-300 absolute top-1/2 -translate-y-1/2 z-10 right-5 py-10 bg-slate-50/50 p-3 hover:bg-slate-50/80"
                 aria-label="Next"
                 type="button">
             <svg xmlns="http://www.w3.org/2000/svg"
@@ -244,16 +212,26 @@ function renderMaterial(res) {
         $('#label_1').text(res.label1)
         res.option1.forEach(opt => {
             $('#option_1').append(
-                `<img src="${opt.img_link}" class="w-16 md:w-20 h-16 md:h-20"/>`
+                `<div class="group cursor-pointer relative" id="${opt.code}">
+                    <div id="tooltip-${opt.code}" class="absolute -top-10 w-fit z-10 invisible group-hover:visible inline-block bg-gray-900 rounded-lg shadow-sm opacity-0 group-hover:opacity-100 ">
+                        <p class="px-3 py-2 text-sm font-medium text-white whitespace-nowrap">${opt.name}</p>
+                    </div>
+                    <img src="${opt.img_link}" class="w-16 md:w-20 h-16 md:h-20 object-contain"/>
+                </div>`
             );
         });
     }
 
     if (res.option2 && Array.isArray(res.option2)) {
         $('#label_2').text(res.label2)
-        res.option2.forEach(opt2 => {
+        res.option2.forEach(opt => {
             $('#option_2').append(
-                `<img src="${opt2.img_link}" class="w-16 md:w-20 h-16 md:h-20"/>`
+                `<div class="group cursor-pointer relative" id="${opt.code}">
+                    <div id="tooltip-${opt.code}" class="absolute -top-10 w-fit z-10 invisible group-hover:visible inline-block bg-gray-900 rounded-lg shadow-sm opacity-0 group-hover:opacity-100 ">
+                        <p class="px-3 py-2 text-sm font-medium text-white whitespace-nowrap">${opt.name}</p>
+                    </div>
+                    <img src="${opt.img_link}" class="w-16 md:w-20 h-16 md:h-20 object-contain"/>
+                </div>`
             );
         });
     }
@@ -263,7 +241,7 @@ function renderMaterial(res) {
 function renderOverview(res) {
     $('#product__header__image').append(`
         <div class="text-center mx-auto ">
-            <img src="${res.product_image}" alt="${res.name}" class="w-auto h-[350px] lg:h-[720px] xl:h-[870px] object-contain"/>
+            <img src="${res.product_image}" alt="${res.name}" class="w-auto h-[350px] lg:h-[720px] xl:h-[870px] m-2 object-contain"/>
         </div>
     `)
     if (res.name) {
@@ -272,7 +250,7 @@ function renderOverview(res) {
             <div class='max-w-xl'>
                 <h1 class="text-2xl md:text-3xl text-gray-900 line-clamp-2">${res.name}</h1>
                 <p class="text-slate-500 text-sm text-sm mb-4">Designed by 
-                    <span class="text-black font-medium hover:underline"><a href="https://indospacegroup.com/indospace-rnd/">Indospace R&D </a></span>
+                    <span class="text-black font-medium underline"><a href="https://indospacegroup.com/indospace-rnd/" target="_blank">Indospace R&D </a></span>
                 </p>
                 <p class="text-sm line-clamp-4">${desc}</p>
             </div>
@@ -295,13 +273,13 @@ function renderDimensions(dimensions, render = "all") {
                 <div >
                     <div class="flex md:flex-row flex-col items-start justify-between mb-6">
                         <h3 class="text-2xl md:text-3xl line-clamp-2">Sizing</h3>
-                        <div class="flex items-center sizing-btn gap-2">
+                        <div class="flex items-center sizing-btn">
                             <button class="btn-ghost-dark !py-2 uppercase text-sm"
-                                    onClick="changeSize('metric')"
-                                    id="metric">Metric</button>
+                                onClick="changeSize('metric')"
+                                id="metric">Metric</button>
                             <button class="btn-ghost !py-2 uppercase text-sm"
-                                    onClick="changeSize('imperial')"
-                                    id="imperial">Imperial</button>
+                                onClick="changeSize('imperial')"
+                                id="imperial">Imperial</button>
                         </div>
                     </div>
                     <table class="product__spec w-full md:text-sm text-xs tracking-wider text-[#4D4D4D] mb-16"
@@ -312,7 +290,7 @@ function renderDimensions(dimensions, render = "all") {
                     <div id="product__downloadable"
                          class="grid grid-cols-2 gap-4">
                     </div>
-                    <p class="text-sm text-[#798F98] mt-5">Please <span class="hover:underline"><a href="https://indospaceb2b.com/"" target="_blank">login</a></span> to access all downloadable contents</p>
+                    <p class="text-sm text-[#798F98] mt-5">Please <span class="underline"><a href="https://indospaceb2b.com/"" target="_blank">login</a></span> to access all downloadable contents</p>
                 </div>
             </div>
         `)
@@ -460,7 +438,7 @@ function renderDownloadable(asset3d, product_image, collection_sheet) {
                 <a href="${product_image}"
                     target="_blank"
                     class="text-slate-700 text-sm">
-                    <div class='flex group items-center'>
+                    <div class='flex group items-center gap-2'>
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5 pb-1 group-hover:text-slate-400">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
                         </svg>
@@ -477,7 +455,7 @@ function renderDownloadable(asset3d, product_image, collection_sheet) {
                 <a href="${collection_sheet}"
                     target="_blank"
                     class="text-slate-700  text-sm">
-                    <div class='flex group items-center'>
+                    <div class='flex group items-center gap-2'>
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5 pb-1 group-hover:text-slate-400">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
                         </svg>
@@ -492,7 +470,7 @@ function renderDownloadable(asset3d, product_image, collection_sheet) {
         $('#product__downloadable').append(`
             <div>
                 <div class="text-[#798F98] cursor-not-allowed text-sm">
-                    <div class='flex items-center'>
+                    <div class='flex items-center gap-2'>
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5 pb-1">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z" />
                         </svg>
@@ -507,7 +485,7 @@ function renderDownloadable(asset3d, product_image, collection_sheet) {
         $('#product__downloadable').append(`
             <div>
                 <div class="text-[#798F98] cursor-not-allowed text-sm">
-                    <div class='flex items-center'>
+                    <div class='flex items-center gap-2'>
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5 pb-1">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z" />
                         </svg>
@@ -522,7 +500,7 @@ function renderDownloadable(asset3d, product_image, collection_sheet) {
         $('#product__downloadable').append(`
             <div>
                 <div class="text-[#798F98] cursor-not-allowed text-sm">
-                    <div class='flex items-center'>
+                    <div class='flex items-center gap-2'>
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5 pb-1">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z" />
                         </svg>
@@ -537,7 +515,7 @@ function renderDownloadable(asset3d, product_image, collection_sheet) {
         $('#product__downloadable').append(`
             <div>
                 <div class="text-[#798F98] cursor-not-allowed text-sm">
-                    <div class='flex items-center'>
+                    <div class='flex items-center gap-2'>
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5 pb-1">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z" />
                         </svg>
@@ -552,7 +530,7 @@ function renderDownloadable(asset3d, product_image, collection_sheet) {
         $('#product__downloadable').append(`
             <div>
                 <div class="text-[#798F98] cursor-not-allowed text-sm">
-                    <div class='flex items-center'>
+                    <div class='flex items-center gap-2'>
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5 pb-1">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z" />
                         </svg>

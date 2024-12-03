@@ -3,98 +3,116 @@
     {
       "id": 1,
       "link": "#",
-      "alt": "Inspiration 1",
-      "img": "https://storage.googleapis.com/back-bucket/wp_triconville/images/inspirations/inspirations_demo/1.png"
+      "alt": "Bare Essence 1",
+      "img": "https://storage.googleapis.com/back-bucket/wp_triconville/images/inspirations/BE-1.jpg"
     },
     {
       "id": 2,
       "link": "#",
-      "alt": "Inspiration 2",
-      "img": "https://storage.googleapis.com/back-bucket/wp_triconville/images/inspirations/inspirations_demo/2.png"
+      "alt": "Bare Essence 2",
+      "img": "https://storage.googleapis.com/back-bucket/wp_triconville/images/inspirations/BE-2.jpg"
     },
     {
       "id": 3,
       "link": "#",
-      "alt": "Inspiration 3",
-      "img": "https://storage.googleapis.com/back-bucket/wp_triconville/images/inspirations/inspirations_demo/3.png"
+      "alt": "Bare Essence 3",
+      "img": "https://storage.googleapis.com/back-bucket/wp_triconville/images/inspirations/BE-3.jpg"
     },
     {
       "id": 4,
       "link": "#",
-      "alt": "Inspiration 4",
-      "img": "https://storage.googleapis.com/back-bucket/wp_triconville/images/inspirations/inspirations_demo/4.png"
+      "alt": "Bare Essence 4",
+      "img": "https://storage.googleapis.com/back-bucket/wp_triconville/images/inspirations/BE-4.jpg"
     },
     {
       "id": 5,
       "link": "#",
-      "alt": "Inspiration 5",
-      "img": "https://storage.googleapis.com/back-bucket/wp_triconville/images/inspirations/inspirations_demo/5.png"
+      "alt": "Bare Essence 5",
+      "img": "https://storage.googleapis.com/back-bucket/wp_triconville/images/inspirations/BE-5.jpg"
     },
     {
       "id": 6,
       "link": "#",
-      "alt": "Inspiration 6",
-      "img": "https://storage.googleapis.com/back-bucket/wp_triconville/images/inspirations/inspirations_demo/6.png"
+      "alt": "Bare Essence 6",
+      "img": "https://storage.googleapis.com/back-bucket/wp_triconville/images/inspirations/BE-6.jpg"
     },
     {
       "id": 7,
       "link": "#",
-      "alt": "Inspiration 7",
-      "img": "https://storage.googleapis.com/back-bucket/wp_triconville/images/inspirations/inspirations_demo/7.png"
+      "alt": "Coastal Bliss 3",
+      "img": "https://storage.googleapis.com/back-bucket/wp_triconville/images/inspirations/CB-3.jpg"
     },
     {
       "id": 8,
       "link": "#",
-      "alt": "Inspiration 8",
-      "img": "https://storage.googleapis.com/back-bucket/wp_triconville/images/inspirations/inspirations_demo/8.png"
+      "alt": "Dune Essence 1",
+      "img": "https://storage.googleapis.com/back-bucket/wp_triconville/images/inspirations/DE-1.jpg"
     },
     {
       "id": 9,
       "link": "#",
-      "alt": "Inspiration 9",
-      "img": "https://storage.googleapis.com/back-bucket/wp_triconville/images/inspirations/inspirations_demo/9.png"
+      "alt": "Dune Essence 2",
+      "img": "https://storage.googleapis.com/back-bucket/wp_triconville/images/inspirations/DE-2.jpg"
     },
     {
       "id": 10,
       "link": "#",
-      "alt": "Inspiration 10",
-      "img": "https://storage.googleapis.com/back-bucket/wp_triconville/images/inspirations/inspirations_demo/10.png"
+      "alt": "Dune Essence 3",
+      "img": "https://storage.googleapis.com/back-bucket/wp_triconville/images/inspirations/DE-3.jpg"
     },
     {
       "id": 11,
       "link": "#",
-      "alt": "Inspiration 11",
-      "img": "https://storage.googleapis.com/back-bucket/wp_triconville/images/inspirations/inspirations_demo/11.png"
+      "alt": "Dune Essence 4",
+      "img": "https://storage.googleapis.com/back-bucket/wp_triconville/images/inspirations/DE-4.jpg"
     },
     {
       "id": 12,
       "link": "#",
-      "alt": "Inspiration 12",
-      "img": "https://storage.googleapis.com/back-bucket/wp_triconville/images/inspirations/inspirations_demo/12.png"
+      "alt": "Dune Essence 5",
+      "img": "https://storage.googleapis.com/back-bucket/wp_triconville/images/inspirations/DE-5.jpg"
     },
     {
       "id": 13,
       "link": "#",
-      "alt": "Inspiration 13",
-      "img": "https://storage.googleapis.com/back-bucket/wp_triconville/images/inspirations/inspirations_demo/13.png"
+      "alt": "Dune Essence 6",
+      "img": "https://storage.googleapis.com/back-bucket/wp_triconville/images/inspirations/DE-6.jpg"
     },
     {
       "id": 14,
       "link": "#",
-      "alt": "Inspiration 14",
-      "img": "https://storage.googleapis.com/back-bucket/wp_triconville/images/inspirations/inspirations_demo/14.png"
+      "alt": "Leafscape 1",
+      "img": "https://storage.googleapis.com/back-bucket/wp_triconville/images/inspirations/LS-1.jpg"
     },
     {
       "id": 15,
       "link": "#",
-      "alt": "Inspiration 15",
-      "img": "https://storage.googleapis.com/back-bucket/wp_triconville/images/inspirations/inspirations_demo/15.png"
+      "alt": "Leafscape 2",
+      "img": "https://storage.googleapis.com/back-bucket/wp_triconville/images/inspirations/LS-2.jpg"
     },
     {
       "id": 16,
       "link": "#",
-      "alt": "Inspiration 16",
-      "img": "https://storage.googleapis.com/back-bucket/wp_triconville/images/inspirations/inspirations_demo/16.png"
+      "alt": "Leafscape 3",
+      "img": "https://storage.googleapis.com/back-bucket/wp_triconville/images/inspirations/LS-3.jpg"
+    },
+    {
+      "id": 17,
+      "link": "#",
+      "alt": "Leafscape 4",
+      "img": "https://storage.googleapis.com/back-bucket/wp_triconville/images/inspirations/LS-4.jpg"
+    },
+    {
+      "id": 18,
+      "link": "#",
+      "alt": "Leafscape 5",
+      "img": "https://storage.googleapis.com/back-bucket/wp_triconville/images/inspirations/LS-5.jpg"
+    },
+    {
+      "id": 19,
+      "link": "#",
+      "alt": "Leafscape 6",
+      "img": "https://storage.googleapis.com/back-bucket/wp_triconville/images/inspirations/LS-6.jpg"
     }
   ],
   "selectedInspirations": [6, 5, 7, 8, 1, 2]

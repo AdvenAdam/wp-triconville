@@ -8,21 +8,24 @@
       rel="stylesheet">
 <div class="content-container ">
     <div id="collection__header"></div>
-    <div class="px-3 md:px-5">
-        <div class="max-w-[1440px] mx-auto">
-            <div id="container__<?=$character_slug ?>"></div>
-            <div class="my-10">
-                <h1 class="text-2xl md:text-3xl mb-5">More From Our Collection</h1>
-                <div id="project__slider_1"
-                     class="overflow-hidden ">
-                </div>
-                <div class="flex justify-center mt-5">
-                    <a href="<?= BASE_LINK; ?>/collections/"
-                       class='btn-ghost !py-2.5 uppercase text-sm tracking-wider mt-5'> view all collections</a>
+    <div id="container__<?=$character_slug ?>"></div>
+    <div class="my-10">
+        <div class="px-3 md:px-5">
+            <div class="max-w-[1440px] mx-auto">
+                <h1 class="text-2xl md:text-3xl mb-5 ms-1">More From Our Collection</h1>
+                <div class="relative group"
+                     id="project__slider__wrapper">
+                    <div id="project__slider_1"
+                         class=" ">
+                    </div>
                 </div>
             </div>
-
         </div>
+        <div class="flex justify-center mt-5">
+            <a href="<?= BASE_LINK; ?>/collections/"
+               class='btn-ghost !py-2.5 uppercase text-sm tracking-wider mt-5'> view all collections</a>
+        </div>
+
     </div>
 </div>
 <div id="errorIndicator"
@@ -68,7 +71,7 @@ function loadCollections() {
                 ...res,
                 ...selectedCollection[0]
             };
-
+            console.log("🚀 ~ loadCollections ~ collectionData:", collectionData)
         },
         error: function(xhr, status, error) {
             if (xhr.status === 404) {
@@ -98,57 +101,116 @@ function renderMaster() {
         <section class="banner mb-5 relative">
             <img src="https://storage.googleapis.com/back-bucket/wp_triconville/images/${collectionData.image_banner}" alt="${collectionData.name}" class="w-full h-screen object-cover">
             <div class='bg-black bg-opacity-25 h-full w-full absolute inset-0 flex items-center justify-center'>
-                <h1 class='text-white text-3xl md:text-5xl uppercase'>${collectionData.name}</h1>
+                <h1 class='text-white text-3xl md:text-5xl font-medium capitalize'>${collectionData.name}</h1>
             </div>
         </section>
     `)
     $('#container__<?= $character_slug ?>').append(`
-        <section class="collection__description my-5 flex max-w-[1440px] mx-auto justify-end p-3 md:p-5 ">
-            <div class="collection__description-content w-full md:w-3/5">
-                <h1 class="text-4xl hidden md:block uppercase font-medium">${collectionData.name}</h1>
-                <p class="text-justify text-sm max-w-3xl mt-5 mb-10">${collectionData.description}</p>
-                ${collectionData.sheet !== 'False' ? `
-                    <a href="${collectionData.sheet}" target="_blank" class='btn-ghost-dark uppercase text-sm tracking-wider'>
-                        download collection sheet
-                    </a>
-                `:''}
-            </div>
-        </section>
-        <section class="collection__ambiance my-10 py-5">
-        </section>
-        <section class="collection__product relative my-10 py-5">
-            <h3 class="text-2xl md:text-3xl tracking-wide ">Products on ${collectionData.name} Collection</h3>
-            <div class=" grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 mt-5 gap-4 justify-center container mx-auto mt-5 mb-10">
-                ${collectionData.product_list.map((pr, i) => `
-                    <div class='overflow-hidden '>
-                        <a href="<?= BASE_LINK; ?>/product-detail/${slugify(pr.name)}" class="group">
-                            <img src="${pr.product_image_384}" alt="${pr.alt_text}" class="w-full h-[240px] md:h-[384px] object-contain group-hover:scale-[.97] group-hover:brightness-110 transition duration-300"> 
-                            <p class="text-center mb-5 text-sm capitalize line-clamp-2 max-w-xs group-hover:underline">${pr.name}</p>
-                        </a>
+        <div class="px-3 md:px-5">
+            <div class="max-w-[1440px] mx-auto">
+                <section class="collection__description my-5 md:my-10 lg:my-28">
+                    <div class="collection__description-content max-w-3xl mx-auto text-center">
+                        <h1 class="text-3xl md:text-5xl hidden md:block mx-auto capitalize">${collectionData.name}</h1>
+                        <p class="text-sm mt-2 mb-10">${collectionData.description}</p>
+                        ${collectionData.sheet !== 'False' ? `
+                            <a href="${collectionData.sheet}" target="_blank" class='btn-ghost-dark uppercase text-sm flex items-center gap-2 w-fit mx-auto'>
+                                download collection sheet
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5 pb-1 group-hover:text-slate-400">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
+                                </svg>
+                            </a>
+                        `:''}
                     </div>
-                `).join('')}
+                </section>
             </div>
-        </section>
+        </div>
+        <div class="ambience__section relative mb-10 md:mb-20">
+            <div class="ambience__img"></div>
+            <button class="slick-prev ambiance-prev hidden md:block left-5 arrow-btn"
+                    aria-label="Previous"
+                    type="button">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="size-6">
+                    <path stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M15.75 19.5 8.25 12l7.5-7.5" />
+                </svg>
+            </button>
+            <button class="slick-next ambiance-next hidden md:block right-5 arrow-btn"
+                    aria-label="Next"
+                    type="button">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="size-6">
+                    <path stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                </svg>
+            </button>
+        </div>
+        
+        <div class="px-3 md:px-5">
+            <div class="max-w-[1440px] mx-auto">
+                <section class="collection__product relative my-10 py-5">
+                    <h3 class="text-2xl md:text-3xl tracking-wide ">Products on ${collectionData.name} Collection</h3>
+                    <div class=" grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 mt-5 gap-4 justify-center container mx-auto mt-5 mb-10">
+                        ${collectionData.product_list.map((pr, i) => `
+                            <a href="<?= BASE_LINK; ?>/product-detail/${slugify(pr.name)}" class='flex justify-center items-center flex-col p-3 group'>
+                                <img class="w-auto md:h-[384px] h-[240px] object-contain group-hover:scale-[.97] group-hover:brightness-110 transition duration-300" src="${pr.product_image_384}" />
+                                <p class="text-center text-sm md:mt-[-30px] max-w-[90%] capitalize group-hover:underline">${pr.name}</p>
+                            </a>
+                        `).join('')}
+                    </div>
+                </section>
+            </div>
+        </div>
     `);
-    if (collectionData.ambience_image.length > 0) {
-        $('.collection__ambiance').append(`
-            ${collectionData.ambience_image.map((img, i) => `
-                <img src="${img.image_1920}" alt="${collectionData.name}-${i}" class="w-fit h-auto object-contain me-2">
-            `)}
+    renderImages()
+    loadMoreCollections();
+}
+
+function renderImages() {
+    collectionData.ambience_image.forEach((img) => {
+        $('.ambience__img').append(`
+            <img src="${img.image_1920}"
+                class="!h-[350px] sm:!h-[600px] lg:!h-[720px] me-2 mx-2 w-screen md:w-auto object-cover" />
         `)
-        $('.collection__ambiance').slick({
-            dots: false,
+    })
+    if (collectionData.ambience_image.length > 1) {
+        // Init Slick
+        $('.ambience__img').slick({
+            slidesToScroll: 1,
+            variableWidth: true,
             arrows: false,
-            infinite: true,
-            speed: 300,
-            slidesToShow: 1.03,
-            slidesToScroll: 1
+            centerMode: true,
+            responsive: [{
+                breakpoint: 768,
+                settings: {
+                    centerMode: false,
+                    slidesToShow: 1.02,
+                    slidesToScroll: 1,
+                    variableWidth: false,
+                }
+            }]
+        });
+        $(".ambiance-prev").click(function() {
+            $(".ambience__img").slick("slickPrev");
+        });
+        $(".ambiance-next").click(function() {
+            $(".ambience__img").slick("slickNext");
         });
     } else {
-        $('.collection__ambiance').remove();
+        $('.ambience__img').addClass('flex justify-center');
+        $('.ambiance-prev').remove();
+        $(".ambiance-next").remove();
     }
-
-    loadMoreCollections();
 }
 
 function loadMoreCollections() {
@@ -169,7 +231,6 @@ function loadMoreCollections() {
                     });
                 }
             })
-            // TODO : make logic for triggering next page not by baypassing
         },
         complete: () => {
             moreCollections.sort((a, b) => a.id - b.id).slice(0, 6).forEach((colection) => renderMoreCollections(colection))
@@ -182,61 +243,79 @@ function loadMoreCollections() {
 
 function renderMoreCollections(collection) {
     $('#project__slider_1').append(`
-        <a href= "<?= BASE_LINK; ?>/collections/${slugify(collection.name)}" class="mx-1 w-full max-w-[90vw] md:max-w-2xl">
-            <div class="h-[365px] w-full flex items-center justify-center" 
-                style="
-                    background-position:center; 
-                    background-image: url('https://storage.googleapis.com/back-bucket/wp_triconville/images/${collection.image_grid}'); 
-                    background-repeat: no-repeat;
-                    background-size: cover;
-                "
-            >
-            </div>
-            <p class='text-sm mt-3'>
+        <a href= "<?= BASE_LINK; ?>/collections/${slugify(collection.name)}" class="mx-1 md:mx-2">
+            <img src="https://storage.googleapis.com/back-bucket/wp_triconville/images/${collection.image_grid}" 
+                class="w-auto h-auto object-cover" />
+            <h4 class='text-sm mt-4 mb-2'>
                 ${collection.id < 10 ? '0' + (collection.id) : collection.id}. 
-            </p>
-            <hr class='w-2/5 mt-3 border-black'/>
-            <h1 class="text-3xl md:text-5xl mt-3 font-medium uppercase">${collection.display_name}</h1>
-            <p class='text-sm mt-3 line-clamp-2 text-ellipsis'>
+            </h4>
+            <hr class='w-2/5 border-black'/>
+            <h1 class="text-3xl md:text-5xl font-medium capitalize my-2">${collection.display_name}</h1>
+            <h3 class='text-base line-clamp-2 text-ellipsis'>
                 ${collection.description}
-            </p>
+            </h3>
         </a>
     `);
 }
 
 function moreCollectionSlick() {
+    $("#project__slider__wrapper").append(`
+        <button class="slick-prev prev-btn hidden lg:block invisible group-hover:visible opacity-0 group-hover:opacity-100 left-5 !bg-slate-50/80 !hover:bg-slate-50/100 arrow-btn"
+                aria-label="Previous"
+                type="button">
+            <svg xmlns="http://www.w3.org/2000/svg"
+                 fill="none"
+                 viewBox="0 0 24 24"
+                 stroke-width="1.5"
+                 stroke="currentColor"
+                 class="size-6">
+                <path stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M15.75 19.5 8.25 12l7.5-7.5" />
+            </svg>
+        </button>
+        <button class="slick-next next-btn hidden lg:block invisible group-hover:visible opacity-0 group-hover:opacity-100 right-5 !bg-slate-50/80 hover:!bg-slate-50/100 arrow-btn"
+                aria-label="Next"
+                type="button">
+            <svg xmlns="http://www.w3.org/2000/svg"
+                 fill="none"
+                 viewBox="0 0 24 24"
+                 stroke-width="1.5"
+                 stroke="currentColor"
+                 class="size-6">
+                <path stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+            </svg>
+        </button>
+    `)
     $("#project__slider_1").slick({
         slidesToScroll: 1,
-        variableWidth: true,
+        slidesToShow: 2,
         arrows: false,
-        infinite: true,
+        infinite: false,
+        responsive: [{
+            breakpoint: 480,
+            settings: {
+                slidesToShow: 1.02,
+            }
+        }, {
+            breakpoint: 1023,
+            settings: {
+                slidesToShow: 2.02,
+            }
+        }, ]
+
+    });
+    $(".prev-btn").click(function() {
+        $("#project__slider_1").slick("slickPrev");
+    });
+    $(".next-btn").click(function() {
+        $("#project__slider_1").slick("slickNext");
     });
 }
-$(window).resize(function() {
-    moreCollectionSlick();
-})
 </script>
 
-<style>
-section.banner>picture>img {
-    max-height: 900px;
-    object-fit: cover;
-}
-
-section.banner>h1 {
-    color: white;
-    font-size: 50px;
-    font-weight: 300;
-    letter-spacing: .30rem;
-    text-align: center;
-    left: 0;
-    right: 0;
-    z-index: 1;
-    bottom: 50vh;
-    line-height: 0;
-    position: absolute;
-}
-</style>
 <?php
 // Conditional for footer
 get_template_part('footer-custom');

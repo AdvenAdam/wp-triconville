@@ -156,7 +156,7 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
             <div class="py-20">
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-20 my-5">
                     <div class="">
-                        <img src="<?= BASE_LINK ?>/wp-content/uploads/2024/09/our-story.png"
+                        <img src="https://storage.googleapis.com/back-bucket/wp_triconville/images/home/Home%20Catalogue.jpg"
                              class="w-auto h-auto object-cover" />
                     </div>
                     <div class="flex justify-center items-center p-3 md:p-5">
