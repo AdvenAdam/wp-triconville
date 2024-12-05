@@ -312,8 +312,6 @@ $(document).ready(function() {
 
     }
 });
-
-
 // NOTE : Scroll to Top
 const url = window.location.href;
 const magnetic__container = document.getElementById("magnetic__container");

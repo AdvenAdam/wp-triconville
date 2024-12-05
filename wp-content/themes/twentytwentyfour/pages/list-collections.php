@@ -58,7 +58,7 @@ body {
          id="grid-container">
         <div class="max-w-[1440px] mx-auto">
             <div id="grid__collections"
-                 class='mb-5 grid grid-cols-1 sm:grid-cols-2 gap-x-6 sm:gap-y-10 gap-y-12'>
+                 class='mb-5 grid grid-cols-1 sm:grid-cols-2 gap-x-6 sm:gap-y-12 gap-y-6'>
             </div>
         </div>
     </div>
@@ -149,7 +149,7 @@ function renderCollections(e, index, type = 'grid') {
         $('.content-container').off('wheel', onscrollHandler);
         $('#grid__collections').append(`
             <a href= "<?= BASE_LINK; ?>/collections/${slugify(e.name)}" >
-                <div class="h-[365px] w-full flex items-center justify-center transition duration-500 ease-in-out transform hover:-translate-y-1 hover:shadow-md" 
+                <div class="h-[365px] w-full flex items-center justify-center hover:brightness-110 transition duration-300 ease-in-out transform" 
                     style="
                         background-position:center; 
                         background-image: url('https://storage.googleapis.com/back-bucket/wp_triconville/images/${e.image_grid}'); 

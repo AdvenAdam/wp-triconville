@@ -9,21 +9,20 @@
 <div class="content-container ">
     <div id="collection__header"></div>
     <div id="container__<?=$character_slug ?>"></div>
-    <div class="my-10">
-        <div class="px-3 md:px-5">
-            <div class="max-w-[1440px] mx-auto">
-                <h1 class="text-2xl md:text-3xl mb-5 ms-1">More From Our Collection</h1>
-                <div class="relative group"
-                     id="project__slider__wrapper">
-                    <div id="project__slider_1"
-                         class=" ">
-                    </div>
+    <div class="mb-10 md:mb-20 lg:mb-36 px-3 md:px-5">
+        <div class="max-w-[1440px] mx-auto">
+            <h1 class="text-2xl md:text-3xl mb-5 ms-1">More From Our Collection</h1>
+            <div class="relative group "
+                 id="project__slider__wrapper">
+                <div id="project__slider_1"
+                     class=" ">
                 </div>
             </div>
         </div>
+
         <div class="flex justify-center mt-5">
             <a href="<?= BASE_LINK; ?>/collections/"
-               class='btn-ghost !py-2.5 uppercase text-sm tracking-wider mt-5'> view all collections</a>
+               class='btn-ghost uppercase text-sm mt-5'> view all collections</a>
         </div>
 
     </div>
@@ -124,7 +123,7 @@ function renderMaster() {
                 </section>
             </div>
         </div>
-        <div class="ambience__section relative mb-10 md:mb-20">
+        <div class="ambience__section relative mb-10 md:mb-20 lg:mb-36">
             <div class="ambience__img"></div>
             <button class="slick-prev ambiance-prev hidden md:block left-5 arrow-btn"
                     aria-label="Previous"
@@ -158,7 +157,7 @@ function renderMaster() {
         
         <div class="px-3 md:px-5">
             <div class="max-w-[1440px] mx-auto">
-                <section class="collection__product relative my-10 py-5">
+                <section class="collection__product relative mt-10 mb-10 md:mb-20 lg:mb-36">
                     <h3 class="text-2xl md:text-3xl tracking-wide ">Products on ${collectionData.name} Collection</h3>
                     <div class=" grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 mt-5 gap-4 justify-center container mx-auto mt-5 mb-10">
                         ${collectionData.product_list.map((pr, i) => `
@@ -243,9 +242,9 @@ function loadMoreCollections() {
 
 function renderMoreCollections(collection) {
     $('#project__slider_1').append(`
-        <a href= "<?= BASE_LINK; ?>/collections/${slugify(collection.name)}" class="mx-1 md:mx-2">
+        <a href= "<?= BASE_LINK; ?>/collections/${slugify(collection.name)}" class="mx-1 md:mx-2 ">
             <img src="https://storage.googleapis.com/back-bucket/wp_triconville/images/${collection.image_grid}" 
-                class="w-auto h-auto object-cover" />
+                class="w-auto h-auto object-cover hover:brightness-110 transition duration-300" />
             <h4 class='text-sm mt-4 mb-2'>
                 ${collection.id < 10 ? '0' + (collection.id) : collection.id}. 
             </h4>

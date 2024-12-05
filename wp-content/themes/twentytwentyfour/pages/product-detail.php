@@ -13,7 +13,7 @@ get_template_part('header-custom');
             <div class="">
                 <div id="product__header__image"></div>
             </div>
-            <div class=" max-w-xl mt-5 md:mt-0 "
+            <div class="px-3 md:px-0 max-w-xl mt-5 md:mt-0 "
                  id="product__description">
                 <div class="mb-16 "
                      id="product__overview"></div>
@@ -34,7 +34,7 @@ get_template_part('header-custom');
     <!-- NOTE : PRODUCT Ambience Slider -->
     <div class="ambience__section relative mb-10 md:mb-20">
         <div class="ambience__img h-[350px] sm:h-[600px] lg:h-[720px]"></div>
-        <button class="slick-prev prev-btn hidden md:block transition-all duration-300 absolute top-1/2 -translate-y-1/2 z-10 left-5 py-10 bg-slate-50/50 p-3 hover:bg-slate-50/80"
+        <button class="slick-prev prev-btn hidden md:block left-5  arrow-btn"
                 aria-label="Previous"
                 type="button">
             <svg xmlns="http://www.w3.org/2000/svg"
@@ -48,7 +48,7 @@ get_template_part('header-custom');
                       d="M15.75 19.5 8.25 12l7.5-7.5" />
             </svg>
         </button>
-        <button class="slick-next next-btn hidden md:block transition-all duration-300 absolute top-1/2 -translate-y-1/2 z-10 right-5 py-10 bg-slate-50/50 p-3 hover:bg-slate-50/80"
+        <button class="slick-next next-btn hidden md:block right-5 arrow-btn"
                 aria-label="Next"
                 type="button">
             <svg xmlns="http://www.w3.org/2000/svg"
@@ -186,9 +186,8 @@ function renderSheet(sheet) {
     
             </a>`
             :''}
-            <a href="#"
-                class="btn-ghost uppercase "
-                onclick="document.querySelector('#specification__link').scrollIntoView({behavior: 'smooth'}); return false;"><p class="text-xs">size</p></a>
+            <a href="<?= BASE_LINK; ?>/find-a-store/"
+                class="btn-ghost uppercase"><p class="text-xs">Find Store</p></a>
         </div>
     `);
 }
@@ -210,30 +209,44 @@ function changeSize(size) {
 function renderMaterial(res) {
     if (res.option1 && Array.isArray(res.option1)) {
         $('#label_1').text(res.label1)
-        res.option1.forEach(opt => {
+        res.option1.slice(0, 4).forEach(opt => {
             $('#option_1').append(
                 `<div class="group cursor-pointer relative" id="${opt.code}">
-                    <div id="tooltip-${opt.code}" class="absolute -top-10 w-fit z-10 invisible group-hover:visible inline-block bg-gray-900 rounded-lg shadow-sm opacity-0 group-hover:opacity-100 ">
-                        <p class="px-3 py-2 text-sm font-medium text-white whitespace-nowrap">${opt.name}</p>
+                    <div id="tooltip-${opt.code}" class=" absolute -top-16 sm:-left-10 w-fit z-10 invisible group-hover:visible inline-block bg-gray-900 rounded-lg shadow-sm opacity-0 group-hover:opacity-100 ">
+                        <p class="px-3 py-2 text-xs md:text-sm font-medium text-white w-[180px] line-clamp-2">${opt.name}</p>
                     </div>
                     <img src="${opt.img_link}" class="w-16 md:w-20 h-16 md:h-20 object-contain"/>
                 </div>`
             );
         });
+        if (res.option1.length > 4) {
+            $('#option_1').append(`
+                <a href="<?= BASE_LINK; ?>/materials" class="w-16 md:w-20 h-16 md:h-20 flex items-center justify-center cursor-pointer bg-black/40">
+                    <p class="text-xs text-white"> More</p></p> 
+                </a>
+            `)
+        }
     }
 
     if (res.option2 && Array.isArray(res.option2)) {
         $('#label_2').text(res.label2)
-        res.option2.forEach(opt => {
+        res.option2.slice(0, 4).forEach(opt => {
             $('#option_2').append(
                 `<div class="group cursor-pointer relative" id="${opt.code}">
-                    <div id="tooltip-${opt.code}" class="absolute -top-10 w-fit z-10 invisible group-hover:visible inline-block bg-gray-900 rounded-lg shadow-sm opacity-0 group-hover:opacity-100 ">
-                        <p class="px-3 py-2 text-sm font-medium text-white whitespace-nowrap">${opt.name}</p>
+                    <div id="tooltip-${opt.code}" class=" absolute -top-16 sm:-left-10 w-fit z-10 invisible group-hover:visible inline-block bg-gray-900 rounded-lg shadow-sm opacity-0 group-hover:opacity-100 ">
+                        <p class="px-3 py-2 text-xs md:text-sm font-medium text-white w-[180px] line-clamp-2">${opt.name}</p>
                     </div>
                     <img src="${opt.img_link}" class="w-16 md:w-20 h-16 md:h-20 object-contain"/>
                 </div>`
             );
         });
+        if (res.option2.length > 4) {
+            $('#option_2').append(`
+                <a href="<?= BASE_LINK; ?>/materials" class="w-16 md:w-20 h-16 md:h-20 flex items-center justify-center cursor-pointer bg-black/40">
+                    <p class="text-xs text-white"> More</p></p> 
+                </a>
+            `)
+        }
     }
 
 }
