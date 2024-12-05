@@ -7,7 +7,7 @@ get_template_part('header-custom');
 <style>
 .materials-banner {
     background: url('https://storage.googleapis.com/back-bucket/wp_triconville/images/material-banner.png');
-    height: 75vh;
+    height: 70vh;
     width: 100%;
     overflow: hidden;
     background-size: cover;
@@ -20,13 +20,13 @@ get_template_part('header-custom');
     <div class="materials-banner ">
         <div class="flex items-center justify-center min-h-full bg-black bg-opacity-20">
             <h1 class="text-5xl font-medium text-center text-white"
-                id="category__name">materials</h1>
+                id="category__name">Materials</h1>
         </div>
     </div>
     <!-- NOTE : Material list -->
-    <div class="mt-8">
+    <div class="my-12">
         <div id="list__materials_filter"
-             class='flex items-center text-sm p-8 justify-center flex-wrap gap-3'>
+             class='flex items-center text-sm py-8 px-3 md:px-5 justify-center flex-wrap gap-3'>
             <button type="button"
                     class="btn-ghost-dark !py-2"
                     onclick="changeFilter('all')"
@@ -102,8 +102,8 @@ function renderMaterialFilter(data) {
 function renderGroupContainer(data) {
     $('#material__page').append(`
         <div class="material-container visible" id="material__container_${data.id}">
-            <h1 class="text-3xl font-medium">${toTitleCase(data.name)}</h1>
-            <img class="w-full h-auto min-h-56 mb-5 object-cover" src="${data.banner}" alt="${data.name}-banner">
+            <h1 class="text-3xl mb-4">${toTitleCase(data.name)}</h1>
+            <img class="w-full h-auto min-h-56 mb-16 object-cover" src="${data.banner}" alt="${data.name}-banner">
         </div>
     `)
 }
@@ -147,20 +147,20 @@ function renderSubGroups(data) {
             });
             $('#material__container_' + data.id).append(`
                 <div class="material-products" id="material__products_${slugify(subGroup.name)}">
-                    <h2 class="text-2xl font-medium">${toTitleCase(subGroup.name)}</h2>
-                    <p class="text-sm mb-5">${subGroup.description}</p>
-                    <div id="material__list__${slugify(subGroup.name)}" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+                    <h2 class="text-2xl mb-2">${toTitleCase(subGroup.name)}</h2>
+                    <p class="text-sm mb-6">${subGroup.description}</p>
+                    <div id="material__list__${slugify(subGroup.name)}" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 lg:gap-10 ">
                         ${products.map(product => {
                             return (
-                                `<div class="product-item mb-5 cursor-pointer" onclick='bannerClick("${materials.slug}", "${product.code}")'>
-                                    <img class="w-full h-full object-contain" src="${product.image_384}" />
-                                    <p class="text-center text-sm max-w-[90%] mx-auto">${product.alias} (${product.code})</p>
+                                `<div class="cursor-pointer inline-flex flex-col items-center" onclick='bannerClick("${materials.slug}", "${product.code}")'>
+                                    <img class="w-full h-auto object-contain" src="${product.image_384}" />
+                                    <p class="text-center text-sm max-w-[90%] mx-auto mt-2">${product.alias} (${product.code})</p>
                                 </div>
                             `)
                         }).join('')}
                     </div>
                 </div>
-                <hr class="mb-20 mt-5 border-2" />
+                <hr class="my-16 border border-[#bcbcbc]" />
             `);
         }
     }

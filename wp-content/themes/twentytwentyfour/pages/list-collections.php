@@ -13,14 +13,14 @@ body {
     display: none;
 }
 </style>
-<div class="content-container scroll-smooth overflow-x-hidden h-[calc(100vh-5rem)] md:h-[calc(100vh-7rem)] mt-20 md:mt-28"
+<div class="content-container scroll-smooth overflow-x-hidden h-[calc(100vh-5rem)] md:h-[calc(100vh-8rem)] mt-20 md:mt-32"
      id="magnetic__container">
     <!-- NOTE: Banner -->
-    <div class="flex flex-col justify-center py-14 md:py-28 px-3 md:px-5 snap-always snap-start">
+    <div class="flex flex-col justify-center py-14 md:py-20 px-3 md:px-5 snap-always snap-start">
         <h1 class="text-3xl md:text-5xl font-medium text-center capitalize ">triconville collections</h1>
-        <p class='font-sm font-light tracking-widest text-center'>The Luxury of Living Outdoors</p>
+        <h3 class='text-center'>The Luxury of Living Outdoors</h3>
         <div class="flex gap-2 justify-center mt-10 view-button">
-            <button class="btn-ghost-dark !py-2 flex gap-2 items-center"
+            <button class="btn-ghost-dark  flex gap-2 items-center text-sm uppercase"
                     id="list-button"
                     onClick="changeView('list')">
                 Gallery <svg xmlns="http://www.w3.org/2000/svg"
@@ -35,7 +35,7 @@ body {
                 </svg>
 
             </button>
-            <button class="btn-ghost !py-2 flex gap-2 items-center"
+            <button class="btn-ghost  flex gap-2 items-center text-sm uppercase"
                     id="grid-button"
                     onClick="changeView('grid')">
                 Grid View
@@ -58,7 +58,7 @@ body {
          id="grid-container">
         <div class="max-w-[1440px] mx-auto">
             <div id="grid__collections"
-                 class='mb-5 grid grid-cols-1 sm:grid-cols-2 gap-x-5 sm:gap-y-10 gap-y-20'>
+                 class='mb-5 grid grid-cols-1 sm:grid-cols-2 gap-x-6 sm:gap-y-12 gap-y-6'>
             </div>
         </div>
     </div>
@@ -149,7 +149,7 @@ function renderCollections(e, index, type = 'grid') {
         $('.content-container').off('wheel', onscrollHandler);
         $('#grid__collections').append(`
             <a href= "<?= BASE_LINK; ?>/collections/${slugify(e.name)}" >
-                <div class="h-[365px] w-full flex items-center justify-center transition duration-500 ease-in-out transform hover:-translate-y-1 hover:shadow-md" 
+                <div class="h-[365px] w-full flex items-center justify-center hover:brightness-110 transition duration-300 ease-in-out transform" 
                     style="
                         background-position:center; 
                         background-image: url('https://storage.googleapis.com/back-bucket/wp_triconville/images/${e.image_grid}'); 
@@ -158,14 +158,14 @@ function renderCollections(e, index, type = 'grid') {
                     "
                 >
                 </div>
-                <p class='text-sm mt-3'>
+                <h4 class='text-sm mt-4 mb-2'>
                     ${count < 10 ? '0' + (count) : count}. 
-                </p>
-                <hr class='w-2/5 mt-3 border-black'/>
-                <h1 class="text-3xl md:text-5xl font-medium capitalize">${e.display_name}</h1>
-                <p class='text-sm mt-3 line-clamp-2 text-ellipsis'>
+                </h4>
+                <hr class='w-2/5 border-black'/>
+                <h1 class="text-3xl md:text-5xl font-medium capitalize my-2">${e.display_name}</h1>
+                <h3 class='text-base line-clamp-2 text-ellipsis'>
                     ${e.description}
-                </p>
+                </h3>
             </a>
         `);
     } else if (type == 'list') {
@@ -182,16 +182,16 @@ function renderCollections(e, index, type = 'grid') {
                 "
             >
                 <a href= "<?= BASE_LINK; ?>/collections/${slugify(e.name)}">
-                    <div class="bg-black/25 h-full w-full absolute top-0 left-0 p-5 lg:p-10">
-                        <div class="max-w-[1440px] mx-auto">
-                            <p class='font-medium mt-20 lg:mt-10 text-white'>
+                    <div class="bg-black/25 h-full w-full absolute top-0 left-0 p-5 lg:p-20">
+                        <div class="max-w-[1440px] ">
+                            <h4 class='text-white text-sm mt-4 mb-2'>
                                 ${count < 10 ? '0' + (count) : count}. 
-                            </p>
-                            <hr class='w-1/5 mt-3 border-white'/>
-                            <h1 class="text-3xl md:text-5xl text-white font-medium capitalize">${e.display_name}</h1>
-                            <p class='text-sm line-clamp-2 text-ellipsis md:w-1/2 text-white'>
+                            </h4>
+                            <hr class='w-1/5 border-white'/>
+                            <h1 class="text-3xl md:text-5xl text-white font-medium capitalize my-2">${e.display_name}</h1>
+                            <h3 class='text-base line-clamp-2 text-ellipsis md:w-1/2 text-white'>
                                 ${e.description}
-                            </p>
+                            </h3>
                         </div>
                     </div>
                 </a>

@@ -1,11 +1,455 @@
-<div class="w-max-[1440px] h-[100vh]">
-  <iframe
-    src="https://storage.googleapis.com/maps-solutions-75tnvbqqd5/locator-plus/4mni/locator-plus.html"
-    width="100%"
-    style="border: 0"
-    allowfullscreen
-    class="w-max-[1440px] h-[100vh]"
-    loading="lazy"
-  >
-  </iframe>
+<style>
+  .finder-input-wrapper select,
+  .finder-input-wrapper input {
+    font-size: 16px;
+    width: 100%;
+    background: transparent;
+    border: 1px solid #4d4d4d;
+    height: 40px;
+    max-width: none;
+    letter-spacing: 0.07rem;
+    padding: 0.5rem 1.5rem;
+  }
+  .location-tile-site,
+  .location-tile-action-wrapper,
+  .location-tile-address {
+    font-family: "Helvetica Neue", sans-serif;
+  }
+  .gm-style-iw.gm-style-iw-c {
+    padding: 5px !important;
+    background-color: #f4f6f6;
+    width: 400px !important;
+    max-width: 95vw !important;
+    height: fit-content !important;
+    font-family: "h", sans-serif;
+  }
+  .gm-style-iw-d {
+    height: 100% !important;
+    overflow-x: hidden !important;
+    overflow-y: hidden !important;
+  }
+
+  @media (min-width: 480px) {
+  }
+</style>
+<section class="map-section container_vw mt-0">
+  <div
+    id="map"
+    class="w-screen h-[70vh]"
+  ></div>
+</section>
+
+<div class="px-3 md:px-5 py-20">
+  <div class="max-w-[1440px] mx-auto">
+    <section class="finder">
+      <h2 class="text-2xl md:text-3xl mb-6">Find a Store</h2>
+      <div class="grid grid-cols-2 gap-4 mb-10 lg:mb-20">
+        <div class="finder-input-wrapper">
+          <p for="">Enter Locations</p>
+          <input
+            type="text"
+            id="filter-text"
+            class="input-underline"
+            name=""
+            placeholder="e.g. Beverenstraat 13, 8540 Deerlijk"
+            value=""
+          />
+        </div>
+        <div class="finder-input-wrapper">
+          <p for="">Search by country</p>
+          <select
+            id="filter-country"
+            class="input-underline"
+            name="country"
+          >
+            <option
+              value=""
+              disabled
+              selected
+            >
+              Search by country
+            </option>
+            <option value="id">Indonesia</option>
+            <option value="my">Malaysia</option>
+            <option value="sa">Saudi Arabia</option>
+          </select>
+        </div>
+      </div>
+    </section>
+
+    <section class="store-list">
+      <div class="locations-wrapper grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4"></div>
+    </section>
+  </div>
 </div>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDblP2L7yWL7LQXRT9OpaMQlJxr5GIlSzU&libraries=places&v=weekly"></script>
+<script type="text/javascript">
+  const locations = [
+    {
+      name: "Dezign District Indonesia",
+      address: "14, Sultan Iskandar Muda Street No.7D, South Jakarta, Indonesia 12240",
+      email: "infojkt@dezigndistrict.com",
+      phone: "+628123456789",
+      lat: -6.6288007,
+      lng: 110.7157073,
+      gmap: "https://maps.app.goo.gl/sAex8f9r7hutGqWC9",
+      countryId: "id",
+    },
+    {
+      name: "Dezign District Malaysia",
+      address: "No. 8, Jalan Teknologi 3/5A, Kota Damansara, 47810 Petaling Jaya, Selangor, Malaysia",
+      email: "infokl@dezigndistrict.com",
+      phone: "+60123456789",
+      lat: 3.1543541360106024,
+      lng: 101.57689562782531,
+      gmap: "https://maps.app.goo.gl/S277ihJMbLyxqA959",
+      countryId: "my",
+    },
+    {
+      name: "Dezign District Saudi Arabia",
+      address: "Olaya St, Al Olaya, Riyadh 12214, Saudi Arabia",
+      email: "hello@dezigndistrict.com",
+      phone: "+966123456789",
+      lat: 24.708482210619554,
+      lng: 46.67729690120909,
+      gmap: "https://maps.app.goo.gl/6avXfC4jBmMNovVD6",
+      countryId: "sa",
+    },
+  ];
+
+  let map;
+
+  let autocomplete;
+
+  function initMap() {
+    map = new google.maps.Map(document.getElementById("map"), {
+      center: { lat: locations[0].lat, lng: locations[0].lng },
+      maxZoom: 9,
+      minZoom: 2,
+      zoom: 9,
+      styles: [
+        { elementType: "geometry", stylers: [{ color: "#f8f8f8" }] },
+        { elementType: "labels.icon", stylers: [{ visibility: "off" }] },
+        { elementType: "labels.text.fill", stylers: [{ color: "#616161" }] },
+        { elementType: "labels.text.stroke", stylers: [{ color: "#f5f5f5" }] },
+        {
+          featureType: "administrative.land_parcel",
+          elementType: "labels.text.fill",
+          stylers: [{ color: "#bdbdbd" }],
+        },
+        { featureType: "landscape.man_made", stylers: [{ visibility: "on" }] },
+        { featureType: "poi", elementType: "geometry", stylers: [{ color: "#eeeeee" }] },
+        { featureType: "poi", elementType: "labels.text.fill", stylers: [{ color: "#757575" }] },
+        { featureType: "poi.park", elementType: "geometry", stylers: [{ color: "#e5e5e5" }] },
+        { featureType: "poi.park", elementType: "labels.text.fill", stylers: [{ color: "#9e9e9e" }] },
+        { featureType: "road", elementType: "geometry", stylers: [{ color: "#8c8c8c" }] },
+        { featureType: "road.arterial", elementType: "labels.text.fill", stylers: [{ color: "#656565" }] },
+        { featureType: "road.highway", elementType: "geometry", stylers: [{ color: "#dadada" }] },
+        { featureType: "road.highway", elementType: "labels.text.fill", stylers: [{ color: "#616161" }] },
+        { featureType: "road.local", elementType: "labels.text.fill", stylers: [{ color: "#9e9e9e" }] },
+        { featureType: "transit.line", elementType: "geometry", stylers: [{ color: "#e5e5e5" }] },
+        { featureType: "transit.station", elementType: "geometry", stylers: [{ color: "#eeeeee" }] },
+        { featureType: "water", elementType: "geometry", stylers: [{ color: "#dcf0f3" }] },
+        { featureType: "water", elementType: "labels.text.fill", stylers: [{ color: "#9e9e9e" }] },
+      ],
+      streetViewControl: false,
+      mapTypeId: "roadmap",
+      mapTypeControl: false,
+      scrollwheel: false,
+    });
+
+    autocomplete = new google.maps.places.Autocomplete(document.getElementById("filter-text"), {
+      fields: ["place_id", "geometry", "name", "formatted_address"],
+    });
+
+    autocomplete.addListener("place_changed", () => {
+      const place = autocomplete.getPlace();
+
+      if (!place.geometry) {
+        preventDefault();
+        return;
+      }
+
+      if (place.geometry.viewport) {
+        map.fitBounds(place.geometry.viewport);
+        let latlang = {
+          lat: place.geometry.location.lat(),
+          lng: place.geometry.location.lng(),
+        };
+
+        resultSearchLocation(latlang);
+      } else {
+        map.setCenter(place.geometry.viewport);
+        map.setZoom(9);
+      }
+
+      infowindow.open({
+        anchor: marker,
+        map,
+        shouldFocus: false,
+      });
+    });
+
+    return map;
+  }
+
+  function generateLabels(map) {
+    for (var location of locations) {
+      const marker = new google.maps.Marker({
+        position: {
+          lat: location.lat,
+          lng: location.lng,
+        },
+        map,
+        icon: {
+          url: "https://storage.googleapis.com/back-bucket/wp_triconville/images/icons/Marker30x30.svg",
+          scaledSize: new google.maps.Size(40, 40),
+        },
+        title: location.name,
+      });
+      const locTile = new locTiles(location);
+      const infoContent = locTile.build();
+      infoContent.removeClass("col-6 col-md-4");
+      const infowindow = new google.maps.InfoWindow({
+        content: infoContent.html(),
+      });
+      google.maps.event.addListener(infowindow, "closeclick", function () {
+        location.openwindow = false;
+      });
+      location.infowindow = infowindow;
+      location.marker = marker;
+      marker.addListener("click", () => {
+        closeAllInfoWindow();
+        if (!location.openwindow) {
+          infowindow.open(map, marker);
+          location.openwindow = true;
+        } else {
+          infowindow.close();
+          location.openwindow = false;
+        }
+      });
+    }
+  }
+
+  function loadLocationTiles(locs = locations) {
+    const locationTiles = [];
+    $(".locations-wrapper").empty();
+    if (locs.length == 0) {
+      $(".locations-wrapper").append("<p>Sorry, no stores found within 500km of the searched location.</p>");
+      return false;
+    }
+    for (var item of locs) {
+      const locTile = new locTiles(item, window.initMap);
+      $(".locations-wrapper").append(locTile.build());
+      locationTiles.push(locTile);
+    }
+    return locationTiles;
+  }
+
+  const locTiles = function (data, map = false) {
+    return {
+      data,
+      el: false,
+      wrapper() {
+        return $("<div/>", {
+          class: "location-tile-wrapper bg-[#F4F6F6] pt-10",
+        });
+      },
+      contentWrapper() {
+        return $("<div/>", {
+          class: "location-tile-content flex flex-col justify-between h-full px-6 pb-10",
+        });
+      },
+      titleEl() {
+        return $("<div/>", {
+          class: "location-tile-title text-3xl md:text-5xl",
+          html: `<h2 class="text-2xl min-h-14 mb-6">${this.data.name}</h2>`,
+        });
+      },
+      addressEl() {
+        return $("<div/>", {
+          class: "location-tile-address",
+          html: `<p class="text-sm mb-2 min-h-14">${this.data.address}</p>`,
+        });
+      },
+
+      actionsEl() {
+        const actionsWrapper = $("<div/>", {
+          class: "location-tile-action-wrapper mb-10",
+        });
+        if (map) {
+          const centerActionEl = $("<a/>", {
+            attr: { href: "#" },
+            html: `<p class="text-sm underline mb-2 hover:text-cyan-500">View on map</p>`,
+            click: (e) => {
+              e.preventDefault();
+              closeAllInfoWindow();
+              map.panTo(
+                {
+                  lat: this.data.lat,
+                  lng: this.data.lng,
+                },
+                {
+                  duration: 500,
+                  easing: function (t) {
+                    return t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
+                  },
+                }
+              );
+              this.data.infowindow.open(map, this.data.marker);
+              this.data.openwindow = true;
+              window.scrollTo({
+                top: 0,
+                behavior: "smooth",
+              });
+            },
+          });
+          actionsWrapper.append(centerActionEl);
+        }
+        const viewGmapEl = $("<a/>", {
+          attr: { href: this.data.gmap, target: "_blank" },
+          html: `<p class="text-sm underline flex items-center gap-1 hover:text-cyan-500">
+                  View on Google Maps 
+                  <span>
+                    <svg class="size-4 mb-1" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M12 9.16667V13.1667C12 13.5203 11.8595 13.8594 11.6095 14.1095C11.3594 14.3595 11.0203 14.5 10.6667 14.5H3.33333C2.97971 14.5 2.64057 14.3595 2.39052 14.1095C2.14048 13.8594 2 13.5203 2 13.1667V5.83333C2 5.47971 2.14048 5.14057 2.39052 4.89052C2.64057 4.64048 2.97971 4.5 3.33333 4.5H7.33333M10 2.5H14M14 2.5V6.5M14 2.5L6.66667 9.83333" stroke="#4D4D4D" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </span>
+                </p>`,
+        });
+        actionsWrapper.append(viewGmapEl);
+
+        const emailEl = $("<p/>", {
+          class: "mt-10 text-sm",
+          html: `<span>Email :</span> <a href="mailto:${this.data.email}" class="text-sm"><span class="underline hover:text-cyan-500">${this.data.email}</span></a>`,
+        });
+        const phoneEl = $("<p/>", {
+          class: "mt-6 text-sm",
+          html: `<span>Phone :</span> <a href="tel:${this.data.phone}" class="text-sm"><span class="underline hover:text-cyan-500">${this.data.phone}</span></a>`,
+        });
+        actionsWrapper.append(emailEl).append(phoneEl);
+        return actionsWrapper;
+      },
+
+      siteEl() {
+        return $("<div/>", {
+          class: "location-tile-site",
+          html: `<p class="text-sm mb-2 font-medium flex items-center gap-1">storewebsite.com 
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-4 mb-1">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"></path>
+                  </svg>
+                </p>`,
+        });
+      },
+
+      build() {
+        const wrapper = this.wrapper();
+        const contentWrapper = this.contentWrapper();
+        contentWrapper.append(this.titleEl()).append(this.addressEl()).append(this.actionsEl()).append(this.siteEl());
+        wrapper.append(contentWrapper);
+        this.el = wrapper;
+        return wrapper;
+      },
+    };
+  };
+
+  window.initMap = initMap();
+  generateLabels(window.initMap);
+
+  // NOTE : Filter manual
+  $(document).ready(function () {
+    const locationTiles = loadLocationTiles();
+    $("#filter-text").on("keyup", function () {
+      const filterText = $(this).val();
+      for (var item of locationTiles) {
+        let show = false;
+        if (filterText.length > 0) {
+          show = item.data.address.toLowerCase().includes(filterText.toLowerCase());
+        } else {
+          show = true;
+        }
+        item.el.toggle(show);
+      }
+    });
+
+    $("#filter-country").on("change", function () {
+      const filterCountry = $(this).val();
+      for (var item of locationTiles) {
+        let show = false;
+        if (filterCountry.length > 0) {
+          show = item.data.countryId == filterCountry;
+        } else {
+          show = true;
+        }
+        item.el.toggle(show);
+      }
+    });
+  });
+
+  // NOTE : Get location and distance
+  const resultSearchLocation = (latlang) => {
+    let locationsWithDistance = getJarakAndLocation(latlang);
+    // NOTE : filter to nearest 1000km first but if not found,
+    let nearest = locationsWithDistance.filter((item) => item.km < 500);
+    loadLocationTiles(nearest);
+  };
+  const getJarakAndLocation = (latlang) => {
+    let data = [];
+
+    for (let i = 0; i < locations.length; i++) {
+      let lat1 = latlang.lat;
+      let lng1 = latlang.lng;
+      let lat2 = locations[i].lat;
+      let lng2 = locations[i].lng;
+
+      data.push({
+        id: locations[i].id,
+        km: getDistanceInKm(lat1, lng1, lat2, lng2),
+        type: locations[i].type,
+        countryId: locations[i].countryId,
+        phone: locations[i].phone,
+        web: locations[i].web,
+        name: locations[i].name,
+        address: locations[i].address,
+        type: locations[i].type,
+        lat: lat2,
+        lng: lng2,
+      });
+    }
+
+    let near = sortNearest(data);
+    return near;
+  };
+
+  const sortNearest = (data) => {
+    const dataSorter = data.sort(function (a, b) {
+      return a.km - b.km;
+    });
+
+    return dataSorter;
+  };
+
+  const getDistanceInKm = (lat1, lon1, lat2, lon2) => {
+    var R = 6371; // Radius of the earth in km
+    var dLat = deg2rad(lat2 - lat1); // deg2rad below
+    var dLon = deg2rad(lon2 - lon1);
+    var a =
+      Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+      Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) * Math.sin(dLon / 2) * Math.sin(dLon / 2);
+    var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    var d = R * c; // Distance in km
+
+    return d;
+  };
+
+  const deg2rad = (deg) => {
+    return deg * (Math.PI / 100);
+  };
+
+  function closeAllInfoWindow() {
+    for (var loc of locations) {
+      loc.infowindow.close();
+      loc.openwindow = false;
+    }
+  }
+</script>

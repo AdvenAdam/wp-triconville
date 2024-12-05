@@ -223,7 +223,7 @@ function renderProducts(data, headerTitle = 'All Types') {
         $(`#product__list__${slugify(headerTitle)}`).append(`
             <a href= "<?= BASE_LINK; ?>/product-detail/${slugify(e.name)}">
                 <div class='flex justify-center items-center flex-col p-3 group'>
-                    <img class="w-auto md:h-[384px] h-[204px] object-contain group-hover:scale-[.97] group-hover:brightness-110 transition duration-300" src="${e.product_image_384}" />
+                    <img class="w-auto md:h-[384px] h-[240px] object-contain group-hover:scale-[.97] group-hover:brightness-110 transition duration-300" src="${e.product_image_384}" />
                     <p class="text-center text-sm md:mt-[-30px] max-w-[90%] capitalize group-hover:underline">${e.name}</p>
                 </div>
             </a>
