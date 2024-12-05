@@ -134,14 +134,14 @@
 
   <div class="bg-white h-fit sm-full-screen flex items-center justify-center p-3 md:p-5 snap-always snap-center">
     <div class="max-w-[1440px] w-full h-full">
-      <div class="flex h-full w-full justify-end flex-col gap-3 md:gap-10 items-center">
+      <div class="flex h-full w-full justify-center flex-col gap-3 md:gap-10 items-center">
         <div class="flex flex-col w-full lg:-mt-20">
           <div class="flex md:flex-row flex-col items-end">
             <h1 class="text-3xl md:text-5xl max-w-xl">Cognitive Design Approach</h1>
             <img
               src="https://storage.googleapis.com/back-bucket/wp_triconville/images/brand-page/Cognitive%20Design%20Approach.png"
               alt="Cognitive Design Approach"
-              class="w-auto h-auto xl:mb-16 xl:ms-6"
+              class="w-auto h-auto max-h-[40vh] xl:mb-16 xl:ms-6"
             />
           </div>
           <div class="grid md:grid-cols-4 grid-cols-1 gap-3 my-5">
@@ -191,8 +191,8 @@
             >Our commitment to the environment is reflected by the FSC® CoC (Chain of Custody) certification of our
             distribution centers.
             <img
-              src="https://storage.googleapis.com/back-bucket/wp_triconville/images/icons/FSC.svg"
-              alt="story-in-every-grain"
+              src="https://storage.googleapis.com/back-bucket/wp_triconville/images/icons/fsc.jpg"
+              alt="FSC"
               class="w-auto h-20 object-cover"
             />
           </span>
@@ -269,9 +269,9 @@
         <p class="text-sm text-white font-bold">Our Milestones:</p>
         <h1 class="text-3xl text-white md:text-5xl">A Journey Through Time</h1>
       </div>
-      <div class="relative">
+      <div class="relative group">
         <button
-          class="slick-prev invisible md:visible bg-slate-50/50 prev-btn absolute bottom-0 top-1/2 -translate-y-1/2 z-10 left-5 py-10 hover:bg-slate-50/30 p-3"
+          class="slick-prev hidden md:block invisible md:group-hover:visible opacity-0 md:group-hover:opacity-100 prev-btn !py-10 left-5 arrow-btn"
           aria-label="Previous"
           type="button"
         >
@@ -387,29 +387,28 @@
               <h2 class="text-3xl h-full flex items-center text-white font-bold">2024</h2>
               <div class="row-span-2"></div>
             </div>
-
-            <button
-              class="slick-next invisible md:visible bg-slate-50/50 next-btn absolute bottom-0 top-1/2 -translate-y-1/2 z-10 right-5 py-10 hover:bg-slate-50/30 p-3"
-              aria-label="Next"
-              type="button"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-                class="size-6"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="m8.25 4.5 7.5 7.5-7.5 7.5"
-                />
-              </svg>
-            </button>
           </div>
         </div>
+        <button
+          class="slick-next hidden md:block invisible md:group-hover:visible opacity-0 md:group-hover:opacity-100 next-btn !py-10 right-5 arrow-btn"
+          aria-label="Next"
+          type="button"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="size-6"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="m8.25 4.5 7.5 7.5-7.5 7.5"
+            />
+          </svg>
+        </button>
       </div>
     </div>
   </div>

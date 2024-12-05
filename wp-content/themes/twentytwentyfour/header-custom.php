@@ -19,8 +19,6 @@
     <link rel="preconnect"
           href="https://fonts.gstatic.com"
           crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap"
-          rel="stylesheet" />
     <link href="https://fonts.cdnfonts.com/css/helvetica-neue-5"
           rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap"
@@ -35,10 +33,6 @@
     <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js "></script>
     <link href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.css "
           rel="stylesheet">
-    <!-- Fancybox -->
-    <link rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
     <style>
     /* Your CSS styles */
 
@@ -72,7 +66,7 @@
 <body <?php body_class(); ?>>
     <header class="header fixed w-full top-0 tracking-widest"
             style="z-index: 20;">
-        <nav class="flex items-center justify-between px-3 md:px-5 xl:px-20 w-full md:min-h-20 bg-white ">
+        <nav class="flex items-center justify-between px-3 md:px-5 2xl:px-20 w-full md:min-h-20 bg-white ">
             <div class="flex justify-center">
                 <a href="<?php echo home_url(); ?>">
                     <img src="<?= BASE_LINK ?>/wp-content/uploads/2024/09/Logo-Blue-Resized-1.png"
@@ -126,20 +120,18 @@
                 </button>
             </div>
         </nav>
-        <nav class="w-full px-3 sm:px-5 lg:px-8 xl:px-20 py-2 md:py-3 bg-[#F4F6F6] opacity-0 invisible transition-opacity duration-500 ease-in-out fixed top-16 md:top-20"
+        <nav class="w-full px-3 md:px-5 2xl:px-20 py-2 md:py-3 bg-[#F4F6F6] opacity-0 invisible transition-opacity duration-500 ease-in-out fixed top-16 md:top-20"
              style="z-index: 2;"
              id="sub-header">
             <div class="uppercase text-xs flex justify-end w-full">
-                <div class="hidden gap-4 overflow-x-auto"
+                <div class="hidden gap-6 overflow-x-auto"
                      id="sub-inspiration-desktop">
                 </div>
-                <div class="hidden gap-4 overflow-x-auto"
+                <div class="hidden gap-6 overflow-x-auto"
                      id="sub-collections-desktop">
-
                 </div>
-                <div class="hidden gap-4 overflow-x-auto"
+                <div class="hidden gap-6 overflow-x-auto"
                      id="sub-products-desktop">
-
                 </div>
             </div>
         </nav>

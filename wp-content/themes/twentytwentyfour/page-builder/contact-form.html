@@ -1,49 +1,55 @@
-<div class="py-3">
-  <label> [text* full-name placeholder "NAME *"] </label>
+<div class="mb-6">
+  <label> [text* full-name placeholder "Name *"] </label>
 </div>
 
-<div class="grid sm:grid-cols-2 grid-cols-1 gap-3 py-3">
+<div class="grid sm:grid-cols-2 grid-cols-1 gap-3 mb-6">
   <div class="">
-    <label> [number* phone-number placeholder "PHONE NUMBER *"] </label>
+    <label> [number* phone-number placeholder "Phone Number *"] </label>
   </div>
   <div class="">
-    <label> [email* email-name placeholder "EMAIL *"] </label>
+    <label> [email* email-name placeholder "Email *"] </label>
   </div>
 </div>
-<div class="grid sm:grid-cols-2 grid-cols-1 gap-3 py-3">
-    <div class="">
-      <label> [text* city placeholder "TOWN *"] </label>
-    </div>
-    <div class="">
-      <label> [text* country placeholder "COUNTRY *"] </label>
-    </div>
+<div class="grid sm:grid-cols-2 grid-cols-1 gap-3 mb-6">
+  <div class="">
+    <label> [text* city placeholder "Town *"] </label>
+  </div>
+  <div class="">
+    <label> [text* country placeholder "Country *"] </label>
   </div>
 </div>
-<div class="py-3">
-    <label> [text* subject placeholder "SUBJECT *"] </label>
-  </div>
-<div class="py-3">
+<div class="mb-6">
+  <label> [text* subject placeholder "Subject *"] </label>
+</div>
+<div class="mb-6">
   <label> [textarea* contact-message placeholder "Enter Message *"] </label>
 </div>
 
-<div class="checkbox-form flex ">
+<div class="checkbox-form flex items-center my-3">
   <input
     type="checkbox"
-    name=""
+    name="agreement"
     id=""
-    class="me-2"
+    class="me-2 size-4"
     required
   />
-  <p>
-    I agree to the use of my personal data according to the privacy policy
-  </p>
+  <p class="text-sm">I agree to the use of my personal data according to the privacy policy</p>
+</div>
+<div class="checkbox-form flex items-center">
+  <input
+    type="checkbox"
+    name="newsletter"
+    id=""
+    class="me-2 size-4"
+  />
+  <p class="text-sm items-center">Keep me updated, subscribe me to the newsletter</p>
 </div>
 [uacf7_spam_protection uacf7_spam_protection-415]
-<div class="mt-3">
+<div class="mt-6">
   <button
     type="submit"
     class="btn-primary py-3 px-5 min-w-[150px]"
   >
-    Send
+    <p class="text-sm text-white">SEND</p>
   </button>
 </div>

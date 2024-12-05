@@ -21,6 +21,10 @@ get_template_part('header-custom');
                 break;
             case (strpos($url, 'contact-us') !== false):
                 include(get_template_directory() . '/page-builder/contact-us.html');
+                break;
+            case (strpos($url, 'find-a-store') !== false):
+                include(get_template_directory() . '/page-builder/find a store.html');
+                break;
         }
         
     ?>
