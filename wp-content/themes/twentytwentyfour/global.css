@@ -29,6 +29,10 @@ h6 {
 p {
   letter-spacing: 0.07rem;
 }
+
+.name {
+    text-align: left !important;
+  }
 /* Hide scrollbar for Chrome, Safari and Opera */
 .scrollbar-none::-webkit-scrollbar {
     display: none;
