@@ -5,7 +5,8 @@
     width: 100%;
     background: transparent;
     border: 1px solid #4d4d4d;
-    height: 40px;
+    color: #4d4d4d;
+    height: 56px;
     max-width: none;
     letter-spacing: 0.07rem;
     padding: 0.5rem 1.5rem;
@@ -21,75 +22,119 @@
     width: 400px !important;
     max-width: 95vw !important;
     height: fit-content !important;
-    font-family: "h", sans-serif;
+    font-family: "Helvetica Neue", sans-serif;
   }
   .gm-style-iw-d {
     height: 100% !important;
     overflow-x: hidden !important;
     overflow-y: hidden !important;
   }
-
+  .gm-style .gm-style-iw-tc::after {
+    background-color: #f4f6f6 !important;
+  }
   @media (min-width: 480px) {
   }
 </style>
-<section class="map-section container_vw mt-0">
-  <div
-    id="map"
-    class="w-screen h-[70vh]"
-  ></div>
-</section>
+<div class="content-container">
+  <section class="map-section container_vw mt-0">
+    <div
+      id="map"
+      class="w-screen h-[70vh]"
+    ></div>
+  </section>
 
-<div class="px-3 md:px-5 py-20">
-  <div class="max-w-[1440px] mx-auto">
-    <section class="finder">
-      <h2 class="text-2xl md:text-3xl mb-6">Find a Store</h2>
-      <div class="grid grid-cols-2 gap-4 mb-10 lg:mb-20">
-        <div class="finder-input-wrapper">
-          <p for="">Enter Locations</p>
-          <input
-            type="text"
-            id="filter-text"
-            class="input-underline"
-            name=""
-            placeholder="e.g. Beverenstraat 13, 8540 Deerlijk"
-            value=""
-          />
-        </div>
-        <div class="finder-input-wrapper">
-          <p for="">Search by country</p>
-          <select
-            id="filter-country"
-            class="input-underline"
-            name="country"
-          >
-            <option
+  <div class="px-3 md:px-5 py-20">
+    <div class="max-w-[1440px] mx-auto">
+      <section class="finder">
+        <h2 class="text-2xl md:text-3xl mb-6">Find a Store</h2>
+        <div class="grid grid-cols-2 gap-4 mb-10 lg:mb-20">
+          <div class="finder-input-wrapper">
+            <p class="mb-2">Enter Locations</p>
+            <input
+              type="text"
+              id="filter-text"
+              name=""
+              class="placeholder:text-[#4D4D4D] focus-visible:outline-none"
+              placeholder="Search by city, region, state"
               value=""
-              disabled
-              selected
-            >
-              Search by country
-            </option>
-            <option value="id">Indonesia</option>
-            <option value="my">Malaysia</option>
-            <option value="sa">Saudi Arabia</option>
-          </select>
+            />
+          </div>
+          <div class="finder-input-wrapper">
+            <p class="mb-2">Search by country</p>
+            <div class="relative inline-block w-full">
+              <select
+                id="filter-country"
+                name="country"
+                class="appearance-none focus-visible:outline-none"
+              >
+                <option
+                  value=""
+                  disabled
+                  selected
+                >
+                  Search by country
+                </option>
+                <option value="id">Indonesia</option>
+                <option value="my">Malaysia</option>
+                <option value="sa">Saudi Arabia</option>
+              </select>
+              <span class="absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="size-5"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="m19.5 8.25-7.5 7.5-7.5-7.5"
+                  />
+                </svg>
+              </span>
+            </div>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="store-list">
-      <div class="locations-wrapper grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4"></div>
-    </section>
+      <section class="store-list">
+        <h2 class="text-2xl md:text-3xl mb-6">Stores</h2>
+        <div class="locations-wrapper grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4"></div>
+      </section>
+    </div>
+  </div>
+
+  <div id="page-loading">
+    <div class="three-balls">
+      <div class="ball ball1"></div>
+      <div class="ball ball2"></div>
+      <div class="ball ball3"></div>
+    </div>
   </div>
 </div>
+
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDblP2L7yWL7LQXRT9OpaMQlJxr5GIlSzU&libraries=places&v=weekly"></script>
 <script type="text/javascript">
+  // loading state of the page
+  $(document).ready(function () {
+    try {
+      $("#page-loading").show();
+      window.initMap = initMap();
+      generateLabels(window.initMap);
+    } catch (error) {
+      console.error(error);
+    } finally {
+      $("#page-loading").hide();
+    }
+  });
   const locations = [
     {
       name: "Dezign District Indonesia",
       address: "14, Sultan Iskandar Muda Street No.7D, South Jakarta, Indonesia 12240",
       email: "infojkt@dezigndistrict.com",
-      phone: "+628123456789",
+      phone: "+62 852 1990 1209",
       lat: -6.6288007,
       lng: 110.7157073,
       gmap: "https://maps.app.goo.gl/sAex8f9r7hutGqWC9",
@@ -99,7 +144,7 @@
       name: "Dezign District Malaysia",
       address: "No. 8, Jalan Teknologi 3/5A, Kota Damansara, 47810 Petaling Jaya, Selangor, Malaysia",
       email: "infokl@dezigndistrict.com",
-      phone: "+60123456789",
+      phone: "+601 123 107 632",
       lat: 3.1543541360106024,
       lng: 101.57689562782531,
       gmap: "https://maps.app.goo.gl/S277ihJMbLyxqA959",
@@ -109,7 +154,7 @@
       name: "Dezign District Saudi Arabia",
       address: "Olaya St, Al Olaya, Riyadh 12214, Saudi Arabia",
       email: "hello@dezigndistrict.com",
-      phone: "+966123456789",
+      phone: "+966 55 36 700 36",
       lat: 24.708482210619554,
       lng: 46.67729690120909,
       gmap: "https://maps.app.goo.gl/6avXfC4jBmMNovVD6",
@@ -124,7 +169,7 @@
   function initMap() {
     map = new google.maps.Map(document.getElementById("map"), {
       center: { lat: locations[0].lat, lng: locations[0].lng },
-      maxZoom: 9,
+      maxZoom: 15,
       minZoom: 2,
       zoom: 9,
       styles: [
@@ -132,11 +177,7 @@
         { elementType: "labels.icon", stylers: [{ visibility: "off" }] },
         { elementType: "labels.text.fill", stylers: [{ color: "#616161" }] },
         { elementType: "labels.text.stroke", stylers: [{ color: "#f5f5f5" }] },
-        {
-          featureType: "administrative.land_parcel",
-          elementType: "labels.text.fill",
-          stylers: [{ color: "#bdbdbd" }],
-        },
+        { featureType: "administrative.land_parcel", elementType: "labels.text.fill", stylers: [{ color: "#bdbdbd" }] },
         { featureType: "landscape.man_made", stylers: [{ visibility: "on" }] },
         { featureType: "poi", elementType: "geometry", stylers: [{ color: "#eeeeee" }] },
         { featureType: "poi", elementType: "labels.text.fill", stylers: [{ color: "#757575" }] },
@@ -183,11 +224,11 @@
         map.setZoom(9);
       }
 
-      infowindow.open({
-        anchor: marker,
-        map,
-        shouldFocus: false,
-      });
+      // infowindow.open({
+      //   anchor: marker,
+      //   map,
+      //   shouldFocus: false,
+      // });
     });
 
     return map;
@@ -308,10 +349,10 @@
         }
         const viewGmapEl = $("<a/>", {
           attr: { href: this.data.gmap, target: "_blank" },
-          html: `<p class="text-sm underline flex items-center gap-1 hover:text-cyan-500">
+          html: `<p class="text-sm underline flex gap-1 hover:text-cyan-500">
                   View on Google Maps 
                   <span>
-                    <svg class="size-4 mb-1" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg class="size-4" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M12 9.16667V13.1667C12 13.5203 11.8595 13.8594 11.6095 14.1095C11.3594 14.3595 11.0203 14.5 10.6667 14.5H3.33333C2.97971 14.5 2.64057 14.3595 2.39052 14.1095C2.14048 13.8594 2 13.5203 2 13.1667V5.83333C2 5.47971 2.14048 5.14057 2.39052 4.89052C2.64057 4.64048 2.97971 4.5 3.33333 4.5H7.33333M10 2.5H14M14 2.5V6.5M14 2.5L6.66667 9.83333" stroke="#4D4D4D" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                   </span>
@@ -334,8 +375,8 @@
       siteEl() {
         return $("<div/>", {
           class: "location-tile-site",
-          html: `<p class="text-sm mb-2 font-medium flex items-center gap-1">storewebsite.com 
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-4 mb-1">
+          html: `<p class="text-sm mb-2 font-medium flex gap-1">storewebsite.com 
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-4">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"></path>
                   </svg>
                 </p>`,
@@ -352,9 +393,6 @@
       },
     };
   };
-
-  window.initMap = initMap();
-  generateLabels(window.initMap);
 
   // NOTE : Filter manual
   $(document).ready(function () {
@@ -408,6 +446,7 @@
         type: locations[i].type,
         countryId: locations[i].countryId,
         phone: locations[i].phone,
+        email: locations[i].email,
         web: locations[i].web,
         name: locations[i].name,
         address: locations[i].address,
