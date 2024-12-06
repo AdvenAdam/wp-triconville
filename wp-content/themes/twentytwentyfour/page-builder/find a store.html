@@ -35,77 +35,100 @@
   @media (min-width: 480px) {
   }
 </style>
-<section class="map-section container_vw mt-0">
-  <div
-    id="map"
-    class="w-screen h-[70vh]"
-  ></div>
-</section>
+<div class="content-container">
+  <section class="map-section container_vw mt-0">
+    <div
+      id="map"
+      class="w-screen h-[70vh]"
+    ></div>
+  </section>
 
-<div class="px-3 md:px-5 py-20">
-  <div class="max-w-[1440px] mx-auto">
-    <section class="finder">
-      <h2 class="text-2xl md:text-3xl mb-6">Find a Store</h2>
-      <div class="grid grid-cols-2 gap-4 mb-10 lg:mb-20">
-        <div class="finder-input-wrapper">
-          <p class="mb-2">Enter Locations</p>
-          <input
-            type="text"
-            id="filter-text"
-            name=""
-            class="placeholder:text-[#4D4D4D] focus-visible:outline-none"
-            placeholder="Search by city, region, state"
-            value=""
-          />
-        </div>
-        <div class="finder-input-wrapper">
-          <p class="mb-2">Search by country</p>
-          <div class="relative inline-block w-full">
-            <select
-              id="filter-country"
-              name="country"
-              class="appearance-none focus-visible:outline-none"
-            >
-              <option
-                value=""
-                disabled
-                selected
+  <div class="px-3 md:px-5 py-20">
+    <div class="max-w-[1440px] mx-auto">
+      <section class="finder">
+        <h2 class="text-2xl md:text-3xl mb-6">Find a Store</h2>
+        <div class="grid grid-cols-2 gap-4 mb-10 lg:mb-20">
+          <div class="finder-input-wrapper">
+            <p class="mb-2">Enter Locations</p>
+            <input
+              type="text"
+              id="filter-text"
+              name=""
+              class="placeholder:text-[#4D4D4D] focus-visible:outline-none"
+              placeholder="Search by city, region, state"
+              value=""
+            />
+          </div>
+          <div class="finder-input-wrapper">
+            <p class="mb-2">Search by country</p>
+            <div class="relative inline-block w-full">
+              <select
+                id="filter-country"
+                name="country"
+                class="appearance-none focus-visible:outline-none"
               >
-                Search by country
-              </option>
-              <option value="id">Indonesia</option>
-              <option value="my">Malaysia</option>
-              <option value="sa">Saudi Arabia</option>
-            </select>
-            <span class="absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-                class="size-5"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="m19.5 8.25-7.5 7.5-7.5-7.5"
-                />
-              </svg>
-            </span>
+                <option
+                  value=""
+                  disabled
+                  selected
+                >
+                  Search by country
+                </option>
+                <option value="id">Indonesia</option>
+                <option value="my">Malaysia</option>
+                <option value="sa">Saudi Arabia</option>
+              </select>
+              <span class="absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="size-5"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="m19.5 8.25-7.5 7.5-7.5-7.5"
+                  />
+                </svg>
+              </span>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="store-list">
-      <h2 class="text-2xl md:text-3xl mb-6">Stores</h2>
-      <div class="locations-wrapper grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4"></div>
-    </section>
+      <section class="store-list">
+        <h2 class="text-2xl md:text-3xl mb-6">Stores</h2>
+        <div class="locations-wrapper grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4"></div>
+      </section>
+    </div>
+  </div>
+
+  <div id="page-loading">
+    <div class="three-balls">
+      <div class="ball ball1"></div>
+      <div class="ball ball2"></div>
+      <div class="ball ball3"></div>
+    </div>
   </div>
 </div>
+
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDblP2L7yWL7LQXRT9OpaMQlJxr5GIlSzU&libraries=places&v=weekly"></script>
 <script type="text/javascript">
+  // loading state of the page
+  $(document).ready(function () {
+    try {
+      $("#page-loading").show();
+      window.initMap = initMap();
+      generateLabels(window.initMap);
+    } catch (error) {
+      console.error(error);
+    } finally {
+      $("#page-loading").hide();
+    }
+  });
   const locations = [
     {
       name: "Dezign District Indonesia",
@@ -370,9 +393,6 @@
       },
     };
   };
-
-  window.initMap = initMap();
-  generateLabels(window.initMap);
 
   // NOTE : Filter manual
   $(document).ready(function () {
