@@ -89,14 +89,6 @@
       "image_grid": "collection/grid/brie.jpg"
     },
     {
-      "id": 12,
-      "name": "Karla",
-      "display_name": "Karla",
-      "collection_id": 6,
-      "image_banner": "collection/banner-list/karla.jpg",
-      "image_grid": "collection/grid/karla.jpg"
-    },
-    {
       "id": 13,
       "name": "Vino",
       "display_name": "Vino",
