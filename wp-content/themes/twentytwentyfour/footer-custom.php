@@ -277,6 +277,14 @@ function toTitleCase(str) {
     });
 }
 
+function filterProductName(str) {
+    if (toTitleCase(str).includes('Vento Aluminium')) {
+        return toTitleCase(str.replace('Vento Aluminium', 'vento alu'));
+    } else {
+        return str
+    }
+}
+
 function redirectError(status = 404) {
     if (status === 404) {
         window.location.href = '<?= BASE_LINK; ?>/page-not-found';

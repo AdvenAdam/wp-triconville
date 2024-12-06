@@ -148,7 +148,7 @@ function renderMaster() {
                     background-repeat: no-repeat;
                 ">
                 <div class ='bg-black bg-opacity-10 h-full w-full flex items-center justify-center'>
-                    <h1 class="text-3xl md:text-5xl font-medium text-center text-white capitalize">${ProductsData.name}</h1>
+                    <h1 class="text-3xl md:text-5xl font-medium text-center text-white capitalize">${filterProductName(ProductsData.name)}</h1>
                 </div>
             </div>`
         );
@@ -261,7 +261,7 @@ function renderOverview(res) {
         const desc = res.description.replace(/<\/?p[^>]*>/g, '').replace(/<li[^>]*>(.*?)<\/li>/g, '')
         $('#product__overview').append(`
             <div class='max-w-xl'>
-                <h1 class="text-2xl md:text-3xl text-gray-900 line-clamp-2">${res.name}</h1>
+                <h1 class="text-2xl md:text-3xl text-gray-900 line-clamp-2">${filterProductName(res.name)}</h1>
                 <p class="text-slate-500 text-sm text-sm mb-4">Designed by 
                     <span class="text-black font-medium underline"><a href="https://indospacegroup.com/indospace-rnd/" target="_blank">Indospace R&D </a></span>
                 </p>
@@ -601,14 +601,14 @@ function renderImages(images) {
 
 function renderCollectionProducts(products, name) {
     // Collection product
-    $('.collection__product__name').text(`In ${name} Collection`);
+    $('.collection__product__name').text(`In ${filterProductName(name)} Collection`);
     products.forEach((e) => {
         $('.collection__product').append(`
             <a href="<?= BASE_LINK; ?>/product-detail/${slugify(e.name)}">     
                 <div class="product__card group">
                     <img src="${e.product_image}" class="md:h-[384px] h-[204px] object-contain w-auto object-contain group-hover:scale-[.97] group-hover:brightness-110 transition duration-300" />
                     <p class="text-center w-full md:-mt-3 text-sm mx-auto capitalize group-hover:underline">
-                        ${e.name}
+                        ${filterProductName(e.name)}
                     </p>
                 </div>
             </a>
