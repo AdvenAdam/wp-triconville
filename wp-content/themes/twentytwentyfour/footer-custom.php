@@ -237,6 +237,12 @@
 </a>
 
 <script>
+window.addEventListener('load', function() {
+    AOS.init();
+});
+</script>
+
+<script>
 $(document).ready(function() {
     const Moods = <?php echo file_get_contents(get_template_directory() . '/api/moods.json'); ?>
     productCategories.forEach((category) => {

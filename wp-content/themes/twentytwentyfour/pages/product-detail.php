@@ -8,8 +8,10 @@ get_template_part('header-custom');
 <div class="content-container mt-16 md:mt-20">
     <div id="product__banner"></div>
     <!-- NOTE : PRODUCT Overview & Material -->
-    <div class="">
-        <div class="textproduct-overview-desc grid grid-cols-1 md:grid-cols-2 items-center gap-10 md:gap-8 mb-10">
+    <div data-aos="fade-up"
+         data-aos-once="true"
+         data-aos-duration="1000">
+        <div class=" grid grid-cols-1 md:grid-cols-2 items-center gap-10 md:gap-8 mb-10">
             <div class="">
                 <div id="product__header__image"></div>
             </div>
@@ -32,7 +34,10 @@ get_template_part('header-custom');
         </div>
     </div>
     <!-- NOTE : PRODUCT Ambience Slider -->
-    <div class="ambience__section relative mb-10 md:mb-20">
+    <div class="ambience__section relative mb-10 md:mb-20"
+         data-aos="fade-up"
+         data-aos-once="true"
+         data-aos-duration="1000">
         <div class="ambience__img h-[350px] sm:h-[600px] lg:h-[720px]"></div>
         <button class="slick-prev prev-btn hidden md:block left-5  arrow-btn"
                 aria-label="Previous"
@@ -65,7 +70,10 @@ get_template_part('header-custom');
     </div>
     <!-- NOTE : PRODUCT Specification -->
     <div class="md:px-5 px-3 "
-         id="specification__link">
+         id="specification__link"
+         data-aos="fade-up"
+         data-aos-once="true"
+         data-aos-duration="1000">
         <div class="max-w-[1440px] mx-auto grid items-center gap-4 grid-cols-1 md:grid-cols-2 py-10 md:py-20 lg:py-32"
              id="specification__section">
 
@@ -75,8 +83,14 @@ get_template_part('header-custom');
     <div class="md:px-5 px-3 mb-10 md:mb-20">
         <div class="max-w-[1440px] mx-auto">
             <div class="py-10 md:pb-20">
-                <h2 class='text-3xl collection__product__name'></h2>
-                <div class="collection__product grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mb-16"></div>
+                <h2 class='text-3xl collection__product__name'
+                    data-aos="fade-up"
+                    data-aos-once="true"
+                    data-aos-duration="1000"></h2>
+                <div class="collection__product grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mb-16"
+                     data-aos="fade-up"
+                     data-aos-once="true"
+                     data-aos-duration="1000"></div>
                 <div class="collection__product__btn text-center"></div>
             </div>
             <div class="py-10 md:pb-20 relative h-fit hidden"
@@ -176,10 +190,10 @@ function renderMaster() {
 
 function renderSheet(sheet) {
     $('#product__description').append(`
-        <div class="inline-flex gap-2 items-center text-xs">
+        <div class="flex gap-2">
             ${sheet !== 'False' || sheet !== null ?
             `<a href="${sheet}"
-                class="btn-ghost-dark uppercase flex items-center gap-2"> <p class="text-white text-xs">download collection sheet</p> 
+                class="btn-ghost-dark uppercase flex items-end gap-2"> <p class="text-white text-xs">download collection sheet</p> 
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5 pb-1">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
                 </svg>
@@ -187,7 +201,7 @@ function renderSheet(sheet) {
             </a>`
             :''}
             <a href="<?= BASE_LINK; ?>/find-a-store/"
-                class="btn-ghost uppercase"><p class="text-xs">Find Store</p></a>
+                class="btn-ghost flex items-end uppercase"><p class="text-xs">Find Store</p></a>
         </div>
     `);
 }

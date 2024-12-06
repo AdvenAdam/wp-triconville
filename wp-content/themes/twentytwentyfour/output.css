@@ -614,12 +614,6 @@ video {
 .top-5 {
   top: 1.25rem;
 }
-.right-2 {
-  right: 0.5rem;
-}
-.right-4 {
-  right: 1rem;
-}
 .z-0 {
   z-index: 0;
 }
@@ -687,10 +681,6 @@ video {
 .my-2 {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
-}
-.my-20 {
-  margin-top: 5rem;
-  margin-bottom: 5rem;
 }
 .my-3 {
   margin-top: 0.75rem;
@@ -791,9 +781,6 @@ video {
 }
 .mt-6 {
   margin-top: 1.5rem;
-}
-.mb-1 {
-  margin-bottom: 0.25rem;
 }
 .line-clamp-2 {
   overflow: hidden;
@@ -1020,9 +1007,6 @@ video {
 }
 .w-screen {
   width: 100vw;
-}
-.w-6 {
-  width: 1.5rem;
 }
 .min-w-20 {
   min-width: 5rem;
@@ -1309,10 +1293,6 @@ video {
   --tw-border-opacity: 1;
   border-color: rgb(255 255 255 / var(--tw-border-opacity));
 }
-.border-gray-300 {
-  --tw-border-opacity: 1;
-  border-color: rgb(209 213 219 / var(--tw-border-opacity));
-}
 .\!bg-slate-50\/80 {
   background-color: rgb(248 250 252 / 0.8) !important;
 }
@@ -1355,10 +1335,6 @@ video {
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
-}
-.bg-gray-50 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(249 250 251 / var(--tw-bg-opacity));
 }
 .bg-opacity-0 {
   --tw-bg-opacity: 0;
@@ -1432,12 +1408,6 @@ video {
 }
 .p-6 {
   padding: 1.5rem;
-}
-.p-2\.5 {
-  padding: 0.625rem;
-}
-.p-4 {
-  padding: 1rem;
 }
 .\!px-3 {
   padding-left: 0.75rem !important;
@@ -1522,10 +1492,6 @@ video {
 .py-8 {
   padding-top: 2rem;
   padding-bottom: 2rem;
-}
-.py-11 {
-  padding-top: 2.75rem;
-  padding-bottom: 2.75rem;
 }
 .pb-1 {
   padding-bottom: 0.25rem;
@@ -1624,12 +1590,6 @@ video {
 }
 .\!leading-none {
   line-height: 1 !important;
-}
-.leading-7 {
-  line-height: 1.75rem;
-}
-.leading-loose {
-  line-height: 2;
 }
 .tracking-wide {
   letter-spacing: 0.025em;
@@ -1914,18 +1874,6 @@ h3 {
   --tw-text-opacity: 1;
   color: rgb(77 77 77 / var(--tw-text-opacity));
 }
-.after\:absolute::after {
-  content: var(--tw-content);
-  position: absolute;
-}
-.after\:right-4::after {
-  content: var(--tw-content);
-  right: 1rem;
-}
-.after\:content-\[\'\'\]::after {
-  --tw-content: '';
-  content: var(--tw-content);
-}
 .hover\:cursor-pointer:hover {
   cursor: pointer;
 }
@@ -1996,14 +1944,6 @@ h3 {
 .hover\:brightness-110:hover {
   --tw-brightness: brightness(1.1);
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
-}
-.focus\:border-blue-500:focus {
-  --tw-border-opacity: 1;
-  border-color: rgb(59 130 246 / var(--tw-border-opacity));
-}
-.focus\:ring-blue-500:focus {
-  --tw-ring-opacity: 1;
-  --tw-ring-color: rgb(59 130 246 / var(--tw-ring-opacity));
 }
 .focus-visible\:outline-none:focus-visible {
   outline: 2px solid transparent;
@@ -2226,10 +2166,6 @@ h3 {
 
   .md\:mt-36 {
     margin-top: 9rem;
-  }
-
-  .md\:mt-5 {
-    margin-top: 1.25rem;
   }
 
   .md\:mt-\[-30px\] {
@@ -2543,6 +2479,10 @@ h3 {
     margin-bottom: 9rem;
   }
 
+  .lg\:mt-48 {
+    margin-top: 12rem;
+  }
+
   .lg\:block {
     display: block;
   }
@@ -2601,11 +2541,6 @@ h3 {
 
   .lg\:p-20 {
     padding: 5rem;
-  }
-
-  .lg\:py-28 {
-    padding-top: 7rem;
-    padding-bottom: 7rem;
   }
 
   .lg\:py-32 {
@@ -2686,34 +2621,9 @@ h3 {
 }
 @media (prefers-color-scheme: dark) {
 
-  .dark\:border-gray-600 {
-    --tw-border-opacity: 1;
-    border-color: rgb(75 85 99 / var(--tw-border-opacity));
-  }
-
-  .dark\:bg-gray-700 {
-    --tw-bg-opacity: 1;
-    background-color: rgb(55 65 81 / var(--tw-bg-opacity));
-  }
-
   .dark\:text-gray-400 {
     --tw-text-opacity: 1;
     color: rgb(156 163 175 / var(--tw-text-opacity));
-  }
-
-  .dark\:text-white {
-    --tw-text-opacity: 1;
-    color: rgb(255 255 255 / var(--tw-text-opacity));
-  }
-
-  .dark\:placeholder-gray-400::-moz-placeholder {
-    --tw-placeholder-opacity: 1;
-    color: rgb(156 163 175 / var(--tw-placeholder-opacity));
-  }
-
-  .dark\:placeholder-gray-400::placeholder {
-    --tw-placeholder-opacity: 1;
-    color: rgb(156 163 175 / var(--tw-placeholder-opacity));
   }
 
   .dark\:hover\:bg-gray-600:hover {
@@ -2724,15 +2634,5 @@ h3 {
   .dark\:hover\:text-white:hover {
     --tw-text-opacity: 1;
     color: rgb(255 255 255 / var(--tw-text-opacity));
-  }
-
-  .dark\:focus\:border-blue-500:focus {
-    --tw-border-opacity: 1;
-    border-color: rgb(59 130 246 / var(--tw-border-opacity));
-  }
-
-  .dark\:focus\:ring-blue-500:focus {
-    --tw-ring-opacity: 1;
-    --tw-ring-color: rgb(59 130 246 / var(--tw-ring-opacity));
   }
 }

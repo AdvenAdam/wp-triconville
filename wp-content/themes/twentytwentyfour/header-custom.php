@@ -26,6 +26,11 @@
     <!-- ReCaptcha -->
     <script src="https://www.google.com/recaptcha/enterprise.js?render=6LergUEqAAAAAFzDZhNSfmvZccQssYyAQ0qugxnr"></script>
     <!-- START - We recommend to place the below code in head tag of your website html  -->
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css"
+          rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
 
     <link rel="stylesheet"
           href="https://sibforms.com/forms/end-form/build/sib-styles.css">

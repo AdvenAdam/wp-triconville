@@ -26,7 +26,10 @@ get_template_part('header-custom');
     <!-- NOTE : Material list -->
     <div class="my-12">
         <div id="list__materials_filter"
-             class='flex items-center text-sm py-8 px-3 md:px-5 justify-center flex-wrap gap-3'>
+             class='flex items-center text-sm py-8 px-3 md:px-5 justify-center flex-wrap gap-3'
+             data-aos="fade-up"
+             data-aos-once="true"
+             data-aos-duration="500">
             <button type="button"
                     class="btn-ghost-dark !py-2"
                     onclick="changeFilter('all')"
@@ -102,8 +105,12 @@ function renderMaterialFilter(data) {
 function renderGroupContainer(data) {
     $('#material__page').append(`
         <div class="material-container visible" id="material__container_${data.id}">
-            <h1 class="text-3xl mb-4">${toTitleCase(data.name)}</h1>
-            <img class="w-full h-auto min-h-56 mb-16 object-cover" src="${data.banner}" alt="${data.name}-banner">
+            <h1 class="text-3xl mb-4"
+            data-aos="fade-up"
+             data-aos-once="true"
+             data-aos-duration="500"
+            >${toTitleCase(data.name)}</h1>
+            <img class="w-full h-auto min-h-56 mb-16 object-cover" data-aos="fade-up" data-aos-once="true" data-aos-duration="500" src="${data.banner}" alt="${data.name}-banner"/>
         </div>
     `)
 }
@@ -146,7 +153,7 @@ function renderSubGroups(data) {
                 return isExclusion ? !optionSlug.includes(keyword) : optionSlug.includes(keyword);
             });
             $('#material__container_' + data.id).append(`
-                <div class="material-products" id="material__products_${slugify(subGroup.name)}">
+                <div class="material-products" id="material__products_${slugify(subGroup.name)}" data-aos="fade-up" data-aos-once="true" data-aos-duration="500">
                     <h2 class="text-2xl mb-2">${toTitleCase(subGroup.name)}</h2>
                     <p class="text-sm mb-6">${subGroup.description}</p>
                     <div id="material__list__${slugify(subGroup.name)}" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 lg:gap-10 ">

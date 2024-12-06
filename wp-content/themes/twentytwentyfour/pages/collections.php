@@ -10,7 +10,10 @@
     <div id="collection__header"></div>
     <div id="container__<?=$character_slug ?>"></div>
     <div class="mb-10 md:mb-20 lg:mb-36 px-3 md:px-5">
-        <div class="max-w-[1440px] mx-auto">
+        <div class="max-w-[1440px] mx-auto"
+             data-aos="fade-up"
+             data-aos-once="true"
+             data-aos-duration="1000">
             <h1 class="text-2xl md:text-3xl mb-5 ms-1">More From Our Collection</h1>
             <div class="relative group "
                  id="project__slider__wrapper">
@@ -107,7 +110,11 @@ function renderMaster() {
     $('#container__<?= $character_slug ?>').append(`
         <div class="px-3 md:px-5">
             <div class="max-w-[1440px] mx-auto">
-                <section class="collection__description my-5 md:my-10 lg:my-28">
+                <section class="collection__description my-5 md:my-10 lg:my-28" 
+                    data-aos="fade-up"
+                    data-aos-once="true"
+                    data-aos-duration="1000"
+                >
                     <div class="collection__description-content max-w-3xl mx-auto text-center">
                         <h1 class="text-3xl md:text-5xl hidden md:block mx-auto capitalize">${collectionData.name}</h1>
                         <p class="text-sm mt-2 mb-10">${collectionData.description}</p>
@@ -123,7 +130,11 @@ function renderMaster() {
                 </section>
             </div>
         </div>
-        <div class="ambience__section relative mb-10 md:mb-20 lg:mb-36">
+        <div class="ambience__section relative mb-10 md:mb-20 lg:mb-36"
+            data-aos="fade-up"
+            data-aos-once="true"
+            data-aos-duration="1000"
+        >
             <div class="ambience__img"></div>
             <button class="slick-prev ambiance-prev hidden md:block left-5 arrow-btn"
                     aria-label="Previous"
@@ -158,10 +169,20 @@ function renderMaster() {
         <div class="px-3 md:px-5">
             <div class="max-w-[1440px] mx-auto">
                 <section class="collection__product relative mt-10 mb-10 md:mb-20 lg:mb-36">
-                    <h3 class="text-2xl md:text-3xl tracking-wide ">Products on ${collectionData.name} Collection</h3>
-                    <div class=" grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 mt-5 gap-4 justify-center container mx-auto mt-5 mb-10">
+                    <h3 class="text-2xl md:text-3xl tracking-wide"
+                        data-aos="fade-up"
+                        data-aos-once="true"
+                        data-aos-duration="1000"
+                    >
+                        Products on ${collectionData.name} Collection
+                    </h3>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 mt-5 gap-4 justify-center container mx-auto mt-5 mb-10">
                         ${collectionData.product_list.map((pr, i) => `
-                            <a href="<?= BASE_LINK; ?>/product-detail/${slugify(pr.name)}" class='flex justify-center items-center flex-col p-3 group'>
+                            <a href="<?= BASE_LINK; ?>/product-detail/${slugify(pr.name)}" class='flex justify-center items-center flex-col p-3 group'
+                                data-aos="fade-up"
+                                data-aos-once="true"
+                                data-aos-duration="1000"
+                            >
                                 <img class="w-auto md:h-[384px] h-[240px] object-contain group-hover:scale-[.97] group-hover:brightness-110 transition duration-300" src="${pr.product_image_384}" />
                                 <p class="text-center text-sm md:mt-[-30px] max-w-[90%] capitalize group-hover:underline">${pr.name}</p>
                             </a>

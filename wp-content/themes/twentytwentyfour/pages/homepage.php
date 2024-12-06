@@ -45,9 +45,13 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
 
         </div>
     </div>
-    <div class="p-3 md:p-5">
+    <div class="px-3 md:px-5">
         <div class="max-w-[1440px] mx-auto">
-            <div class="grid md:grid-cols-2 items-center my-20">
+            <div class="grid md:grid-cols-2 items-center mt-20"
+                 data-aos="fade-up"
+                 data-aos-once="true"
+                 data-aos-delay="200"
+                 data-aos-duration="1000">
                 <div class="txt max-w-xl py-5">
                     <h2 class='text-2xl md:text-3xl'>
                         20 Years of Excellence Experience on Outdoor Living
@@ -65,15 +69,16 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                          class="w-full h-full object-cover" />
                 </div>
             </div>
-        </div>
-    </div>
-    <!-- NOTE : Collection & Inspiration & News List &Catalog -->
-    <div class="p-3 md:p-5">
-        <div class="max-w-[1440px] mx-auto">
+            <!-- NOTE : Collection & Inspiration & News List &Catalog -->
             <!-- ANCHOR : Collection -->
-            <div class="py-20">
+            <div class="mt-20 lg:mt-48"
+                 data-aos="fade-up"
+                 data-aos-once="true"
+                 data-aos-delay="200"
+                 data-aos-duration="1000">
                 <p class="text-center text-xs uppercase tracking-widest">Collections</p>
                 <h2 class="text-center text-3xl mb-8">Signature Selections for Every Style</h2>
+
                 <div class="block sm:grid sm:grid-cols-2 gap-3 mt-5 mb-10 collection__wrapper "
                      id="colection-selected"></div>
                 <div class="text-center">
@@ -84,9 +89,14 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                 </div>
             </div>
             <!-- ANCHOR : Inspiration -->
-            <div class="py-20">
+            <div class="mt-20 lg:mt-48"
+                 data-aos="fade-up"
+                 data-aos-once="true"
+                 data-aos-delay="200"
+                 data-aos-duration="1000">
                 <p class="text-center text-xs uppercase tracking-widest">INSPIRATION</p>
                 <h2 class="text-center text-3xl mb-8">The Art of Living</h2>
+
                 <div class="grid grid-cols-3 gap-1 sm:gap-3 mt-5 mb-10"
                      id="inspiration-selected"></div>
                 <div class="text-center">
@@ -97,7 +107,11 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                 </div>
             </div>
             <!-- ANCHOR : Moods  -->
-            <div class="py-10 md:py-20 lg:py-28">
+            <div class="mt-20 lg:mt-48"
+                 data-aos="fade-up"
+                 data-aos-once="true"
+                 data-aos-delay="200"
+                 data-aos-duration="1000">
                 <div class="flex gap-5 lg:flex-row flex-col items-center justify-between">
                     <div class="max-w-lg">
                         <p class="text-xs uppercase tracking-widest">MOODS</p>
@@ -114,14 +128,19 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                 </div>
             </div>
             <!-- ANCHOR : News List -->
-            <div class="py-10 md:py-20 lg:py-28">
+            <div class="mt-20 lg:mt-48"
+                 data-aos="fade-up"
+                 data-aos-once="true"
+                 data-aos-delay="200"
+                 data-aos-duration="1000">
                 <div class="text-center mx-auto max-w-2xl mb-5">
                     <p class="uppercase tracking-widest text-xs">news </p>
                     <h4 class="text-2xl md:text-3xl mb-8">
                         Our Latest News
                     </h4>
                 </div>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-3 lg:gap-5">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-3 lg:gap-5"
+                     id="news-selected">
                     <?php foreach ($posts as $post): ?>
                     <div class="news-card flex items-center gap-3 md:block">
                         <a class="news-image w-1/2 md:w-auto md:h-auto sm:h-[240px] object-cover h-[124px] relative group hover:cursor-pointer"
@@ -147,19 +166,24 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                     </div>
                     <?php  endforeach; ?>
                 </div>
-                <div class="text-center mt-10 md:mt-5">
+                <div class="text-center mt-5">
                     <a href="<?= BASE_LINK ?>/news"
                        class="btn-ghost uppercase text-xs tracking-widest">All News</a>
                 </div>
             </div>
             <!-- ANCHOR : Catalog -->
-            <div class="py-20">
+            <div class="mt-20 lg:mt-48"
+                 data-aos="fade-up"
+                 data-aos-once="true"
+                 data-aos-delay="200"
+                 data-aos-duration="1000">
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-20 my-5">
                     <div class="">
                         <img src="https://storage.googleapis.com/back-bucket/wp_triconville/images/home/Home%20Catalogue.jpg"
                              class="w-auto h-auto object-cover" />
                     </div>
-                    <div class="flex justify-center items-center p-3 md:p-5">
+                    <div class="flex justify-center items-center p-3 md:p-5"
+                         id="catalog-selected">
                         <div class="">
                             <p class="uppercase text-xs tracking-widest mb-2">catalog</p>
                             <h2 class="text-3xl">Triconville - 2024 Catalog</h2>
