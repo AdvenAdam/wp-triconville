@@ -139,6 +139,7 @@
       lng: 110.7157073,
       gmap: "https://maps.app.goo.gl/sAex8f9r7hutGqWC9",
       countryId: "id",
+      website: "https://dezigndistrict.com",
     },
     {
       name: "Dezign District Malaysia",
@@ -149,6 +150,7 @@
       lng: 101.57689562782531,
       gmap: "https://maps.app.goo.gl/S277ihJMbLyxqA959",
       countryId: "my",
+      website: "https://dezigndistrict.com",
     },
     {
       name: "Dezign District Saudi Arabia",
@@ -159,6 +161,7 @@
       lng: 46.67729690120909,
       gmap: "https://maps.app.goo.gl/6avXfC4jBmMNovVD6",
       countryId: "sa",
+      website: "https://dezigndistrict.com",
     },
   ];
 
@@ -375,11 +378,13 @@
       siteEl() {
         return $("<div/>", {
           class: "location-tile-site",
-          html: `<p class="text-sm mb-2 font-medium flex gap-1">storewebsite.com 
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-4">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"></path>
-                  </svg>
-                </p>`,
+          html: `<a href="${this.data.website}" target="_blank">
+                    <p class="text-sm mb-2 font-medium flex gap-1">${this.data.website.replace("https://", "")}
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-4">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"></path>
+                      </svg>
+                    </p>
+                  </a>`,
         });
       },
 
