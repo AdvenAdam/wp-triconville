@@ -18,7 +18,7 @@ body {
 } */
 </style>
 
-<div class="content-container mt-20">
+<div class="content-container mt-20 overflow-hidden">
     <div id="main__container"
          class="my-20 px-3 md:px-5">
 
