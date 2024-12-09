@@ -66,6 +66,7 @@ function renderProducts(e, id) {
     $('#product__list').append(`
         <a href= "<?= BASE_LINK; ?>/products/${e.slug}" class="group" 
             data-aos="fade-up"
+            data-aos-once="true"
             data-aos-delay="${(id +1) * 100}"
             data-aos-duration="500">
             <div>

@@ -172,7 +172,7 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                 </div>
             </div>
             <!-- ANCHOR : Catalog -->
-            <div class="mt-20 lg:mt-48"
+            <div class="my-20 lg:my-48"
                  data-aos="fade-up"
                  data-aos-once="true"
                  data-aos-delay="200"

@@ -101,9 +101,9 @@ function metaMaster() {
 function renderMaster() {
     $('#collection__header').append(`
         <section class="banner mb-5 relative">
-            <img src="https://storage.googleapis.com/back-bucket/wp_triconville/images/${collectionData.image_banner}" alt="${collectionData.name}" class="w-full h-screen object-cover">
+            <img src="https://storage.googleapis.com/back-bucket/wp_triconville/images/${collectionData.image_banner}" alt="${collectionData.display_name}" class="w-full h-screen object-cover">
             <div class='bg-black bg-opacity-25 h-full w-full absolute inset-0 flex items-center justify-center'>
-                <h1 class='text-white text-3xl md:text-5xl font-medium capitalize'>${collectionData.name}</h1>
+                <h1 class='text-white text-3xl md:text-5xl font-medium capitalize'>${collectionData.display_name}</h1>
             </div>
         </section>
     `)
@@ -116,7 +116,7 @@ function renderMaster() {
                     data-aos-duration="1000"
                 >
                     <div class="collection__description-content max-w-3xl mx-auto text-center">
-                        <h1 class="text-3xl md:text-5xl hidden md:block mx-auto capitalize">${collectionData.name}</h1>
+                        <h1 class="text-3xl md:text-5xl hidden md:block mx-auto capitalize">${collectionData.display_name}</h1>
                         <p class="text-sm mt-2 mb-10">${collectionData.description}</p>
                         ${collectionData.sheet !== 'False' ? `
                             <a href="${collectionData.sheet}" target="_blank" class='btn-ghost-dark uppercase text-sm flex items-center gap-2 w-fit mx-auto'>
@@ -174,7 +174,7 @@ function renderMaster() {
                         data-aos-once="true"
                         data-aos-duration="1000"
                     >
-                        Products on ${collectionData.name} Collection
+                        Products on ${collectionData.display_name} Collection
                     </h3>
                     <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 mt-5 gap-4 justify-center container mx-auto mt-5 mb-10">
                         ${collectionData.product_list.map((pr, i) => `
@@ -184,7 +184,7 @@ function renderMaster() {
                                 data-aos-duration="1000"
                             >
                                 <img class="w-auto md:h-[384px] h-[240px] object-contain group-hover:scale-[.97] group-hover:brightness-110 transition duration-300" src="${pr.product_image_384}" />
-                                <p class="text-center text-sm md:mt-[-30px] max-w-[90%] capitalize group-hover:underline">${pr.name}</p>
+                                <p class="text-center text-sm md:mt-[-30px] max-w-[90%] capitalize group-hover:underline">${filterProductName(pr.name)}</p>
                             </a>
                         `).join('')}
                     </div>

@@ -20,7 +20,7 @@ body {
 
 <div class="content-container mt-20">
     <div id="main__container"
-         class="mt-20 px-3 md:px-5">
+         class="my-20 px-3 md:px-5">
 
         <h1 class="text-3xl md:text-5xl font-medium text-center">Inspiration</h1>
         <h3 class="text-base text-center ">Explore endless design possibilities and create an escape that you’ll love</h3>
@@ -29,10 +29,7 @@ body {
              class="max-w-[1440px] my-10 mx-auto grid grid-cols-3 gap-1 sm:gap-3">
         </div>
     </div>
-    <?php
-    // Include your custom footer
-    get_template_part('footer-custom');
-    ?>
+
 </div>
 <div id="page-loading">
     <div class="three-balls">
@@ -41,6 +38,10 @@ body {
         <div class="ball ball3"></div>
     </div>
 </div>
+<?php
+    // Include your custom footer
+    get_template_part('footer-custom');
+    ?>
 <script>
 let inspirations = [];
 let timeout;

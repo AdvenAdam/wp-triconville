@@ -230,6 +230,7 @@ function renderProducts(data, headerTitle = 'All Types') {
             <a href= "<?= BASE_LINK; ?>/product-detail/${slugify(e.name)}" 
                 data-aos="fade-up"
                 data-aos-once="true"
+                data-aos-anchor=".product-list"
                 data-aos-duration="1000"
             >
                 <div class='flex justify-center items-center flex-col p-3 group'>
