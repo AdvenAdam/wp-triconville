@@ -25,6 +25,9 @@ get_template_part('header-custom');
             case (strpos($url, 'find-a-store') !== false):
                 include(get_template_directory() . '/page-builder/find a store.html');
                 break;
+            case (strpos($url, 'news') !== false):
+                include(get_template_directory() . '/page-builder/news-list.html');
+                break;
         }
         
     ?>

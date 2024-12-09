@@ -23,9 +23,15 @@ get_template_part('header-custom');
     <!-- NOTE: filter product by category -->
     <div class="max-w-[1440px] mt-5 mb-10 md:mb-20 mx-auto">
         <h3 class="text-2xl md:text-3xl text-center mt-10 md:mt-20"
-            id="category__name-title">CATEGORY</h3>
+            id="category__name-title"
+            data-aos="fade-up"
+            data-aos-once="true"
+            data-aos-duration="1000">CATEGORY</h3>
         <div id='filter__product'
-             class="flex items-center my-10 text-sm justify-center gap-2 flex-wrap"></div>
+             class="flex items-center my-10 text-sm justify-center gap-2 flex-wrap"
+             data-aos="fade-up"
+             data-aos-once="true"
+             data-aos-duration="1000"></div>
     </div>
 
     <!-- NOTE : PRODUCT LIST -->
@@ -219,12 +225,17 @@ function renderProducts(data, headerTitle = 'All Types') {
         </div>
     `);
 
-    data.sort((a, b) => a.name.localeCompare(b.name)).forEach(e => {
+    data.sort((a, b) => a.name.localeCompare(b.name)).forEach((e, index) => {
         $(`#product__list__${slugify(headerTitle)}`).append(`
-            <a href= "<?= BASE_LINK; ?>/product-detail/${slugify(e.name)}">
+            <a href= "<?= BASE_LINK; ?>/product-detail/${slugify(e.name)}" 
+                data-aos="fade-up"
+                data-aos-once="true"
+                data-aos-anchor=".product-list"
+                data-aos-duration="1000"
+            >
                 <div class='flex justify-center items-center flex-col p-3 group'>
                     <img class="w-auto md:h-[384px] h-[240px] object-contain group-hover:scale-[.97] group-hover:brightness-110 transition duration-300" src="${e.product_image_384}" />
-                    <p class="text-center text-sm md:mt-[-30px] max-w-[90%] capitalize group-hover:underline">${e.name}</p>
+                    <p class="text-center text-sm md:mt-[-30px] max-w-[90%] capitalize group-hover:underline">${filterProductName(e.name)}</p>
                 </div>
             </a>
         `);

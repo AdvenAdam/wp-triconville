@@ -237,6 +237,12 @@
 </a>
 
 <script>
+window.addEventListener('load', function() {
+    AOS.init();
+});
+</script>
+
+<script>
 $(document).ready(function() {
     const Moods = <?php echo file_get_contents(get_template_directory() . '/api/moods.json'); ?>
     productCategories.forEach((category) => {
@@ -275,6 +281,14 @@ function toTitleCase(str) {
     return str.replace(/\w\S*/g, function(txt) {
         return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
     });
+}
+
+function filterProductName(str) {
+    if (toTitleCase(str).includes('Vento Aluminium')) {
+        return toTitleCase(str.replace('Vento Aluminium', 'vento alu'));
+    } else {
+        return str
+    }
 }
 
 function redirectError(status = 404) {

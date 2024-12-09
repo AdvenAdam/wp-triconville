@@ -22,17 +22,35 @@ get_template_part('header-custom');
     <!-- Note :Banner -->
     <div class="max-w-[1440px] mx-auto">
         <div class="py-10"
-             id="mood__subtitle"></div>
+             id="mood__subtitle"
+             data-aos="fade-up"
+             data-aos-once="true"
+             data-aos-duration="1000"></div>
         <div class="py-10"
-             id="mood__gallery"></div>
+             id="mood__gallery"
+             data-aos="fade-up"
+             data-aos-once="true"
+             data-aos-duration="1000"></div>
         <div class="py-10 md:py-20"
-             id="mood__materials"></div>
+             id="mood__materials"
+             data-aos="fade-up"
+             data-aos-once="true"
+             data-aos-duration="1000"></div>
         <div class="py-10 md:py-20 px-3 md:px-5"
-             id="mood__inspirations"></div>
+             id="mood__inspirations"
+             data-aos="fade-up"
+             data-aos-once="true"
+             data-aos-duration="1000"></div>
         <div class="py-10 md:py-20"
-             id="mood__catalogue"></div>
+             id="mood__catalogue"
+             data-aos="fade-up"
+             data-aos-once="true"
+             data-aos-duration="1000"></div>
         <div class="py-10 md:py-20 px-3 md:px-5"
-             id="mood__other_moods"></div>
+             id="mood__other_moods"
+             data-aos="fade-up"
+             data-aos-once="true"
+             data-aos-duration="1000"></div>
     </div>
 </div>
 

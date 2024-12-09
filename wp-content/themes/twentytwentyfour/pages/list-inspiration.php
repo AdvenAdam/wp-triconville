@@ -20,7 +20,7 @@ body {
 
 <div class="content-container mt-20">
     <div id="main__container"
-         class="mt-20 px-3 md:px-5">
+         class="my-20 px-3 md:px-5">
 
         <h1 class="text-3xl md:text-5xl font-medium text-center">Inspiration</h1>
         <h3 class="text-base text-center ">Explore endless design possibilities and create an escape that you’ll love</h3>
@@ -29,10 +29,7 @@ body {
              class="max-w-[1440px] my-10 mx-auto grid grid-cols-3 gap-1 sm:gap-3">
         </div>
     </div>
-    <?php
-    // Include your custom footer
-    get_template_part('footer-custom');
-    ?>
+
 </div>
 <div id="page-loading">
     <div class="three-balls">
@@ -41,6 +38,10 @@ body {
         <div class="ball ball3"></div>
     </div>
 </div>
+<?php
+    // Include your custom footer
+    get_template_part('footer-custom');
+    ?>
 <script>
 let inspirations = [];
 let timeout;
@@ -81,7 +82,10 @@ function renderMaster() {
 function renderInspirations() {
     inspirations.forEach(inspiration => {
         $('#inspiration__container').append(`
-            <a class="inspiration__card relative" href="${inspiration.link}">
+            <a class="inspiration__card relative" href="${inspiration.link}"  
+                data-aos="fade-up"
+                 data-aos-once="true"
+                 data-aos-duration="1000">
                 <div class="inspiration__card__overlay absolute inset-0 bg-black bg-opacity-0 group hover:bg-opacity-20 transition duration-300 flex flex-col items-center justify-center">
                     <img src="https://storage.googleapis.com/back-bucket/wp_triconville/images/icons/Instagram-white.svg" alt="Triconville" class="w-11 h-11 hidden group-hover:block">
                     <h3 class="text-white font-medium text-center hidden group-hover:block">@triconville</h3>

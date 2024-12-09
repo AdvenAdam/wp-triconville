@@ -22,7 +22,10 @@ get_template_part('header-custom');
     </div>
     <!-- NOTE : PRODUCT LIST -->
     <div class="md:p-5 p-3 mb-20 mt-10">
-        <h2 class="text-center text-2xl md:text-3xl my-10">
+        <h2 class="text-center text-2xl md:text-3xl my-10"
+            data-aos="fade-up"
+            data-aos-once="true"
+            data-aos-duration="1000">
             Explore Our Outdoor
             Product Range
         </h2>
@@ -52,16 +55,20 @@ $(document).ready(function() {
         },
         success: (res) => {
             $('#page-loading').hide();
-            res.forEach((e) => {
-                renderProducts(e);
+            res.forEach((e, id) => {
+                renderProducts(e, id);
             });
         }
     })
 })
 
-function renderProducts(e) {
+function renderProducts(e, id) {
     $('#product__list').append(`
-        <a href= "<?= BASE_LINK; ?>/products/${e.slug}" class="group">
+        <a href= "<?= BASE_LINK; ?>/products/${e.slug}" class="group" 
+            data-aos="fade-up"
+            data-aos-once="true"
+            data-aos-delay="${(id +1) * 100}"
+            data-aos-duration="500">
             <div>
                 <img class="w-full h-full object-cover md:object-contain group-hover:scale-[.97] group-hover:brightness-110 transition duration-300" src="${e.thumb}" />
             </div>
