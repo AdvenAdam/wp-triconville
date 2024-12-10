@@ -298,7 +298,7 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                     <div class="sm:h-full w-full h-[65vh] flex group items-end md:hover:bg-gradient-to-b from-transparent to-black/40 p-5">
                         <div class="max-w-md transition duration-300 translate-y-14 md:group-hover:translate-y-0 ease-in-out">
                             <h1 class="text-3xl md:text-5xl text-white">
-                                ${collection.name}
+                                ${filterProductName(collection.name)}
                             </h1>
                             <div class="line-clamp-2">
                                 <p class="text-white text-sm invisible md:group-hover:visible duration-300">
@@ -333,7 +333,7 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                 <div class="h-[322px] md:h-[462px] w-auto bg-no-repeat bg-center bg-cover gallery-item ${i % 2 !== 0 ? 'mt-10 -mb-10' : ''}"
                     style="background-image: url('<?php echo esc_attr(get_template_directory_uri()); ?>/assets/${mood.thumb}')">
                     <div class="h-full w-full flex items-end justify-end p-5">
-                        <h2 class="invisible sm:visible text-xl xl:text-3xl text-end text-white max-w-[260px]">${mood.name}</h2>
+                        <h2 class="invisible xl:visible text-xl xl:text-3xl text-end text-white max-w-[260px]">${mood.name}</h2>
                     </div>
                 </div>
             `);

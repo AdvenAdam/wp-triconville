@@ -77,7 +77,7 @@ function renderBanner() {
                     >
                     <a href="<?= BASE_LINK ?>/moods/${mood.slug}"
                         class="h-full w-full flex flex-col items-end justify-end p-5 transition duration-300 md:translate-y-14 md:group-hover:translate-y-0 ease-in-out md:group-hover:bg-gradient-to-b from-transparent to-black/40">
-                        <h1 class="text-2xl md:text-5xl !leading-none font-medium text-end text-white max-w-[260px] md:mb-6">${mood.name}</h1>
+                        <h1 class="text-2xl md:text-3xl xl:text-5xl !leading-none font-medium text-end text-white max-w-[260px] md:mb-6">${mood.name}</h1>
                         <div class="text-end h-0 md:h-8">
                             <p class="text-white text-sm invisible md:group-hover:visible duration-300 md:mb-6">${mood.subName}</p>
                         </div>

@@ -73,7 +73,6 @@ function loadCollections() {
                 ...res,
                 ...selectedCollection[0]
             };
-            console.log("🚀 ~ loadCollections ~ collectionData:", collectionData)
         },
         error: function(xhr, status, error) {
             if (xhr.status === 404) {

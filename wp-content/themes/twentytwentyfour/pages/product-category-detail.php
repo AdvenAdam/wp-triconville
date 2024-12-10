@@ -204,33 +204,39 @@ function subCategoryOnClick(name) {
     $(`#${name}-btn`).toggleClass('btn-ghost btn-ghost-dark');
     if (name === 'all-types') {
         $('.product-list').removeClass('hidden');
+        $(`.product__${slugify(name)}`).removeClass('aos-animate');
         return;
     } else {
-        $(`#product__${name}`).removeClass('hidden');
+        $(`#product__${name}`).removeClass('hidden').addClass('aos-animate');
+        $(`.product__${slugify(name)}`).addClass('aos-animate');
     }
 }
 
 function renderProducts(data, headerTitle = 'All Types') {
     $('#product__list').append(`
         <!-- NOTE: ${headerTitle} -->
-        <div id="product__${slugify(headerTitle)}" class="product-list mb-20">
+        <div id="product__${slugify(headerTitle)}" class="product-list mb-20" 
+            data-aos="fade-up"
+            data-aos-once="true"
+            data-aos-duration="1000"
+        >
             <div class="-mb-5">
                 <h3 class="text-2xl md:text-3xl ps-3 md:ps-5 mb-2" id="category__name-label">
                     ${headerTitle}
                 </h3>
                 <hr style="border-width: 1px;" />
             </div>
-            <div id="product__list__${slugify(headerTitle)}" class ="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-10">
+            <div id="product__list__${slugify(headerTitle)}" class ="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-10" >
             </div>
         </div>
     `);
 
     data.sort((a, b) => a.name.localeCompare(b.name)).forEach((e, index) => {
         $(`#product__list__${slugify(headerTitle)}`).append(`
-            <a href= "<?= BASE_LINK; ?>/product-detail/${slugify(e.name)}" 
+            <a href= "<?= BASE_LINK; ?>/product-detail/${slugify(e.name)}"
+                class="product__${slugify(headerTitle)}"
                 data-aos="fade-up"
                 data-aos-once="true"
-                data-aos-anchor=".product-list"
                 data-aos-duration="1000"
             >
                 <div class='flex justify-center items-center flex-col p-3 group'>

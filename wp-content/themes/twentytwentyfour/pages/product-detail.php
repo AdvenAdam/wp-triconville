@@ -94,10 +94,10 @@ get_template_part('header-custom');
                 <div class="collection__product__btn text-center"></div>
             </div>
             <div class="py-10 md:pb-20 relative h-fit hidden"
-                 id="well__with__product">
-                <h2 class='text-2xl md:text-3xl well__with__product__name'></h2>
-                <div class="well__with__product my-10"></div>
-                <div class="well__with__product__btn text-center"></div>
+                 id="releted__products">
+                <h2 class='text-2xl md:text-3xl releted__products__name'></h2>
+                <div class="releted__products my-10"></div>
+                <div class="releted__products__btn text-center"></div>
 
             </div>
         </div>
@@ -177,9 +177,9 @@ function renderMaster() {
             renderCollectionProducts(ProductsData.collection_product.slice(0, 4), ProductsData.collection_det);
         }
         // FIXME : Related Product
-        // if (Array.isArray(ProductsData.goes_well_with) && ProductsData.goes_well_with.length > 0) {
-        //     renderWellWithProducts(ProductsData.goes_well_with);
-        // }
+        if (Array.isArray(ProductsData.related_product) && ProductsData.related_product.length > 0) {
+            renderRelatedProducts(ProductsData.related_product);
+        }
         renderSheet(ProductsData.collection_sheet);
 
     } catch (error) {
@@ -638,26 +638,24 @@ function renderCollectionProducts(products, name) {
 
 }
 
-function renderWellWithProducts(products) {
+function renderRelatedProducts(products) {
     // Goes Well with product
-    $('#well__with__product').removeClass('hidden');
-    $('.well__with__product__name').text(`Goes well with `);
+    $('#releted__products').removeClass('hidden');
+    $('.releted__products__name').text(`Related Products`);
     products.forEach((e) => {
-        $('.well__with__product').append(`
+        $('.releted__products').append(`
             <a href="<?= BASE_LINK; ?>/product-detail/${slugify(e.name)}">     
-                <div class="product__card">
-                    <img src="${e.product_image}" class="md:h-[384px] h-[204px] object-contain mx-2 w-auto object-cover" />
-                    <div class="text-center">
-                        <p class="line-clamp-2">
-                            ${e.name}
-                        </p>
-                    </div>
+                <div class="product__card group">
+                    <img src="${e.product_image}" class="md:h-[384px] h-[204px] object-contain w-auto object-contain group-hover:scale-[.97] group-hover:brightness-110 transition duration-300" />
+                    <p class="text-center w-full md:-mt-3 text-sm mx-auto capitalize group-hover:underline">
+                        ${filterProductName(e.name)}
+                    </p>
                 </div>
             </a>
         `)
     })
-    $('#well__with__product').append(`
-        <button class="gww-prev absolute top-1/2 -translate-y-1/2 z-10 left-5 py-10 bg-slate-200/50 p-3 hover:bg-slate-200/80"
+    $('#releted__products').append(`
+        <button class="gww-prev left-5 arrow-btn"
                 aria-label="Previous"
                 type="button">
             <svg xmlns="http://www.w3.org/2000/svg"
@@ -671,7 +669,7 @@ function renderWellWithProducts(products) {
                         d="M15.75 19.5 8.25 12l7.5-7.5" />
             </svg>
         </button>
-        <button class="gww-next absolute top-1/2 -translate-y-1/2 z-10 right-5 py-10 bg-slate-200/50 p-3 hover:bg-slate-200/80"
+        <button class="gww-next right-5 arrow-btn"
                 aria-label="Next"
                 type="button">
             <svg xmlns="http://www.w3.org/2000/svg"
@@ -686,18 +684,18 @@ function renderWellWithProducts(products) {
             </svg>
         </button>
     `)
-    $('.well__with__product').slick({
+    $('.releted__products').slick({
         variableWidth: true,
         infinite: true,
         slidesToScroll: 1,
         arrows: false,
     });
     $(".gww-prev").click(function() {
-        $(".well__with__product").slick("slickPrev");
+        $(".releted__products").slick("slickPrev");
     });
 
     $(".gww-next").click(function() {
-        $(".well__with__product").slick("slickNext");
+        $(".releted__products").slick("slickNext");
     });
 }
 </script>

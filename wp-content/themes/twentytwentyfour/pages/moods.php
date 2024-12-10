@@ -11,10 +11,11 @@ get_template_part('header-custom');
 <style>
 .mood-color {
     color: var(--mood-color);
+    border-color: var(--mood-border-color);
 }
 </style>
 
-<div class="content-container min-h-screen mt-6 md:mt-32"
+<div class="content-container min-h-screen mt-6 md:mt-32 overflow-hidden"
      id="mood__container">
     <div id="mood__title">
     </div>
@@ -46,7 +47,7 @@ get_template_part('header-custom');
              data-aos="fade-up"
              data-aos-once="true"
              data-aos-duration="1000"></div>
-        <div class="py-10 md:py-20 px-3 md:px-5"
+        <div class="py-10 md:py-20 px-3 md:px-5 relative"
              id="mood__other_moods"
              data-aos="fade-up"
              data-aos-once="true"
@@ -101,7 +102,7 @@ function renderMaster() {
         renderOtherMoods()
     } catch (error) {
         console.error('Error rendering data:', error);
-        redirectError()
+        // redirectError()
     } finally {
         $('#page-loading').hide();
     }
@@ -109,14 +110,17 @@ function renderMaster() {
 
 function renderBanner() {
     $('#mood__container').addClass('mood-color');
-    $(':root').css('--mood-color', selectedMood.color);
+    $(':root').css({
+        '--mood-color': selectedMood.color,
+        '--mood-border-color': selectedMood.color
+    });
     // Note : Set Banner Title 
     const descriptionTitle = selectedMood.desc.split('<br/>')[0]
     const description = selectedMood.desc.split('<br/>')[1]
     $('#mood__title').append(`
-        <div class="flex gap-5 md:items-end w-full mt-20 md:flex-row flex-col">
+        <div class="flex gap-5 w-full mt-20 md:flex-row flex-col">
             <img src="<?php echo esc_attr(get_template_directory_uri()); ?>/assets/${selectedMood.banner}" class="w-full md:w-3/5 h-auto object-cover" />
-            <div class="ps-3 md:ps-5">
+            <div class="ps-3 md:ps-5 flex flex-col md:justify-end">
                 <h1 class="text-3xl md:text-5xl lg:text-6xl xl:text-[7.5rem] xl:leading-[9rem] mood-color font-bold mb-5">${selectedMood.name}</h1>
                 <div class="max-w-sm ">
                     <h3 class="mood-color  mb-3">${descriptionTitle}</h3>
@@ -180,7 +184,7 @@ function renderCatalogue(catalogueImage) {
                     <p class="uppercase text-xs tracking-widest mood-color mb-2">CATALOG</p>
                     <h2 class="mood-color text-3xl">Triconville - 2024 Catalog</h2>
                     <p class="text-sm tracking-wider mt-3 mb-12 mood-color">Discover an unrivaled selection of luxuriant designs from Triconville. Brought to life with captivating imagery, the 2024 Triconville catalogue is a go-to resource for inspiration and information. Qualified trade members can reserve a copy by filling out the form below.</p>
-                    <p><a href="<?= BASE_LINK ?>/collections" class="btn-ghost uppercase text-xs">View Catalog</a></p>
+                    <p><a href="<?= BASE_LINK ?>/collections" class="btn-ghost uppercase text-xs  mood-color">View Catalog</a></p>
                 </div>
                 <img src="<?php echo esc_attr(get_template_directory_uri()); ?>/assets/${catalogueImage}" class=" w-full h-auto object-cover order-1 sm:order-2" />
             </div>
@@ -191,18 +195,18 @@ function renderCatalogue(catalogueImage) {
 function renderOtherMoods() {
     // Note : Set Other Moods
     $('#mood__other_moods').append(`
-        <div class="py-10 text-center">
+        <div class="md:py-10 text-center">
             <h2 class="text-2xl md:text-3xl mood-color">
                 Discover Other Moods
             </h2>
             <div class="flex items-center lg:justify-center my-5 snap-x overflow-x-scroll scrollbar-none">
                 ${otherMoods.map(mood => `
                     <div class ="snap-center me-2">
-                        <div class="h-[322px] md:h-[600px] w-[180px] md:w-[400px] max-w-screen bg-no-repeat bg-center bg-cover group overflow-hidden"
+                        <div class="h-[600px] w-80 max-w-screen bg-no-repeat bg-center bg-cover group overflow-hidden"
                             style="background-image: url('<?php echo esc_attr(get_template_directory_uri()); ?>/assets/${mood.thumb}')">
                             <a href="<?= BASE_LINK ?>/moods/${mood.slug}"
                                 class="h-full w-full flex flex-col items-end justify-end p-5 transition duration-300 md:translate-y-14 md:group-hover:translate-y-0 ease-in-out md:group-hover:bg-gradient-to-b from-transparent to-black/40">
-                                <h1 class="text-2xl md:text-5xl !leading-none font-medium text-end text-white max-w-[260px] md:mb-6">${mood.name}</h1>
+                                <h1 class="text-3xl md:text-5xl !leading-none font-medium text-end text-white max-w-[160px] md:max-w-[260px] md:mb-6">${mood.name}</h1>
                                 <div class="text-end h-0 md:h-8">
                                     <p class="text-white text-sm invisible md:group-hover:visible duration-300 md:mb-6">${mood.subName}</p>
                                 </div>
@@ -210,6 +214,7 @@ function renderOtherMoods() {
                         </div>
                     </div>
                 `).join('')}
+                
             </div>
         </div>
     `);

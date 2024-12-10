@@ -15,7 +15,7 @@ get_template_part('header-custom');
     background-position: center;
 }
 </style>
-<div class="content-container mt-20">
+<div class="content-container overflow-hidden mt-20">
     <!-- NOTE: Banner -->
     <div class="materials-banner ">
         <div class="flex items-center justify-center min-h-full bg-black bg-opacity-20">
@@ -104,13 +104,13 @@ function renderMaterialFilter(data) {
 
 function renderGroupContainer(data) {
     $('#material__page').append(`
-        <div class="material-container visible" id="material__container_${data.id}">
-            <h1 class="text-3xl mb-4"
+        <div class="material-container" id="material__container_${data.id}" 
             data-aos="fade-up"
-             data-aos-once="true"
-             data-aos-duration="500"
-            >${toTitleCase(data.name)}</h1>
-            <img class="w-full h-auto min-h-56 mb-16 object-cover" data-aos="fade-up" data-aos-once="true" data-aos-duration="500" src="${data.banner}" alt="${data.name}-banner"/>
+            data-aos-once="true"
+            data-aos-duration="500"
+        >
+            <h1 class="text-3xl mb-4">${toTitleCase(data.name)}</h1>
+            <img class="w-full h-auto min-h-56 mb-16 object-cover" src="${data.banner}" alt="${data.name}-banner" />
         </div>
     `)
 }
@@ -153,7 +153,11 @@ function renderSubGroups(data) {
                 return isExclusion ? !optionSlug.includes(keyword) : optionSlug.includes(keyword);
             });
             $('#material__container_' + data.id).append(`
-                <div class="material-products" id="material__products_${slugify(subGroup.name)}" data-aos="fade-up" data-aos-once="true" data-aos-duration="500">
+                <div class="material-products material-products_${data.id}" id="material__products_${slugify(subGroup.name)}" 
+                    data-aos="fade-up"
+                    data-aos-once="true"
+                    data-aos-duration="500"
+                >
                     <h2 class="text-2xl mb-2">${toTitleCase(subGroup.name)}</h2>
                     <p class="text-sm mb-6">${subGroup.description}</p>
                     <div id="material__list__${slugify(subGroup.name)}" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 lg:gap-10 ">
@@ -202,7 +206,8 @@ function changeFilter(id) {
         $(`#btn-all`).removeClass('btn-ghost').addClass('btn-ghost-dark');
     } else {
         $(`#btn-${id}`).removeClass('btn-ghost').addClass('btn-ghost-dark');
-        $(`#material__container_${id}`).removeClass('hidden');
+        $(`#material__container_${id}`).removeClass('hidden').addClass('aos-animate');
+        $(`.material-products_${id}`).addClass('aos-animate');
     }
 }
 </script>
