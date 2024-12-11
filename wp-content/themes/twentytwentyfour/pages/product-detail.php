@@ -8,17 +8,19 @@ get_template_part('header-custom');
 <div class="content-container mt-16 md:mt-20">
     <div id="product__banner"></div>
     <!-- NOTE : PRODUCT Overview & Material -->
-    <div data-aos="fade-up"
+
+    <div class=" grid grid-cols-1 lg:grid-cols-2 items-center gap-10 md:gap-8 mb-10"
+         data-aos="fade-up"
          data-aos-once="true"
          data-aos-duration="1000">
-        <div class=" grid grid-cols-1 md:grid-cols-2 items-center gap-10 md:gap-8 mb-10">
-            <div class="">
-                <div id="product__header__image"></div>
-            </div>
-            <div class="px-3 md:px-0 max-w-xl mt-5 md:mt-0 "
-                 id="product__description">
-                <div class="mb-16 "
-                     id="product__overview"></div>
+        <div class="">
+            <div id="product__header__image"></div>
+        </div>
+        <div class="px-3 lg:px-0 lg:max-w-xl mt-5 md:mt-0"
+             id="product__description">
+            <div class="mb-16 "
+                 id="product__overview"></div>
+            <div class="me-4 sm:me-6 lg:me-8 xl:me-2">
                 <p class="mr-3 uppercase mb-2 text-xs"
                    id="label_1"></p>
                 <div class="flex mb-6 flex-wrap gap-1 md:gap-4"
@@ -29,10 +31,11 @@ get_template_part('header-custom');
                 <div class="flex mb-6 md:mb-16 flex-wrap items-center gap-1 md:gap-4"
                      id="option_2">
                 </div>
-
             </div>
+
         </div>
     </div>
+
     <!-- NOTE : PRODUCT Ambience Slider -->
     <div class="ambience__section relative mb-10 md:mb-20"
          data-aos="fade-up"
@@ -94,10 +97,13 @@ get_template_part('header-custom');
                 <div class="collection__product__btn text-center"></div>
             </div>
             <div class="py-10 md:pb-20 relative h-fit hidden"
-                 id="well__with__product">
-                <h2 class='text-2xl md:text-3xl well__with__product__name'></h2>
-                <div class="well__with__product my-10"></div>
-                <div class="well__with__product__btn text-center"></div>
+                 id="releted__products">
+                <h2 class='text-2xl md:text-3xl releted__products__name'
+                    data-aos="fade-up"
+                    data-aos-once="true"
+                    data-aos-duration="1000"></h2>
+                <div class="releted__products my-10"></div>
+                <div class="releted__products__btn text-center"></div>
 
             </div>
         </div>
@@ -177,14 +183,72 @@ function renderMaster() {
             renderCollectionProducts(ProductsData.collection_product.slice(0, 4), ProductsData.collection_det);
         }
         // FIXME : Related Product
-        // if (Array.isArray(ProductsData.goes_well_with) && ProductsData.goes_well_with.length > 0) {
-        //     renderWellWithProducts(ProductsData.goes_well_with);
-        // }
+        if (Array.isArray(ProductsData.related_product) && ProductsData.related_product.length > 0) {
+            renderRelatedProducts(ProductsData.related_product);
+        }
         renderSheet(ProductsData.collection_sheet);
 
     } catch (error) {
         console.error("🚀 ~ renderMaster ~ error:", error)
         // redirectError()
+    }
+}
+
+async function generateValidUrl(swatchOpt) {
+    const isTwoSwatch = swatchOpt.option2;
+    const combine = `${ProductsData.sku}-${swatchOpt.option1.toUpperCase()}${isTwoSwatch ? `-${swatchOpt.option2.toUpperCase()}` : ''}.png`;
+    const baseImgUrl = `https://storage.googleapis.com/pimassest1/configurator/${ProductsData.sku}/1024/${combine}`;
+
+    return await checkUrl(baseImgUrl) ? baseImgUrl : ProductsData.product_image
+}
+
+async function changeSwatch(variant, code) {
+    if (variant === 1) {
+        $('.option_1').removeClass('active');
+        $('.option_1 img').removeClass('border-3')
+    } else {
+        $('.option_2').removeClass('active');
+        $('.option_2 img').removeClass('border-3')
+    }
+    $(`#${code}`).addClass('active')
+    $(`#${code} img`).addClass('border-3')
+
+    const swatchOpt = {
+        option1: $('#option_1 .active').attr('id') || null,
+        option2: $('#option_2 .active').attr('id') || null
+    }
+    const validBaseImgUrl = await generateValidUrl(swatchOpt);
+    $('#product__header__image img').attr("src", validBaseImgUrl)
+}
+
+async function renderOverview(res) {
+    const swatchOpt = {
+        option1: res.combineoptionvariant.option1[0].code,
+        option2: res.combineoptionvariant.option2 ? res.combineoptionvariant.option2[0].code : null
+    }
+    const validBaseImgUrl = await generateValidUrl(swatchOpt);
+
+    $('#product__header__image').append(`
+        <div class="text-center mx-auto ">
+            <img src="${validBaseImgUrl}" alt="${res.name}" class="w-auto h-[350px] lg:h-[720px] xl:h-[870px] m-2 object-contain"/>
+        </div>
+    `)
+    if (res.name) {
+        const desc = res.description.replace(/<\/?p[^>]*>/g, '').replace(/<li[^>]*>(.*?)<\/li>/g, '')
+        $('#product__overview').append(`
+            <div class='max-w-xl'>
+                <h1 class="text-2xl md:text-3xl text-gray-900 line-clamp-2">${filterProductName(res.name)}</h1>
+                <p class="text-slate-500 mb-4">Designed by 
+                    <span class="text-black font-medium underline"><a href="https://indospacegroup.com/indospace-rnd/" target="_blank">Indospace R&D </a></span>
+                </p>
+                <p class="line-clamp-4">${desc}</p>
+            </div>
+        `);
+    }
+    if (Array.isArray(res.ambience_image) && res.ambience_image.length > 0) {
+        $('#product__ambience').append(`
+            <img src="${res.ambience_image[0]}" alt="${res.name}" class="w-full h-auto rounded-xl"/>
+        `);
     }
 }
 
@@ -223,71 +287,34 @@ function changeSize(size) {
 function renderMaterial(res) {
     if (res.option1 && Array.isArray(res.option1)) {
         $('#label_1').text(res.label1)
-        res.option1.slice(0, 4).forEach(opt => {
+        res.option1.forEach((opt, index) => {
+            const active = index === 0;
             $('#option_1').append(
-                `<div class="group cursor-pointer relative" id="${opt.code}">
-                    <div id="tooltip-${opt.code}" class=" absolute -top-16 sm:-left-10 w-fit z-10 invisible group-hover:visible inline-block bg-gray-900 rounded-lg shadow-sm opacity-0 group-hover:opacity-100 ">
-                        <p class="px-3 py-2 text-xs md:text-sm font-medium text-white w-[180px] line-clamp-2">${opt.name}</p>
+                `<div class="group option_1 cursor-pointer relative ${active? 'active' : ''}" id="${opt.code}" onClick="changeSwatch(1,'${opt.code}')">
+                    <div id="tooltip-${opt.code}" class=" absolute -top-16 lg:-left-12 w-fit z-10 invisible group-hover:visible inline-block bg-gray-900 rounded-lg shadow-sm opacity-0 group-hover:opacity-100 ">
+                        <p class="px-3 py-2 font-medium text-white w-[140px] sm:w-[180px] sm:line-clamp-2">${opt.name}</p>
                     </div>
-                    <img src="${opt.img_link}" class="w-16 md:w-20 h-16 md:h-20 object-contain"/>
+                    <img src="${opt.img_link}" class="w-16 md:w-20 h-16 md:h-20 object-contain border-triconville-blue ${active?'border-3':''}"/>
                 </div>`
             );
         });
-        if (res.option1.length > 4) {
-            $('#option_1').append(`
-                <a href="<?= BASE_LINK; ?>/materials" class="w-16 md:w-20 h-16 md:h-20 flex items-center justify-center cursor-pointer bg-black/40">
-                    <p class="text-xs text-white"> More</p></p> 
-                </a>
-            `)
-        }
     }
-
     if (res.option2 && Array.isArray(res.option2)) {
         $('#label_2').text(res.label2)
-        res.option2.slice(0, 4).forEach(opt => {
+        res.option2.forEach((opt, index) => {
+            const active = index === 0;
             $('#option_2').append(
-                `<div class="group cursor-pointer relative" id="${opt.code}">
-                    <div id="tooltip-${opt.code}" class=" absolute -top-16 sm:-left-10 w-fit z-10 invisible group-hover:visible inline-block bg-gray-900 rounded-lg shadow-sm opacity-0 group-hover:opacity-100 ">
-                        <p class="px-3 py-2 text-xs md:text-sm font-medium text-white w-[180px] line-clamp-2">${opt.name}</p>
+                `<div class="group option_2 cursor-pointer relative ${active? 'active' : ''}" id="${opt.code}" onClick="changeSwatch(2,'${opt.code}')">
+                    <div id="tooltip-${opt.code}" class=" absolute -top-16 lg:-left-12 w-fit z-10 invisible group-hover:visible inline-block bg-gray-900 rounded-lg shadow-sm opacity-0 group-hover:opacity-100 ">
+                        <p class="px-3 py-2 font-medium text-white w-[140px] sm:w-[180px] sm:line-clamp-2">${opt.name}</p>
                     </div>
-                    <img src="${opt.img_link}" class="w-16 md:w-20 h-16 md:h-20 object-contain"/>
+                    <img src="${opt.img_link}" class="w-16 md:w-20 h-16 md:h-20 object-contain border-triconville-blue ${active?'border-3':''}"/>
                 </div>`
             );
         });
-        if (res.option2.length > 4) {
-            $('#option_2').append(`
-                <a href="<?= BASE_LINK; ?>/materials" class="w-16 md:w-20 h-16 md:h-20 flex items-center justify-center cursor-pointer bg-black/40">
-                    <p class="text-xs text-white"> More</p></p> 
-                </a>
-            `)
-        }
+
     }
 
-}
-
-function renderOverview(res) {
-    $('#product__header__image').append(`
-        <div class="text-center mx-auto ">
-            <img src="${res.product_image}" alt="${res.name}" class="w-auto h-[350px] lg:h-[720px] xl:h-[870px] m-2 object-contain"/>
-        </div>
-    `)
-    if (res.name) {
-        const desc = res.description.replace(/<\/?p[^>]*>/g, '').replace(/<li[^>]*>(.*?)<\/li>/g, '')
-        $('#product__overview').append(`
-            <div class='max-w-xl'>
-                <h1 class="text-2xl md:text-3xl text-gray-900 line-clamp-2">${filterProductName(res.name)}</h1>
-                <p class="text-slate-500 text-sm text-sm mb-4">Designed by 
-                    <span class="text-black font-medium underline"><a href="https://indospacegroup.com/indospace-rnd/" target="_blank">Indospace R&D </a></span>
-                </p>
-                <p class="text-sm line-clamp-4">${desc}</p>
-            </div>
-        `);
-    }
-    if (Array.isArray(res.ambience_image) && res.ambience_image.length > 0) {
-        $('#product__ambience').append(`
-            <img src="${res.ambience_image[0]}" alt="${res.name}" class="w-full h-auto rounded-xl"/>
-        `);
-    }
 }
 
 function renderDimensions(dimensions, render = "all") {
@@ -317,7 +344,7 @@ function renderDimensions(dimensions, render = "all") {
                     <div id="product__downloadable"
                          class="grid grid-cols-2 gap-4">
                     </div>
-                    <p class="text-sm text-[#798F98] mt-5">Please <span class="underline"><a href="https://indospaceb2b.com/"" target="_blank">login</a></span> to access all downloadable contents</p>
+                    <p class="text-[#798F98] mt-5">Please <span class="underline"><a href="https://indospaceb2b.com/"" target="_blank">login</a></span> to access all downloadable contents</p>
                 </div>
             </div>
         `)
@@ -621,7 +648,7 @@ function renderCollectionProducts(products, name) {
             <a href="<?= BASE_LINK; ?>/product-detail/${slugify(e.name)}">     
                 <div class="product__card group">
                     <img src="${e.product_image}" class="md:h-[384px] h-[204px] object-contain w-auto object-contain group-hover:scale-[.97] group-hover:brightness-110 transition duration-300" />
-                    <p class="text-center w-full md:-mt-3 text-sm mx-auto capitalize group-hover:underline">
+                    <p class="text-center w-full md:-mt-3 mx-auto capitalize group-hover:underline">
                         ${filterProductName(e.name)}
                     </p>
                 </div>
@@ -638,26 +665,24 @@ function renderCollectionProducts(products, name) {
 
 }
 
-function renderWellWithProducts(products) {
+function renderRelatedProducts(products) {
     // Goes Well with product
-    $('#well__with__product').removeClass('hidden');
-    $('.well__with__product__name').text(`Goes well with `);
+    $('#releted__products').removeClass('hidden');
+    $('.releted__products__name').text(`Related Products`);
     products.forEach((e) => {
-        $('.well__with__product').append(`
+        $('.releted__products').append(`
             <a href="<?= BASE_LINK; ?>/product-detail/${slugify(e.name)}">     
-                <div class="product__card">
-                    <img src="${e.product_image}" class="md:h-[384px] h-[204px] object-contain mx-2 w-auto object-cover" />
-                    <div class="text-center">
-                        <p class="line-clamp-2">
-                            ${e.name}
-                        </p>
-                    </div>
+                <div class="product__card group">
+                    <img src="${e.product_image}" class="md:h-[384px] h-[204px] object-contain w-auto object-contain group-hover:scale-[.97] group-hover:brightness-110 transition duration-300" />
+                    <p class="text-center w-full md:-mt-3 mx-auto capitalize group-hover:underline">
+                        ${filterProductName(e.name)}
+                    </p>
                 </div>
             </a>
         `)
     })
-    $('#well__with__product').append(`
-        <button class="gww-prev absolute top-1/2 -translate-y-1/2 z-10 left-5 py-10 bg-slate-200/50 p-3 hover:bg-slate-200/80"
+    $('#releted__products').append(`
+        <button class="gww-prev left-5 arrow-btn"
                 aria-label="Previous"
                 type="button">
             <svg xmlns="http://www.w3.org/2000/svg"
@@ -671,7 +696,7 @@ function renderWellWithProducts(products) {
                         d="M15.75 19.5 8.25 12l7.5-7.5" />
             </svg>
         </button>
-        <button class="gww-next absolute top-1/2 -translate-y-1/2 z-10 right-5 py-10 bg-slate-200/50 p-3 hover:bg-slate-200/80"
+        <button class="gww-next right-5 arrow-btn"
                 aria-label="Next"
                 type="button">
             <svg xmlns="http://www.w3.org/2000/svg"
@@ -686,18 +711,18 @@ function renderWellWithProducts(products) {
             </svg>
         </button>
     `)
-    $('.well__with__product').slick({
+    $('.releted__products').slick({
         variableWidth: true,
         infinite: true,
         slidesToScroll: 1,
         arrows: false,
     });
     $(".gww-prev").click(function() {
-        $(".well__with__product").slick("slickPrev");
+        $(".releted__products").slick("slickPrev");
     });
 
     $(".gww-next").click(function() {
-        $(".well__with__product").slick("slickNext");
+        $(".releted__products").slick("slickNext");
     });
 }
 </script>

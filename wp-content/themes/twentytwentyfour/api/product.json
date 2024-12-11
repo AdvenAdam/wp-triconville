@@ -32,30 +32,55 @@
   {
     "id": 2,
     "ids": [32, 34],
-    "name": "Lounge Chairs",
-    "slug": "lounge-chairs",
+    "name": "Armchairs",
+    "slug": "armchairs",
     "image": "https://storage.googleapis.com/back-bucket/wp_triconville/images/category/banner/banner_lounge-chair2.jpg",
     "thumb": "https://storage.googleapis.com/back-bucket/wp_triconville/images/category/lounge-chair.png",
     "children": [
       {
         "id": 32,
-        "name": "Lounge Chairs",
+        "name": "Armchairs",
         "param": "!carpet"
       },
       {
         "id": 34,
-        "name": "Ottoman",
+        "name": "Ottomans",
         "param": ""
       }
     ],
     "meta": {
-      "title": "Lounge Chairs | Triconville - Discover Our Stylish Outdoor Lounge Chairs",
-      "description": "Explore Triconville's collection of stylish outdoor lounge chairs, designed for comfort and elegance. Perfect for relaxing in your garden or on the patio, our lounge chairs combine quality craftsmanship with contemporary design. Browse our selection and elevate your outdoor living experience today!",
-      "keywords": "outdoor lounge chairs, Triconville lounge chairs, stylish outdoor seating, comfortable lounge chairs, patio lounge chairs, outdoor furniture, lounge chair collection"
+      "title": "Armchairs | Triconville - Discover Our Stylish Outdoor Armchairs",
+      "description": "Explore Triconville's collection of stylish outdoor armchairs, designed for comfort and elegance. Perfect for relaxing in your garden or on the patio, our armchairs combine quality craftsmanship with contemporary design. Browse our selection and elevate your outdoor living experience today!",
+      "keywords": "outdoor armchairs, Triconville armchairs, stylish outdoor seating, comfortable armchairs, patio armchairs, outdoor furniture, lounge chair collection"
     }
   },
   {
     "id": 3,
+    "ids": [38, 31],
+    "name": "Coffee & Low Tables",
+    "slug": "coffee-low-tables",
+    "image": "https://storage.googleapis.com/back-bucket/wp_triconville/images/category/banner/banner_coffee-&-end-table2.jpg",
+    "thumb": "https://storage.googleapis.com/back-bucket/wp_triconville/images/category/coffee-low-table.png",
+    "children": [
+      {
+        "id": 38,
+        "name": "Outdoor Coffee Tables",
+        "param": ""
+      },
+      {
+        "id": 31,
+        "name": "Outdoor Side Tables",
+        "param": ""
+      }
+    ],
+    "meta": {
+      "title": "Coffee & Low Table | Triconville - Explore Our Elegant Outdoor Table Collection",
+      "description": "",
+      "keywords": ""
+    }
+  },
+  {
+    "id": 4,
     "ids": [37],
     "name": "Loungers & Daybeds",
     "slug": "loungers-daybeds",
@@ -72,32 +97,6 @@
       "title": "Loungers & Daybeds | Triconville - Relax in Style with Our Outdoor Collection",
       "description": "Discover Triconville's exquisite collection of outdoor loungers and daybeds, designed for ultimate comfort and style. Perfect for sunbathing or lounging by the pool, our premium selection combines quality craftsmanship with contemporary design. Browse our loungers and daybeds to elevate your outdoor living experience today!",
       "keywords": "outdoor loungers, outdoor daybeds, Triconville loungers, premium outdoor furniture, sun loungers, patio daybeds, outdoor relaxation furniture, loungers and daybeds collection"
-    }
-  },
-
-  {
-    "id": 4,
-    "ids": [38, 31],
-    "name": "Coffee & Low Tables",
-    "slug": "coffee-low-tables",
-    "image": "https://storage.googleapis.com/back-bucket/wp_triconville/images/category/banner/banner_coffee-&-end-table2.jpg",
-    "thumb": "https://storage.googleapis.com/back-bucket/wp_triconville/images/category/coffee-low-table.png",
-    "children": [
-      {
-        "id": 38,
-        "name": "Outdoor Coffe Tables & Low Tables",
-        "param": ""
-      },
-      {
-        "id": 31,
-        "name": "Outdoor Side Tables",
-        "param": ""
-      }
-    ],
-    "meta": {
-      "title": "Coffee & Low Table | Triconville - Explore Our Elegant Outdoor Table Collection",
-      "description": "",
-      "keywords": ""
     }
   },
 
@@ -157,22 +156,22 @@
     "children": [
       {
         "id": 70,
-        "name": "Storage",
+        "name": "Storages",
         "param": ""
       },
       {
         "id": 6,
-        "name": "Parasol",
+        "name": "Parasols",
         "param": ""
       },
       {
         "id": 8,
-        "name": "Pillow",
+        "name": "Pillows",
         "param": ""
       },
       {
         "id": 37,
-        "name": "Swing",
+        "name": "Swings",
         "param": "swing"
       }
     ],

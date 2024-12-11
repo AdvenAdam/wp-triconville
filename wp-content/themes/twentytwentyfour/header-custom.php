@@ -30,7 +30,7 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css"
           rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-
+    <script src="<?php echo get_template_directory_uri(); ?>/assets/javascript/utils.js"></script>
 
     <link rel="stylesheet"
           href="https://sibforms.com/forms/end-form/build/sib-styles.css">
@@ -74,29 +74,29 @@
         <nav class="flex items-center justify-between px-3 md:px-5 2xl:px-20 w-full md:min-h-20 bg-white ">
             <div class="flex justify-center">
                 <a href="<?php echo home_url(); ?>">
-                    <img src="<?= BASE_LINK ?>/wp-content/uploads/2024/09/Logo-Blue-Resized-1.png"
+                    <img src="https://storage.googleapis.com/back-bucket/wp_triconville/images/icons/Triconville%20Logo%20Primary.svg"
                          alt="Triconville logo"
                          class="h-6 will-auto min-w-20" />
                 </a>
             </div>
-            <div class="flex items-center justify-end lg:pt-4 gap-2 lg:gap-10 xl:gap-16">
+            <div class="flex items-center justify-end lg:pt-6 gap-2 lg:gap-10 xl:gap-16">
                 <div id="navbar_menu_category"
                      class='lg:flex hidden gap-1 md:gap-3 xl:gap-6'>
                 </div>
                 <!-- Note : Login -->
                 <div class="hidden lg:flex items-center gap-1 md:gap-3 xl:gap-6">
-                    <div class="pb-1 text-xs uppercase outline-none text-[#4D4D4D] hover:text-cyan-500 flex gap-1 items-center">
+                    <div class="pb-1 text-xs uppercase outline-none text-triconville-black hover:text-triconville-blue flex gap-1 items-center">
                         <?php echo do_shortcode('[gtranslate]') ?>
                     </div>
                     <a href="https://indospaceb2b.com/"
                        class="flex gap-1 items-center group pb-1">
-                        <p class="text-xs uppercase pt-3 pb-2 group-hover:text-cyan-500">B2B Login</p>
+                        <p class="text-xs uppercase pt-3 pb-2 group-hover:text-triconville-blue">B2B Login</p>
                         <svg xmlns="http://www.w3.org/2000/svg"
                              fill="none"
                              viewBox="0 0 24 24"
                              stroke-width="1.5"
                              stroke="currentColor"
-                             class="size-4 group-hover:text-cyan-500">
+                             class="size-4 group-hover:text-triconville-blue">
                             <path stroke-linecap="round"
                                   stroke-linejoin="round"
                                   d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
@@ -111,13 +111,13 @@
                         data-drawer-placement="right"
                         data-drawer-show="drawer-navigation"
                         aria-controls="drawer-navigation">
-                    <p class="text-xs font-medium group-hover:text-cyan-500 pt-1">Menu</p>
+                    <p class="text-xs font-medium group-hover:text-triconville-blue pt-1">Menu</p>
                     <svg xmlns="http://www.w3.org/2000/svg"
                          fill="none"
                          viewBox="0 0 24 24"
                          stroke-width="1.5"
                          stroke="currentColor"
-                         class="size-6 group-hover:text-cyan-500">
+                         class="size-6 group-hover:text-triconville-blue">
                         <path stroke-linecap="round"
                               stroke-linejoin="round"
                               d="M3.75 9h16.5m-16.5 6.75h16.5" />
@@ -125,17 +125,29 @@
                 </button>
             </div>
         </nav>
-        <nav class="w-full px-3 md:px-5 2xl:px-20 py-2 md:py-3 bg-[#F4F6F6] opacity-0 invisible transition-opacity duration-500 ease-in-out fixed top-16 md:top-20"
+        <nav class="w-full px-3 md:px-5 2xl:px-20 py-2 md:py-3 bg-[#F4F6F6] opacity-0 invisible transition-opacity duration-500 ease-in-out fixed top-16 md:top-20 "
              style="z-index: 2;"
              id="sub-header">
-            <div class="uppercase text-xs flex justify-end w-full">
+            <div class="uppercase text-xs flex justify-end w-full scrollbar-none">
                 <div class="hidden gap-6 overflow-x-auto"
                      id="sub-inspiration-desktop">
                 </div>
-                <div class="hidden gap-6 overflow-x-auto"
+                <div class="hidden gap-4 xl:gap-6 overflow-x-auto scrollbar-none"
                      id="sub-collections-desktop">
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                         fill="none"
+                         viewBox="0 0 24 24"
+                         stroke-width="1.5"
+                         stroke="currentColor"
+                         id="sub-collections-desktop-arrow"
+                         class="xl:hidden size-4 absolute top-1/2 -translate-y-1/2 z-10 right-1 rotate-180 me-2">
+                        <path stroke-linecap="round"
+                              stroke-linejoin="round"
+                              d="M15.75 19.5 8.25 12l7.5-7.5" />
+
+                    </svg>
                 </div>
-                <div class="hidden gap-6 overflow-x-auto"
+                <div class="hidden gap-6 overflow-x-auto scrollbar-none"
                      id="sub-products-desktop">
                 </div>
             </div>
@@ -202,6 +214,7 @@
             complete: function() {
                 setActiveLink();
                 showSubMenu();
+                navSubMenu();
             }
         });
     });
@@ -242,6 +255,38 @@
         }
     }
 
+    function navSubMenu() {
+        if ($('#sub-collections-desktop').get(0).scrollWidth > $('#sub-collections-desktop').innerWidth()) {
+            $('#sub-header').addClass('!pe-10')
+            $('#sub-collections-desktop').on('scroll', function() {
+                const scrollLeft = $(this).scrollLeft();
+                const clientWidth = $(this).innerWidth();
+                const scrollWidth = $(this).get(0).scrollWidth;
+                if (scrollLeft + clientWidth >= scrollWidth) {
+                    $('#sub-collections-desktop-arrow').removeClass('rotate-180');
+                } else {
+                    $('#sub-collections-desktop-arrow').addClass('rotate-180');
+                }
+            });
+            $('#sub-collections-desktop-arrow').on('click', function() {
+                const scrollWidth = $('#sub-collections-desktop').get(0).scrollWidth;
+                const clientWidth = $('#sub-collections-desktop').innerWidth();
+                const scrollLeft = $('#sub-collections-desktop').scrollLeft();
+
+                if (scrollLeft + clientWidth >= scrollWidth) {
+                    $('#sub-collections-desktop').animate({
+                        scrollLeft: 0
+                    }, 500);
+                } else {
+                    $('#sub-collections-desktop').animate({
+                        scrollLeft: scrollLeft + clientWidth
+                    }, 1000);
+                }
+            });
+        }
+
+    }
+
 
     /*
      * NOTE : 
@@ -252,8 +297,8 @@
 
         // Append main link to the navbar menu
         $('#navbar_menu_category').append(`
-            <a href="${menu.href}" class="flex py-6 items-center">
-                <p class="uppercase text-xs hover:text-cyan-500" id="${slugify(menu.name)}-link">${menu.name}</p>
+            <a href="${menu.href}" class="flex items-center">
+                <p class="uppercase text-xs hover:text-triconville-blue" id="${slugify(menu.name)}-link">${menu.name}</p>
             </a>
         `);
 
@@ -321,12 +366,12 @@
             const displayName = item.display_name || item.name;
             categoryMobile += `
                 <a href="${href}">
-                    <p class="py-1 hover:text-cyan-500 whitespace-nowrap" id="${slugify(item.name)}-link-mobile">${displayName}</p>
+                    <p class="py-1 hover:text-triconville-blue whitespace-nowrap" id="${slugify(item.name)}-link-mobile">${displayName}</p>
                 </a>
             `;
             categoryDesktop += `
                 <a href="${href}">
-                    <p class="py-1 hover:text-cyan-500 whitespace-nowrap" id="${slugify(item.name)}-sub-link">${displayName}</p>
+                    <p class="${menu === 'Inspirations' ? 'pt-1' : 'py-1'} hover:text-triconville-blue whitespace-nowrap" id="${slugify(item.name)}-sub-link">${displayName}</p>
                 </a>
             `;
         });
@@ -356,22 +401,22 @@
         }
 
         if (inspiration[parentUrl]) {
-            $(linkSelectors['inspiration']).removeClass('text-gray-900').addClass('text-cyan-500 underline');
-            $(inspiration[parentUrl]).removeClass('text-gray-900').addClass('text-cyan-500 underline');
+            $(linkSelectors['inspiration']).removeClass('text-gray-900').addClass('text-triconville-blue underline');
+            $(inspiration[parentUrl]).removeClass('text-gray-900').addClass('text-triconville-blue underline');
         }
         // Activate specific links based on the parentUrl
         if (linkSelectors[parentUrl]) {
-            $(linkSelectors[parentUrl]).removeClass('text-gray-900').addClass('text-cyan-500 underline');
+            $(linkSelectors[parentUrl]).removeClass('text-gray-900').addClass('text-triconville-blue underline');
         }
 
         // Highlight the current parent link if present
         if (parentUrl) {
-            $(`#${parentUrl}-link, #${parentUrl}-link-mobile`).removeClass('text-gray-900').addClass('text-cyan-500 underline');
+            $(`#${parentUrl}-link, #${parentUrl}-link-mobile`).removeClass('text-gray-900').addClass('text-triconville-blue underline');
         }
 
         // Highlight the child link if present
         if (childUrl) {
-            $(`#${childUrl}-link, #${childUrl}-link-mobile, #${childUrl}-sub-link`).removeClass('text-gray-900').addClass('text-cyan-500 underline');
+            $(`#${childUrl}-link, #${childUrl}-link-mobile, #${childUrl}-sub-link`).removeClass('text-gray-900').addClass('text-triconville-blue underline');
         }
     }
     </script>

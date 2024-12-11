@@ -72,7 +72,7 @@ function renderProducts(e, id) {
             <div>
                 <img class="w-full h-full object-cover md:object-contain group-hover:scale-[.97] group-hover:brightness-110 transition duration-300" src="${e.thumb}" />
             </div>
-            <p class="text-xs md:text-sm capitalize text-center md:-mt-5 group-hover:underline">${e.name}</p>
+            <p class="capitalize text-center md:-mt-5 group-hover:underline">${e.name}</p>
         </a>
     `);
 }

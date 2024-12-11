@@ -45,18 +45,18 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
 
         </div>
     </div>
-    <div class="px-3 md:px-5">
+    <div class="px-5 md:px-8">
         <div class="max-w-[1440px] mx-auto">
-            <div class="grid md:grid-cols-2 items-center mt-20"
+            <div class="grid lg:grid-cols-2 items-center mt-20 gap-8"
                  data-aos="fade-up"
                  data-aos-once="true"
                  data-aos-delay="200"
                  data-aos-duration="1000">
-                <div class="txt max-w-xl py-5">
+                <div class="txt max-w-xl py-5 order-last lg:order-first">
                     <h2 class='text-2xl md:text-3xl'>
                         20 Years of Excellence Experience on Outdoor Living
                     </h2>
-                    <p class="tracking-wider text-sm mt-3 mb-12">
+                    <p class="mt-3 mb-12">
                         For decades, Triconville has grown steadily, rooted in core values that honor tradition, quality, and integrity, and guided by a global vision—bringing timeless, handcrafted pieces to homes and spaces around the world.
                     </p>
                     <a href="<?= BASE_LINK ?>/about-us"
@@ -112,18 +112,20 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                  data-aos-once="true"
                  data-aos-delay="200"
                  data-aos-duration="1000">
-                <div class="flex gap-5 lg:flex-row flex-col items-center justify-between">
-                    <div class="max-w-lg">
+                <div class="grid lg:grid-cols-2 gap-8 items-center">
+                    <div class="max-w-lg order-last lg:order-first">
                         <p class="text-xs uppercase tracking-widest">MOODS</p>
                         <h2 class="text-3xl">Your World, Your Style, Your Outdoors.</h2>
-                        <p class="text-sm mt-3 mb-10">We believe every outdoor space has a story to tell. It should be as unique as you are. Hence we've curated a diverse collection of furniture styles to complement any outdoor space and reflect your personal taste:</p>
+                        <p class=" mt-3 mb-10">We believe every outdoor space has a story to tell. It should be as unique as you are. Hence we've curated a diverse collection of furniture styles to complement any outdoor space and reflect your personal taste:</p>
                         <a href="<?= BASE_LINK ?>/moods"
                            class='btn-ghost uppercase text-xs tracking-widest'>
                             EXPLORE MOODS
                         </a>
                     </div>
-                    <div class="grid grid-cols-4 gap-3 w-full md:w-3/5"
-                         id="moods-selected">
+                    <div>
+                        <img src="https://storage.googleapis.com/back-bucket/wp_triconville/images/moods/All%20Moods.png"
+                             alt="all Moods image"
+                             class="w-full h-auto" />
                     </div>
                 </div>
             </div>
@@ -158,7 +160,7 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                                 </h2>
                             </div>
                             <div class="md:mb-10">
-                                <p class=" text-sm tracking-wider line-clamp-2 md:line-clamp-3">
+                                <p class="tracking-wider line-clamp-2 md:line-clamp-3">
                                     <?php echo get_the_excerpt($post->ID); ?>
                                 </p>
                             </div>
@@ -177,24 +179,21 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                  data-aos-once="true"
                  data-aos-delay="200"
                  data-aos-duration="1000">
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-20 my-5">
+                <div class="grid lg:grid-cols-2 gap-8 items-center ">
+                    <div class="max-w-lg order-last lg:order-first">
+                        <p class="uppercase text-xs tracking-widest mb-2">catalog</p>
+                        <h2 class="text-3xl">Triconville - 2024 Catalog</h2>
+                        <p class=" mt-3 mb-12">
+                            Discover an unrivaled selection of luxuriant designs from Triconville. Brought to life with captivating imagery,
+                            the 2024 Triconville catalogue is a go-to resource for inspiration and information. Qualified trade members can
+                            reserve a copy by filling out the form below.
+                        </p>
+                        <a href="<?= BASE_LINK ?>/collections"
+                           class="btn-ghost uppercase text-xs">View Catalog</a>
+                    </div>
                     <div class="">
                         <img src="https://storage.googleapis.com/back-bucket/wp_triconville/images/home/Home%20Catalogue.jpg"
                              class="w-auto h-auto object-cover" />
-                    </div>
-                    <div class="flex justify-center items-center p-3 md:p-5"
-                         id="catalog-selected">
-                        <div class="">
-                            <p class="uppercase text-xs tracking-widest mb-2">catalog</p>
-                            <h2 class="text-3xl">Triconville - 2024 Catalog</h2>
-                            <p class="text-sm tracking-wider mt-3 mb-12">
-                                Discover an unrivaled selection of luxuriant designs from Triconville. Brought to life with captivating imagery,
-                                the 2024 Triconville catalogue is a go-to resource for inspiration and information. Qualified trade members can
-                                reserve a copy by filling out the form below.
-                            </p>
-                            <a href="<?= BASE_LINK ?>/collections"
-                               class="btn-ghost uppercase text-xs tracking-widest">View Catalog</a>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -248,15 +247,6 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
             }
         );
 
-        fetchData(
-            "/?rest_route=/wp/v2/selected_moods",
-            (res) => {
-                moodList = res || [];
-            },
-            () => {
-                renderMoods();
-            }
-        );
     });
 
     function loadCollections() {
@@ -298,10 +288,10 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                     <div class="sm:h-full w-full h-[65vh] flex group items-end md:hover:bg-gradient-to-b from-transparent to-black/40 p-5">
                         <div class="max-w-md transition duration-300 translate-y-14 md:group-hover:translate-y-0 ease-in-out">
                             <h1 class="text-3xl md:text-5xl text-white">
-                                ${collection.name}
+                                ${filterProductName(collection.name)}
                             </h1>
                             <div class="line-clamp-2">
-                                <p class="text-white text-sm invisible md:group-hover:visible duration-300">
+                                <p class="text-white invisible md:group-hover:visible duration-300">
                                     ${collection.description}
                                 </p>
                             </div>
@@ -325,19 +315,6 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                 </a>
             `);
         })
-    }
-
-    function renderMoods() {
-        moodList.forEach((mood, i) => {
-            $('#moods-selected').append(`
-                <div class="h-[322px] md:h-[462px] w-auto bg-no-repeat bg-center bg-cover gallery-item ${i % 2 !== 0 ? 'mt-10 -mb-10' : ''}"
-                    style="background-image: url('<?php echo esc_attr(get_template_directory_uri()); ?>/assets/${mood.thumb}')">
-                    <div class="h-full w-full flex items-end justify-end p-5">
-                        <h2 class="invisible sm:visible text-xl xl:text-3xl text-end text-white max-w-[260px]">${mood.name}</h2>
-                    </div>
-                </div>
-            `);
-        });
     }
 
     function collectionSlick() {

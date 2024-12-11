@@ -8,29 +8,29 @@ get_template_part('header-custom');
 ?>
 
 <div class="content-container mt-20 overflow-hidden">
-    <div class="px-3 md:px-5 my-10">
+    <div class="px-5 md:px-8 my-10">
         <div class="max-w-[1440px] mx-auto">
             <div class="text-center md:pt-10 ">
                 <h1 class="text-3xl md:text-5xl">Moods</h1>
-                <p class="text-sm md:text-base">Emotions in Every Moments</p>
+                <p class="md:text-base">Emotions in Every Moments</p>
             </div>
             <div class="grid py-10 lg:grid-cols-4 grid-cols-2 gap-2 md:gap-5"
                  id="mood__list">
 
             </div>
-            <div class="py-10 flex flex-col justify-between items-center sm:flex-row gap-5 md:gap-12 lg:gap-36">
-                <div class=" max-w-xl "
+            <div class="py-10 grid lg:grid-cols-2 gap-8">
+                <div class="max-w-lg order-2 lg:order-1"
                      data-aos="fade-up"
                      data-aos-once="true"
                      data-aos-duration="1000">
                     <h2 class="text-2xl md:text-3xl ">
                         Moods
                     </h2>
-                    <p class="py-5 text-sm tracking-wider">
+                    <p class="py-5">
                         We believe every outdoor space has a story to tell. It should be as unique as you are. Hence we've curated a diverse collection of furniture styles to complement any outdoor space and reflect your personal taste
                     </p>
                 </div>
-                <div class=""
+                <div class="order-1 lg:order-2"
                      data-aos="fade-up"
                      data-aos-once="true"
                      data-aos-duration="1000">
@@ -77,9 +77,9 @@ function renderBanner() {
                     >
                     <a href="<?= BASE_LINK ?>/moods/${mood.slug}"
                         class="h-full w-full flex flex-col items-end justify-end p-5 transition duration-300 md:translate-y-14 md:group-hover:translate-y-0 ease-in-out md:group-hover:bg-gradient-to-b from-transparent to-black/40">
-                        <h1 class="text-2xl md:text-5xl !leading-none font-medium text-end text-white max-w-[260px] md:mb-6">${mood.name}</h1>
+                        <h1 class="text-2xl md:text-3xl xl:text-5xl !leading-none font-medium text-end text-white max-w-[260px] md:mb-6">${mood.name}</h1>
                         <div class="text-end h-0 md:h-8">
-                            <p class="text-white text-sm invisible md:group-hover:visible duration-300 md:mb-6">${mood.subName}</p>
+                            <p class="text-white invisible md:group-hover:visible duration-300 md:mb-6">${mood.subName}</p>
                         </div>
                     </a>
                 </div>  

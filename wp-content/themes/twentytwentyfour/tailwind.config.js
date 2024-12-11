@@ -27,8 +27,14 @@ module.exports = {
       letterSpacing: {
         wider: ".07em",
       },
+      borderWidth: {
+        3: "3px",
+      },
       colors: {
         "shadow-image": "#f8f8f8",
+        "triconville-blue": "#10A1CF",
+        "triconville-beige": "#EBE9E0",
+        "triconville-black": "#3C3E3E",
       },
     },
   },

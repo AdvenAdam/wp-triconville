@@ -16,7 +16,7 @@ body {
 <div class="content-container scroll-smooth overflow-x-hidden h-[calc(100vh-5rem)] md:h-[calc(100vh-8rem)] mt-20 md:mt-32"
      id="magnetic__container">
     <!-- NOTE: Banner -->
-    <div class="flex flex-col justify-center py-14 md:py-20 px-3 md:px-5 snap-always snap-start">
+    <div class="flex flex-col justify-center py-14 md:py-20 px-5 md:px-8 snap-always snap-start">
         <h1 class="text-3xl md:text-5xl font-medium text-center capitalize ">triconville collections</h1>
         <h3 class='text-center'>The Luxury of Living Outdoors</h3>
         <div class="flex gap-2 justify-center mt-10 view-button">
