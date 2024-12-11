@@ -95,7 +95,10 @@ get_template_part('header-custom');
             </div>
             <div class="py-10 md:pb-20 relative h-fit hidden"
                  id="releted__products">
-                <h2 class='text-2xl md:text-3xl releted__products__name'></h2>
+                <h2 class='text-2xl md:text-3xl releted__products__name'
+                    data-aos="fade-up"
+                    data-aos-once="true"
+                    data-aos-duration="1000"></h2>
                 <div class="releted__products my-10"></div>
                 <div class="releted__products__btn text-center"></div>
 
@@ -127,7 +130,6 @@ jQuery(document).ready(function($) {
         },
         success: (res) => {
             ProductsData = res;
-            console.log("🚀 ~ jQuery ~ ProductsData:", ProductsData)
         },
         error: (xhr, status, error) => {
             if (xhr.status === 404) {
@@ -189,6 +191,64 @@ function renderMaster() {
     }
 }
 
+async function generateValidUrl(swatchOpt) {
+    const isTwoSwatch = swatchOpt.option2;
+    const combine = `${ProductsData.sku}-${swatchOpt.option1.toUpperCase()}${isTwoSwatch ? `-${swatchOpt.option2.toUpperCase()}` : ''}.png`;
+    const baseImgUrl = `https://storage.googleapis.com/pimassest1/configurator/${ProductsData.sku}/1024/${combine}`;
+
+    return await checkUrl(baseImgUrl) ? baseImgUrl : ProductsData.product_image
+}
+
+async function changeSwatch(variant, code) {
+    if (variant === 1) {
+        $('.option_1').removeClass('active');
+        $('.option_1 img').removeClass('border-3')
+    } else {
+        $('.option_2').removeClass('active');
+        $('.option_2 img').removeClass('border-3')
+    }
+    $(`#${code}`).addClass('active')
+    $(`#${code} img`).addClass('border-3')
+
+    const swatchOpt = {
+        option1: $('#option_1 .active').attr('id') || null,
+        option2: $('#option_2 .active').attr('id') || null
+    }
+    const validBaseImgUrl = await generateValidUrl(swatchOpt);
+    $('#product__header__image img').attr("src", validBaseImgUrl)
+}
+
+async function renderOverview(res) {
+    const swatchOpt = {
+        option1: res.combineoptionvariant.option1[0].code,
+        option2: res.combineoptionvariant.option2 ? res.combineoptionvariant.option2[0].code : null
+    }
+    const validBaseImgUrl = await generateValidUrl(swatchOpt);
+
+    $('#product__header__image').append(`
+        <div class="text-center mx-auto ">
+            <img src="${validBaseImgUrl}" alt="${res.name}" class="w-auto h-[350px] lg:h-[720px] xl:h-[870px] m-2 object-contain"/>
+        </div>
+    `)
+    if (res.name) {
+        const desc = res.description.replace(/<\/?p[^>]*>/g, '').replace(/<li[^>]*>(.*?)<\/li>/g, '')
+        $('#product__overview').append(`
+            <div class='max-w-xl'>
+                <h1 class="text-2xl md:text-3xl text-gray-900 line-clamp-2">${filterProductName(res.name)}</h1>
+                <p class="text-slate-500 mb-4">Designed by 
+                    <span class="text-black font-medium underline"><a href="https://indospacegroup.com/indospace-rnd/" target="_blank">Indospace R&D </a></span>
+                </p>
+                <p class="line-clamp-4">${desc}</p>
+            </div>
+        `);
+    }
+    if (Array.isArray(res.ambience_image) && res.ambience_image.length > 0) {
+        $('#product__ambience').append(`
+            <img src="${res.ambience_image[0]}" alt="${res.name}" class="w-full h-auto rounded-xl"/>
+        `);
+    }
+}
+
 function renderSheet(sheet) {
     $('#product__description').append(`
         <div class="flex gap-2">
@@ -224,13 +284,14 @@ function changeSize(size) {
 function renderMaterial(res) {
     if (res.option1 && Array.isArray(res.option1)) {
         $('#label_1').text(res.label1)
-        res.option1.forEach(opt => {
+        res.option1.forEach((opt, index) => {
+            const active = index === 0;
             $('#option_1').append(
-                `<div class="group cursor-pointer relative" id="${opt.code}">
+                `<div class="group option_1 cursor-pointer relative ${active? 'active' : ''}" id="${opt.code}" onClick="changeSwatch(1,'${opt.code}')">
                     <div id="tooltip-${opt.code}" class=" absolute -top-16 sm:-left-10 w-fit z-10 invisible group-hover:visible inline-block bg-gray-900 rounded-lg shadow-sm opacity-0 group-hover:opacity-100 ">
                         <p class="px-3 py-2 font-medium text-white w-[180px] line-clamp-2">${opt.name}</p>
                     </div>
-                    <img src="${opt.img_link}" class="w-16 md:w-20 h-16 md:h-20 object-contain"/>
+                    <img src="${opt.img_link}" class="w-16 md:w-20 h-16 md:h-20 object-contain border-triconville-blue ${active?'border-3':''}"/>
                 </div>`
             );
         });
@@ -239,51 +300,20 @@ function renderMaterial(res) {
 
     if (res.option2 && Array.isArray(res.option2)) {
         $('#label_2').text(res.label2)
-        res.option2.forEach(opt => {
+        res.option2.forEach((opt, index) => {
+            const active = index === 0;
             $('#option_2').append(
-                `<div class="group cursor-pointer relative" id="${opt.code}">
+                `<div class="group option_2 cursor-pointer relative ${active? 'active' : ''}" id="${opt.code}" onClick="changeSwatch(2,'${opt.code}')">
                     <div id="tooltip-${opt.code}" class=" absolute -top-16 sm:-left-10 w-fit z-10 invisible group-hover:visible inline-block bg-gray-900 rounded-lg shadow-sm opacity-0 group-hover:opacity-100 ">
                         <p class="px-3 py-2 font-medium text-white w-[180px] line-clamp-2">${opt.name}</p>
                     </div>
-                    <img src="${opt.img_link}" class="w-16 md:w-20 h-16 md:h-20 object-contain"/>
+                    <img src="${opt.img_link}" class="w-16 md:w-20 h-16 md:h-20 object-contain border-triconville-blue ${active?'border-3':''}"/>
                 </div>`
             );
         });
 
     }
 
-}
-
-function renderOverview(res) {
-    // TODO : make init the img Prod image base on Variant
-    const baseImgUrl = `https://storage.googleapis.com/pimassest1/configurator/${res.sku}/1024/`
-
-    const swatchOpt = ProductsData.combineoptionvariant
-    const isTwoSwatch = swatchOpt.option2.length > 0
-
-
-    $('#product__header__image').append(`
-        <div class="text-center mx-auto ">
-            <img src="${res.product_image}" alt="${res.name}" class="w-auto h-[350px] lg:h-[720px] xl:h-[870px] m-2 object-contain"/>
-        </div>
-    `)
-    if (res.name) {
-        const desc = res.description.replace(/<\/?p[^>]*>/g, '').replace(/<li[^>]*>(.*?)<\/li>/g, '')
-        $('#product__overview').append(`
-            <div class='max-w-xl'>
-                <h1 class="text-2xl md:text-3xl text-gray-900 line-clamp-2">${filterProductName(res.name)}</h1>
-                <p class="text-slate-500 mb-4">Designed by 
-                    <span class="text-black font-medium underline"><a href="https://indospacegroup.com/indospace-rnd/" target="_blank">Indospace R&D </a></span>
-                </p>
-                <p class="line-clamp-4">${desc}</p>
-            </div>
-        `);
-    }
-    if (Array.isArray(res.ambience_image) && res.ambience_image.length > 0) {
-        $('#product__ambience').append(`
-            <img src="${res.ambience_image[0]}" alt="${res.name}" class="w-full h-auto rounded-xl"/>
-        `);
-    }
 }
 
 function renderDimensions(dimensions, render = "all") {

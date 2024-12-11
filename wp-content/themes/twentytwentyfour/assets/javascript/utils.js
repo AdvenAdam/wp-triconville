@@ -1,15 +1,7 @@
 function checkUrl(url) {
-  fetch(url)
-    .then((response) => {
-      if (response.status === 404) {
-        console.error("URL not found (404):", url);
-      } else {
-        console.log("URL is valid:", url);
-      }
-    })
-    .catch((error) => {
-      console.error("Error checking URL:", error);
-    });
+  return fetch(url)
+    .then((response) => response.ok)
+    .catch((error) => false);
 }
 
 function slugify(str) {
