@@ -318,7 +318,7 @@
       addressEl() {
         return $("<div/>", {
           class: "location-tile-address",
-          html: `<p class="text-sm mb-2 min-h-14">${this.data.address}</p>`,
+          html: `<p class="mb-2 min-h-14">${this.data.address}</p>`,
         });
       },
 
@@ -329,7 +329,7 @@
         if (map) {
           const centerActionEl = $("<a/>", {
             attr: { href: "#", class: "block w-fit" },
-            html: `<p class="text-sm underline mb-2 hover:text-cyan-500 ">View on map</p>`,
+            html: `<p class="underline mb-2 hover:text-cyan-500 ">View on map</p>`,
             click: (e) => {
               e.preventDefault();
               closeAllInfoWindow();

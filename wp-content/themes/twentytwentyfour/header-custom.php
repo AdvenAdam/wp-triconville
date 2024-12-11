@@ -85,18 +85,18 @@
                 </div>
                 <!-- Note : Login -->
                 <div class="hidden lg:flex items-center gap-1 md:gap-3 xl:gap-6">
-                    <div class="pb-1 text-xs uppercase outline-none text-[#4D4D4D] hover:text-cyan-500 flex gap-1 items-center">
+                    <div class="pb-1 text-xs uppercase outline-none text-triconville-black hover:text-triconville-blue flex gap-1 items-center">
                         <?php echo do_shortcode('[gtranslate]') ?>
                     </div>
                     <a href="https://indospaceb2b.com/"
                        class="flex gap-1 items-center group pb-1">
-                        <p class="text-xs uppercase pt-3 pb-2 group-hover:text-cyan-500">B2B Login</p>
+                        <p class="text-xs uppercase pt-3 pb-2 group-hover:text-triconville-blue">B2B Login</p>
                         <svg xmlns="http://www.w3.org/2000/svg"
                              fill="none"
                              viewBox="0 0 24 24"
                              stroke-width="1.5"
                              stroke="currentColor"
-                             class="size-4 group-hover:text-cyan-500">
+                             class="size-4 group-hover:text-triconville-blue">
                             <path stroke-linecap="round"
                                   stroke-linejoin="round"
                                   d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
@@ -111,13 +111,13 @@
                         data-drawer-placement="right"
                         data-drawer-show="drawer-navigation"
                         aria-controls="drawer-navigation">
-                    <p class="text-xs font-medium group-hover:text-cyan-500 pt-1">Menu</p>
+                    <p class="text-xs font-medium group-hover:text-triconville-blue pt-1">Menu</p>
                     <svg xmlns="http://www.w3.org/2000/svg"
                          fill="none"
                          viewBox="0 0 24 24"
                          stroke-width="1.5"
                          stroke="currentColor"
-                         class="size-6 group-hover:text-cyan-500">
+                         class="size-6 group-hover:text-triconville-blue">
                         <path stroke-linecap="round"
                               stroke-linejoin="round"
                               d="M3.75 9h16.5m-16.5 6.75h16.5" />
@@ -140,7 +140,7 @@
                          stroke-width="1.5"
                          stroke="currentColor"
                          id="sub-collections-desktop-arrow"
-                         class="hidden size-4 absolute top-1/2 -translate-y-1/2 z-10 right-1 rotate-180 me-2">
+                         class="xl:hidden size-4 absolute top-1/2 -translate-y-1/2 z-10 right-1 rotate-180 me-2">
                         <path stroke-linecap="round"
                               stroke-linejoin="round"
                               d="M15.75 19.5 8.25 12l7.5-7.5" />
@@ -256,40 +256,35 @@
     }
 
     function navSubMenu() {
-        if (!$('#sub-collections-desktop').hasClass('hidden')) {
-            if ($('#sub-collections-desktop').get(0).scrollWidth > $('#sub-collections-desktop').innerWidth()) {
-                // if (scrollLeft + clientWidth >= scrollWidth) {
-                //     $('#sub-collections-desktop-arrow').css('transform', 'rotate(180deg)');
-                // }
-                $('#sub-header').addClass('!pe-10')
-                $('#sub-collections-desktop').on('scroll', function() {
-                    const scrollLeft = $(this).scrollLeft();
-                    const clientWidth = $(this).innerWidth();
-                    const scrollWidth = $(this).get(0).scrollWidth;
+        if ($('#sub-collections-desktop').get(0).scrollWidth > $('#sub-collections-desktop').innerWidth()) {
+            $('#sub-header').addClass('!pe-10')
+            $('#sub-collections-desktop').on('scroll', function() {
+                const scrollLeft = $(this).scrollLeft();
+                const clientWidth = $(this).innerWidth();
+                const scrollWidth = $(this).get(0).scrollWidth;
+                if (scrollLeft + clientWidth >= scrollWidth) {
+                    $('#sub-collections-desktop-arrow').removeClass('rotate-180');
+                } else {
+                    $('#sub-collections-desktop-arrow').addClass('rotate-180');
+                }
+            });
+            $('#sub-collections-desktop-arrow').on('click', function() {
+                const scrollWidth = $('#sub-collections-desktop').get(0).scrollWidth;
+                const clientWidth = $('#sub-collections-desktop').innerWidth();
+                const scrollLeft = $('#sub-collections-desktop').scrollLeft();
 
-                    if (scrollLeft + clientWidth >= scrollWidth) {
-                        $('#sub-collections-desktop-arrow').removeClass('rotate-180');
-                    } else {
-                        $('#sub-collections-desktop-arrow').addClass('rotate-180');
-                    }
-                });
-                $('#sub-collections-desktop-arrow').removeClass('hidden').on('click', function() {
-                    const scrollWidth = $('#sub-collections-desktop').get(0).scrollWidth;
-                    const clientWidth = $('#sub-collections-desktop').innerWidth();
-                    const scrollLeft = $('#sub-collections-desktop').scrollLeft();
-
-                    if (scrollLeft + clientWidth >= scrollWidth) {
-                        $('#sub-collections-desktop').animate({
-                            scrollLeft: 0
-                        }, 500);
-                    } else {
-                        $('#sub-collections-desktop').animate({
-                            scrollLeft: scrollLeft + clientWidth
-                        }, 1000);
-                    }
-                });
-            }
+                if (scrollLeft + clientWidth >= scrollWidth) {
+                    $('#sub-collections-desktop').animate({
+                        scrollLeft: 0
+                    }, 500);
+                } else {
+                    $('#sub-collections-desktop').animate({
+                        scrollLeft: scrollLeft + clientWidth
+                    }, 1000);
+                }
+            });
         }
+
     }
 
 
@@ -303,7 +298,7 @@
         // Append main link to the navbar menu
         $('#navbar_menu_category').append(`
             <a href="${menu.href}" class="flex items-center">
-                <p class="uppercase text-xs hover:text-cyan-500" id="${slugify(menu.name)}-link">${menu.name}</p>
+                <p class="uppercase text-xs hover:text-triconville-blue" id="${slugify(menu.name)}-link">${menu.name}</p>
             </a>
         `);
 
@@ -371,12 +366,12 @@
 
             categoryMobile += `
                 <a href="${href}">
-                    <p class="py-1 hover:text-cyan-500 whitespace-nowrap" id="${slugify(item.name)}-link-mobile">${displayName}</p>
+                    <p class="py-1 hover:text-triconville-blue whitespace-nowrap" id="${slugify(item.name)}-link-mobile">${displayName}</p>
                 </a>
             `;
             categoryDesktop += `
                 <a href="${href}">
-                    <p class="${menu === 'Inspirations' ? 'pt-1' : 'py-1'} hover:text-cyan-500 whitespace-nowrap" id="${slugify(item.name)}-sub-link">${displayName}</p>
+                    <p class="${menu === 'Inspirations' ? 'pt-1' : 'py-1'} hover:text-triconville-blue whitespace-nowrap" id="${slugify(item.name)}-sub-link">${displayName}</p>
                 </a>
             `;
         });
@@ -407,22 +402,22 @@
         }
 
         if (inspiration[parentUrl]) {
-            $(linkSelectors['inspiration']).removeClass('text-gray-900').addClass('text-cyan-500 underline');
-            $(inspiration[parentUrl]).removeClass('text-gray-900').addClass('text-cyan-500 underline');
+            $(linkSelectors['inspiration']).removeClass('text-gray-900').addClass('text-triconville-blue underline');
+            $(inspiration[parentUrl]).removeClass('text-gray-900').addClass('text-triconville-blue underline');
         }
         // Activate specific links based on the parentUrl
         if (linkSelectors[parentUrl]) {
-            $(linkSelectors[parentUrl]).removeClass('text-gray-900').addClass('text-cyan-500 underline');
+            $(linkSelectors[parentUrl]).removeClass('text-gray-900').addClass('text-triconville-blue underline');
         }
 
         // Highlight the current parent link if present
         if (parentUrl) {
-            $(`#${parentUrl}-link, #${parentUrl}-link-mobile`).removeClass('text-gray-900').addClass('text-cyan-500 underline');
+            $(`#${parentUrl}-link, #${parentUrl}-link-mobile`).removeClass('text-gray-900').addClass('text-triconville-blue underline');
         }
 
         // Highlight the child link if present
         if (childUrl) {
-            $(`#${childUrl}-link, #${childUrl}-link-mobile, #${childUrl}-sub-link`).removeClass('text-gray-900').addClass('text-cyan-500 underline');
+            $(`#${childUrl}-link, #${childUrl}-link-mobile, #${childUrl}-sub-link`).removeClass('text-gray-900').addClass('text-triconville-blue underline');
         }
     }
     </script>

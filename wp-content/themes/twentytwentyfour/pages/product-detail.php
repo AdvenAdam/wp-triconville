@@ -127,6 +127,7 @@ jQuery(document).ready(function($) {
         },
         success: (res) => {
             ProductsData = res;
+            console.log("🚀 ~ jQuery ~ ProductsData:", ProductsData)
         },
         error: (xhr, status, error) => {
             if (xhr.status === 404) {
@@ -223,49 +224,44 @@ function changeSize(size) {
 function renderMaterial(res) {
     if (res.option1 && Array.isArray(res.option1)) {
         $('#label_1').text(res.label1)
-        res.option1.slice(0, 4).forEach(opt => {
+        res.option1.forEach(opt => {
             $('#option_1').append(
                 `<div class="group cursor-pointer relative" id="${opt.code}">
                     <div id="tooltip-${opt.code}" class=" absolute -top-16 sm:-left-10 w-fit z-10 invisible group-hover:visible inline-block bg-gray-900 rounded-lg shadow-sm opacity-0 group-hover:opacity-100 ">
-                        <p class="px-3 py-2 text-xs md:text-sm font-medium text-white w-[180px] line-clamp-2">${opt.name}</p>
+                        <p class="px-3 py-2 font-medium text-white w-[180px] line-clamp-2">${opt.name}</p>
                     </div>
                     <img src="${opt.img_link}" class="w-16 md:w-20 h-16 md:h-20 object-contain"/>
                 </div>`
             );
         });
-        if (res.option1.length > 4) {
-            $('#option_1').append(`
-                <a href="<?= BASE_LINK; ?>/materials" class="w-16 md:w-20 h-16 md:h-20 flex items-center justify-center cursor-pointer bg-black/40">
-                    <p class="text-xs text-white"> More</p></p> 
-                </a>
-            `)
-        }
+
     }
 
     if (res.option2 && Array.isArray(res.option2)) {
         $('#label_2').text(res.label2)
-        res.option2.slice(0, 4).forEach(opt => {
+        res.option2.forEach(opt => {
             $('#option_2').append(
                 `<div class="group cursor-pointer relative" id="${opt.code}">
                     <div id="tooltip-${opt.code}" class=" absolute -top-16 sm:-left-10 w-fit z-10 invisible group-hover:visible inline-block bg-gray-900 rounded-lg shadow-sm opacity-0 group-hover:opacity-100 ">
-                        <p class="px-3 py-2 text-xs md:text-sm font-medium text-white w-[180px] line-clamp-2">${opt.name}</p>
+                        <p class="px-3 py-2 font-medium text-white w-[180px] line-clamp-2">${opt.name}</p>
                     </div>
                     <img src="${opt.img_link}" class="w-16 md:w-20 h-16 md:h-20 object-contain"/>
                 </div>`
             );
         });
-        if (res.option2.length > 4) {
-            $('#option_2').append(`
-                <a href="<?= BASE_LINK; ?>/materials" class="w-16 md:w-20 h-16 md:h-20 flex items-center justify-center cursor-pointer bg-black/40">
-                    <p class="text-xs text-white"> More</p></p> 
-                </a>
-            `)
-        }
+
     }
 
 }
 
 function renderOverview(res) {
+    // TODO : make init the img Prod image base on Variant
+    const baseImgUrl = `https://storage.googleapis.com/pimassest1/configurator/${res.sku}/1024/`
+
+    const swatchOpt = ProductsData.combineoptionvariant
+    const isTwoSwatch = swatchOpt.option2.length > 0
+
+
     $('#product__header__image').append(`
         <div class="text-center mx-auto ">
             <img src="${res.product_image}" alt="${res.name}" class="w-auto h-[350px] lg:h-[720px] xl:h-[870px] m-2 object-contain"/>
@@ -276,10 +272,10 @@ function renderOverview(res) {
         $('#product__overview').append(`
             <div class='max-w-xl'>
                 <h1 class="text-2xl md:text-3xl text-gray-900 line-clamp-2">${filterProductName(res.name)}</h1>
-                <p class="text-slate-500 text-sm text-sm mb-4">Designed by 
+                <p class="text-slate-500 mb-4">Designed by 
                     <span class="text-black font-medium underline"><a href="https://indospacegroup.com/indospace-rnd/" target="_blank">Indospace R&D </a></span>
                 </p>
-                <p class="text-sm line-clamp-4">${desc}</p>
+                <p class="line-clamp-4">${desc}</p>
             </div>
         `);
     }
@@ -317,7 +313,7 @@ function renderDimensions(dimensions, render = "all") {
                     <div id="product__downloadable"
                          class="grid grid-cols-2 gap-4">
                     </div>
-                    <p class="text-sm text-[#798F98] mt-5">Please <span class="underline"><a href="https://indospaceb2b.com/"" target="_blank">login</a></span> to access all downloadable contents</p>
+                    <p class="text-[#798F98] mt-5">Please <span class="underline"><a href="https://indospaceb2b.com/"" target="_blank">login</a></span> to access all downloadable contents</p>
                 </div>
             </div>
         `)
@@ -621,7 +617,7 @@ function renderCollectionProducts(products, name) {
             <a href="<?= BASE_LINK; ?>/product-detail/${slugify(e.name)}">     
                 <div class="product__card group">
                     <img src="${e.product_image}" class="md:h-[384px] h-[204px] object-contain w-auto object-contain group-hover:scale-[.97] group-hover:brightness-110 transition duration-300" />
-                    <p class="text-center w-full md:-mt-3 text-sm mx-auto capitalize group-hover:underline">
+                    <p class="text-center w-full md:-mt-3 mx-auto capitalize group-hover:underline">
                         ${filterProductName(e.name)}
                     </p>
                 </div>
@@ -647,7 +643,7 @@ function renderRelatedProducts(products) {
             <a href="<?= BASE_LINK; ?>/product-detail/${slugify(e.name)}">     
                 <div class="product__card group">
                     <img src="${e.product_image}" class="md:h-[384px] h-[204px] object-contain w-auto object-contain group-hover:scale-[.97] group-hover:brightness-110 transition duration-300" />
-                    <p class="text-center w-full md:-mt-3 text-sm mx-auto capitalize group-hover:underline">
+                    <p class="text-center w-full md:-mt-3 mx-auto capitalize group-hover:underline">
                         ${filterProductName(e.name)}
                     </p>
                 </div>

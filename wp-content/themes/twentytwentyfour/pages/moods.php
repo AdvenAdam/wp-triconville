@@ -124,7 +124,7 @@ function renderBanner() {
                 <h1 class="text-3xl md:text-5xl lg:text-6xl xl:text-[7.5rem] xl:leading-[9rem] mood-color font-bold mb-5">${selectedMood.name}</h1>
                 <div class="max-w-sm ">
                     <h3 class="mood-color  mb-3">${descriptionTitle}</h3>
-                    <p class="text-sm mood-color">${description}</p>
+                    <p class="mood-color">${description}</p>
                 </div>
             </div>
         </div>
@@ -135,7 +135,7 @@ function renderBanner() {
             <img src="<?php echo esc_attr(get_template_directory_uri()); ?>/assets/${selectedMood.subTitle.subImage}" class="w-full h-[300px] md:h-auto object-cover " />
             <div class="max-w-3xl mx-auto px-3 md:px-5 text-center  mood-color py-5 md:py-10">
                 <h3 class=" mood-color">${selectedMood.subTitle.title}</h3>
-                <p class="text-sm mt-5 mood-color">${selectedMood.subTitle.description}</p>
+                <p class="mt-5 mood-color">${selectedMood.subTitle.description}</p>
             </div>
         </div>
     `);
@@ -167,7 +167,7 @@ function renderMaterials(materials) {
                     <h2 class="text-2xl mood-color md:text-3xl text-white mb-5">
                         Materials
                     </h2>
-                    <p class="text-sm mood-color max-w-md">
+                    <p class="mood-color max-w-md">
                         ${selectedMood.materials.desc}
                     </p>
                 </div>
@@ -183,7 +183,7 @@ function renderCatalogue(catalogueImage) {
                 <div class="max-w-xl order-2 sm:order-1 px-3 md:px-5">
                     <p class="uppercase text-xs tracking-widest mood-color mb-2">CATALOG</p>
                     <h2 class="mood-color text-3xl">Triconville - 2024 Catalog</h2>
-                    <p class="text-sm tracking-wider mt-3 mb-12 mood-color">Discover an unrivaled selection of luxuriant designs from Triconville. Brought to life with captivating imagery, the 2024 Triconville catalogue is a go-to resource for inspiration and information. Qualified trade members can reserve a copy by filling out the form below.</p>
+                    <p class="tracking-wider mt-3 mb-12 mood-color">Discover an unrivaled selection of luxuriant designs from Triconville. Brought to life with captivating imagery, the 2024 Triconville catalogue is a go-to resource for inspiration and information. Qualified trade members can reserve a copy by filling out the form below.</p>
                     <p><a href="<?= BASE_LINK ?>/collections" class="btn-ghost uppercase text-xs  mood-color">View Catalog</a></p>
                 </div>
                 <img src="<?php echo esc_attr(get_template_directory_uri()); ?>/assets/${catalogueImage}" class=" w-full h-auto object-cover order-1 sm:order-2" />
@@ -208,7 +208,7 @@ function renderOtherMoods() {
                                 class="h-full w-full flex flex-col items-end justify-end p-5 transition duration-300 md:translate-y-14 md:group-hover:translate-y-0 ease-in-out md:group-hover:bg-gradient-to-b from-transparent to-black/40">
                                 <h1 class="text-3xl md:text-5xl !leading-none font-medium text-end text-white max-w-[160px] md:max-w-[260px] md:mb-6">${mood.name}</h1>
                                 <div class="text-end h-0 md:h-8">
-                                    <p class="text-white text-sm invisible md:group-hover:visible duration-300 md:mb-6">${mood.subName}</p>
+                                    <p class="text-white invisible md:group-hover:visible duration-300 md:mb-6">${mood.subName}</p>
                                 </div>
                             </a>
                         </div>

@@ -12,7 +12,7 @@ get_template_part('header-custom');
         <div class="max-w-[1440px] mx-auto">
             <div class="text-center md:pt-10 ">
                 <h1 class="text-3xl md:text-5xl">Moods</h1>
-                <p class="text-sm md:text-base">Emotions in Every Moments</p>
+                <p class="md:text-base">Emotions in Every Moments</p>
             </div>
             <div class="grid py-10 lg:grid-cols-4 grid-cols-2 gap-2 md:gap-5"
                  id="mood__list">
@@ -26,7 +26,7 @@ get_template_part('header-custom');
                     <h2 class="text-2xl md:text-3xl ">
                         Moods
                     </h2>
-                    <p class="py-5 text-sm tracking-wider">
+                    <p class="py-5">
                         We believe every outdoor space has a story to tell. It should be as unique as you are. Hence we've curated a diverse collection of furniture styles to complement any outdoor space and reflect your personal taste
                     </p>
                 </div>
@@ -79,7 +79,7 @@ function renderBanner() {
                         class="h-full w-full flex flex-col items-end justify-end p-5 transition duration-300 md:translate-y-14 md:group-hover:translate-y-0 ease-in-out md:group-hover:bg-gradient-to-b from-transparent to-black/40">
                         <h1 class="text-2xl md:text-3xl xl:text-5xl !leading-none font-medium text-end text-white max-w-[260px] md:mb-6">${mood.name}</h1>
                         <div class="text-end h-0 md:h-8">
-                            <p class="text-white text-sm invisible md:group-hover:visible duration-300 md:mb-6">${mood.subName}</p>
+                            <p class="text-white invisible md:group-hover:visible duration-300 md:mb-6">${mood.subName}</p>
                         </div>
                     </a>
                 </div>  

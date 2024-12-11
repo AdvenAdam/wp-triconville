@@ -56,7 +56,7 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                     <h2 class='text-2xl md:text-3xl'>
                         20 Years of Excellence Experience on Outdoor Living
                     </h2>
-                    <p class="tracking-wider text-sm mt-3 mb-12">
+                    <p class="mt-3 mb-12">
                         For decades, Triconville has grown steadily, rooted in core values that honor tradition, quality, and integrity, and guided by a global vision—bringing timeless, handcrafted pieces to homes and spaces around the world.
                     </p>
                     <a href="<?= BASE_LINK ?>/about-us"
@@ -116,14 +116,16 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                     <div class="max-w-lg">
                         <p class="text-xs uppercase tracking-widest">MOODS</p>
                         <h2 class="text-3xl">Your World, Your Style, Your Outdoors.</h2>
-                        <p class="text-sm mt-3 mb-10">We believe every outdoor space has a story to tell. It should be as unique as you are. Hence we've curated a diverse collection of furniture styles to complement any outdoor space and reflect your personal taste:</p>
+                        <p class=" mt-3 mb-10">We believe every outdoor space has a story to tell. It should be as unique as you are. Hence we've curated a diverse collection of furniture styles to complement any outdoor space and reflect your personal taste:</p>
                         <a href="<?= BASE_LINK ?>/moods"
                            class='btn-ghost uppercase text-xs tracking-widest'>
                             EXPLORE MOODS
                         </a>
                     </div>
-                    <div class="grid grid-cols-4 gap-3 w-full md:w-3/5"
-                         id="moods-selected">
+                    <div>
+                        <img src="https://storage.googleapis.com/back-bucket/wp_triconville/images/moods/All%20Moods.png"
+                             alt="all Moods image"
+                             class="w-full h-auto" />
                     </div>
                 </div>
             </div>
@@ -158,7 +160,7 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                                 </h2>
                             </div>
                             <div class="md:mb-10">
-                                <p class=" text-sm tracking-wider line-clamp-2 md:line-clamp-3">
+                                <p class="tracking-wider line-clamp-2 md:line-clamp-3">
                                     <?php echo get_the_excerpt($post->ID); ?>
                                 </p>
                             </div>
@@ -187,7 +189,7 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                         <div class="">
                             <p class="uppercase text-xs tracking-widest mb-2">catalog</p>
                             <h2 class="text-3xl">Triconville - 2024 Catalog</h2>
-                            <p class="text-sm tracking-wider mt-3 mb-12">
+                            <p class=" mt-3 mb-12">
                                 Discover an unrivaled selection of luxuriant designs from Triconville. Brought to life with captivating imagery,
                                 the 2024 Triconville catalogue is a go-to resource for inspiration and information. Qualified trade members can
                                 reserve a copy by filling out the form below.
@@ -248,15 +250,6 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
             }
         );
 
-        fetchData(
-            "/?rest_route=/wp/v2/selected_moods",
-            (res) => {
-                moodList = res || [];
-            },
-            () => {
-                renderMoods();
-            }
-        );
     });
 
     function loadCollections() {
@@ -301,7 +294,7 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                                 ${filterProductName(collection.name)}
                             </h1>
                             <div class="line-clamp-2">
-                                <p class="text-white text-sm invisible md:group-hover:visible duration-300">
+                                <p class="text-white invisible md:group-hover:visible duration-300">
                                     ${collection.description}
                                 </p>
                             </div>
@@ -325,19 +318,6 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                 </a>
             `);
         })
-    }
-
-    function renderMoods() {
-        moodList.forEach((mood, i) => {
-            $('#moods-selected').append(`
-                <div class="h-[322px] md:h-[462px] w-auto bg-no-repeat bg-center bg-cover gallery-item ${i % 2 !== 0 ? 'mt-10 -mb-10' : ''}"
-                    style="background-image: url('<?php echo esc_attr(get_template_directory_uri()); ?>/assets/${mood.thumb}')">
-                    <div class="h-full w-full flex items-end justify-end p-5">
-                        <h2 class="invisible xl:visible text-xl xl:text-3xl text-end text-white max-w-[260px]">${mood.name}</h2>
-                    </div>
-                </div>
-            `);
-        });
     }
 
     function collectionSlick() {
