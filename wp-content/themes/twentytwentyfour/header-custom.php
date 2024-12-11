@@ -74,7 +74,7 @@
         <nav class="flex items-center justify-between px-3 md:px-5 2xl:px-20 w-full md:min-h-20 bg-white ">
             <div class="flex justify-center">
                 <a href="<?php echo home_url(); ?>">
-                    <img src="<?= BASE_LINK ?>/wp-content/uploads/2024/09/Logo-Blue-Resized-1.png"
+                    <img src="https://storage.googleapis.com/back-bucket/wp_triconville/images/icons/Triconville%20Logo%20Primary.svg"
                          alt="Triconville logo"
                          class="h-6 will-auto min-w-20" />
                 </a>

@@ -166,7 +166,7 @@ function renderPerProject(project) {
     $(`#${project.slug}__products__Container`).append(`
         <div class="products w-screen h-full overflow-y-auto">
             <div class="flex flex-col items-center justify-center ">
-                <div class="px-3 md:px-5">
+                <div class="px-5 md:px-8">
                     <div class="max-w-[1440px] relative">
                         <div class="flex items-center justify-between mt-16">
                             <div class="flex items-center gap-2" onClick="slideProjectHandler('${project.slug}__main', 'prev')">

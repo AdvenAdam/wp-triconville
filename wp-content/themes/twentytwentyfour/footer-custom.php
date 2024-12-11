@@ -18,7 +18,7 @@
 <footer class="w-full footer ">
     <div class="flex max-h-[250px] h-[30vh]  bg-cover bg-center bg-no-repeat snap-center snap-always"
          style="background-image: url(https://storage.googleapis.com/back-bucket/wp_triconville/images/store/store-banner.jpeg)">
-        <div class="bg-black bg-opacity-20 h-full w-full flex items-center justify-start px-3 md:px-5">
+        <div class="bg-black bg-opacity-20 h-full w-full flex items-center justify-start px-5 md:px-8">
             <a href="<?= BASE_LINK; ?>/find-a-store/"
                class="flex items-center w-full gap-3 max-w-[1440px] mx-auto">
                 <h1 class="text-3xl md:text-5xl md:text-center font-medium text-white">

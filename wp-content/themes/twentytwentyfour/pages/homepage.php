@@ -45,14 +45,14 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
 
         </div>
     </div>
-    <div class="px-3 md:px-5">
+    <div class="px-5 md:px-8">
         <div class="max-w-[1440px] mx-auto">
-            <div class="grid md:grid-cols-2 items-center mt-20"
+            <div class="grid lg:grid-cols-2 items-center mt-20 gap-8"
                  data-aos="fade-up"
                  data-aos-once="true"
                  data-aos-delay="200"
                  data-aos-duration="1000">
-                <div class="txt max-w-xl py-5">
+                <div class="txt max-w-xl py-5 order-last lg:order-first">
                     <h2 class='text-2xl md:text-3xl'>
                         20 Years of Excellence Experience on Outdoor Living
                     </h2>
@@ -112,8 +112,8 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                  data-aos-once="true"
                  data-aos-delay="200"
                  data-aos-duration="1000">
-                <div class="flex gap-5 lg:flex-row flex-col items-center justify-between">
-                    <div class="max-w-lg">
+                <div class="grid lg:grid-cols-2 gap-8 items-center">
+                    <div class="max-w-lg order-last lg:order-first">
                         <p class="text-xs uppercase tracking-widest">MOODS</p>
                         <h2 class="text-3xl">Your World, Your Style, Your Outdoors.</h2>
                         <p class=" mt-3 mb-10">We believe every outdoor space has a story to tell. It should be as unique as you are. Hence we've curated a diverse collection of furniture styles to complement any outdoor space and reflect your personal taste:</p>
@@ -179,24 +179,21 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                  data-aos-once="true"
                  data-aos-delay="200"
                  data-aos-duration="1000">
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-20 my-5">
+                <div class="grid lg:grid-cols-2 gap-8 items-center ">
+                    <div class="max-w-lg order-last lg:order-first">
+                        <p class="uppercase text-xs tracking-widest mb-2">catalog</p>
+                        <h2 class="text-3xl">Triconville - 2024 Catalog</h2>
+                        <p class=" mt-3 mb-12">
+                            Discover an unrivaled selection of luxuriant designs from Triconville. Brought to life with captivating imagery,
+                            the 2024 Triconville catalogue is a go-to resource for inspiration and information. Qualified trade members can
+                            reserve a copy by filling out the form below.
+                        </p>
+                        <a href="<?= BASE_LINK ?>/collections"
+                           class="btn-ghost uppercase text-xs">View Catalog</a>
+                    </div>
                     <div class="">
                         <img src="https://storage.googleapis.com/back-bucket/wp_triconville/images/home/Home%20Catalogue.jpg"
                              class="w-auto h-auto object-cover" />
-                    </div>
-                    <div class="flex justify-center items-center p-3 md:p-5"
-                         id="catalog-selected">
-                        <div class="">
-                            <p class="uppercase text-xs tracking-widest mb-2">catalog</p>
-                            <h2 class="text-3xl">Triconville - 2024 Catalog</h2>
-                            <p class=" mt-3 mb-12">
-                                Discover an unrivaled selection of luxuriant designs from Triconville. Brought to life with captivating imagery,
-                                the 2024 Triconville catalogue is a go-to resource for inspiration and information. Qualified trade members can
-                                reserve a copy by filling out the form below.
-                            </p>
-                            <a href="<?= BASE_LINK ?>/collections"
-                               class="btn-ghost uppercase text-xs tracking-widest">View Catalog</a>
-                        </div>
                     </div>
                 </div>
             </div>

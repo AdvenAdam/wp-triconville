@@ -26,7 +26,7 @@ get_template_part('header-custom');
     <!-- NOTE : Material list -->
     <div class="my-12">
         <div id="list__materials_filter"
-             class='flex items-center text-sm py-8 px-3 md:px-5 justify-center flex-wrap gap-3'
+             class='flex items-center text-sm py-8 px-5 md:px-8 justify-center flex-wrap gap-3'
              data-aos="fade-up"
              data-aos-once="true"
              data-aos-duration="500">
@@ -36,7 +36,7 @@ get_template_part('header-custom');
                     id="btn-all">All Materials</button>
         </div>
     </div>
-    <div class="px-3 md:px-5">
+    <div class="px-5 md:px-8">
         <div id="material__page"
              class="max-w-[1440px] mt-5 mx-auto">
         </div>

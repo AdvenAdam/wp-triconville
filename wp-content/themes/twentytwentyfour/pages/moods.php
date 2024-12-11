@@ -37,7 +37,7 @@ get_template_part('header-custom');
              data-aos="fade-up"
              data-aos-once="true"
              data-aos-duration="1000"></div>
-        <div class="py-10 md:py-20 px-3 md:px-5"
+        <div class="py-10 md:py-20 px-5 md:px-8"
              id="mood__inspirations"
              data-aos="fade-up"
              data-aos-once="true"
@@ -47,7 +47,7 @@ get_template_part('header-custom');
              data-aos="fade-up"
              data-aos-once="true"
              data-aos-duration="1000"></div>
-        <div class="py-10 md:py-20 px-3 md:px-5 relative"
+        <div class="py-10 md:py-20 px-5 md:px-8 relative"
              id="mood__other_moods"
              data-aos="fade-up"
              data-aos-once="true"
@@ -133,7 +133,7 @@ function renderBanner() {
     $('#mood__subtitle').append(`
         <div class="py-5 md:py-10 mx-auto w-full mt-20">
             <img src="<?php echo esc_attr(get_template_directory_uri()); ?>/assets/${selectedMood.subTitle.subImage}" class="w-full h-[300px] md:h-auto object-cover " />
-            <div class="max-w-3xl mx-auto px-3 md:px-5 text-center  mood-color py-5 md:py-10">
+            <div class="max-w-3xl mx-auto px-5 md:px-8 text-center  mood-color py-5 md:py-10">
                 <h3 class=" mood-color">${selectedMood.subTitle.title}</h3>
                 <p class="mt-5 mood-color">${selectedMood.subTitle.description}</p>
             </div>
@@ -144,7 +144,7 @@ function renderBanner() {
 function renderGallery(galleries) {
     if (galleries) {
         $('#mood__gallery').append(`
-            <div class="py-5 md:py-10 grid md:grid-cols-4 grid-cols-2 gap-5 w-full px-3 md:px-5">
+            <div class="py-5 md:py-10 grid md:grid-cols-4 grid-cols-2 gap-5 w-full px-5 md:px-8">
                 ${galleries.map((gallery, i) => `
                     <div class="gallery-item ${i%2 !== 0 && 'mt-10 -mb-10'}">
                         <img src="<?php echo esc_attr(get_template_directory_uri()); ?>/assets/${gallery.image}" class="w-full h-auto object-cover" alt="${gallery.title}" />
@@ -180,7 +180,7 @@ function renderCatalogue(catalogueImage) {
     if (catalogueImage) {
         $('#mood__catalogue').append(`
             <div class="grid grid-cols-1 sm:grid-cols-2 items-center gap-5">
-                <div class="max-w-xl order-2 sm:order-1 px-3 md:px-5">
+                <div class="max-w-xl order-2 sm:order-1 px-5 md:px-8">
                     <p class="uppercase text-xs tracking-widest mood-color mb-2">CATALOG</p>
                     <h2 class="mood-color text-3xl">Triconville - 2024 Catalog</h2>
                     <p class="tracking-wider mt-3 mb-12 mood-color">Discover an unrivaled selection of luxuriant designs from Triconville. Brought to life with captivating imagery, the 2024 Triconville catalogue is a go-to resource for inspiration and information. Qualified trade members can reserve a copy by filling out the form below.</p>

@@ -8,7 +8,7 @@ get_template_part('header-custom');
 ?>
 
 <div class="content-container mt-20 overflow-hidden">
-    <div class="px-3 md:px-5 my-10">
+    <div class="px-5 md:px-8 my-10">
         <div class="max-w-[1440px] mx-auto">
             <div class="text-center md:pt-10 ">
                 <h1 class="text-3xl md:text-5xl">Moods</h1>
@@ -18,8 +18,8 @@ get_template_part('header-custom');
                  id="mood__list">
 
             </div>
-            <div class="py-10 flex flex-col justify-between items-center sm:flex-row gap-5 md:gap-12 lg:gap-36">
-                <div class=" max-w-xl "
+            <div class="py-10 grid lg:grid-cols-2 gap-8">
+                <div class="max-w-lg order-2 lg:order-1"
                      data-aos="fade-up"
                      data-aos-once="true"
                      data-aos-duration="1000">
@@ -30,7 +30,7 @@ get_template_part('header-custom');
                         We believe every outdoor space has a story to tell. It should be as unique as you are. Hence we've curated a diverse collection of furniture styles to complement any outdoor space and reflect your personal taste
                     </p>
                 </div>
-                <div class=""
+                <div class="order-1 lg:order-2"
                      data-aos="fade-up"
                      data-aos-once="true"
                      data-aos-duration="1000">

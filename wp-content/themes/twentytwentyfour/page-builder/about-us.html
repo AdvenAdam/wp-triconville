@@ -23,65 +23,61 @@
     background: #888 !important;
   }
   /* Hide scrollbar for Chrome, Safari and Opera */
-
-  ::-webkit-scrollbar {
-    display: none;
-  }
 </style>
 <div
   class="content-container snap-y snap-mandatory full-screen overflow-y-auto scrollbar-none"
   onmousewheel="onscrollHandler(event)"
   id="magnetic__container"
 >
-  <div class="full-screen about-us-banner flex items-center justify-center snap-always snap-center">
+  <div class="full-screen about-us-banner flex items-center justify-center snap-always snap-start">
     <div class="text-white text-center px-6 lg:px-[6.5rem]">
       <h1 class="text-3xl md:text-5xl text-white font-medium">Crafting Outdoor Spaces</h1>
     </div>
   </div>
-  <div
-    class="bg-triconville-beige full-screen flex items-center justify-center snap-always snap-center px-6 lg:px-[6.5rem]"
-  >
-    <div class="max-w-2xl">
-      <svg
-        width="287"
-        height="48"
-        viewBox="0 0 287 48"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
-          d="M286.595 5.44578L286.594 5.44581C286.3 5.48406 285.992 5.52403 285.642 5.57514V1.94675C285.588 1.93587 285.533 1.9268 285.479 1.92135C285.383 2.22894 285.285 2.53618 285.186 2.84345L285.185 2.8468L285.184 2.85032L285.183 2.85414L285.182 2.85817L285.18 2.86245L285.179 2.86707L285.177 2.87194L285.176 2.87537L285.176 2.87585L285.176 2.87634L285.176 2.87679C284.955 3.56789 284.734 4.25916 284.534 4.95468C284.415 5.36288 284.253 5.55155 283.798 5.55155C283.343 5.55155 283.19 5.33203 283.076 4.93291C282.81 3.94653 282.453 2.98902 282.008 2.07375V5.46628H280.753V0.0745074H282.685C282.783 0.397658 282.881 0.722375 282.982 1.05308C283.239 1.90317 283.509 2.79284 283.821 3.79723C283.923 3.45819 284.022 3.13773 284.118 2.83007L284.124 2.81214L284.125 2.80809C284.357 2.06271 284.566 1.39194 284.726 0.713103C284.864 0.121676 285.151 -0.0434151 285.695 0.00919647C285.983 0.0371018 286.278 0.0276827 286.57 0.0183813C286.715 0.0137744 286.859 0.00919647 287 0.00919647L286.991 5.39372C286.86 5.41131 286.729 5.42837 286.595 5.44578ZM120.781 48C120.46 47.9313 120.138 47.8693 119.816 47.8074C119.135 47.6764 118.456 47.5457 117.795 47.3523C111.625 45.5962 107.968 41.4345 106.781 34.9904C106.141 31.6636 106.249 28.2294 107.097 24.9525C108.443 19.8256 111.536 16.2825 116.406 14.51C120.548 12.9599 125.093 13.007 129.205 14.6425C133.669 16.3732 136.629 19.6515 137.986 24.3448C139.234 28.5108 139.226 32.9703 137.962 37.1312C136.147 43.118 132.004 46.4598 126.112 47.6644C125.838 47.7206 125.563 47.7742 125.289 47.8277C125.014 47.8812 124.74 47.9347 124.466 47.9909C123.248 48 122.013 48 120.783 48H120.781ZM130.534 30.7561C130.464 30.3215 130.404 29.8843 130.345 29.4474V29.4472C130.218 28.5034 130.09 27.5603 129.847 26.6452C128.978 23.3923 126.614 21.3187 123.674 21.0738C120.01 20.7617 117.302 22.1097 115.946 25.1485C114.309 28.8403 114.3 32.6393 115.965 36.3202C117.335 39.3427 119.866 40.5183 123.01 40.4004C125.966 40.2933 128.126 38.8728 129.382 36.0898C130.146 34.4081 130.406 32.6193 130.534 30.7561ZM260.798 48C260.459 47.9239 260.117 47.8563 259.774 47.7886C259.063 47.6481 258.351 47.5074 257.665 47.2907C251.723 45.4166 248.252 41.2186 247.127 35.0104C246.35 30.7108 246.549 26.4275 248.339 22.3782C250.597 17.2767 254.596 14.4937 259.895 13.6519C264.148 12.977 268.126 13.7644 271.626 16.4657C274.988 19.06 276.748 22.6594 277.396 26.8357C277.614 28.247 277.691 29.68 277.77 31.1503V31.1509V31.1512V31.1514V31.1517V31.152V31.1522C277.805 31.8093 277.84 32.4739 277.889 33.1472H255.023C254.9 36.2676 257.703 39.6674 260.772 40.2443C262.215 40.5268 263.701 40.4648 265.117 40.0629C266.975 39.5187 268.296 38.3159 269.171 36.5543C269.29 36.3148 269.571 36.01 269.778 35.9973C271.714 35.9648 273.649 35.9675 275.652 35.9703C276.223 35.9711 276.799 35.9719 277.382 35.9719C277.298 36.2699 277.223 36.5595 277.149 36.8421C276.986 37.4647 276.832 38.0535 276.625 38.6225C274.647 44.1213 270.664 46.9913 265.142 47.824C264.923 47.8683 264.707 47.9246 264.494 47.9928L260.798 48ZM269.339 26.7522C269.146 25.4242 268.405 23.9692 267.52 22.9678C265.061 20.1903 258.582 19.9653 256.012 24.7911C255.798 25.1888 255.635 25.6164 255.465 26.063L255.465 26.0632C255.38 26.2868 255.293 26.515 255.197 26.7468C260.017 26.7522 264.683 26.7522 269.339 26.7522ZM86.0952 47.8109C86.4131 47.8724 86.7309 47.9339 87.0474 48L90.5777 47.9909L92.2287 47.6644C99.6528 46.2003 103.643 40.3332 104.379 33.7713H96.3315C96.2879 33.9375 96.2494 34.093 96.2122 34.2434L96.2121 34.2439C96.1775 34.3839 96.144 34.5193 96.1085 34.6548C95.2092 37.9838 92.9997 39.9903 89.7856 40.3731C86.5714 40.7559 83.6699 39.3935 82.3351 36.605C80.4698 32.7172 80.4505 28.6934 82.3491 24.8128C83.7595 21.9319 86.2992 20.905 89.3447 21.0538C92.1918 21.1935 94.2748 22.5505 95.5043 25.1847C95.7614 25.7271 95.9477 26.3031 96.1358 26.8848C96.2239 27.1572 96.3124 27.4308 96.4088 27.7028H104.439C104.418 27.5717 104.4 27.4507 104.383 27.3365L104.383 27.3364L104.383 27.3357L104.383 27.3349L104.383 27.3339C104.353 27.133 104.326 26.9527 104.291 26.7739C103.238 21.1518 100.448 16.883 95.1583 14.6515C91.9108 13.2745 88.514 13.0931 85.1084 13.8188C79.2614 15.0561 75.2078 18.4758 73.4128 24.4354C72.4081 27.7645 72.3589 31.1752 72.8683 34.6112C73.8185 41.0299 77.9213 45.754 84.051 47.3668C84.7232 47.5453 85.4092 47.6781 86.0952 47.8109ZM151.113 14.3957H142.264V47.1201H151.123V46.1241C151.123 44.0831 151.122 42.0423 151.12 40.0015V40.0013V40.0011V40.0009V40.0007V40.0005V40.0003V40.0001V39.9999V39.9996V39.9994C151.117 35.9188 151.114 31.8384 151.123 27.7573C151.127 24.7384 152.636 22.4725 155.137 21.8031C155.986 21.6035 156.857 21.5247 157.727 21.569C160.021 21.6307 161.876 23.0766 162.503 25.348C162.741 26.2618 162.859 27.2046 162.854 28.1509C162.875 32.6634 162.873 37.1778 162.87 41.6912V41.6916V41.6919V41.6923V41.6926V41.693V41.6933V41.6936V41.694C162.869 43.1969 162.868 44.6996 162.868 46.2021V47.1092H171.722C171.742 47.0117 171.755 46.9129 171.762 46.8135C171.762 44.8479 171.765 42.8828 171.768 40.9181L171.768 40.8898V40.8886V40.8875V40.8864V40.8853V40.8842V40.8831V40.882V40.8809V40.8798V40.8787C171.777 35.3564 171.785 29.837 171.727 24.3176C171.697 21.5763 170.853 19.0183 169.028 16.9193C165.339 12.6704 158.242 12.1915 153.777 15.9233C153.119 16.4696 152.538 17.1149 151.945 17.7744C151.673 18.0763 151.399 18.3812 151.113 18.6809V14.3957ZM35.8684 4.66808V13.3181H22.852V47.6064H13.0164V13.3381H0V4.66808H35.8684ZM173.489 14.3504H172.668C172.695 14.4437 172.716 14.5251 172.735 14.5983C172.773 14.7454 172.803 14.8593 172.848 14.9708C176.799 25.5076 180.742 36.0451 184.677 46.5831C184.84 47.0276 185.047 47.18 185.507 47.18L185.51 47.1799C187.744 47.16 189.973 47.1401 192.206 47.1909C192.909 47.2108 193.228 46.9967 193.481 46.3128C196.642 37.8066 199.809 29.3029 202.983 20.8016C203.545 19.306 204.098 17.8094 204.659 16.2893L204.659 16.2885C204.89 15.6645 205.122 15.0365 205.356 14.403C205.258 14.3966 205.169 14.3897 205.086 14.3833C204.907 14.3694 204.754 14.3576 204.599 14.3576C203.939 14.3576 203.278 14.3587 202.618 14.3598L202.617 14.3598C200.71 14.3629 198.804 14.366 196.898 14.3431C196.334 14.3286 196.109 14.5245 195.933 15.0688C193.738 21.6906 191.538 28.3136 189.335 34.9378C189.276 35.1136 189.211 35.2885 189.128 35.5118L189.128 35.5122C189.088 35.6207 189.044 35.7406 188.994 35.8776L188.919 35.6645L188.918 35.6632C188.82 35.3844 188.752 35.1941 188.688 35.0049C188.284 33.785 187.88 32.5651 187.475 31.3453L187.475 31.3445L187.465 31.313L187.454 31.2813L187.439 31.2371L187.425 31.1924L187.416 31.1662L187.413 31.159C185.641 25.8146 183.87 20.471 182.123 15.1214C181.919 14.4991 181.649 14.325 181.041 14.3358C179.197 14.3611 177.356 14.3572 175.514 14.3532C174.839 14.3518 174.164 14.3504 173.489 14.3504ZM46.0658 47.131H37.212V14.4048H46.05V19.588C47.2461 17.1116 48.4579 14.7168 51.226 13.8388C53.3916 13.1494 55.5712 13.3489 57.7456 13.9567V24.0218C57.3887 23.9335 57.0368 23.8245 56.6918 23.6953C54.7242 22.7531 52.5265 22.4488 50.3882 22.8227C48.3262 23.1855 47.0072 24.4554 46.5576 26.529C46.2612 27.8644 46.1022 29.2284 46.0833 30.5983C46.0431 34.4351 46.0489 38.272 46.0547 42.1125V42.1129V42.1133V42.1138V42.1142V42.1146V42.115V42.1154C46.0567 43.4765 46.0588 44.8381 46.0588 46.2003C46.0658 46.4779 46.0658 46.7645 46.0658 47.131ZM234.51 47.1164H243.32V6.42049H234.51V47.1164ZM229.779 6.41512V47.0966H220.974V6.41512H229.779ZM60.2982 47.1165H69.1169V14.4012H60.2982V47.1165ZM207.321 14.4012H216.103V47.1056H207.321V14.4012ZM59.3364 5.46632C59.3259 8.55951 61.6109 10.9234 64.616 10.9343C67.6563 10.9452 70.0572 8.55951 70.0801 5.51711C70.0976 2.5237 67.6861 0.0382544 64.7495 0.0237409C61.6794 0.0237409 59.3469 2.37312 59.3364 5.46632ZM217.069 5.4917C217.069 8.57582 214.731 10.9343 211.67 10.9343C208.644 10.9343 206.38 8.60122 206.371 5.4917C206.362 2.38217 208.67 0.0291662 211.74 0.0327946C212.438 0.026322 213.13 0.162769 213.777 0.43425C214.423 0.705731 215.011 1.10686 215.507 1.61446C216.002 2.12206 216.395 2.72606 216.663 3.39156C216.932 4.05706 217.069 4.77086 217.069 5.4917ZM277.505 1.16125V5.46633L278.804 5.46451V1.11045H280.401V0.0582228H275.903V1.16125H277.505Z"
-          fill="#10A1CF"
-        />
-      </svg>
+  <div class="bg-triconville-beige h-fit sm-full-screen flex items-center snap-always snap-start px-6 lg:px-[6.5rem]">
+    <div class="max-w-[1440px] mx-auto">
+      <div class="max-w-2xl">
+        <svg
+          width="287"
+          height="48"
+          viewBox="0 0 287 48"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M286.595 5.44578L286.594 5.44581C286.3 5.48406 285.992 5.52403 285.642 5.57514V1.94675C285.588 1.93587 285.533 1.9268 285.479 1.92135C285.383 2.22894 285.285 2.53618 285.186 2.84345L285.185 2.8468L285.184 2.85032L285.183 2.85414L285.182 2.85817L285.18 2.86245L285.179 2.86707L285.177 2.87194L285.176 2.87537L285.176 2.87585L285.176 2.87634L285.176 2.87679C284.955 3.56789 284.734 4.25916 284.534 4.95468C284.415 5.36288 284.253 5.55155 283.798 5.55155C283.343 5.55155 283.19 5.33203 283.076 4.93291C282.81 3.94653 282.453 2.98902 282.008 2.07375V5.46628H280.753V0.0745074H282.685C282.783 0.397658 282.881 0.722375 282.982 1.05308C283.239 1.90317 283.509 2.79284 283.821 3.79723C283.923 3.45819 284.022 3.13773 284.118 2.83007L284.124 2.81214L284.125 2.80809C284.357 2.06271 284.566 1.39194 284.726 0.713103C284.864 0.121676 285.151 -0.0434151 285.695 0.00919647C285.983 0.0371018 286.278 0.0276827 286.57 0.0183813C286.715 0.0137744 286.859 0.00919647 287 0.00919647L286.991 5.39372C286.86 5.41131 286.729 5.42837 286.595 5.44578ZM120.781 48C120.46 47.9313 120.138 47.8693 119.816 47.8074C119.135 47.6764 118.456 47.5457 117.795 47.3523C111.625 45.5962 107.968 41.4345 106.781 34.9904C106.141 31.6636 106.249 28.2294 107.097 24.9525C108.443 19.8256 111.536 16.2825 116.406 14.51C120.548 12.9599 125.093 13.007 129.205 14.6425C133.669 16.3732 136.629 19.6515 137.986 24.3448C139.234 28.5108 139.226 32.9703 137.962 37.1312C136.147 43.118 132.004 46.4598 126.112 47.6644C125.838 47.7206 125.563 47.7742 125.289 47.8277C125.014 47.8812 124.74 47.9347 124.466 47.9909C123.248 48 122.013 48 120.783 48H120.781ZM130.534 30.7561C130.464 30.3215 130.404 29.8843 130.345 29.4474V29.4472C130.218 28.5034 130.09 27.5603 129.847 26.6452C128.978 23.3923 126.614 21.3187 123.674 21.0738C120.01 20.7617 117.302 22.1097 115.946 25.1485C114.309 28.8403 114.3 32.6393 115.965 36.3202C117.335 39.3427 119.866 40.5183 123.01 40.4004C125.966 40.2933 128.126 38.8728 129.382 36.0898C130.146 34.4081 130.406 32.6193 130.534 30.7561ZM260.798 48C260.459 47.9239 260.117 47.8563 259.774 47.7886C259.063 47.6481 258.351 47.5074 257.665 47.2907C251.723 45.4166 248.252 41.2186 247.127 35.0104C246.35 30.7108 246.549 26.4275 248.339 22.3782C250.597 17.2767 254.596 14.4937 259.895 13.6519C264.148 12.977 268.126 13.7644 271.626 16.4657C274.988 19.06 276.748 22.6594 277.396 26.8357C277.614 28.247 277.691 29.68 277.77 31.1503V31.1509V31.1512V31.1514V31.1517V31.152V31.1522C277.805 31.8093 277.84 32.4739 277.889 33.1472H255.023C254.9 36.2676 257.703 39.6674 260.772 40.2443C262.215 40.5268 263.701 40.4648 265.117 40.0629C266.975 39.5187 268.296 38.3159 269.171 36.5543C269.29 36.3148 269.571 36.01 269.778 35.9973C271.714 35.9648 273.649 35.9675 275.652 35.9703C276.223 35.9711 276.799 35.9719 277.382 35.9719C277.298 36.2699 277.223 36.5595 277.149 36.8421C276.986 37.4647 276.832 38.0535 276.625 38.6225C274.647 44.1213 270.664 46.9913 265.142 47.824C264.923 47.8683 264.707 47.9246 264.494 47.9928L260.798 48ZM269.339 26.7522C269.146 25.4242 268.405 23.9692 267.52 22.9678C265.061 20.1903 258.582 19.9653 256.012 24.7911C255.798 25.1888 255.635 25.6164 255.465 26.063L255.465 26.0632C255.38 26.2868 255.293 26.515 255.197 26.7468C260.017 26.7522 264.683 26.7522 269.339 26.7522ZM86.0952 47.8109C86.4131 47.8724 86.7309 47.9339 87.0474 48L90.5777 47.9909L92.2287 47.6644C99.6528 46.2003 103.643 40.3332 104.379 33.7713H96.3315C96.2879 33.9375 96.2494 34.093 96.2122 34.2434L96.2121 34.2439C96.1775 34.3839 96.144 34.5193 96.1085 34.6548C95.2092 37.9838 92.9997 39.9903 89.7856 40.3731C86.5714 40.7559 83.6699 39.3935 82.3351 36.605C80.4698 32.7172 80.4505 28.6934 82.3491 24.8128C83.7595 21.9319 86.2992 20.905 89.3447 21.0538C92.1918 21.1935 94.2748 22.5505 95.5043 25.1847C95.7614 25.7271 95.9477 26.3031 96.1358 26.8848C96.2239 27.1572 96.3124 27.4308 96.4088 27.7028H104.439C104.418 27.5717 104.4 27.4507 104.383 27.3365L104.383 27.3364L104.383 27.3357L104.383 27.3349L104.383 27.3339C104.353 27.133 104.326 26.9527 104.291 26.7739C103.238 21.1518 100.448 16.883 95.1583 14.6515C91.9108 13.2745 88.514 13.0931 85.1084 13.8188C79.2614 15.0561 75.2078 18.4758 73.4128 24.4354C72.4081 27.7645 72.3589 31.1752 72.8683 34.6112C73.8185 41.0299 77.9213 45.754 84.051 47.3668C84.7232 47.5453 85.4092 47.6781 86.0952 47.8109ZM151.113 14.3957H142.264V47.1201H151.123V46.1241C151.123 44.0831 151.122 42.0423 151.12 40.0015V40.0013V40.0011V40.0009V40.0007V40.0005V40.0003V40.0001V39.9999V39.9996V39.9994C151.117 35.9188 151.114 31.8384 151.123 27.7573C151.127 24.7384 152.636 22.4725 155.137 21.8031C155.986 21.6035 156.857 21.5247 157.727 21.569C160.021 21.6307 161.876 23.0766 162.503 25.348C162.741 26.2618 162.859 27.2046 162.854 28.1509C162.875 32.6634 162.873 37.1778 162.87 41.6912V41.6916V41.6919V41.6923V41.6926V41.693V41.6933V41.6936V41.694C162.869 43.1969 162.868 44.6996 162.868 46.2021V47.1092H171.722C171.742 47.0117 171.755 46.9129 171.762 46.8135C171.762 44.8479 171.765 42.8828 171.768 40.9181L171.768 40.8898V40.8886V40.8875V40.8864V40.8853V40.8842V40.8831V40.882V40.8809V40.8798V40.8787C171.777 35.3564 171.785 29.837 171.727 24.3176C171.697 21.5763 170.853 19.0183 169.028 16.9193C165.339 12.6704 158.242 12.1915 153.777 15.9233C153.119 16.4696 152.538 17.1149 151.945 17.7744C151.673 18.0763 151.399 18.3812 151.113 18.6809V14.3957ZM35.8684 4.66808V13.3181H22.852V47.6064H13.0164V13.3381H0V4.66808H35.8684ZM173.489 14.3504H172.668C172.695 14.4437 172.716 14.5251 172.735 14.5983C172.773 14.7454 172.803 14.8593 172.848 14.9708C176.799 25.5076 180.742 36.0451 184.677 46.5831C184.84 47.0276 185.047 47.18 185.507 47.18L185.51 47.1799C187.744 47.16 189.973 47.1401 192.206 47.1909C192.909 47.2108 193.228 46.9967 193.481 46.3128C196.642 37.8066 199.809 29.3029 202.983 20.8016C203.545 19.306 204.098 17.8094 204.659 16.2893L204.659 16.2885C204.89 15.6645 205.122 15.0365 205.356 14.403C205.258 14.3966 205.169 14.3897 205.086 14.3833C204.907 14.3694 204.754 14.3576 204.599 14.3576C203.939 14.3576 203.278 14.3587 202.618 14.3598L202.617 14.3598C200.71 14.3629 198.804 14.366 196.898 14.3431C196.334 14.3286 196.109 14.5245 195.933 15.0688C193.738 21.6906 191.538 28.3136 189.335 34.9378C189.276 35.1136 189.211 35.2885 189.128 35.5118L189.128 35.5122C189.088 35.6207 189.044 35.7406 188.994 35.8776L188.919 35.6645L188.918 35.6632C188.82 35.3844 188.752 35.1941 188.688 35.0049C188.284 33.785 187.88 32.5651 187.475 31.3453L187.475 31.3445L187.465 31.313L187.454 31.2813L187.439 31.2371L187.425 31.1924L187.416 31.1662L187.413 31.159C185.641 25.8146 183.87 20.471 182.123 15.1214C181.919 14.4991 181.649 14.325 181.041 14.3358C179.197 14.3611 177.356 14.3572 175.514 14.3532C174.839 14.3518 174.164 14.3504 173.489 14.3504ZM46.0658 47.131H37.212V14.4048H46.05V19.588C47.2461 17.1116 48.4579 14.7168 51.226 13.8388C53.3916 13.1494 55.5712 13.3489 57.7456 13.9567V24.0218C57.3887 23.9335 57.0368 23.8245 56.6918 23.6953C54.7242 22.7531 52.5265 22.4488 50.3882 22.8227C48.3262 23.1855 47.0072 24.4554 46.5576 26.529C46.2612 27.8644 46.1022 29.2284 46.0833 30.5983C46.0431 34.4351 46.0489 38.272 46.0547 42.1125V42.1129V42.1133V42.1138V42.1142V42.1146V42.115V42.1154C46.0567 43.4765 46.0588 44.8381 46.0588 46.2003C46.0658 46.4779 46.0658 46.7645 46.0658 47.131ZM234.51 47.1164H243.32V6.42049H234.51V47.1164ZM229.779 6.41512V47.0966H220.974V6.41512H229.779ZM60.2982 47.1165H69.1169V14.4012H60.2982V47.1165ZM207.321 14.4012H216.103V47.1056H207.321V14.4012ZM59.3364 5.46632C59.3259 8.55951 61.6109 10.9234 64.616 10.9343C67.6563 10.9452 70.0572 8.55951 70.0801 5.51711C70.0976 2.5237 67.6861 0.0382544 64.7495 0.0237409C61.6794 0.0237409 59.3469 2.37312 59.3364 5.46632ZM217.069 5.4917C217.069 8.57582 214.731 10.9343 211.67 10.9343C208.644 10.9343 206.38 8.60122 206.371 5.4917C206.362 2.38217 208.67 0.0291662 211.74 0.0327946C212.438 0.026322 213.13 0.162769 213.777 0.43425C214.423 0.705731 215.011 1.10686 215.507 1.61446C216.002 2.12206 216.395 2.72606 216.663 3.39156C216.932 4.05706 217.069 4.77086 217.069 5.4917ZM277.505 1.16125V5.46633L278.804 5.46451V1.11045H280.401V0.0582228H275.903V1.16125H277.505Z"
+            fill="#10A1CF"
+          />
+        </svg>
 
-      <p class="mt-10">
-        At Triconville, we’re creators of moments. We design outdoor furniture because we love it.  Our commitment to a
-        cognitive design approach ensures that each piece of furniture is thoughtfully crafted to elevate the outdoor
-        living experience. We design pieces that blend functionality, comfort, and style. Our use of honest, sustainable
-        materials and meticulous craftsmanship results in outdoor furniture that not only enhances the emotional
-        resonance of spaces but also provides lasting value and enriches moments spent outdoors.
-        <br />
-        <br />
-        Rooted in a rich artisanal heritage, we fuse traditional craftsmanship with latest modern technology and
-        innovation, creating pieces that speak of quality and longevity. By using premium materials, we craft durable
-        and beautiful furniture meant to be enjoyed for generations.
-        <br />
-        <br />
-        Triconville's outdoor furniture seamlessly blends into contemporary spaces across the globe, while remaining
-        authentic and full of soul. No matter your style, our diverse mood boards offer inspiration to help you create
-        your perfect outdoor sanctuary. Discover the Triconville difference and bring a touch of heritage and global
-        sophistication to your outdoor space.
-        <br />
-        <br />
-      </p>
+        <p class="mt-10">
+          At Triconville, we’re creators of moments. We design outdoor furniture because we love it.  Our commitment to
+          a cognitive design approach ensures that each piece of furniture is thoughtfully crafted to elevate the
+          outdoor living experience. We design pieces that blend functionality, comfort, and style. Our use of honest,
+          sustainable materials and meticulous craftsmanship results in outdoor furniture that not only enhances the
+          emotional resonance of spaces but also provides lasting value and enriches moments spent outdoors.
+          <br />
+          <br />
+          Rooted in a rich artisanal heritage, we fuse traditional craftsmanship with latest modern technology and
+          innovation, creating pieces that speak of quality and longevity. By using premium materials, we craft durable
+          and beautiful furniture meant to be enjoyed for generations.
+          <br />
+          <br />
+          Triconville's outdoor furniture seamlessly blends into contemporary spaces across the globe, while remaining
+          authentic and full of soul. No matter your style, our diverse mood boards offer inspiration to help you create
+          your perfect outdoor sanctuary. Discover the Triconville difference and bring a touch of heritage and global
+          sophistication to your outdoor space.
+          <br />
+          <br />
+        </p>
+      </div>
     </div>
   </div>
 
   <div
-    class="bg-white h-fit sm-full-screen flex items-center justify-center px-6 lg:px-[6.5rem] snap-always snap-center"
+    class="bg-white h-fit sm-full-screen flex items-center justify-center px-6 lg:px-[6.5rem] snap-always snap-start"
   >
     <div class="">
       <img
@@ -106,7 +102,7 @@
   </div>
 
   <div
-    class="bg-white h-fit sm-full-screen flex items-center justify-center px-6 lg:px-[6.5rem] snap-always snap-center"
+    class="bg-white h-fit sm-full-screen flex items-center justify-center px-6 lg:px-[6.5rem] snap-always snap-start"
   >
     <div class="max-w-[1440px]">
       <div class="grid grid-cols-1 md:grid-cols-2 items-end gap-3 md:gap-10">
@@ -114,7 +110,7 @@
           <img
             src="http://dev.triconville.com/wp-content/uploads/2024/10/story-in-every-grain.png"
             alt="story-in-every-grain"
-            class="w-full h-fit object-cover md:max-h-screen max-h-[29.5rem]"
+            class="w-auto h-[50vh] md:h-[80vh] object-cover"
           />
         </div>
         <div class="max-w-lg">
@@ -138,7 +134,7 @@
   </div>
 
   <div
-    class="bg-triconville-beige h-fit sm-full-screen flex items-center justify-center px-6 lg:px-[6.5rem] snap-always snap-center"
+    class="bg-triconville-beige h-fit sm-full-screen flex items-center justify-center px-6 lg:px-[6.5rem] snap-always snap-start"
   >
     <div class="max-w-3xl">
       <h1 class="text-3xl md:text-5xl mx-auto">Cognitive Design Approach</h1>
@@ -161,18 +157,16 @@
     </div>
   </div>
 
-  <div class="jewel-banner full-screen flex items-center justify-center px-6 lg:px-[6.5rem] snap-always snap-center">
-    <div
-      class="max-w-[1440px] w-full h-full overflow-hidden flex md:flex-row flex-col justify-center md:justify-between md:items-center gap-3"
-    >
-      <div class="hidden lg:inline-block">
+  <div class="jewel-banner h-fit sm-full-screen px-6 lg:px-[6.5rem] snap-always snap-start">
+    <div class="max-w-[1440px] m-auto flex items-center justify-between h-full gap-3">
+      <div class="hidden xl:block">
         <img
           src="http://dev.triconville.com/wp-content/uploads/2024/10/main_image.png"
           alt="story-in-every-grain"
-          class="w-auto md:h-[550px] h-[200px] object-cover"
+          class="w-[350px] h-[600px] object-cover"
         />
       </div>
-      <div class="inline-block max-w-xl mx-auto lg:py-0 py-10">
+      <div class="max-w-2xl xl:max-w-xl mx-auto">
         <h2 class="text-white text-3xl">The Earth Jewel — Our Signature Teak</h2>
         <p class="text-white mt-5">
           Teak is the heart and soul of Triconville. We work with only the finest materials. Its natural warmth,
@@ -181,31 +175,29 @@
           sense of timeless beauty.
           <br /><br />
           <span class="text-base">FSC <br /></span>
-          <span class="flex lg:flex-row flex-col items-start lg:items-center gap-2"
+          <span class="flex xl:flex-row flex-col items-start gap-2"
             >Our commitment to the environment is reflected by the FSC® CoC (Chain of Custody) certification of our
             distribution centers.
             <img
               src="https://storage.googleapis.com/back-bucket/wp_triconville/images/icons/fsc.jpg"
               alt="FSC"
-              class="w-auto h-20 object-cover"
+              class="w-auto h-20 object-cover mt-8 xl:mt-0"
             />
           </span>
         </p>
       </div>
-      <div class="hidden lg:inline-flex md:justify-end">
+      <div class="hidden xl:block">
         <img
           src="http://dev.triconville.com/wp-content/uploads/2024/10/earth-jewel.png"
           alt="story-in-every-grain"
-          class="w-auto min-h-[200px] md:h-auto object-cover"
+          class="w-auto h-1/2 object-cover"
         />
       </div>
     </div>
   </div>
 
-  <div
-    class="bg-white h-fit sm-full-screen max-w-[1440px] w-full mx-auto flex items-center px-6 lg:px-[6.5rem] snap-always snap-center"
-  >
-    <div class="">
+  <div class="bg-white h-fit sm-full-screen w-full mx-auto flex items-center px-6 lg:px-10 snap-always snap-start">
+    <div class="max-w-[1440px] mx-auto">
       <img
         src="http://dev.triconville.com/wp-content/uploads/2024/10/our_promise_to_you.png"
         alt="Rooted in Tradition Committed to Innovation"
@@ -213,37 +205,37 @@
       />
       <div class="text-center">
         <h1 class="text-2xl md:text-3xl lg:text-5xl">The Art of Our Craft</h1>
-        <h3 class="my-4">These principles define our approach to crafting timeless, soulful furniture:</h3>
+        <h3 class="mt-4">These principles define our approach to crafting timeless, soulful furniture:</h3>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-3 sm:px-0 px-4">
-        <div class="">
-          <h3 class="font-medium mb-3"><li class="list-disc">Cognitive Design</li></h3>
-          <p class="ps-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 my-10">
+        <ul class="list-disc list-outside max-w-80">
+          <h3 class="font-medium mb-3"><li>Cognitive Design</li></h3>
+          <p>
             We prioritize your experience with thoughtfully designed pieces that enhance your comfort, usability, and
             connection with nature.
           </p>
-        </div>
-        <div class="">
-          <h3 class="font-medium mb-3"><li class="list-disc">Craftsmanship of Heritage</li></h3>
-          <p class="ps-6">
+        </ul>
+        <ul class="list-disc list-outside max-w-80">
+          <h3 class="font-medium mb-3"><li>Craftsmanship of Heritage</li></h3>
+          <p>
             Our furniture is handcrafted by skilled artisans, preserving traditional techniques passed down through
             generations.
           </p>
-        </div>
-        <div class="">
-          <h3 class="font-medium mb-3"><li class="list-disc">Innovation in Outdoor Technology</li></h3>
-          <p class="ps-6">
+        </ul>
+        <ul class="list-disc list-outside max-w-80">
+          <h3 class="font-medium mb-3"><li>Innovation in Outdoor Technology</li></h3>
+          <p>
             We're constantly exploring new materials and techniques to create beautiful, durable furniture that
             withstands the elements and complements any style.
           </p>
-        </div>
-        <div class="">
-          <h3 class="font-medium mb-3"><li class="list-disc">Sustainability at Heart</li></h3>
-          <p class="ps-6">
+        </ul>
+        <ul class="list-disc list-outside max-w-80">
+          <h3 class="font-medium mb-3"><li>Sustainability at Heart</li></h3>
+          <p>
             We are committed to responsible sourcing and environmentally friendly practices, ensuring that our furniture
             is as good for the planet as it is for your soul
           </p>
-        </div>
+        </ul>
       </div>
       <div class="mt-5 flex justify-center">
         <a
@@ -255,7 +247,7 @@
     </div>
   </div>
 
-  <div class="bg-black full-screen flex items-center justify-center px-6 lg:px-[6.5rem] snap-always snap-center">
+  <div class="bg-black full-screen flex items-center justify-center px-6 lg:px-[6.5rem] snap-always snap-start">
     <div class="w-full">
       <div class="mx-auto max-w-[1440px] w-full mb-10">
         <p class="text-white font-bold">Our Milestones:</p>
@@ -405,7 +397,7 @@
     </div>
   </div>
 
-  <div class="bg-white px-3 md:px-5 snap-always snap-center">
+  <div class="bg-white px-5 md:px-8 snap-always snap-start">
     <div class="max-w-[1440px] w-full flex flex-col justify-center h-fit sm-full-screen my-auto mx-auto">
       <div class="flex gap-10 lg:gap-3 xl:gap-5 lg:flex-row flex-col-reverse items-center justify-between py-20">
         <div class="lg:max-w-lg">

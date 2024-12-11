@@ -9,7 +9,7 @@
 <div class="content-container ">
     <div id="collection__header"></div>
     <div id="container__<?=$character_slug ?>"></div>
-    <div class="mb-10 md:mb-20 lg:mb-36 px-3 md:px-5">
+    <div class="mb-10 md:mb-20 lg:mb-36 px-5 md:px-8">
         <div class="max-w-[1440px] mx-auto"
              data-aos="fade-up"
              data-aos-once="true"
@@ -107,7 +107,7 @@ function renderMaster() {
         </section>
     `)
     $('#container__<?= $character_slug ?>').append(`
-        <div class="px-3 md:px-5">
+        <div class="px-5 md:px-8">
             <div class="max-w-[1440px] mx-auto">
                 <section class="collection__description my-5 md:my-10 lg:my-28" 
                     data-aos="fade-up"
@@ -165,7 +165,7 @@ function renderMaster() {
             </button>
         </div>
         
-        <div class="px-3 md:px-5">
+        <div class="px-5 md:px-8">
             <div class="max-w-[1440px] mx-auto">
                 <section class="collection__product relative mt-10 mb-10 md:mb-20 lg:mb-36">
                     <h3 class="text-2xl md:text-3xl tracking-wide"
