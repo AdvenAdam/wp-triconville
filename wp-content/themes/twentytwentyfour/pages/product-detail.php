@@ -8,17 +8,19 @@ get_template_part('header-custom');
 <div class="content-container mt-16 md:mt-20">
     <div id="product__banner"></div>
     <!-- NOTE : PRODUCT Overview & Material -->
-    <div data-aos="fade-up"
+
+    <div class=" grid grid-cols-1 lg:grid-cols-2 items-center gap-10 md:gap-8 mb-10"
+         data-aos="fade-up"
          data-aos-once="true"
          data-aos-duration="1000">
-        <div class=" grid grid-cols-1 md:grid-cols-2 items-center gap-10 md:gap-8 mb-10">
-            <div class="">
-                <div id="product__header__image"></div>
-            </div>
-            <div class="px-3 md:px-0 max-w-xl mt-5 md:mt-0 "
-                 id="product__description">
-                <div class="mb-16 "
-                     id="product__overview"></div>
+        <div class="">
+            <div id="product__header__image"></div>
+        </div>
+        <div class="px-3 lg:px-0 lg:max-w-xl mt-5 md:mt-0"
+             id="product__description">
+            <div class="mb-16 "
+                 id="product__overview"></div>
+            <div class="me-4 sm:me-6 lg:me-8 xl:me-2">
                 <p class="mr-3 uppercase mb-2 text-xs"
                    id="label_1"></p>
                 <div class="flex mb-6 flex-wrap gap-1 md:gap-4"
@@ -29,10 +31,11 @@ get_template_part('header-custom');
                 <div class="flex mb-6 md:mb-16 flex-wrap items-center gap-1 md:gap-4"
                      id="option_2">
                 </div>
-
             </div>
+
         </div>
     </div>
+
     <!-- NOTE : PRODUCT Ambience Slider -->
     <div class="ambience__section relative mb-10 md:mb-20"
          data-aos="fade-up"
@@ -288,24 +291,22 @@ function renderMaterial(res) {
             const active = index === 0;
             $('#option_1').append(
                 `<div class="group option_1 cursor-pointer relative ${active? 'active' : ''}" id="${opt.code}" onClick="changeSwatch(1,'${opt.code}')">
-                    <div id="tooltip-${opt.code}" class=" absolute -top-16 sm:-left-10 w-fit z-10 invisible group-hover:visible inline-block bg-gray-900 rounded-lg shadow-sm opacity-0 group-hover:opacity-100 ">
-                        <p class="px-3 py-2 font-medium text-white w-[180px] line-clamp-2">${opt.name}</p>
+                    <div id="tooltip-${opt.code}" class=" absolute -top-16 lg:-left-12 w-fit z-10 invisible group-hover:visible inline-block bg-gray-900 rounded-lg shadow-sm opacity-0 group-hover:opacity-100 ">
+                        <p class="px-3 py-2 font-medium text-white w-[140px] sm:w-[180px] sm:line-clamp-2">${opt.name}</p>
                     </div>
                     <img src="${opt.img_link}" class="w-16 md:w-20 h-16 md:h-20 object-contain border-triconville-blue ${active?'border-3':''}"/>
                 </div>`
             );
         });
-
     }
-
     if (res.option2 && Array.isArray(res.option2)) {
         $('#label_2').text(res.label2)
         res.option2.forEach((opt, index) => {
             const active = index === 0;
             $('#option_2').append(
                 `<div class="group option_2 cursor-pointer relative ${active? 'active' : ''}" id="${opt.code}" onClick="changeSwatch(2,'${opt.code}')">
-                    <div id="tooltip-${opt.code}" class=" absolute -top-16 sm:-left-10 w-fit z-10 invisible group-hover:visible inline-block bg-gray-900 rounded-lg shadow-sm opacity-0 group-hover:opacity-100 ">
-                        <p class="px-3 py-2 font-medium text-white w-[180px] line-clamp-2">${opt.name}</p>
+                    <div id="tooltip-${opt.code}" class=" absolute -top-16 lg:-left-12 w-fit z-10 invisible group-hover:visible inline-block bg-gray-900 rounded-lg shadow-sm opacity-0 group-hover:opacity-100 ">
+                        <p class="px-3 py-2 font-medium text-white w-[140px] sm:w-[180px] sm:line-clamp-2">${opt.name}</p>
                     </div>
                     <img src="${opt.img_link}" class="w-16 md:w-20 h-16 md:h-20 object-contain border-triconville-blue ${active?'border-3':''}"/>
                 </div>`

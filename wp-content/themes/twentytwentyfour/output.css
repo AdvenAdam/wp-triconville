@@ -779,6 +779,12 @@ video {
 .mt-6 {
   margin-top: 1.5rem;
 }
+.me-8 {
+  margin-inline-end: 2rem;
+}
+.me-4 {
+  margin-inline-end: 1rem;
+}
 .line-clamp-2 {
   overflow: hidden;
   display: -webkit-box;
@@ -1013,6 +1019,12 @@ video {
 }
 .w-screen {
   width: 100vw;
+}
+.w-\[100px\] {
+  width: 100px;
+}
+.w-\[140px\] {
+  width: 140px;
 }
 .min-w-20 {
   min-width: 5rem;
@@ -2075,6 +2087,17 @@ h1,h2,h3,h4,h5,h6,h7 {
     margin-right: 0px;
   }
 
+  .sm\:me-6 {
+    margin-inline-end: 1.5rem;
+  }
+
+  .sm\:line-clamp-2 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+
   .sm\:block {
     display: block;
   }
@@ -2115,6 +2138,10 @@ h1,h2,h3,h4,h5,h6,h7 {
     width: 20%;
   }
 
+  .sm\:w-\[180px\] {
+    width: 180px;
+  }
+
   .sm\:grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -2148,6 +2175,10 @@ h1,h2,h3,h4,h5,h6,h7 {
 
   .md\:top-20 {
     top: 5rem;
+  }
+
+  .md\:-left-10 {
+    left: -2.5rem;
   }
 
   .md\:col-span-2 {
@@ -2506,6 +2537,14 @@ h1,h2,h3,h4,h5,h6,h7 {
 }
 @media (min-width: 1024px) {
 
+  .lg\:-left-10 {
+    left: -2.5rem;
+  }
+
+  .lg\:-left-12 {
+    left: -3rem;
+  }
+
   .lg\:my-28 {
     margin-top: 7rem;
     margin-bottom: 7rem;
@@ -2526,6 +2565,10 @@ h1,h2,h3,h4,h5,h6,h7 {
 
   .lg\:mt-48 {
     margin-top: 12rem;
+  }
+
+  .lg\:me-8 {
+    margin-inline-end: 2rem;
   }
 
   .lg\:block {
@@ -2568,8 +2611,16 @@ h1,h2,h3,h4,h5,h6,h7 {
     max-width: 32rem;
   }
 
+  .lg\:max-w-xl {
+    max-width: 36rem;
+  }
+
   .lg\:grid-cols-4 {
     grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .lg\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .lg\:flex-row {
@@ -2627,6 +2678,11 @@ h1,h2,h3,h4,h5,h6,h7 {
     padding-bottom: 8rem;
   }
 
+  .lg\:px-0 {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
   .lg\:ps-3 {
     padding-inline-start: 0.75rem;
   }
@@ -2646,6 +2702,10 @@ h1,h2,h3,h4,h5,h6,h7 {
   }
 }
 @media (min-width: 1280px) {
+
+  .xl\:me-2 {
+    margin-inline-end: 0.5rem;
+  }
 
   .xl\:hidden {
     display: none;
