@@ -121,7 +121,7 @@ function renderBanner() {
         <div class="flex gap-5 w-full mt-20 md:flex-row flex-col">
             <img src="<?php echo esc_attr(get_template_directory_uri()); ?>/assets/${selectedMood.banner}" class="w-full md:w-3/5 h-auto object-cover" />
             <div class="ps-3 md:ps-5 flex flex-col md:justify-end">
-                <h1 class="text-3xl md:text-5xl lg:text-6xl xl:text-[7.5rem] xl:leading-[9rem] mood-color font-bold mb-5">${selectedMood.name}</h1>
+                <h1 class="text-3xl lg:text-5xl lg:text-6xl xl:text-[7.5rem] xl:leading-[9rem] mood-color font-bold mb-5">${selectedMood.name}</h1>
                 <div class="max-w-sm ">
                     <h3 class="mood-color  mb-3">${descriptionTitle}</h3>
                     <p class="mood-color">${description}</p>
@@ -206,7 +206,7 @@ function renderOtherMoods() {
                             style="background-image: url('<?php echo esc_attr(get_template_directory_uri()); ?>/assets/${mood.thumb}')">
                             <a href="<?= BASE_LINK ?>/moods/${mood.slug}"
                                 class="h-full w-full flex flex-col items-end justify-end p-5 transition duration-300 md:translate-y-14 md:group-hover:translate-y-0 ease-in-out md:group-hover:bg-gradient-to-b from-transparent to-black/40">
-                                <h1 class="text-3xl md:text-5xl !leading-none font-medium text-end text-white max-w-[160px] md:max-w-[260px] md:mb-6">${mood.name}</h1>
+                                <h1 class="text-3xl lg:text-5xl !leading-none font-medium text-end text-white max-w-[160px] md:max-w-[260px] md:mb-6">${mood.name}</h1>
                                 <div class="text-end h-0 md:h-8">
                                     <p class="text-white invisible md:group-hover:visible duration-300 md:mb-6">${mood.subName}</p>
                                 </div>
@@ -223,7 +223,7 @@ function renderOtherMoods() {
 function renderInspirations(inspirations) {
     if (inspirations) {
         $('#mood__inspirations').append(`
-            <h1 class="text-3xl md:text-5xl font-medium mood-color text-center">Inspirations</h1>
+            <h1 class="text-3xl lg:text-5xl font-medium mood-color text-center">Inspirations</h1>
             <div id="inspiration__container"
                 class="my-10 mx-auto grid grid-cols-3 gap-1 sm:gap-3">
             </div>

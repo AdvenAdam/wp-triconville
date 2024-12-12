@@ -21,7 +21,7 @@
         <div class="bg-black bg-opacity-20 h-full w-full flex items-center justify-start px-5 md:px-8">
             <a href="<?= BASE_LINK; ?>/find-a-store/"
                class="flex items-center w-full gap-3 max-w-[1440px] mx-auto">
-                <h1 class="text-3xl md:text-5xl md:text-center font-medium text-white">
+                <h1 class="text-3xl lg:text-5xl md:text-center font-medium text-white">
                     Find The Nearest Store
                 </h1>
                 <svg width="101"
@@ -38,7 +38,7 @@
     </div>
     <div class=" bg-cover bg-center bg-no-repeat snap-center snap-always"
          style="background-image: url(https://storage.googleapis.com/back-bucket/wp_triconville/images/store/footer.png)">
-        <div class="py-10 md:py-20 md:px-5 px-3 bg-[#F4F6F6] bg-opacity-85">
+        <div class="py-10 md:py-20 px-5 md:px-8 bg-[#F4F6F6] bg-opacity-85">
             <div class="max-w-[1440px] mx-auto ">
                 <div class="w-full lg:flex justify-center gap-3 md:gap-5 xl:gap-10">
                     <div class="lg:w-2/3 w-full">

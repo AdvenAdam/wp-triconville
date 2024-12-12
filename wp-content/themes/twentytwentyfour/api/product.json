@@ -65,12 +65,17 @@
       {
         "id": 38,
         "name": "Outdoor Coffee Tables",
-        "param": ""
+        "param": "coffee table"
       },
       {
         "id": 31,
         "name": "Outdoor Side Tables",
         "param": ""
+      },
+      {
+        "id": 38,
+        "name": "Outdoor Low Tables",
+        "param": "low table"
       }
     ],
     "meta": {
@@ -109,14 +114,14 @@
     "thumb": "https://storage.googleapis.com/back-bucket/wp_triconville/images/category/chair.png",
     "children": [
       {
-        "id": 23,
-        "name": "Outdoor Bar Chairs",
-        "param": ""
-      },
-      {
         "id": 25,
         "name": "Outdoor Dining Chairs",
         "param": "dining,arm"
+      },
+      {
+        "id": 23,
+        "name": "Outdoor Bar Chairs",
+        "param": ""
       },
       {
         "id": 25,

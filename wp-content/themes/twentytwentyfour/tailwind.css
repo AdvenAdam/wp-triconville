@@ -28,11 +28,11 @@ p {
 }
 
 h1 {
-    @apply xl:!leading-[4.5rem] !leading-[3rem]
+    @apply lg:!leading-[4.5rem] !leading-[3rem]
 }
 
 h2 {
-    @apply xl:!leading-[3rem] !leading-[2.25rem]
+    @apply lg:!leading-[3rem] !leading-[2.25rem]
 }
 h1,h2,h3,h4,h5,h6,h7 {
     @apply leading-6 font-serif tracking-[0.0625rem] text-triconville-black

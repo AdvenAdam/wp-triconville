@@ -40,7 +40,7 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
     <!-- NOTE: Banner -->
     <div class="homepage-banner">
         <div class="flex items-center justify-center min-h-full bg-black bg-opacity-25">
-            <h1 class="text-3xl md:text-5xl font-medium text-center text-white"
+            <h1 class="text-3xl lg:text-5xl font-medium text-center text-white"
                 id="category__name">Triconville Debuts at IFEX 2025</h1>
 
         </div>
@@ -287,7 +287,7 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                 <a href="<?= BASE_LINK; ?>/collections/${slugify(collection.name)}">
                     <div class="sm:h-full w-full h-[65vh] flex group items-end md:hover:bg-gradient-to-b from-transparent to-black/40 p-5">
                         <div class="max-w-md transition duration-300 translate-y-14 md:group-hover:translate-y-0 ease-in-out">
-                            <h1 class="text-3xl md:text-5xl text-white">
+                            <h1 class="text-3xl lg:text-5xl text-white">
                                 ${filterProductName(collection.name)}
                             </h1>
                             <div class="line-clamp-2">

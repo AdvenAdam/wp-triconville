@@ -17,7 +17,7 @@ body {
      id="magnetic__container">
     <!-- NOTE: Banner -->
     <div class="flex flex-col justify-center py-14 md:py-20 px-5 md:px-8 snap-always snap-start">
-        <h1 class="text-3xl md:text-5xl font-medium text-center capitalize ">triconville collections</h1>
+        <h1 class="text-3xl lg:text-5xl font-medium text-center capitalize ">triconville collections</h1>
         <h3 class='text-center'>The Luxury of Living Outdoors</h3>
         <div class="flex gap-2 justify-center mt-10 view-button">
             <button class="btn-ghost-dark  flex gap-2 items-center text-sm uppercase"
@@ -162,7 +162,7 @@ function renderCollections(e, index, type = 'grid') {
                     ${count < 10 ? '0' + (count) : count}. 
                 </h4>
                 <hr class='w-2/5 border-black'/>
-                <h1 class="text-3xl md:text-5xl font-medium capitalize my-2">${e.display_name}</h1>
+                <h1 class="text-3xl lg:text-5xl font-medium capitalize my-2">${e.display_name}</h1>
                 <h3 class='text-base line-clamp-2 text-ellipsis'>
                     ${e.description}
                 </h3>
@@ -188,7 +188,7 @@ function renderCollections(e, index, type = 'grid') {
                                 ${count < 10 ? '0' + (count) : count}. 
                             </h4>
                             <hr class='w-1/5 border-white'/>
-                            <h1 class="text-3xl md:text-5xl text-white font-medium capitalize my-2">${e.display_name}</h1>
+                            <h1 class="text-3xl lg:text-5xl text-white font-medium capitalize my-2">${e.display_name}</h1>
                             <h3 class='text-base line-clamp-2 text-ellipsis md:w-1/2 text-white'>
                                 ${e.description}
                             </h3>

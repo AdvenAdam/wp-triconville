@@ -17,12 +17,12 @@ get_template_part('header-custom');
 <div class="content-container mt-24 md:mt-32">
     <div class="product-header w-full full-screen ">
         <div class="flex items-center justify-center h-full bg-black bg-opacity-10 ">
-            <h1 class="text-3xl md:text-5xl font-medium text-center text-white">Products</h1>
+            <h1 class="text-3xl lg:text-5xl font-medium text-center text-white">Products</h1>
         </div>
     </div>
     <!-- NOTE : PRODUCT LIST -->
-    <div class="md:p-5 p-3 mb-20 mt-10">
-        <h2 class="text-center text-2xl md:text-3xl my-10"
+    <div class="px-5 md:px-8 p-3 mb-20 mt-10">
+        <h2 class="text-center text-2xl lg:text-3xl my-10"
             data-aos="fade-up"
             data-aos-once="true"
             data-aos-duration="1000">

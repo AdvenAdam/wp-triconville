@@ -5,30 +5,38 @@ get_template_part('header-custom');
 
 ?>
 
-<div class="content-container mt-16 md:mt-20">
+<div class="content-container overflow-hidden mt-16 md:mt-20">
     <div id="product__banner"></div>
     <!-- NOTE : PRODUCT Overview & Material -->
-
-    <div class=" grid grid-cols-1 lg:grid-cols-2 items-center gap-10 md:gap-8 mb-10"
+    <div class="lg:mb-16 bg-triconville-beige px-5 md:px-8 py-10 lg:py-20">
+        <div class="text-center lg:text-left max-w-[1440px] mx-auto"
+             data-aos="fade-up"
+             data-aos-once="true"
+             data-aos-duration="1000"
+             id="product__overview"></div>
+    </div>
+    <!-- NOTE : PRODUCT Swatcest -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 items-center lg:gap-8 mb-10"
          data-aos="fade-up"
          data-aos-once="true"
-         data-aos-duration="1000">
-        <div class="">
-            <div id="product__header__image"></div>
-        </div>
-        <div class="px-3 lg:px-0 lg:max-w-xl mt-5 md:mt-0"
-             id="product__description">
-            <div class="mb-16 "
-                 id="product__overview"></div>
-            <div class="me-4 sm:me-6 lg:me-8 xl:me-2">
+         data-aos-duration="1000"
+         id="product__img__swatch">
+        <div id="product__header__image"></div>
+        <div class="px-5 lg:px-0 lg:max-w-xl"
+             id="product__swatch">
+            <div class="me-4 sm:me-8 lg:me-8 xl:me-2">
+                <h1 class="text-2xl lg:text-3xl"
+                    id="swatcest__name"></h1>
+                <p class="text-xs mb-6 "
+                   id="swatcest__description"></p>
                 <p class="mr-3 uppercase mb-2 text-xs"
                    id="label_1"></p>
-                <div class="flex mb-6 flex-wrap gap-1 md:gap-4"
+                <div class="flex mb-6 flex-wrap gap-3 md:gap-4"
                      id="option_1">
                 </div>
                 <p class="mr-3 uppercase mb-2 text-xs"
                    id="label_2"></p>
-                <div class="flex mb-6 md:mb-16 flex-wrap items-center gap-1 md:gap-4"
+                <div class="flex mb-6 md:mb-16 flex-wrap items-center gap-3 md:gap-4"
                      id="option_2">
                 </div>
             </div>
@@ -72,36 +80,33 @@ get_template_part('header-custom');
         </button>
     </div>
     <!-- NOTE : PRODUCT Specification -->
-    <div class="md:px-5 px-3 "
+    <div class="px-5 md:px-8"
          id="specification__link"
          data-aos="fade-up"
          data-aos-once="true"
          data-aos-duration="1000">
-        <div class="max-w-[1440px] mx-auto grid items-center gap-4 grid-cols-1 md:grid-cols-2 py-10 md:py-20 lg:py-32"
+        <div class="max-w-[1440px] mx-auto flex lg:flex-row flex-col items-center gap-4 py-10 lg:py-32"
              id="specification__section">
 
         </div>
     </div>
     <!-- NOTE : PRODUCT IN THIS SECTION -->
-    <div class="md:px-5 px-3 mb-10 md:mb-20">
+    <div class="px-5 md:px-8mb-10 md:mb-20">
         <div class="max-w-[1440px] mx-auto">
-            <div class="py-10 md:pb-20">
-                <h2 class='text-3xl collection__product__name'
-                    data-aos="fade-up"
-                    data-aos-once="true"
-                    data-aos-duration="1000"></h2>
-                <div class="collection__product grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mb-16"
-                     data-aos="fade-up"
-                     data-aos-once="true"
-                     data-aos-duration="1000"></div>
+            <div class="py-10 md:pb-20"
+                 data-aos="fade-up"
+                 data-aos-once="true"
+                 data-aos-duration="1000">
+                <h2 class='text-3xl collection__product__name'></h2>
+                <div class="collection__product grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mb-16 justify-center"></div>
                 <div class="collection__product__btn text-center"></div>
             </div>
             <div class="py-10 md:pb-20 relative h-fit hidden"
-                 id="releted__products">
-                <h2 class='text-2xl md:text-3xl releted__products__name'
-                    data-aos="fade-up"
-                    data-aos-once="true"
-                    data-aos-duration="1000"></h2>
+                 id="releted__products"
+                 data-aos="fade-up"
+                 data-aos-once="true"
+                 data-aos-duration="1000">
+                <h2 class='text-2xl md:text-3xl releted__products__name'></h2>
                 <div class="releted__products my-10"></div>
                 <div class="releted__products__btn text-center"></div>
 
@@ -120,6 +125,7 @@ get_template_part('header-custom');
 <script>
 let ProductsData = [];
 let collectionData = [];
+let isSectionalPage = false
 jQuery(document).ready(function($) {
     $.ajax({
         url: `<?= BASE_API; ?>/v1_products_det_slug/<?= $character_slug ?>/`,
@@ -143,7 +149,6 @@ jQuery(document).ready(function($) {
         complete: () => {
             renderMaster();
             metaMaster();
-            $('#page-loading').hide();
         }
     });
 });
@@ -158,39 +163,47 @@ function metaMaster() {
 
 function renderMaster() {
     try {
+        console.time('renderMaster');
         // NOTE : PRODUCT HEADER 
-        $('#product__banner').append(
-            `<div class="full-screen w-full"
+        const ambienceImage = ProductsData.ambience_image_1920[0] || '';
+        const productName = filterProductName(ProductsData.name);
+        isSectionalPage = ProductsData.combineoptionvariant.option1.length === 0
+        $('#product__banner').append(`
+            <div class="full-screen w-full"
                 style="
-                    background: url('${ProductsData.ambience_image_1920[0]}'); 
+                    background: url('${ambienceImage}'); 
                     background-position: 50% 50%;
                     background-size: cover;
                     background-repeat: no-repeat;
                 ">
-                <div class ='bg-black bg-opacity-10 h-full w-full flex items-center justify-center'>
-                    <h1 class="text-3xl md:text-5xl font-medium text-center text-white capitalize">${filterProductName(ProductsData.name)}</h1>
+                <div class='bg-black bg-opacity-10 h-full w-full flex items-center justify-center'>
+                    <h1 class="text-3xl lg:text-5xl font-medium text-center text-white capitalize">${productName}</h1>
                 </div>
-            </div>`
-        );
-        // NOTE :PRODUCT OVERVIEW
+            </div>`);
+        // NOTE : PRODUCT OVERVIEW
         renderOverview(ProductsData);
         renderMaterial(ProductsData.combineoptionvariant);
         // APPEND DIMENSION
         renderDimensions(ProductsData.dimension);
         renderDownloadable(ProductsData.asset3d, ProductsData.product_image, ProductsData.collection_sheet);
+        // APPEND IMAGES AMBIENCE
         renderImages(ProductsData);
+
         if (Array.isArray(ProductsData.collection_product) && ProductsData.collection_product.length > 0) {
             renderCollectionProducts(ProductsData.collection_product.slice(0, 4), ProductsData.collection_det);
         }
+
         // FIXME : Related Product
         if (Array.isArray(ProductsData.related_product) && ProductsData.related_product.length > 0) {
             renderRelatedProducts(ProductsData.related_product);
         }
-        renderSheet(ProductsData.collection_sheet);
 
     } catch (error) {
-        console.error("🚀 ~ renderMaster ~ error:", error)
-        // redirectError()
+        console.error("🚀 ~ renderMaster ~ error:", error);
+        // redirectError();
+    } finally {
+        $('#page-loading').hide();
+        console.timeEnd('renderMaster');
     }
 }
 
@@ -226,21 +239,34 @@ async function renderOverview(res) {
         option2: res.combineoptionvariant.option2 && res.combineoptionvariant.option2.length > 0 ? res.combineoptionvariant.option2[0].code : null
     }
     const validBaseImgUrl = await generateValidUrl(swatchOpt);
+    if (isSectionalPage) {
+        $('#product__header__image').append(`
+            <div class="flex justify-center">
+                <img src="${validBaseImgUrl}" alt="${res.name}" class="w-[100vw] md:w-[80vw] h-[30vh] md:h-[50vh] object-cover px-8"/>
+            </div>
+        `)
+    } else {
+        $('#product__header__image').append(`
+            <div class="flex justify-center ">
+                <img src="${validBaseImgUrl}" alt="${res.name}" class="w-[70vw] md:w-[50vw] lg:w-auto h-fit object-cover px-8"/>
+            </div>
+        `)
+    }
 
-    $('#product__header__image').append(`
-        <div class="text-center mx-auto ">
-            <img src="${validBaseImgUrl}" alt="${res.name}" class="w-auto h-[350px] lg:h-[720px] xl:h-[870px] m-2 object-contain"/>
-        </div>
-    `)
     if (res.name) {
         const desc = res.description.replace(/<\/?p[^>]*>/g, '').replace(/<li[^>]*>(.*?)<\/li>/g, '')
         $('#product__overview').append(`
-            <div class='max-w-xl'>
-                <h1 class="text-2xl md:text-3xl text-gray-900 line-clamp-2">${filterProductName(res.name)}</h1>
-                <p class="text-slate-500 mb-4">Designed by 
-                    <span class="text-black font-medium underline"><a href="https://indospacegroup.com/indospace-rnd/" target="_blank">Indospace R&D </a></span>
-                </p>
-                <p class="line-clamp-4">${desc}</p>
+            <div class="grid lg:grid-cols-2 lg:gap-8 items-center">
+                <div class='max-w-xl mx-auto lg:mx-0 order-last lg:order-first' id="product__description">
+                    <h1 class="text-2xl md:text-3xl text-gray-900 line-clamp-2">${filterProductName(res.name)}</h1>
+                    <p class="text-slate-500 mb-4">Designed by 
+                        <span class="text-black font-medium underline"><a href="https://indospacegroup.com/indospace-rnd/" target="_blank">Indospace R&D </a></span>
+                    </p>
+                    <p class="line-clamp-4">${desc}</p>
+                </div>
+                <div class="flex justify-center hidden">
+                    <img src="${res.product_image}" alt="${res.name}" class="w-[70vw] md:w-[50vw] lg:w-auto h-[25vh] lg:h-[50vh] object-cover px-8"/>
+                </div>
             </div>
         `);
     }
@@ -249,22 +275,18 @@ async function renderOverview(res) {
             <img src="${res.ambience_image[0]}" alt="${res.name}" class="w-full h-auto rounded-xl"/>
         `);
     }
-}
-
-function renderSheet(sheet) {
     $('#product__description').append(`
-        <div class="flex gap-2">
-            ${sheet !== 'False' || sheet !== null ?
-            `<a href="${sheet}"
-                class="btn-ghost-dark uppercase flex items-end gap-2"> <p class="text-white text-xs">download collection sheet</p> 
+        <div class="flex sm:flex-row flex-col gap-2 justify-center lg:justify-start mt-10">
+            ${res.collection_sheet !== 'False' || res.collection_sheet !== null ?
+            `<a href="${res.collection_sheet}"
+                class="btn-ghost-dark uppercase flex items-end justify-center gap-2"> <p class="text-white text-xs">download collection sheet</p> 
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5 pb-1">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
                 </svg>
-    
             </a>`
             :''}
             <a href="<?= BASE_LINK; ?>/find-a-store/"
-                class="btn-ghost flex items-end uppercase"><p class="text-xs">Find Store</p></a>
+                class="btn-ghost flex items-end justify-center uppercase"><p class="text-xs">Find Store</p></a>
         </div>
     `);
 }
@@ -284,8 +306,16 @@ function changeSize(size) {
 }
 
 function renderMaterial(res) {
-    if (res.option1 && Array.isArray(res.option1)) {
+
+    if (isSectionalPage) {
+        $('#product__img__swatch').removeClass('lg:grid-cols-2')
+        $('#product__swatch').addClass('hidden')
+        return
+    }
+    if (res.option1 && Array.isArray(res.option1) && res.option1.length > 0) {
         $('#label_1').text(res.label1)
+        $('#swatcest__name').text('Your Style, Your Way')
+        $('#swatcest__description').text('Customize your look and find your perfect match.')
         res.option1.forEach((opt, index) => {
             const active = index === 0;
             $('#option_1').append(
@@ -296,9 +326,10 @@ function renderMaterial(res) {
                     <img src="${opt.img_link}" class="w-16 md:w-20 h-16 md:h-20 object-contain border-triconville-blue ${active?'border-3':''}"/>
                 </div>`
             );
-        });
+        })
     }
-    if (res.option2 && Array.isArray(res.option2)) {
+
+    if (res.option2 && Array.isArray(res.option2) && res.option1.length > 0) {
         $('#label_2').text(res.label2)
         res.option2.forEach((opt, index) => {
             const active = index === 0;
@@ -311,7 +342,6 @@ function renderMaterial(res) {
                 </div>`
             );
         });
-
     }
 
 }
@@ -319,12 +349,12 @@ function renderMaterial(res) {
 function renderDimensions(dimensions, render = "all") {
     if (dimensions && render == "all") {
         $('#specification__section').append(`
-            <div class=""
+            <div class="w-full lg:w-[40%]"
                  id="image__spec">
             </div>
-            <div class="lg:ps-3 xl:ps-5">
+            <div class="w-full lg:w-[60%] lg:ps-3 xl:ps-5">
                 <div >
-                    <div class="flex md:flex-row flex-col items-start justify-between mb-6">
+                    <div class="flex md:flex-row flex-col items-start justify-between mb-6 gap-4">
                         <h3 class="text-2xl md:text-3xl line-clamp-2">Sizing</h3>
                         <div class="flex items-center sizing-btn">
                             <button class="btn-ghost-dark !py-2 uppercase text-sm"
@@ -353,7 +383,7 @@ function renderDimensions(dimensions, render = "all") {
         dimensions.ps_overal_dimension.forEach((e) => {
             $('#table__spec').append(`
                 <tr>
-                    <td class='w-1/2 pt-2'>Overall - ${e.description}</td>
+                    <td class='w-fit xl:w-1/2 pt-2'>${e.description}</td>
                     <td class='md:px-3'> : </td>
                     <td> ${e.width} x ${e.depth} x ${e.height}</td>
                 </tr>
@@ -365,7 +395,7 @@ function renderDimensions(dimensions, render = "all") {
         dimensions.ps_box_dimension.forEach((e) => {
             $('#table__spec').append(`
                 <tr>
-                    <td class='w-1/2 pt-2'>Box - ${e.description}</td>
+                    <td class='w-fit xl:w-1/2 pt-2'>${e.description}</td>
                     <td class='md:px-3'> : </td>
                     <td>${e.width} x ${e.depth} x ${e.height}</td>
                 </tr>
@@ -376,7 +406,7 @@ function renderDimensions(dimensions, render = "all") {
     if (dimensions.ps_clearance_from_floor) {
         $('#table__spec').append(`
                     <tr>
-                        <td class='w-1/2 pt-2'>Clearance from Floor</td>
+                        <td class='w-fit xl:w-1/2 pt-2'>Clearance from Floor</td>
                         <td class='md:px-3'> : </td>
                         <td>${dimensions.ps_clearance_from_floor}</td>
                     </tr>
@@ -385,7 +415,7 @@ function renderDimensions(dimensions, render = "all") {
     if (dimensions.ps_table_top_thickness) {
         $('#table__spec').append(`
                     <tr>
-                        <td class='w-1/2 pt-2'>Table Top Thickness</td>
+                        <td class='w-fit xl:w-1/2 pt-2'>Table Top Thickness</td>
                         <td class='md:px-3'> : </td>
                         <td>${dimensions.ps_table_top_thickness}</td>
                     </tr>
@@ -394,7 +424,7 @@ function renderDimensions(dimensions, render = "all") {
     if (dimensions.ps_distance_between_legs) {
         $('#table__spec').append(`
                     <tr>
-                        <td class='w-1/2 pt-2'>Distance Between Legs</td>
+                        <td class='w-fit xl:w-1/2 pt-2'>Distance Between Legs</td>
                         <td class='md:px-3'> : </td>
                         <td>${dimensions.ps_distance_between_legs}</td>
                     </tr>
@@ -403,7 +433,7 @@ function renderDimensions(dimensions, render = "all") {
     if (dimensions.ps_arm_height) {
         $('#table__spec').append(`
                     <tr>
-                        <td class='w-1/2 pt-2'>Arm Height</td>
+                        <td class='w-fit xl:w-1/2 pt-2'>Arm Height</td>
                         <td class='md:px-3'> : </td>
                         <td>${dimensions.ps_arm_height}</td>
                     </tr>
@@ -412,7 +442,7 @@ function renderDimensions(dimensions, render = "all") {
     if (dimensions.ps_seat_height) {
         $('#table__spec').append(`
                     <tr>
-                        <td class='w-1/2 pt-2'>Seat Height</td>
+                        <td class='w-fit xl:w-1/2 pt-2'>Seat Height</td>
                         <td class='md:px-3'> : </td>
                         <td>${dimensions.ps_seat_height}</td>
                     </tr>
@@ -421,7 +451,7 @@ function renderDimensions(dimensions, render = "all") {
     if (dimensions.ps_seat_depth) {
         $('#table__spec').append(`
                 <tr>
-                    <td class='w-1/2 pt-2'>Seat Depth</td>
+                    <td class='w-fit xl:w-1/2 pt-2'>Seat Depth</td>
                     <td class='md:px-3'> : </td>
                     <td>${dimensions.ps_seat_depth}</td>
                 </tr>
@@ -430,7 +460,7 @@ function renderDimensions(dimensions, render = "all") {
     if (dimensions.ps_nett_weight) {
         $('#table__spec').append(`
                 <tr>
-                    <td class='w-1/2 pt-2'>Nett Weight</td>
+                    <td class='w-fit xl:w-1/2 pt-2'>Nett Weight</td>
                     <td class='md:px-3'> : </td>
                     <td>${dimensions.ps_nett_weight}</td>
                 </tr>
@@ -439,7 +469,7 @@ function renderDimensions(dimensions, render = "all") {
     if (dimensions.ps_gross_weight) {
         $('#table__spec').append(`
                 <tr>
-                    <td class='w-1/2 pt-2'>Gross Weight</td>
+                    <td class='w-fit xl:w-1/2 pt-2'>Gross Weight</td>
                     <td class='md:px-3'> : </td>
                     <td>${dimensions.ps_gross_weight}</td>
                 </tr>
@@ -448,7 +478,7 @@ function renderDimensions(dimensions, render = "all") {
     if (dimensions.ps_pax) {
         $('#table__spec').append(`
                 <tr>
-                    <td class='w-1/2 pt-2'>PAX</td>
+                    <td class='w-fit xl:w-1/2 pt-2'>PAX</td>
                     <td class='md:px-3'> : </td>
                     <td>${dimensions.ps_pax}</td>
                 </tr>
@@ -457,7 +487,7 @@ function renderDimensions(dimensions, render = "all") {
     if (dimensions.ps_20ft_container) {
         $('#table__spec').append(`
                 <tr>
-                    <td class='w-1/2 pt-2'>20ft Container</td>
+                    <td class='w-fit xl:w-1/2 pt-2'>20ft Container</td>
                     <td class='md:px-3'> : </td>
                     <td>${dimensions.ps_20ft_container}</td>
                 </tr>
@@ -466,7 +496,7 @@ function renderDimensions(dimensions, render = "all") {
     if (dimensions.ps_40hq_container) {
         $('#table__spec').append(`
                 <tr>
-                    <td class='w-1/2 pt-2'>40HQ Container</td>
+                    <td class='w-fit xl:w-1/2 pt-2'>40HQ Container</td>
                     <td class='md:px-3'> : </td>
                     <td>${dimensions.ps_40hq_container}</td>
                 </tr>
@@ -475,7 +505,7 @@ function renderDimensions(dimensions, render = "all") {
     if (dimensions.cbm) {
         $('#table__spec').append(`
                 <tr>
-                    <td class='w-1/2 pt-2'>CBM</td>
+                    <td class='w-fit xl:w-1/2 pt-2'>CBM</td>
                     <td class='md:px-3'> : </td>
                     <td>${dimensions.cbm}</td>
                 </tr>
@@ -597,46 +627,52 @@ function renderDownloadable(asset3d, product_image, collection_sheet) {
 }
 
 function renderImages(images) {
-    if (images.ambience_image_1920.length > 0) {
-        images.ambience_image_1920.forEach((e) => {
-            $('.ambience__img').append(`
+    $(document).ready(function() {
+        if (images.ambience_image_1920.length > 0) {
+            images.ambience_image_1920.forEach((e) => {
+                $('.ambience__img').append(`
                 <img src="${e}"
                     class="h-full me-2 mx-2 w-screen md:w-auto object-cover" />
             `)
-        })
-        $('.ambience__img').slick({
-            slidesToScroll: 1,
-            variableWidth: true,
-            arrows: false,
-            centerMode: true,
-            responsive: [{
-                breakpoint: 768,
-                settings: {
-                    centerMode: false,
-                    slidesToShow: 1.02,
-                    slidesToScroll: 1,
-                    variableWidth: false,
-                }
-            }]
-        });
-        $(".prev-btn").click(function() {
-            $(".ambience__img").slick("slickPrev");
-        });
-        $(".next-btn").click(function() {
-            $(".ambience__img").slick("slickNext");
-        });
-    } else {
-        $('.ambience__section').hide();
-    }
-    if (images.spec_image) {
-        // Spec image
-        $('#image__spec').append(`
+            })
+            $('.ambience__img').slick({
+                slidesToScroll: 1,
+                variableWidth: true,
+                arrows: false,
+                centerMode: true,
+                responsive: [{
+                    breakpoint: 768,
+                    settings: {
+                        centerMode: false,
+                        slidesToShow: 1.02,
+                        slidesToScroll: 1,
+                        variableWidth: false,
+                    }
+                }]
+            });
+            $(".prev-btn").click(function() {
+                $(".ambience__img").slick("slickPrev");
+            });
+            $(".next-btn").click(function() {
+                $(".ambience__img").slick("slickNext");
+            });
+        } else {
+            $('.ambience__section').hide();
+        }
+        if (images.spec_image) {
+            // Spec image
+            $('#image__spec').append(`
             <img src="${images.spec_image}"
                 alt="specification product"
                 class="h-auto w-full"
                 />
         `)
-    }
+        }
+        $(window).load(function() {
+            $('.ambience__section').slick("slickGoTo", 1, true);
+            $('.ambience__section').slick("slickGoTo", 0, true);
+        });
+    })
 }
 
 function renderCollectionProducts(products, name) {
@@ -645,9 +681,9 @@ function renderCollectionProducts(products, name) {
     products.forEach((e) => {
         $('.collection__product').append(`
             <a href="<?= BASE_LINK; ?>/product-detail/${slugify(e.name)}">     
-                <div class="product__card group">
-                    <img src="${e.product_image}" class="md:h-[384px] h-[204px] object-contain w-auto object-contain group-hover:scale-[.97] group-hover:brightness-110 transition duration-300" />
-                    <p class="text-center w-full md:-mt-3 mx-auto capitalize group-hover:underline">
+                <div class="product__card group flex flex-col items-center justify-center">
+                    <img src="${e.product_image}" class="md:h-[384px] h-[204px] object-contain w-auto group-hover:scale-[.97] group-hover:brightness-110 transition duration-300" />
+                    <p class="text-center w-full max-w-[90%] mx-auto -mt-5 sm:-mt-10 lg:-mt-16 xl:-mt-10 relative z-10 capitalize group-hover:underline">
                         ${filterProductName(e.name)}
                     </p>
                 </div>
@@ -670,10 +706,10 @@ function renderRelatedProducts(products) {
     $('.releted__products__name').text(`Related Products`);
     products.forEach((e) => {
         $('.releted__products').append(`
-            <a href="<?= BASE_LINK; ?>/product-detail/${slugify(e.name)}">     
-                <div class="product__card group">
-                    <img src="${e.product_image}" class="md:h-[384px] h-[204px] object-contain w-auto object-contain group-hover:scale-[.97] group-hover:brightness-110 transition duration-300" />
-                    <p class="text-center w-full md:-mt-3 mx-auto capitalize group-hover:underline">
+            <a href="<?= BASE_LINK; ?>/product-detail/${slugify(e.name)}">
+                <div class="product__card group flex flex-col items-center justify-center mx-1">
+                    <img src="${e.product_image}" class="md:h-[384px] h-[204px] max-w-[45vw] md:max-w-[33vw] lg:max-w-[23vw] object-contain w-auto group-hover:scale-[.97] group-hover:brightness-110 transition duration-300" />
+                    <p class="text-center w-full max-w-[90%] mx-auto -mt-5 sm:-mt-10 lg:-mt-16 xl:-mt-10 relative z-10 capitalize group-hover:underline">
                         ${filterProductName(e.name)}
                     </p>
                 </div>
@@ -681,7 +717,7 @@ function renderRelatedProducts(products) {
         `)
     })
     $('#releted__products').append(`
-        <button class="gww-prev left-5 arrow-btn"
+        <button class="gww-prev left-0 2xl:-left-12 arrow-btn hidden lg:block"
                 aria-label="Previous"
                 type="button">
             <svg xmlns="http://www.w3.org/2000/svg"
@@ -695,7 +731,7 @@ function renderRelatedProducts(products) {
                         d="M15.75 19.5 8.25 12l7.5-7.5" />
             </svg>
         </button>
-        <button class="gww-next right-5 arrow-btn"
+        <button class="gww-next right-0 2xl:-right-12 arrow-btn hidden lg:block"
                 aria-label="Next"
                 type="button">
             <svg xmlns="http://www.w3.org/2000/svg"
