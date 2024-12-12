@@ -195,10 +195,9 @@ function renderMaster() {
 }
 
 async function generateValidUrl(swatchOpt) {
-    const isTwoSwatch = swatchOpt.option2;
-    const combine = `${ProductsData.sku}-${swatchOpt.option1.toUpperCase()}${isTwoSwatch ? `-${swatchOpt.option2.toUpperCase()}` : ''}.png`;
+    const isTwoSwatch = swatchOpt.option2 || false;
+    const combine = `${ProductsData.sku}-${swatchOpt.option1 && swatchOpt.option1.toUpperCase()}${isTwoSwatch ? `-${swatchOpt.option2.toUpperCase()}` : ''}.png`;
     const baseImgUrl = `https://storage.googleapis.com/pimassest1/configurator/${ProductsData.sku}/1024/${combine}`;
-
     return await checkUrl(baseImgUrl) ? baseImgUrl : ProductsData.product_image
 }
 
@@ -223,8 +222,8 @@ async function changeSwatch(variant, code) {
 
 async function renderOverview(res) {
     const swatchOpt = {
-        option1: res.combineoptionvariant.option1[0].code,
-        option2: res.combineoptionvariant.option2 ? res.combineoptionvariant.option2[0].code : null
+        option1: res.combineoptionvariant.option1 && res.combineoptionvariant.option1.length > 0 ? res.combineoptionvariant.option1[0].code : null,
+        option2: res.combineoptionvariant.option2 && res.combineoptionvariant.option2.length > 0 ? res.combineoptionvariant.option2[0].code : null
     }
     const validBaseImgUrl = await generateValidUrl(swatchOpt);
 

@@ -19,7 +19,7 @@ get_template_part('header-custom');
 
             </div>
             <div class="py-10 grid lg:grid-cols-2 gap-8">
-                <div class="max-w-lg order-2 lg:order-1"
+                <div class="max-w-xl order-2 lg:order-1"
                      data-aos="fade-up"
                      data-aos-once="true"
                      data-aos-duration="1000">
@@ -27,7 +27,9 @@ get_template_part('header-custom');
                         Moods
                     </h2>
                     <p class="py-5">
-                        We believe every outdoor space has a story to tell. It should be as unique as you are. Hence we've curated a diverse collection of furniture styles to complement any outdoor space and reflect your personal taste
+                        We believe every outdoor space has a story to tell.
+                        It should be as unique as you are. Hence we've curated a diverse collection of furniture styles
+                        to complement any outdoor space and reflect your personal taste
                     </p>
                 </div>
                 <div class="order-1 lg:order-2"

@@ -113,8 +113,8 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                  data-aos-delay="200"
                  data-aos-duration="1000">
                 <div class="grid lg:grid-cols-2 gap-8 items-center">
-                    <div class="max-w-lg order-last lg:order-first">
-                        <p class="text-xs uppercase tracking-widest">MOODS</p>
+                    <div class="max-w-xl order-last lg:order-first">
+                        <p class="text-xs uppercase tracking-widest mb-2">MOODS</p>
                         <h2 class="text-3xl">Your World, Your Style, Your Outdoors.</h2>
                         <p class=" mt-3 mb-10">We believe every outdoor space has a story to tell. It should be as unique as you are. Hence we've curated a diverse collection of furniture styles to complement any outdoor space and reflect your personal taste:</p>
                         <a href="<?= BASE_LINK ?>/moods"
@@ -152,12 +152,12 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                         </a>
                         <div class="desc w-1/2 md:w-[95%] flex flex-col justify-center">
                             <div class="h-20 overflow-hidden">
-                                <h2 class="text-2xl md:mb-5 md:mt-3">
+                                <h4 class="text-2xl md:mb-5 md:mt-3">
                                     <a href="<?php echo get_permalink($post->ID); ?>"
                                        class="hover:underline line-clamp-2">
                                         <?php echo get_the_title($post->ID); ?>
                                     </a>
-                                </h2>
+                                </h4>
                             </div>
                             <div class="md:mb-10">
                                 <p class="tracking-wider line-clamp-2 md:line-clamp-3">
@@ -180,7 +180,7 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                  data-aos-delay="200"
                  data-aos-duration="1000">
                 <div class="grid lg:grid-cols-2 gap-8 items-center ">
-                    <div class="max-w-lg order-last lg:order-first">
+                    <div class="max-w-xl order-last lg:order-first">
                         <p class="uppercase text-xs tracking-widest mb-2">catalog</p>
                         <h2 class="text-3xl">Triconville - 2024 Catalog</h2>
                         <p class=" mt-3 mb-12">
