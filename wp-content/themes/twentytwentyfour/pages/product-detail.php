@@ -17,10 +17,7 @@ if (is_wp_error($response)) {
 }
 
 $data = json_decode(wp_remote_retrieve_body($response), true);
-
-if (isset($data['meta_title'])) {
-    echo '<title>' . $data['meta_title'] . '</title>';
-}
+echo '<title>' . (isset($data['meta_title']) ? $data['meta_title'] : '') . '</title>';
 if (isset($data['meta_description'])) {
     echo '<meta name="description" content="' . esc_attr($data['meta_description']) . '"/>';
 }
