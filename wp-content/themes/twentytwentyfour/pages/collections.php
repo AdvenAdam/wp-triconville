@@ -1,6 +1,25 @@
 <?php
-    get_template_part('header-custom');
     $character_slug = get_query_var('collection');
+    echo '<title>' . ucfirst( slugToTitleCase($character_slug) ) . ' | ' . wp_kses_data( get_bloginfo( 'name', 'display' ) ) . '</title>';
+    get_template_part('header-custom');
+
+    $url = BASE_API . '/v1_collections_det_slug/' . $character_slug . '/';
+    $headers = array(
+        'Authorization' => API_KEY,
+    );
+    $response = wp_remote_get($url, array(
+        'headers' => $headers,
+    ));
+
+    if (is_wp_error($response)) {
+        echo 'Error fetching data: ' . $response->get_error_message();
+        return;
+    }
+
+    $data = json_decode(wp_remote_retrieve_body($response), true);
+    echo '<meta name="description" content="' . esc_attr($data['meta_description']) . '"/>';
+    echo '<meta name="keywords" content="' . esc_attr($data['meta_keyword']) . '"/>';
+
 ?>
 
 <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js "></script>
@@ -83,18 +102,9 @@ function loadCollections() {
         complete: () => {
             $('#page-loading').hide();
             renderMaster();
-            metaMaster();
         }
     });
 };
-// NOTE : Handling Meta
-function metaMaster() {
-    ['title', 'description', 'keyword'].forEach(key => {
-        if (collectionData[`meta_${key}`] !== 'False') {
-            $(`<meta name="${key}" content="${collectionData[`meta_${key}`]}"/>`).appendTo('head');
-        }
-    });
-}
 
 // NOTE : Handling Render
 function renderMaster() {
