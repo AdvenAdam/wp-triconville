@@ -17,13 +17,9 @@ if (is_wp_error($response)) {
 }
 
 $data = json_decode(wp_remote_retrieve_body($response), true);
-echo '<title>' . (isset($data['meta_title']) ? $data['meta_title'] : '') . '</title>';
-if (isset($data['meta_description'])) {
-    echo '<meta name="description" content="' . esc_attr($data['meta_description']) . '"/>';
-}
-if (isset($data['meta_keywords'])) {
-    echo '<meta name="keywords" content="' . esc_attr($data['meta_keywords']) . '"/>';
-}
+echo '<meta name="description" content="' . esc_attr($data['meta_description']) . '"/>';
+echo '<meta name="keywords" content="' . esc_attr($data['meta_keyword']) . '"/>';
+
 ?>
 
 <div class="content-container overflow-hidden mt-16 md:mt-20">
