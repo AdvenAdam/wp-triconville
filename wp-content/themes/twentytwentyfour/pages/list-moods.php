@@ -12,7 +12,7 @@ get_template_part('header-custom');
         <div class="max-w-[1440px] mx-auto">
             <div class="text-center md:pt-10 ">
                 <h1 class="text-3xl lg:text-5xl">Moods</h1>
-                <p class="md:text-base">Emotions in Every Moments</p>
+                <h4 class="md:text-base">Emotions in Every Moments</h4>
             </div>
             <div class="grid py-10 lg:grid-cols-4 grid-cols-2 gap-2 md:gap-5"
                  id="mood__list">
