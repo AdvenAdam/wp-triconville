@@ -21,10 +21,6 @@
     echo '<meta name="keywords" content="' . esc_attr($data['meta_keyword']) . '"/>';
 
 ?>
-
-<script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js "></script>
-<link href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.css "
-      rel="stylesheet">
 <div class="content-container ">
     <div id="collection__header"></div>
     <div id="container__<?=$character_slug ?>"></div>
