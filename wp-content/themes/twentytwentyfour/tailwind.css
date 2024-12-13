@@ -21,18 +21,18 @@
     @apply h-[calc(100vh-5rem)]
 }
 .sm-full-screen {
-    @apply xl:h-[calc(100vh-5rem)] min-h-fit py-10 md:py-20 lg:py-0
+    @apply xl:h-[calc(100vh-5rem)] min-h-fit py-10 md:py-20 xl:py-0
 }
 p {
     @apply text-triconville-black tracking-[0.07rem] font-sans text-xs sm:text-sm !leading-[150%]
 }
 
 h1 {
-    @apply xl:!leading-[4.5rem] !leading-[3rem]
+    @apply lg:!leading-[4.5rem] !leading-[3rem]
 }
 
 h2 {
-    @apply xl:!leading-[3rem] !leading-[2.25rem]
+    @apply lg:!leading-[3rem] !leading-[2.25rem]
 }
 h1,h2,h3,h4,h5,h6,h7 {
     @apply leading-6 font-serif tracking-[0.0625rem] text-triconville-black

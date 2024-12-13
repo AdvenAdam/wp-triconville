@@ -16,28 +16,30 @@ get_template_part('header-custom');
     <!-- NOTE: Banner -->
     <div class="product-detail-banner mt-6 md:mt-10">
         <div class="flex items-center justify-center w-full full-screen bg-black bg-opacity-10">
-            <h1 class="text-3xl md:text-5xl font-medium text-center text-white capitalize"
+            <h1 class="text-3xl lg:text-5xl font-medium text-center text-white capitalize"
                 id="category__name"></h1>
         </div>
     </div>
-    <!-- NOTE: filter product by category -->
-    <div class="max-w-[1440px] mt-5 mb-10 md:mb-20 mx-auto">
-        <h3 class="text-2xl md:text-3xl text-center mt-10 md:mt-20"
-            id="category__name-title"
-            data-aos="fade-up"
-            data-aos-once="true"
-            data-aos-duration="1000">CATEGORY</h3>
-        <div id='filter__product'
-             class="flex items-center my-10 text-sm justify-center gap-2 flex-wrap"
-             data-aos="fade-up"
-             data-aos-once="true"
-             data-aos-duration="1000"></div>
-    </div>
+    <div class="px-5 md:px-8">
+        <!-- NOTE: filter product by category -->
+        <div class="max-w-[1440px] mt-5 mb-10 md:mb-20 mx-auto">
+            <h3 class="text-2xl lg:text-3xl text-center mt-10 md:mt-20"
+                id="category__name-title"
+                data-aos="fade-up"
+                data-aos-once="true"
+                data-aos-duration="1000">CATEGORY</h3>
+            <div id='filter__product'
+                 class="flex items-center my-10 text-sm justify-center gap-2 flex-wrap"
+                 data-aos="fade-up"
+                 data-aos-once="true"
+                 data-aos-duration="1000"></div>
+        </div>
 
-    <!-- NOTE : PRODUCT LIST -->
-    <div class="max-w-[1440px] my-10 mx-auto "
-         id="product__list">
+        <!-- NOTE : PRODUCT LIST -->
+        <div class="max-w-[1440px] my-10 mx-auto "
+             id="product__list">
 
+        </div>
     </div>
 </div>
 <div id="page-loading">
@@ -221,10 +223,10 @@ function renderProducts(data, headerTitle = 'All Types') {
             data-aos-duration="1000"
         >
             <div class="-mb-5">
-                <h3 class="text-2xl md:text-3xl ps-3 md:ps-5 mb-2" id="category__name-label">
+                <h3 class="text-2xl lg:text-3xl ps-3 lg:ps-5 mb-2" id="category__name-label">
                     ${headerTitle}
                 </h3>
-                <hr style="border-width: 1px;" />
+                <hr style="border-width: 1px;" class="relative z-10" />
             </div>
             <div id="product__list__${slugify(headerTitle)}" class ="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-10" >
             </div>
@@ -239,9 +241,9 @@ function renderProducts(data, headerTitle = 'All Types') {
                 data-aos-once="true"
                 data-aos-duration="1000"
             >
-                <div class='flex justify-center items-center flex-col p-3 group'>
-                    <img class="w-auto md:h-[384px] h-[240px] object-contain group-hover:scale-[.97] group-hover:brightness-110 transition duration-300" src="${e.product_image_384}" />
-                    <p class="text-center md:mt-[-30px] max-w-[90%] capitalize group-hover:underline">${filterProductName(e.name)}</p>
+                <div class='flex justify-center items-center flex-col group'>
+                    <img class="w-auto lg:h-[384px] h-[240px] object-contain group-hover:scale-[.97] group-hover:brightness-110 transition duration-300" src="${e.product_image_384}" />
+                    <p class="text-center max-w-[90%] -mt-5 sm:-mt-10 lg:-mt-16 xl:-mt-10 relative z-10 capitalize group-hover:underline">${filterProductName(e.name)}</p>
                 </div>
             </a>
         `);

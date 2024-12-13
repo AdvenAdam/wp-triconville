@@ -11,7 +11,7 @@
     <title>
         <?php wp_title('|', true, 'right'); ?>
     </title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="<?php echo get_template_directory_uri(); ?>/assets/javascript/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.0/flowbite.min.js"></script>
     <!-- Google Fonts -->
     <link rel="preconnect"
@@ -71,7 +71,7 @@
 <body <?php body_class(); ?>>
     <header class="header fixed w-full top-0 tracking-widest"
             style="z-index: 20;">
-        <nav class="flex items-center justify-between px-3 md:px-5 2xl:px-20 w-full md:min-h-20 bg-white ">
+        <nav class="flex items-center justify-between px-5 md:px-8 2xl:px-20 w-full md:min-h-20 bg-white ">
             <div class="flex justify-center">
                 <a href="<?php echo home_url(); ?>">
                     <img src="https://storage.googleapis.com/back-bucket/wp_triconville/images/icons/Triconville%20Logo%20Primary.svg"
@@ -90,7 +90,7 @@
                     </div>
                     <a href="https://indospaceb2b.com/"
                        class="flex gap-1 items-center group pb-1">
-                        <p class="text-xs uppercase pt-3 pb-2 group-hover:text-triconville-blue">B2B Login</p>
+                        <p class="uppercase text-xs pt-3 pb-2 group-hover:text-triconville-blue">B2B Login</p>
                         <svg xmlns="http://www.w3.org/2000/svg"
                              fill="none"
                              viewBox="0 0 24 24"
@@ -111,7 +111,7 @@
                         data-drawer-placement="right"
                         data-drawer-show="drawer-navigation"
                         aria-controls="drawer-navigation">
-                    <p class="text-xs font-medium group-hover:text-triconville-blue pt-1">Menu</p>
+                    <p class="font-medium group-hover:text-triconville-blue pt-1">Menu</p>
                     <svg xmlns="http://www.w3.org/2000/svg"
                          fill="none"
                          viewBox="0 0 24 24"
@@ -125,10 +125,10 @@
                 </button>
             </div>
         </nav>
-        <nav class="w-full px-3 md:px-5 2xl:px-20 py-2 md:py-3 bg-[#F4F6F6] opacity-0 invisible transition-opacity duration-500 ease-in-out fixed top-16 md:top-20 "
+        <nav class="w-full px-5 md:px-8 2xl:px-20 py-2 md:py-3 bg-[#F4F6F6] opacity-0 invisible transition-opacity duration-500 ease-in-out fixed top-16 md:top-20 "
              style="z-index: 2;"
              id="sub-header">
-            <div class="uppercase text-xs flex justify-end w-full scrollbar-none">
+            <div class="uppercase flex justify-end w-full scrollbar-none">
                 <div class="hidden gap-6 overflow-x-auto"
                      id="sub-inspiration-desktop">
                 </div>
@@ -257,7 +257,7 @@
 
     function navSubMenu() {
         if ($('#sub-collections-desktop').get(0).scrollWidth > $('#sub-collections-desktop').innerWidth()) {
-            $('#sub-header').addClass('!pe-10')
+            $('#sub-header').addClass('!pe-10 2xl:!pe-20');
             $('#sub-collections-desktop').on('scroll', function() {
                 const scrollLeft = $(this).scrollLeft();
                 const clientWidth = $(this).innerWidth();
@@ -316,7 +316,7 @@
                     >
                         <h5 class="text-lg font-medium">${menu.name}</h5>
                     </a>
-                    <div class="text-end text-sm" id="${subMenuId}"></div>
+                    <div class="text-end" id="${subMenuId}"></div>
                 </li>
             `);
             appendSubMenu(menu.name);
@@ -366,12 +366,12 @@
             const displayName = item.display_name || item.name;
             categoryMobile += `
                 <a href="${href}">
-                    <p class="py-1 hover:text-triconville-blue whitespace-nowrap" id="${slugify(item.name)}-link-mobile">${displayName}</p>
+                    <p class="py-1 !text-xs hover:text-triconville-blue whitespace-nowrap" id="${slugify(item.name)}-link-mobile">${displayName}</p>
                 </a>
             `;
             categoryDesktop += `
                 <a href="${href}">
-                    <p class="${menu === 'Inspirations' ? 'pt-1' : 'py-1'} hover:text-triconville-blue whitespace-nowrap" id="${slugify(item.name)}-sub-link">${displayName}</p>
+                    <p class="${menu === 'Inspirations' ? 'pt-1' : 'py-1'} !text-xs hover:text-triconville-blue whitespace-nowrap" id="${slugify(item.name)}-sub-link">${displayName}</p>
                 </a>
             `;
         });
