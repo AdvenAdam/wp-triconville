@@ -165,18 +165,10 @@ jQuery(document).ready(function($) {
         },
         complete: () => {
             renderMaster();
-            metaMaster();
         }
     });
 });
 
-function metaMaster() {
-    ['title', 'description', 'keyword'].forEach(key => {
-        if (ProductsData[`meta_${key}`] !== 'False') {
-            $(`<meta name="${key}" content="${ProductsData[`meta_${key}`]}"/>`).appendTo('head');
-        }
-    });
-}
 
 function renderMaster() {
     try {
