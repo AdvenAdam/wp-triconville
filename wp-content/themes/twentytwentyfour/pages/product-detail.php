@@ -3,6 +3,30 @@ $character_slug = get_query_var('detail');
 echo '<title>' . ucfirst( slugToTitleCase($character_slug) ) . ' | ' . wp_kses_data( get_bloginfo( 'name', 'display' ) ) . '</title>';
 get_template_part('header-custom');
 
+$url = BASE_API . '/v1_products_det_slug/' . $character_slug . '/';
+$headers = array(
+    'Authorization' => API_KEY,
+);
+$response = wp_remote_get($url, array(
+    'headers' => $headers,
+));
+
+if (is_wp_error($response)) {
+    echo 'Error fetching data: ' . $response->get_error_message();
+    return;
+}
+
+$data = json_decode(wp_remote_retrieve_body($response), true);
+
+if (isset($data['meta_title'])) {
+    echo '<title>' . $data['meta_title'] . '</title>';
+}
+if (isset($data['meta_description'])) {
+    echo '<meta name="description" content="' . esc_attr($data['meta_description']) . '"/>';
+}
+if (isset($data['meta_keywords'])) {
+    echo '<meta name="keywords" content="' . esc_attr($data['meta_keywords']) . '"/>';
+}
 ?>
 
 <div class="content-container overflow-hidden mt-16 md:mt-20">
