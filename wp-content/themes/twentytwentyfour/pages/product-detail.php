@@ -1,7 +1,5 @@
 <?php
 $character_slug = get_query_var('detail');
-echo '<title>' . ucfirst( slugToTitleCase($character_slug) ) . ' | ' . wp_kses_data( get_bloginfo( 'name', 'display' ) ) . '</title>';
-get_template_part('header-custom');
 
 $url = BASE_API . '/v1_products_det_slug/' . $character_slug . '/';
 $headers = array(
@@ -17,9 +15,11 @@ if (is_wp_error($response)) {
 }
 
 $data = json_decode(wp_remote_retrieve_body($response), true);
+echo '<title>'. esc_attr($data['meta_title']) . '</title>';
 echo '<meta name="description" content="' . esc_attr($data['meta_description']) . '"/>';
 echo '<meta name="keywords" content="' . esc_attr($data['meta_keyword']) . '"/>';
 
+get_template_part('header-custom');
 ?>
 
 <div class="content-container overflow-hidden mt-16 md:mt-20">
@@ -62,12 +62,12 @@ echo '<meta name="keywords" content="' . esc_attr($data['meta_keyword']) . '"/>'
     </div>
 
     <!-- NOTE : PRODUCT Ambience Slider -->
-    <div class="ambience__section relative mb-10 md:mb-20"
+    <div class="ambience__section relative mb-10 md:mb-20 group cursor-pointer"
          data-aos="fade-up"
          data-aos-once="true"
          data-aos-duration="1000">
         <div class="ambience__img h-[350px] sm:h-[600px] lg:h-[720px]"></div>
-        <button class="slick-prev prev-btn hidden md:block left-5  arrow-btn"
+        <button class="slick-prev prev-btn hidden lg:block invisible group-hover:visible opacity-0 group-hover:opacity-100 left-5  arrow-btn"
                 aria-label="Previous"
                 type="button">
             <svg xmlns="http://www.w3.org/2000/svg"
@@ -81,7 +81,7 @@ echo '<meta name="keywords" content="' . esc_attr($data['meta_keyword']) . '"/>'
                       d="M15.75 19.5 8.25 12l7.5-7.5" />
             </svg>
         </button>
-        <button class="slick-next next-btn hidden md:block right-5 arrow-btn"
+        <button class="slick-next next-btn hidden lg:block invisible group-hover:visible opacity-0 group-hover:opacity-100 right-5 arrow-btn"
                 aria-label="Next"
                 type="button">
             <svg xmlns="http://www.w3.org/2000/svg"
@@ -141,32 +141,19 @@ echo '<meta name="keywords" content="' . esc_attr($data['meta_keyword']) . '"/>'
 
 <script>
 let ProductsData = [];
-let collectionData = [];
 let isSectionalPage = false
 jQuery(document).ready(function($) {
-    $.ajax({
-        url: `<?= BASE_API; ?>/v1_products_det_slug/<?= $character_slug ?>/`,
-        type: 'GET',
-        headers: {
-            'Authorization': '<?= API_KEY; ?>',
-        },
-        beforeSend: () => {
-            // TODO ::SKELETON
-            $('#page-loading').show();
-        },
-        success: (res) => {
-            ProductsData = res;
-        },
-        error: (xhr, status, error) => {
-            if (xhr.status === 404) {
-                redirectError(404)
-            }
-            console.error('Error fetching data:', error);
-        },
-        complete: () => {
-            renderMaster();
+    try {
+        $('#page-loading').show();
+        ProductsData = <?php echo json_encode($data); ?>;
+    } catch (error) {
+        if (error.status === 404) {
+            redirectError(404)
         }
-    });
+        console.error('Error fetching data:', error);
+    } finally {
+        renderMaster();
+    }
 });
 
 
@@ -648,7 +635,7 @@ function renderImages(images) {
                 slidesToScroll: 1,
                 variableWidth: true,
                 arrows: false,
-                centerMode: true,
+                centerMode: false,
                 responsive: [{
                     breakpoint: 768,
                     settings: {
@@ -677,10 +664,6 @@ function renderImages(images) {
                 />
         `)
         }
-        $(window).load(function() {
-            $('.ambience__section').slick("slickGoTo", 1, true);
-            $('.ambience__section').slick("slickGoTo", 0, true);
-        });
     })
 }
 

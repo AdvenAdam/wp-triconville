@@ -1,11 +1,32 @@
 <?php
-
 $character_slug = get_query_var('mood');
 
-// Set the title to the slug
-echo '<title>'. 'Moods - ' . ucfirst( slugToTitleCase($character_slug) ) . ' | ' . wp_kses_data( get_bloginfo( 'name', 'display' ) ) . '</title>';
-get_template_part('header-custom');
+$url = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' ? 'https' : 'http') . '://' . BASE_URL . '/?rest_route=/wp/v2/selected_moods/';
+$response = wp_remote_get($url,[]);
+$data = json_decode(wp_remote_retrieve_body($response), true);
 
+if (is_wp_error($response)) {
+    echo 'Error fetching data: ' . $response->get_error_message();
+    return;
+}
+
+$selectedMood = array_filter($data, function($e) use ($character_slug) {
+    return $e['slug'] === $character_slug;
+})[0];
+$otherMoods = array_filter($data, function($e) use ($character_slug) {
+    return $e['slug'] !== $character_slug;
+});
+
+
+if (empty($selectedMood)) {
+    return;
+}
+
+echo '<title>'. esc_attr($selectedMood['meta']['title']) . '</title>';
+echo '<meta name="description" content="' . esc_attr($selectedMood['meta']['description']) . '"/>';
+echo '<meta name="keywords" content="' . esc_attr($selectedMood['meta']['keywords']). '"/>';
+
+get_template_part('header-custom');
 ?>
 
 <style>
@@ -68,28 +89,14 @@ let selectedMood = {};
 let otherMoods = [];
 
 $(document).ready(function() {
-    $.ajax({
-        url: "<?= BASE_URL; ?>/?rest_route=/wp/v2/selected_moods",
-        type: "GET",
-        beforeSend: () => {
-            $('#page-loading').show();
-        },
-        success: (res) => {
-            moods = res;
-            selectedMood = moods.find(e => e.slug === '<?= $character_slug; ?>');
-            otherMoods = moods.filter(e => e.slug !== '<?= $character_slug; ?>');
-
-        },
-        error: function(xhr, status, error) {
-            if (xhr.status === 404) {
-                redirectError(404)
-            }
-            console.error('Error fetching data:', error);
-        },
-        complete: () => {
-            renderMaster();
-        }
-    })
+    try {
+        $('#page-loading').show();
+        selectedMood = <?php echo json_encode($selectedMood); ?>;
+        otherMoods = <?php echo json_encode($otherMoods); ?>;
+        renderMaster()
+    } catch (error) {
+        redirectError()
+    }
 })
 
 function renderMaster() {
@@ -121,7 +128,7 @@ function renderBanner() {
         <div class="flex gap-5 w-full mt-20 md:flex-row flex-col">
             <img src="<?php echo esc_attr(get_template_directory_uri()); ?>/assets/${selectedMood.banner}" class="w-full md:w-3/5 h-auto object-cover" />
             <div class="ps-3 md:ps-5 flex flex-col md:justify-end">
-                <h1 class="text-3xl lg:text-5xl lg:text-6xl xl:text-[7.5rem] xl:leading-[9rem] mood-color font-bold mb-5">${selectedMood.name}</h1>
+                <h1 class="text-3xl lg:text-5xl lg:text-6xl xl:text-[7.5rem] xl:!leading-[9rem] mood-color font-bold mb-5">${selectedMood.name}</h1>
                 <div class="max-w-sm ">
                     <h3 class="mood-color  mb-3">${descriptionTitle}</h3>
                     <p class="mood-color">${description}</p>

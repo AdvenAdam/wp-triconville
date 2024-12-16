@@ -1,7 +1,5 @@
 <?php
     $character_slug = get_query_var('collection');
-    echo '<title>' . ucfirst( slugToTitleCase($character_slug) ) . ' | ' . wp_kses_data( get_bloginfo( 'name', 'display' ) ) . '</title>';
-    get_template_part('header-custom');
 
     $url = BASE_API . '/v1_collections_det_slug/' . $character_slug . '/';
     $headers = array(
@@ -17,8 +15,10 @@
     }
 
     $data = json_decode(wp_remote_retrieve_body($response), true);
+    echo '<title>' . esc_attr($data['meta_title']) . '</title>';
     echo '<meta name="description" content="' . esc_attr($data['meta_description']) . '"/>';
     echo '<meta name="keywords" content="' . esc_attr($data['meta_keyword']) . '"/>';
+    get_template_part('header-custom');
 
 ?>
 <div class="content-container ">
@@ -30,7 +30,7 @@
              data-aos-once="true"
              data-aos-duration="1000">
             <h1 class="text-2xl md:text-3xl mb-5 ms-1">More From Our Collection</h1>
-            <div class="relative group "
+            <div class="relative group h-fit"
                  id="project__slider__wrapper">
                 <div id="project__slider_1"
                      class=" ">
@@ -72,34 +72,22 @@ $(document).ready(function() {
 })
 
 function loadCollections() {
-    $.ajax({
-        url: `<?= BASE_API; ?>/v1_collections_det_slug/<?= $character_slug ?>/`,
-        type: 'GET',
-        headers: {
-            'Authorization': '<?= API_KEY; ?>',
-        },
-        beforeSend: () => {
-            $('#page-loading').show();
-        },
-        success: function(res) {
-            // Join Local Json Data with Rest API
-            selectedCollection = selectedCollection.filter(data => data.collection_id == res.collection_id);
-            collectionData = {
-                ...res,
-                ...selectedCollection[0]
-            };
-        },
-        error: function(xhr, status, error) {
-            if (xhr.status === 404) {
-                redirectError(404)
-            }
-            console.error('Error fetching data:', error);
-        },
-        complete: () => {
-            $('#page-loading').hide();
-            renderMaster();
+    try {
+        $('#page-loading').show();
+        const res = <?php echo json_encode($data); ?>;
+        collectionData = {
+            ...res,
+            ...selectedCollection[0]
+        };
+    } catch (error) {
+        if (error.status === 404) {
+            redirectError(404)
         }
-    });
+        console.error('Error fetching data:', error);
+    } finally {
+        $('#page-loading').hide();
+        renderMaster();
+    }
 };
 
 // NOTE : Handling Render
@@ -135,13 +123,13 @@ function renderMaster() {
                 </section>
             </div>
         </div>
-        <div class="ambience__section relative mb-10 md:mb-20 lg:mb-36"
+        <div class="ambience__section relative mb-10 md:mb-20 lg:mb-36 group cursor-pointer"
             data-aos="fade-up"
             data-aos-once="true"
             data-aos-duration="1000"
         >
             <div class="ambience__img"></div>
-            <button class="slick-prev ambiance-prev hidden md:block left-5 arrow-btn"
+            <button class="slick-prev ambiance-prev hidden lg:block invisible group-hover:visible opacity-0 group-hover:opacity-100 left-5 arrow-btn"
                     aria-label="Previous"
                     type="button">
                 <svg xmlns="http://www.w3.org/2000/svg"
@@ -155,7 +143,7 @@ function renderMaster() {
                         d="M15.75 19.5 8.25 12l7.5-7.5" />
                 </svg>
             </button>
-            <button class="slick-next ambiance-next hidden md:block right-5 arrow-btn"
+            <button class="slick-next ambiance-next hidden lg:block invisible group-hover:visible opacity-0 group-hover:opacity-100 right-5 arrow-btn"
                     aria-label="Next"
                     type="button">
                 <svg xmlns="http://www.w3.org/2000/svg"
@@ -202,40 +190,42 @@ function renderMaster() {
 }
 
 function renderImages() {
-    collectionData.ambience_image.forEach((img) => {
-        $('.ambience__img').append(`
-            <img src="${img.image_1920}"
-                class="!h-[350px] sm:!h-[600px] lg:!h-[720px] me-2 mx-2 w-screen md:w-auto object-cover" />
-        `)
+    $(document).ready(function() {
+        collectionData.ambience_image.forEach((img) => {
+            $('.ambience__img').append(`
+                <img src="${img.image_1920}"
+                    class="!h-[350px] sm:!h-[600px] lg:!h-[720px] me-2 mx-2 w-screen md:w-auto object-cover" />
+            `)
+        })
+        if (collectionData.ambience_image.length > 1) {
+            // Init Slick
+            $('.ambience__img').slick({
+                slidesToScroll: 1,
+                variableWidth: true,
+                arrows: false,
+                centerMode: false,
+                responsive: [{
+                    breakpoint: 768,
+                    settings: {
+                        centerMode: false,
+                        slidesToShow: 1.02,
+                        slidesToScroll: 1,
+                        variableWidth: false,
+                    }
+                }]
+            });
+            $(".ambiance-prev").click(function() {
+                $(".ambience__img").slick("slickPrev");
+            });
+            $(".ambiance-next").click(function() {
+                $(".ambience__img").slick("slickNext");
+            });
+        } else {
+            $('.ambience__img').addClass('flex justify-center');
+            $('.ambiance-prev').remove();
+            $(".ambiance-next").remove();
+        }
     })
-    if (collectionData.ambience_image.length > 1) {
-        // Init Slick
-        $('.ambience__img').slick({
-            slidesToScroll: 1,
-            variableWidth: true,
-            arrows: false,
-            centerMode: true,
-            responsive: [{
-                breakpoint: 768,
-                settings: {
-                    centerMode: false,
-                    slidesToShow: 1.02,
-                    slidesToScroll: 1,
-                    variableWidth: false,
-                }
-            }]
-        });
-        $(".ambiance-prev").click(function() {
-            $(".ambience__img").slick("slickPrev");
-        });
-        $(".ambiance-next").click(function() {
-            $(".ambience__img").slick("slickNext");
-        });
-    } else {
-        $('.ambience__img').addClass('flex justify-center');
-        $('.ambiance-prev').remove();
-        $(".ambiance-next").remove();
-    }
 }
 
 function loadMoreCollections() {
@@ -338,10 +328,6 @@ function moreCollectionSlick() {
         });
         $(".next-btn").click(function() {
             $("#project__slider_1").slick("slickNext");
-        });
-        $(window).load(function() {
-            $('#project__slider_1').slick("slickGoTo", 1, true);
-            $('#project__slider_1').slick("slickGoTo", 0, true);
         });
     });
 }

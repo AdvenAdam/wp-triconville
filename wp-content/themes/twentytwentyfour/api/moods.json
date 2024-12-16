@@ -36,7 +36,12 @@
         "image": "images/moods/dune-essence/gallery/dune-essence-4.jpg"
       }
     ],
-    "catalogueImage": "images/moods/dune-essence/dune-essence-catalogue.png"
+    "catalogueImage": "images/moods/dune-essence/dune-essence-catalogue.png",
+    "meta": {
+      "title": "Dune Essence Outdoor Furniture | Timeless Desert Beauty",
+      "description": "Discover Dune Essence, a furniture collection inspired by the serene beauty of desert landscapes. Experience organic textures, refined luxury, and calming tones in your outdoor spaces.",
+      "keywords": "desert-inspired furniture, luxury outdoor furniture, organic textures furniture, Dune Essence furniture, modern outdoor furniture"
+    }
   },
   {
     "id": 2,
@@ -75,7 +80,12 @@
         "image": "images/moods/leafscape/gallery/leafscape-4.jpg"
       }
     ],
-    "catalogueImage": "images/moods/leafscape/leafscape-catalogue.png"
+    "catalogueImage": "images/moods/leafscape/leafscape-catalogue.png",
+    "meta": {
+      "title": "Leafscape Outdoor Furniture | Minimalist Design with Nature’s Harmony",
+      "description": "Explore Leafscape, a collection blending modern minimalism with the tranquility of nature. Thoughtfully designed furniture inspired by the balance and calm of trees.",
+      "keywords": "minimalist outdoor furniture, Tropical style furniture, modern outdoor decor, Leafscape furniture collection, outdoor furniture trends"
+    }
   },
   {
     "id": 3,
@@ -114,7 +124,12 @@
         "image": "images/moods/coastal-bliss/gallery/coastal-bliss-4.png"
       }
     ],
-    "catalogueImage": "images/moods/coastal-bliss/coastal-bliss-catalogue.png"
+    "catalogueImage": "images/moods/coastal-bliss/coastal-bliss-catalogue.png",
+    "meta": {
+      "title": "Coastal Bliss Outdoor Furniture | Serenity by the Sea",
+      "description": "Bring the ocean’s tranquility home with Coastal Bliss. Inspired by the coast’s untouched beauty, this collection captures the essence of a beachside retreat for your outdoor space.",
+      "keywords": "coastal outdoor furniture, beach-inspired furniture, ocean-inspired furniture, Coastal Bliss collection, Mediteranian furniture style, outdoor furniture for beach vibes"
+    }
   },
   {
     "id": 4,
@@ -153,6 +168,11 @@
         "image": "images/moods/bare-essence/gallery/bare-essence-4.png"
       }
     ],
-    "catalogueImage": "images/moods/bare-essence/bare-essence-catalogue.png"
+    "catalogueImage": "images/moods/bare-essence/bare-essence-catalogue.png",
+    "meta": {
+      "title": "Bare Essence Outdoor Furniture | The Beauty of Simplicity",
+      "description": "Embrace simplicity with Bare Essence. This collection showcases raw elegance and minimalist designs, celebrating the essentials of outdoor living with timeless style.",
+      "keywords": "minimalist outdoor furniture, simple outdoor furniture, natural outdoor living, Bare Essence furniture, raw elegance furniture, essential outdoor decor"
+    }
   }
 ]

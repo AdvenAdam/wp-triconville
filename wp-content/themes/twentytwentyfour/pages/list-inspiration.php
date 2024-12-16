@@ -20,13 +20,14 @@ body {
 
 <div class="content-container mt-20 overflow-hidden">
     <div id="main__container"
-         class="my-20 px-5 md:px-8">
-
-        <h1 class="text-3xl lg:text-5xl font-medium text-center">Inspiration</h1>
-        <h3 class="text-base text-center ">Explore endless design possibilities and create an escape that you’ll love</h3>
+         class="px-5 md:px-8">
+        <div class="md:pt-10 my-10">
+            <h1 class="text-3xl lg:text-5xl font-medium text-center">Inspiration</h1>
+            <h3 class="text-base text-center ">Explore endless design possibilities and create an escape that you’ll love</h3>
+        </div>
 
         <div id="inspiration__container"
-             class="max-w-[1440px] my-10 mx-auto grid grid-cols-3 gap-1 sm:gap-3">
+             class="max-w-[1440px] py-10 mx-auto grid grid-cols-3 gap-1 sm:gap-3">
         </div>
     </div>
 

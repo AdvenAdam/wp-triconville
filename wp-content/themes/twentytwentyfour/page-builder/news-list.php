@@ -14,12 +14,12 @@
   $args_top = array(
     'posts_per_page' => -1, 'order' => 'DESC', 'orderby' => 'date' ); $top_posts = new WP_Query($args_top); if ($top_posts->have_posts()) :
 ?>
-<div class="content-container mt-6 md:mt-10 overflow-hidden">
+<div class="content-container overflow-hidden">
     <!-- SHOWROOM BANNER -->
     <!-- NEWS LIST -->
-    <div class="px-5 md:px-8 mt-20">
+    <div class="px-5 md:px-8">
         <div class="max-w-[1440px] mx-auto">
-            <div class="text-center md:pt-10 ">
+            <div class="text-center my-10 md:pt-10">
                 <h1 class="text-3xl lg:text-5xl">Spotlight News</h1>
                 <h4 class="md:text-base text-serif">Discovering Possibilities, Sharing Inspiration</h4>
             </div>

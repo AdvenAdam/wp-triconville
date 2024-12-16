@@ -105,19 +105,19 @@
                     </a>
                 </div>
                 <!-- NOTE : Drawer -->
-                <button class="group bg-transparent border-transparent outline-none flex items-center py-5 lg:hidden "
+                <button class="group bg-transparent border-transparent outline-none flex items-center py-5 gap-1 lg:hidden "
                         type="button"
                         data-drawer-target="drawer-navigation"
                         data-drawer-placement="right"
                         data-drawer-show="drawer-navigation"
                         aria-controls="drawer-navigation">
-                    <p class="font-medium group-hover:text-triconville-blue pt-1">Menu</p>
+                    <p class="font-medium group-hover:text-triconville-blue">Menu</p>
                     <svg xmlns="http://www.w3.org/2000/svg"
                          fill="none"
                          viewBox="0 0 24 24"
                          stroke-width="1.5"
                          stroke="currentColor"
-                         class="size-6 group-hover:text-triconville-blue">
+                         class="h-6 w-4 group-hover:text-triconville-blue">
                         <path stroke-linecap="round"
                               stroke-linejoin="round"
                               d="M3.75 9h16.5m-16.5 6.75h16.5" />
