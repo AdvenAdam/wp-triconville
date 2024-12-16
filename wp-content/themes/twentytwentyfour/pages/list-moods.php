@@ -14,7 +14,7 @@ get_template_part('header-custom');
                 <h1 class="text-3xl lg:text-5xl">Moods</h1>
                 <h4 class="md:text-base">Emotions in Every Moments</h4>
             </div>
-            <div class="grid py-10 lg:grid-cols-4 grid-cols-2 gap-2 md:gap-5"
+            <div class="grid py-10 lg:grid-cols-4 grid-cols-2 gap-2 xl:gap-3 2xl:gap-5"
                  id="mood__list">
 
             </div>

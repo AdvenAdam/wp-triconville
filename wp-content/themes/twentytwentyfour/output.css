@@ -666,10 +666,6 @@ video {
   margin-top: 2.5rem;
   margin-bottom: 2.5rem;
 }
-.my-12 {
-  margin-top: 3rem;
-  margin-bottom: 3rem;
-}
 .my-16 {
   margin-top: 4rem;
   margin-bottom: 4rem;
@@ -693,6 +689,10 @@ video {
 .my-5 {
   margin-top: 1.25rem;
   margin-bottom: 1.25rem;
+}
+.my-9 {
+  margin-top: 2.25rem;
+  margin-bottom: 2.25rem;
 }
 .my-auto {
   margin-top: auto;
@@ -992,9 +992,6 @@ video {
 .w-1\/5 {
   width: 20%;
 }
-.w-10 {
-  width: 2.5rem;
-}
 .w-11 {
   width: 2.75rem;
 }
@@ -1009,6 +1006,9 @@ video {
 }
 .w-3 {
   width: 0.75rem;
+}
+.w-4 {
+  width: 1rem;
 }
 .w-4\/5 {
   width: 80%;
@@ -1046,9 +1046,6 @@ video {
 }
 .w-screen {
   width: 100vw;
-}
-.w-4 {
-  width: 1rem;
 }
 .min-w-20 {
   min-width: 5rem;
@@ -1109,6 +1106,9 @@ video {
 }
 .max-w-md {
   max-width: 28rem;
+}
+.max-w-screen-md {
+  max-width: 768px;
 }
 .max-w-sm {
   max-width: 24rem;
@@ -1606,10 +1606,6 @@ video {
 .text-4xl {
   font-size: 2.5rem;
 }
-.text-5xl {
-  font-size: 3rem;
-  line-height: 4.5rem;
-}
 .text-base {
   font-size: 1rem;
   line-height: 1.5rem;
@@ -1687,10 +1683,6 @@ video {
 .text-gray-900 {
   --tw-text-opacity: 1;
   color: rgb(17 24 39 / var(--tw-text-opacity));
-}
-.text-red-600 {
-  --tw-text-opacity: 1;
-  color: rgb(220 38 38 / var(--tw-text-opacity));
 }
 .text-slate-500 {
   --tw-text-opacity: 1;
@@ -2505,10 +2497,6 @@ h1,h2,h3,h4,h5,h6,h7 {
     visibility: visible;
   }
 
-  .group:hover .md\:group-hover\:block {
-    display: block;
-  }
-
   .group:hover .md\:group-hover\:translate-y-0 {
     --tw-translate-y: 0px;
     transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
@@ -2668,6 +2656,10 @@ h1,h2,h3,h4,h5,h6,h7 {
     gap: 2.5rem;
   }
 
+  .lg\:gap-2 {
+    gap: 0.5rem;
+  }
+
   .lg\:gap-5 {
     gap: 1.25rem;
   }
@@ -2794,6 +2786,10 @@ h1,h2,h3,h4,h5,h6,h7 {
     gap: 4rem;
   }
 
+  .xl\:gap-3 {
+    gap: 0.75rem;
+  }
+
   .xl\:gap-6 {
     gap: 1.5rem;
   }
@@ -2823,6 +2819,14 @@ h1,h2,h3,h4,h5,h6,h7 {
 
   .\32xl\:-right-12 {
     right: -3rem;
+  }
+
+  .\32xl\:gap-10 {
+    gap: 2.5rem;
+  }
+
+  .\32xl\:gap-5 {
+    gap: 1.25rem;
   }
 
   .\32xl\:px-20 {

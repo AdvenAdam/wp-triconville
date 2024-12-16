@@ -12,11 +12,13 @@ if (is_wp_error($response)) {
 
 $selectedMood = array_filter($data, function($e) use ($character_slug) {
     return $e['slug'] === $character_slug;
-})[0];
+});
+$selectedMood = array_values($selectedMood);
+
 $otherMoods = array_filter($data, function($e) use ($character_slug) {
     return $e['slug'] !== $character_slug;
-});
-
+}); 
+$otherMoods = array_values($otherMoods);
 
 if (empty($selectedMood)) {
     return;
@@ -90,9 +92,9 @@ let otherMoods = [];
 
 $(document).ready(function() {
     try {
-        $('#page-loading').show();
-        selectedMood = <?php echo json_encode($selectedMood); ?>;
-        otherMoods = <?php echo json_encode($otherMoods); ?>;
+        $('#page-loading').hide();
+        selectedMood = <?= json_encode($selectedMood[0]); ?>;
+        otherMoods = <?= json_encode($otherMoods); ?>;
         renderMaster()
     } catch (error) {
         redirectError()
@@ -109,7 +111,7 @@ function renderMaster() {
         renderOtherMoods()
     } catch (error) {
         console.error('Error rendering data:', error);
-        // redirectError()
+        redirectError()
     } finally {
         $('#page-loading').hide();
     }
