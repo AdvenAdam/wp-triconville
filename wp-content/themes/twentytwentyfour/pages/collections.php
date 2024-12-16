@@ -75,6 +75,7 @@ function loadCollections() {
     try {
         $('#page-loading').show();
         const res = <?php echo json_encode($data); ?>;
+        selectedCollection = selectedCollection.filter(data => data.collection_id == res.collection_id);
         collectionData = {
             ...res,
             ...selectedCollection[0]
