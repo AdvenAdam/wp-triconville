@@ -9,7 +9,7 @@ get_template_part('header-custom');
             <h2 class="text-3xl mb-10 ">
                 Looks like you’ve lost
             </h2>
-            <a href="<?= BASE_LINK; ?>"
+            <a href="<?= BASE_URL; ?>"
                class="btn-ghost-dark text-sm py-4 px-10">Take me Home</a>
         </div>
         <div class="img-section m-5 md:m-10">
@@ -18,7 +18,7 @@ get_template_part('header-custom');
             </h2>
             <img src='https://storage.googleapis.com/back-bucket/wp_triconville/images/404.png'
                  class="w-full h-full object-cover" />
-            <a href="<?= BASE_LINK; ?>"
+            <a href="<?= BASE_URL; ?>"
                class="btn-ghost-dark w-fit block mt-10 sm:hidden text-sm py-4 px-10">Take me Home</a>
         </div>
     </div>
