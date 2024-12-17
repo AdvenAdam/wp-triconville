@@ -53,7 +53,7 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                  data-aos-delay="200"
                  data-aos-duration="1000">
                 <div class="txt max-w-xl py-5 order-last lg:order-first">
-                    <h2 class='text-2xl md:text-3xl'>
+                    <h2 class='text-2xl lg:text-3xl'>
                         20 Years of Excellence Experience on Outdoor Living
                     </h2>
                     <p class="mt-3 mb-12">
@@ -77,7 +77,7 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                  data-aos-delay="200"
                  data-aos-duration="1000">
                 <p class="text-center text-xs uppercase tracking-widest">Collections</p>
-                <h2 class="text-center text-3xl mb-8">Signature Selections for Every Style</h2>
+                <h2 class="text-center text-2xl lg:text-3xl mb-8">Signature Selections for Every Style</h2>
 
                 <div class="block sm:grid sm:grid-cols-2 gap-3 mt-5 mb-10 collection__wrapper "
                      id="colection-selected"></div>
@@ -95,7 +95,7 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                  data-aos-delay="200"
                  data-aos-duration="1000">
                 <p class="text-center text-xs uppercase tracking-widest">INSPIRATION</p>
-                <h2 class="text-center text-3xl mb-8">The Art of Living</h2>
+                <h2 class="text-center text-2xl lg:text-3xl mb-8">The Art of Living</h2>
 
                 <div class="grid grid-cols-3 gap-1 sm:gap-3 mt-5 mb-10"
                      id="inspiration-selected"></div>
@@ -115,7 +115,7 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                 <div class="grid lg:grid-cols-2 gap-8 items-center">
                     <div class="max-w-xl order-last lg:order-first">
                         <p class="text-xs uppercase tracking-widest mb-2">MOODS</p>
-                        <h2 class="text-3xl">Your World, Your Style, Your Outdoors.</h2>
+                        <h2 class="text-2xl lg:text-3xl">Your World, Your Style, Your Outdoors.</h2>
                         <p class=" mt-3 mb-10">We believe every outdoor space has a story to tell. It should be as unique as you are. Hence we've curated a diverse collection of furniture styles to complement any outdoor space and reflect your personal taste:</p>
                         <a href="<?= BASE_LINK ?>/moods"
                            class='btn-ghost uppercase text-xs tracking-widest'>
@@ -137,15 +137,15 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                  data-aos-duration="1000">
                 <div class="text-center mx-auto max-w-2xl mb-5">
                     <p class="uppercase tracking-widest text-xs">news </p>
-                    <h4 class="text-2xl md:text-3xl mb-8">
+                    <h4 class="text-2xl lg:text-3xl mb-8">
                         Our Latest News
                     </h4>
                 </div>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-3 lg:gap-5"
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-3 lg:gap-5"
                      id="news-selected">
                     <?php foreach ($posts as $post): ?>
                     <div class="news-card flex items-center gap-3 md:block">
-                        <a class="news-image w-1/2 md:w-auto md:h-auto sm:h-[240px] object-cover h-[124px] relative group hover:cursor-pointer"
+                        <a class="news-image w-1/2 md:w-auto lg:h-auto sm:h-[240px] object-cover h-[124px] relative group hover:cursor-pointer"
                            href="<?php echo get_permalink($post->ID); ?>">
                             <?php echo get_the_post_thumbnail($post->ID, 'large'); ?>
                             <div class="overlay absolute inset-0 bg-gradient-to-b from-transparent to-black/30 invisible group-hover:visible"></div>
@@ -160,15 +160,13 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                                 </h4>
                             </div>
                             <div class="md:mb-10">
-                                <p class="tracking-wider line-clamp-2 md:line-clamp-3">
-                                    <?php echo get_the_excerpt($post->ID); ?>
-                                </p>
+
                             </div>
                         </div>
                     </div>
                     <?php  endforeach; ?>
                 </div>
-                <div class="text-center mt-5">
+                <div class="text-center mt-10 lg:mt-0">
                     <a href="<?= BASE_LINK ?>/news"
                        class="btn-ghost uppercase text-xs tracking-widest">All News</a>
                 </div>
@@ -182,7 +180,7 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                 <div class="grid lg:grid-cols-2 gap-8 items-center ">
                     <div class="max-w-xl order-last lg:order-first">
                         <p class="uppercase text-xs tracking-widest mb-2">catalog</p>
-                        <h2 class="text-3xl">Triconville - 2024 Catalog</h2>
+                        <h2 class="text-2xl lg:text-3xl">Triconville - 2024 Catalog</h2>
                         <p class=" mt-3 mb-12">
                             Discover an unrivaled selection of luxuriant designs from Triconville. Brought to life with captivating imagery,
                             the 2024 Triconville catalogue is a go-to resource for inspiration and information. Qualified trade members can

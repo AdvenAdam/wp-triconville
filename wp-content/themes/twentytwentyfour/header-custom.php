@@ -84,7 +84,7 @@
                      class='lg:flex hidden gap-1 md:gap-3 xl:gap-6'>
                 </div>
                 <!-- Note : Login -->
-                <div class="hidden lg:flex items-center gap-1 md:gap-3 xl:gap-6">
+                <div class="hidden lg:flex items-center gap-1 md:gap-4 xl:gap-6">
                     <div class="pb-1 text-xs uppercase outline-none text-triconville-black hover:text-triconville-blue flex gap-1 items-center">
                         <?php echo do_shortcode('[gtranslate]') ?>
                     </div>

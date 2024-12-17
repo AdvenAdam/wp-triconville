@@ -109,11 +109,11 @@ function renderMaster() {
                     data-aos-once="true"
                     data-aos-duration="1000"
                 >
-                    <div class="collection__description-content max-w-3xl mx-auto lg:text-center">
+                    <div class="collection__description-content max-w-3xl mx-auto text-center">
                         <h1 class="text-3xl lg:text-5xl mx-auto capitalize">${collectionData.display_name}</h1>
                         <p class="text-sm mt-2 mb-10">${collectionData.description}</p>
                         ${collectionData.sheet !== 'False' ? `
-                            <a href="${collectionData.sheet}" target="_blank" class='btn-ghost-dark uppercase text-sm flex items-center gap-2 w-fit lg:mx-auto'>
+                            <a href="${collectionData.sheet}" target="_blank" class='btn-ghost-dark uppercase text-sm flex items-center gap-2 w-fit mx-auto'>
                                 download collection sheet
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5 pb-1 group-hover:text-slate-400">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />

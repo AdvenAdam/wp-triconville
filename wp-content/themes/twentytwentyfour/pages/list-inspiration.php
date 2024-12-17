@@ -22,7 +22,7 @@ body {
     <div id="main__container"
          class="px-5 md:px-8">
         <div class="md:pt-10 my-10">
-            <h1 class="text-3xl lg:text-5xl font-medium text-center">Inspiration</h1>
+            <h1 class="text-3xl lg:text-5xl text-center">Inspirations</h1>
             <h3 class="text-base text-center ">Explore endless design possibilities and create an escape that you’ll love</h3>
         </div>
 
