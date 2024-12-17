@@ -19,14 +19,14 @@ get_template_part('header-custom');
     <!-- NOTE: Banner -->
     <div class="materials-banner ">
         <div class="flex items-center justify-center min-h-full bg-black bg-opacity-20">
-            <h1 class="text-5xl font-medium text-center text-white"
+            <h1 class="text-3xl lg:text-5xl font-medium text-center text-white"
                 id="category__name">Materials</h1>
         </div>
     </div>
     <!-- NOTE : Material list -->
-    <div class="my-12">
+    <div class="my-9">
         <div id="list__materials_filter"
-             class='flex items-center text-sm py-8 px-5 md:px-8 justify-center flex-wrap gap-3'
+             class='flex items-center text-sm py-8 px-5 md:px-8 justify-center flex-wrap gap-1 lg:gap-2'
              data-aos="fade-up"
              data-aos-once="true"
              data-aos-duration="500">
@@ -160,7 +160,7 @@ function renderSubGroups(data) {
                 >
                     <h2 class="text-2xl mb-2">${toTitleCase(subGroup.name)}</h2>
                     <p class="mb-6">${subGroup.description}</p>
-                    <div id="material__list__${slugify(subGroup.name)}" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 lg:gap-10 ">
+                    <div id="material__list__${slugify(subGroup.name)}" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 2xl:gap-10">
                         ${products.map(product => {
                             return (
                                 `<div class="cursor-pointer inline-flex flex-col items-center" onclick='bannerClick("${materials.slug}", "${product.code}")'>

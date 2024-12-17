@@ -28,7 +28,7 @@ p {
 }
 
 h1 {
-    @apply lg:!leading-[4.5rem] !leading-[3rem]
+    @apply lg:leading-[4.5rem] leading-[3rem]
 }
 
 h2 {

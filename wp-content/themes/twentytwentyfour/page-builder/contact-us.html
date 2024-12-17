@@ -1,7 +1,7 @@
 <style>
   .contact-banner {
     background: url(https://storage.googleapis.com/back-bucket/wp_triconville/images/banner-contact.jpg);
-    height: 50vh;
+    height: 40vh;
     width: 100%;
     overflow: hidden;
     background-size: cover;
@@ -11,7 +11,20 @@
   .content-container .contact-form-section input[type="text"],
   .content-container .contact-form-section input[type="email"],
   .content-container .contact-form-section select {
-    height: 45px;
+    min-height: 45px;
+  }
+  .wpcf7-response-output,
+  .wpcf7-not-valid-tip {
+    font-size: 14px;
+    font-family: "Helvetica Neue", "sans-serif";
+    padding-top: 0.25rem;
+  }
+
+  .wpcf7-response-output {
+    color: #dc3232 !important;
+    border: none !important;
+    padding-left: 0 !important;
+    margin-left: 0 !important;
   }
   .content-container .contact-form-section textarea::placeholder,
   .content-container .contact-form-section input::placeholder {
@@ -32,7 +45,7 @@
     min-height: 38px;
     max-width: none;
     letter-spacing: 0.07rem;
-    padding: 0.5rem 1.5rem;
+    padding: 1rem 1.5rem;
   }
 
   .content-container .contact-form-section textarea {
@@ -60,50 +73,29 @@
 <div class="content-container overflow-hidden">
   <!-- CONTACT BANNER -->
   <div class="contact-banner flex items-center justify-center">
-    <h1 class="text-white text-4xl font-semibold tracking-wider">Contact</h1>
+    <h1 class="text-white text-4xl font-semibold">Contact</h1>
   </div>
   <div class="bg-[#F5F2EE] pt-10 pb-32 px-5 md:px-8">
     <div
-      class="grid grid-cols-1 md:grid-cols-2 max-w-[1440px] mx-auto py-5"
+      class="max-w-screen-md mx-auto py-5"
       data-aos="fade-up"
       data-aos-once="true"
       data-aos-duration="1000"
     >
-      <div class="">
-        <div class="mb-5 md:mb-10">
-          <h2 class="text-2xl md:text-3xl mb-4">Corporate Office and Showroom</h2>
-          <div class="">
-            <p class="mb-4">
-              Tahunan Batealit, Bawu III, Bawu, Jepara Regency, Central Java,<br />
-              Indonesia, 59461
-            </p>
-            <p class="mb-4">info@triconville.com</p>
-            <p class="mb-4">(024)76420879</p>
-          </div>
-        </div>
-        <div class="mb-5 md:mb-10">
-          <h3 class="mb-4">Business Hours</h3>
-          <div class="grid grid-cols-2 mt-4 gap-2">
-            <p>Monday - Friday</p>
-            <p>08:00 - 16:00</p>
-            <p>Saturday</p>
-            <p>08:00 - 12:00</p>
-            <p class="text-red-600">Sunday</p>
-            <p class="text-red-600">Closed</p>
-          </div>
-        </div>
-      </div>
       <div
         class=""
         data-aos="fade-up"
         data-aos-once="true"
         data-aos-duration="1000"
       >
-        <div class="flex justify-between items-center md:ms-6">
-          <h2 class="text-2xl md:text-3xl mb-4">Contact Form</h2>
-          <p class="text-sm tracking-wider font-medium">*) Required</p>
+        <div class="text-center max-w-md mx-auto mb-6">
+          <h2 class="text-2xl md:text-3xl">Send Us Your Request</h2>
+          <p>
+            Please fill out the contact form below if you need assistance or information about our company or our
+            product range.
+          </p>
         </div>
-
+        <p class="text-sm text-end mb-4">*) Required</p>
         <div class="contact-form-section md:ms-6">
           <?php echo do_shortcode('[contact-form-7 id="e37f08e" title="contact-us"]'); ?>
         </div>

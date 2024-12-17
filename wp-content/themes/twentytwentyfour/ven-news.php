@@ -68,12 +68,12 @@ get_template_part('header-custom');
                     </a>
                     <div class="desc w-1/2 md:w-[95%] flex flex-col justify-center">
                         <div class="h-20 overflow-hidden">
-                            <h2 class="text-2xl md:mb-5 md:mt-3">
+                            <h4 class="text-2xl md:mb-5 md:mt-3">
                                 <a href="<?php echo get_permalink($post->ID); ?>"
                                    class="hover:underline line-clamp-2">
                                     <?php echo get_the_title($post->ID); ?>
                                 </a>
-                            </h2>
+                            </h4>
                         </div>
                     </div>
                 </div>
