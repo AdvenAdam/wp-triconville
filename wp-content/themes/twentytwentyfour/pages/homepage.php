@@ -65,7 +65,7 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
             </div>
             <div class="w-full lg:w-3/5 flex flex-col items-start justify-between gap-4 xl:gap-8">
                 <div class="right-banner min-h-96 lg:h-2/3 2xl:h-3/4 w-full flex lg:items-end lg:justify-end">
-                    <div class="max-w-sm p-4 lg:p-8">
+                    <div class="max-w-sm lg:max-w-lg p-4 lg:p-8">
                         <h3 class="text-sm text-white lg:text-base mb-1 hidden lg:block">Come and Say Hello!</h3>
                         <h1 class="text-3xl text-white lg:text-5xl mb-1">Booth No: M-17</h1>
                         <h3 class="text-sm text-white lg:text-base mb-1">North Entrance - Convention Centre & Theatre</h3>
