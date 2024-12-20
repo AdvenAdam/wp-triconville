@@ -8,20 +8,26 @@ get_template_part('header-custom');
 $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&category_name=news');
 ?>
 <style>
-.homepage-banner {
-    background: url('https://storage.googleapis.com/back-bucket/wp_triconville/images/home/home-banner.png');
-    height: 100vh;
-    width: 100%;
+.news-image img {
+    height: 300px !important;
+    width: 100% !important;
+    object-fit: cover;
+}
+
+.bg-ceramic {
+    background: url('https://storage.googleapis.com/back-bucket/wp_triconville/images/backgrounds/ifex-left-banner.jpeg');
     overflow: hidden;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
 }
 
-.news-image img {
-    height: 300px !important;
-    width: 100% !important;
-    object-fit: cover;
+.right-banner {
+    background: url('https://storage.googleapis.com/back-bucket/wp_triconville/images/backgrounds/ifex-right-banner.jpeg');
+    overflow: hidden;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 @media (max-width: 768px) {
@@ -38,11 +44,95 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
 </style>
 <div class="content-container">
     <!-- NOTE: Banner -->
-    <div class="homepage-banner">
-        <div class="flex items-center justify-center min-h-full bg-black bg-opacity-25">
-            <h1 class="text-3xl lg:text-5xl font-medium text-center text-white"
-                id="category__name">Triconville Debuts at IFEX 2025</h1>
+    <div class="homepage-banner px-5 md:px-8 pt-20 pb-6 lg:h-screen lg:max-h-[1020px]">
+        <div class="flex lg:flex-row flex-col gap-2 lg:gap-6 w-full max-w-[1920px] mx-auto h-full overflow-hidden">
+            <div class="w-full lg:w-2/5 p-6 lg:p-16 flex flex-col items-start justify-between gap-3 md:gap-6 bg-ceramic"
+                 data-aos="fade-up"
+                 data-aos-once="true"
+                 data-aos-delay=""
+                 data-aos-duration="1000">
+                <img src="https://storage.googleapis.com/back-bucket/wp_triconville/images/icons/LOGO%20IFEX-02%201.png"
+                     alt="IFEX"
+                     class="w-auto h-full max-h-16 lg:max-h-24 object-contain">
 
+                <div class="max-w-md lg:max-w-lg">
+                    <h1 class="text-3xl lg:text-8xl font-medium max-w-sm">
+                        IFEX 2025
+                    </h1>
+                    <hr class="border-ifex-red border-2 lg:border-4 max-w-24 my-4 lg:my-8">
+                    <div class="desc">
+                        <h3 class="text-sm lg:text-base mb-2">Be part of our first step and join us at Indonesia's premier furniture & craft exhibition!</h3>
+                        <p class="hidden lg:block">We are thrilled to announce our inaugural appearance at IFEX 2025!  We'll spotlight our latest outdoor furniture collections in this largest and
+                            finest International trade show alongside 500+ exhibitors from 117 countries.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="w-full lg:w-3/5 flex flex-col items-start justify-between gap-4 xl:gap-8">
+                <div class="right-banner min-h-64 lg:h-2/3 2xl:h-3/4 w-full flex lg:items-end lg:justify-end"
+                     data-aos="fade-up"
+                     data-aos-once="true"
+                     data-aos-delay="200"
+                     data-aos-duration="1000">
+                    <div class="max-w-sm lg:max-w-lg p-4 lg:p-8">
+                        <h3 class="text-sm text-white lg:text-base mb-1 hidden lg:block">Come and Say Hello!</h3>
+                        <h1 class="text-3xl text-white lg:text-5xl mb-1">Booth No: M-17</h1>
+                        <h3 class="text-sm text-white lg:text-base mb-1">North Entrance - Convention Centre & Theatre</h3>
+                    </div>
+                </div>
+                <div class="xl:flex gap-3 xl:gap-10 lg:h-1/3 2xl:h-1/4"
+                     data-aos="fade-up"
+                     data-aos-once="true"
+                     data-aos-delay="400"
+                     data-aos-duration="1000">
+                    <div class="mb-4 lg:mb-0 border-l-[6px] lg:border-l-[13px] border-ifex-red w-full xl:max-w-40 flex items-center">
+                        <h1 class="text-2xl xl:text-3xl ps-4 lg:ps-8 text-end">
+                            Don’t Miss The Chance
+                        </h1>
+                    </div>
+                    <div class="h-full">
+                        <div class="flex overflow-x-auto snap-x snap-mandatory space-x-2 lg:space-x-0 lg:grid lg:grid-cols-3 lg:gap-3 scrollbar-none">
+                            <div class="snap-end shrink-0 bg-ceramic max-w-[85vw] w-fit p-4">
+                                <div class="max-w-sm ">
+                                    <h3 class="text-base font-medium mb-1">
+                                        01. <br /> Witness —
+                                    </h3>
+                                    <p>Our new launches and groundbreaking materials up close firsthand.</p>
+                                </div>
+                            </div>
+                            <div class="snap-end shrink-0 bg-ceramic max-w-[85vw] w-fit p-4">
+                                <div class="max-w-sm ">
+                                    <h3 class="text-base font-medium mb-1">
+                                        02. <br /> Experience —
+                                    </h3>
+                                    <p>The latest trends and innovation in the outdoor furniture industry.</p>
+                                </div>
+                            </div>
+                            <div class="snap-end shrink-0 bg-ceramic max-w-[85vw] w-fit p-4">
+                                <div class="max-w-sm ">
+                                    <h3 class="text-base font-medium mb-1">
+                                        03. <br /> Experience —
+                                    </h3>
+                                    <p>To connect with our experts to discuss your specific needs.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-ceramic mt-3 px-4 py-2 flex justify-center flex-col">
+                            <a class="flex items-center gap-3 cursor-not-allowed select-none">
+                                <p class="text-[#798F98]">Find us on ifexindonesia.com</p>
+                                <svg width="101"
+                                     height="9"
+                                     viewBox="0 0 101 9"
+                                     fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M100.354 4.85355C100.549 4.65829 100.549 4.34171 100.354 4.14645L97.1716 0.964466C96.9763 0.769204 96.6597 0.769204 96.4645 0.964466C96.2692 1.15973 96.2692 1.47631 96.4645 1.67157L99.2929 4.5L96.4645 7.32843C96.2692 7.52369 96.2692 7.84027 96.4645 8.03553C96.6597 8.2308 96.9763 8.2308 97.1716 8.03553L100.354 4.85355ZM0 5H100V4H0V5Z"
+                                          fill="#798F98" />
+                                </svg>
+
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <div class="px-5 md:px-8">
@@ -316,20 +406,17 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
     }
 
     function collectionSlick() {
-        if ($(window).width() <= 639) {
+        if ($(window).width() <= 639 && $(".collection__wrapper").length) {
             $(".collection__wrapper").slick({
                 slidesToScroll: 1,
                 slidesToShow: 1.03,
                 arrows: false,
                 infinite: true,
             });
-        } else {
-            if ($(".collection__wrapper").hasClass("slick-initialized")) {
-                $(".collection__wrapper").slick("unslick");
-            }
+        } else if ($(".collection__wrapper").hasClass("slick-initialized")) {
+            $(".collection__wrapper").slick("unslick");
         }
     }
-
     $(window).resize(function() {
         collectionSlick();
     })

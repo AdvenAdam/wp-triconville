@@ -36,6 +36,8 @@ module.exports = {
         "triconville-blue": "#10A1CF",
         "triconville-beige": "#EBE9E0",
         "triconville-black": "#3C3E3E",
+        "triconville-grey": "#F7F7F7",
+        "ifex-red": "#CD3E5A",
       },
     },
   },

@@ -12,7 +12,7 @@
         <?php wp_title('|', true, 'right'); ?>
     </title>
     <script src="<?php echo get_template_directory_uri(); ?>/assets/javascript/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.0/flowbite.min.js"></script>
+    <script src="<?php echo get_template_directory_uri(); ?>/assets/javascript/flowbite.min.js"></script>
     <!-- Google Fonts -->
     <link rel="preconnect"
           href="https://fonts.googleapis.com" />
@@ -27,16 +27,16 @@
     <script src="https://www.google.com/recaptcha/enterprise.js?render=6LergUEqAAAAAFzDZhNSfmvZccQssYyAQ0qugxnr"></script>
     <!-- START - We recommend to place the below code in head tag of your website html  -->
     <!-- AOS -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css"
+    <link href="<?php echo get_template_directory_uri(); ?>/assets/css/aos.css"
           rel="stylesheet">
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="<?php echo get_template_directory_uri(); ?>/assets/javascript/aos.js"></script>
     <script src="<?php echo get_template_directory_uri(); ?>/assets/javascript/utils.js"></script>
 
     <link rel="stylesheet"
           href="https://sibforms.com/forms/end-form/build/sib-styles.css">
     <!--  END - We recommend to place the above code in head tag of your website html -->
-    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js "></script>
-    <link href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.css "
+    <script src="<?php echo get_template_directory_uri(); ?>/assets/javascript/slick.min.js "></script>
+    <link href="<?php echo get_template_directory_uri(); ?>/assets/css/slick.min.css "
           rel="stylesheet">
     <style>
     /* Your CSS styles */
@@ -417,6 +417,12 @@
         // Highlight the child link if present
         if (childUrl) {
             $(`#${childUrl}-link, #${childUrl}-link-mobile, #${childUrl}-sub-link`).removeClass('text-gray-900').addClass('text-triconville-blue underline');
+        }
+    }
+
+    function redirectError(status = 404) {
+        if (status === 404) {
+            window.location.href = "<?= BASE_LINK; ?>/page-not-found";
         }
     }
     </script>

@@ -33,9 +33,3 @@ function filterProductName(str) {
     return str;
   }
 }
-
-function redirectError(status = 404) {
-  if (status === 404) {
-    window.location.href = "<?= BASE_LINK; ?>/page-not-found";
-  }
-}

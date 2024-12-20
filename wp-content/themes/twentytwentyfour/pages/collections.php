@@ -72,20 +72,16 @@ $(document).ready(function() {
 })
 
 function loadCollections() {
-    try {
-        $('#page-loading').show();
-        const res = <?php echo json_encode($data); ?>;
-        selectedCollection = selectedCollection.filter(data => data.collection_id == res.collection_id);
-        collectionData = {
-            ...res,
-            ...selectedCollection[0]
-        };
-    } catch (error) {
-        if (error.status === 404) {
-            redirectError(404)
-        }
-        console.error('Error fetching data:', error);
-    } finally {
+    $('#page-loading').show();
+    const res = <?php echo json_encode($data); ?>;
+    selectedCollection = selectedCollection.filter(data => data.collection_id == res.collection_id);
+    collectionData = {
+        ...res,
+        ...selectedCollection[0]
+    };
+    if (!collectionData.name) {
+        redirectError(404);
+    } else {
         $('#page-loading').hide();
         renderMaster();
     }
