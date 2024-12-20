@@ -46,16 +46,16 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
     <!-- NOTE: Banner -->
     <div class="homepage-banner px-5 md:px-8 pt-20 pb-6 lg:h-screen lg:max-h-[1020px]">
         <div class="flex lg:flex-row flex-col gap-2 lg:gap-6 w-full max-w-[1920px] mx-auto h-full overflow-hidden">
-            <div class="w-full lg:w-2/5 p-6 lg:p-16 flex flex-col items-start justify-between left-banner">
+            <div class="w-full lg:w-2/5 p-6 lg:p-16 flex flex-col items-start justify-between gap-3 md:gap-6 left-banner">
                 <img src="https://storage.googleapis.com/back-bucket/wp_triconville/images/icons/LOGO%20IFEX-02%201.png"
                      alt="IFEX"
-                     class="w-auto h-full max-h-24 object-contain">
+                     class="w-auto h-full max-h-16 lg:max-h-24 object-contain">
 
                 <div class="max-w-md lg:max-w-lg">
-                    <h1 class="text-3xl lg:text-8xl font-medium">
-                        IFEX <br /> 2025
+                    <h1 class="text-3xl lg:text-8xl font-medium max-w-sm">
+                        IFEX 2025
                     </h1>
-                    <hr class="border-ifex-red border-4 max-w-24 my-4 lg:my-8">
+                    <hr class="border-ifex-red border-2 lg:border-4 max-w-24 my-4 lg:my-8">
                     <div class="desc">
                         <h3 class="text-sm lg:text-base mb-2">Be part of our first step and join us at Indonesia's premier furniture & craft exhibition!</h3>
                         <p class="hidden lg:block">We are thrilled to announce our inaugural appearance at IFEX 2025!  We'll spotlight our latest outdoor furniture collections in this largest and
@@ -64,7 +64,7 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                 </div>
             </div>
             <div class="w-full lg:w-3/5 flex flex-col items-start justify-between gap-4 xl:gap-8">
-                <div class="right-banner min-h-96 lg:h-2/3 2xl:h-3/4 w-full flex lg:items-end lg:justify-end">
+                <div class="right-banner min-h-64 lg:h-2/3 2xl:h-3/4 w-full flex lg:items-end lg:justify-end">
                     <div class="max-w-sm lg:max-w-lg p-4 lg:p-8">
                         <h3 class="text-sm text-white lg:text-base mb-1 hidden lg:block">Come and Say Hello!</h3>
                         <h1 class="text-3xl text-white lg:text-5xl mb-1">Booth No: M-17</h1>
@@ -72,14 +72,14 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                     </div>
                 </div>
                 <div class="xl:flex gap-3 xl:gap-10 lg:h-1/3 2xl:h-1/4">
-                    <div class="mb-4 lg:mb-0 border-l-8 border-ifex-red w-full xl:max-w-40 flex items-center">
-                        <h1 class="text-2xl xl:text-3xl ps-8 text-end">
+                    <div class="mb-4 lg:mb-0 border-l-[6px] lg:border-l-[13px] border-ifex-red w-full xl:max-w-40 flex items-center">
+                        <h1 class="text-2xl xl:text-3xl ps-4 lg:ps-8 text-end">
                             Don’t Miss The Chance
                         </h1>
                     </div>
                     <div class="h-full">
-                        <div class="flex overflow-x-auto snap-x snap-mandatory space-x-4 lg:space-x-0 lg:grid lg:grid-cols-3 lg:gap-3 scrollbar-none">
-                            <div class="snap-end shrink-0 bg-triconville-grey w-fit p-4">
+                        <div class="flex overflow-x-auto snap-x snap-mandatory space-x-2 lg:space-x-0 lg:grid lg:grid-cols-3 lg:gap-3 scrollbar-none">
+                            <div class="snap-end shrink-0 bg-triconville-grey max-w-[85vw] w-fit p-4">
                                 <div class="max-w-sm">
                                     <h3 class="text-base font-medium mb-1">
                                         01. <br /> Witness —
@@ -87,7 +87,7 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                                     <p>Our new launches and groundbreaking materials up close firsthand.</p>
                                 </div>
                             </div>
-                            <div class="snap-end shrink-0 bg-triconville-grey w-fit p-4">
+                            <div class="snap-end shrink-0 bg-triconville-grey max-w-[85vw] w-fit p-4">
                                 <div class="max-w-sm">
                                     <h3 class="text-base font-medium mb-1">
                                         02. <br /> Experience —
@@ -95,7 +95,7 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                                     <p>The latest trends and innovation in the outdoor furniture industry.</p>
                                 </div>
                             </div>
-                            <div class="snap-end shrink-0 bg-triconville-grey w-fit p-4">
+                            <div class="snap-end shrink-0 bg-triconville-grey max-w-[85vw] w-fit p-4">
                                 <div class="max-w-sm">
                                     <h3 class="text-base font-medium mb-1">
                                         03. <br /> Experience —
