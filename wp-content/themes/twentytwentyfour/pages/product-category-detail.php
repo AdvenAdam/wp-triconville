@@ -65,16 +65,19 @@ $(document).ready(function() {
         success: (res) => {
             const filteredCategory = res.filter(cat => cat.slug === '<?= $character_slug ?>')
             categoriesData = filteredCategory[0];
+            if (!categoriesData) {
+                redirectError(404)
+            }
         },
-        error: (xhr, status, error) => {
-            if (xhr.status === 404) {
+        error: (error) => {
+            if (error.status === 404) {
                 redirectError(404)
             }
             console.error('Error fetching data:', error);
         },
         complete: () => {
             $('#page-loading').hide();
-            haveSubCategories = categoriesData.children.length;
+            haveSubCategories = categoriesData?.children.length;
             renderMaster()
             metaMaster()
         }

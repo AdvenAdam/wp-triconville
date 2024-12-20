@@ -420,4 +420,10 @@
             $(`#${childUrl}-link, #${childUrl}-link-mobile, #${childUrl}-sub-link`).removeClass('text-gray-900').addClass('text-triconville-blue underline');
         }
     }
+
+    function redirectError(status = 404) {
+        if (status === 404) {
+            window.location.href = "<?= BASE_LINK; ?>/page-not-found";
+        }
+    }
     </script>
