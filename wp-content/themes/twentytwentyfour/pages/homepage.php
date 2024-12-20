@@ -46,7 +46,11 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
     <!-- NOTE: Banner -->
     <div class="homepage-banner px-5 md:px-8 pt-20 pb-6 lg:h-screen lg:max-h-[1020px]">
         <div class="flex lg:flex-row flex-col gap-2 lg:gap-6 w-full max-w-[1920px] mx-auto h-full overflow-hidden">
-            <div class="w-full lg:w-2/5 p-6 lg:p-16 flex flex-col items-start justify-between gap-3 md:gap-6 left-banner">
+            <div class="w-full lg:w-2/5 p-6 lg:p-16 flex flex-col items-start justify-between gap-3 md:gap-6 left-banner"
+                 data-aos="fade-up"
+                 data-aos-once="true"
+                 data-aos-delay=""
+                 data-aos-duration="1000">
                 <img src="https://storage.googleapis.com/back-bucket/wp_triconville/images/icons/LOGO%20IFEX-02%201.png"
                      alt="IFEX"
                      class="w-auto h-full max-h-16 lg:max-h-24 object-contain">
@@ -64,14 +68,22 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                 </div>
             </div>
             <div class="w-full lg:w-3/5 flex flex-col items-start justify-between gap-4 xl:gap-8">
-                <div class="right-banner min-h-64 lg:h-2/3 2xl:h-3/4 w-full flex lg:items-end lg:justify-end">
+                <div class="right-banner min-h-64 lg:h-2/3 2xl:h-3/4 w-full flex lg:items-end lg:justify-end"
+                     data-aos="fade-up"
+                     data-aos-once="true"
+                     data-aos-delay="200"
+                     data-aos-duration="1000">
                     <div class="max-w-sm lg:max-w-lg p-4 lg:p-8">
                         <h3 class="text-sm text-white lg:text-base mb-1 hidden lg:block">Come and Say Hello!</h3>
                         <h1 class="text-3xl text-white lg:text-5xl mb-1">Booth No: M-17</h1>
                         <h3 class="text-sm text-white lg:text-base mb-1">North Entrance - Convention Centre & Theatre</h3>
                     </div>
                 </div>
-                <div class="xl:flex gap-3 xl:gap-10 lg:h-1/3 2xl:h-1/4">
+                <div class="xl:flex gap-3 xl:gap-10 lg:h-1/3 2xl:h-1/4"
+                     data-aos="fade-up"
+                     data-aos-once="true"
+                     data-aos-delay="400"
+                     data-aos-duration="1000">
                     <div class="mb-4 lg:mb-0 border-l-[6px] lg:border-l-[13px] border-ifex-red w-full xl:max-w-40 flex items-center">
                         <h1 class="text-2xl xl:text-3xl ps-4 lg:ps-8 text-end">
                             Don’t Miss The Chance
