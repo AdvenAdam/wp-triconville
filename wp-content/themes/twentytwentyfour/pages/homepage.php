@@ -287,11 +287,6 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
             </div>
         </div>
         <div id="page-loading">
-            <div class="three-balls">
-                <div class="ball ball1"></div>
-                <div class="ball ball2"></div>
-                <div class="ball ball3"></div>
-            </div>
         </div>
         <div id="errorIndicator"
              class="hidden">Error</div>
