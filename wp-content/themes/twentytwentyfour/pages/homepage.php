@@ -44,9 +44,9 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
 </style>
 <div class="content-container">
     <!-- NOTE: Banner -->
-    <div class="homepage-banner px-5 md:px-8 pt-20 pb-6 lg:h-screen lg:max-h-[1020px]">
-        <div class="flex lg:flex-row flex-col gap-2 lg:gap-6 w-full max-w-[1920px] mx-auto h-full overflow-hidden">
-            <div class="w-full lg:w-2/5 p-6 lg:p-16 flex flex-col items-start justify-between gap-3 md:gap-6 bg-ceramic"
+    <div class="homepage-banner px-5 md:px-8 pt-20 pb-0 xl:pb-6 lg:h-screen lg:max-h-[1020px]">
+        <div class="flex lg:flex-row flex-col gap-2 lg:gap-3 xl:gap-6 w-full max-w-[1920px] mx-auto h-full overflow-hidden">
+            <div class="w-full lg:w-2/5 p-6 lg:p-8 xl:p-16 flex flex-col items-start justify-between gap-3 md:gap-6 bg-ceramic"
                  data-aos="fade-up"
                  data-aos-once="true"
                  data-aos-delay=""
@@ -84,8 +84,8 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                      data-aos-once="true"
                      data-aos-delay="400"
                      data-aos-duration="1000">
-                    <div class="mb-4 lg:mb-0 border-l-[6px] lg:border-l-[13px] border-ifex-red w-full xl:max-w-40 flex items-center">
-                        <h1 class="text-2xl xl:text-3xl ps-4 lg:ps-8 text-end">
+                    <div class="mb-3 xl:mb-0 border-l-[6px] xl:border-l-[13px] border-ifex-red w-full xl:max-w-40 flex items-center">
+                        <h1 class="text-2xl xl:text-3xl ps-4 xl:ps-8 text-end">
                             Don’t Miss The Chance
                         </h1>
                     </div>
