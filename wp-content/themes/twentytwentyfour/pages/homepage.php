@@ -234,8 +234,8 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-3 lg:gap-5"
                      id="news-selected">
                     <?php foreach ($posts as $post): ?>
-                    <div class="news-card flex items-center gap-3 md:block">
-                        <a class="news-image w-1/2 md:w-auto lg:h-auto sm:h-[240px] object-cover h-[124px] relative group hover:cursor-pointer"
+                    <div class="news-card flex items-center gap-3 md:block group">
+                        <a class="news-image w-1/2 md:w-auto lg:h-auto sm:h-[240px] object-cover h-[124px] relative  hover:cursor-pointer"
                            href="<?php echo get_permalink($post->ID); ?>">
                             <?php echo get_the_post_thumbnail($post->ID, 'large'); ?>
                             <div class="overlay absolute inset-0 bg-gradient-to-b from-transparent to-black/30 invisible group-hover:visible"></div>
@@ -244,7 +244,7 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                             <div class="h-20 overflow-hidden">
                                 <h4 class="text-2xl md:mb-5 md:mt-3">
                                     <a href="<?php echo get_permalink($post->ID); ?>"
-                                       class="hover:underline line-clamp-2">
+                                       class="group-hover:underline line-clamp-2">
                                         <?php echo get_the_title($post->ID); ?>
                                     </a>
                                 </h4>
