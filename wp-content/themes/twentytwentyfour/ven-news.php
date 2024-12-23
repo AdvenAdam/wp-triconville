@@ -27,7 +27,7 @@ get_template_part('header-custom');
 }
 </style>
 <div class="px-5 md:px-8 mt-28 md:mt-36">
-    <div class="max-w-[1440px] mx-auto">
+    <div class="max-w-[1024px] mx-auto">
         <div class="inline-flex gap-1 items-center mb-5">
             <svg xmlns="http://www.w3.org/2000/svg"
                  fill="none"

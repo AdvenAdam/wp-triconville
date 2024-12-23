@@ -8,6 +8,13 @@ get_template_part('header-custom');
 $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&category_name=news');
 ?>
 <style>
+.homepage-banner {
+    background: url('https://storage.googleapis.com/back-bucket/wp_triconville/images/home/home-banner.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
 .news-image img {
     height: 300px !important;
     width: 100% !important;
@@ -44,7 +51,7 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
 </style>
 <div class="content-container">
     <!-- NOTE: Banner -->
-    <div class="homepage-banner px-5 md:px-8 pt-20 pb-0 xl:pb-6 lg:h-screen lg:max-h-[1020px]">
+    <!-- <div class="homepage-banner px-5 md:px-8 pt-20 pb-0 xl:pb-6 lg:h-screen lg:max-h-[1020px]">
         <div class="flex lg:flex-row flex-col gap-2 lg:gap-3 xl:gap-6 w-full max-w-[1920px] mx-auto h-full overflow-hidden">
             <div class="w-full lg:w-2/5 p-6 lg:p-8 xl:p-16 flex flex-col items-start justify-between gap-3 md:gap-6 bg-ceramic"
                  data-aos="fade-up"
@@ -117,8 +124,10 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                             </div>
                         </div>
                         <div class="bg-ceramic mt-3 px-4 py-2 flex justify-center flex-col">
-                            <a class="flex items-center gap-3 cursor-not-allowed select-none">
-                                <p class="text-[#798F98]">Find us on ifexindonesia.com</p>
+                            <a class="flex items-center gap-3 "
+                               href="https://ifexindonesia.com/visitor/show-preview/919"
+                               target="_blank">
+                                <p class="">Find us on ifexindonesia.com</p>
                                 <svg width="101"
                                      height="9"
                                      viewBox="0 0 101 9"
@@ -133,6 +142,60 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                     </div>
                 </div>
             </div>
+        </div>
+    </div> -->
+    <div class="homepage-banner px-5 md:px-8 mt-20 py-12 full-screen w-screen max-h-[30vh] lg:max-h-[1020px]">
+        <div class="hidden lg:block ms-0 lg:ms-[5vw] h-full w-fit bg-triconville-beige/80 backdrop-blur-[2px]">
+            <div class="flex h-full flex-col items-start justify-between gap-3 md:gap-6 p-4 lg:p-12">
+                <img src="https://storage.googleapis.com/back-bucket/wp_triconville/images/icons/LOGO%20IFEX-02%201.png"
+                     alt="IFEX"
+                     class="w-auto h-full max-h-16 lg:max-h-24 object-contain">
+
+                <div class="max-w-sm">
+                    <h1 class="text-3xl lg:text-5xl font-medium ">
+                        IFEX 2025
+                    </h1>
+                    <hr class="border-ifex-red border-2 lg:border-4 max-w-24 my-4 lg:my-6">
+                    <div class="desc mb-6 max-w-sm">
+                        <h2 class="text-2xl lg:text-3xl">Be part of our first step and join us at Indonesia's premier furniture & craft exhibition!</h2>
+                    </div>
+                    <div class="Link">
+                        <a href="#"
+                           target="_blank">
+                            <p class="text-ifex-red underline mb-3">Learn More</p>
+                        </a>
+                        <a href="https://ifexindonesia.com/visitor/show-preview/919"
+                           target="_blank">
+                            <p class="text-ifex-red underline">Find us on ifexindonesia.com</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- NOTE IFEX MOBILE  -->
+    <div class="px-5 md:px-8 lg:hidden h-[calc(70vh-5rem)] bg-triconville-beige">
+        <div class="py-10">
+            <img src="https://storage.googleapis.com/back-bucket/wp_triconville/images/icons/LOGO%20IFEX-02%201.png"
+                 alt="IFEX"
+                 class="w-auto h-full max-h-16 md:max-h-24 object-contain">
+        </div>
+        <h1 class="text-3xl lg:text-5xl font-medium">
+            IFEX 2025
+        </h1>
+        <hr class="border-ifex-red border-2 lg:border-4 max-w-24 my-4 lg:my-6">
+        <div class="desc mb-6 max-w-md">
+            <h2 class="text-2xl lg:text-3xl">Be part of our first step and join us at Indonesia's premier furniture & craft exhibition!</h2>
+        </div>
+        <div class="Link">
+            <a href="#"
+               target="_blank">
+                <p class="text-ifex-red underline mb-3">Learn More</p>
+            </a>
+            <a href="https://ifexindonesia.com/visitor/show-preview/919"
+               target="_blank">
+                <p class="text-ifex-red underline">Find us on ifexindonesia.com</p>
+            </a>
         </div>
     </div>
     <div class="px-5 md:px-8">
