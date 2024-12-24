@@ -25,21 +25,21 @@
             </div>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 xl:gap-6 items-center py-10">
                 <?php while ($top_posts->have_posts()) : $top_posts->the_post(); ?>
-                <div class="w-full max-w-xl order-last lg:order-first"
+                <div class="w-full max-w-xl order-last lg:order-first group"
                      data-aos="fade-up"
                      data-aos-once="true"
                      data-aos-duration="1000">
-                    <div class="relative group hover:cursor-pointer w-full">
-                        <a href="<?php the_permalink(); ?>"
-                           class="">
+                    <a href="<?php the_permalink(); ?>"
+                       class="">
+                        <div class="relative hover:cursor-pointer w-full">
                             <?php the_post_thumbnail('full', array('class' => 'h-full w-auto min-h-[25vh] xl:min-h-[35vh] object-cover')); ?>
-                        </a>
-                        <div class="overlay absolute inset-0 bg-gradient-to-b from-transparent to-black/30 invisible group-hover:visible"></div>
-                    </div>
+                            <div class="overlay absolute inset-0 bg-gradient-to-b from-transparent to-black/30 invisible group-hover:visible"></div>
+                        </div>
+                    </a>
                     <p class="text-xs text-gray-500 mt-4">
                         <?php the_time('F j, Y'); ?>
                     </p>
-                    <h3 class="news-title my-2 text-2xl min-h-16">
+                    <h3 class="news-title my-2 text-2xl min-h-16 group-hover:underline">
                         <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
                     </h3>
                 </div>

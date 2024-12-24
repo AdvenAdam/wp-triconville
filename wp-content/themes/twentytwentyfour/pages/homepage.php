@@ -44,9 +44,9 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
 </style>
 <div class="content-container">
     <!-- NOTE: Banner -->
-    <div class="homepage-banner px-5 md:px-8 pt-20 pb-6 lg:h-screen lg:max-h-[1020px]">
-        <div class="flex lg:flex-row flex-col gap-2 lg:gap-6 w-full max-w-[1920px] mx-auto h-full overflow-hidden">
-            <div class="w-full lg:w-2/5 p-6 lg:p-16 flex flex-col items-start justify-between gap-3 md:gap-6 bg-ceramic"
+    <div class="homepage-banner px-5 md:px-8 pt-20 pb-0 xl:pb-6 lg:h-screen lg:max-h-[1020px]">
+        <div class="flex lg:flex-row flex-col gap-2 lg:gap-3 xl:gap-6 w-full max-w-[1920px] mx-auto h-full overflow-hidden">
+            <div class="w-full lg:w-2/5 p-6 lg:p-8 xl:p-16 flex flex-col items-start justify-between gap-3 md:gap-6 bg-ceramic"
                  data-aos="fade-up"
                  data-aos-once="true"
                  data-aos-delay=""
@@ -84,8 +84,8 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                      data-aos-once="true"
                      data-aos-delay="400"
                      data-aos-duration="1000">
-                    <div class="mb-4 lg:mb-0 border-l-[6px] lg:border-l-[13px] border-ifex-red w-full xl:max-w-40 flex items-center">
-                        <h1 class="text-2xl xl:text-3xl ps-4 lg:ps-8 text-end">
+                    <div class="mb-3 xl:mb-0 border-l-[6px] xl:border-l-[13px] border-ifex-red w-full xl:max-w-40 flex items-center">
+                        <h1 class="text-2xl xl:text-3xl ps-4 xl:ps-8 text-end">
                             Don’t Miss The Chance
                         </h1>
                     </div>
@@ -234,8 +234,8 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-3 lg:gap-5"
                      id="news-selected">
                     <?php foreach ($posts as $post): ?>
-                    <div class="news-card flex items-center gap-3 md:block">
-                        <a class="news-image w-1/2 md:w-auto lg:h-auto sm:h-[240px] object-cover h-[124px] relative group hover:cursor-pointer"
+                    <div class="news-card flex items-center gap-3 md:block group">
+                        <a class="news-image w-1/2 md:w-auto lg:h-auto sm:h-[240px] object-cover h-[124px] relative  hover:cursor-pointer"
                            href="<?php echo get_permalink($post->ID); ?>">
                             <?php echo get_the_post_thumbnail($post->ID, 'large'); ?>
                             <div class="overlay absolute inset-0 bg-gradient-to-b from-transparent to-black/30 invisible group-hover:visible"></div>
@@ -244,7 +244,7 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                             <div class="h-20 overflow-hidden">
                                 <h4 class="text-2xl md:mb-5 md:mt-3">
                                     <a href="<?php echo get_permalink($post->ID); ?>"
-                                       class="hover:underline line-clamp-2">
+                                       class="group-hover:underline line-clamp-2">
                                         <?php echo get_the_title($post->ID); ?>
                                     </a>
                                 </h4>
@@ -287,11 +287,6 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
             </div>
         </div>
         <div id="page-loading">
-            <div class="three-balls">
-                <div class="ball ball1"></div>
-                <div class="ball ball2"></div>
-                <div class="ball ball3"></div>
-            </div>
         </div>
         <div id="errorIndicator"
              class="hidden">Error</div>

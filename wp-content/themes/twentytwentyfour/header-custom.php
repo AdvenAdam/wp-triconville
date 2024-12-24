@@ -316,7 +316,7 @@
                     >
                         <h5 class="text-lg font-medium">${menu.name}</h5>
                     </a>
-                    <div class="text-end" id="${subMenuId}"></div>
+                    <div class="text-end p-2" id="${subMenuId}"></div>
                 </li>
             `);
             appendSubMenu(menu.name);
