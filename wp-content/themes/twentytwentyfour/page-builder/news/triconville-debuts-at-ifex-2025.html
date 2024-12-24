@@ -1,11 +1,11 @@
 <div class="content-container">
   <div class="max-w-2xl mx-auto">
-    <h1 class="text-3xl max-w-xl title">Swiss Trade Show in Zurich</h1>
+    <h1 class="text-3xl max-w-xl title">Triconville Debuts at IFEX 2025</h1>
   </div>
 
   <!-- NOTE : SHARE -->
   <div class="flex justify-between items-center max-w-2xl mx-auto my-10 border-slate-500 border-y py-3 px-1">
-    <p>Sep 23, 2024</p>
+    <p>Des 23, 2024</p>
     <div class="flex items-center gap-2">
       <p>Share :</p>
       <button
@@ -99,27 +99,53 @@
     </div>
   </div>
   <img
-    src="http://dev.triconville.com/wp-content/uploads/2024/10/Swiss-Trade-Show-in-Zurich.png"
-    alt="Triconville B2B is here. Let’s Talk Business!"
+    src="https://storage.googleapis.com/back-bucket/wp_triconville/images/backgrounds/Banner_ifex.jpg"
+    alt="Triconville Debuts at IFEX 2025"
     class="w-full h-auto mb-10"
   />
-  <div class="max-w-2xl mx-auto">
-    <p class="text-sm mb-10">
-      Furniture exhibition at Swiss trade show in zurich, Triconville showcased high-end teak and stainless steel
-      collections in International furniture design fair that took place in Zurich, Switzerland.  These collections
-      fully convey creativity, research and innovation reflecting the values of triconville.
-      <br />
-      <br />
-      These collections were designed to keep the outdoor culture and feel alive. We offered our perception of living
-      the outdoor life and created distinct collections of seating, tables, loungers and gazebos with materials used as
-      natural teak and stainless steel. This allowed us to create relaxing outdoor areas with exclusive ranges of
-      designs to reshape the outdoor space to reﬂect the beauty of the nature.
+  <div class="max-w-2xl mx-auto text-center">
+    <h1 class="text-3xl">March 6-9, 2025</h1>
+    <hr class="border-ifex-red border-2 lg:border-4 max-w-32 my-4 lg:my-6 mx-auto" />
+    <h1 class="text-3xl">Booth M-17</h1>
+    <h3 class="font-medium">North Entrance—Convention Centre & Theatre</h3>
+  </div>
+  <div class="max-w-2xl mx-auto text-center mt-16">
+    <p class="text-sm">
+      Join us at Indonesia's premier furniture & craft exhibition! <br />
+      We are thrilled to announce our inaugural appearance at IFEX 2025!  We'll spotlight our latest outdoor furniture
+      collections in this largest and finest International trade show alongside 500+ exhibitors from 117 countries.
     </p>
   </div>
+  <div class="max-w-2xl mx-auto text-center mt-16">
+    <h3>
+      Connect with us and experience our best-seller collections together with <br />
+      NEW LAUNCHES : 
+    </h3>
+  </div>
+  <div
+    class="grid grid-cols-2 mt-16 gap-x-4 gap-y-10 mb-20"
+    id="collection-content"
+  ></div>
+  <div class="max-w-2xl mx-auto">
+    <h3>Don’t miss the opportunity to :</h3>
+    <ul class="list-disc list-inside tracking-wider mt-4">
+      <li class="text-sm text-triconville-black">
+        Be the first to witness our new launches and groundbreaking materials up close.
+      </li>
+      <li class="text-sm text-triconville-black">Latest trends and innovation in the outdoor furniture industry.</li>
+      <li class="text-sm text-triconville-black">Connect with our experts to discuss your specific needs.</li>
+    </ul>
+  </div>
 
-  <!-- NOTE : SHARE -->
-  <div class="flex justify-between items-center max-w-2xl mx-auto my-10 border-slate-500 border-y py-3 px-1">
-    <p>Sep 23, 2024</p>
+  <div class="max-w-2xl py-20 mx-auto">
+    <p class="text-sm">
+      Mark your calendar and visit us at <b>Booth M-17 North Entrance—</b>Convention Centre & Theatre to experience our
+      commitment to craftsmanship and design excellence firsthand!
+    </p>
+  </div>
+  <!-- NOTE : Share -->
+  <div class="flex justify-between items-center max-w-2xl mx-auto my-10 border-slate-500 border-y py-3">
+    <p>Des 23, 2024</p>
     <div class="flex items-center gap-2">
       <p>Share :</p>
       <button
@@ -127,7 +153,6 @@
         data-clipboard-text=""
         data-tooltip-target="tooltip-link"
         data-tooltip-trigger="click"
-        type="button"
       >
         <svg
           width="18"
@@ -213,3 +238,74 @@
     </div>
   </div>
 </div>
+
+<script>
+  let localCollection = [];
+  let filteredCollections = [];
+  let collectionData = [];
+
+  $(document).ready(function () {
+    const fetchData = (url, successCallback, completeCallback) => {
+      $.ajax({
+        url: "<?= BASE_URL; ?>" + url,
+        type: "GET",
+        success: successCallback,
+        error: (xhr, status, error) => {
+          console.error("Error fetching data:", error);
+        },
+        complete: completeCallback,
+      });
+    };
+
+    fetchData(
+      "/?rest_route=/wp/v2/selected_collection",
+      (res) => {
+        const newsCollection = res.ifexNewsCollection;
+        localCollection = (res.collection || []).filter((item) => newsCollection.includes(item.collection_id));
+      },
+      () => {
+        loadCollections();
+      }
+    );
+  });
+
+  function loadCollections() {
+    $.ajax({
+      url: `<?= BASE_API; ?>/v1_collections/`,
+      type: "GET",
+      headers: {
+        Authorization: "<?= API_KEY; ?>",
+      },
+      beforeSend: () => {
+        $("#page-loading").show();
+      },
+      success: function (res) {
+        const ApiCollection = res.results;
+        localCollection.forEach((collection) => {
+          selectedCollection = ApiCollection.filter((data) => data.collection_id == collection.collection_id);
+          collectionData.push({
+            ...collection,
+            ...selectedCollection[0],
+          });
+        });
+      },
+      complete: () => {
+        collectionData.forEach((colection) => renderCollections(colection));
+      },
+    });
+  }
+
+  function renderCollections(collection) {
+    $("#collection-content").append(`
+          <a href= "<?= BASE_LINK; ?>/collections/${slugify(collection.name)}" class="mx-1 md:mx-2 ">
+              <img src="${collection.collection_image_1024}"
+                  class="w-full h-[250px] object-cover hover:brightness-90 transition duration-300" />
+
+              <h1 class="text-3xl lg:text-5xl font-medium capitalize my-2">${collection.display_name}</h1>
+              <h3 class='text-base line-clamp-2 text-ellipsis'>
+                  ${collection.description}
+              </h3>
+          </a>
+      `);
+  }
+</script>
