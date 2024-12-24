@@ -45,12 +45,39 @@ get_template_part('header-custom');
                 <h5>Back</h5>
             </a>
         </div>
+        <?php 
+        // NOTE : use it for static pages
+        $url = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+        switch (true) {
+            case (strpos($url, 'triconville-debuts-at-ifex-2025') !== false):
+                include(get_template_directory() . '/page-builder/news/triconville-debuts-at-ifex-2025.html');
+                break;
+            case (strpos($url, 'salone-del-mobile-milano-2024') !== false):
+                include(get_template_directory() . '/page-builder/news/salone-del-mobile-milano-2024.html');
+                break;
+            case (strpos($url, 'swiss-trade-show-in-zurich') !== false):
+                include(get_template_directory() . '/page-builder/news/swiss-trade-show-in-zurich.html');
+                break;
+            case (strpos($url, 'triconville-b2b-is-here-lets-talk-business') !== false):
+                include(get_template_directory() . '/page-builder/news/triconville-b2b-is-here-lets-talk-business.html');
+                break;
+            case (strpos($url, 'introducing-new-premium-fabrics-rope-colors-teak-finishes') !== false):
+                include(get_template_directory() . '/page-builder/news/introducing-new-premium-fabrics-rope-colors-teak-finishes.html');
+                break;
+            case (strpos($url, 'meet-gera-tables-a-perfect-blend-of-quality-workmanship') !== false):
+                include(get_template_directory() . '/page-builder/news/meet-gera-tables-a-perfect-blend-of-quality-workmanship.html');
+                break;
+            default:
+                echo "No page found";
+        }
+         ?>
         <div class="content-wrapper">
             <?php while (have_posts()) : the_post(); ?>
             <?php the_content(); ?>
             <?php endwhile; ?>
         </div>
-
+    </div>
+    <div class="max-w-[1440px] mx-auto">
         <div class="pb-5 md:py-10">
             <div class="max-w-2xl mb-5">
                 <h2 class="text-3xl">
