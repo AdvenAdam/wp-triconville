@@ -159,7 +159,7 @@
          class="fixed top-0 right-0 outline-none bg-opacity-100 z-40 h-screen w-80 max-w-[60vw] p-5 overflow-y-auto transition-transform duration-500 ease-in-out translate-x-full bg-white"
          tabindex="-1"
          aria-labelledby="drawer-navigation-label">
-        <div class="flex justify-end mt-5">
+        <div class="flex justify-end my-5">
             <button type="button"
                     data-drawer-hide="drawer-navigation"
                     aria-controls="drawer-navigation"
@@ -371,7 +371,7 @@
             `;
             categoryDesktop += `
                 <a href="${href}">
-                    <p class="${menu === 'Inspirations' ? 'pt-1' : 'py-1'} !text-xs hover:text-triconville-blue whitespace-nowrap" id="${slugify(item.name)}-sub-link">${displayName}</p>
+                    <p class="${menu === 'Inspirations' ? 'pt-1' : 'py-1'} !text-xs px-1 hover:text-triconville-blue whitespace-nowrap" id="${slugify(item.name)}-sub-link">${displayName}</p>
                 </a>
             `;
         });

@@ -51,8 +51,7 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
 </style>
 <div class="content-container">
     <!-- NOTE: Banner -->
-
-    <div class="homepage-banner px-5 md:px-8 mt-20 py-12 full-screen w-screen max-h-[30vh] md:max-h-[calc(30vh+5rem)] lg:max-h-[1020px]">
+    <div class="homepage-banner px-5 md:px-8 mt-16 md:mt-20 py-12 full-screen w-screen max-h-[30vh] md:max-h-[calc(30vh+5rem)] lg:max-h-[1020px]">
         <div class="hidden lg:block ms-0 lg:ms-[5vw] h-full w-fit bg-triconville-beige/80 backdrop-blur-[2px]"
              data-aos="fade-up"
              data-aos-once="true"
@@ -72,7 +71,7 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                         <h2 class="text-2xl lg:text-3xl">Be part of our first step and join us at Indonesia's premier furniture & craft exhibition!</h2>
                     </div>
                     <div class="Link">
-                        <a href="#"
+                        <a href="<?= BASE_LINK ?>/news/triconville-debuts-at-ifex-2025"
                            target="_blank">
                             <p class="text-ifex-red underline mb-3">Learn More</p>
                         </a>
@@ -86,7 +85,7 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
         </div>
     </div>
     <!-- NOTE IFEX MOBILE  -->
-    <div class="px-5 md:px-8 lg:hidden h-[calc(70vh-5rem)] bg-triconville-beige">
+    <div class="px-5 md:px-8 lg:hidden h-full min-h-[calc(70vh-4rem)] md:min-h-[calc(70vh-5rem)] bg-triconville-beige">
         <div data-aos="fade-up"
              data-aos-once="true"
              data-aos-delay=""
@@ -103,8 +102,8 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
             <div class="desc mb-6 max-w-2xl">
                 <h2 class="text-2xl lg:text-3xl">Be part of our first step and join us at Indonesia's premier furniture & craft exhibition!</h2>
             </div>
-            <div class="Link">
-                <a href="#"
+            <div class="Link pb-3">
+                <a href="<?= BASE_LINK ?>/news/triconville-debuts-at-ifex-2025"
                    target="_blank">
                     <p class="text-ifex-red underline mb-3">Learn More</p>
                 </a>
@@ -350,7 +349,7 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                 <a href="<?= BASE_LINK; ?>/collections/${slugify(collection.name)}">
                     <div class="sm:h-full w-full h-[65vh] flex group items-end md:hover:bg-gradient-to-b from-transparent to-black/40 p-5">
                         <div class="max-w-md transition duration-300 translate-y-14 md:group-hover:translate-y-0 ease-in-out">
-                            <h1 class="text-3xl lg:text-5xl text-white">
+                            <h1 class="text-3xl lg:text-5xl text-white p-3 md:p-0">
                                 ${filterProductName(collection.name)}
                             </h1>
                             <div class="line-clamp-2">
