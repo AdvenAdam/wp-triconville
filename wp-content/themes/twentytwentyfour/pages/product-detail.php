@@ -104,7 +104,6 @@ get_template_part('header-custom');
          data-aos-duration="1000">
         <div class="max-w-[1440px] mx-auto flex lg:flex-row flex-col items-center gap-4 py-10 lg:py-32"
              id="specification__section">
-
         </div>
     </div>
     <!-- NOTE : PRODUCT IN THIS SECTION -->
@@ -126,7 +125,6 @@ get_template_part('header-custom');
                 <h2 class='text-2xl md:text-3xl releted__products__name'></h2>
                 <div class="releted__products my-10"></div>
                 <div class="releted__products__btn text-center"></div>
-
             </div>
         </div>
     </div>
@@ -693,7 +691,7 @@ function renderRelatedProducts(products) {
     $('.releted__products__name').text(`Related Products`);
     products.forEach((e) => {
         $('.releted__products').append(`
-            <a href="<?= BASE_LINK; ?>/product-detail/${slugify(e.name)}">
+            <a href="<?= BASE_LINK; ?>/product-detail/${slugify(e.name)}" class="max-h-60 md:max-h-96">
                 <div class="product__card group flex flex-col items-center justify-center mx-1">
                     <img src="${e.product_image}" class="md:h-[384px] h-[204px] max-w-[45vw] md:max-w-[33vw] lg:max-w-[23vw] object-contain w-auto group-hover:scale-[.97] group-hover:brightness-110 transition duration-300" />
                     <p class="text-center w-full max-w-[90%] mx-auto -mt-5 sm:-mt-10 lg:-mt-16 xl:-mt-10 relative z-10 capitalize group-hover:underline">
