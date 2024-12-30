@@ -76,7 +76,7 @@
                 <a href="<?php echo home_url(); ?>">
                     <img src="https://storage.googleapis.com/back-bucket/wp_triconville/images/icons/Triconville%20Logo%20Primary.svg"
                          alt="Triconville logo"
-                         class="h-6 will-auto min-w-20" />
+                         class="h-6 lg:h-8 w-auto min-w-20" />
                 </a>
             </div>
             <div class="flex items-center justify-end lg:pt-6 gap-2 lg:gap-10 xl:gap-16">

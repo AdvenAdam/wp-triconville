@@ -61,7 +61,6 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                 <img src="https://storage.googleapis.com/back-bucket/wp_triconville/images/icons/LOGO%20IFEX-02%201.png"
                      alt="IFEX"
                      class="w-auto h-full max-h-16 lg:max-h-24 object-contain">
-
                 <div class="max-w-sm">
                     <h1 class="text-3xl lg:text-5xl font-medium ">
                         IFEX 2025
@@ -95,7 +94,7 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                      alt="IFEX"
                      class="w-auto h-full max-h-16 md:max-h-24 object-contain">
             </div>
-            <h1 class="text-3xl lg:text-5xl font-medium">
+            <h1 class="text-3xl lg:text-5xl">
                 IFEX 2025
             </h1>
             <hr class="border-ifex-red border-2 lg:border-4 max-w-24 my-4 lg:my-6">
