@@ -76,6 +76,11 @@
         "id": 38,
         "name": "Outdoor Low Tables",
         "param": "low table"
+      },
+      {
+        "id": 33,
+        "name": "Accent Tables",
+        "param": ""
       }
     ],
     "meta": {
@@ -116,7 +121,7 @@
       {
         "id": 25,
         "name": "Outdoor Dining Chairs",
-        "param": "dining,arm"
+        "param": "!side"
       },
       {
         "id": 23,
