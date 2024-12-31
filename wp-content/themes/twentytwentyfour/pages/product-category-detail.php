@@ -155,19 +155,12 @@ async function fetchProducts(id, param) {
         let filteredProduct = [];
         // NOTE : Get Triconville Product by listed collection
         // REVIEW - this code still hard code
-        if ('<?= $character_slug ?>' === 'accessories') {
-            filteredProduct = res.product_list.filter(data => selectedCollectionId.some(element => element.collection_id === parseInt(data.collection) || data.collection === 258)).map(selectedData => {
-                return {
-                    ...selectedData
-                };
-            });
-        } else {
-            filteredProduct = res.product_list.filter(data => selectedCollectionId.some(element => element.collection_id === parseInt(data.collection))).map(selectedData => {
-                return {
-                    ...selectedData
-                };
-            });
-        }
+
+        filteredProduct = res.product_list.filter(data => data.brand === 3).map(selectedData => {
+            return {
+                ...selectedData
+            };
+        });
 
         if (!param) {
             return filteredProduct;
