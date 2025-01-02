@@ -117,7 +117,7 @@ get_template_part('header-custom');
                 <div class="collection__product grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mb-16 justify-center"></div>
                 <div class="collection__product__btn text-center"></div>
             </div>
-            <div class="py-10 md:pb-20 relative h-fit hidden"
+            <div class="py-10 md:pb-20 relative h-fit hidden group/slider"
                  id="releted__products"
                  data-aos="fade-up"
                  data-aos-once="true"
@@ -231,7 +231,7 @@ async function renderOverview(res) {
     if (isSectionalPage) {
         $('#product__header__image').append(`
             <div class="flex justify-center">
-                <img src="${validBaseImgUrl}" alt="${res.name}" class="w-[100vw] md:w-[80vw] h-[30vh] md:h-[50vh] object-cover px-8"/>
+                <img src="${validBaseImgUrl}" alt="${res.name}" class="w-[100vw] my-10 md:w-[80vw] h-[30vh] md:h-[50vh] object-cover px-8"/>
             </div>
         `)
     } else {
@@ -702,7 +702,7 @@ function renderRelatedProducts(products) {
         `)
     })
     $('#releted__products').append(`
-        <button class="gww-prev left-0 2xl:-left-12 arrow-btn hidden lg:block"
+        <button class="gww-prev left-0 2xl:-left-12 arrow-btn hidden lg:block invisible group-hover/slider:visible opacity-0 group-hover/slider:opacity-100"
                 aria-label="Previous"
                 type="button">
             <svg xmlns="http://www.w3.org/2000/svg"
@@ -716,7 +716,7 @@ function renderRelatedProducts(products) {
                         d="M15.75 19.5 8.25 12l7.5-7.5" />
             </svg>
         </button>
-        <button class="gww-next right-0 2xl:-right-12 arrow-btn hidden lg:block"
+        <button class="gww-next right-0 2xl:-right-12 arrow-btn hidden lg:block invisible group-hover/slider:visible opacity-0 group-hover/slider:opacity-100"
                 aria-label="Next"
                 type="button">
             <svg xmlns="http://www.w3.org/2000/svg"
