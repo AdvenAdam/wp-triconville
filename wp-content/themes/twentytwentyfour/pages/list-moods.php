@@ -72,7 +72,7 @@ function renderBanner() {
         moods.forEach(mood => {
             $('#mood__list').append(`
                 <div class="h-[322px] md:h-[600px] w-auto bg-no-repeat bg-center bg-cover group overflow-hidden"
-                    style="background-image: url('<?php echo esc_attr(get_template_directory_uri()); ?>/assets/${mood.thumb}')"
+                    style="background-image: url('${mood.thumb}')"
                     data-aos="fade-up"
                     data-aos-once="true"
                     data-aos-duration="1000"

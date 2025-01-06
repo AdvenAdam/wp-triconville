@@ -3,8 +3,8 @@
     "id": 1,
     "name": "Dune Essence",
     "slug": "dune-essence",
-    "thumb": "images/moods/dune-essence/dune-essence.png",
-    "banner": "images/moods/dune-essence/dune-essence-banner.png",
+    "thumb": "https://storage.googleapis.com/back-bucket/wp_triconville/images/moods/dune-essence/dune-essence.png",
+    "banner": "https://storage.googleapis.com/back-bucket/wp_triconville/images/moods/dune-essence/dune-essence-banner.png",
     "desc": "Captures the timeless beauty and calm of the desert, where sands flow with the wind and the earth speaks of resilience. <br/>Blending raw nature with refined luxury, each piece reflects the organic curves and textures of desert landscapes, bringing a sense of serenity and sophistication.",
     "color": "#8C4A38",
     "subName": "Captures the timeless beauty and calm of the desert",
@@ -12,31 +12,31 @@
     "subTitle": {
       "title": "Imagine stepping into a space defined by neutral, sandy tones, softened by rich, earthy accents.",
       "description": "The furniture in this collection is designed to mimic the smooth, flowing lines of desert dunes, with soft edges, curved forms, and textures that bring the outdoors inside. Materials like polished wood, natural stone, and fine textiles come together to create an aesthetic that feels grounded yet elevated, perfect for those seeking a connection with nature without sacrificing comfort.",
-      "subImage": "images/moods/dune-essence/dune-essence-sub.png"
+      "subImage": "https://storage.googleapis.com/back-bucket/wp_triconville/images/moods/dune-essence/dune-essence-sub.png"
     },
     "materials": {
       "desc": "The Dune Essence mood speaks to those who value subtle elegance, calm energy, and the art of living in balance with their surroundings. Whether you’re lounging on a plush sofa or gathering around a low, sculptural table, the mood captures a lifestyle that is effortlessly chic yet deeply connected to the earth’s elements. It’s a statement of sophistication, rooted in simplicity and inspired by the wonders of nature.",
-      "image": "images/moods/dune-essence/dune-essence-materials.png"
+      "image": "https://storage.googleapis.com/back-bucket/wp_triconville/images/moods/dune-essence/dune-essence-materials.png"
     },
     "galleries": [
       {
         "title": "Dune Essence",
-        "image": "images/moods/dune-essence/gallery/dune-essence-1.jpg"
+        "image": "https://storage.googleapis.com/back-bucket/wp_triconville/images/moods/dune-essence/gallery/dune-essence-1.jpg"
       },
       {
         "title": "Dune Essence",
-        "image": "images/moods/dune-essence/gallery/dune-essence-2.jpg"
+        "image": "https://storage.googleapis.com/back-bucket/wp_triconville/images/moods/dune-essence/gallery/dune-essence-2.jpg"
       },
       {
         "title": "Dune Essence",
-        "image": "images/moods/dune-essence/gallery/dune-essence-3.jpg"
+        "image": "https://storage.googleapis.com/back-bucket/wp_triconville/images/moods/dune-essence/gallery/dune-essence-3.jpg"
       },
       {
         "title": "Dune Essence",
-        "image": "images/moods/dune-essence/gallery/dune-essence-4.jpg"
+        "image": "https://storage.googleapis.com/back-bucket/wp_triconville/images/moods/dune-essence/gallery/dune-essence-4.jpg"
       }
     ],
-    "catalogueImage": "images/moods/dune-essence/dune-essence-catalogue.png",
+    "catalogueImage": "https://storage.googleapis.com/back-bucket/wp_triconville/images/moods/dune-essence/dune-essence-catalogue.png",
     "meta": {
       "title": "Dune Essence Outdoor Furniture | Timeless Desert Beauty",
       "description": "Discover Dune Essence, a furniture collection inspired by the serene beauty of desert landscapes. Experience organic textures, refined luxury, and calming tones in your outdoor spaces.",
@@ -47,8 +47,8 @@
     "id": 2,
     "name": "Leafscape",
     "slug": "leafscape",
-    "thumb": "images/moods/leafscape/leafscape.png",
-    "banner": "images/moods/leafscape/leafscape-banner.png",
+    "thumb": "https://storage.googleapis.com/back-bucket/wp_triconville/images/moods/leafscape/leafscape.png",
+    "banner": "https://storage.googleapis.com/back-bucket/wp_triconville/images/moods/leafscape/leafscape-banner.png",
     "desc": "Represents a harmonious blend of modern minimalism and nature’s gentle embrace. <br/>Inspired by the tranquility of trees and the calm of nature, this mood creates a sense of peace and balance in thoughtfully designed spaces. Like an arbor offering shelter in a garden, this design brings calm and quiet reflection amid everyday chaos.",
     "color": "#3D5937",
     "subName": "Represents a harmonious blend of modern minimalism",
@@ -56,31 +56,31 @@
     "subTitle": {
       "title": "Imagine a home seamlessly connected to nature, where indoor and outdoor blend to form a sanctuary of modern design.",
       "description": "Clean lines, expansive glass, and natural materials like wood and stone define the Leafscape collection, strengthening the bond with nature while preserving a refined simplicity. Each piece is thoughtfully crafted for comfort, functionality, and timeless style.",
-      "subImage": "images/moods/leafscape/leafscape-sub.png"
+      "subImage": "https://storage.googleapis.com/back-bucket/wp_triconville/images/moods/leafscape/leafscape-sub.png"
     },
     "materials": {
       "desc": "Coastal Bliss is more than an aesthetic; it’s a way of life for those who find peace in nature and long for a refuge from the demands of modern life. Here, life slows down, encouraging moments of reflection and rest, creating a sanctuary that echoes the ocean's timeless rhythm. It’s the perfect setting for those who want to carry the tranquility of the coast into their everyday lives—a reminder that, no matter where you are, the peacefulness of the ocean is never too far away.",
-      "image": "images/moods/leafscape/leafscape-materials.png"
+      "image": "https://storage.googleapis.com/back-bucket/wp_triconville/images/moods/leafscape/leafscape-materials.png"
     },
     "galleries": [
       {
         "title": "Leafscape",
-        "image": "images/moods/leafscape/gallery/leafscape-1.jpg"
+        "image": "https://storage.googleapis.com/back-bucket/wp_triconville/images/moods/leafscape/gallery/leafscape-1.jpg"
       },
       {
         "title": "Leafscape",
-        "image": "images/moods/leafscape/gallery/leafscape-2.jpg"
+        "image": "https://storage.googleapis.com/back-bucket/wp_triconville/images/moods/leafscape/gallery/leafscape-2.jpg"
       },
       {
         "title": "Leafscape",
-        "image": "images/moods/leafscape/gallery/leafscape-3.jpg"
+        "image": "https://storage.googleapis.com/back-bucket/wp_triconville/images/moods/leafscape/gallery/leafscape-3.jpg"
       },
       {
         "title": "Leafscape",
-        "image": "images/moods/leafscape/gallery/leafscape-4.jpg"
+        "image": "https://storage.googleapis.com/back-bucket/wp_triconville/images/moods/leafscape/gallery/leafscape-4.jpg"
       }
     ],
-    "catalogueImage": "images/moods/leafscape/leafscape-catalogue.png",
+    "catalogueImage": "https://storage.googleapis.com/back-bucket/wp_triconville/images/moods/leafscape/leafscape-catalogue.png",
     "meta": {
       "title": "Leafscape Outdoor Furniture | Minimalist Design with Nature’s Harmony",
       "description": "Explore Leafscape, a collection blending modern minimalism with the tranquility of nature. Thoughtfully designed furniture inspired by the balance and calm of trees.",
@@ -91,8 +91,8 @@
     "id": 3,
     "name": "Coastal Bliss",
     "slug": "coastal-bliss",
-    "thumb": "images/moods/coastal-bliss/coastal-bliss.png",
-    "banner": "images/moods/coastal-bliss/coastal-bliss-banner.png",
+    "thumb": "https://storage.googleapis.com/back-bucket/wp_triconville/images/moods/coastal-bliss/coastal-bliss.png",
+    "banner": "https://storage.googleapis.com/back-bucket/wp_triconville/images/moods/coastal-bliss/coastal-bliss-banner.png",
     "desc": "More than a design mood—it’s an invitation to embrace the serene allure of the ocean from the comfort of your home. <br/> Inspired by the untouched beauty of the coast, it celebrates the feeling of stepping into a beachside retreat where the horizon seems to stretch forever, and the air is filled with the gentle whispers of the sea.",
     "color": "#275674",
     "subName": "Embrace the serene allure of the ocean",
@@ -100,31 +100,31 @@
     "subTitle": {
       "title": "Imagine walking into a space where every element is in harmony with the coastline.",
       "description": "The soft morning light filters through sheer curtains, casting delicate shadows that dance on driftwood floors. Shades of sandy beige, seafoam green, and deep ocean blue create a palette as calming as the shoreline at dawn. This is a home where every piece feels like it’s been shaped by nature—smooth surfaces like sea-polished stones, woven textures that mimic the flow of tides, and finishes that are perfectly imperfect, mirroring the organic beauty of the beach.",
-      "subImage": "images/moods/coastal-bliss/coastal-bliss-sub.png"
+      "subImage": "https://storage.googleapis.com/back-bucket/wp_triconville/images/moods/coastal-bliss/coastal-bliss-sub.png"
     },
     "materials": {
       "desc": "Coastal Bliss is more than an aesthetic; it’s a way of life for those who find peace in nature and long for a refuge from the demands of modern life. Here, life slows down, encouraging moments of reflection and rest, creating a sanctuary that echoes the ocean's timeless rhythm. It’s the perfect setting for those who want to carry the tranquility of the coast into their everyday lives—a reminder that, no matter where you are, the peacefulness of the ocean is never too far away.",
-      "image": "images/moods/coastal-bliss/coastal-bliss-materials.png"
+      "image": "https://storage.googleapis.com/back-bucket/wp_triconville/images/moods/coastal-bliss/coastal-bliss-materials.png"
     },
     "galleries": [
       {
         "title": "Coastal Bliss",
-        "image": "images/moods/coastal-bliss/gallery/coastal-bliss-1.png"
+        "image": "https://storage.googleapis.com/back-bucket/wp_triconville/images/moods/coastal-bliss/gallery/coastal-bliss-1.png"
       },
       {
         "title": "Coastal Bliss",
-        "image": "images/moods/coastal-bliss/gallery/coastal-bliss-2.png"
+        "image": "https://storage.googleapis.com/back-bucket/wp_triconville/images/moods/coastal-bliss/gallery/coastal-bliss-2.png"
       },
       {
         "title": "Coastal Bliss",
-        "image": "images/moods/coastal-bliss/gallery/coastal-bliss-3.png"
+        "image": "https://storage.googleapis.com/back-bucket/wp_triconville/images/moods/coastal-bliss/gallery/coastal-bliss-3.png"
       },
       {
         "title": "Coastal Bliss",
-        "image": "images/moods/coastal-bliss/gallery/coastal-bliss-4.png"
+        "image": "https://storage.googleapis.com/back-bucket/wp_triconville/images/moods/coastal-bliss/gallery/coastal-bliss-4.png"
       }
     ],
-    "catalogueImage": "images/moods/coastal-bliss/coastal-bliss-catalogue.png",
+    "catalogueImage": "https://storage.googleapis.com/back-bucket/wp_triconville/images/moods/coastal-bliss/coastal-bliss-catalogue.png",
     "meta": {
       "title": "Coastal Bliss Outdoor Furniture | Serenity by the Sea",
       "description": "Bring the ocean’s tranquility home with Coastal Bliss. Inspired by the coast’s untouched beauty, this collection captures the essence of a beachside retreat for your outdoor space.",
@@ -135,8 +135,8 @@
     "id": 4,
     "name": "Bare Essence",
     "slug": "bare-essence",
-    "thumb": "images/moods/bare-essence/bare-essence.png",
-    "banner": "images/moods/bare-essence/bare-essence-banner.png",
+    "thumb": "https://storage.googleapis.com/back-bucket/wp_triconville/images/moods/bare-essence/bare-essence.png",
+    "banner": "https://storage.googleapis.com/back-bucket/wp_triconville/images/moods/bare-essence/bare-essence-banner.png",
     "desc": "a style that embraces the beauty of simplicity, stripping away excess to reveal the raw, essential elegance of outdoor living. <br/> It’s a celebration of natural forms and understated design, where every element serves a purpose, and every space breathes with quiet sophistication.",
     "color": "#3B3D3F",
     "subName": "A style that embraces the beauty of simplicity",
@@ -144,31 +144,31 @@
     "subTitle": {
       "title": "Imagine entering a courtyard where smooth stone paths meet lush patches of moss, and seating crafted from light rattan and metal feels both natural and modern.",
       "description": "Each piece is selected for comfort and form, blending effortlessly with the landscape. Neutral tones of sand, clay, and charcoal let nature’s colors quietly take center stage.",
-      "subImage": "images/moods/bare-essence/bare-essence-sub.png"
+      "subImage": "https://storage.googleapis.com/back-bucket/wp_triconville/images/moods/bare-essence/bare-essence-sub.png"
     },
     "materials": {
       "desc": "Bare Essence creates an environment that feels both grounding and liberating—a minimalist oasis that invites you to breathe deeply, relax fully, and immerse yourself in the present moment.",
-      "image": "images/moods/bare-essence/bare-essence-materials.png"
+      "image": "https://storage.googleapis.com/back-bucket/wp_triconville/images/moods/bare-essence/bare-essence-materials.png"
     },
     "galleries": [
       {
         "title": "Bare Essence",
-        "image": "images/moods/bare-essence/gallery/bare-essence-1.png"
+        "image": "https://storage.googleapis.com/back-bucket/wp_triconville/images/moods/bare-essence/gallery/bare-essence-1.png"
       },
       {
         "title": "Bare Essence",
-        "image": "images/moods/bare-essence/gallery/bare-essence-2.png"
+        "image": "https://storage.googleapis.com/back-bucket/wp_triconville/images/moods/bare-essence/gallery/bare-essence-2.png"
       },
       {
         "title": "Bare Essence",
-        "image": "images/moods/bare-essence/gallery/bare-essence-3.png"
+        "image": "https://storage.googleapis.com/back-bucket/wp_triconville/images/moods/bare-essence/gallery/bare-essence-3.png"
       },
       {
         "title": "Bare Essence",
-        "image": "images/moods/bare-essence/gallery/bare-essence-4.png"
+        "image": "https://storage.googleapis.com/back-bucket/wp_triconville/images/moods/bare-essence/gallery/bare-essence-4.png"
       }
     ],
-    "catalogueImage": "images/moods/bare-essence/bare-essence-catalogue.png",
+    "catalogueImage": "https://storage.googleapis.com/back-bucket/wp_triconville/images/moods/bare-essence/bare-essence-catalogue.png",
     "meta": {
       "title": "Bare Essence Outdoor Furniture | The Beauty of Simplicity",
       "description": "Embrace simplicity with Bare Essence. This collection showcases raw elegance and minimalist designs, celebrating the essentials of outdoor living with timeless style.",
