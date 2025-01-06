@@ -75,6 +75,7 @@ function loadCollections() {
         ...res,
         ...selectedCollection[0]
     };
+    console.log("🚀 ~ loadCollections ~ collectionData:", collectionData)
     if (!collectionData.name) {
         redirectError(404);
     } else {
@@ -87,7 +88,7 @@ function loadCollections() {
 function renderMaster() {
     $('#collection__header').append(`
         <section class="banner mb-5 relative">
-            <img src="https://storage.googleapis.com/back-bucket/wp_triconville/images/${collectionData.image_banner}" alt="${collectionData.display_name}" class="w-full h-screen object-cover">
+            <img src="${collectionData.image_banner || collectionData.image_1920}" alt="${collectionData.display_name}" class="w-full h-screen object-cover">
             <div class='bg-black bg-opacity-25 h-full w-full absolute inset-0 flex items-center justify-center'>
                 <h1 class='text-white text-3xl lg:text-5xl pt-16 font-medium capitalize'>${collectionData.display_name}</h1>
             </div>
@@ -252,7 +253,7 @@ function loadMoreCollections() {
 function renderMoreCollections(collection) {
     $('#project__slider_1').append(`
         <a href= "<?= BASE_LINK; ?>/collections/${slugify(collection.name)}" class="mx-1 md:mx-2 ">
-            <img src="https://storage.googleapis.com/back-bucket/wp_triconville/images/${collection.image_grid}" 
+            <img src="${collection.image_grid || collection.collection_image_1024}" 
                 class="w-auto h-auto object-cover hover:brightness-110 transition duration-300" />
             <h4 class='text-sm mt-4 mb-2'>
                 ${collection.id < 10 ? '0' + (collection.id) : collection.id}. 
