@@ -146,15 +146,7 @@ function renderCollections(e, index, type = 'grid') {
         $('.content-container').off('wheel', onscrollHandler);
         $('#grid__collections').append(`
             <a href= "<?= BASE_LINK; ?>/collections/${slugify(e.name)}" >
-                <div class="h-[365px] w-full flex items-center justify-center hover:brightness-110 transition duration-300 ease-in-out transform" 
-                    style="
-                        background-position:center; 
-                        background-image: url('${e.image_banner || e.collection_image_768}'); 
-                        background-repeat: no-repeat;
-                        background-size: cover;
-                    "
-                >
-                </div>
+                <img src="${e.image_grid || e.collection_image_768}" class="h-[365px] w-full hover:brightness-110 transition duration-300 ease-in-out transform" >
                 <h4 class='text-sm mt-4 mb-2'>
                     ${count < 10 ? '0' + (count) : count}. 
                 </h4>
