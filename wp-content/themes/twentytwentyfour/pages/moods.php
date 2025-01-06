@@ -1,7 +1,7 @@
 <?php
 $character_slug = get_query_var('mood');
 
-$url = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' ? 'https' : 'http') . '://' . BASE_URL . '/?rest_route=/wp/v2/selected_moods/';
+$url =  BASE_URL . '/?rest_route=/wp/v2/selected_moods/';
 $response = wp_remote_get($url,[]);
 $data = json_decode(wp_remote_retrieve_body($response), true);
 
