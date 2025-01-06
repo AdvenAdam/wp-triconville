@@ -109,6 +109,7 @@ function loadCollections() {
                     ...selectedCollection
                 };
             });
+            console.log("🚀 ~ filteredCollection=res.results.filter ~ filteredCollection:", filteredCollection)
         },
         error: function(xhr, status, error) {
             $('#page-loading').hide();
@@ -148,7 +149,7 @@ function renderCollections(e, index, type = 'grid') {
                 <div class="h-[365px] w-full flex items-center justify-center hover:brightness-110 transition duration-300 ease-in-out transform" 
                     style="
                         background-position:center; 
-                        background-image: url('https://storage.googleapis.com/back-bucket/wp_triconville/images/${e.image_grid}'); 
+                        background-image: url('${e.image_banner || e.collection_image_768}'); 
                         background-repeat: no-repeat;
                         background-size: cover;
                     "
@@ -172,7 +173,7 @@ function renderCollections(e, index, type = 'grid') {
             <div class="full-screen w-screen relative text-white snap-always snap-start" 
                 style="
                     background-position:center; 
-                    background-image: url('https://storage.googleapis.com/back-bucket/wp_triconville/images/${e.image_banner}'); 
+                    background-image: url('${e.image_banner || e.collection_image_1920}'); 
                     background-repeat: no-repeat;
                     background-size: cover;
                 "
