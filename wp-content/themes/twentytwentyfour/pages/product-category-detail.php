@@ -49,7 +49,6 @@ get_template_part('header-custom');
 let categoriesData;
 let haveSubCategories = false;
 let productListSelected = [];
-let selectedCollectionId = [];
 
 $(document).ready(function() {
     $.ajax({
@@ -61,6 +60,7 @@ $(document).ready(function() {
         success: (res) => {
             const filteredCategory = res.filter(cat => cat.slug === '<?= $character_slug ?>')
             categoriesData = filteredCategory[0];
+            console.log("🚀 ~ $ ~ categoriesData:", categoriesData)
             if (!categoriesData) {
                 redirectError(404)
             }
@@ -78,13 +78,7 @@ $(document).ready(function() {
             metaMaster()
         }
     })
-    $.ajax({
-        url: "<?= BASE_URL; ?>/?rest_route=/wp/v2/selected_collection",
-        type: "GET",
-        success: (res) => {
-            selectedCollectionId = res.collection;
-        },
-    })
+
 })
 
 function metaMaster() {
@@ -120,8 +114,13 @@ async function renderAllProducts() {
     if (haveSubCategories) {
         for (const data of categoriesData.children) {
             try {
-                const res = await fetchProducts(data.id, data.param);
-                renderProducts(res, data.name);
+                const ids = Array.isArray(data.id) ? data.id : [data.id];
+                productListSelected = [];
+                for (const id of ids) {
+                    const products = await fetchProducts(id, data.param);
+                    productListSelected = productListSelected.concat(products.filter(data => data.status === 'published' || data.status === 'draft'));
+                }
+                renderProducts(productListSelected, data.name);
             } catch (error) {
                 console.error(`Error fetching products for ${data.name}:`, error);
             }
@@ -134,7 +133,8 @@ async function renderAllProducts() {
             return allResult.flat();
         }
         fetchAllProduct().then(res => {
-            productListSelected = [...new Set([...productListSelected, ...res])];
+            productListSelected = [...productListSelected, ...res]
+            productListSelected = productListSelected.filter(data => data.status === 'published' || data.status === 'draft');
             renderProducts(productListSelected, categoriesData.name);
         }).catch(err => {
             console.error("🚀 ~ renderAllProducts ~ err:", err)

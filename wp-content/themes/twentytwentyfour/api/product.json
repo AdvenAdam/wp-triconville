@@ -143,12 +143,23 @@
 
   {
     "id": 6,
-    "ids": [28, 24],
+    "ids": [28, 24, 20],
     "name": "Tables",
     "slug": "tables",
     "image": "https://storage.googleapis.com/back-bucket/wp_triconville/images/category/banner/banner_table2.jpg",
     "thumb": "https://storage.googleapis.com/back-bucket/wp_triconville/images/category/table.png",
-    "children": [],
+    "children": [
+      {
+        "id": [28, 24],
+        "name": "Tables",
+        "param": ""
+      },
+      {
+        "id": 20,
+        "name": "Benches",
+        "param": ""
+      }
+    ],
     "meta": {
       "title": "Table | Triconville - Explore Our Elegant Outdoor Table Collection",
       "description": "Discover Triconville's exquisite collection of outdoor tables, designed for functionality and style. From dining tables to side tables and coffee tables, our diverse range offers perfect solutions for your outdoor living space. Browse our selection to find the ideal table for your patio or garden today!",
