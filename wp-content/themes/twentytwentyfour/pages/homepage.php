@@ -67,7 +67,7 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                     </h1>
                     <hr class="border-ifex-red border-2 lg:border-4 max-w-24 my-4 lg:my-6">
                     <div class="desc mb-6 max-w-sm">
-                        <h2 class="text-2xl lg:text-3xl">Be part of our first step and join us at Indonesia's premier furniture & craft exhibition!</h2>
+                        <h2 class="text-2xl lg:text-3xl">Join us at Indonesia's premier furniture & craft exhibition!</h2>
                     </div>
                     <div class="Link">
                         <a href="<?= BASE_LINK ?>/news/triconville-debuts-at-ifex-2025"
@@ -99,7 +99,7 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
             </h1>
             <hr class="border-ifex-red border-2 lg:border-4 max-w-24 my-4 lg:my-6">
             <div class="desc mb-6 max-w-2xl">
-                <h2 class="text-2xl lg:text-3xl">Be part of our first step and join us at Indonesia's premier furniture & craft exhibition!</h2>
+                <h2 class="text-2xl lg:text-3xl">Join us at Indonesia's premier furniture & craft exhibition!</h2>
             </div>
             <div class="Link pb-3">
                 <a href="<?= BASE_LINK ?>/news/triconville-debuts-at-ifex-2025"
@@ -133,7 +133,8 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                     </a>
                 </div>
                 <div class="image">
-                    <img src="<?= BASE_LINK ?>/wp-content/uploads/2024/09/home-our-story.png"
+                    <img src="https://storage.googleapis.com/back-bucket/wp_triconville/images/home/Hompage_BrandSection.jpg"
+                         alt="Triconville story"
                          class="w-full h-full object-cover" />
                 </div>
             </div>
@@ -191,7 +192,7 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                         </a>
                     </div>
                     <div>
-                        <img src="https://storage.googleapis.com/back-bucket/wp_triconville/images/moods/All%20Moods.png"
+                        <img src="https://storage.googleapis.com/back-bucket/wp_triconville/images/moods/All-Moods.png"
                              alt="all Moods image"
                              class="w-full h-auto" />
                     </div>

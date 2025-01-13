@@ -71,8 +71,11 @@
                             </div>
                             <div class="about w-full md:p-3 md:col-span-2">
                                 <p class='mb-3 font-bold text-sm uppercase '>triconville head office</p>
-                                <p class='md:mb-3 text-sm'>Jl.Bukit Panorama no.6, <br />
-                                    Kota Semarang, Jawa Tengah,<br /> Indonesia 50274</p>
+                                <p class='md:mb-3 text-sm underline'><a href="https://maps.app.goo.gl/XGY2DAFMPpAdxmzH6"
+                                       target="_blank">
+                                        Area Sawah, Sidorekso, <br />
+                                        Kec. Kaliwungu, Kabupaten Kudus, <br /> Jawa Tengah</p>
+                                </a>
                                 <p class='text-sm md:mb-3'>+62 21 27084824</p>
                                 <p class='text-sm md:mb-3'>info@triconville.com</p>
                                 <div class="md:block hidden">
@@ -166,7 +169,7 @@
                                             <div style="padding: 8px 0;">
                                                 <div class="sib-input sib-form-block">
                                                     <div class="form__entry entry_block">
-                                                        <div class="grid grid-cols-3 items-center gap-2">
+                                                        <div class="grid grid-cols-2 sm:grid-cols-3 items-center gap-2">
                                                             <div class="entry__field col-span-2">
                                                                 <input class="input"
                                                                        autocomplete="off"
