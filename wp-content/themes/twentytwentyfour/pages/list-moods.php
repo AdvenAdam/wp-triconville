@@ -18,7 +18,7 @@ get_template_part('header-custom');
                  id="mood__list">
 
             </div>
-            <div class="py-10 grid items-center lg:grid-cols-2 gap-8">
+            <div class="py-10  items-center lg:grid-cols-2 gap-8 hidden">
                 <div class="max-w-xl order-2 lg:order-1"
                      data-aos="fade-up"
                      data-aos-once="true"
