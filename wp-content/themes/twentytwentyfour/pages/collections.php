@@ -75,7 +75,7 @@ function loadCollections() {
         ...res,
         ...selectedCollection[0]
     };
-    console.log("🚀 ~ loadCollections ~ collectionData:", collectionData)
+    collectionData.product_list = collectionData.product_list.filter(data => data.status === 'published' || data.status === 'draft');
     if (!collectionData.name) {
         redirectError(404);
     } else {
