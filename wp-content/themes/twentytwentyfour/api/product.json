@@ -75,7 +75,7 @@
       {
         "id": 38,
         "name": "Outdoor Low Tables",
-        "param": "low table"
+        "param": "low"
       },
       {
         "id": 33,
@@ -150,13 +150,18 @@
     "thumb": "https://storage.googleapis.com/back-bucket/wp_triconville/images/category/table.png",
     "children": [
       {
-        "id": [28, 24],
-        "name": "Tables",
+        "id": 28,
+        "name": "Outdoor Dining Tables",
+        "param": ""
+      },
+      {
+        "id": 24,
+        "name": "Outdoor Bar Tables",
         "param": ""
       },
       {
         "id": 20,
-        "name": "Benches",
+        "name": "Outdoor Benches",
         "param": ""
       }
     ],
@@ -177,22 +182,27 @@
     "children": [
       {
         "id": 70,
-        "name": "Storages",
+        "name": "Outdoor Accessories",
+        "param": "!tora panel"
+      },
+      {
+        "id": 85,
+        "name": "Outdoor Planter",
         "param": ""
       },
       {
         "id": 6,
-        "name": "Parasols",
-        "param": ""
+        "name": "Outdoor Parasols",
+        "param": "!stand"
       },
       {
         "id": 8,
-        "name": "Pillows",
+        "name": "Outdoor Pillows",
         "param": ""
       },
       {
         "id": 37,
-        "name": "Swings",
+        "name": "Outdoor Swings",
         "param": "swing"
       }
     ],
