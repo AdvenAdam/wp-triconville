@@ -385,7 +385,6 @@
     function setActiveLink() {
         const url = window.location.href;
         const [_, childUrl, parentUrl] = url.split('/').reverse().slice(0, 3);
-        console.log("🚀 ~ setActiveLink ~ childUrl, parentUrl:", childUrl, parentUrl)
         const linkSelectors = {
             'product-detail': '#products-link',
             'about-us': '#brand-link',

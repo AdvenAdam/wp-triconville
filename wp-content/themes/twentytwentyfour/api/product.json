@@ -100,7 +100,7 @@
       {
         "id": 37,
         "name": "Loungers & Daybeds",
-        "param": "lounger,!rivera"
+        "param": "!swing,!rivera"
       }
     ],
     "meta": {
@@ -129,6 +129,11 @@
         "param": "!rivera"
       },
       {
+        "id": 86,
+        "name": "Outdoor Counter Stool",
+        "param": ""
+      },
+      {
         "id": 25,
         "name": "Outdoor Side Chairs",
         "param": "side"
@@ -143,7 +148,7 @@
 
   {
     "id": 6,
-    "ids": [28, 24, 20],
+    "ids": [28, 24, 27, 20],
     "name": "Tables",
     "slug": "tables",
     "image": "https://storage.googleapis.com/back-bucket/wp_triconville/images/category/banner/banner_table2.jpg",
@@ -157,6 +162,11 @@
       {
         "id": 24,
         "name": "Outdoor Bar Tables",
+        "param": ""
+      },
+      {
+        "id": 27,
+        "name": "Outdoor Extension Tables",
         "param": ""
       },
       {
@@ -174,7 +184,7 @@
 
   {
     "id": 7,
-    "ids": [70, 6, 8, 37],
+    "ids": [70, 85, 73, 6, 8, 37],
     "name": "Accessories",
     "slug": "accessories",
     "image": "https://storage.googleapis.com/back-bucket/wp_triconville/images/category/banner/banner_accessories2.jpg",
@@ -188,6 +198,11 @@
       {
         "id": 85,
         "name": "Outdoor Planter",
+        "param": ""
+      },
+      {
+        "id": 73,
+        "name": "Outdoor Carpets",
         "param": ""
       },
       {
