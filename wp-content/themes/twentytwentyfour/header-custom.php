@@ -385,6 +385,7 @@
     function setActiveLink() {
         const url = window.location.href;
         const [_, childUrl, parentUrl] = url.split('/').reverse().slice(0, 3);
+        console.log("🚀 ~ setActiveLink ~ childUrl, parentUrl:", childUrl, parentUrl)
         const linkSelectors = {
             'product-detail': '#products-link',
             'about-us': '#brand-link',
@@ -399,9 +400,9 @@
             'moods': '#moods-sub-link',
             'materials': '#materials-sub-link',
         }
-        if (inspiration[parentUrl]) {
+        if (inspiration[childUrl]) {
             $(linkSelectors['inspiration']).removeClass('text-gray-900').addClass('text-triconville-blue underline');
-            $(inspiration[parentUrl]).removeClass('text-gray-900').addClass('text-triconville-blue underline');
+            $(inspiration[childUrl]).removeClass('text-gray-900').addClass('text-triconville-blue underline');
         }
         // Activate specific links based on the parentUrl
         if (linkSelectors[parentUrl]) {
