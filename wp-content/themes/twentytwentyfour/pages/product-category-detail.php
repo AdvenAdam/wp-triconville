@@ -113,7 +113,7 @@ async function renderAllProducts() {
     if (haveSubCategories) {
         for (const data of categoriesData.children) {
             try {
-                const ids = [data.id];
+                const ids = Array.isArray(data.id) ? data.id : [data.id];
                 productListSelected = [];
                 for (const id of ids) {
                     const products = await fetchProducts(id, data.param);
