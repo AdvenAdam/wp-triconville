@@ -304,7 +304,7 @@
 
         // Check if the link needs a submenu
         const hasSubMenu = ['Products', 'Inspirations', 'Collections'].includes(menu.name);
-        
+
         const subMenuId = `sub-${slugify(menu.name)}-mobile`;
 
         if (hasSubMenu) {
@@ -384,7 +384,7 @@
 
     function setActiveLink() {
         const url = window.location.href;
-        const [,,,parentUrl, childUrl] = url.split('/');
+        const [_, childUrl, parentUrl] = url.split('/').reverse().slice(0, 3);
         const linkSelectors = {
             'product-detail': '#products-link',
             'about-us': '#brand-link',
@@ -399,7 +399,6 @@
             'moods': '#moods-sub-link',
             'materials': '#materials-sub-link',
         }
-
         if (inspiration[parentUrl]) {
             $(linkSelectors['inspiration']).removeClass('text-gray-900').addClass('text-triconville-blue underline');
             $(inspiration[parentUrl]).removeClass('text-gray-900').addClass('text-triconville-blue underline');

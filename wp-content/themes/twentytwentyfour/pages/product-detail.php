@@ -243,7 +243,10 @@ async function renderOverview(res) {
     }
 
     if (res.name) {
-        const desc = res.description.replace(/<\/?p[^>]*>/g, '').replace(/<li[^>]*>(.*?)<\/li>/g, '')
+        // Trim list description
+        let desc = res.description.replace(/<\/?p[^>]*>/g, '').replace(/<li[^>]*>(.*?)<\/li>/g, '');
+        // Trim Html tag
+        desc = desc.replace(/<\/?[^>]+(>|$)/g, "")
         $('#product__overview').append(`
             <div class="grid lg:grid-cols-2 lg:gap-8 items-center">
                 <div class='max-w-xl mx-auto lg:mx-0 order-last lg:order-first' id="product__description">
