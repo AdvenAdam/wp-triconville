@@ -14,7 +14,7 @@ get_template_part('header-custom');
                 <h1 class="text-3xl lg:text-5xl">Moods</h1>
                 <h4 class="md:text-base">Emotions in Every Moments</h4>
             </div>
-            <div class="grid py-10 lg:grid-cols-4 grid-cols-2 gap-2 xl:gap-3 2xl:gap-5"
+            <div class="grid py-10 lg:grid-cols-4 grid-cols-2 gap-2 xl:gap-3 2xl:gap-5 to-black/40"
                  id="mood__list">
 
             </div>
@@ -78,7 +78,8 @@ function renderBanner() {
                     data-aos-duration="1000"
                     >
                     <a href="<?= BASE_LINK ?>/moods/${mood.slug}"
-                        class="h-full w-full flex flex-col items-end justify-end p-5 transition duration-300 md:translate-y-14 md:group-hover:translate-y-0 ease-in-out md:group-hover:bg-gradient-to-b from-transparent to-black/40">
+                        style="background-image: linear-gradient(to bottom, transparent, ${mood.color});"
+                        class="h-full w-full flex flex-col items-end justify-end p-5 transition duration-300 md:translate-y-14 md:group-hover:translate-y-0 md:hover:translate-y-0 ease-in-out">
                         <h1 class="text-2xl md:text-3xl xl:text-5xl !leading-none font-medium text-end text-white max-w-[260px] md:mb-6">${mood.name}</h1>
                         <div class="text-end h-0 md:h-8">
                             <p class="text-white invisible md:group-hover:visible duration-300 md:mb-6">${mood.subName}</p>

@@ -60,7 +60,6 @@ $(document).ready(function() {
         success: (res) => {
             const filteredCategory = res.filter(cat => cat.slug === '<?= $character_slug ?>')
             categoriesData = filteredCategory[0];
-            console.log("🚀 ~ $ ~ categoriesData:", categoriesData)
             if (!categoriesData) {
                 redirectError(404)
             }
@@ -114,7 +113,7 @@ async function renderAllProducts() {
     if (haveSubCategories) {
         for (const data of categoriesData.children) {
             try {
-                const ids = Array.isArray(data.id) ? data.id : [data.id];
+                const ids = [data.id];
                 productListSelected = [];
                 for (const id of ids) {
                     const products = await fetchProducts(id, data.param);
@@ -127,18 +126,14 @@ async function renderAllProducts() {
         }
     } else {
         const ids = categoriesData.ids;
-        const fetchAllProduct = async () => {
-            const allPromise = ids.map(id => fetchProducts(id, ''));
-            const allResult = await Promise.all(allPromise);
-            return allResult.flat();
-        }
-        fetchAllProduct().then(res => {
-            productListSelected = [...productListSelected, ...res]
+        try {
+            const allResult = await Promise.all(ids.map(id => fetchProducts(id)));
+            productListSelected = [...productListSelected, ...allResult.flat()];
             productListSelected = productListSelected.filter(data => data.status === 'published' || data.status === 'draft');
             renderProducts(productListSelected, categoriesData.name);
-        }).catch(err => {
+        } catch (err) {
             console.error("🚀 ~ renderAllProducts ~ err:", err)
-        })
+        }
     }
 }
 
@@ -170,7 +165,14 @@ async function fetchProducts(id, param) {
             name
         }) => {
             const keywords = param.split(",");
-            return keywords.every(k => k.startsWith("!") ? !name.toLowerCase().includes(k.substring(1)) : name.toLowerCase().includes(k));
+            return keywords.every(keyword => {
+                const isExclude = keyword.startsWith("!");
+                // Get the keyword and remove the exclamation mark
+                const keywordValue = isExclude ? keyword.substring(1) : keyword;
+                return isExclude ?
+                    !name.toLowerCase().includes(keywordValue) :
+                    name.toLowerCase().includes(keywordValue);
+            });
         });
 
         return [...products];
