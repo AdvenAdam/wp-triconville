@@ -113,7 +113,7 @@ async function renderAllProducts() {
     if (haveSubCategories) {
         for (const data of categoriesData.children) {
             try {
-                const ids = Array.isArray(data.id) ? data.id : [data.id];
+                const ids = [data.id];
                 productListSelected = [];
                 for (const id of ids) {
                     const products = await fetchProducts(id, data.param);
@@ -126,18 +126,14 @@ async function renderAllProducts() {
         }
     } else {
         const ids = categoriesData.ids;
-        const fetchAllProduct = async () => {
-            const allPromise = ids.map(id => fetchProducts(id, ''));
-            const allResult = await Promise.all(allPromise);
-            return allResult.flat();
-        }
-        fetchAllProduct().then(res => {
-            productListSelected = [...productListSelected, ...res]
+        try {
+            const allResult = await Promise.all(ids.map(id => fetchProducts(id)));
+            productListSelected = [...productListSelected, ...allResult.flat()];
             productListSelected = productListSelected.filter(data => data.status === 'published' || data.status === 'draft');
             renderProducts(productListSelected, categoriesData.name);
-        }).catch(err => {
+        } catch (err) {
             console.error("🚀 ~ renderAllProducts ~ err:", err)
-        })
+        }
     }
 }
 
