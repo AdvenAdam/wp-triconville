@@ -60,7 +60,6 @@ $(document).ready(function() {
         success: (res) => {
             const filteredCategory = res.filter(cat => cat.slug === '<?= $character_slug ?>')
             categoriesData = filteredCategory[0];
-            console.log("🚀 ~ $ ~ categoriesData:", categoriesData)
             if (!categoriesData) {
                 redirectError(404)
             }
@@ -170,7 +169,14 @@ async function fetchProducts(id, param) {
             name
         }) => {
             const keywords = param.split(",");
-            return keywords.every(k => k.startsWith("!") ? !name.toLowerCase().includes(k.substring(1)) : name.toLowerCase().includes(k));
+            return keywords.every(keyword => {
+                const isExclude = keyword.startsWith("!");
+                // Get the keyword and remove the exclamation mark
+                const keywordValue = isExclude ? keyword.substring(1) : keyword;
+                return isExclude ?
+                    !name.toLowerCase().includes(keywordValue) :
+                    name.toLowerCase().includes(keywordValue);
+            });
         });
 
         return [...products];
