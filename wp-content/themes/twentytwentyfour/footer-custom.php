@@ -69,13 +69,14 @@
                                  id="moods-categories-footer">
                                 <p class='mb-3 uppercase text-sm font-bold '>moods</p>
                             </div>
-                            <div class="about w-full md:p-3 md:col-span-2">
+                            <div class="about  w-full md:p-3 md:col-span-2">
                                 <p class='mb-3 font-bold text-sm uppercase '>triconville head office</p>
-                                <p class='md:mb-3 text-sm underline'><a href="https://maps.app.goo.gl/XGY2DAFMPpAdxmzH6"
+                                <p class='md:mb-3 text-sm underline'>
+                                    <a href="https://maps.app.goo.gl/XGY2DAFMPpAdxmzH6"
                                        target="_blank">
-                                        Area Sawah, Sidorekso, <br />
-                                        Kec. Kaliwungu, Kabupaten Kudus, <br /> Jawa Tengah</p>
-                                </a>
+                                        Sidorekso,Kaliwungu,<br /> Kudus, Central Java,<br /> Indonesia
+                                    </a>
+                                </p>
                                 <p class='text-sm md:mb-3'>+62 21 27084824</p>
                                 <p class='text-sm md:mb-3'>info@triconville.com</p>
                                 <div class="md:block hidden">
