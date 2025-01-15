@@ -27,7 +27,7 @@
   .gm-style-iw-d {
     height: 100% !important;
     overflow-x: hidden !important;
-    overflow-y: hidden !important;
+    overflow-y: auto !important;
   }
   .gm-style .gm-style-iw-tc::after {
     background-color: #f4f6f6 !important;
@@ -142,11 +142,12 @@
     },
     {
       name: "Indospace Kuala Lumpur",
-      address: "No. 8, Jalan Teknologi 3/5A, Kota Damansara, 47810 Petaling Jaya, Selangor, Malaysia",
+      address:
+        "Glenmarie, No 13, Block A, Temasya Industrial Park, Persiaran Kerjaya, Hicom-glenmarie Industrial Park, 40150 Shah Alam, Selangor, Malaysia",
       email: "info@indospaceshop.com",
-      phone: "+601 123 107 632",
-      lat: 3.1543541360106024,
-      lng: 101.57689562782531,
+      phone: "+601 111 363 225",
+      lat: 3.0881457374536416,
+      lng: 101.57365308372698,
       gmap: "https://maps.app.goo.gl/S277ihJMbLyxqA959",
       countryId: "my",
       website: "https://indospaceshop.com",
@@ -170,10 +171,10 @@
 
   function initMap() {
     map = new google.maps.Map(document.getElementById("map"), {
-      center: { lat: locations[0].lat, lng: locations[0].lng },
+      center: { lat: 8.126099874829528, lng: 80.67590924691771 },
       maxZoom: 15,
       minZoom: 2,
-      zoom: 9,
+      zoom: 3.9,
       styles: [
         { elementType: "geometry", stylers: [{ color: "#f5f5f5" }] },
         { elementType: "labels.icon", stylers: [{ visibility: "off" }] },
@@ -300,7 +301,7 @@
       },
       contentWrapper() {
         return $("<div/>", {
-          class: "location-tile-content flex flex-col justify-between h-full px-6 pb-10",
+          class: "location-tile-content flex flex-col justify-between h-full px-6 pb-10 overflow-y-auto",
         });
       },
       titleEl() {

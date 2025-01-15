@@ -51,7 +51,7 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
 </style>
 <div class="content-container">
     <!-- NOTE: Banner -->
-    <div class="homepage-banner px-5 md:px-8 mt-16 md:mt-20 py-12 full-screen w-screen max-h-[30vh] md:max-h-[calc(30vh+5rem)] lg:max-h-[1020px]">
+    <div class="homepage-banner px-5 md:px-8 mt-16 md:mt-20 py-12 full-screen w-screen max-h-[30vh] md:max-h-[calc(30vh+5rem)] lg:min-h-[720px] lg:max-h-[1020px]">
         <div class="hidden lg:block ms-0 lg:ms-[5vw] h-full w-fit bg-triconville-beige/80 backdrop-blur-[2px]"
              data-aos="fade-up"
              data-aos-once="true"
