@@ -109,7 +109,6 @@ function loadCollections() {
                     ...selectedCollection
                 };
             });
-            console.log("🚀 ~ filteredCollection=res.results.filter ~ filteredCollection:", filteredCollection)
         },
         error: function(xhr, status, error) {
             $('#page-loading').hide();
@@ -171,15 +170,15 @@ function renderCollections(e, index, type = 'grid') {
                 "
             >
                 <a href= "<?= BASE_LINK; ?>/collections/${slugify(e.name)}">
-                    <div class="bg-black/25 h-full w-full absolute top-0 left-0 p-8 md:p-5 lg:p-20">
+                    <div class=" bg-gradient-to-b from-black/15 to-transparent h-full w-full absolute top-0 left-0 p-8 md:p-5 lg:p-20">
                         <div class="max-w-[1440px] ">
                             <h4 class='text-white text-sm mt-4 mb-2'>
                                 ${count < 10 ? '0' + (count) : count}. 
                             </h4>
                             <hr class='w-1/5 border-white'/>
                             <h1 class="text-3xl lg:text-5xl text-white font-medium capitalize my-2">${e.display_name}</h1>
-                            <h3 class='text-base line-clamp-2 text-ellipsis md:w-1/2 text-white'>
-                                ${e.description}
+                            <h3 class='text-base line-clamp-2 md:w-1/2 text-white'>
+                                ${e.description.length > 150 ? e.description.substring(0, 150) + '...' : e.description}
                             </h3>
                         </div>
                     </div>

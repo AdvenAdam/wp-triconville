@@ -135,10 +135,12 @@ get_template_part('header-custom');
 <script>
 let ProductsData = [];
 let isSectionalPage = false
+let selectedCollection = [];
 jQuery(document).ready(function($) {
     try {
         $('#page-loading').show();
         ProductsData = <?php echo json_encode($data); ?>;
+        selectedCollection = <?php echo file_get_contents(get_template_directory() . '/api/collection.json'); ?>.collection
     } catch (error) {
         if (error.status === 404) {
             redirectError(404)
@@ -178,11 +180,12 @@ function renderMaster() {
         // APPEND IMAGES AMBIENCE
         renderImages(ProductsData);
 
-        if (Array.isArray(ProductsData.collection_product) && ProductsData.collection_product.length > 0) {
+        // FILTER ONLY COLLECTION LIST ALLOWED
+        const isCollectionListed = selectedCollection.map(collection => collection.collection_id).includes(ProductsData.collection);
+        const isCollectionProductNotEmpty = Array.isArray(ProductsData.collection_product) && ProductsData.collection_product.length > 0;
+        if (isCollectionListed && isCollectionProductNotEmpty) {
             renderCollectionProducts(ProductsData.collection_product.slice(0, 4), ProductsData.collection_det);
         }
-
-        // FIXME : Related Product
         if (Array.isArray(ProductsData.related_product) && ProductsData.related_product.length > 0) {
             renderRelatedProducts(ProductsData.related_product);
         }
