@@ -79,16 +79,18 @@ $(document).ready(function() {
 
 async function renderMaster() {
     try {
+        console.time('renderMaster');
         for (const data of groupingMaterials) {
             renderMaterialFilter(data);
             renderGroupContainer(data);
             await loadMaterials(data);
         }
     } catch (error) {
-        redirectError();
+        // redirectError();
         console.error(error);
     } finally {
         $('#page-loading').hide()
+        console.timeEnd('renderMaster');
     }
 }
 
@@ -113,6 +115,7 @@ function renderGroupContainer(data) {
 
 async function loadMaterials(data) {
     try {
+        console.time('fetchMaterials');
         for (const slug of data.slugs) {
             const res = await $.ajax({
                 url: `<?= BASE_API; ?>/v1_swatchparent_det_slug/${slug}/`,
@@ -121,11 +124,15 @@ async function loadMaterials(data) {
                     Authorization: '<?= API_KEY; ?>',
                 }
             })
+            //TODO FILTER Product that use TPU code
+            //TODO add the filter on JSON instead here so it will optional filtering 
+            //TODO Refactor filter so it will use multi filter ex : code and slug   
             allMaterialProducts.push(res);
         }
     } catch (error) {
         console.error(error);
     } finally {
+        console.timeEnd('fetchMaterials');
         const subGroups = {
             id: data.id,
             name: data.name,
@@ -140,14 +147,11 @@ function renderSubGroups(data) {
     const productsData = data.products;
 
     for (const subGroup of data.subGroupFilter) {
-        const materials = productsData.find(e => e.slug === subGroup.materials.slug);
+        const materials = productsData.find(e => e.slug === subGroup.filters.slug);
         if (materials) {
-            const isExclusion = subGroup.materials.keyword.includes('!');
-            const keyword = slugify(subGroup.materials.keyword).replace('!', '');
-            const products = materials.swatch_options.filter(option => {
-                const optionSlug = slugify(option.name);
-                return isExclusion ? !optionSlug.includes(keyword) : optionSlug.includes(keyword);
-            });
+            const products = filterProduct({
+                filters: subGroup.filters
+            }, materials);
             $('#material__container_' + data.id).append(`
                 <div class="material-products material-products_${data.id}" id="material__products_${slugify(subGroup.name)}" 
                     data-aos="fade-up"
@@ -159,7 +163,7 @@ function renderSubGroups(data) {
                     <div id="material__list__${slugify(subGroup.name)}" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 2xl:gap-10">
                         ${products.map(product => {
                             return (
-                                `<div class="cursor-pointer inline-flex flex-col items-center" onclick='bannerClick("${materials.slug}", "${product.code}")'>
+                                `<div class="cursor-pointer inline-flex flex-col items-center" onclick='materialClick("${materials.slug}", "${product.code}")'>
                                     <img class="w-full h-auto object-contain" src="${product.image_384}" />
                                     <p class="text-center max-w-[90%] mx-auto mt-2">${product.alias} (${product.code})</p>
                                 </div>
@@ -173,7 +177,44 @@ function renderSubGroups(data) {
     }
 }
 
-function bannerClick(slug, code) {
+function filterProduct({
+    filters: {
+        keywords,
+        codes
+    }
+}, materials) {
+    let products = materials.swatch_options;
+
+    if (keywords) {
+        const keywordsArray = Array.isArray(keywords) ? keywords : [keywords];
+        products = products.filter(option => {
+            const optionSlug = option.name.toLowerCase();
+            return keywordsArray.every(keyword => {
+                const isExclusion = keyword.startsWith('!');
+                const filter = keyword.replace('!', '').toLowerCase();
+                return isExclusion ? !optionSlug.includes(filter) : optionSlug.includes(filter);
+            });
+        });
+    }
+
+    if (codes) {
+        const codesArray = Array.isArray(codes) ? codes : [codes];
+        products = products.filter(option => {
+            const optionSlug = option.code.toLowerCase();
+            return codesArray.every(code => {
+                const isExclusion = code.includes('!');
+                const filter = code.replace('!', '').toLowerCase();
+                return isExclusion ? !optionSlug.includes(filter) : optionSlug.includes(filter);
+            });
+        });
+    }
+
+    return products;
+}
+
+
+// NOTE Action Function
+function materialClick(slug, code) {
     const product = allMaterialProducts.find(e => e.slug === slug);
     const swatchOption = product.swatch_options.find(option => option.code === code);
 
