@@ -86,7 +86,7 @@ async function renderMaster() {
             await loadMaterials(data);
         }
     } catch (error) {
-        // redirectError();
+        redirectError();
         console.error(error);
     } finally {
         $('#page-loading').hide()

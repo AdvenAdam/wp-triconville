@@ -74,7 +74,9 @@
                                 <p class='md:mb-3 text-sm underline'>
                                     <a href="https://maps.app.goo.gl/XGY2DAFMPpAdxmzH6"
                                        target="_blank">
-                                        Sidorekso,Kaliwungu,<br /> Kudus, Central Java,<br /> Indonesia
+                                        Sidorekso, Kaliwungu District,<br />
+                                        Kudus Regency, Central Java 59332,<br />
+                                        Indonesia
                                     </a>
                                 </p>
                                 <p class='text-sm md:mb-3'>+62 21 27084824</p>
