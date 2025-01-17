@@ -15,7 +15,7 @@ get_template_part('header-custom');
 }
 </style>
 <div class="content-container mt-24 md:mt-32">
-    <div class="product-header w-full full-screen ">
+    <div class="product-header w-full full-screen-with-subMenu ">
         <div class="flex items-center justify-center h-full bg-black bg-opacity-10 ">
             <h1 class="text-3xl lg:text-5xl font-medium text-center text-white">Products</h1>
         </div>

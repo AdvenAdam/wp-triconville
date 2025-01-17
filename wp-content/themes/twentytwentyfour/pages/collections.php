@@ -21,7 +21,7 @@
     get_template_part('header-custom');
 
 ?>
-<div class="content-container ">
+<div class="content-container mt-20">
     <div id="collection__header"></div>
     <div id="container__<?=$character_slug ?>"></div>
     <div class="mb-10 md:mb-20 lg:mb-36 px-5 md:px-8">
@@ -87,10 +87,10 @@ function loadCollections() {
 // NOTE : Handling Render
 function renderMaster() {
     $('#collection__header').append(`
-        <section class="banner mb-5 relative">
-            <img src="${collectionData.image_banner || collectionData.image_1920}" alt="${collectionData.display_name}" class="w-full h-screen object-cover">
+        <section class="banner mt-4 md:mt-12 mb-5 relative">
+            <img src="${collectionData.image_banner || collectionData.image_1920}" alt="${collectionData.display_name}" class="w-full full-screen-with-subMenu object-cover">
             <div class='bg-black bg-opacity-25 h-full w-full absolute inset-0 flex items-center justify-center'>
-                <h1 class='text-white text-3xl lg:text-5xl pt-16 font-medium capitalize'>${collectionData.display_name}</h1>
+                <h1 class='text-white text-3xl lg:text-5xl font-medium capitalize'>${collectionData.display_name}</h1>
             </div>
         </section>
     `)

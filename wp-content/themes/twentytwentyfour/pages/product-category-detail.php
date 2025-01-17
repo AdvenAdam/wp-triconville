@@ -12,10 +12,10 @@ get_template_part('header-custom');
     background-position: center;
 }
 </style>
-<div class="content-container overflow-hidden mt-20">
+<div class="content-container overflow-hidden mt-24 md:mt-32">
     <!-- NOTE: Banner -->
-    <div class="product-detail-banner mt-6 md:mt-10">
-        <div class="flex items-center justify-center w-full full-screen bg-black bg-opacity-10">
+    <div class="product-detail-banner">
+        <div class="flex items-center justify-center w-full full-screen-with-subMenu bg-black bg-opacity-10">
             <h1 class="text-3xl lg:text-5xl font-medium text-center text-white capitalize"
                 id="category__name"></h1>
         </div>
