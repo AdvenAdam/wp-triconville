@@ -84,7 +84,7 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
         </div>
     </div>
     <!-- NOTE IFEX MOBILE  -->
-    <div class="px-5 md:px-8 lg:hidden h-full min-h-[calc(70vh-4rem)] md:min-h-[calc(70vh-5rem)] bg-triconville-beige">
+    <div class="px-5 md:px-8 lg:hidden h-full min-h-[calc(55vh-4rem)] md:min-h-[calc(70vh-5rem)] bg-triconville-beige">
         <div data-aos="fade-up"
              data-aos-once="true"
              data-aos-delay=""
@@ -115,7 +115,7 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
     </div>
     <div class="px-5 md:px-8">
         <div class="max-w-[1440px] mx-auto">
-            <div class="grid lg:grid-cols-2 items-center mt-20 gap-8"
+            <div class="grid lg:grid-cols-2 items-center pt-20 gap-8"
                  data-aos="fade-up"
                  data-aos-once="true"
                  data-aos-delay="200"
