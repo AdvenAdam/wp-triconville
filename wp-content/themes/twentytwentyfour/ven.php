@@ -34,8 +34,7 @@ get_template_part('header-custom');
 </div>
 
 <?php
-if(!strpos($url, 'about-us') !== false) {
     // Include your custom footer
     get_template_part('footer-custom');
-}
+
 ?>
