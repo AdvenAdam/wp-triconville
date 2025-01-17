@@ -232,7 +232,7 @@ function renderInspirations(inspirations) {
         $('#mood__inspirations').append(`
             <h1 class="text-3xl lg:text-5xl font-medium mood-color text-center">Inspirations</h1>
             <div id="inspiration__container"
-                class="my-10 mx-auto grid grid-cols-3 gap-1 sm:gap-3">
+                class="max-w-[1440px] py-10 mx-auto grid grid-cols-3 gap-1 sm:gap-3">
             </div>
         `);
         $.ajax({
@@ -242,12 +242,15 @@ function renderInspirations(inspirations) {
                 const inspirationsData = res.inspirationList.filter(e => inspirations.includes(e.id));
                 inspirationsData.forEach(inspiration => {
                     $('#inspiration__container').append(`
-                        <a class="inspiration__card relative" href="${inspiration.link}">
+                        <a class="inspiration__card relative" href="${inspiration.link}"  
+                            data-aos="fade-up"
+                            data-aos-once="true"
+                            data-aos-duration="1000">
+                            <img src="${inspiration.img}" alt="${inspiration.alt}" class="w-full h-auto object-contain" />
                             <div class="inspiration__card__overlay absolute inset-0 bg-black bg-opacity-0 group hover:bg-opacity-20 transition duration-300 flex flex-col items-center justify-center">
                                 <img src="https://storage.googleapis.com/back-bucket/wp_triconville/images/icons/Instagram-white.svg" alt="Triconville" class="w-11 h-11 hidden group-hover:block">
                                 <h3 class="text-white font-medium text-center hidden group-hover:block">@triconville</h3>
                             </div>
-                            <img src="${inspiration.img}" alt="${inspiration.alt}" class="w-full h-full object-contain" />
                         </a>
                     `);
                 });

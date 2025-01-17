@@ -403,10 +403,15 @@
             $(linkSelectors['inspiration']).removeClass('text-gray-900').addClass('text-triconville-blue underline');
             $(inspiration[childUrl]).removeClass('text-gray-900').addClass('text-triconville-blue underline');
         }
+        if (inspiration[parentUrl]) {
+            $(linkSelectors['inspiration']).removeClass('text-gray-900').addClass('text-triconville-blue underline');
+            $(inspiration[parentUrl]).removeClass('text-gray-900').addClass('text-triconville-blue underline');
+        }
         // Activate specific links based on the parentUrl
         if (linkSelectors[parentUrl]) {
             $(linkSelectors[parentUrl]).removeClass('text-gray-900').addClass('text-triconville-blue underline');
         }
+
 
         // Highlight the current parent link if present
         if (parentUrl) {
