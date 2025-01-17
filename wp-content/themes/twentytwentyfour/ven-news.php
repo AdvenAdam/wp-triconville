@@ -8,23 +8,7 @@ Template Post Type: post, page, event
 get_template_part('header-custom');
 ?>
 <style>
-.news-image img {
-    height: 300px !important;
-    width: 100% !important;
-    object-fit: cover;
-}
 
-@media (max-width: 768px) {
-    .news-image img {
-        height: 230px !important;
-    }
-}
-
-@media (max-width: 640px) {
-    .news-image img {
-        height: 130px !important;
-    }
-}
 </style>
 <div class="px-5 md:px-8 mt-28 md:mt-36">
     <div class="max-w-[1024px] mx-auto">
@@ -87,15 +71,15 @@ get_template_part('header-custom');
             <?php $Latestposts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&category_name=news'); ?>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-3 lg:gap-5">
                 <?php foreach ($Latestposts as $post): ?>
-                <div class="news-card flex items-center gap-3 md:block">
-                    <a class="news-image w-1/2 md:w-auto md:h-auto sm:h-[240px] object-cover h-[124px] relative group hover:cursor-pointer"
+                <div class="news-card flex flex-col md:flex-row md:items-center gap-3 md:block">
+                    <a class="h-auto relative group hover:cursor-pointer"
                        href="<?php echo get_permalink($post->ID); ?>">
-                        <?php echo get_the_post_thumbnail($post->ID, 'large'); ?>
+                        <?php the_post_thumbnail('full', array('class' => 'w-full h-[320px] md:h-[25vh] xl:h-[35vh] max-h-[360px] object-cover')); ?>
                         <div class="overlay absolute inset-0 bg-gradient-to-b from-transparent to-black/30 invisible group-hover:visible"></div>
                     </a>
-                    <div class="desc w-1/2 md:w-[95%] flex flex-col justify-center">
+                    <div class="desc w-full md:w-[95%] flex flex-col justify-center">
                         <div class="h-20 overflow-hidden">
-                            <h4 class="text-2xl md:mb-5 md:mt-3">
+                            <h4 class="text-xl lg:text-2xl md:mb-5 md:mt-3">
                                 <a href="<?php echo get_permalink($post->ID); ?>"
                                    class="hover:underline line-clamp-2">
                                     <?php echo get_the_title($post->ID); ?>
