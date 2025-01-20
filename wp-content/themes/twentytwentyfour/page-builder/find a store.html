@@ -132,8 +132,8 @@
     {
       name: "Indospace Jakarta",
       address: "14, Sultan Iskandar Muda Street No.7D, South Jakarta, Indonesia 12240",
-      email: "info@indospaceshop.com",
-      phone: "+62 852 1990 1209",
+      email: "infojkt@indospaceshop.com",
+      phone: ["+62 852 1990 1209"],
       lat: -6.247232804629104,
       lng: 106.78153033558236,
       gmap: "https://maps.app.goo.gl/YPU9iMPvbGr7hojw7",
@@ -144,8 +144,8 @@
       name: "Indospace Kuala Lumpur",
       address:
         "Glenmarie, No 13, Block A, Temasya Industrial Park, Persiaran Kerjaya, Hicom-glenmarie Industrial Park, 40150 Shah Alam, Selangor, Malaysia",
-      email: "info@indospaceshop.com",
-      phone: "+601 111 363 225",
+      email: "infomy@indospaceshop.com",
+      phone: ["+60 111 136 3225", "+60 355 698 609"],
       lat: 3.0881457374536416,
       lng: 101.57365308372698,
       gmap: "https://maps.app.goo.gl/S277ihJMbLyxqA959",
@@ -155,8 +155,8 @@
     {
       name: "Indospace Saudi Arabia",
       address: "Olaya St, Al Olaya, Riyadh 12214, Saudi Arabia",
-      email: "info@indospaceshop.com",
-      phone: "+966 55 36 700 36",
+      email: "infosa@indospaceshop.com",
+      phone: ["+966 5536 70036"],
       lat: 24.708482210619554,
       lng: 46.67729690120909,
       gmap: "https://maps.app.goo.gl/6avXfC4jBmMNovVD6",
@@ -367,7 +367,12 @@
         });
         const phoneEl = $("<p/>", {
           class: "mt-6 text-sm",
-          html: `<span>Phone :</span> <a href="tel:${this.data.phone}" class="text-sm"><span class="underline hover:text-cyan-500">${this.data.phone}</span></a>`,
+          html: `<span>Phone :</span> ${this.data.phone
+            .map(
+              (phone) =>
+                `<a href="tel:${phone}" class="text-sm"><span class="underline hover:text-cyan-500">${phone}</span></a> <br/>`
+            )
+            .join(" ")}`,
         });
         actionsWrapper.append(emailEl).append(phoneEl);
         return actionsWrapper;
