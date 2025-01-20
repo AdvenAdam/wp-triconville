@@ -16,10 +16,10 @@ body {
 <div class="content-container scroll-smooth overflow-x-hidden h-[calc(100vh-5rem)] md:h-[calc(100vh-8rem)] mt-20 md:mt-32"
      id="magnetic__container">
     <!-- NOTE: Banner -->
-    <div class="flex flex-col justify-center py-14 md:py-20 px-5 md:px-8 snap-always snap-start">
+    <div class="flex flex-col justify-center pt-14 pb-5 md:pt-20 md:pb-20 px-5 md:px-8 snap-always snap-start">
         <h1 class="text-3xl lg:text-5xl font-medium text-center capitalize ">triconville collections</h1>
         <h3 class='text-center'>The Luxury of Living Outdoors</h3>
-        <div class="flex gap-2 justify-center mt-10 view-button">
+        <div class="flex gap-2 justify-center md:mt-10 view-button invisible">
             <button class="btn-ghost-dark  flex gap-2 items-center text-sm uppercase"
                     id="list-button"
                     onClick="changeView('list')">
@@ -58,7 +58,7 @@ body {
          id="grid-container">
         <div class="max-w-[1440px] mx-auto">
             <div id="grid__collections"
-                 class='mb-5 grid grid-cols-1 sm:grid-cols-2 gap-x-6 sm:gap-y-12 gap-y-6'>
+                 class='mb-5 grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-12'>
             </div>
         </div>
     </div>
@@ -78,8 +78,29 @@ body {
 let stop = false;
 let count = 0;
 let selectedCollectionId = [];
+let sortedCollection = [];
 let filteredCollection = [];
 let timeout;
+let isMobile = window.matchMedia("(max-width: 767px)").matches;
+$(document).ready(function() {
+    isMobile = window.matchMedia("(max-width: 767px)").matches;
+    checkIsMobile(isMobile);
+})
+window.addEventListener("resize", () => {
+    isMobile = window.matchMedia("(max-width: 767px)").matches;
+    checkIsMobile(isMobile);
+});
+
+function checkIsMobile(isMobile) {
+    if (!isMobile) {
+        $('.view-button').removeClass('invisible');
+        changeView('list');
+    }
+    if (isMobile) {
+        $('.view-button').addClass('invisible');
+        changeView('grid');
+    }
+}
 
 $(document).ready(function() {
     $.ajax({
@@ -115,9 +136,8 @@ function loadCollections() {
             $('#errorIndicator').show();
         },
         complete: () => {
-            $('#grid-container').hide();
             sortedCollection = filteredCollection.sort((a, b) => (a.id > b.id) ? 1 : -1)
-            sortedCollection.forEach((e, index) => renderCollections(e, index, 'list'));
+            sortedCollection.forEach((e, index) => renderCollections(e, index, isMobile ? 'grid' : 'list'));
             $('#page-loading').hide();
         }
     });
@@ -141,11 +161,10 @@ function changeView(type) {
 function renderCollections(e, index, type = 'grid') {
     count += 1;
     if (type == 'grid') {
-        $('#list__collections').empty();
         $('.content-container').off('wheel', onscrollHandler);
         $('#grid__collections').append(`
             <a href= "<?= BASE_LINK; ?>/collections/${slugify(e.name)}" >
-                <img src="${e.image_grid || e.collection_image_768}" class="h-[365px] w-full hover:brightness-110 transition duration-300 ease-in-out transform" >
+                <img src="${e.image_grid || e.collection_image_768}" class="h-auto w-full hover:brightness-110 transition duration-300 ease-in-out transform" >
                 <h4 class='text-sm mt-4 mb-2'>
                     ${count < 10 ? '0' + (count) : count}. 
                 </h4>
@@ -159,7 +178,6 @@ function renderCollections(e, index, type = 'grid') {
     } else if (type == 'list') {
         $('.content-container').addClass('snap-y snap-mandatory transition duration-500 ease-in-out overflow-y-scroll')
         $('.content-container').on('wheel', onscrollHandler);
-        $('#grid__collections').empty();
         $('#list__collections').append(`
             <div class="full-screen w-screen relative text-white snap-always snap-start" 
                 style="
