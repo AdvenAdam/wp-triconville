@@ -137,7 +137,14 @@ function loadCollections() {
         },
         complete: () => {
             sortedCollection = filteredCollection.sort((a, b) => (a.id > b.id) ? 1 : -1)
-            sortedCollection.forEach((e, index) => renderCollections(e, index, isMobile ? 'grid' : 'list'));
+            if (isMobile) {
+                changeView('grid');
+            } else {
+                changeView('list');
+            }
+            sortedCollection.forEach((e, index) => renderCollections(e, index, 'grid'));
+            count = 0;
+            sortedCollection.forEach((e, index) => renderCollections(e, index, 'list'));
             $('#page-loading').hide();
         }
     });
@@ -149,12 +156,13 @@ function changeView(type) {
     if (type == 'grid') {
         $('.content-container').removeClass('snap-y snap-mandatory overflow-y-scroll')
         $('#grid-container').show();
+        $('#list__collections').hide();
         $('#grid-button').removeClass('btn-ghost').addClass('btn-ghost-dark');
-        sortedCollection.forEach((e, index) => renderCollections(e, index, 'grid'));
     } else if (type == 'list') {
+        $('.content-container').addClass('snap-y snap-mandatory overflow-y-scroll')
         $('#grid-container').hide();
+        $('#list__collections').show();
         $('#list-button').removeClass('btn-ghost').addClass('btn-ghost-dark');
-        sortedCollection.forEach((e, index) => renderCollections(e, index, 'list'));
     }
 }
 
@@ -164,7 +172,7 @@ function renderCollections(e, index, type = 'grid') {
         $('.content-container').off('wheel', onscrollHandler);
         $('#grid__collections').append(`
             <a href= "<?= BASE_LINK; ?>/collections/${slugify(e.name)}" >
-                <img src="${e.image_grid || e.collection_image_768}" class="h-auto w-full hover:brightness-110 transition duration-300 ease-in-out transform" >
+                <img src="${e.image_grid || e.collection_image_768}" class="h-auto max-h-[365px] w-full hover:brightness-110 transition duration-300 ease-in-out transform" >
                 <h4 class='text-sm mt-4 mb-2'>
                     ${count < 10 ? '0' + (count) : count}. 
                 </h4>
@@ -179,7 +187,7 @@ function renderCollections(e, index, type = 'grid') {
         $('.content-container').addClass('snap-y snap-mandatory transition duration-500 ease-in-out overflow-y-scroll')
         $('.content-container').on('wheel', onscrollHandler);
         $('#list__collections').append(`
-            <div class="full-screen w-screen relative text-white snap-always snap-start" 
+            <div class="full-screen-with-subMenu w-screen relative text-white snap-always snap-start" 
                 style="
                     background-position:center; 
                     background-image: url('${e.image_banner || e.collection_image_1920}'); 
