@@ -169,6 +169,7 @@ function changeView(type) {
 function renderCollections(e, index, type = 'grid') {
     count += 1;
     if (type == 'grid') {
+        $('.content-container').removeClass('snap-y snap-mandatory transition duration-500 ease-in-out overflow-y-scroll')
         $('.content-container').off('wheel', onscrollHandler);
         $('#grid__collections').append(`
             <a href= "<?= BASE_LINK; ?>/collections/${slugify(e.name)}" >
@@ -219,7 +220,7 @@ function onscrollHandler(event) {
     timeout = setTimeout(() => (timeout = null), 20);
 
     const direction = event.deltaY > 0 ? "nextElementSibling" : "previousElementSibling";
-    const scrollTarget = event.target.closest(".snap-always")[direction] || null;
+    const scrollTarget = event.target.closest(".snap-always")?. [direction] || null;
 
     if (scrollTarget) {
         event.preventDefault();
