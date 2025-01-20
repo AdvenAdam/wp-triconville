@@ -61,9 +61,9 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                 <h1 class="text-3xl lg:text-5xl">Triconville Debuts at IFEX 2025</h1>
                 <h3 class="text-base">Join us at Indonesia's premier furniture & craft exhibition!</h3>
                 <div class="flex gap-3 justify-center mt-5">
-                    <a href="<?= BASE_LINK ?>/news/triconville-debuts-at-ifex-2025"
+                    <a href="https://ifexindonesia.com/visitor/show-preview/919"
                        target="_blank"
-                       class="btn-ghost uppercase text-sm flex items center gap-1">find us on IFEX
+                       class="btn-ghost-light uppercase text-sm flex items center gap-1">find us on IFEX
                         <svg xmlns="http://www.w3.org/2000/svg"
                              fill="none"
                              viewBox="0 0 24 24"
@@ -94,7 +94,7 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                 <h3 class="text-base">Join us at Indonesia's premier furniture & craft exhibition!</h3>
             </div>
             <div class="flex gap-3 flex-col-reverse md:flex-row justify-center md:items-center mt-5">
-                <a href="<?= BASE_LINK ?>/news/triconville-debuts-at-ifex-2025"
+                <a href="https://ifexindonesia.com/visitor/show-preview/919"
                    target="_blank"
                    class="btn-ghost uppercase text-sm flex justify-center gap-1">find us on IFEX
                     <svg xmlns="http://www.w3.org/2000/svg"
