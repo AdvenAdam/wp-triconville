@@ -30,10 +30,10 @@
              data-aos-once="true"
              data-aos-duration="1000">
             <h1 class="text-2xl md:text-3xl mb-5 ms-1">More From Our Collection</h1>
-            <div class="relative group h-fit"
+            <div class="relative group"
                  id="project__slider__wrapper">
                 <div id="project__slider_1"
-                     class=" ">
+                     class="">
                 </div>
             </div>
         </div>
@@ -252,7 +252,7 @@ function loadMoreCollections() {
 
 function renderMoreCollections(collection) {
     $('#project__slider_1').append(`
-        <a href= "<?= BASE_LINK; ?>/collections/${slugify(collection.name)}" class="mx-1 md:mx-2 ">
+        <a href= "<?= BASE_LINK; ?>/collections/${slugify(collection.name)}" class="mx-1 md:mx-2 !h-fit">
             <img src="${collection.image_grid || collection.collection_image_1024}" 
                 class="w-auto h-auto object-cover hover:brightness-110 transition duration-300" />
             <h4 class='text-sm mt-4 mb-2'>
