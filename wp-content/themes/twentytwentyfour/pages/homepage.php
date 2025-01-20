@@ -51,65 +51,67 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
 </style>
 <div class="content-container">
     <!-- NOTE: Banner -->
-    <div class="homepage-banner px-5 md:px-8 mt-16 md:mt-20 py-12 full-screen w-screen max-h-[30vh] md:max-h-[calc(30vh+5rem)] lg:min-h-[720px] lg:max-h-[1020px]">
-        <div class="hidden lg:block ms-0 lg:ms-[5vw] h-full w-fit bg-triconville-beige/80 backdrop-blur-[2px]"
+    <div class="homepage-banner px-5 md:px-8 mt-16 md:mt-20 py-12 full-screen w-screen max-h-[35vh] md:max-h-[calc(30vh+5rem)] lg:min-h-[720px] lg:max-h-[1020px]">
+        <div class="hidden lg:flex items-center justify-center h-full w-full"
              data-aos="fade-up"
              data-aos-once="true"
              data-aos-delay=""
              data-aos-duration="1000">
-            <div class="flex h-full flex-col items-start justify-between gap-3 md:gap-6 p-4 lg:p-12">
-                <img src="https://storage.googleapis.com/back-bucket/wp_triconville/images/icons/LOGO%20IFEX-02%201.png"
-                     alt="IFEX"
-                     class="w-auto h-full max-h-16 lg:max-h-24 object-contain">
-                <div class="max-w-sm">
-                    <h1 class="text-3xl lg:text-5xl font-medium ">
-                        IFEX 2025
-                    </h1>
-                    <hr class="border-ifex-red border-2 lg:border-4 max-w-24 my-4 lg:my-6">
-                    <div class="desc mb-6 max-w-sm">
-                        <h2 class="text-2xl lg:text-3xl">Join us at Indonesia's premier furniture & craft exhibition!</h2>
-                    </div>
-                    <div class="Link">
-                        <a href="<?= BASE_LINK ?>/news/triconville-debuts-at-ifex-2025"
-                           target="_blank">
-                            <p class="text-ifex-red underline mb-3">Learn More</p>
-                        </a>
-                        <a href="https://ifexindonesia.com/visitor/show-preview/919"
-                           target="_blank">
-                            <p class="text-ifex-red underline">Find us on ifexindonesia.com</p>
-                        </a>
-                    </div>
+            <div class="text-center">
+                <h1 class="text-3xl lg:text-5xl">Triconville Debuts at IFEX 2025</h1>
+                <h3 class="text-base">Join us at Indonesia's premier furniture & craft exhibition!</h3>
+                <div class="flex gap-3 justify-center mt-5">
+                    <a href="<?= BASE_LINK ?>/news/triconville-debuts-at-ifex-2025"
+                       target="_blank"
+                       class="btn-ghost uppercase text-sm flex items center gap-1">find us on IFEX
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                             fill="none"
+                             viewBox="0 0 24 24"
+                             stroke-width="1.5"
+                             stroke="currentColor"
+                             class="size-4 text-xs">
+                            <path stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                  d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+                        </svg>
+
+                    </a>
+                    <a href="<?= BASE_LINK ?>/news/triconville-debuts-at-ifex-2025"
+                       target="_blank"
+                       class="btn-ghost-dark uppercase text-sm">Learn More</a>
                 </div>
             </div>
         </div>
     </div>
     <!-- NOTE IFEX MOBILE  -->
-    <div class="px-5 md:px-8 lg:hidden h-full min-h-[calc(55vh-4rem)] md:min-h-[calc(70vh-5rem)] bg-triconville-beige">
+    <div class="px-5 md:px-8 py-10 md:py-20 lg:hidden">
         <div data-aos="fade-up"
              data-aos-once="true"
              data-aos-delay=""
              data-aos-duration="1000">
-            <div class="py-10">
-                <img src="https://storage.googleapis.com/back-bucket/wp_triconville/images/icons/LOGO%20IFEX-02%201.png"
-                     alt="IFEX"
-                     class="w-auto h-full max-h-16 md:max-h-24 object-contain">
+            <div class="text-center">
+                <h1 class="text-3xl lg:text-5xl">Triconville Debuts at IFEX 2025</h1>
+                <h3 class="text-base">Join us at Indonesia's premier furniture & craft exhibition!</h3>
             </div>
-            <h1 class="text-3xl lg:text-5xl">
-                IFEX 2025
-            </h1>
-            <hr class="border-ifex-red border-2 lg:border-4 max-w-24 my-4 lg:my-6">
-            <div class="desc mb-6 max-w-2xl">
-                <h2 class="text-2xl lg:text-3xl">Join us at Indonesia's premier furniture & craft exhibition!</h2>
-            </div>
-            <div class="Link pb-3">
+            <div class="flex gap-3 flex-col-reverse md:flex-row justify-center md:items-center mt-5">
                 <a href="<?= BASE_LINK ?>/news/triconville-debuts-at-ifex-2025"
-                   target="_blank">
-                    <p class="text-ifex-red underline mb-3">Learn More</p>
+                   target="_blank"
+                   class="btn-ghost uppercase text-sm flex justify-center gap-1">find us on IFEX
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                         fill="none"
+                         viewBox="0 0 24 24"
+                         stroke-width="1.5"
+                         stroke="currentColor"
+                         class="size-4 text-xs">
+                        <path stroke-linecap="round"
+                              stroke-linejoin="round"
+                              d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+                    </svg>
+
                 </a>
-                <a href="https://ifexindonesia.com/visitor/show-preview/919"
-                   target="_blank">
-                    <p class="text-ifex-red underline">Find us on ifexindonesia.com</p>
-                </a>
+                <a href="<?= BASE_LINK ?>/news/triconville-debuts-at-ifex-2025"
+                   target="_blank"
+                   class="btn-ghost-dark uppercase text-sm text-center">Learn More</a>
             </div>
         </div>
     </div>
@@ -138,7 +140,8 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                          class="w-full h-full object-cover" />
                 </div>
             </div>
-            <!-- NOTE : Collection & Inspiration & News List &Catalog -->
+            <!-- NOTE : Collection & Inclass="text-3xl lg:text-5xl">Triconville Debuts at IFEX 2025</h1>
+                 <h3 spiration & News List &Catalog -->
             <!-- ANCHOR : Collection -->
             <div class="mt-20 lg:mt-48"
                  data-aos="fade-up"
@@ -148,7 +151,7 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                 <p class="text-center text-xs uppercase tracking-widest">Collections</p>
                 <h2 class="text-center text-2xl lg:text-3xl mb-8">Signature Selections for Every Style</h2>
 
-                <div class="block sm:grid sm:grid-cols-2 gap-3 mt-5 mb-10 collection__wrapper "
+                <div class="block lg:grid lg:grid-cols-2 gap-3 mt-5 mb-10 collection__wrapper "
                      id="colection-selected"></div>
                 <div class="text-center">
                     <a href="<?= BASE_LINK ?>/collections"
@@ -210,28 +213,26 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                         Our Latest News
                     </h4>
                 </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-3 lg:gap-5"
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 xl:gap-6 items-start"
                      id="news-selected">
                     <?php foreach ($posts as $post): ?>
-                    <div class="news-card flex items-center gap-3 md:block group">
-                        <a class="news-image w-1/2 md:w-auto lg:h-auto sm:h-[240px] object-cover h-[124px] relative  hover:cursor-pointer"
-                           href="<?php echo get_permalink($post->ID); ?>">
-                            <?php echo get_the_post_thumbnail($post->ID, 'large'); ?>
-                            <div class="overlay absolute inset-0 bg-gradient-to-b from-transparent to-black/30 invisible group-hover:visible"></div>
+                    <div class="w-full max-w-xl order-last lg:order-first group"
+                         data-aos="fade-up"
+                         data-aos-once="true"
+                         data-aos-duration="1000">
+                        <a href="<?php the_permalink(); ?>"
+                           class="">
+                            <div class="relative hover:cursor-pointer w-full">
+                                <?php the_post_thumbnail('full', array('class' => 'h-auto w-full min-h-[25vh] xl:min-h-[35vh] object-cover')); ?>
+                                <div class="overlay absolute inset-0 bg-gradient-to-b from-transparent to-black/30 invisible group-hover:visible"></div>
+                            </div>
                         </a>
-                        <div class="desc w-1/2 md:w-[95%] flex flex-col justify-center">
-                            <div class="h-20 overflow-hidden">
-                                <h4 class="text-2xl md:mb-5 md:mt-3">
-                                    <a href="<?php echo get_permalink($post->ID); ?>"
-                                       class="group-hover:underline line-clamp-2">
-                                        <?php echo get_the_title($post->ID); ?>
-                                    </a>
-                                </h4>
-                            </div>
-                            <div class="md:mb-10">
-
-                            </div>
-                        </div>
+                        <p class="text-xs text-gray-500 mt-4">
+                            <?php the_time('F j, Y'); ?>
+                        </p>
+                        <h3 class="news-title my-2 text-2xl min-h-16 group-hover:underline">
+                            <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+                        </h3>
                     </div>
                     <?php  endforeach; ?>
                 </div>
@@ -292,7 +293,9 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
         fetchData(
             "/?rest_route=/wp/v2/selected_collection",
             (res) => {
-                selectedCollectionIds = res?.homePageCollection || [];
+                localSelectedCollection = res?.collection.filter((e) => (res?.homePageCollection || []).includes(e.collection_id));
+                selectedCollectionIds = res?.collection.filter((e) => (res?.homePageCollection || []).includes(e.collection_id)) || [];
+
             },
             () => {
                 loadCollections();
@@ -323,10 +326,14 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
             },
             success: function(res) {
                 res.results.forEach((e) => {
-                    if (selectedCollectionIds.includes(parseInt(e.collection_id))) {
-                        filteredCollections.push(e);
+                    const localCollection = selectedCollectionIds.find(local => local.collection_id === parseInt(e.collection_id));
+                    if (localCollection) {
+                        filteredCollections.push({
+                            ...e,
+                            ...localCollection
+                        });
                     }
-                })
+                });
                 // TODO : make logic for triggering next page not by baypassing
             },
             error: function(xhr, status, error) {
@@ -344,12 +351,12 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
 
     function renderCollections(collection) {
         $('#colection-selected').append(`
-            <div style="background-image: url(${collection.collection_image_1024});"
-                class="bg-cover bg-no-repeat bg-center h-[300px] sm:h-[365px] sm:mx-0 mx-2 w-auto overflow-hidden">
+            <div style="background-image: url(${collection.image_grid});"
+                class="bg-cover bg-no-repeat bg-center h-[300px] sm:h-[365px] lg:mx-0 mx-2 w-auto overflow-hidden">
                 <a href="<?= BASE_LINK; ?>/collections/${slugify(collection.name)}">
-                    <div class="sm:h-full w-full h-[65vh] flex group items-end md:hover:bg-gradient-to-b from-transparent to-black/40 p-5">
+                    <div class="h-[25vh] lg:h-full w-full md:h-[35vh] flex group items-end md:hover:bg-gradient-to-b from-transparent to-black/40 p-5">
                         <div class="max-w-md transition duration-300 translate-y-14 md:group-hover:translate-y-0 ease-in-out">
-                            <h1 class="text-3xl lg:text-5xl text-white p-3 md:p-0">
+                            <h1 class="text-3xl lg:text-5xl text-white p-3 lg:p-0">
                                 ${filterProductName(collection.name)}
                             </h1>
                             <div class="line-clamp-2">
@@ -380,7 +387,7 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
     }
 
     function collectionSlick() {
-        if ($(window).width() <= 639 && $(".collection__wrapper").length) {
+        if ($(window).width() <= 1023 && $(".collection__wrapper").length) {
             $(".collection__wrapper").slick({
                 slidesToScroll: 1,
                 slidesToShow: 1.03,

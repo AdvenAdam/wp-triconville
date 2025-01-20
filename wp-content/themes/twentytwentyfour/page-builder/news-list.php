@@ -23,7 +23,7 @@
                 <h1 class="text-3xl lg:text-5xl">Spotlight News</h1>
                 <h4 class="md:text-base text-serif">Discovering Possibilities, Sharing Inspiration</h4>
             </div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 xl:gap-6 items-center py-10">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 xl:gap-6 items-start py-10">
                 <?php while ($top_posts->have_posts()) : $top_posts->the_post(); ?>
                 <div class="w-full max-w-xl order-last lg:order-first group"
                      data-aos="fade-up"

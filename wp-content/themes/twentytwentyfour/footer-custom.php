@@ -84,19 +84,24 @@
                                 <div class="md:block hidden">
                                     <p class='font-bold text-sm uppercase  pt-5'>connect</p>
                                     <div class="flex items-center gap-4 my-3">
-                                        <a href='#'>
+                                        <a href='https://www.instagram.com/triconville/'
+                                           target="_blank">
                                             <img src='https://storage.googleapis.com/back-bucket/wp_triconville/images/icons/instagram2.svg' />
                                         </a>
-                                        <a href='#'>
+                                        <a href='https://www.linkedin.com/company/triconville-furniture/'
+                                           target="_blank">
                                             <img src='https://storage.googleapis.com/back-bucket/wp_triconville/images/icons/linkedin2.svg' />
                                         </a>
-                                        <a href='#'>
+                                        <a href='https://www.youtube.com/@triconville-furniture'
+                                           target="_blank">
                                             <img src='https://storage.googleapis.com/back-bucket/wp_triconville/images/icons/youtube2.svg' />
                                         </a>
-                                        <a href='#'>
+                                        <a href='https://www.facebook.com/triconville'
+                                           target="_blank">
                                             <img src='https://storage.googleapis.com/back-bucket/wp_triconville/images/icons/facebook2.svg' />
                                         </a>
-                                        <a href='#'>
+                                        <a href='https://id.pinterest.com/triconville/'
+                                           target="_blank">
                                             <img src='https://storage.googleapis.com/back-bucket/wp_triconville/images/icons/pinterest2.svg' />
                                         </a>
                                     </div>
@@ -105,19 +110,24 @@
                             <div class="md:p-3 md:hidden">
                                 <p class='font-bold text-sm uppercase '>connect</p>
                                 <div class="flex items-center gap-4 my-3">
-                                    <a href='#'>
+                                    <a href='https://www.instagram.com/triconville/'
+                                       target="_blank">
                                         <img src='https://storage.googleapis.com/back-bucket/wp_triconville/images/icons/instagram2.svg' />
                                     </a>
-                                    <a href='#'>
+                                    <a href='https://www.linkedin.com/company/triconville-furniture/'
+                                       target="_blank">
                                         <img src='https://storage.googleapis.com/back-bucket/wp_triconville/images/icons/linkedin2.svg' />
                                     </a>
-                                    <a href='#'>
+                                    <a href='https://www.youtube.com/@triconville-furniture'
+                                       target="_blank">
                                         <img src='https://storage.googleapis.com/back-bucket/wp_triconville/images/icons/youtube2.svg' />
                                     </a>
-                                    <a href='#'>
+                                    <a href='https://www.facebook.com/triconville'
+                                       target="_blank">
                                         <img src='https://storage.googleapis.com/back-bucket/wp_triconville/images/icons/facebook2.svg' />
                                     </a>
-                                    <a href='#'>
+                                    <a href='https://id.pinterest.com/triconville/'
+                                       target="_blank">
                                         <img src='https://storage.googleapis.com/back-bucket/wp_triconville/images/icons/pinterest2.svg' />
                                     </a>
                                 </div>
