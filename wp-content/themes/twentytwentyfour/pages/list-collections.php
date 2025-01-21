@@ -13,7 +13,7 @@ body {
     display: none;
 }
 </style>
-<div class="content-container scroll-smooth overflow-x-hidden h-[calc(100vh-5rem)] md:h-[calc(100vh-8rem)] mt-20 md:mt-32"
+<div class="content-container scroll-smooth overflow-x-hidden h-[calc(100vh-5rem)] md:h-[calc(100vh-8rem)] mt-20 md:mt-32 snap-y snap-mandatory overflow-y-scroll"
      id="magnetic__container">
     <!-- NOTE: Banner -->
     <div class="flex flex-col justify-center pt-14 pb-5 md:pt-20 md:pb-20 px-5 md:px-8 snap-always snap-start">
@@ -97,6 +97,7 @@ function checkIsMobile(isMobile) {
         changeView('list');
     }
     if (isMobile) {
+        $('.content-container').removeClass('snap-y snap-mandatory overflow-y-scroll')
         $('.view-button').addClass('invisible');
         changeView('grid');
     }
@@ -153,13 +154,13 @@ function loadCollections() {
 function changeView(type) {
     count = 0;
     $('.view-button button').removeClass('btn-ghost-dark').addClass('btn-ghost');
+    $('.content-container').removeClass('snap-y snap-mandatory transition duration-500 ease-in-out overflow-y-scroll')
     if (type == 'grid') {
-        $('.content-container').removeClass('snap-y snap-mandatory overflow-y-scroll')
         $('#grid-container').show();
         $('#list__collections').hide();
         $('#grid-button').removeClass('btn-ghost').addClass('btn-ghost-dark');
     } else if (type == 'list') {
-        $('.content-container').addClass('snap-y snap-mandatory overflow-y-scroll')
+        $('.content-container').addClass('snap-y snap-mandatory transition duration-500 ease-in-out overflow-y-scroll')
         $('#grid-container').hide();
         $('#list__collections').show();
         $('#list-button').removeClass('btn-ghost').addClass('btn-ghost-dark');
@@ -169,7 +170,6 @@ function changeView(type) {
 function renderCollections(e, index, type = 'grid') {
     count += 1;
     if (type == 'grid') {
-        $('.content-container').removeClass('snap-y snap-mandatory transition duration-500 ease-in-out overflow-y-scroll')
         $('.content-container').off('wheel', onscrollHandler);
         $('#grid__collections').append(`
             <a href= "<?= BASE_LINK; ?>/collections/${slugify(e.name)}" >
@@ -185,7 +185,6 @@ function renderCollections(e, index, type = 'grid') {
             </a>
         `);
     } else if (type == 'list') {
-        $('.content-container').addClass('snap-y snap-mandatory transition duration-500 ease-in-out overflow-y-scroll')
         $('.content-container').on('wheel', onscrollHandler);
         $('#list__collections').append(`
             <div class="full-screen-with-subMenu w-screen relative text-white snap-always snap-start" 
