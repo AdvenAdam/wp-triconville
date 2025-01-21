@@ -257,7 +257,7 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                             reserve a copy by filling out the form below.
                         </p>
                         <a href="<?= BASE_LINK ?>/collections"
-                           class="btn-ghost uppercase text-xs">View Catalog</a>
+                           class="btn-ghost uppercase text-xs">Request Catalog</a>
                     </div>
                     <div class="">
                         <img src="https://storage.googleapis.com/back-bucket/wp_triconville/images/home/Home%20Catalogue.jpg"

@@ -142,9 +142,9 @@ jQuery(document).ready(function($) {
         ProductsData = <?php echo json_encode($data); ?>;
         selectedCollection = <?php echo file_get_contents(get_template_directory() . '/api/collection.json'); ?>.collection
     } catch (error) {
-        if (error.status === 404) {
-            redirectError(404)
-        }
+        // if (error.status === 404) {
+        //     redirectError(404)
+        // }
         console.error('Error fetching data:', error);
     } finally {
         renderMaster();
@@ -156,6 +156,7 @@ function renderMaster() {
     try {
         console.time('renderMaster');
         // NOTE : PRODUCT HEADER 
+        console.log("🚀 ~ renderMaster ~ ProductsData:", ProductsData)
         const ambienceImage = ProductsData.ambience_image_1920[0] || '';
         const productName = filterProductName(ProductsData.name);
         isSectionalPage = ProductsData.combineoptionvariant.option1.length === 0
@@ -192,7 +193,7 @@ function renderMaster() {
 
     } catch (error) {
         console.error("🚀 ~ renderMaster ~ error:", error);
-        redirectError();
+        // redirectError();
     } finally {
         $('#page-loading').hide();
         console.timeEnd('renderMaster');
@@ -622,48 +623,54 @@ function renderDownloadable(asset3d, product_image, collection_sheet) {
 }
 
 function renderImages(images) {
-    $(document).ready(function() {
-        if (images.ambience_image_1920.length > 0) {
-            images.ambience_image_1920.forEach((e) => {
-                $('.ambience__img').append(`
-                <img src="${e}"
-                    class="h-full me-2 mx-2 w-screen md:w-auto object-cover" />
-            `)
-            })
-            $('.ambience__img').slick({
-                slidesToScroll: 1,
-                variableWidth: true,
-                arrows: false,
-                centerMode: false,
-                responsive: [{
-                    breakpoint: 768,
-                    settings: {
-                        centerMode: false,
-                        slidesToShow: 1.02,
-                        slidesToScroll: 1,
-                        variableWidth: false,
-                    }
-                }]
-            });
-            $(".prev-btn").click(function() {
-                $(".ambience__img").slick("slickPrev");
-            });
-            $(".next-btn").click(function() {
-                $(".ambience__img").slick("slickNext");
-            });
-        } else {
-            $('.ambience__section').hide();
-        }
-        if (images.spec_image) {
-            // Spec image
-            $('#image__spec').append(`
+    images.ambience_image_1920.forEach((e) => {
+        $('.ambience__img').append(`
+            <img src="${e}"
+                class="h-full me-2 mx-2 w-screen md:w-auto object-cover" />
+        `)
+    })
+
+    if (images.ambience_image_1920.length > 1) {
+        $('.ambience__img').slick({
+            slidesToScroll: 1,
+            variableWidth: true,
+            arrows: false,
+            centerMode: false,
+            responsive: [{
+                breakpoint: 768,
+                settings: {
+                    centerMode: false,
+                    slidesToShow: 1.02,
+                    slidesToScroll: 1,
+                    variableWidth: false,
+                }
+            }]
+        });
+        $(".prev-btn").click(function() {
+            $(".ambience__img").slick("slickPrev");
+        });
+        $(".next-btn").click(function() {
+            $(".ambience__img").slick("slickNext");
+        });
+    } else if (images.ambience_image_1920.length == 1) {
+        $('.ambience__img').addClass('flex justify-center');
+        $('.prev-btn').remove();
+        $(".next-btn").remove();
+    } else {
+        $('.ambience__img').hide();
+    }
+
+
+
+    if (images.spec_image) {
+        // Spec image
+        $('#image__spec').append(`
             <img src="${images.spec_image}"
                 alt="specification product"
                 class="h-auto w-full"
-                />
+            />
         `)
-        }
-    })
+    }
 }
 
 function renderCollectionProducts(products, name) {
