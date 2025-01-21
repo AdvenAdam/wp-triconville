@@ -142,9 +142,9 @@ jQuery(document).ready(function($) {
         ProductsData = <?php echo json_encode($data); ?>;
         selectedCollection = <?php echo file_get_contents(get_template_directory() . '/api/collection.json'); ?>.collection
     } catch (error) {
-        // if (error.status === 404) {
-        //     redirectError(404)
-        // }
+        if (error.status === 404) {
+            redirectError(404)
+        }
         console.error('Error fetching data:', error);
     } finally {
         renderMaster();
@@ -156,7 +156,6 @@ function renderMaster() {
     try {
         console.time('renderMaster');
         // NOTE : PRODUCT HEADER 
-        console.log("🚀 ~ renderMaster ~ ProductsData:", ProductsData)
         const ambienceImage = ProductsData.ambience_image_1920[0] || '';
         const productName = filterProductName(ProductsData.name);
         isSectionalPage = ProductsData.combineoptionvariant.option1.length === 0
