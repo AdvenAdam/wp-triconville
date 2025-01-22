@@ -255,7 +255,7 @@ async function renderOverview(res) {
                 <div class='max-w-xl mx-auto lg:mx-0 order-last lg:order-first' id="product__description">
                     <h1 class="text-2xl md:text-3xl text-gray-900 line-clamp-2">${filterProductName(res.name)}</h1>
                     <p class="text-slate-500 mb-4">Designed by 
-                        <span class="text-black font-medium underline"><a href="https://indospacegroup.com/indospace-rnd/" target="_blank">Indospace R&D </a></span>
+                        <span class="text-black font-medium underline"><a href="https://indospacegroup.com/indospace-studio/" target="_blank">Indospace Studio </a></span>
                     </p>
                     <p class="line-clamp-4">${desc}</p>
                 </div>
@@ -281,7 +281,7 @@ async function renderOverview(res) {
             </a>`
             :''}
             <a href="<?= BASE_LINK; ?>/find-a-store/"
-                class="btn-ghost flex items-end justify-center uppercase"><p class="text-xs">Find Store</p></a>
+                class="btn-ghost flex items-end justify-center uppercase"><p class="text-xs">Find a Store</p></a>
         </div>
     `);
 }

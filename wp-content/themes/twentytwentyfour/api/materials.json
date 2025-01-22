@@ -1,17 +1,4 @@
 {
-  "selectedMaterial": [
-    "canopy-fabric",
-    "ceramic",
-    "olefin-fabric",
-    "outdoor-teak",
-    "powder-coated-aluminium",
-    "rope",
-    "sling-fabric",
-    "stainless-steel",
-    "sunbrella-fabric",
-    "throw-pillow-fabric",
-    "upholstery-sling-fabric"
-  ],
   "groups": [
     {
       "id": 1,
