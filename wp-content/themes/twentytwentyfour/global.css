@@ -467,3 +467,7 @@ body {
     align-items: baseline;
     gap: 12px;
  }
+ .country-select .country-list {
+    right: 0;
+    left: auto;
+ }
