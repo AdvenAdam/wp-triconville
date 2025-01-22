@@ -49,8 +49,7 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
     }
 }
 </style>
-<div class="content-container">
-    <!-- NOTE: Banner -->
+<div class="content-container overflow-hidden">
     <div class="homepage-banner px-5 md:px-8 mt-16 md:mt-20 py-12 full-screen w-screen max-h-[35vh] md:max-h-[calc(30vh+5rem)] lg:min-h-[720px] lg:max-h-[1020px]">
         <div class="hidden lg:flex items-center justify-center h-full w-full"
              data-aos="fade-up"
@@ -248,16 +247,31 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                  data-aos-delay="200"
                  data-aos-duration="1000">
                 <div class="grid lg:grid-cols-2 gap-8 items-center ">
-                    <div class="max-w-xl order-last lg:order-first">
-                        <p class="uppercase text-xs tracking-widest mb-2">catalog</p>
-                        <h2 class="text-2xl lg:text-3xl">Triconville - 2024 Catalog</h2>
-                        <p class=" mt-3 mb-12">
-                            Discover an unrivaled selection of luxuriant designs from Triconville. Brought to life with captivating imagery,
-                            the 2024 Triconville catalogue is a go-to resource for inspiration and information. Qualified trade members can
-                            reserve a copy by filling out the form below.
-                        </p>
-                        <a href="<?= BASE_LINK ?>/collections"
-                           class="btn-ghost uppercase text-xs">Request Catalog</a>
+                    <div class="max-w-xl order-last lg:order-first ">
+                        <div class="request-catalog transition duration-500 ease-in-out">
+                            <p class="uppercase text-xs tracking-widest mb-2">catalog</p>
+                            <h2 class="text-2xl lg:text-3xl">Triconville - 2024 Catalog</h2>
+                            <p class=" mt-3 mb-12">
+                                Discover an unrivaled selection of luxuriant designs from Triconville. Brought to life with captivating imagery,
+                                the 2024 Triconville catalogue is a go-to resource for inspiration and information. Qualified trade members can
+                                reserve a copy by filling out the form below.
+                            </p>
+                            <a onClick="requestCatalog('form')"
+                               class="btn-ghost uppercase text-xs">Request Catalog</a>
+                        </div>
+                        <div class="request-catalog-form invisible opacity-0 h-0 transition duration-500 ease-in-out delay-150">
+                            <h2 class="text-2xl lg:text-3xl">Complete the Form to Receive Your Triconville Catalog</h2>
+                            <p class=" mt-3 mb-6">
+                                Please complete your company details, and once verified, we'll deliver the Triconville Catalog directly to your company email.
+                            </p>
+
+                        </div>
+                        <div class="request-catalog-success invisible opacity-0 h-0 transition duration-500 ease-in-out delay-100">
+                            <h2 class="text-2xl lg:text-3xl">Thank You for Your Request!</h2>
+                            <p class=" mt-3 mb-6">
+                                We’ve received your details and are reviewing them. Once verified, your catalog will be on its way to your company email. </p>
+                        </div>
+
                     </div>
                     <div class="">
                         <img src="https://storage.googleapis.com/back-bucket/wp_triconville/images/home/Home%20Catalogue.jpg"
@@ -271,139 +285,164 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
         <div id="errorIndicator"
              class="hidden">Error</div>
     </div>
-    <script>
-    let selectedCollectionIds = [];
-    let filteredCollections = [];
-    let inspirationList = [];
-    let moodList = [];
+</div>
+<script>
+let selectedCollectionIds = [];
+let filteredCollections = [];
+let inspirationList = [];
+let moodList = [];
 
-    $(document).ready(function() {
-        const fetchData = (url, successCallback, completeCallback) => {
-            $.ajax({
-                url: "<?= BASE_URL; ?>" + url,
-                type: "GET",
-                success: successCallback,
-                error: (xhr, status, error) => {
-                    console.error('Error fetching data:', error);
-                },
-                complete: completeCallback
-            });
-        };
-
-        fetchData(
-            "/?rest_route=/wp/v2/selected_collection",
-            (res) => {
-                localSelectedCollection = res?.collection.filter((e) => (res?.homePageCollection || []).includes(e.collection_id));
-                selectedCollectionIds = res?.collection.filter((e) => (res?.homePageCollection || []).includes(e.collection_id)) || [];
-
-            },
-            () => {
-                loadCollections();
-            }
-        );
-
-        fetchData(
-            "/?rest_route=/wp/v2/selected_inspirations",
-            (res) => {
-                inspirationList = (res?.inspirationList || []).filter((e) => (res?.selectedInspirations || []).includes(e.id));
-            },
-            () => {
-                renderInspirations();
-            }
-        );
-
-    });
-
-    function loadCollections() {
+$(document).ready(function() {
+    const fetchData = (url, successCallback, completeCallback) => {
         $.ajax({
-            url: `<?= BASE_API; ?>/v1_collections/`,
-            type: 'GET',
-            headers: {
-                Authorization: '<?= API_KEY; ?>',
+            url: "<?= BASE_URL; ?>" + url,
+            type: "GET",
+            success: successCallback,
+            error: (xhr, status, error) => {
+                console.error('Error fetching data:', error);
             },
-            beforeSend: () => {
-                $('#page-loading').show();
-            },
-            success: function(res) {
-                res.results.forEach((e) => {
-                    const localCollection = selectedCollectionIds.find(local => local.collection_id === parseInt(e.collection_id));
-                    if (localCollection) {
-                        filteredCollections.push({
-                            ...e,
-                            ...localCollection
-                        });
-                    }
-                });
-                // TODO : make logic for triggering next page not by baypassing
-            },
-            error: function(xhr, status, error) {
-                $('#page-loading').hide();
-                $('#errorIndicator').show();
-            },
-            complete: () => {
-                sortedCollections = filteredCollections.sort((a, b) => (b.collection_id > a.collection_id) ? 1 : -1)
-                sortedCollections.slice(0, 4).forEach((colection) => renderCollections(colection));
-                $('#page-loading').hide();
-                collectionSlick()
-            }
+            complete: completeCallback
         });
-    }
+    };
 
-    function renderCollections(collection) {
-        $('#colection-selected').append(`
-            <div style="background-image: url(${collection.image_grid});"
-                class="bg-cover bg-no-repeat bg-center h-[300px] sm:h-[365px] lg:mx-0 mx-2 w-auto overflow-hidden">
-                <a href="<?= BASE_LINK; ?>/collections/${slugify(collection.name)}">
-                    <div class="h-[25vh] lg:h-full w-full md:h-[35vh] flex group items-end md:hover:bg-gradient-to-b from-transparent to-black/40 p-5">
-                        <div class="max-w-md transition duration-300 translate-y-14 md:group-hover:translate-y-0 ease-in-out">
-                            <h1 class="text-3xl lg:text-5xl text-white p-3 lg:p-0">
-                                ${filterProductName(collection.name)}
-                            </h1>
-                            <div class="line-clamp-2">
-                                <p class="text-white invisible md:group-hover:visible duration-300">
-                                    ${collection.description}
-                                </p>
-                            </div>
+    fetchData(
+        "/?rest_route=/wp/v2/selected_collection",
+        (res) => {
+            localSelectedCollection = res?.collection.filter((e) => (res?.homePageCollection || []).includes(e.collection_id));
+            selectedCollectionIds = res?.collection.filter((e) => (res?.homePageCollection || []).includes(e.collection_id)) || [];
+
+        },
+        () => {
+            loadCollections();
+        }
+    );
+
+    fetchData(
+        "/?rest_route=/wp/v2/selected_inspirations",
+        (res) => {
+            inspirationList = (res?.inspirationList || []).filter((e) => (res?.selectedInspirations || []).includes(e.id));
+        },
+        () => {
+            renderInspirations();
+        }
+    );
+
+});
+
+function loadCollections() {
+    $.ajax({
+        url: `<?= BASE_API; ?>/v1_collections/`,
+        type: 'GET',
+        headers: {
+            Authorization: '<?= API_KEY; ?>',
+        },
+        beforeSend: () => {
+            $('#page-loading').show();
+        },
+        success: function(res) {
+            res.results.forEach((e) => {
+                const localCollection = selectedCollectionIds.find(local => local.collection_id === parseInt(e.collection_id));
+                if (localCollection) {
+                    filteredCollections.push({
+                        ...e,
+                        ...localCollection
+                    });
+                }
+            });
+            // TODO : make logic for triggering next page not by baypassing
+        },
+        error: function(xhr, status, error) {
+            $('#page-loading').hide();
+            $('#errorIndicator').show();
+        },
+        complete: () => {
+            sortedCollections = filteredCollections.sort((a, b) => (b.collection_id > a.collection_id) ? 1 : -1)
+            sortedCollections.slice(0, 4).forEach((colection) => renderCollections(colection));
+            $('#page-loading').hide();
+            collectionSlick()
+            renderRequestCatalogForm();
+        }
+    });
+}
+
+function renderCollections(collection) {
+    $('#colection-selected').append(`
+        <div style="background-image: url(${collection.image_grid});"
+            class="bg-cover bg-no-repeat bg-center h-[300px] sm:h-[365px] lg:mx-0 mx-2 w-auto overflow-hidden">
+            <a href="<?= BASE_LINK; ?>/collections/${slugify(collection.name)}">
+                <div class="h-[25vh] lg:h-full w-full md:h-[35vh] flex group items-end md:hover:bg-gradient-to-b from-transparent to-black/40 p-5">
+                    <div class="max-w-md transition duration-300 translate-y-14 md:group-hover:translate-y-0 ease-in-out">
+                        <h1 class="text-3xl lg:text-5xl text-white p-3 lg:p-0">
+                            ${filterProductName(collection.name)}
+                        </h1>
+                        <div class="line-clamp-2">
+                            <p class="text-white invisible md:group-hover:visible duration-300  p-3 lg:p-0">
+                                ${collection.description}
+                            </p>
                         </div>
                     </div>
-                </a>
-            </div>
+                </div>
+            </a>
+        </div>
+    `);
+}
 
+function renderInspirations() {
+    inspirationList.forEach((inspiration) => {
+        $('#inspiration-selected').append(`
+            <a class="inspiration__card relative" href="${inspiration.link}">
+                <div class="inspiration__card__overlay absolute inset-0 bg-black bg-opacity-0 group hover:bg-opacity-20 transition duration-300 flex flex-col items-center justify-center">
+                    <img src="https://storage.googleapis.com/back-bucket/wp_triconville/images/icons/Instagram-white.svg" alt="Triconville" class="w-11 h-11 hidden group-hover:block">
+                    <h3 class="text-white font-medium text-center hidden group-hover:block">@triconville</h3>
+                </div>
+                <img src="${inspiration.img}" alt="${inspiration.alt}" class="w-full h-full object-contain" />
+            </a>
         `);
-    }
-
-    function renderInspirations() {
-        inspirationList.forEach((inspiration) => {
-            $('#inspiration-selected').append(`
-                <a class="inspiration__card relative" href="${inspiration.link}">
-                    <div class="inspiration__card__overlay absolute inset-0 bg-black bg-opacity-0 group hover:bg-opacity-20 transition duration-300 flex flex-col items-center justify-center">
-                        <img src="https://storage.googleapis.com/back-bucket/wp_triconville/images/icons/Instagram-white.svg" alt="Triconville" class="w-11 h-11 hidden group-hover:block">
-                        <h3 class="text-white font-medium text-center hidden group-hover:block">@triconville</h3>
-                    </div>
-                    <img src="${inspiration.img}" alt="${inspiration.alt}" class="w-full h-full object-contain" />
-                </a>
-            `);
-        })
-    }
-
-    function collectionSlick() {
-        if ($(window).width() <= 1023 && $(".collection__wrapper").length) {
-            $(".collection__wrapper").slick({
-                slidesToScroll: 1,
-                slidesToShow: 1.03,
-                arrows: false,
-                infinite: true,
-            });
-        } else if ($(".collection__wrapper").hasClass("slick-initialized")) {
-            $(".collection__wrapper").slick("unslick");
-        }
-    }
-    $(window).resize(function() {
-        collectionSlick();
     })
-    </script>
+}
 
-    <?php
+function collectionSlick() {
+    if ($(window).width() <= 1023 && $(".collection__wrapper").length) {
+        $(".collection__wrapper").slick({
+            slidesToScroll: 1,
+            slidesToShow: 1.03,
+            arrows: false,
+            infinite: true,
+        });
+    } else if ($(".collection__wrapper").hasClass("slick-initialized")) {
+        $(".collection__wrapper").slick("unslick");
+    }
+}
+
+function renderRequestCatalogForm() {
+    $('.request-catalog-form').append(`
+        <div class="overflow-hidden">
+            <?php echo do_shortcode('[contact-form-7 id="ff7ee87" title="request catalogue"]'); ?>
+        </div>
+    `)
+}
+$(window).resize(function() {
+    collectionSlick();
+})
+
+document.addEventListener('wpcf7submit', function(event) {
+    requestCatalog("success");
+}, false);
+
+function requestCatalog(action) {
+    if (action === "success") {
+        $(".request-catalog-success").removeClass("invisible opacity-0 h-0").addClass("visible opacity-100 h-auto");
+        $(".request-catalog-form").removeClass("visible opacity-100 h-auto").addClass("invisible opacity-0 h-0");
+    } else {
+        $(".request-catalog-form").removeClass("invisible opacity-0 h-0").addClass("visible opacity-100 h-auto");
+        $(".request-catalog").removeClass("visible opacity-100 h-auto").addClass("invisible opacity-0 h-0");
+    }
+}
+</script>
+
+
+
+<?php
 // Conditional for footer
 get_template_part('footer-custom');
 

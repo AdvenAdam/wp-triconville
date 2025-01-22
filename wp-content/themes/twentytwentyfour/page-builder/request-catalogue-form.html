@@ -1,0 +1,41 @@
+<p>*) Required</p>
+<div class="grid sm:grid-cols-2 grid-cols-1 gap-6 sm:gap-3 mb-6">
+  <div class="">
+    <label> [text* FIRSTNAME placeholder "First name*"] </label>
+  </div>
+  <div class="">
+    <label> [text* LASTNAME placeholder "Last name*"] </label>
+  </div>
+</div>
+
+<div class="grid sm:grid-cols-2 grid-cols-1 gap-6 sm:gap-3 mb-6">
+  <div class="">
+    <label> [text* COMPANY placeholder "Company name*"] </label>
+  </div>
+  <div class="">
+    <label> [email* EMAIL placeholder "Company Email*"] </label>
+  </div>
+</div>
+<div class="grid sm:grid-cols-2 grid-cols-1 gap-6 sm:gap-3 mb-6">
+  <div class="">
+    <label> [text COMPANY_WEBSITE placeholder "Company Website "] </label>
+  </div>
+  <div class="">
+    <label> [uacf7_country_dropdown* COUNTRY class:country-dropdown] </label>
+  </div>
+</div>
+<div class="checkbox-form flex items-center">
+  [checkbox newsletter "Keep me updated, subscribe me to the newsletter"]
+</div>
+<div class="checkbox-form flex items-center">
+  [checkbox* aggreement default:1 "I agree to the use of my personal data according to the privacy policy"]
+</div>
+
+<div class="mt-6">
+  <button
+    type="submit"
+    class="btn-ghost-dark py-3 px-5 min-w-[150px]"
+  >
+    <p class="text-sm text-white">SUBMIT</p>
+  </button>
+</div>
