@@ -86,6 +86,24 @@
       ]
     },
     {
+      "id": 5,
+      "name": "Weave through our wickers",
+      "alias": "Wicker",
+      "banner": "https://storage.googleapis.com/back-bucket/wp_triconville/images/material/banner/wicker.png",
+      "slugs": ["wicker"],
+      "subGroups": [
+        {
+          "name": "Wicker",
+          "description": "Our wicker furniture is made of premium synthetic fiber as weaving material that comes with different colors, patterns, looms, and effects. The filters are tear free, weather resistant, and colorfast. It is 100% recyclable and resistant to chlorine and salt water. When the temperature is low, the weave will become somewhat stiffer than normal and in extremely high temperature the weave will become more elastic. The furniture will retain its normal elastic property once the temperature stabilizes.",
+          "filters": {
+            "slug": "wicker",
+            "keywords": "",
+            "codes": "W11"
+          }
+        }
+      ]
+    },
+    {
       "id": 6,
       "name": "Unravel the ropes",
       "alias": "Rope",
