@@ -22,7 +22,7 @@
             <div class="max-w-[1440px] mx-auto ">
                 <div class="w-full flex xl:flex-row flex-col-reverse justify-center gap-3 md:gap-5 lg:gap-9 xl:gap-0">
                     <div class="xl:w-3/5 w-full">
-                        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 lg:flex gap-3 md:gap-5 lg:gap-10">
+                        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 lg:flex gap-x-3 gap-y-6 md:!gap-5 lg:!gap-10">
                             <!-- NOTE : About Triconville -->
                             <div class="about lg:block hidden tracking-wider">
                                 <p class='mb-3 font-bold text-sm uppercase '>triconville head office</p>
@@ -99,7 +99,7 @@
                                             Indonesia
                                         </a>
                                     </p>
-                                    <p class='text-sm md:mb-3'>+62 21 27084824</p>
+                                    <p class='text-sm mt-3 md:mb-3 md:mt-0'>+62 21 27084824</p>
                                     <p class='text-sm md:mb-3'>info@triconville.com</p>
                                 </div>
                                 <div class="">
@@ -201,7 +201,7 @@
                                                         <div class="form__entry entry_block">
                                                             <div class="flex items-center gap-2">
                                                                 <div class="entry__field w-full">
-                                                                    <input class="input"
+                                                                    <input class="input rounded-none focus-visible:outline-none"
                                                                            autocomplete="off"
                                                                            type="text"
                                                                            id="EMAIL"

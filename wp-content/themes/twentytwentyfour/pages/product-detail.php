@@ -184,10 +184,12 @@ function renderMaster() {
         const isCollectionListed = selectedCollection.map(collection => collection.collection_id).includes(ProductsData.collection);
         const isCollectionProductNotEmpty = Array.isArray(ProductsData.collection_product) && ProductsData.collection_product.length > 0;
         if (isCollectionListed && isCollectionProductNotEmpty) {
-            renderCollectionProducts(ProductsData.collection_product.slice(0, 4), ProductsData.collection_det);
+            const collectionProduct = ProductsData.collection_product.slice(0, 4).filter(data => data.status === 'published' || data.status === 'draft');
+            renderCollectionProducts(collectionProduct, ProductsData.collection_det);
         }
         if (Array.isArray(ProductsData.related_product) && ProductsData.related_product.length > 0) {
-            renderRelatedProducts(ProductsData.related_product);
+            const relatedProduct = ProductsData.related_product.filter(data => data.status === 'published' || data.status === 'draft')
+            renderRelatedProducts(relatedProduct);
         }
 
     } catch (error) {

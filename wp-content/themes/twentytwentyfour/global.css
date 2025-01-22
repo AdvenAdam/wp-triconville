@@ -214,6 +214,7 @@ body {
     min-height: 38px;
     max-width: none;
     padding: 0.5rem 0.75rem;
+    border-radius: 0;
 }
 
 .content-container .contact-form-section select {
@@ -352,6 +353,8 @@ body {
     max-width: none;
     letter-spacing: 0.07rem;
     padding: 1rem 1.5rem;
+    border-radius: 0px;
+    outline: none;
 }
 
 .content-container .contact-form-section textarea {
@@ -422,6 +425,7 @@ body {
     max-width: none;
     letter-spacing: 0.07rem;
     padding: 1rem 1.5rem !important;
+    border-radius: 0px;
 }
 
 .content-container .request-catalog-form textarea {
@@ -460,6 +464,6 @@ body {
  /* checkbox request catalog */
  .wpcf7-list-item {
     display: flex;
-    align-items: center;
+    align-items: baseline;
     gap: 12px;
  }
