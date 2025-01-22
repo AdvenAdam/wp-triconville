@@ -1,28 +1,28 @@
-=== Ultimate Addons for Contact Form 7 ===
+ === Ultimate Addons for Contact Form 7 ===
 Contributors: themefic, hasanet, hemelhasan, mdrejon, raihan143
 Tags: contact form, contact form 7, forms, custom form, form builder
 Requires at least: 4.2
-Tested up to: 6.6
+Tested up to: 6.7
 Requires PHP: 7.4
-Stable tag: 3.4.5
+Stable tag: 3.5.0
 License: GPL-2.0+
 License URI: http://www.gnu.org/licenses/gpl-2.0.txt
 
-30+ Essential Addons for Contact Form 7 - Conditional Fields, Multi Step Forms, Redirection, Form Templates, Columns, WooCommerce, Mailchimp, and more
+35+ Essential Addons for Contact Form 7 - Conditional Fields, Multi Step Forms, Redirection, Form Templates, Columns, WooCommerce, Mailchimp and more
 
 == Description ==
 
 ## THE EASIEST AND BEST CONTACT FORM 7 ADDONS PLUGIN FOR WORDPRESS
 
-👉 Official Demo Link: [Click Here](https://cf7addons.com/)
-👉 Live Backend Options: [Click Here](https://themefic.site/uacf7/wp-admin)
-👉 Buy Pro Version: [Click Here](https://cf7addons.com/pricing)
-👉 Get Support: [Click Here](https://portal.themefic.com/support/)
+👉 Official Demo Link: [Click Here](https://cf7addons.com/?utm_source=wp_readme&utm_medium=uacf7_top_slot&utm_campaign=website)
+👉 Explore Pro: [Play with Backend Options](https://cf7addons.com/backend-demo/?utm_source=wp_readme&utm_medium=uacf7_top_slot&utm_campaign=pro_backend)
+👉 Buy Pro Version: [Click Here](https://cf7addons.com/pricing/?utm_source=wp_readme&utm_medium=uacf7_top_slot&utm_campaign=pro_link)
+👉 Get Support: [Click Here](https://portal.themefic.com/support/?utm_source=wp_readme&utm_medium=uacf7_top_slot&utm_campaign=plugin_support)
 👉 Video Guide on [Youtube](https://www.youtube.com/playlist?list=PLY0rtvOwg0ylGspzo7TcT-8x0FH_O5XVV)
-👉 Our [Documentation](https://themefic.com/docs/uacf7/getting-started/installation/)
+👉 Our [Documentation](https://themefic.com/docs/uacf7/getting-started/installation/?utm_source=wp_readme&utm_medium=uacf7_top_slot&utm_campaign=plugin_docs)
 👉 Join Our [Facebook Group](https://facebook.com/groups/ultimate.cf7)
 
-Equipped with over 30 essential features, **Ultimate Addons For Contact Form 7** is the must-have plugin to complement Contact Form 7. It significantly enhances the functionality of your website's forms created using [Contact Form 7](https://wordpress.org/plugins/contact-form-7/). This All-in-One WordPress Contact Form plugin includes a wide range of options, from basic to advanced, catering to all the needs of your website Contact Forms.
+Equipped with over 35 essential features, **Ultimate Addons For Contact Form 7** is the must-have plugin to complement Contact Form 7. It significantly enhances the functionality of your website's forms created using [Contact Form 7](https://wordpress.org/plugins/contact-form-7/). This All-in-One WordPress Contact Form plugin includes a wide range of options, from basic to advanced, catering to all the needs of your website Contact Forms.
 
 = FREE ADDONS =
 
@@ -68,6 +68,7 @@ Equipped with over 30 essential features, **Ultimate Addons For Contact Form 7**
 * Spam Protection (Pro)
 * Database Pro (Pro)
 * MailChimp Pro
+* Form Submission Preview Pro
 
 ### How It works:
 
@@ -276,6 +277,9 @@ Our [Contact Form 7 Database Pro](https://cf7addons.com/preview/best-contact-for
 
 Our [Contact Form 7 Mailchimp Pro](https://cf7addons.com/preview/mailchimp-pro-for-contact-form-7/) is a key feature of Mailchimp Pro that allows you to add an acceptance checkbox to your forms. 
 
+= Contact Form 7 Form Submission Preview =
+
+Our [Contact Form 7 Form Submission Preview](https://cf7addons.com/preview/form-preview-submission/) adds a submission preview feature to your forms, enabling users to review and confirm their information before submission.  
 
 **More Pro addons are in development and will be available soon.**
 
@@ -298,12 +302,18 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 ###  Our Plugins
 
 * [Ultimate Before After Image Slider & Gallery - BEAF](https://wordpress.org/plugins/beaf-before-and-after-gallery)
+* [Instantio – WooCommerce Quick Checkout | Floating Cart, Side Cart & Popup Cart](https://wordpress.org/plugins/instantio)
 * [Tourfic – Ultimate Hotel Booking, Travel Booking & Apartment Booking WordPress Plugin](https://wordpress.org/plugins/tourfic/)
-* [Onepage / Direct Checkout for WooCommerce - Instantio](https://wordpress.org/plugins/instantio)
+* [Hydra Booking – All in One Appointment Scheduling and Booking Calendar Solution](https://wordpress.org/plugins/hydra-booking)
+
+###  Our Themes
+
+* [Travelfic – Ultimate Travel Booking WordPress Theme](https://wordpress.org/themes/travelfic/)
+* [Ultimate Hotel Booking WordPress Theme](https://wordpress.org/themes/ultimate-hotel-booking/)
 
 = Credits =
 
-The icons used in this plugin are sourced from [Iconfinder](https://www.iconfinder.com").
+Icons source [Iconfinder](https://www.iconfinder.com").
 
 == Installation ==
 
@@ -413,145 +423,71 @@ Instantly forward form submissions to your Telegram channel for quick access. Ho
 
 == Changelog ==
 
-= 3.4.5 - 12/09/2024 =
+= 3.5.0 - 15/01/2025 =
 
-- Introduced: Mailchimp Pro (Pro)
-- System stability improved
-- Minor bug fixes and improvements
-- Improvement: Submissions unique ID
-- Improvement: Database addon pro
-- Improvement: Conversational form
+- Introduced: Form Submission Preview Addon (Pro).
+- Improved: WebHook functionality.
+- Fixed: Conditional checkbox and "Hide All Conditional" issues in email templates.
+- Fixed: Required checkboxes not working with hidden conditional fields.
+- Updated: Handling of required checkboxes in hidden fields.
 
-= 3.4.4 - 02/09/2024 =
+= 3.4.18 - 12/01/2025 =
 
-- Improvement: Mailchimp API connection
-- System stability improved
-
-= 3.4.3 - 25/08/2024 =
-
-- Improvement: Post-submission thumbnail size adjusted
-- Improvement: Fixed past days booking issue
-- Improvement: Repeater field issue resolved
-- Improvement: Translation issues fixed
-
-= 3.4.2 - 11/08/2024 =
-
-- Improvement: Radio field validation for multistep.
-- Improvement: Radio field validation for repeater.
-
-= 3.4.1 - 02/08/2024 =
-
-- Compatible with Tourfic plugin
+- Compatibility: Fully compatible with WooCommerce (v9.5.2).
 - System stability improved
 
-= 3.4.0 - 29/07/2024 =
+= 3.4.17 - 31/12/2024 =
 
-- Introduced: Database Pro Addon( Pro )
-- Fixed: Issues with double slashes "//".
-- Fixed: Addon page reload issue.
-- Fixed: Color picker issue.
+- Compatibility: Fully compatible with Contact Form 7 version 6.0.2.
+- Updated: Readme.txt file and plugin information.
 
-= 3.3.16 - 17/07/2024 =
+= 3.4.16 - 23/12/2024 =
 
-- Compatible with WordPress 6.6
+- Fixed: Resolved post-submission issues.
+- Fixed: Fixed the star review functionality.
+- Fixed: Addressed repeater field issues.
+
+= 3.4.15 - 11/12/2024 =
+
+- Added: label on the country dropdown field
+
+= 3.4.14 - 25/11/2024 =
+
+- Fix: Addressed minor bugs and resolved issues.
+- Improvement: Enhanced license and Pro update notice feature.
+- Improvement: Updated and refined tags tab styling in form settings.
+
+= 3.4.13 - 24/11/2024 =
+
+- Compatibility: Resolved translation notice issue for compatibility with WordPress 6.7.1.
+- Fix: Addressed minor bugs and implemented general improvements.
+
+= 3.4.12 - 21/11/2024 =
+
+- Update: Revised and updated the plugin's Readme.txt file information.
+
+= 3.4.11 - 19/11/2024 =
+
+- Compatibility: Fully compatible with WordPress 6.7
+
+= 3.4.10 - 18/11/2024 =
+
+- compatibility: Fully compatible with Contact Form 7 version 6.0.
+- Improvement: Optimized and improved the overall codebase for better performance.
+- Fix: Resolved issues with multi-step and form submission validation.
+- Fix: Addressed deprecation warnings and fixed.
+- Feature: Added support for multi-page PDFs.
+- Improvement: Enhanced range slider functionality.
+
+= 3.4.9 - 14/11/2024 =
+
+- Minor bug fixes & improvements
 - System stability improved
 
-= 3.3.15 - 07/07/2024 =
+= 3.4.8 - 24/10/2024 =
 
-- Improvement: System stability
-- Minor Bug fixes and improvements
-- Fixed: Escaping and text-domain issue
-- Fixed: Notice close issue
-
-= 3.3.14 – 24/06/2024 =
-
-- Improvement: System stability
-- Minor bug fixes and improvements
-
-= 3.3.13 – 13/06/2024 =
-
-- Improvement: Country dropdown and repeater
-- Improvement: Star rating review submission 
-- Improvement: Quick setup design issue
-- Improvement: MailChimp addon upgraded
-- Improvement: Optimized CSS/JS code
-- Improvement: System stability
-- Minor bug fixes and improvements
-- Fixed: Booking date issue
-- Compatibility: Compatible with WordPress 6.5.4
-
-= 3.3.12 – 27/05/2024 =
-
-- Fixed: Conditional Logic issue
-- Fixed: Dynamic field issue
-- Improved: Digital signature
-- Improved: Import/Export process
-- Improved: Repeater addon
-- Improved: Quick Setup wizard
-- Improved: Submission ID addon
-- Improved: Spam Protection
-- Improved: Column/Grid addon
-- Improved: PDF addon file system
-
-= 3.3.11 – 07/05/2024 =
-
-- Fixed: PDF file path issue
-
-= 3.3.10 – 04/05/2024 =
-
-- Updated readme.txt
-
-= 3.3.9 – 04/05/2024 =
-
-- Added: Spam protection feature introduced
-- Fixed: Minor Bugs
-- System stability improved
-
-= 3.3.8 – 28/04/2024 =
-
-- Compatible with Impreza Theme
-- Fixed: Minor Bugs
-- Added: Plugin dependency notice
-
-= 3.3.7 – 03/04/2024 =
-
-- Compatibility: Compatible with WordPress 6.5
-- Fixed: Minor Bugs
-
-= 3.3.6 – 25/03/2024 =
-
-- Fixed: Mailchimp warning issue
-- Fixed: Repeater limit issue( Pro )
-- Fixed: ACF conflict issue
-- Fixed: Booking issue( Pro )
-
-= 3.3.5 – 15/03/2024 =
-
-- Added: Disclaimer for Patchstack VDP
-- Updated: readme.txt
-
-= 3.3.4 – 14/03/2024 =
-
-- Fixed: Assets loading 404 issue
-- Fixed: Sweetalert2 patch resolved
-- Updated: Imported Data Converted into JSON
-
-= 3.3.3 – 06/03/2024 =
-
-- Fixed: Digital Signature Conflict with DB
-- Added: CDN and Local script Settings
-
-= 3.3.2 – 05/03/2024 =
-
-- Fixed: Auto Scrolling to the top for Multi-step form
-- Fixed: PDF both emails send issue
-- Fixed: PDF body content image tag visual issue
-- Fixed: Warning issue  headers already sent
-- Fixed: Conditional Checkbox issue
-- Fixed: Switcher empty saved issue fixed
-- Fixed: Digital signature conflict with DB and PDF generator 
-- Fixed: Placeholder Issue
-- Fixed: Styler addon border issue Issue
+- Improved: Compatibility with Easy Table of Contents.
+- Fixed: Step header issue in the Multistep Addon.
 
 **Old Changelog can be found [here](https://cf7addons.com/changelog/)**.
 
