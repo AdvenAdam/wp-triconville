@@ -1,18 +1,4 @@
 {
-  "selectedMaterial": [
-    "canopy-fabric",
-    "ceramic",
-    "olefin-fabric",
-    "outdoor-teak",
-    "powder-coated-aluminium",
-    "rope",
-    "sling-fabric",
-    "stainless-steel",
-    "sunbrella-fabric",
-    "throw-pillow-fabric",
-    "upholstery-sling-fabric",
-    "wicker"
-  ],
   "groups": [
     {
       "id": 1,
@@ -111,7 +97,8 @@
           "description": "Our wicker furniture is made of premium synthetic fiber as weaving material that comes with different colors, patterns, looms, and effects. The filters are tear free, weather resistant, and colorfast. It is 100% recyclable and resistant to chlorine and salt water. When the temperature is low, the weave will become somewhat stiffer than normal and in extremely high temperature the weave will become more elastic. The furniture will retain its normal elastic property once the temperature stabilizes.",
           "filters": {
             "slug": "wicker",
-            "keywords": ""
+            "keywords": "",
+            "codes": "W11"
           }
         }
       ]

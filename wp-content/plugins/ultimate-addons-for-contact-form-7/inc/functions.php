@@ -11,9 +11,16 @@ if ( file_exists( UACF7_PATH . 'inc/class-setup-wizard.php' ) ) {
 	require_once UACF7_PATH . 'inc/class-setup-wizard.php';
 }
 
+//Require ultimate Promo Notice
+if ( file_exists( UACF7_PATH . 'inc/class-promo-notice.php' ) ) {
+
+    require_once ( UACF7_PATH .'inc/class-promo-notice.php');
+}
+
 if ( file_exists( UACF7_PATH . 'admin/admin-menu.php' ) ) {
 	require_once UACF7_PATH . 'admin/admin-menu.php';
 }
+
 
 
 
@@ -129,7 +136,7 @@ Return: checked
 */
 if ( ! function_exists( 'uacf7_print_r' ) ) {
 	function uacf7_print_r( $value ) {
-		echo '<pre>';
+		echo '<pre style="padding-left: 180px;">';
 		print_r( $value );
 		echo '</pre>';
 		// exit;
@@ -337,9 +344,26 @@ add_filter( 'wpcf7_contact_form_properties', 'uacf7_add_wrapper_to_cf7_form', 10
 function uacf7_add_wrapper_to_cf7_form( $properties, $cfform ) {
 	if ( ! is_admin() || ( defined( 'DOING_AJAX' ) && DOING_AJAX ) ) {
 
+		$auto_cart = uacf7_get_form_option( $cfform->id(), 'auto_cart' );
+        $uacf7_enable_product_auto_cart = isset($auto_cart['uacf7_enable_product_auto_cart']) ? $auto_cart['uacf7_enable_product_auto_cart'] : false;
+
+		$form_meta = uacf7_get_form_option( $cfform->id(), 'styler' );
+		$form_styles = isset( $form_meta['uacf7_enable_form_styles'] ) ? $form_meta['uacf7_enable_form_styles'] : false;
+
+		$auto_cart_class = '';
+		$uacf7_formStyler_class= '';
+
+		if ( $uacf7_enable_product_auto_cart ) {
+			$auto_cart_class = 'uacf7_auto_cart_'.$cfform->id();
+		}
+
+		if ( $form_styles ) {
+			$uacf7_formStyler_class= 'uacf7-uacf7style uacf7-uacf7style-' . esc_attr( $cfform->id() );
+		}
+		
 		$form = $properties['form'];
 		ob_start();
-		echo '<div class="uacf7-form-' . $cfform->id() . '">' . $form . '</div>';
+		echo '<div class="uacf7-form-' . $cfform->id() . ' '.$auto_cart_class.' '.$uacf7_formStyler_class.'">' . $form . '</div>';
 		$properties['form'] = ob_get_clean();
 
 	}
@@ -648,7 +672,6 @@ if ( ! function_exists( 'uacf7_form_option_Migration_callback' ) ) {
 					}
 
 					//  Conditional addon Migration 
-
 					$condition = get_post_meta( get_the_ID(), 'uacf7_conditions', true );
 					if ( is_array( $condition ) ) {
 						$count = 0;

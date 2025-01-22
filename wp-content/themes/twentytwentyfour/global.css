@@ -214,6 +214,7 @@ body {
     min-height: 38px;
     max-width: none;
     padding: 0.5rem 0.75rem;
+    border-radius: 0;
 }
 
 .content-container .contact-form-section select {
@@ -242,7 +243,6 @@ body {
 }
 
 .wpcf7-list-item {
-    max-width: 20px;
     height: 20px;
     width: 100%;
     margin-left: 0;
@@ -268,66 +268,202 @@ body {
 }
 
 
-.sib-form {
+.footer .sib-form {
     padding:0px !important;
 }
-.sib-input .sib-form-block {
+.footer .sib-input .sib-form-block {
     padding:0px !important;
 }
-#sib-container {
+.footer #sib-container {
     background: transparent !important;
     padding: 0px !important;
 }
-.sib-form-block{
+.footer .sib-form-block{
     padding: 0px !important;
 }
-.entry__field input {
-    background: #F4F6F6 !important;
+.footer .sib-form .entry__field {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.footer .sib-form .entry__field input {
     border: 1px solid #4d4d4d !important;
     max-width: none !important;
     font-size: 16px !important;
     width: 100% !important;
     outline: none !important;
 }
-.sib-form .clickable__icon {
+.footer .sib-form .clickable__icon {
     height: 1rem !important;
     width: 1rem !important;
 }
-#sib-container input:-ms-input-placeholder {
+.footer #sib-container input:-ms-input-placeholder {
     text-align: left;
     color: #000000;
 }
 
-#sib-container input::placeholder {
+.footer #sib-container input::placeholder {
     text-align: left;
     color: #c0ccda;
 }
 
-#sib-container textarea::placeholder {
+.footer #sib-container textarea::placeholder {
     text-align: left;
     color: #c0ccda;
 }
 
+/* Contact Form */
 
-gmpx-store-locator {
+.content-container .contact-form-section input[type="text"],
+.content-container .contact-form-section input[type="email"],
+.content-container .contact-form-section select {
+    min-height: 45px;
+}
+
+.wpcf7-response-output,
+.wpcf7-not-valid-tip {
+    font-size: 14px;
+    font-family: "Helvetica Neue", "sans-serif";
+    padding-top: 0.25rem;
+}
+
+.wpcf7-response-output {
+    color: #dc3232 !important;
+    border: none !important;
+    padding-left: 0 !important;
+    margin-left: 0 !important;
+}
+
+.content-container .contact-form-section textarea::placeholder,
+.content-container .contact-form-section input::placeholder {
+    color: #4d4d4d;
+    opacity: 1;
+    font-size: 14px;
+    font-family: "Helvetica Neue", "sans-serif";
+}
+
+.content-container .contact-form-section input[type="text"],
+.content-container .contact-form-section input[type="email"],
+.content-container .contact-form-section input[type="number"],
+.content-container .contact-form-section textarea {
+    font-size: 16px;
     width: 100%;
-    height: 100%;
-  
-    /* These parameters customize the appearance of Locator Plus. See the documentation at
-       https://github.com/googlemaps/extended-component-library/blob/main/src/store_locator/README.md
-       for more information. */
-    --gmpx-color-surface: #fff;
-    --gmpx-color-on-surface: #212121;
-    --gmpx-color-on-surface-variant: #757575;
-    --gmpx-color-primary: #757575;
-    --gmpx-color-outline: #e0e0e0;
-    --gmpx-fixed-panel-width-row-layout: 28.5em;
-    --gmpx-fixed-panel-height-column-layout: 65%;
-    --gmpx-font-family-base: "Roboto", sans-serif;
-    --gmpx-font-family-headings: "Roboto", sans-serif;
-    --gmpx-font-size-base: 0.875rem;
-    --gmpx-hours-color-open: #188038;
-    --gmpx-hours-color-closed: #d50000;
-    --gmpx-rating-color: #ffb300;
-    --gmpx-rating-color-empty: #e0e0e0;
-  }
+    background: transparent;
+    border: 1px solid #4d4d4d;
+    min-height: 38px;
+    max-width: none;
+    letter-spacing: 0.07rem;
+    padding: 1rem 1.5rem;
+    border-radius: 0px;
+    outline: none;
+}
+
+.content-container .contact-form-section textarea {
+    padding-top: 0.75rem !important;
+}
+
+.content-container .contact-form-section .country-list-dropdown {
+    padding-left: 50px !important;
+}
+
+.content-container .contact-form-section input::-webkit-outer-spin-button,
+.content-container .contact-form-section input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.content-container .contact-form-section select:invalid,
+.content-container .contact-form-section select option[value=""] {
+    color: #999999;
+}
+
+.content-container .contact-form-section input[type="checkbox"] {
+    max-width: 14px;
+    height: 14px;
+}
+
+/* Request Catalog */
+
+.content-container .request-catalog-form input[type="text"],
+.content-container .request-catalog-form input[type="email"],
+.content-container .request-catalog-form select {
+    min-height: 45px;
+}
+
+.wpcf7-response-output,
+.wpcf7-not-valid-tip {
+    font-size: 14px;
+    font-family: "Helvetica Neue", "sans-serif";
+    padding-top: 0.25rem;
+}
+
+.wpcf7-response-output {
+    color: #dc3232 !important;
+    border: none !important;
+    padding-left: 0 !important;
+    margin-left: 0 !important;
+}
+.wpcf7-list-item-label,
+.content-container .request-catalog-form input[type="text"],
+.content-container .request-catalog-form textarea::placeholder,
+.content-container .request-catalog-form input::placeholder {
+    color: #4d4d4d !important;
+    opacity: 1;
+    font-size: 14px !important;
+    font-family: "Helvetica Neue", "sans-serif" !important;
+}
+
+.content-container .request-catalog-form input[type="text"],
+.content-container .request-catalog-form input[type="email"],
+.content-container .request-catalog-form input[type="number"],
+.content-container .request-catalog-form textarea {
+    font-size: 16px;
+    width: 100%;
+    background: transparent;
+    border: 1px solid #4d4d4d;
+    color: #4d4d4d !important;
+    min-height: 38px;
+    max-width: none;
+    letter-spacing: 0.07rem;
+    padding: 1rem 1.5rem !important;
+    border-radius: 0px;
+}
+
+.content-container .request-catalog-form textarea {
+    padding-top: 0.75rem !important;
+}
+
+.content-container .request-catalog-form .country-list-dropdown {
+    padding-left: 50px !important;
+}
+
+.content-container .request-catalog-form input::-webkit-outer-spin-button,
+.content-container .request-catalog-form input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.content-container .request-catalog-form select:invalid,
+.content-container .request-catalog-form select option[value=""] {
+    color: #999999;
+}
+
+.content-container .request-catalog-form input[type="checkbox"] {
+    max-width: 14px;
+    height: 14px;
+}
+.content-container .country-select.inside .flag-dropdown  {
+    right: 0 !important;
+    left: auto !important;
+}
+.content-container .country-select.inside .flag-dropdown .selected-flag title{
+    color: #4d4d4d !important;
+    opacity: 1;
+    font-size: 14px !important;
+    font-family: "Helvetica Neue", "sans-serif" !important;
+}
+ /* checkbox request catalog */
+ .wpcf7-list-item {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+ }

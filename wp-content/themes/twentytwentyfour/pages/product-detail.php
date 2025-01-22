@@ -184,15 +184,17 @@ function renderMaster() {
         const isCollectionListed = selectedCollection.map(collection => collection.collection_id).includes(ProductsData.collection);
         const isCollectionProductNotEmpty = Array.isArray(ProductsData.collection_product) && ProductsData.collection_product.length > 0;
         if (isCollectionListed && isCollectionProductNotEmpty) {
-            renderCollectionProducts(ProductsData.collection_product.slice(0, 4), ProductsData.collection_det);
+            const collectionProduct = ProductsData.collection_product.slice(0, 4).filter(data => data.status === 'published' || data.status === 'draft');
+            renderCollectionProducts(collectionProduct, ProductsData.collection_det);
         }
         if (Array.isArray(ProductsData.related_product) && ProductsData.related_product.length > 0) {
-            renderRelatedProducts(ProductsData.related_product);
+            const relatedProduct = ProductsData.related_product.filter(data => data.status === 'published' || data.status === 'draft')
+            renderRelatedProducts(relatedProduct);
         }
 
     } catch (error) {
         console.error("🚀 ~ renderMaster ~ error:", error);
-        redirectError();
+        // redirectError();
     } finally {
         $('#page-loading').hide();
         console.timeEnd('renderMaster');
@@ -255,7 +257,7 @@ async function renderOverview(res) {
                 <div class='max-w-xl mx-auto lg:mx-0 order-last lg:order-first' id="product__description">
                     <h1 class="text-2xl md:text-3xl text-gray-900 line-clamp-2">${filterProductName(res.name)}</h1>
                     <p class="text-slate-500 mb-4">Designed by 
-                        <span class="text-black font-medium underline"><a href="https://indospacegroup.com/indospace-rnd/" target="_blank">Indospace R&D </a></span>
+                        <span class="text-black font-medium underline"><a href="https://indospacegroup.com/indospace-studio/" target="_blank">Indospace Studio </a></span>
                     </p>
                     <p class="line-clamp-4">${desc}</p>
                 </div>
@@ -281,7 +283,7 @@ async function renderOverview(res) {
             </a>`
             :''}
             <a href="<?= BASE_LINK; ?>/find-a-store/"
-                class="btn-ghost flex items-end justify-center uppercase"><p class="text-xs">Find Store</p></a>
+                class="btn-ghost flex items-end justify-center uppercase"><p class="text-xs">Find a Store</p></a>
         </div>
     `);
 }
@@ -622,48 +624,54 @@ function renderDownloadable(asset3d, product_image, collection_sheet) {
 }
 
 function renderImages(images) {
-    $(document).ready(function() {
-        if (images.ambience_image_1920.length > 0) {
-            images.ambience_image_1920.forEach((e) => {
-                $('.ambience__img').append(`
-                <img src="${e}"
-                    class="h-full me-2 mx-2 w-screen md:w-auto object-cover" />
-            `)
-            })
-            $('.ambience__img').slick({
-                slidesToScroll: 1,
-                variableWidth: true,
-                arrows: false,
-                centerMode: false,
-                responsive: [{
-                    breakpoint: 768,
-                    settings: {
-                        centerMode: false,
-                        slidesToShow: 1.02,
-                        slidesToScroll: 1,
-                        variableWidth: false,
-                    }
-                }]
-            });
-            $(".prev-btn").click(function() {
-                $(".ambience__img").slick("slickPrev");
-            });
-            $(".next-btn").click(function() {
-                $(".ambience__img").slick("slickNext");
-            });
-        } else {
-            $('.ambience__section').hide();
-        }
-        if (images.spec_image) {
-            // Spec image
-            $('#image__spec').append(`
+    images.ambience_image_1920.forEach((e) => {
+        $('.ambience__img').append(`
+            <img src="${e}"
+                class="h-full me-2 mx-2 w-screen md:w-auto object-cover" />
+        `)
+    })
+
+    if (images.ambience_image_1920.length > 1) {
+        $('.ambience__img').slick({
+            slidesToScroll: 1,
+            variableWidth: true,
+            arrows: false,
+            centerMode: false,
+            responsive: [{
+                breakpoint: 768,
+                settings: {
+                    centerMode: false,
+                    slidesToShow: 1.02,
+                    slidesToScroll: 1,
+                    variableWidth: false,
+                }
+            }]
+        });
+        $(".prev-btn").click(function() {
+            $(".ambience__img").slick("slickPrev");
+        });
+        $(".next-btn").click(function() {
+            $(".ambience__img").slick("slickNext");
+        });
+    } else if (images.ambience_image_1920.length == 1) {
+        $('.ambience__img').addClass('flex justify-center');
+        $('.prev-btn').remove();
+        $(".next-btn").remove();
+    } else {
+        $('.ambience__img').hide();
+    }
+
+
+
+    if (images.spec_image) {
+        // Spec image
+        $('#image__spec').append(`
             <img src="${images.spec_image}"
                 alt="specification product"
                 class="h-auto w-full"
-                />
+            />
         `)
-        }
-    })
+    }
 }
 
 function renderCollectionProducts(products, name) {

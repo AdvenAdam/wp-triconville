@@ -52,7 +52,6 @@ get_template_part('header-custom');
 
 </div>
 <script>
-let selectedMaterialIds = [];
 let groupingMaterials = [];
 let allMaterialProducts = [];
 $(document).ready(function() {
@@ -63,7 +62,6 @@ $(document).ready(function() {
             $('#page-loading').show();
         },
         success: (res) => {
-            selectedMaterialIds = res.selectedMaterial;
             groupingMaterials = res.groups;
             // ANCHOR : filter by Id
             // groupingMaterials = res.groups.filter(e => e.id === 8);
