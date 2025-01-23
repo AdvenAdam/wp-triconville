@@ -2,7 +2,9 @@
 $character_slug = get_query_var('mood');
 
 $url =  BASE_URL . '/?rest_route=/wp/v2/selected_moods/';
-$response = wp_remote_get($url,[]);
+$response = wp_remote_get($url,[
+    'timeout' => 10
+]);
 $data = json_decode(wp_remote_retrieve_body($response), true);
 
 if (is_wp_error($response)) {

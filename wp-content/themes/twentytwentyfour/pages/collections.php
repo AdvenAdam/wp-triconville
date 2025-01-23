@@ -7,6 +7,7 @@
     );
     $response = wp_remote_get($url, array(
         'headers' => $headers,
+        'timeout' => 10,
     ));
 
     if (is_wp_error($response)) {
