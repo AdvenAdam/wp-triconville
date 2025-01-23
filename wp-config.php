@@ -42,7 +42,7 @@ define('BASE_API', 'https://platform.indospacegroup.com/v1/');
 define('API_KEY', 'Token 09633df1426fce26fc53de676e8bb65f47a0dcf1');
 define('BASE_URL', 'http://192.168.88.65/triconville');
 define('BASE_LINK', '/triconville');
-define('ENV', 'dev');
+define('ENV', 'development');
 
 /**#@+
  * Authentication unique keys and salts.
