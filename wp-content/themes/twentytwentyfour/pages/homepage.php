@@ -363,7 +363,7 @@ function loadCollections() {
             $(document).ready(function() {
                 collectionSlick()
             })
-            // renderRequestCatalogForm();
+            renderRequestCatalogForm();
         }
     });
 }
@@ -418,11 +418,7 @@ function collectionSlick() {
 }
 
 function renderRequestCatalogForm() {
-    $('.request-catalog-form').append(`
-        <div class="overflow-hidden">
-            <?php echo do_shortcode('[contact-form-7 id="ff7ee87" title="request catalogue"]'); ?>
-        </div>
-    `)
+    $('.country-dropdown').attr('placeholder', 'Select a Country');
 }
 
 $(window).resize(function() {
