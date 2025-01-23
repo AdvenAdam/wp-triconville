@@ -40,11 +40,11 @@ define('DB_COLLATE', '');
 
 define('BASE_API', 'https://platform.indospacegroup.com/v1/');
 define('API_KEY', 'Token 09633df1426fce26fc53de676e8bb65f47a0dcf1');
-define('BASE_URL', 'http://triconville.com');
+define('BASE_URL', 'https://triconville.com');
 define('BASE_LINK', '');
 
-define( 'WP_HOME', 'http://triconville.com' );
-define( 'WP_SITEURL', 'http://triconville.com' );
+define( 'WP_HOME', 'https://triconville.com' );
+define( 'WP_SITEURL', 'https://triconville.com' );
 
 /**#@+
 * Authentication unique keys and salts.
