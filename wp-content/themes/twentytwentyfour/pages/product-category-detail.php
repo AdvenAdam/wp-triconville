@@ -1,8 +1,20 @@
 <?php
 $character_slug = get_query_var('product');
-echo '<title>' . ucfirst( slugToTitleCase($character_slug) )  . ' | ' . wp_kses_data( get_bloginfo( 'name', 'display' ) ) . '</title>';
-get_template_part('header-custom');
 
+$data = json_decode(file_get_contents(get_template_directory() . '/api/product.json'), true);
+$selectedCategory = array_filter($data, function($e) use ($character_slug) {
+    return $e['slug'] === $character_slug;
+});
+$selectedCategory = array_values($selectedCategory);
+if (empty($selectedCategory)) {
+    wp_safe_redirect(home_url('page-not-found'));
+    exit;
+}
+echo '<title>'. esc_attr($selectedCategory[0]['meta']['title']) . '</title>';
+echo '<meta name="description" content="' . esc_attr($selectedCategory[0]['meta']['description']) . '"/>';
+echo '<meta name="keywords" content="' . esc_attr($selectedCategory[0]['meta']['keywords']). '"/>';
+
+get_template_part('header-custom');
 ?>
 <style>
 .product-detail-banner {
@@ -46,47 +58,16 @@ get_template_part('header-custom');
 
 </div>
 <script>
+let localProductsData = [];
 let categoriesData;
 let haveSubCategories = false;
 let productListSelected = [];
 
 $(document).ready(function() {
-    $.ajax({
-        url: "<?= BASE_URL; ?>/?rest_route=/wp/v2/product_service",
-        type: "GET",
-        beforeSend: () => {
-            $('#page-loading').show();
-        },
-        success: (res) => {
-            const filteredCategory = res.filter(cat => cat.slug === '<?= $character_slug ?>')
-            categoriesData = filteredCategory[0];
-            if (!categoriesData) {
-                redirectError(404)
-            }
-        },
-        error: (error) => {
-            if (error.status === 404) {
-                redirectError(404)
-            }
-            console.error('Error fetching data:', error);
-        },
-        complete: () => {
-            $('#page-loading').hide();
-            haveSubCategories = categoriesData?.children.length;
-            renderMaster()
-            metaMaster()
-        }
-    })
-
+    categoriesData = <?= json_encode($selectedCategory[0]); ?>;
+    haveSubCategories = categoriesData?.children.length;
+    renderMaster()
 })
-
-function metaMaster() {
-    ['title', 'description', 'keywords'].forEach(key => {
-        if (categoriesData.meta[`${key}`] !== 'False') {
-            $(`<meta name="${key}" content="${categoriesData.meta[`${key}`]}"/>`).appendTo('head');
-        }
-    });
-}
 
 function renderMaster() {
     try {
