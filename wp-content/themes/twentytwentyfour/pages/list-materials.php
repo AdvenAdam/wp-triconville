@@ -113,7 +113,6 @@ function renderGroupContainer(data) {
 
 async function loadMaterials(data) {
     try {
-        console.time('fetchMaterials');
         for (const slug of data.slugs) {
             const res = await $.ajax({
                 url: `<?= BASE_API; ?>/v1_swatchparent_det_slug/${slug}/`,
@@ -130,11 +129,10 @@ async function loadMaterials(data) {
     } catch (error) {
         console.error(error);
     } finally {
-        console.timeEnd('fetchMaterials');
         const subGroups = {
             id: data.id,
             name: data.name,
-            products: allMaterialProducts,
+            materials: allMaterialProducts,
             subGroupFilter: data.subGroups
         }
         renderSubGroups(subGroups);
@@ -142,14 +140,14 @@ async function loadMaterials(data) {
 }
 
 function renderSubGroups(data) {
-    const productsData = data.products;
+    const materials = data.materials;
 
     for (const subGroup of data.subGroupFilter) {
-        const materials = productsData.find(e => e.slug === subGroup.filters.slug);
-        if (materials) {
-            const products = filterProduct({
+        const materialData = materials.find(e => e.slug === subGroup.filters.slug);
+        if (materialData) {
+            const filteredMaterials = filterProduct({
                 filters: subGroup.filters
-            }, materials);
+            }, materialData);
             $('#material__container_' + data.id).append(`
                 <div class="material-products material-products_${data.id}" id="material__products_${slugify(subGroup.name)}" 
                     data-aos="fade-up"
@@ -159,11 +157,11 @@ function renderSubGroups(data) {
                     <h2 class="text-2xl mb-2">${toTitleCase(subGroup.name)}</h2>
                     <p class="mb-6">${subGroup.description}</p>
                     <div id="material__list__${slugify(subGroup.name)}" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 2xl:gap-10">
-                        ${products.map(product => {
+                        ${filteredMaterials.map(material => {
                             return (
-                                `<div class="cursor-pointer inline-flex flex-col items-center" onclick='materialClick("${materials.slug}", "${product.code}")'>
-                                    <img class="w-full h-auto object-contain" src="${product.image_384}" />
-                                    <p class="text-center max-w-[90%] mx-auto mt-2">${product.alias} (${product.code})</p>
+                                `<div class="cursor-pointer inline-flex flex-col items-center" onclick='materialClick("${materials.slug}", "${material.code}")'>
+                                    <img class="w-full h-auto object-contain" src="${material.image_384}" />
+                                    <p class="text-center max-w-[90%] mx-auto mt-2">${material.alias} (${material.code})</p>
                                 </div>
                             `)
                         }).join('')}
