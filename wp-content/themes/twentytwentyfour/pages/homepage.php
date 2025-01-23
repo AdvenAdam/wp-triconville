@@ -264,7 +264,7 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                             <p class=" mt-3 mb-6">
                                 Please complete your company details, and once verified, we'll deliver the Triconville Catalog directly to your company email.
                             </p>
-                            <?php echo do_shortcode('[contact-form-7 id="ff7ee87" title="request catalogue"]'); ?>
+                            <?php echo do_shortcode('[contact-form-7 id="56c4394" title="request catalogue"]'); ?>
 
                         </div>
                         <div class="request-catalog-success invisible opacity-0 h-0 transition duration-500 ease-in-out delay-100">
@@ -418,11 +418,7 @@ function collectionSlick() {
 }
 
 function renderRequestCatalogForm() {
-    $('.request-catalog-form').append(`
-        <div class="overflow-hidden">
-            <?php echo do_shortcode('[contact-form-7 id="ff7ee87" title="request catalogue"]'); ?>
-        </div>
-    `)
+    $('.country-dropdown').placeholder="Select a Country"
 }
 
 $(window).resize(function() {
