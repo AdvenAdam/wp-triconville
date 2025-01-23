@@ -45,6 +45,9 @@ define('BASE_LINK', '');
 
 define( 'WP_HOME', 'https://triconville.com' );
 define( 'WP_SITEURL', 'https://triconville.com' );
+define('BASE_URL', 'http://192.168.88.65/triconville');
+define('BASE_LINK', '/triconville');
+define('ENV', 'prod');
 
 /**#@+
 * Authentication unique keys and salts.
