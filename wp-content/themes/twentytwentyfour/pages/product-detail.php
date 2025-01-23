@@ -189,7 +189,9 @@ function renderMaster() {
             renderCollectionProducts(collectionProduct, ProductsData.collection_det);
         }
         if (Array.isArray(ProductsData.related_product) && ProductsData.related_product.length > 0) {
-            const relatedProduct = ProductsData.related_product.filter(data => data.status === 'published' || data.status === 'draft')
+            let relatedProduct
+            relatedProduct = ProductsData.related_product.filter(data => data.status === 'published' || data.status === 'draft')
+            relatedProduct = relatedProduct.filter(data => !data.name.toLowerCase().includes('rivera'))
             renderRelatedProducts(relatedProduct);
         }
 
