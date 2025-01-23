@@ -39,6 +39,9 @@
 </div>
 
 <script>
+$(document).ready(function() {
+    $('.country-dropdown').attr('placeholder', 'Select a Country');
+})
 document.addEventListener('wpcf7mailsent', function(event) {
     if (event.detail.status === 'mail_sent') {
         requestCatalog("success");

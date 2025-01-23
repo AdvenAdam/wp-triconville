@@ -197,7 +197,7 @@ function renderMaster() {
 
     } catch (error) {
         console.error("🚀 ~ renderMaster ~ error:", error);
-        // redirectError();
+        redirectError();
     } finally {
         $('#page-loading').hide();
         console.timeEnd('renderMaster');

@@ -112,7 +112,7 @@
 
   {
     "id": 5,
-    "ids": [23, 25],
+    "ids": [23, 25, 86, 20],
     "name": "Chairs",
     "slug": "chairs",
     "image": "https://storage.googleapis.com/back-bucket/wp_triconville/images/category/banner/banner_chair2.jpg",
@@ -137,6 +137,11 @@
         "id": 25,
         "name": "Outdoor Side Chairs",
         "param": "side"
+      },
+      {
+        "id": 20,
+        "name": "Outdoor Benches",
+        "param": ""
       }
     ],
     "meta": {
@@ -148,7 +153,7 @@
 
   {
     "id": 6,
-    "ids": [28, 24, 27, 20],
+    "ids": [28, 24, 27],
     "name": "Tables",
     "slug": "tables",
     "image": "https://storage.googleapis.com/back-bucket/wp_triconville/images/category/banner/banner_table2.jpg",
@@ -167,11 +172,6 @@
       {
         "id": 27,
         "name": "Outdoor Extension Tables",
-        "param": ""
-      },
-      {
-        "id": 20,
-        "name": "Outdoor Benches",
         "param": ""
       }
     ],

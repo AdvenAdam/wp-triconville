@@ -69,19 +69,24 @@ $(document).ready(function() {
 })
 
 function loadCollections() {
-    $('#page-loading').show();
-    const res = <?php echo json_encode($data); ?>;
-    selectedCollection = selectedCollection.filter(data => data.collection_id == res.collection_id);
-    collectionData = {
-        ...res,
-        ...selectedCollection[0]
-    };
-    collectionData.product_list = collectionData.product_list.filter(data => data.status === 'published' || data.status === 'draft');
-    if (!collectionData.name) {
-        redirectError(404);
-    } else {
-        $('#page-loading').hide();
-        renderMaster();
+    try {
+        $('#page-loading').show();
+        const res = <?php echo json_encode($data); ?>;
+        selectedCollection = selectedCollection.filter(data => data.collection_id == res.collection_id);
+        collectionData = {
+            ...res,
+            ...selectedCollection[0]
+        };
+        collectionData.product_list = collectionData.product_list.filter(data => data.status === 'published' || data.status === 'draft');
+        if (!collectionData.name) {
+            redirectError(404);
+        } else {
+            $('#page-loading').hide();
+            renderMaster();
+        }
+    } catch (error) {
+        console.error("  ~ loadCollections ~ error:", error);
+        redirectError();
     }
 };
 
