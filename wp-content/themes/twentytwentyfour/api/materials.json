@@ -38,7 +38,8 @@
           "description": "Our teak is kiln dried to a moisture content of 12%. Once dry, the timber can still absorb moisture, which causes ‘movement’. Timber will naturally expand and contract with changes in temperature and humidity. Outdoors this is more extreme than indoors. This is why outdoor furniture traditionally has slats rather than wide boards. Although we design our furniture to minimize and accommodate timber movement as much as possible, it cannot be prevented entirely. If you intend to store your furniture over the winter, we recommend that you do so in a dry garden shed or garage. However, we advise that you do not move teak furniture from the garden straight into a heated indoor room for storage, as the sharp differences in temperature and humidity may cause excessive ‘movement’ and result in splits.",
           "filters": {
             "slug": "outdoor-teak",
-            "keywords": ""
+            "keywords": "",
+            "codes": ["!T9", "!T6"]
           }
         }
       ]
@@ -87,10 +88,10 @@
     },
     {
       "id": 5,
-      "name": "Weave through our wickers",
-      "alias": "Wicker",
-      "banner": "https://storage.googleapis.com/back-bucket/wp_triconville/images/material/banner/wicker.png",
-      "slugs": ["wicker"],
+      "name": "Weave through our wickers and ropes",
+      "alias": "Wicker & Rope",
+      "banner": "https://storage.googleapis.com/back-bucket/wp_triconville/images/material/banner/rope.png",
+      "slugs": ["wicker", "rope"],
       "subGroups": [
         {
           "name": "Wicker",
@@ -100,16 +101,7 @@
             "keywords": "",
             "codes": "W11"
           }
-        }
-      ]
-    },
-    {
-      "id": 6,
-      "name": "Unravel the ropes",
-      "alias": "Rope",
-      "banner": "https://storage.googleapis.com/back-bucket/wp_triconville/images/material/banner/rope.png",
-      "slugs": ["rope"],
-      "subGroups": [
+        },
         {
           "name": "Flat Rope",
           "description": "Polyester blended ropes are stronger and more abrasion resistant than nylon rope. Unlike nylon rope, polyester has a low stretch factor. This is the exact reason on why polyester a popular choice for boating, marine, and outdoor furniture applications. 100% Olefin, the best material for outdoor use Swimming pool and sea water resistant and repellent, Color is solution-dyed, will not absorb chemicals, mildew and fungi repellent, Water-based stains can be easily cleaned",
