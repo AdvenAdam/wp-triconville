@@ -426,13 +426,14 @@ function renderRequestCatalogForm() {
 }
 
 $(window).resize(function() {
+    collectionSlick();
     setTimeout(() => {
         $(".collection__wrapper").slick('refresh');
-    }, 2000);
-    collectionSlick();
+    }, 1000);
 })
-
-document.addEventListener('wpcf7submit', function(event) {
+</script>
+<script>
+document.addEventListener('wpcf7mailsent', function(event) {
     requestCatalog("success");
 }, false);
 
@@ -446,7 +447,6 @@ function requestCatalog(action) {
     }
 }
 </script>
-
 
 
 <?php
