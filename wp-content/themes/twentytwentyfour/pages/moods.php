@@ -8,7 +8,8 @@ $selectedMood = array_filter($data, function($e) use ($character_slug) {
 });
 $selectedMood = array_values($selectedMood);
 if (empty($selectedMood)) {
-    return;
+    wp_safe_redirect(home_url('page-not-found'));
+    exit;
 }
 
 echo '<title>'. esc_attr($selectedMood[0]['meta']['title']) . '</title>';
