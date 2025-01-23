@@ -415,6 +415,7 @@ function collectionSlick() {
     } else if ($(".collection__wrapper").hasClass("slick-initialized")) {
         $(".collection__wrapper").slick("unslick");
     }
+
 }
 
 function renderRequestCatalogForm() {
@@ -422,16 +423,19 @@ function renderRequestCatalogForm() {
 }
 
 $(window).resize(function() {
-    collectionSlick();
     setTimeout(() => {
         $(".collection__wrapper").slick('refresh');
-    }, 1000);
+    }, 2000);
+    collectionSlick();
+
 })
 </script>
 <script>
 document.addEventListener('wpcf7mailsent', function(event) {
-    requestCatalog("success");
-}, false);
+    if (event.detail.status === 'mail_sent') {
+        requestCatalog("success");
+    }
+}, true);
 
 function requestCatalog(action) {
     if (action === "success") {
