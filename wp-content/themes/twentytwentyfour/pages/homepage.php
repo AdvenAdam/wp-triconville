@@ -418,11 +418,7 @@ function collectionSlick() {
 }
 
 function renderRequestCatalogForm() {
-<<<<<<< HEAD
-    $('.country-dropdown').placeholder="Select a Country"
-=======
-    $('.country-dropdown').attr('placeholder', 'Select a Country');
->>>>>>> 0ba026d62a38a79c1950b2ca3f3dc38981072ca6
+    $('.country-dropdown').attr('placeholder', 'Select a Country*');
 }
 
 $(window).resize(function() {
