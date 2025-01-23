@@ -1,16 +1,7 @@
 <?php
 $character_slug = get_query_var('mood');
 
-$url =  BASE_URL . '/?rest_route=/wp/v2/selected_moods/';
-$response = wp_remote_get($url,[
-    'timeout' => 10
-]);
-$data = json_decode(wp_remote_retrieve_body($response), true);
-
-if (is_wp_error($response)) {
-    echo 'Error fetching data: ' . $response->get_error_message();
-    return;
-}
+$data = json_decode(file_get_contents(get_template_directory() . '/api/moods.json'), true);
 
 $selectedMood = array_filter($data, function($e) use ($character_slug) {
     return $e['slug'] === $character_slug;
@@ -21,8 +12,8 @@ if (empty($selectedMood)) {
 }
 
 echo '<title>'. esc_attr($selectedMood[0]['meta']['title']) . '</title>';
-echo '<meta name="description" content="' . esc_attr($selectedMood['meta']['description']) . '"/>';
-echo '<meta name="keywords" content="' . esc_attr($selectedMood['meta']['keywords']). '"/>';
+echo '<meta name="description" content="' . esc_attr($selectedMood[0]['meta']['description']) . '"/>';
+echo '<meta name="keywords" content="' . esc_attr($selectedMood[0]['meta']['keywords']). '"/>';
 
 get_template_part('header-custom');
 ?>
