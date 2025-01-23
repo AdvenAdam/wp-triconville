@@ -149,6 +149,18 @@
                 </div>
                 <div class="hidden gap-6 overflow-x-auto scrollbar-none"
                      id="sub-products-desktop">
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                         fill="none"
+                         viewBox="0 0 24 24"
+                         stroke-width="1.5"
+                         stroke="currentColor"
+                         id="sub-products-desktop-arrow"
+                         class="xl:hidden size-4 absolute top-1/2 -translate-y-1/2 z-10 right-1 rotate-180 me-2">
+                        <path stroke-linecap="round"
+                              stroke-linejoin="round"
+                              d="M15.75 19.5 8.25 12l7.5-7.5" />
+
+                    </svg>
                 </div>
             </div>
         </nav>
@@ -256,6 +268,7 @@
     }
 
     function navSubMenu() {
+        // collections
         if ($('#sub-collections-desktop').get(0).scrollWidth > $('#sub-collections-desktop').innerWidth()) {
             $('#sub-header').addClass('!pe-10 2xl:!pe-20');
             $('#sub-collections-desktop').on('scroll', function() {
@@ -279,6 +292,35 @@
                     }, 500);
                 } else {
                     $('#sub-collections-desktop').animate({
+                        scrollLeft: scrollLeft + clientWidth
+                    }, 1000);
+                }
+            });
+        }
+        // products
+        if ($('#sub-products-desktop').get(0).scrollWidth > $('#sub-products-desktop').innerWidth()) {
+            $('#sub-header').addClass('!pe-10 2xl:!pe-20');
+            $('#sub-products-desktop').on('scroll', function() {
+                const scrollLeft = $(this).scrollLeft();
+                const clientWidth = $(this).innerWidth();
+                const scrollWidth = $(this).get(0).scrollWidth;
+                if (scrollLeft + clientWidth >= scrollWidth) {
+                    $('#sub-products-desktop-arrow').removeClass('rotate-180');
+                } else {
+                    $('#sub-products-desktop-arrow').addClass('rotate-180');
+                }
+            });
+            $('#sub-products-desktop-arrow').on('click', function() {
+                const scrollWidth = $('#sub-products-desktop').get(0).scrollWidth;
+                const clientWidth = $('#sub-products-desktop').innerWidth();
+                const scrollLeft = $('#sub-products-desktop').scrollLeft();
+
+                if (scrollLeft + clientWidth >= scrollWidth) {
+                    $('#sub-products-desktop').animate({
+                        scrollLeft: 0
+                    }, 500);
+                } else {
+                    $('#sub-products-desktop').animate({
                         scrollLeft: scrollLeft + clientWidth
                     }, 1000);
                 }
