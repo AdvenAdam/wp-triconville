@@ -16,17 +16,11 @@ $selectedMood = array_filter($data, function($e) use ($character_slug) {
     return $e['slug'] === $character_slug;
 });
 $selectedMood = array_values($selectedMood);
-
-$otherMoods = array_filter($data, function($e) use ($character_slug) {
-    return $e['slug'] !== $character_slug;
-}); 
-$otherMoods = array_values($otherMoods);
-
 if (empty($selectedMood)) {
     return;
 }
 
-echo '<title>'. esc_attr($selectedMood['meta']['title']) . '</title>';
+echo '<title>'. esc_attr($selectedMood[0]['meta']['title']) . '</title>';
 echo '<meta name="description" content="' . esc_attr($selectedMood['meta']['description']) . '"/>';
 echo '<meta name="keywords" content="' . esc_attr($selectedMood['meta']['keywords']). '"/>';
 
@@ -81,7 +75,7 @@ get_template_part('header-custom');
 
 </div>
 <script>
-let moods = [];
+let moods = <?= json_encode($data); ?>;
 let selectedMood = {};
 let otherMoods = [];
 
@@ -89,7 +83,7 @@ $(document).ready(function() {
     try {
         $('#page-loading').hide();
         selectedMood = <?= json_encode($selectedMood[0]); ?>;
-        otherMoods = <?= json_encode($otherMoods); ?>;
+        otherMoods = moods.filter(mood => mood.slug !== selectedMood.slug);
         renderMaster()
     } catch (error) {
         redirectError()
