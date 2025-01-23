@@ -201,7 +201,7 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                 </div>
             </div>
             <!-- ANCHOR : News List -->
-            <div class="mt-20 lg:mt-48"
+            <div class="pt-20 lg:pt-48"
                  data-aos="fade-up"
                  data-aos-once="true"
                  data-aos-delay="200"
@@ -241,12 +241,12 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                 </div>
             </div>
             <!-- ANCHOR : Catalog -->
-            <div class="my-20 lg:my-48"
+            <div class="mb-20 lg:mb-48"
                  data-aos="fade-up"
                  data-aos-once="true"
                  data-aos-delay="200"
                  data-aos-duration="1000">
-                <div class="grid lg:grid-cols-2 gap-8 items-center ">
+                <div class="grid lg:grid-cols-2 gap-8 items-center pt-10 lg:pt-48">
                     <div class="max-w-xl order-last lg:order-first ">
                         <div class="request-catalog transition duration-500 ease-in-out">
                             <p class="uppercase text-xs tracking-widest mb-2">catalog</p>
@@ -264,7 +264,7 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                             <p class=" mt-3 mb-6">
                                 Please complete your company details, and once verified, we'll deliver the Triconville Catalog directly to your company email.
                             </p>
-                            <?php echo do_shortcode('[contact-form-7 id="ff7ee87" title="request catalogue"]'); ?>
+                            <?php echo do_shortcode('[contact-form-7 id="' . ( ENV === 'development' ? 'ff7ee87' : '56c4394' ) . '" title="request catalogue"]'); ?>
 
                         </div>
                         <div class="request-catalog-success invisible opacity-0 h-0 transition duration-500 ease-in-out delay-100">
@@ -281,11 +281,13 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                 </div>
             </div>
         </div>
-        <div id="page-loading">
-        </div>
-        <div id="errorIndicator"
-             class="hidden">Error</div>
     </div>
+</div>
+<div id="page-loading">
+</div>
+<div id="errorIndicator"
+     class="hidden">Error</div>
+</div>
 </div>
 <script>
 let selectedCollectionIds = [];
@@ -327,7 +329,6 @@ $(document).ready(function() {
             renderInspirations();
         }
     );
-
 });
 
 function loadCollections() {

@@ -77,7 +77,7 @@
                                     <a href='<?= BASE_LINK; ?>/materials'> Materials </a>
                                 </p>
                                 <p class='text-sm py-1'>
-                                    <a href='<?= BASE_LINK; ?>/collections'> Catalog </a>
+                                    <a href='<?= BASE_LINK; ?>/request-catalog'> Catalog </a>
                                 </p>
                             </div>
                             <div class="about tracking-wider"

@@ -28,6 +28,9 @@ get_template_part('header-custom');
             case (strpos($url, 'news') !== false):
                 include(get_template_directory() . '/page-builder/news-list.php');
                 break;
+            case (strpos($url, 'request-catalog') !== false):
+                include(get_template_directory() . '/page-builder/request-catalog.php');
+                break;
         }
         
     ?>
