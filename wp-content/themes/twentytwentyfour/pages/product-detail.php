@@ -7,6 +7,7 @@ $headers = array(
 );
 $response = wp_remote_get($url, array(
     'headers' => $headers,
+    'timeout' => 10,
 ));
 
 if (is_wp_error($response)) {
@@ -236,7 +237,7 @@ async function renderOverview(res) {
     if (isSectionalPage) {
         $('#product__header__image').append(`
             <div class="flex justify-center">
-                <img src="${validBaseImgUrl}" alt="${res.name}" class="w-[100vw] my-10 md:w-[80vw] h-[30vh] md:h-[50vh] object-cover px-8"/>
+                <img src="${validBaseImgUrl}" alt="${res.name}" class="w-[100vw] my-10 md:w-[80vw] h-[30vh] md:h-[50vh] object-contain px-8"/>
             </div>
         `)
     } else {
