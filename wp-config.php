@@ -45,8 +45,6 @@ define('BASE_LINK', '');
 
 define( 'WP_HOME', 'https://triconville.com' );
 define( 'WP_SITEURL', 'https://triconville.com' );
-define('BASE_URL', 'http://192.168.88.65/triconville');
-define('BASE_LINK', '/triconville');
 define('ENV', 'prod');
 
 /**#@+
@@ -91,9 +89,9 @@ $table_prefix = 'wp_';
 *
 * @link https://wordpress.org/documentation/article/debugging-in-wordpress/
 */
-define('WP_DEBUG', false);
-define('WP_DEBUG_LOG', false);
-define('WP_DEBUG_DISPLAY', false);
+define('WP_DEBUG', true);
+define('WP_DEBUG_LOG', true);
+define('WP_DEBUG_DISPLAY', true);
 /* Add any custom values between this line and the "stop editing" line. */
 
 define('WP_CACHE', true); // Added by WP Cloudflare Super Page Cache
