@@ -279,6 +279,7 @@ async function renderOverview(res) {
         <div class="flex sm:flex-row flex-col gap-2 justify-center lg:justify-start mt-10">
             ${res.collection_sheet !== 'False' || res.collection_sheet !== null ?
             `<a href="${res.collection_sheet}"
+                target="_blank"
                 class="btn-ghost-dark uppercase flex items-end justify-center gap-2"> <p class="text-white text-xs">download collection sheet</p> 
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5 pb-1">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
