@@ -1,5 +1,6 @@
 <?php
 // Include your custom header
+echo '<title>'. esc_attr('Triconvile | 404') . '</title>';
 get_template_part('header-custom');
 ?>
 
