@@ -1,215 +1,221 @@
 <div class="content-container">
-  <div class="max-w-2xl mx-auto">
-    <h1 class="text-3xl max-w-xl title">Swiss Trade Show in Zurich</h1>
-  </div>
-
-  <!-- NOTE : SHARE -->
-  <div class="flex justify-between items-center max-w-2xl mx-auto my-10 border-slate-500 border-y py-3 px-1">
-    <p>Oct 28, 2024</p>
-    <div class="flex items-center gap-2">
-      <p>Share :</p>
-      <button
-        class="link-share"
-        data-clipboard-text=""
-        data-tooltip-target="tooltip-link"
-        data-tooltip-trigger="click"
-        type="button"
-      >
-        <svg
-          width="18"
-          height="18"
-          viewBox="0 0 18 18"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M7.50015 9.74997C7.82224 10.1806 8.23317 10.5369 8.70506 10.7947C9.17696 11.0525 9.69878 11.2058 10.2351 11.2442C10.7715 11.2826 11.3098 11.2053 11.8137 11.0173C12.3175 10.8294 12.775 10.5353 13.1552 10.155L15.4052 7.90497C16.0882 7.19772 16.4662 6.25046 16.4577 5.26722C16.4491 4.28398 16.0548 3.34344 15.3595 2.64815C14.6642 1.95287 13.7236 1.55849 12.7404 1.54995C11.7572 1.5414 10.8099 1.91938 10.1026 2.60247L8.81265 3.88497M10.5001 8.24997C10.1781 7.81938 9.76713 7.46309 9.29524 7.20527C8.82334 6.94745 8.30152 6.79414 7.76516 6.75572C7.2288 6.71731 6.69046 6.7947 6.18664 6.98264C5.68282 7.17058 5.22531 7.46467 4.84515 7.84497L2.59515 10.095C1.91206 10.8022 1.53408 11.7495 1.54262 12.7327C1.55117 13.716 1.94555 14.6565 2.64083 15.3518C3.33611 16.0471 4.27666 16.4415 5.2599 16.45C6.24313 16.4585 7.19039 16.0806 7.89765 15.3975L9.18015 14.115"
-            stroke="#4D4D4D"
-            stroke-width="1.2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          />
-        </svg>
-      </button>
-      <div
-        id="tooltip-link"
-        role="tooltip"
-        class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip"
-      >
-        Copied !
-        <div
-          class="tooltip-arrow"
-          data-popper-arrow
-        ></div>
-      </div>
-      <a
-        href=""
-        target="_blank"
-        class="x-share"
-      >
-        <svg
-          width="18"
-          height="16"
-          viewBox="0 0 18 16"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M13.7447 0.427734H16.2748L10.7473 6.74535L17.25 15.3422H12.1584L8.17053 10.1283L3.60746 15.3422H1.07582L6.98808 8.58481L0.75 0.427734H5.97083L9.57555 5.19348L13.7447 0.427734ZM12.8567 13.8278H14.2587L5.20905 1.86258H3.7046L12.8567 13.8278Z"
-            fill="#4D4D4D"
-          />
-        </svg>
-      </a>
-      <a
-        href=""
-        target="_blank"
-        class="fb-share"
-      >
-        <svg
-          width="18"
-          height="18"
-          viewBox="0 0 18 18"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M9 0C4.02948 0 0 4.02948 0 9C0 13.2206 2.90592 16.7623 6.82596 17.735V11.7504H4.97016V9H6.82596V7.81488C6.82596 4.75164 8.21232 3.3318 11.2198 3.3318C11.79 3.3318 12.7739 3.44376 13.1764 3.55536V6.04836C12.964 6.02604 12.595 6.01488 12.1367 6.01488C10.661 6.01488 10.0908 6.57396 10.0908 8.02728V9H13.0306L12.5255 11.7504H10.0908V17.9341C14.5472 17.3959 18.0004 13.6015 18.0004 9C18 4.02948 13.9705 0 9 0Z"
-            fill="#4D4D4D"
-          />
-        </svg>
-      </a>
-      <a
-        href=""
-        target="_blank"
-        class="linkedin-share"
-      >
-        <svg
-          width="18"
-          height="18"
-          viewBox="0 0 18 18"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M16.6676 0H1.32891C0.594141 0 0 0.580078 0 1.29727V16.6992C0 17.4164 0.594141 18 1.32891 18H16.6676C17.4023 18 18 17.4164 18 16.7027V1.29727C18 0.580078 17.4023 0 16.6676 0ZM5.34023 15.3387H2.66836V6.74648H5.34023V15.3387ZM4.0043 5.57578C3.14648 5.57578 2.45391 4.8832 2.45391 4.02891C2.45391 3.17461 3.14648 2.48203 4.0043 2.48203C4.85859 2.48203 5.55117 3.17461 5.55117 4.02891C5.55117 4.87969 4.85859 5.57578 4.0043 5.57578ZM15.3387 15.3387H12.6703V11.1621C12.6703 10.1672 12.6527 8.88398 11.2816 8.88398C9.89297 8.88398 9.68203 9.97031 9.68203 11.0918V15.3387H7.01719V6.74648H9.57656V7.9207H9.61172C9.9668 7.2457 10.8387 6.53203 12.1359 6.53203C14.8395 6.53203 15.3387 8.31094 15.3387 10.6242V15.3387Z"
-            fill="#4D4D4D"
-          />
-        </svg>
-      </a>
+    <div class="max-w-2xl mx-auto">
+        <h1 class="text-3xl max-w-xl title">Swiss Trade Show in Zurich</h1>
     </div>
-  </div>
-  <img
-    src="https://triconville.com/wp-content/uploads/2024/10/Swiss-Trade-Show-in-Zurich.png"
-    alt="Triconville B2B is here. Let’s Talk Business!"
-    class="w-full h-auto mb-10"
-  />
-  <div class="max-w-2xl mx-auto">
-    <p class="text-sm mb-10">
-      Furniture exhibition at Swiss trade show in zurich, Triconville showcased high-end teak and stainless steel
-      collections in International furniture design fair that took place in Zurich, Switzerland.  These collections
-      fully convey creativity, research and innovation reflecting the values of triconville.
-      <br />
-      <br />
-      These collections were designed to keep the outdoor culture and feel alive. We offered our perception of living
-      the outdoor life and created distinct collections of seating, tables, loungers and gazebos with materials used as
-      natural teak and stainless steel. This allowed us to create relaxing outdoor areas with exclusive ranges of
-      designs to reshape the outdoor space to reﬂect the beauty of the nature.
-    </p>
-  </div>
 
-  <!-- NOTE : SHARE -->
-  <div class="flex justify-between items-center max-w-2xl mx-auto my-10 border-slate-500 border-y py-3 px-1">
-    <p>Oct 28, 2024</p>
-    <div class="flex items-center gap-2">
-      <p>Share :</p>
-      <button
-        class="link-share"
-        data-clipboard-text=""
-        data-tooltip-target="tooltip-link"
-        data-tooltip-trigger="click"
-        type="button"
-      >
-        <svg
-          width="18"
-          height="18"
-          viewBox="0 0 18 18"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M7.50015 9.74997C7.82224 10.1806 8.23317 10.5369 8.70506 10.7947C9.17696 11.0525 9.69878 11.2058 10.2351 11.2442C10.7715 11.2826 11.3098 11.2053 11.8137 11.0173C12.3175 10.8294 12.775 10.5353 13.1552 10.155L15.4052 7.90497C16.0882 7.19772 16.4662 6.25046 16.4577 5.26722C16.4491 4.28398 16.0548 3.34344 15.3595 2.64815C14.6642 1.95287 13.7236 1.55849 12.7404 1.54995C11.7572 1.5414 10.8099 1.91938 10.1026 2.60247L8.81265 3.88497M10.5001 8.24997C10.1781 7.81938 9.76713 7.46309 9.29524 7.20527C8.82334 6.94745 8.30152 6.79414 7.76516 6.75572C7.2288 6.71731 6.69046 6.7947 6.18664 6.98264C5.68282 7.17058 5.22531 7.46467 4.84515 7.84497L2.59515 10.095C1.91206 10.8022 1.53408 11.7495 1.54262 12.7327C1.55117 13.716 1.94555 14.6565 2.64083 15.3518C3.33611 16.0471 4.27666 16.4415 5.2599 16.45C6.24313 16.4585 7.19039 16.0806 7.89765 15.3975L9.18015 14.115"
-            stroke="#4D4D4D"
-            stroke-width="1.2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          />
-        </svg>
-      </button>
-      <div
-        id="tooltip-link"
-        role="tooltip"
-        class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip"
-      >
-        Copied !
-        <div
-          class="tooltip-arrow"
-          data-popper-arrow
-        ></div>
-      </div>
-      <a
-        href=""
-        target="_blank"
-        class="x-share"
-      >
-        <svg
-          width="18"
-          height="16"
-          viewBox="0 0 18 16"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M13.7447 0.427734H16.2748L10.7473 6.74535L17.25 15.3422H12.1584L8.17053 10.1283L3.60746 15.3422H1.07582L6.98808 8.58481L0.75 0.427734H5.97083L9.57555 5.19348L13.7447 0.427734ZM12.8567 13.8278H14.2587L5.20905 1.86258H3.7046L12.8567 13.8278Z"
-            fill="#4D4D4D"
-          />
-        </svg>
-      </a>
-      <a
-        href=""
-        target="_blank"
-        class="fb-share"
-      >
-        <svg
-          width="18"
-          height="18"
-          viewBox="0 0 18 18"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M9 0C4.02948 0 0 4.02948 0 9C0 13.2206 2.90592 16.7623 6.82596 17.735V11.7504H4.97016V9H6.82596V7.81488C6.82596 4.75164 8.21232 3.3318 11.2198 3.3318C11.79 3.3318 12.7739 3.44376 13.1764 3.55536V6.04836C12.964 6.02604 12.595 6.01488 12.1367 6.01488C10.661 6.01488 10.0908 6.57396 10.0908 8.02728V9H13.0306L12.5255 11.7504H10.0908V17.9341C14.5472 17.3959 18.0004 13.6015 18.0004 9C18 4.02948 13.9705 0 9 0Z"
-            fill="#4D4D4D"
-          />
-        </svg>
-      </a>
-      <a
-        href=""
-        target="_blank"
-        class="linkedin-share"
-      >
-        <svg
-          width="18"
-          height="18"
-          viewBox="0 0 18 18"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M16.6676 0H1.32891C0.594141 0 0 0.580078 0 1.29727V16.6992C0 17.4164 0.594141 18 1.32891 18H16.6676C17.4023 18 18 17.4164 18 16.7027V1.29727C18 0.580078 17.4023 0 16.6676 0ZM5.34023 15.3387H2.66836V6.74648H5.34023V15.3387ZM4.0043 5.57578C3.14648 5.57578 2.45391 4.8832 2.45391 4.02891C2.45391 3.17461 3.14648 2.48203 4.0043 2.48203C4.85859 2.48203 5.55117 3.17461 5.55117 4.02891C5.55117 4.87969 4.85859 5.57578 4.0043 5.57578ZM15.3387 15.3387H12.6703V11.1621C12.6703 10.1672 12.6527 8.88398 11.2816 8.88398C9.89297 8.88398 9.68203 9.97031 9.68203 11.0918V15.3387H7.01719V6.74648H9.57656V7.9207H9.61172C9.9668 7.2457 10.8387 6.53203 12.1359 6.53203C14.8395 6.53203 15.3387 8.31094 15.3387 10.6242V15.3387Z"
-            fill="#4D4D4D"
-          />
-        </svg>
-      </a>
+    <!-- NOTE : SHARE -->
+    <div
+        class="flex justify-between items-center max-w-2xl mx-auto my-10 border-slate-500 border-y py-3 px-1"
+    >
+        <p>Oct 28, 2024</p>
+        <div class="flex items-center gap-2">
+            <p>Share :</p>
+            <button
+                class="link-share"
+                data-clipboard-text=""
+                data-tooltip-target="tooltip-link"
+                data-tooltip-trigger="click"
+                type="button"
+            >
+                <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 18 18"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <path
+                        d="M7.50015 9.74997C7.82224 10.1806 8.23317 10.5369 8.70506 10.7947C9.17696 11.0525 9.69878 11.2058 10.2351 11.2442C10.7715 11.2826 11.3098 11.2053 11.8137 11.0173C12.3175 10.8294 12.775 10.5353 13.1552 10.155L15.4052 7.90497C16.0882 7.19772 16.4662 6.25046 16.4577 5.26722C16.4491 4.28398 16.0548 3.34344 15.3595 2.64815C14.6642 1.95287 13.7236 1.55849 12.7404 1.54995C11.7572 1.5414 10.8099 1.91938 10.1026 2.60247L8.81265 3.88497M10.5001 8.24997C10.1781 7.81938 9.76713 7.46309 9.29524 7.20527C8.82334 6.94745 8.30152 6.79414 7.76516 6.75572C7.2288 6.71731 6.69046 6.7947 6.18664 6.98264C5.68282 7.17058 5.22531 7.46467 4.84515 7.84497L2.59515 10.095C1.91206 10.8022 1.53408 11.7495 1.54262 12.7327C1.55117 13.716 1.94555 14.6565 2.64083 15.3518C3.33611 16.0471 4.27666 16.4415 5.2599 16.45C6.24313 16.4585 7.19039 16.0806 7.89765 15.3975L9.18015 14.115"
+                        stroke="#4D4D4D"
+                        stroke-width="1.2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    />
+                </svg>
+            </button>
+            <div
+                id="tooltip-link"
+                role="tooltip"
+                class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip"
+            >
+                Copied !
+                <div
+                    class="tooltip-arrow"
+                    data-popper-arrow
+                ></div>
+            </div>
+            <a
+                href=""
+                target="_blank"
+                class="x-share"
+            >
+                <svg
+                    width="18"
+                    height="16"
+                    viewBox="0 0 18 16"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <path
+                        d="M13.7447 0.427734H16.2748L10.7473 6.74535L17.25 15.3422H12.1584L8.17053 10.1283L3.60746 15.3422H1.07582L6.98808 8.58481L0.75 0.427734H5.97083L9.57555 5.19348L13.7447 0.427734ZM12.8567 13.8278H14.2587L5.20905 1.86258H3.7046L12.8567 13.8278Z"
+                        fill="#4D4D4D"
+                    />
+                </svg>
+            </a>
+            <a
+                href=""
+                target="_blank"
+                class="fb-share"
+            >
+                <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 18 18"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <path
+                        d="M9 0C4.02948 0 0 4.02948 0 9C0 13.2206 2.90592 16.7623 6.82596 17.735V11.7504H4.97016V9H6.82596V7.81488C6.82596 4.75164 8.21232 3.3318 11.2198 3.3318C11.79 3.3318 12.7739 3.44376 13.1764 3.55536V6.04836C12.964 6.02604 12.595 6.01488 12.1367 6.01488C10.661 6.01488 10.0908 6.57396 10.0908 8.02728V9H13.0306L12.5255 11.7504H10.0908V17.9341C14.5472 17.3959 18.0004 13.6015 18.0004 9C18 4.02948 13.9705 0 9 0Z"
+                        fill="#4D4D4D"
+                    />
+                </svg>
+            </a>
+            <a
+                href=""
+                target="_blank"
+                class="linkedin-share"
+            >
+                <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 18 18"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <path
+                        d="M16.6676 0H1.32891C0.594141 0 0 0.580078 0 1.29727V16.6992C0 17.4164 0.594141 18 1.32891 18H16.6676C17.4023 18 18 17.4164 18 16.7027V1.29727C18 0.580078 17.4023 0 16.6676 0ZM5.34023 15.3387H2.66836V6.74648H5.34023V15.3387ZM4.0043 5.57578C3.14648 5.57578 2.45391 4.8832 2.45391 4.02891C2.45391 3.17461 3.14648 2.48203 4.0043 2.48203C4.85859 2.48203 5.55117 3.17461 5.55117 4.02891C5.55117 4.87969 4.85859 5.57578 4.0043 5.57578ZM15.3387 15.3387H12.6703V11.1621C12.6703 10.1672 12.6527 8.88398 11.2816 8.88398C9.89297 8.88398 9.68203 9.97031 9.68203 11.0918V15.3387H7.01719V6.74648H9.57656V7.9207H9.61172C9.9668 7.2457 10.8387 6.53203 12.1359 6.53203C14.8395 6.53203 15.3387 8.31094 15.3387 10.6242V15.3387Z"
+                        fill="#4D4D4D"
+                    />
+                </svg>
+            </a>
+        </div>
     </div>
-  </div>
+    <img
+        src="https://triconville.com/wp-content/uploads/2024/10/Swiss-Trade-Show-in-Zurich.jpg"
+        alt="Triconville B2B is here. Let’s Talk Business!"
+        class="w-full h-auto mb-10"
+    />
+    <div class="max-w-2xl mx-auto">
+        <p class="text-sm mb-10">
+            Furniture exhibition at Swiss trade show in zurich, Triconville showcased high-end teak
+            and stainless steel collections in International furniture design fair that took place
+            in Zurich, Switzerland.  These collections fully convey creativity, research and
+            innovation reflecting the values of triconville.
+            <br />
+            <br />
+            These collections were designed to keep the outdoor culture and feel alive. We offered
+            our perception of living the outdoor life and created distinct collections of seating,
+            tables, loungers and gazebos with materials used as natural teak and stainless steel.
+            This allowed us to create relaxing outdoor areas with exclusive ranges of designs to
+            reshape the outdoor space to reﬂect the beauty of the nature.
+        </p>
+    </div>
+
+    <!-- NOTE : SHARE -->
+    <div
+        class="flex justify-between items-center max-w-2xl mx-auto my-10 border-slate-500 border-y py-3 px-1"
+    >
+        <p>Oct 28, 2024</p>
+        <div class="flex items-center gap-2">
+            <p>Share :</p>
+            <button
+                class="link-share"
+                data-clipboard-text=""
+                data-tooltip-target="tooltip-link"
+                data-tooltip-trigger="click"
+                type="button"
+            >
+                <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 18 18"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <path
+                        d="M7.50015 9.74997C7.82224 10.1806 8.23317 10.5369 8.70506 10.7947C9.17696 11.0525 9.69878 11.2058 10.2351 11.2442C10.7715 11.2826 11.3098 11.2053 11.8137 11.0173C12.3175 10.8294 12.775 10.5353 13.1552 10.155L15.4052 7.90497C16.0882 7.19772 16.4662 6.25046 16.4577 5.26722C16.4491 4.28398 16.0548 3.34344 15.3595 2.64815C14.6642 1.95287 13.7236 1.55849 12.7404 1.54995C11.7572 1.5414 10.8099 1.91938 10.1026 2.60247L8.81265 3.88497M10.5001 8.24997C10.1781 7.81938 9.76713 7.46309 9.29524 7.20527C8.82334 6.94745 8.30152 6.79414 7.76516 6.75572C7.2288 6.71731 6.69046 6.7947 6.18664 6.98264C5.68282 7.17058 5.22531 7.46467 4.84515 7.84497L2.59515 10.095C1.91206 10.8022 1.53408 11.7495 1.54262 12.7327C1.55117 13.716 1.94555 14.6565 2.64083 15.3518C3.33611 16.0471 4.27666 16.4415 5.2599 16.45C6.24313 16.4585 7.19039 16.0806 7.89765 15.3975L9.18015 14.115"
+                        stroke="#4D4D4D"
+                        stroke-width="1.2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    />
+                </svg>
+            </button>
+            <div
+                id="tooltip-link"
+                role="tooltip"
+                class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip"
+            >
+                Copied !
+                <div
+                    class="tooltip-arrow"
+                    data-popper-arrow
+                ></div>
+            </div>
+            <a
+                href=""
+                target="_blank"
+                class="x-share"
+            >
+                <svg
+                    width="18"
+                    height="16"
+                    viewBox="0 0 18 16"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <path
+                        d="M13.7447 0.427734H16.2748L10.7473 6.74535L17.25 15.3422H12.1584L8.17053 10.1283L3.60746 15.3422H1.07582L6.98808 8.58481L0.75 0.427734H5.97083L9.57555 5.19348L13.7447 0.427734ZM12.8567 13.8278H14.2587L5.20905 1.86258H3.7046L12.8567 13.8278Z"
+                        fill="#4D4D4D"
+                    />
+                </svg>
+            </a>
+            <a
+                href=""
+                target="_blank"
+                class="fb-share"
+            >
+                <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 18 18"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <path
+                        d="M9 0C4.02948 0 0 4.02948 0 9C0 13.2206 2.90592 16.7623 6.82596 17.735V11.7504H4.97016V9H6.82596V7.81488C6.82596 4.75164 8.21232 3.3318 11.2198 3.3318C11.79 3.3318 12.7739 3.44376 13.1764 3.55536V6.04836C12.964 6.02604 12.595 6.01488 12.1367 6.01488C10.661 6.01488 10.0908 6.57396 10.0908 8.02728V9H13.0306L12.5255 11.7504H10.0908V17.9341C14.5472 17.3959 18.0004 13.6015 18.0004 9C18 4.02948 13.9705 0 9 0Z"
+                        fill="#4D4D4D"
+                    />
+                </svg>
+            </a>
+            <a
+                href=""
+                target="_blank"
+                class="linkedin-share"
+            >
+                <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 18 18"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <path
+                        d="M16.6676 0H1.32891C0.594141 0 0 0.580078 0 1.29727V16.6992C0 17.4164 0.594141 18 1.32891 18H16.6676C17.4023 18 18 17.4164 18 16.7027V1.29727C18 0.580078 17.4023 0 16.6676 0ZM5.34023 15.3387H2.66836V6.74648H5.34023V15.3387ZM4.0043 5.57578C3.14648 5.57578 2.45391 4.8832 2.45391 4.02891C2.45391 3.17461 3.14648 2.48203 4.0043 2.48203C4.85859 2.48203 5.55117 3.17461 5.55117 4.02891C5.55117 4.87969 4.85859 5.57578 4.0043 5.57578ZM15.3387 15.3387H12.6703V11.1621C12.6703 10.1672 12.6527 8.88398 11.2816 8.88398C9.89297 8.88398 9.68203 9.97031 9.68203 11.0918V15.3387H7.01719V6.74648H9.57656V7.9207H9.61172C9.9668 7.2457 10.8387 6.53203 12.1359 6.53203C14.8395 6.53203 15.3387 8.31094 15.3387 10.6242V15.3387Z"
+                        fill="#4D4D4D"
+                    />
+                </svg>
+            </a>
+        </div>
+    </div>
 </div>
