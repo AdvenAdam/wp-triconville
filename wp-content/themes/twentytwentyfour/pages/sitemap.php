@@ -7,7 +7,7 @@ header("Content-Type: text/xml; charset=utf-8");
 echo '<?xml version="1.0" encoding="UTF-8"?>';
 
 $products = json_decode(file_get_contents(get_template_directory() . '/api/sitemap.json'), true)[0];
-$products = $products[0]['products'];
+$products = $products['products'];
 
 ?>
 
