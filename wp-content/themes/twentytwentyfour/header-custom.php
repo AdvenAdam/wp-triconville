@@ -9,7 +9,7 @@
           href="https://gmpg.org/xfn/11">
     <?php wp_head(); ?>
     <title>
-        <?php wp_title('|', true, 'right'); ?>
+
     </title>
     <script src="<?php echo get_template_directory_uri(); ?>/assets/javascript/jquery.min.js"></script>
     <script src="<?php echo get_template_directory_uri(); ?>/assets/javascript/flowbite.min.js"></script>
