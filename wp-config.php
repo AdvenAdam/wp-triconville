@@ -40,9 +40,12 @@ define('DB_COLLATE', '');
 
 define('BASE_API', 'https://platform.indospacegroup.com/v1/');
 define('API_KEY', 'Token 09633df1426fce26fc53de676e8bb65f47a0dcf1');
-define('BASE_URL', 'http://192.168.88.65/triconville');
-define('BASE_LINK', '/triconville');
-define('ENV', 'development');
+define('BASE_URL', 'https://triconville.com');
+define('BASE_LINK', '');
+
+define('WP_HOME', 'https://triconville.com');
+define('WP_SITEURL', 'https://triconville.com');
+define('ENV', 'prod');
 
 /**#@+
  * Authentication unique keys and salts.
@@ -55,14 +58,14 @@ define('ENV', 'development');
  *
  * @since 2.6.0
  */
-define('AUTH_KEY',         'put your unique phrase here');
-define('SECURE_AUTH_KEY',  'put your unique phrase here');
-define('LOGGED_IN_KEY',    'put your unique phrase here');
-define('NONCE_KEY',        'put your unique phrase here');
-define('AUTH_SALT',        'put your unique phrase here');
-define('SECURE_AUTH_SALT', 'put your unique phrase here');
-define('LOGGED_IN_SALT',   'put your unique phrase here');
-define('NONCE_SALT',       'put your unique phrase here');
+define('AUTH_KEY',         'bBD`h+V1b9M2o?Zc.m83>+~MS?i/9AEOWh)/k#}LCqLW2g(;k58RqYG>TaITjE.H');
+define('SECURE_AUTH_KEY',  '`Q~/:7q/9%K|,`+1*bE}w^Rrq;T jEPOV;=o}@PiE`9/emm+<Lwz@q6/LX<jp>S[');
+define('LOGGED_IN_KEY',    'Vr//5[D5~vAv8FHc*(<=R:O4WzSg87.c=BB{F4/#;D>mNr2o&yW7kby0,qXRqrJz');
+define('NONCE_KEY',        'muV1on(:IgEP3^j@-8+|rW)Hgs*75)$])Y^lU3y!sa<FuW}_~hY%Jrmc@>3 p8_q');
+define('AUTH_SALT',        './!Sab0<Q{AWY0l!i|YnLHa8trCl!&=bOf}fxkcZ_o|Zhe|(UE9h##fLJG~S+fOV');
+define('SECURE_AUTH_SALT', '{6fgj+8N~!&fo3|2vo]=:#l?sl|9XS=imaDC$|]M|fC6Q<)3.^|<5>4Zyr842,a,');
+define('LOGGED_IN_SALT',   '?vfosI|`0Yi}s0VS%_K0xiN%,I]{NLVT7 hF(>(WtC=r2nq-DflQ& +`cRR3@(?,');
+define('NONCE_SALT',       '_]|1TT9qtcp_#QEY$I1x$X$nE!} LWDqI}>{>-_--hywiW9txl(.iO,81}!@_Cx}');
 
 /**#@-*/
 
@@ -91,7 +94,7 @@ define('WP_DEBUG_LOG', false);
 define('WP_DEBUG_DISPLAY', false);
 /* Add any custom values between this line and the "stop editing" line. */
 
-define('WP_CACHE', false);
+define('WP_CACHE', true); // Added by WP Cloudflare Super Page Cache
 
 /* That's all, stop editing! Happy publishing. */
 
