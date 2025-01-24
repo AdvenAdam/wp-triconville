@@ -1,36 +1,57 @@
 <?php
 $character_slug = get_query_var('sitemap');
 
+echo '<title>'. esc_attr('Sync Product') . '</title>';
+
 
 if ($character_slug == 'sync_product') {
     syncProduct();
 }
 
 function syncProduct()  {
-    $file = file_get_contents(get_template_directory() . '/api/product.json');
-    $data = json_decode($file, true);
-    
+    try {
+        $sitemap = [
+            'products' => [],
+        ];
+        $file = json_decode(file_get_contents(get_template_directory() . '/api/product.json'), true);
+        // header('Content-Type: application/json');
+        foreach ($file as $value) {
+            renderAllProducts($value, $sitemap);
+        }
+    } catch (\Throwable $th) {
+        dd($th);
+    } finally {        
+        file_put_contents(get_template_directory() . '/api/sitemap2.json', json_encode($sitemap, JSON_PRETTY_PRINT));
+        if (file_exists(get_template_directory() . '/api/sitemap2.json')) {
+            unlink(get_template_directory() . '/api/sitemap.json');
+            rename(get_template_directory() . '/api/sitemap2.json', get_template_directory() . '/api/sitemap.json');
+        }
+        alert('Sitemap Updated');
+    }
 }
-function renderAllProducts() {
+
+
+function renderAllProducts($data, &$sitemap) {
     // TODO : Render All Products Each SubCategory
-    if (haveSubCategories) {
-        foreach (categoriesData['children'] as $data) {
+    $haveSubCategories = count($data['children']) > 2;
+    if ($haveSubCategories) {
+        foreach ($data['children'] as $value) {
             try {
-                $ids = is_array($data['id']) ? $data['id'] : [$data['id']];
+                $ids = is_array($value['id']) ? $value['id'] : [$value['id']];
                 $productListSelected = [];
                 foreach ($ids as $id) {
-                    $products = fetchProducts($id, $data['param']);
+                    $products = fetchProducts($id, $value['param']);
                     $productListSelected = array_merge($productListSelected, array_filter($products, function ($product) {
                         return in_array($product['status'], ['published', 'draft']);
                     }));
                 }
-                renderProducts($productListSelected, $data['name']);
+                renderProducts($productListSelected, $sitemap);
             } catch (Exception $error) {
                 error_log(sprintf('Error fetching products for %s', $data['name']), 0);
             }
         }
     } else {
-        $ids = categoriesData['ids'];
+        $ids = $data['ids'];
         try {
             $allResult = array_map(function ($id) use ($ids) {
                 return fetchProducts($id);
@@ -39,7 +60,7 @@ function renderAllProducts() {
             $productListSelected = array_filter($productListSelected, function ($product) {
                 return in_array($product['status'], ['published', 'draft']);
             });
-            renderProducts($productListSelected, categoriesData['name']);
+            renderProducts($productListSelected, $sitemap);
         } catch (Exception $err) {
             error_log("Error fetching products: " . $err->getMessage(), 0);
         }
@@ -84,10 +105,24 @@ function fetchProducts($id, $param = null) {
                 );
             }, true);
         });
-
         return array_values($products);
     } catch (Exception $error) {
         throw $error;
     }
+}
+
+function renderProducts($productListSelected, &$sitemap) {
+    $sitemap['products'] = array_merge($sitemap['products'] ?? [], array_column($productListSelected, 'name'));
+}
+function dd($data) {
+    echo '<pre>';
+    print_r($data);
+    echo '</pre>';
+    die;
+}
+
+
+function alert($message) {
+    echo '<script>alert("' . $message . '"); window.location.href="' . home_url() . '/sitemap";</script>';
 }
 ?>

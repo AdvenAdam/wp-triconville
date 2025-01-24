@@ -6,11 +6,28 @@ Template Name: sitemap
 header("Content-Type: text/xml; charset=utf-8");
 echo '<?xml version="1.0" encoding="UTF-8"?>';
 
-$products = json_decode(file_get_contents(get_template_directory() . '/api/sitemap.json'), true)[0];
+?>
+<?php
+$products = json_decode(file_get_contents(get_template_directory() . '/api/sitemap.json'), true);
 $products = $products['products'];
-
 ?>
 
+<?php
+function slugify($str) {
+    $str = trim($str);
+    $str = strtolower($str);
+
+    // remove accents, swap  for "e", etc.
+    $from = array(' ', '-', '_');
+    $to = array(' ', '-', '-');
+    $str = str_replace($from, $to, $str);
+
+    $str = preg_replace('/[^a-z0-9-]/', ' ', $str);
+    $str = preg_replace('/\s+/', '-', $str);
+
+    return $str;
+}
+?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
     <url>
@@ -123,6 +140,8 @@ $products = $products['products'];
     <!-- NOTE List Of Product - Detail -->
     <?php 
         foreach ($products as $product) {
+            $product = str_replace('-', ' ', $product);
+            $product = slugify($product);
             echo "<url>\n";
             echo "<loc>" . BASE_URL . "/product-detail/{$product}/</loc>\n";
             echo "<lastmod>" . date('c') . "</lastmod>\n";
