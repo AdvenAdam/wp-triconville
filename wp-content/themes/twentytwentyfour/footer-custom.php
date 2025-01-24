@@ -22,46 +22,8 @@
             <div class="max-w-[1440px] mx-auto ">
                 <div class="w-full flex xl:flex-row flex-col-reverse justify-center gap-3 md:gap-5 lg:gap-9 xl:gap-0">
                     <div class="xl:w-3/5 w-full">
-                        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 lg:flex gap-x-3 gap-y-6 md:!gap-5 lg:!gap-10">
+                        <div class="grid grid-cols-2 md:grid-cols-3 gap-x-3 gap-y-6 md:gap-y-0 md:gap-x-5 lg:gap-x-10 max-w-2xl">
                             <!-- NOTE : About Triconville -->
-                            <div class="about lg:block hidden tracking-wider">
-                                <p class='mb-3 font-bold text-sm uppercase '>triconville head office</p>
-                                <p class='md:mb-3 text-sm underline'>
-                                    <a href="https://maps.app.goo.gl/XGY2DAFMPpAdxmzH6"
-                                       target="_blank">
-                                        Sidorekso, Kaliwungu District,<br />
-                                        Kudus Regency, Central Java 59332,<br />
-                                        Indonesia
-                                    </a>
-                                </p>
-                                <p class='text-sm md:mb-3'>+62 21 27084824</p>
-                                <p class='text-sm md:mb-3'>info@triconville.com</p>
-                                <div class="">
-                                    <p class='font-bold text-sm uppercase  pt-5'>connect</p>
-                                    <div class="flex items-center gap-4 my-3">
-                                        <a href='https://www.instagram.com/triconville/'
-                                           target="_blank">
-                                            <img src='https://storage.googleapis.com/back-bucket/wp_triconville/images/icons/instagram2.svg' />
-                                        </a>
-                                        <a href='https://www.linkedin.com/company/triconville-furniture/'
-                                           target="_blank">
-                                            <img src='https://storage.googleapis.com/back-bucket/wp_triconville/images/icons/linkedin2.svg' />
-                                        </a>
-                                        <a href='https://www.youtube.com/@triconville-furniture'
-                                           target="_blank">
-                                            <img src='https://storage.googleapis.com/back-bucket/wp_triconville/images/icons/youtube2.svg' />
-                                        </a>
-                                        <a href='https://www.facebook.com/triconville'
-                                           target="_blank">
-                                            <img src='https://storage.googleapis.com/back-bucket/wp_triconville/images/icons/facebook2.svg' />
-                                        </a>
-                                        <a href='https://id.pinterest.com/triconville/'
-                                           target="_blank">
-                                            <img src='https://storage.googleapis.com/back-bucket/wp_triconville/images/icons/pinterest2.svg' />
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
                             <div class="about tracking-wider">
                                 <p class='mb-3 uppercase text-sm font-bold '>Triconville</p>
                                 <p class='text-sm py-1'>
@@ -88,8 +50,8 @@
                                  id="products-categories-footer">
                                 <p class='mb-3 uppercase text-sm font-bold '>products</p>
                             </div>
-                            <div class="about flex flex-col md:flex-row lg:hidden md:col-span-3 gap-10">
-                                <div class="address">
+                            <div class="about flex flex-col md:flex-row md:col-span-3 gap-10">
+                                <!-- <div class="address">
                                     <p class='mb-3 font-bold text-sm uppercase '>triconville head office</p>
                                     <p class='md:mb-3 text-sm underline'>
                                         <a href="https://maps.app.goo.gl/XGY2DAFMPpAdxmzH6"
@@ -101,7 +63,7 @@
                                     </p>
                                     <p class='text-sm mt-3 md:mb-3 md:mt-0'>+62 21 27084824</p>
                                     <p class='text-sm md:mb-3'>info@triconville.com</p>
-                                </div>
+                                </div> -->
                                 <div class="">
                                     <p class='font-bold text-sm uppercase'>connect</p>
                                     <div class="flex items-center gap-4 my-3">
