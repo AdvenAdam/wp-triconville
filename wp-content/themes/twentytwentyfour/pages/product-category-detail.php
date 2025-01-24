@@ -62,7 +62,6 @@ let localProductsData = [];
 let categoriesData;
 let haveSubCategories = false;
 let productListSelected = [];
-let slugs = []
 
 $(document).ready(function() {
     categoriesData = <?= json_encode($selectedCategory[0]); ?>;
@@ -87,8 +86,6 @@ function renderMaster() {
     } catch (error) {
         console.error("🚀 ~ renderMaster ~ error:", error)
         redirectError()
-    } finally {
-        console.log("🚀 ~ slugs:", slugs)
     }
 }
 
@@ -212,7 +209,6 @@ function renderProducts(data, headerTitle = 'All Types') {
     `);
 
     data.sort((a, b) => a.name.localeCompare(b.name)).forEach((e, index) => {
-        slugs.push(slugify(e.name));
         $(`#product__list__${slugify(headerTitle)}`).append(`
             <a href= "<?= BASE_LINK; ?>/product-detail/${slugify(e.name)}"
                 class="product__${slugify(headerTitle)}"
