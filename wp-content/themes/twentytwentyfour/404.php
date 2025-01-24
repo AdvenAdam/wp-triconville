@@ -1,5 +1,6 @@
 <?php
 // Include your custom header
+echo '<title>'. esc_attr('Triconvile | 404') . '</title>';
 get_template_part('header-custom');
 ?>
 
@@ -17,7 +18,7 @@ get_template_part('header-custom');
                 Looks like you’ve lost
             </h2>
             <img src='https://storage.googleapis.com/back-bucket/wp_triconville/images/404.jpg'
-                 class="w-full h-full object-cover" />
+                 class="w-full h-auto object-cover" />
             <a href="<?= BASE_URL; ?>"
                class="btn-ghost-dark w-fit block mt-10 sm:hidden uppercase text-sm py-4 px-10">back to Home</a>
         </div>

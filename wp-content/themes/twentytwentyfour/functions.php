@@ -482,6 +482,24 @@ add_action('template_include', function ($template) {
 	}
 	return get_template_directory() . '/pages/moods.php';
 });
+// CUSTOM Site map
+add_action('init', function () {
+	add_rewrite_rule('^sitemap/([^/]+)/?$', 'index.php?sitemap=$matches[1]', 'top');
+});
+
+add_filter('query_vars', function ($query_vars) {
+	$query_vars[] = 'sitemap';
+	return $query_vars;
+});
+
+add_action('template_include', function ($template) {
+
+	if (get_query_var('sitemap') == false || get_query_var('sitemap') == '') {
+		return $template;
+	}
+
+	return get_template_directory() . '/pages/sitemap_actions.php';
+});
 
 //enable upload for webp image files.
 function webp_upload_mimes($existing_mimes) {

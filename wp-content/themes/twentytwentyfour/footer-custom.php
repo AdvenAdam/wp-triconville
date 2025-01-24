@@ -71,7 +71,7 @@
                                     <a href='<?= BASE_LINK; ?>/find-a-store'> Stores </a>
                                 </p>
                                 <p class='text-sm py-1'>
-                                    <a href='<?= BASE_LINK; ?>/projects'> Inspiration </a>
+                                    <a href='<?= BASE_LINK; ?>/inspiration'> Inspiration </a>
                                 </p>
                                 <p class='text-sm py-1'>
                                     <a href='<?= BASE_LINK; ?>/materials'> Materials </a>

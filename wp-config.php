@@ -80,6 +80,7 @@ define('NONCE_SALT',       '_]|1TT9qtcp_#QEY$I1x$X$nE!} LWDqI}>{>-_--hywiW9txl(.
 $table_prefix = 'wp_';
 
 /**
+<<<<<<< HEAD
 * For developers: WordPress debugging mode.
 *
 * Change this to true to enable the display of notices during development.
@@ -94,6 +95,22 @@ $table_prefix = 'wp_';
 define('WP_DEBUG', false);
 define('WP_DEBUG_LOG', false);
 define('WP_DEBUG_DISPLAY', false);
+=======
+ * For developers: WordPress debugging mode.
+ *
+ * Change this to true to enable the display of notices during development.
+ * It is strongly recommended that plugin and theme developers use WP_DEBUG
+ * in their development environments.
+ *
+ * For information on other constants that can be used for debugging,
+ * visit the documentation.
+ *
+ * @link https://wordpress.org/documentation/article/debugging-in-wordpress/
+ */
+define('WP_DEBUG', true);
+define('WP_DEBUG_LOG', true);
+define('WP_DEBUG_DISPLAY', true);
+>>>>>>> 7b7c382f6495f965d6f055a09c824d7ffc0b8a61
 /* Add any custom values between this line and the "stop editing" line. */
 
 define('WP_CACHE', true); // Added by WP Cloudflare Super Page Cache
