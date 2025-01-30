@@ -284,8 +284,6 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
         </div>
     </div>
 </div>
-<div id="page-loading">
-</div>
 <div id="errorIndicator"
      class="hidden">Error</div>
 </div>
@@ -339,9 +337,6 @@ function loadCollections() {
         headers: {
             Authorization: '<?= API_KEY; ?>',
         },
-        beforeSend: () => {
-            $('#page-loading').show();
-        },
         success: function(res) {
             res.results.forEach((e) => {
                 const localCollection = selectedCollectionIds.find(local => local.collection_id === parseInt(e.collection_id));
@@ -355,13 +350,11 @@ function loadCollections() {
             // TODO : make logic for triggering next page not by baypassing
         },
         error: function(xhr, status, error) {
-            $('#page-loading').hide();
             $('#errorIndicator').show();
         },
         complete: () => {
             sortedCollections = filteredCollections.sort((a, b) => (b.collection_id > a.collection_id) ? 1 : -1)
             sortedCollections.slice(0, 4).forEach((colection) => renderCollections(colection));
-            $('#page-loading').hide();
             $(document).ready(function() {
                 collectionSlick()
             })
