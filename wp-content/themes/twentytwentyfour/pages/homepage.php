@@ -51,12 +51,12 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
 </style>
 <div class="content-container overflow-hidden">
     <div class="homepage-banner px-5 md:px-8 mt-16 md:mt-20 py-12 full-screen w-screen max-h-[35vh] md:max-h-[calc(30vh+5rem)] lg:min-h-[720px] lg:max-h-[1020px]">
-        <div class="hidden lg:flex items-center justify-center h-full w-full"
-             data-aos="fade-up"
-             data-aos-once="true"
-             data-aos-delay="100"
-             data-aos-duration="1000">
-            <div class="text-center">
+        <div class="hidden lg:flex items-center justify-center h-full w-full">
+            <div class="text-center"
+                 data-aos="fade-up"
+                 data-aos-once="true"
+                 data-aos-delay="100"
+                 data-aos-duration="1000">
                 <h1 class="text-3xl lg:text-5xl">Triconville Debuts at IFEX 2025</h1>
                 <h3 class="text-base">Join us at Indonesia's premier furniture & craft exhibition!</h3>
                 <div class="flex gap-3 justify-center mt-5">
@@ -84,11 +84,12 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
     </div>
     <!-- NOTE IFEX MOBILE  -->
     <div class="px-5 md:px-8 py-10 md:py-20 lg:hidden">
-        <div data-aos="fade-up"
-             data-aos-once="true"
-             data-aos-delay=""
-             data-aos-duration="1000">
-            <div class="text-center">
+        <div>
+            <div class="text-center"
+                 data-aos="fade-up"
+                 data-aos-once="true"
+                 data-aos-delay="100"
+                 data-aos-duration="1000">
                 <h1 class="text-3xl lg:text-5xl">Triconville Debuts at IFEX 2025</h1>
                 <h3 class="text-base">Join us at Indonesia's premier furniture & craft exhibition!</h3>
             </div>
