@@ -129,7 +129,7 @@
              style="z-index: 2;"
              id="sub-header">
             <div class="uppercase flex justify-end w-full scrollbar-none">
-                <div class="hidden gap-6 overflow-x-auto"
+                <div class="hidden gap-6 overflow-x-auto scrollbar-none"
                      id="sub-inspiration-desktop">
                 </div>
                 <div class="hidden gap-4 xl:gap-6 overflow-x-auto scrollbar-none"
@@ -275,7 +275,7 @@
                 const scrollLeft = $(this).scrollLeft();
                 const clientWidth = $(this).innerWidth();
                 const scrollWidth = $(this).get(0).scrollWidth;
-                if (scrollLeft + clientWidth >= scrollWidth) {
+                if (scrollLeft + clientWidth >= scrollWidth - 1) {
                     $('#sub-collections-desktop-arrow').removeClass('rotate-180');
                 } else {
                     $('#sub-collections-desktop-arrow').addClass('rotate-180');
@@ -286,7 +286,7 @@
                 const clientWidth = $('#sub-collections-desktop').innerWidth();
                 const scrollLeft = $('#sub-collections-desktop').scrollLeft();
 
-                if (scrollLeft + clientWidth >= scrollWidth) {
+                if (scrollLeft + clientWidth >= scrollWidth - 1) {
                     $('#sub-collections-desktop').animate({
                         scrollLeft: 0
                     }, 500);
@@ -304,7 +304,7 @@
                 const scrollLeft = $(this).scrollLeft();
                 const clientWidth = $(this).innerWidth();
                 const scrollWidth = $(this).get(0).scrollWidth;
-                if (scrollLeft + clientWidth >= scrollWidth) {
+                if (scrollLeft + clientWidth >= scrollWidth - 1) {
                     $('#sub-products-desktop-arrow').removeClass('rotate-180');
                 } else {
                     $('#sub-products-desktop-arrow').addClass('rotate-180');
@@ -315,7 +315,7 @@
                 const clientWidth = $('#sub-products-desktop').innerWidth();
                 const scrollLeft = $('#sub-products-desktop').scrollLeft();
 
-                if (scrollLeft + clientWidth >= scrollWidth) {
+                if (scrollLeft + clientWidth >= scrollWidth - 1) {
                     $('#sub-products-desktop').animate({
                         scrollLeft: 0
                     }, 500);
@@ -358,7 +358,7 @@
                     >
                         <h5 class="text-lg font-medium">${menu.name}</h5>
                     </a>
-                    <div class="text-end p-2" id="${subMenuId}"></div>
+                    ${menu.name === 'Products' ? `<div class="text-end p-2" id="${subMenuId}"></div>` : ''}
                 </li>
             `);
             appendSubMenu(menu.name);
@@ -399,11 +399,14 @@
 
         // Generate submenu items
         submenuData.forEach((item) => {
-            const href = menu === 'Products' ?
-                `<?= BASE_LINK; ?>/products/${item.slug}` :
-                menu === 'Inspirations' ?
-                `<?= BASE_LINK; ?>/${item.slug}/` :
-                `<?= BASE_LINK; ?>/collections/${slugify(item.name)}`;
+            let href;
+            if (menu === 'Products') {
+                href = `<?= BASE_LINK; ?>/products/${item.slug}`;
+            } else if (menu === 'Inspirations') {
+                href = `<?= BASE_LINK; ?>/${item.slug}/`;
+            } else {
+                href = `<?= BASE_LINK; ?>/collections/${slugify(item.name)}`;
+            }
 
             const displayName = item.display_name || item.name;
             categoryMobile += `

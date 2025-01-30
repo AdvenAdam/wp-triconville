@@ -54,7 +54,7 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
         <div class="hidden lg:flex items-center justify-center h-full w-full"
              data-aos="fade-up"
              data-aos-once="true"
-             data-aos-delay=""
+             data-aos-delay="100"
              data-aos-duration="1000">
             <div class="text-center">
                 <h1 class="text-3xl lg:text-5xl">Triconville Debuts at IFEX 2025</h1>
