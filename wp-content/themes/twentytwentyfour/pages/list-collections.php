@@ -17,7 +17,7 @@ body {
      id="magnetic__container">
     <!-- NOTE: Banner -->
     <div class="flex flex-col justify-center pt-14 pb-5 md:pt-20 md:pb-20 px-5 md:px-8 snap-always snap-start">
-        <h1 class="text-3xl lg:text-5xl font-medium text-center capitalize ">triconville collections</h1>
+        <h1 class="text-3xl lg:text-5xl font-medium text-center capitalize">triconville collections</h1>
         <h3 class='text-center'>The Luxury of Living Outdoors</h3>
         <div class="flex gap-2 justify-center md:mt-10 view-button invisible">
             <button class="btn-ghost-dark  flex gap-2 items-center text-sm uppercase"
@@ -63,7 +63,11 @@ body {
         </div>
     </div>
     <div id="list__collections"
-         class=' '>
+         class=' '
+         data-aos="fade-up"
+         data-aos-once="true"
+         delay="500"
+         data-aos-duration="1000">
     </div>
     <div id="page-loading">
 
@@ -97,7 +101,7 @@ function checkIsMobile(isMobile) {
         changeView('list');
     }
     if (isMobile) {
-        $('.content-container').removeClass('snap-y snap-mandatory overflow-y-scroll')
+        $('.content-container').removeClass('snap-y snap-mandatory overflow-y-scroll h-[calc(100vh-5rem)] md:h-[calc(100vh-8rem)]')
         $('.view-button').addClass('invisible');
         changeView('grid');
     }
@@ -154,13 +158,13 @@ function loadCollections() {
 function changeView(type) {
     count = 0;
     $('.view-button button').removeClass('btn-ghost-dark').addClass('btn-ghost');
-    $('.content-container').removeClass('snap-y snap-mandatory transition duration-500 ease-in-out overflow-y-scroll')
+    $('.content-container').removeClass('snap-y snap-mandatory transition duration-500 ease-in-out overflow-y-scroll h-[calc(100vh-5rem)] md:h-[calc(100vh-8rem)]')
     if (type == 'grid') {
         $('#grid-container').show();
         $('#list__collections').hide();
         $('#grid-button').removeClass('btn-ghost').addClass('btn-ghost-dark');
     } else if (type == 'list') {
-        $('.content-container').addClass('snap-y snap-mandatory transition duration-500 ease-in-out overflow-y-scroll')
+        $('.content-container').addClass('snap-y snap-mandatory transition duration-500 ease-in-out overflow-y-scroll h-[calc(100vh-5rem)] md:h-[calc(100vh-8rem)]')
         $('#grid-container').hide();
         $('#list__collections').show();
         $('#list-button').removeClass('btn-ghost').addClass('btn-ghost-dark');
@@ -172,7 +176,10 @@ function renderCollections(e, index, type = 'grid') {
     if (type == 'grid') {
         $('.content-container').off('wheel', onscrollHandler);
         $('#grid__collections').append(`
-            <a href= "<?= BASE_LINK; ?>/collections/${slugify(e.name)}" >
+            <a href= "<?= BASE_LINK; ?>/collections/${slugify(e.name)}" 
+                data-aos="fade-up"
+                data-aos-duration="1000"
+            >
                 <img src="${e.image_grid || e.collection_image_768}" class="h-auto max-h-[365px] w-full hover:brightness-110 transition duration-300 ease-in-out transform" >
                 <h4 class='text-sm mt-4 mb-2'>
                     ${count < 10 ? '0' + (count) : count}. 
@@ -197,7 +204,7 @@ function renderCollections(e, index, type = 'grid') {
             >
                 <a href= "<?= BASE_LINK; ?>/collections/${slugify(e.name)}">
                     <div class=" bg-gradient-to-b from-black/15 to-transparent h-full w-full absolute top-0 left-0 p-8 md:p-5 lg:p-20">
-                        <div class="max-w-[1440px] ">
+                        <div class="max-w-[1440px]">
                             <h4 class='text-white text-sm mt-4 mb-2'>
                                 ${count < 10 ? '0' + (count) : count}. 
                             </h4>

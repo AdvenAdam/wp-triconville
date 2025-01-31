@@ -84,12 +84,11 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
     </div>
     <!-- NOTE IFEX MOBILE  -->
     <div class="px-5 md:px-8 py-10 md:py-20 lg:hidden">
-        <div>
-            <div class="text-center"
-                 data-aos="fade-up"
-                 data-aos-once="true"
-                 data-aos-delay="100"
-                 data-aos-duration="1000">
+        <div data-aos="fade-up"
+             data-aos-once="true"
+             data-aos-delay="100"
+             data-aos-duration="1000">
+            <div class="text-center">
                 <h1 class="text-3xl lg:text-5xl">Triconville Debuts at IFEX 2025</h1>
                 <h3 class="text-base">Join us at Indonesia's premier furniture & craft exhibition!</h3>
             </div>

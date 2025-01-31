@@ -17,38 +17,34 @@ get_template_part('header-custom');
 </style>
 <div class="content-container overflow-hidden mt-20">
     <!-- NOTE: Banner -->
-    <div class="materials-banner ">
-        <div class="flex items-center justify-center min-h-full bg-black bg-opacity-20">
-            <h1 class="text-3xl lg:text-5xl font-medium text-center text-white"
-                id="category__name">Materials</h1>
-        </div>
+    <div class="md:pt-10 my-10 px-5 md:px-8">
+        <h1 class="text-3xl lg:text-5xl text-center">Materials</h1>
+        <h3 class="text-base text-center ">Each material tells a unique story, adding character, beauty, and strength to the pieces we create.</h3>
     </div>
-    <!-- NOTE : Material list -->
-    <div class="my-9">
-        <div id="list__materials_filter"
-             class='flex items-center text-sm py-8 px-5 md:px-8 justify-center flex-wrap gap-1 lg:gap-2'
-             data-aos="fade-up"
-             data-aos-once="true"
-             data-aos-duration="500">
-            <button type="button"
-                    class="btn-ghost-dark !py-2"
-                    onclick="changeFilter('all')"
-                    id="btn-all">All Materials</button>
-        </div>
+</div>
+<!-- NOTE : Material list -->
+<div class="">
+    <div id="list__materials_filter"
+         class='flex items-center text-sm pb-8 px-5 md:px-8 justify-center flex-wrap gap-1 lg:gap-2'
+         data-aos="fade-up"
+         data-aos-once="true"
+         data-aos-duration="500">
+        <button type="button"
+                class="btn-ghost-dark !py-2"
+                onclick="changeFilter('all')"
+                id="btn-all">All Materials</button>
     </div>
-    <div class="px-5 md:px-8">
-        <div id="material__page"
-             class="max-w-[1440px] mt-5 mx-auto">
-        </div>
+</div>
+<div class="px-5 md:px-8">
+    <div id="material__page"
+         class="max-w-[1440px] mt-5 mx-auto">
     </div>
-    <div id="page-loading">
-
-    </div>
-    <div id="errorIndicator"
-         class="hidden">Error</div>
-    <div class="fixed z-0 h-screen w-screen invisible bg-black bg-opacity-40 transition-opacity duration-500 ease-in-out top-0"
-         id="page-modal">
-    </div>
+</div>
+<div id="errorIndicator"
+     class="hidden">Error</div>
+<div class="fixed z-0 h-screen w-screen invisible bg-black bg-opacity-60 transition-opacity duration-500 ease-in-out top-0"
+     id="page-modal">
+</div>
 
 </div>
 <script>
@@ -159,7 +155,7 @@ function renderSubGroups(data) {
                     <div id="material__list__${slugify(subGroup.name)}" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 2xl:gap-10">
                         ${filteredMaterials.map(material => {
                             return (
-                                `<div class="cursor-pointer inline-flex flex-col items-center" onclick='materialClick("${materials.slug}", "${material.code}")'>
+                                `<div class="cursor-pointer inline-flex flex-col items-center" onclick='materialClick("${materialData.slug}", "${material.code}")'>
                                     <img class="w-full h-auto object-contain" src="${material.image_384}" />
                                     <p class="text-center max-w-[90%] mx-auto mt-2">${material.alias} (${material.code})</p>
                                 </div>
@@ -213,16 +209,19 @@ function filterProduct({
 function materialClick(slug, code) {
     const product = allMaterialProducts.find(e => e.slug === slug);
     const swatchOption = product.swatch_options.find(option => option.code === code);
+    console.log("🚀 ~ materialClick ~ swatchOption:", swatchOption)
 
     $('#page-modal').empty();
     $('#page-modal').removeClass('invisible z-0').addClass('z-30');
     $('#page-modal').append(`
-        <div class="w-full h-full flex items-center justify-center" onclick="event.stopPropagation(); $('#page-modal').addClass('invisible z-0').removeClass('z-30')">
-            <div class="bg-white flex items-center relative" onclick="event.stopPropagation()">
-                <img class="w-auto h-auto max-w-[50vw] object-contain" src="${swatchOption.image_384}" />
-                <div class="p-5 w-[50vw] max-w-xl">
-                    <h3 class="text-center text-2xl mx-auto">${swatchOption.alias} (${swatchOption.code})</h3>
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 cursor-pointer absolute top-5 right-5" onclick="event.stopPropagation(); $('#page-modal').addClass('invisible z-0').removeClass('z-30')">
+        <div class="w-full h-full max-w-[90vw] mx-auto flex items-center justify-center" onclick="event.stopPropagation(); $('#page-modal').addClass('invisible z-0').removeClass('z-30')">
+            <div class="bg-white flex-col items-center relative" onclick="event.stopPropagation()">
+                <div class="sm:p-5 max-w-xl">
+                    <img class="w-auto h-auto object-cover" src="${swatchOption.image_512}" />
+                    <div>
+                        <h3 class="text-center text-2xl mx-auto my-5">${swatchOption.alias} (${swatchOption.code})</h3>
+                    </div>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-white cursor-pointer absolute -top-8 right-0 sm:-top-8 sm:-right-8" onclick="event.stopPropagation(); $('#page-modal').addClass('invisible z-0').removeClass('z-30')">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
                     </svg>
                 </div>
