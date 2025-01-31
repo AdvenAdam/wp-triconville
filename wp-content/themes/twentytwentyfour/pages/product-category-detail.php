@@ -29,7 +29,10 @@ get_template_part('header-custom');
     <div class="product-detail-banner">
         <div class="flex items-center justify-center w-full full-screen-with-subMenu bg-black bg-opacity-10">
             <h1 class="text-3xl lg:text-5xl font-medium text-center text-white capitalize"
-                id="category__name"></h1>
+                id="category__name"
+                data-aos="fade-up"
+                data-aos-once="true"
+                data-aos-duration="1000"></h1>
         </div>
     </div>
     <div class="px-5 md:px-8">
@@ -54,9 +57,7 @@ get_template_part('header-custom');
         </div>
     </div>
 </div>
-<div id="page-loading">
 
-</div>
 <script>
 let localProductsData = [];
 let categoriesData;
@@ -120,7 +121,6 @@ async function renderAllProducts() {
 
 async function fetchProducts(id, param) {
     try {
-        $('#page-loading').show();
         const res = await $.ajax({
             url: `<?= BASE_API; ?>/v1_categories_det/${id}/`,
             type: 'GET',
@@ -158,10 +158,7 @@ async function fetchProducts(id, param) {
 
         return [...products];
     } catch (error) {
-        $('#page-loading').hide();
         throw error;
-    } finally {
-        $('#page-loading').hide();
     }
 }
 

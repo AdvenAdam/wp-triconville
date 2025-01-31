@@ -16,8 +16,11 @@ get_template_part('header-custom');
 </style>
 <div class="content-container mt-24 md:mt-32">
     <div class="product-header w-full full-screen-with-subMenu ">
-        <div class="flex items-center justify-center h-full bg-black bg-opacity-10 ">
-            <h1 class="text-3xl lg:text-5xl font-medium text-center text-white">Products</h1>
+        <div class="flex items-center justify-center h-full bg-black bg-opacity-10">
+            <h1 class="text-3xl lg:text-5xl font-medium text-center text-white"
+                data-aos="fade-up"
+                data-aos-once="true"
+                data-aos-duration="1000">Products</h1>
         </div>
     </div>
     <!-- NOTE : PRODUCT LIST -->
@@ -35,8 +38,6 @@ get_template_part('header-custom');
 
     </div>
 </div>
-<div id="page-loading">
-</div>
 <script>
 $(document).ready(function() {
     let category = [];
@@ -44,12 +45,7 @@ $(document).ready(function() {
     $.ajax({
         url: "<?= BASE_URL; ?>/?rest_route=/wp/v2/product_service",
         type: "GET",
-        beforeSend: () => {
-            // TODO :: ADD SKELETON
-            $('#page-loading').show();
-        },
         success: (res) => {
-            $('#page-loading').hide();
             res.forEach((e, id) => {
                 renderProducts(e, id);
             });
