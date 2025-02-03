@@ -96,7 +96,11 @@ function renderMaster() {
         <section class="banner mt-4 md:mt-12 mb-5 relative">
             <img src="${collectionData.image_banner || collectionData.image_1920}" alt="${collectionData.display_name}" class="w-full full-screen-with-subMenu object-cover">
             <div class='bg-black bg-opacity-25 h-full w-full absolute inset-0 flex items-center justify-center'>
-                <h1 class='text-white text-3xl lg:text-5xl font-medium capitalize'>${collectionData.display_name}</h1>
+                <h1 class='text-white text-3xl lg:text-5xl font-medium capitalize'
+                    data-aos="fade-up"
+                    data-aos-once="true"
+                    data-aos-duration="1000"
+                >${collectionData.display_name}</h1>
             </div>
         </section>
     `)
