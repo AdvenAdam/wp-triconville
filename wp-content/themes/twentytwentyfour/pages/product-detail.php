@@ -169,7 +169,11 @@ function renderMaster() {
                     background-repeat: no-repeat;
                 ">
                 <div class='bg-black bg-opacity-10 h-full w-full flex items-center justify-center'>
-                    <h1 class="text-3xl lg:text-5xl font-medium text-center text-white capitalize">${productName}</h1>
+                    <h1 class="text-3xl lg:text-5xl font-medium text-center text-white capitalize"
+                    data-aos="fade-up"
+                    data-aos-once="true"
+                    data-aos-duration="1000"
+                    >${productName}</h1>
                 </div>
             </div>`);
         // NOTE : PRODUCT OVERVIEW
@@ -239,7 +243,7 @@ async function renderOverview(res) {
     if (isSectionalPage) {
         $('#product__header__image').append(`
             <div class="flex justify-center">
-                <img src="${validBaseImgUrl}" alt="${res.name}" class="w-[100vw] my-10 md:w-[80vw] h-[30vh] md:h-[50vh] object-contain px-8"/>
+                <img src="${validBaseImgUrl}" alt="${res.name}" class="w-[100vw] my-10 md:w-[80vw] h-[30vh] md:h-[50vh] object-cover px-8"/>
             </div>
         `)
     } else {
