@@ -632,14 +632,13 @@ function renderDownloadable(asset3d, product_image, collection_sheet) {
 }
 
 function renderImages(images) {
-    images.ambience_image_1920.forEach((e) => {
-        $('.ambience__img').append(`
-            <img src="${e}"
-                class="h-full me-2 mx-2 w-screen md:w-auto object-cover" />
-        `)
-    })
-
-    if (images.ambience_image_1920.length > 1) {
+    if (Array.isArray(ProductsData.ambience_image_1920) && images.ambience_image_1920.length > 1) {
+        images.ambience_image_1920.forEach((e) => {
+            $('.ambience__img').append(`
+                <img src="${e}"
+                    class="h-full me-2 mx-2 w-screen md:w-auto object-cover" />
+            `)
+        })
         $('.ambience__img').slick({
             slidesToScroll: 1,
             variableWidth: true,
