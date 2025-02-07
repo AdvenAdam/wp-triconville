@@ -5,14 +5,40 @@ Template Name: List Materials
 get_template_part('header-custom');
 ?>
 <style>
-.materials-banner {
-    background: url('https://storage.googleapis.com/back-bucket/wp_triconville/images/material-banner.png');
-    height: 70vh;
-    width: 100%;
-    overflow: hidden;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
+.slick-dots {
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    margin: 1rem 0;
+    padding: 0.5rem 0.5rem;
+    list-style-type: none;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0px;
+    background-color: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(7px);
+    border-radius: 2rem;
+
+}
+
+.slick-dots li {
+    margin: 0 0.25rem;
+}
+
+.slick-dots button {
+    display: block;
+    width: 0.6rem;
+    height: 0.6rem;
+    padding: 0;
+    outline: none;
+    border: none;
+    border-radius: 100%;
+    background-color: #b4b1b1;
+    text-indent: -9999px;
+}
+
+.slick-dots li.slick-active button {
+    background-color: #1f1f1f;
 }
 </style>
 <div class="content-container overflow-hidden mt-20">
@@ -151,7 +177,14 @@ function renderSubGroups(data) {
                     data-aos-duration="500"
                 >
                     <h2 class="text-2xl mb-2">${toTitleCase(subGroup.name)}</h2>
-                    <p class="mb-6">${subGroup.description}</p>
+                    <p class="text-sm">${filteredMaterials[0].material_information}</p>
+                    <div class=" max-h-0 opacity-0 invisible transition-all duration-500 ease-out" id="care_instruction_${slugify(subGroup.name)}">
+                        <p class="text-sm font-medium">Care Instruction</p>
+                        <span class="triconville-paragraph">${filteredMaterials[0].care_instruction}</span>
+                    </div>
+                    <p class="text-sm mb-6 text-[#798F98] cursor-pointer hover:underline" onClick="showCareInstruction('${slugify(subGroup.name)}')" id="care_instruction_btn_${slugify(subGroup.name)}">
+                        more
+                    </p>
                     <div id="material__list__${slugify(subGroup.name)}" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 2xl:gap-10">
                         ${filteredMaterials.map(material => {
                             return (
@@ -206,28 +239,83 @@ function filterProduct({
 
 
 // NOTE Action Function
-function materialClick(slug, code) {
+async function materialClick(slug, code) {
     const product = allMaterialProducts.find(e => e.slug === slug);
     const swatchOption = product.swatch_options.find(option => option.code === code);
-    console.log("🚀 ~ materialClick ~ swatchOption:", swatchOption)
-
     $('#page-modal').empty();
-    $('#page-modal').removeClass('invisible z-0').addClass('z-30');
     $('#page-modal').append(`
-        <div class="w-full h-full max-w-[90vw] mx-auto flex items-center justify-center" onclick="event.stopPropagation(); $('#page-modal').addClass('invisible z-0').removeClass('z-30')">
-            <div class="bg-white flex-col items-center relative" onclick="event.stopPropagation()">
-                <div class="sm:p-5 max-w-xl">
-                    <img class="w-auto h-auto object-cover" src="${swatchOption.image_512}" />
-                    <div>
-                        <h3 class="text-center text-2xl mx-auto my-5">${swatchOption.alias} (${swatchOption.code})</h3>
+        <div class="w-full h-full flex items-center justify-center max-w-[95vw] mx-auto" onclick="event.stopPropagation(); $('#page-modal').addClass('invisible z-0').removeClass('z-30')">
+            <div class="bg-white flex flex-col md:flex-row gap-4 md:gap-0 items-center relative" onclick="event.stopPropagation()">
+                <div class="w-[46vh] sm:w-[50vh] md:w-full h-[45vh] sm:h-[50vh] md:h-full md:max-w-[45vw] lg:max-w-[450px] relative" id="material__img__${slugify(swatchOption.alias)}"></div>
+                <div class="px-5 md:px-8 w-[46vh] sm:w-[50vh] md:w-[50vw] max-w-xl h-full">
+                    <div class="flex items-center gap-2 pt-2 md:pt-0">
+                        <img src="${swatchOption.image_384}" alt="${swatchOption.alias}" class="w-8 h-auto object-contain rounded" />
+                        <h3 class="text-xl lg:text-2xl">${swatchOption.alias} (${swatchOption.code})</h3>
                     </div>
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-white cursor-pointer absolute -top-8 right-0 sm:-top-8 sm:-right-8" onclick="event.stopPropagation(); $('#page-modal').addClass('invisible z-0').removeClass('z-30')">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
-                    </svg>
+                    <div class="mt-4" id="material__list__${slugify(swatchOption.alias)}">
+                    </div>
+                    <div class="my-4 grid grid-cols-5 gap-4" id="material__care__${slugify(swatchOption.alias)}"></div>
                 </div>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 cursor-pointer absolute top-5 right-5" onclick="event.stopPropagation(); $('#page-modal').addClass('invisible z-0').removeClass('z-30')">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                </svg>
             </div>
         </div>
-    `);
+    `)
+    const loadImages = async () => {
+        if (Array.isArray(swatchOption.gallery) && swatchOption.gallery.length > 1) {
+            const images = await Promise.all(swatchOption.gallery.map(image => {
+                return $.ajax({
+                    url: image.image_512,
+                    type: 'GET'
+                }).then(res => image.image_512);
+            }));
+            images.forEach(imageUrl => {
+                $('#material__img__' + slugify(swatchOption.alias)).append(`
+                    <img class="w-full h-full object-contain" src="${imageUrl}" alt="${swatchOption.alias}" />
+                `)
+            });
+            $('#material__img__' + slugify(swatchOption.alias)).slick({
+                dots: true,
+                slidesToScroll: 1,
+                slidesToShow: 1,
+                arrows: false,
+                centerMode: false,
+            });
+        } else {
+            $('#material__img__' + slugify(swatchOption.alias)).append(`
+                <img class="w-full h-full object-contain" src="${swatchOption.image_384}" alt="${swatchOption.alias}" />
+            `)
+        }
+    }
+    const loadInfo = async () => {
+        $('#material__list__' + slugify(swatchOption.alias)).append(swatchOption.information.map(material => {
+            return `<p class="text-sm "><span class="font-medium">${material.name}</span> : ${material.description}</p>`
+        }).join(''))
+        $('#material__care__' + slugify(swatchOption.alias)).append(swatchOption.care_features.map(care_feature => {
+            return `
+                <div class="flex flex-col items-center">
+                    <img class="w-12 h-12 hidden lg:block" src="${care_feature.image}" alt="${care_feature.name}" />
+                    <p class="text-center text-xs hidden lg:block">${care_feature.name}</p>
+                    <div class="group option_2 cursor-pointer relative id="${care_feature.name}">
+                        <div id="tooltip-${care_feature.name}" class=" absolute -top-16 -left-12 w-fit z-10 invisible group-hover:visible inline-block bg-gray-900 rounded-lg shadow-sm opacity-0 group-hover:opacity-100 ">
+                            <p class="px-3 py-2 font-medium text-white w-[140px]">${care_feature.name}</p>
+                        </div>
+                        <img src="${care_feature.image}" class="w-12 h-12 object-contain lg:hidden"/>
+                    </div>
+                </div>
+            `
+        }).join(''))
+    }
+    await loadImages();
+    await loadInfo();
+    $('#page-modal').removeClass('invisible z-0').addClass('z-30');
+}
+
+function showCareInstruction(id) {
+    $(`#care_instruction_${id}`).toggleClass('max-h-0 opacity-0 invisible ease-out max-h-screen opacity-100 visible ease-in pt-4');
+    const buttonText = $(`#care_instruction_btn_${id}`).text();
+    $(`#care_instruction_btn_${id}`).text(buttonText === 'less' ? 'more' : 'less');
 }
 
 function changeFilter(id) {
