@@ -24,9 +24,13 @@ get_template_part('header-custom');
     color: var(--mood-color);
     border-color: var(--mood-border-color);
 }
+
+.background-color {
+    background-color: var(--mood-bg-color);
+}
 </style>
 
-<div class="content-container min-h-screen mt-6 md:mt-32 overflow-hidden"
+<div class="content-container min-h-screen mt-6 md:mt-28 overflow-hidden"
      id="mood__container">
     <div id="mood__title">
     </div>
@@ -99,10 +103,12 @@ function renderMaster() {
 }
 
 function renderBanner() {
-    $('#mood__container').addClass('mood-color');
+    $('#mood__container').addClass('mood-color background-color');
+
     $(':root').css({
         '--mood-color': selectedMood.color,
-        '--mood-border-color': selectedMood.color
+        '--mood-border-color': selectedMood.color,
+        '--mood-bg-color': selectedMood.bgColor
     });
     // Note : Set Banner Title 
     const descriptionTitle = selectedMood.desc.split('<br/>')[0]
