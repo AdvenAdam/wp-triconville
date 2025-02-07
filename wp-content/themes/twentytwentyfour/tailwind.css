@@ -29,7 +29,7 @@
 .full-screen-with-subMenu {
     @apply h-[calc(100vh-6.5rem)] md:h-[calc(100vh-8rem)]
 }
-
+.triconville-paragraph,
 p {
     @apply text-triconville-black tracking-[0.07rem] font-sans text-xs sm:text-sm !leading-[150%]
 }
