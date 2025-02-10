@@ -59,7 +59,19 @@
              style="display:none"
              src="https://www.facebook.com/tr?id=321745036616515&ev=PageView&noscript=1" /></noscript>
     <!-- End Meta Pixel Code -->
+    <!-- Google tag (gtag.js) -->
+    <script async
+            src="https://www.googletagmanager.com/gtag/js?id=G-0HB2SWDS44"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
 
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'G-0HB2SWDS44');
+    </script>
     <link rel="stylesheet"
           href="https://sibforms.com/forms/end-form/build/sib-styles.css">
     <!--  END - We recommend to place the above code in head tag of your website html -->
