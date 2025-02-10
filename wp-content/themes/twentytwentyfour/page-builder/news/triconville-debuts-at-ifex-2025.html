@@ -137,20 +137,36 @@
     </ul>
   </div>
 
-  <div class="max-w-2xl py-10 mx-auto">
+  <div
+    class="max-w-2xl py-10 mx-auto"
+  >
     <p class="text-sm mb-10">
       Mark your calendar and visit us at <b>Booth M-17 North Entrance—</b>Convention Centre & Theatre to experience our
       commitment to craftsmanship and design excellence firsthand!
     </p>
     <div class="text-center">
       <a
-        href="https://forms.gle/tcgXGkWob7neJARP9"
-        target="_blank"
-        class="btn-ghost text-sm"
+        onclick="document.getElementById('form').scrollIntoView({behavior: 'smooth'}); document.getElementById('form').classList.remove('hidden'); document.getElementById('form').classList.add('flex')";"
+        class="btn-ghost text-sm cursor-pointer"
       >
         Book Your Appointment
       </a>
     </div>
+  </div>
+
+  <div
+    class="w-full mx-auto justify-center hidden"
+    id="form"
+  >
+    <iframe
+      src="https://docs.google.com/forms/d/e/1FAIpQLSdnzcg4XTNuu9iarPmm9JQ9bxFwqTx7uZEaLOyIsNuO9csEIw/viewform?embedded=true"
+      width="640"
+      height="1640"
+      frameborder="0"
+      marginheight="0"
+      marginwidth="0"
+      >Loading…</iframe
+    >
   </div>
   <!-- NOTE : Share -->
   <div class="flex justify-between items-center max-w-2xl mx-auto my-10 border-slate-500 border-y py-3">
