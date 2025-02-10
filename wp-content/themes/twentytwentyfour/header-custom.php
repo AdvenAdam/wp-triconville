@@ -72,6 +72,24 @@
 
     gtag('config', 'G-0HB2SWDS44');
     </script>
+    <!-- Google Tag Manager -->
+    <script>
+    (function(w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({
+            'gtm.start': new Date().getTime(),
+            event: 'gtm.js'
+        });
+        var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s),
+            dl = l != 'dataLayer' ? '&l=' + l : '';
+        j.async = true;
+        j.src =
+            'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-5LP37SXR');
+    </script>
+    <!-- End Google Tag Manager -->
     <link rel="stylesheet"
           href="https://sibforms.com/forms/end-form/build/sib-styles.css">
     <!--  END - We recommend to place the above code in head tag of your website html -->
@@ -109,6 +127,13 @@
 </head>
 
 <body <?php body_class(); ?>>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5LP37SXR"
+                height="0"
+                width="0"
+                style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
     <header class="header fixed w-full top-0 tracking-widest"
             style="z-index: 20;">
         <nav class="flex items-center justify-between px-5 md:px-8 2xl:px-20 w-full md:min-h-20 bg-white ">
