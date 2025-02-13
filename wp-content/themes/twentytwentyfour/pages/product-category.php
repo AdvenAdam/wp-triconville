@@ -61,7 +61,7 @@ function renderProducts(e, id) {
             data-aos-delay="${(id +1) * 100}"
             data-aos-duration="500">
             <div>
-                <img class="w-full h-full object-cover md:object-contain group-hover:scale-[.97] group-hover:brightness-110 transition duration-300" src="${e.thumb}" />
+                <img class="w-full h-full object-cover md:object-contain group-hover:scale-[.97] group-hover:brightness-110 transition duration-300" src="${e.thumb}" alt="${e.name}" />
             </div>
             <p class="capitalize text-center md:-mt-5 group-hover:underline">${e.name}</p>
         </a>
