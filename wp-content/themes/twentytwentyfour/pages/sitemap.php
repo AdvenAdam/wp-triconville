@@ -160,8 +160,8 @@ function slugify($str) {
             'posts_per_page' => -1, 'order' => 'DESC', 'orderby' => 'date' ); $top_posts = new WP_Query($args_top); if ($top_posts->have_posts()) :
              while ($top_posts->have_posts()) : $top_posts->the_post();
                 echo "<url>\n";
-                echo "<loc>" .  the_permalink() . "/</loc>\n";
-                echo "<lastmod>" . date('c') . "</lastmod>\n";
+                echo "<loc>" . get_the_permalink() . "</loc>\n";
+                echo "<lastmod>" . get_the_time('c') . "</lastmod>\n";
                 echo "</url>\n";
              endwhile; wp_reset_postdata(); endif;
     ?>

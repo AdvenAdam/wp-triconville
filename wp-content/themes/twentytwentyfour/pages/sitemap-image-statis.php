@@ -4423,22 +4423,22 @@ echo '<?xml version="1.0" encoding="UTF-8"?>';
         <loc>https://triconville.com/news/</loc>
     </url>
     <url>
-        https://triconville.com/news/triconville-debuts-at-ifex-2025/<loc>/</loc>
+        <loc>https://triconville.com/news/triconville-debuts-at-ifex-2025/</loc>
     </url>
     <url>
-        https://triconville.com/news/salone-del-mobile-milano-2024/<loc>/</loc>
+        <loc>https://triconville.com/news/salone-del-mobile-milano-2024/</loc>
     </url>
     <url>
-        https://triconville.com/news/swiss-trade-show-in-zurich/<loc>/</loc>
+        <loc>https://triconville.com/news/swiss-trade-show-in-zurich/</loc>
     </url>
     <url>
-        https://triconville.com/news/triconville-b2b-is-here-lets-talk-business/<loc>/</loc>
+        <loc>https://triconville.com/news/triconville-b2b-is-here-lets-talk-business/</loc>
     </url>
     <url>
-        https://triconville.com/news/introducing-new-premium-fabrics-rope-colors-teak-finishes/<loc>/</loc>
+        <loc>https://triconville.com/news/introducing-new-premium-fabrics-rope-colors-teak-finishes/</loc>
     </url>
     <url>
-        https://triconville.com/news/meet-gera-tables-a-perfect-blend-of-quality-workmanship/<loc>/</loc>
+        <loc>https://triconville.com/news/meet-gera-tables-a-perfect-blend-of-quality-workmanship/</loc>
     </url>
     <url>
         <loc>https://triconville.com/moods/</loc>
