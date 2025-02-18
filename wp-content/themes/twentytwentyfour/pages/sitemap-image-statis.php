@@ -1662,29 +1662,12 @@ echo '<?xml version="1.0" encoding="UTF-8"?>';
             <image:loc>https://storage.googleapis.com/pimassest1/asset/DRS-CT-RC120/ambience_image/1024/DORUS-COFFEE-TABLE-RECTA-120-WITH-BLISS-SET-FONTELINA-BEI.jpg?GOOG4-RSA-SHA256674078598672-compute%40developer.gserviceaccount.com%2F20250131%2Fauto%2Fstorage%2Fgoog4_request20250131T042406Z86400host8542c717f56cafc7889d97dbdd9ec5e4480dd83dc9cc05676bbbf7178a6db06b601b9c90ac12d681ee36af2a0dd0c06feb0de5ec680f82f04fc37635ad2962f4ac278a6b57adac03624e3d7a8b059f2eb5de7bee3c38b72b24dc9802cade7db6255e7f1d22f54084071f00f30c2ec49ce7e0bac8d348d465e73b0942df973aa4c0aa0a3b235c5cb25b412a2c3fb422ee46132688555821d2863b14f16fb0bd82717077228f225cc68a370258044581c961c769224fded258d5e097c53460ad9f27513e0cd31872ee0ac8cfb386873e8b1c4715a41885d5216e0f1f23152d13f84d869a734e22c87f41a4942d3bfe6cea08666165b5f29f63dcf218a670cdcd9c</image:loc>
         </image:image>
     </url>
-    <br />
-    <b>Warning</b>: Undefined array key "product_image" in <b>/var/www/html/triconville/wp-content/themes/twentytwentyfour/pages/sitemap-image.php</b> on line <b>90</b><br />
-    <br />
-    <b>Warning</b>: Undefined array key "ambience_image" in <b>/var/www/html/triconville/wp-content/themes/twentytwentyfour/pages/sitemap-image.php</b> on line <b>91</b><br />
     <url>
         <loc>https://triconville.com/product-detail/dorus-ss-coffee-table-recta-120-ceramic-top/</loc>
-        <image:image>
-            <image:loc></image:loc>
-        </image:image>
-        <br />
-        <b>Warning</b>: foreach() argument must be of type array|object, null given in <b>/var/www/html/triconville/wp-content/themes/twentytwentyfour/pages/sitemap-image.php</b> on line <b>170</b><br />
+
     </url>
-    <br />
-    <b>Warning</b>: Undefined array key "product_image" in <b>/var/www/html/triconville/wp-content/themes/twentytwentyfour/pages/sitemap-image.php</b> on line <b>90</b><br />
-    <br />
-    <b>Warning</b>: Undefined array key "ambience_image" in <b>/var/www/html/triconville/wp-content/themes/twentytwentyfour/pages/sitemap-image.php</b> on line <b>91</b><br />
     <url>
         <loc>https://triconville.com/product-detail/dorus-coffee-table-recta-120-ceramic-top/</loc>
-        <image:image>
-            <image:loc></image:loc>
-        </image:image>
-        <br />
-        <b>Warning</b>: foreach() argument must be of type array|object, null given in <b>/var/www/html/triconville/wp-content/themes/twentytwentyfour/pages/sitemap-image.php</b> on line <b>170</b><br />
     </url>
     <url>
         <loc>https://triconville.com/product-detail/dorus-coffee-table-recta-120/</loc>
@@ -1716,29 +1699,12 @@ echo '<?xml version="1.0" encoding="UTF-8"?>';
             <image:loc>https://storage.googleapis.com/pimassest1/asset/DRS-CT-RC160/ambience_image/1024/DORUS-COFFEE-TABLE-RECTA-120-WITH-GAZELIG-SET.effectsResu.jpg?GOOG4-RSA-SHA256674078598672-compute%40developer.gserviceaccount.com%2F20250131%2Fauto%2Fstorage%2Fgoog4_request20250131T042405Z86400host6074952a9fc882dc935f39b7d30c2f284645668efa80f6d6c2e46616bd695f4ae45f16120531029f6c89431f92edf2aff5a4784b2fd9a168fd6e9ac69f2d9b84202316cf0b5138c2040b14858b587717aa59740733a1b2c879113af222dcf1aef073ea7ee4b70ad341f90560a11381369af74837630b3e85cedd508aa8da4e990129c4bd38fe79ee788f5baf5882f2aca78daffd6b110363a0838ffb04bf9998db1e4823da63f01d3cb5d4698a45b23aab7be6e651417900bf4a68de8265da043aae74c86278275168fa77a069fdf66d994c9bd0a3b597b702e007cfc69962ad47339dc0b1dc39acb44023d528d126ba673eb00a1cb2f0f914d312b936b8c5eb</image:loc>
         </image:image>
     </url>
-    <br />
-    <b>Warning</b>: Undefined array key "product_image" in <b>/var/www/html/triconville/wp-content/themes/twentytwentyfour/pages/sitemap-image.php</b> on line <b>90</b><br />
-    <br />
-    <b>Warning</b>: Undefined array key "ambience_image" in <b>/var/www/html/triconville/wp-content/themes/twentytwentyfour/pages/sitemap-image.php</b> on line <b>91</b><br />
+
     <url>
         <loc>https://triconville.com/product-detail/dorus-ss-coffee-table-recta-160-ceramic-top/</loc>
-        <image:image>
-            <image:loc></image:loc>
-        </image:image>
-        <br />
-        <b>Warning</b>: foreach() argument must be of type array|object, null given in <b>/var/www/html/triconville/wp-content/themes/twentytwentyfour/pages/sitemap-image.php</b> on line <b>170</b><br />
     </url>
-    <br />
-    <b>Warning</b>: Undefined array key "product_image" in <b>/var/www/html/triconville/wp-content/themes/twentytwentyfour/pages/sitemap-image.php</b> on line <b>90</b><br />
-    <br />
-    <b>Warning</b>: Undefined array key "ambience_image" in <b>/var/www/html/triconville/wp-content/themes/twentytwentyfour/pages/sitemap-image.php</b> on line <b>91</b><br />
     <url>
         <loc>https://triconville.com/product-detail/dorus-coffee-table-recta-160-ceramic-top/</loc>
-        <image:image>
-            <image:loc></image:loc>
-        </image:image>
-        <br />
-        <b>Warning</b>: foreach() argument must be of type array|object, null given in <b>/var/www/html/triconville/wp-content/themes/twentytwentyfour/pages/sitemap-image.php</b> on line <b>170</b><br />
     </url>
     <url>
         <loc>https://triconville.com/product-detail/dorus-coffee-table-recta-160/</loc>
@@ -1770,29 +1736,11 @@ echo '<?xml version="1.0" encoding="UTF-8"?>';
             <image:loc>https://storage.googleapis.com/pimassest1/asset/DRS-CT-RND/ambience_image/1024/Bliss-modular_config9_Fontelina-Beige.effectsResult.jpg?GOOG4-RSA-SHA256674078598672-compute%40developer.gserviceaccount.com%2F20250131%2Fauto%2Fstorage%2Fgoog4_request20250131T042403Z86400hostae1b825423b891d645f6ea7aafbc8a4c2490197b4cdbb518a44e2657fec6526932ba066f68571cab25f83a779933a5940480b26dc23030201164cc66cd55097ed2f25bf0024a4d94bd847c456af42da5f26375d92a9d83bfa45d96497e79801e39cf9e817849fdc70ab7230b6d9726c66b4652c188fb8cab9164e6761826af210aac4d6ff436121f11bea5e0cdcf9512fc1a450ae02a4dbcbe0c76cc7081f9a1152b06515efed3d011353199a35ce12f5d320d75b36cc39f6a7ab911e26916827fe260a89cad8b57b2ca704f5146dbb4461986ec24e4af0a8620afaf1f727bc60714696832cf1326157eb43764f349dcc37acdf685192017ae00f865e420b0af</image:loc>
         </image:image>
     </url>
-    <br />
-    <b>Warning</b>: Undefined array key "product_image" in <b>/var/www/html/triconville/wp-content/themes/twentytwentyfour/pages/sitemap-image.php</b> on line <b>90</b><br />
-    <br />
-    <b>Warning</b>: Undefined array key "ambience_image" in <b>/var/www/html/triconville/wp-content/themes/twentytwentyfour/pages/sitemap-image.php</b> on line <b>91</b><br />
     <url>
         <loc>https://triconville.com/product-detail/dorus-ss-coffee-table-round-120-ceramic-top/</loc>
-        <image:image>
-            <image:loc></image:loc>
-        </image:image>
-        <br />
-        <b>Warning</b>: foreach() argument must be of type array|object, null given in <b>/var/www/html/triconville/wp-content/themes/twentytwentyfour/pages/sitemap-image.php</b> on line <b>170</b><br />
     </url>
-    <br />
-    <b>Warning</b>: Undefined array key "product_image" in <b>/var/www/html/triconville/wp-content/themes/twentytwentyfour/pages/sitemap-image.php</b> on line <b>90</b><br />
-    <br />
-    <b>Warning</b>: Undefined array key "ambience_image" in <b>/var/www/html/triconville/wp-content/themes/twentytwentyfour/pages/sitemap-image.php</b> on line <b>91</b><br />
     <url>
         <loc>https://triconville.com/product-detail/dorus-coffee-table-round-120-ceramic-top/</loc>
-        <image:image>
-            <image:loc></image:loc>
-        </image:image>
-        <br />
-        <b>Warning</b>: foreach() argument must be of type array|object, null given in <b>/var/www/html/triconville/wp-content/themes/twentytwentyfour/pages/sitemap-image.php</b> on line <b>170</b><br />
     </url>
     <url>
         <loc>https://triconville.com/product-detail/dorus-coffee-table-round-120/</loc>
@@ -2166,29 +2114,11 @@ echo '<?xml version="1.0" encoding="UTF-8"?>';
             <image:loc>https://storage.googleapis.com/pimassest1/asset/DRS-ST/ambience_image/1024/Bliss-modular_config1_Fontelina-Black.effectsResult.jpg?GOOG4-RSA-SHA256674078598672-compute%40developer.gserviceaccount.com%2F20250131%2Fauto%2Fstorage%2Fgoog4_request20250131T042401Z86400host8a457f3131688cf4f65ddf46903456bcca570b053ff8743def92d764943d1565c24d9489a98bbbcea1c1b32a3b21ba3becd79ed295345b7ac272f777882168e65c831ee13e0f87211922ccafd9713c265e22bb3c7ade99f5c2a3e8c28fc6309c676a191cf2ce6ca9c2728a46932f68bede665c2d2e0a82dfbfd23b456ed055744cb12755a1a67233be3322103defb0de21c6462fb4589144994f265e86d1a6efbf516c88392a9afe54c33a6dabdb668c1b9ee3d7cac8e6f502dbd44f3c2263f4960e553e99ac68a75541a469aa14b1bf5647a9df7a125c21ba0f9c613a4c9e520863b491176fb7e249e6d7ac4f8e6249197daad12632d06b8f38a6a10ec28500</image:loc>
         </image:image>
     </url>
-    <br />
-    <b>Warning</b>: Undefined array key "product_image" in <b>/var/www/html/triconville/wp-content/themes/twentytwentyfour/pages/sitemap-image.php</b> on line <b>90</b><br />
-    <br />
-    <b>Warning</b>: Undefined array key "ambience_image" in <b>/var/www/html/triconville/wp-content/themes/twentytwentyfour/pages/sitemap-image.php</b> on line <b>91</b><br />
     <url>
         <loc>https://triconville.com/product-detail/dorus-ss-side-table-ceramic-top/</loc>
-        <image:image>
-            <image:loc></image:loc>
-        </image:image>
-        <br />
-        <b>Warning</b>: foreach() argument must be of type array|object, null given in <b>/var/www/html/triconville/wp-content/themes/twentytwentyfour/pages/sitemap-image.php</b> on line <b>170</b><br />
     </url>
-    <br />
-    <b>Warning</b>: Undefined array key "product_image" in <b>/var/www/html/triconville/wp-content/themes/twentytwentyfour/pages/sitemap-image.php</b> on line <b>90</b><br />
-    <br />
-    <b>Warning</b>: Undefined array key "ambience_image" in <b>/var/www/html/triconville/wp-content/themes/twentytwentyfour/pages/sitemap-image.php</b> on line <b>91</b><br />
     <url>
         <loc>https://triconville.com/product-detail/dorus-side-table-ceramic-top/</loc>
-        <image:image>
-            <image:loc></image:loc>
-        </image:image>
-        <br />
-        <b>Warning</b>: foreach() argument must be of type array|object, null given in <b>/var/www/html/triconville/wp-content/themes/twentytwentyfour/pages/sitemap-image.php</b> on line <b>170</b><br />
     </url>
     <url>
         <loc>https://triconville.com/product-detail/dorus-side-table/</loc>
@@ -4082,11 +4012,6 @@ echo '<?xml version="1.0" encoding="UTF-8"?>';
     </url>
     <url>
         <loc>https://triconville.com/product-detail/tora-panel/</loc>
-        <image:image>
-            <image:loc>https://storage.googleapis.com/pimassest1/asset/TORA-P/featured_image/1024/thumb.png</image:loc>
-        </image:image>
-        <br />
-        <b>Warning</b>: foreach() argument must be of type array|object, string given in <b>/var/www/html/triconville/wp-content/themes/twentytwentyfour/pages/sitemap-image.php</b> on line <b>170</b><br />
     </url>
     <url>
         <loc>https://triconville.com/product-detail/vierra-lantern-small/</loc>
@@ -4289,7 +4214,9 @@ echo '<?xml version="1.0" encoding="UTF-8"?>';
             <image:loc>https://storage.googleapis.com/pimassest1/asset/PAR-250S/featured_image/1024/Ocean_Parasol_Frame_Square_250_Image_Display.png</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://storage.googleapis.com/pimassest1/asset/PAR-250S/ambience_image/1024/PAR-250S-1.jpg?GOOG4-RSA-SHA256674078598672-compute%40developer.gserviceaccount.com%2F20250204%2Fauto%2Fstorage%2Fgoog4_request20250204T050616Z86400host3b3d49d5535d02771c6fb09e2bdcd401382294693ae58dee104f5946df55e9d9c6644bdd7e1ea4d7e3965878728a31868962746c7279c32963eeb3025a5099ac7ff0d42c5c43cda020f583a31030498988dbfa286c7396649bf3015dcd0c7c835ca9947e5e8e7e46006f98967be49281e97fd77b028e56c39eea4f5935b62a6ebebd71f7a810a9aebc81c6588db0b616d62647bf2b81c3f47714f090b0d9bccfc2b5d91c3c61f6d4d08b5b614ff110a753129fa06cf2154164573ad591055e1559166c67d4ed7d9bd4255afa0ec65838eb1a4e39b92e6d40bc52297715907daa0a0d6a817789445d7f6ed92d371e40ca5572c41b70a15934b429efa1446f7d75</image:loc>
+            <image:loc>https://storage.googleapis.com/pimassest1/asset/PAR-250S/ambience_image/1024/PAR-250S-1.jpg?GOOG4-RSA-SHA256674078598672-compute%40developer.gserviceaccount.com%2F20250204%2Fauto%2Fstorage%2Fgoog4_request20250204T050616Z86400host3b3d49d5535d02771c6fb09e2bdcd401382294693ae58dee104f5946df55e9d9c6644bdd7e1ea4d7e3965878728a31868962746c7279c32963eeb3025a5099ac7ff0d42c5c43cda020f583a31030498988dbfa286c7396649bf3015dcd0c7c835ca9947e5e8e7e46006f98967be49281e97fd77b028e56c39eea4f5935b62a6ebebd71f7a810a9aebc81c6588db0b616d62647bf2b81c3f47714f090b0d9bccfc2b5d91c3c61f6d4d08b5b614ff110a753129fa06cf2154164573ad591055e1559166c67d4ed7d9bd4255afa0ec65838eb1a4e39b92e6d40bc52297715907daa0a0d6a817789445d7f6ed92d371e40ca5572c41b70a15934b429efa1446f7d75
+
+            </image:loc>
         </image:image>
         <image:image>
             <image:loc>https://storage.googleapis.com/pimassest1/asset/PAR-250S/ambience_image/1024/PAR-250S-2.jpg?GOOG4-RSA-SHA256674078598672-compute%40developer.gserviceaccount.com%2F20250204%2Fauto%2Fstorage%2Fgoog4_request20250204T050616Z86400host6eeffdb22cfd2a4dc34b016d0c1f2528bbd16c7a63386a7f93246bb3c79f1a65124960ee27267d43672bdd2f3c4703bf8c37a30b44b1069cd7d822f5b754b06f1739acac20f7915ab1edfa4b05a92f9aa6e861b610f1c8c46ac2967c16f8966ace0fc41fe48cf85f95ef814a6270005b08414655ccd754c2c746630533bda5d79d81fe4d1c33390ba1cbe87e8da48bc6ff3a6a4e37539ab333d226e9ece1499ce0818d06d6025348f36f4ba5e35afc0dedcfedd66b2573fa500f3456eb111ea6c49475abb068760299c7cb3cf9438d2f99ff00298e89fefb370403f813ac88a7a3fce5dff69ea8688d6557e59dde60de78bcac9bca86579b4be8cceb7cf89d21</image:loc>
@@ -4298,17 +4225,8 @@ echo '<?xml version="1.0" encoding="UTF-8"?>';
             <image:loc>https://storage.googleapis.com/pimassest1/asset/PAR-250S/ambience_image/1024/PAR-250S-3.jpg?GOOG4-RSA-SHA256674078598672-compute%40developer.gserviceaccount.com%2F20250204%2Fauto%2Fstorage%2Fgoog4_request20250204T050616Z86400host8ed59411d1cba915099a05c028b01a7912660761fef25cb526aef58d9f3e5d9ef3a1fd5189a1f45265e1435e9737b9d5e3a82ebc93448c098b11229da81902bf00c33a595e65dfdfc79eb83a2e9de36bfa88e00d0e603e3e326597bcf6713c7b59d27cbd5011b260b0fb58e734e9cb1540e6ceba7bfc2ecfe8fe3c2c99c16bd2f4b8464edc2016468969584dc656ca43779a24a8a8e0a48a9b15e4a115a3fd23367e4ff8d0bdc61e7041e8319c14a81a210b604db0d37e130dafa21f4cb9622517b8987ff9abcf0184fae64a591b707d59ce494bacf42be0ee76377b1e99e8e114e0353bf53ddf1e6754b59b15cf7c6e84efadee0c01b99392743d50b165c1e0</image:loc>
         </image:image>
     </url>
-    <br />
-    <b>Warning</b>: Undefined array key "product_image" in <b>/var/www/html/triconville/wp-content/themes/twentytwentyfour/pages/sitemap-image.php</b> on line <b>90</b><br />
-    <br />
-    <b>Warning</b>: Undefined array key "ambience_image" in <b>/var/www/html/triconville/wp-content/themes/twentytwentyfour/pages/sitemap-image.php</b> on line <b>91</b><br />
     <url>
         <loc>https://triconville.com/product-detail/ocean-parasol-round-300-stainless-steel/</loc>
-        <image:image>
-            <image:loc></image:loc>
-        </image:image>
-        <br />
-        <b>Warning</b>: foreach() argument must be of type array|object, null given in <b>/var/www/html/triconville/wp-content/themes/twentytwentyfour/pages/sitemap-image.php</b> on line <b>170</b><br />
     </url>
     <url>
         <loc>https://triconville.com/product-detail/ocean-parasol-frame-round-300/</loc>
@@ -4337,17 +4255,8 @@ echo '<?xml version="1.0" encoding="UTF-8"?>';
             <image:loc>https://storage.googleapis.com/pimassest1/asset/PAR-350RE/ambience_image/1024/PAR-350RE-1.jpg?GOOG4-RSA-SHA256674078598672-compute%40developer.gserviceaccount.com%2F20250204%2Fauto%2Fstorage%2Fgoog4_request20250204T050616Z86400host3a0f7bc974bd0eae0dcb0006721c62248248804257762f8d86c4dd24286644f524074cb2aac37951a150709da26eb283b3f437860bebfc470f106804e0ca5c01ff6d38ed32822ae1130157a6b3e216192c5a3cf1e95b72bfa2dedf0ef46d23f9209daf6820930cf63438cdb91a4af3704c3d1392bbd0a7032ef5122efebfde5304a85890a8218fff85456cac523397458cd16edc1186979594194b76ca204b8e709d20881c8450d5be1dacc11319514f3f50ee0763c8db0ed38643427454e87e5712646d8a5f2f3a708846cea02da26d626f3420088170c7d0f30c0bda43b600615480703f7a710bfb4f5fc5f9057a108f138cdb59cb1b7fd25e39e6bec28ebf</image:loc>
         </image:image>
     </url>
-    <br />
-    <b>Warning</b>: Undefined array key "product_image" in <b>/var/www/html/triconville/wp-content/themes/twentytwentyfour/pages/sitemap-image.php</b> on line <b>90</b><br />
-    <br />
-    <b>Warning</b>: Undefined array key "ambience_image" in <b>/var/www/html/triconville/wp-content/themes/twentytwentyfour/pages/sitemap-image.php</b> on line <b>91</b><br />
     <url>
         <loc>https://triconville.com/product-detail/ocean-parasol-rectangular-350-stainless-steel/</loc>
-        <image:image>
-            <image:loc></image:loc>
-        </image:image>
-        <br />
-        <b>Warning</b>: foreach() argument must be of type array|object, null given in <b>/var/www/html/triconville/wp-content/themes/twentytwentyfour/pages/sitemap-image.php</b> on line <b>170</b><br />
     </url>
     <url>
         <loc>https://triconville.com/product-detail/bolster-80/</loc>
