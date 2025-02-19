@@ -184,7 +184,7 @@ function renderCatalogue(catalogueImage) {
                     <p class="uppercase text-xs tracking-widest mood-color mb-2">CATALOG</p>
                     <h2 class="mood-color text-3xl">Triconville - 2024 Catalog</h2>
                     <p class="tracking-wider mt-3 mb-12 mood-color">Discover an unrivaled selection of luxuriant designs from Triconville. Brought to life with captivating imagery, the 2024 Triconville catalogue is a go-to resource for inspiration and information. Qualified trade members can reserve a copy by filling out the form below.</p>
-                    <p><a href="<?= BASE_LINK ?>/collections" class="btn-ghost uppercase text-xs  mood-color">View Catalog</a></p>
+                    <p><a href="<?= BASE_LINK ?>/request-catalog" class="btn-ghost uppercase text-xs  mood-color">Request Catalog</a></p>
                 </div>
                 <img src="${catalogueImage}" class=" w-full h-auto object-cover order-1 sm:order-2" />
             </div>
