@@ -115,7 +115,7 @@
                         <div class="newsletter max-w-3xl">
                             <hr class="my-5 border-1 border-black" />
                             <p class='font-bold text-sm uppercase '>newsletter</p>
-                            <p class='text-sm py-1'>Sign up to our newsletter</p>
+                            <p class='text-sm py-1'>Be the first to know about upcoming collections, early bird discounts, styling secrets for your home.</p>
                             <div class="form mt-5">
                                 <p class=' text-xs font-bold'>Email </p>
                                 <!-- START - We recommend to place the below code where you want the form in your website html  -->

@@ -250,10 +250,10 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                     <div class="max-w-xl order-last lg:order-first ">
                         <div class="request-catalog transition duration-500 ease-in-out">
                             <p class="uppercase text-xs tracking-widest mb-2">catalog</p>
-                            <h2 class="text-2xl lg:text-3xl">Triconville - 2024 Catalog</h2>
+                            <h2 class="text-2xl lg:text-3xl">Triconville - 2025 Catalog</h2>
                             <p class=" mt-3 mb-12">
                                 Discover an unrivaled selection of luxuriant designs from Triconville. Brought to life with captivating imagery,
-                                the 2024 Triconville catalogue is a go-to resource for inspiration and information. Qualified trade members can
+                                the 2025 Triconville catalogue is a go-to resource for inspiration and information. Qualified trade members can
                                 reserve a copy by filling out the form below.
                             </p>
                             <a onClick="requestCatalog('form')"
