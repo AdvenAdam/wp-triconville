@@ -91,7 +91,7 @@
   },
   {
     "id": 4,
-    "ids": [37],
+    "ids": [37, 87],
     "name": "Loungers & Daybeds",
     "slug": "loungers-daybeds",
     "image": "https://storage.googleapis.com/back-bucket/wp_triconville/images/category/banner/banner_lounger-&-daybed2.jpg",
@@ -99,7 +99,12 @@
     "children": [
       {
         "id": 37,
-        "name": "Outdoor Loungers & Daybeds",
+        "name": "Outdoor Loungers ",
+        "param": "!swing,!rivera"
+      },
+      {
+        "id": 87,
+        "name": "Outdoor Daybeds",
         "param": "!swing,!rivera"
       }
     ],
