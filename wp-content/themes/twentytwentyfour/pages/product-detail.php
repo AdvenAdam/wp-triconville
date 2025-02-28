@@ -722,42 +722,46 @@ function renderRelatedProducts(products) {
             </a>
         `)
     })
-    $('#releted__products').append(`
-        <button class="gww-prev left-0 2xl:-left-12 arrow-btn hidden lg:block invisible group-hover/slider:visible opacity-0 group-hover/slider:opacity-100"
-                aria-label="Previous"
-                type="button">
-            <svg xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke-w1.5"1.5"
-                    stroke="currentColor"
-                    class="size-6">
-                <path stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M15.75 19.5 8.25 12l7.5-7.5" />
-            </svg>
-        </button>
-        <button class="gww-next right-0 2xl:-right-12 arrow-btn hidden lg:block invisible group-hover/slider:visible opacity-0 group-hover/slider:opacity-100"
-                aria-label="Next"
-                type="button">
-            <svg xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke-w1.5"1.5"
-                    stroke="currentColor"
-                    class="size-6">
-                <path stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-            </svg>
-        </button>
-    `)
-    $('.releted__products').slick({
-        variableWidth: true,
-        infinite: true,
-        slidesToScroll: 1,
-        arrows: false,
-    });
+    if (products.length > 4) {
+        $('#releted__products').append(`
+            <button class="gww-prev left-0 2xl:-left-12 arrow-btn hidden lg:block invisible group-hover/slider:visible opacity-0 group-hover/slider:opacity-100"
+                    aria-label="Previous"
+                    type="button">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-w1.5"1.5"
+                        stroke="currentColor"
+                        class="size-6">
+                    <path stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M15.75 19.5 8.25 12l7.5-7.5" />
+                </svg>
+            </button>
+            <button class="gww-next right-0 2xl:-right-12 arrow-btn hidden lg:block invisible group-hover/slider:visible opacity-0 group-hover/slider:opacity-100"
+                    aria-label="Next"
+                    type="button">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-w1.5"1.5"
+                        stroke="currentColor"
+                        class="size-6">
+                    <path stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                </svg>
+            </button>
+        `)
+        $('.releted__products').slick({
+            variableWidth: true,
+            infinite: true,
+            slidesToScroll: 1,
+            arrows: false,
+        });
+    } else {
+        $('.releted__products').addClass('grid grid-cols-2 md:grid-cols-4');
+    }
     $(".gww-prev").click(function() {
         $(".releted__products").slick("slickPrev");
     });
