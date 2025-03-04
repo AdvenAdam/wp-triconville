@@ -17,7 +17,7 @@ get_template_part('header-custom');
             <h2 class="text-3xl block sm:hidden mb-5 ">
                 Looks like you’ve lost
             </h2>
-            <img src='https://storage.googleapis.com/back-bucket/wp_triconville/images/404.jpg'
+            <img src='https://storage.googleapis.com/magento-asset/wp_triconville/images/404.jpg'
                  class="w-full h-auto object-cover" />
             <a href="<?= BASE_URL; ?>"
                class="btn-ghost-dark w-fit block mt-10 sm:hidden uppercase text-sm py-4 px-10">back to Home</a>

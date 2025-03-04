@@ -5,120 +5,120 @@
       "name": "Alpha",
       "display_name": "Alpha",
       "collection_id": 19,
-      "image_banner": "https://storage.googleapis.com/back-bucket/wp_triconville/images/collection/banner-list/alpha.jpg",
-      "image_grid": "https://storage.googleapis.com/back-bucket/wp_triconville/images/collection/grid%20view/alpha.jpg"
+      "image_banner": "https://storage.googleapis.com/magento-asset/wp_triconville/images/collection/banner-list/alpha.jpg",
+      "image_grid": "https://storage.googleapis.com/magento-asset/wp_triconville/images/collection/grid%20view/alpha.jpg"
     },
     {
       "id": 2,
       "name": "Timo",
       "display_name": "Timo",
       "collection_id": 28,
-      "image_banner": "https://storage.googleapis.com/back-bucket/wp_triconville/images/collection/banner-list/timo.jpg",
-      "image_grid": "https://storage.googleapis.com/back-bucket/wp_triconville/images/collection/grid%20view/timo.jpg"
+      "image_banner": "https://storage.googleapis.com/magento-asset/wp_triconville/images/collection/banner-list/timo.jpg",
+      "image_grid": "https://storage.googleapis.com/magento-asset/wp_triconville/images/collection/grid%20view/timo.jpg"
     },
     {
       "id": 3,
       "name": "Vento Teak",
       "display_name": "Vento Teak",
       "collection_id": 33,
-      "image_banner": "https://storage.googleapis.com/back-bucket/wp_triconville/images/collection/banner-list/vento teak.jpg",
-      "image_grid": "https://storage.googleapis.com/back-bucket/wp_triconville/images/collection/grid%20view/vento-teak.jpg"
+      "image_banner": "https://storage.googleapis.com/magento-asset/wp_triconville/images/collection/banner-list/vento teak.jpg",
+      "image_grid": "https://storage.googleapis.com/magento-asset/wp_triconville/images/collection/grid%20view/vento-teak.jpg"
     },
     {
       "id": 4,
       "name": "Vento Aluminium",
       "display_name": "Vento Alu",
       "collection_id": 13,
-      "image_banner": "https://storage.googleapis.com/back-bucket/wp_triconville/images/collection/banner-list/vento alu.jpg",
-      "image_grid": "https://storage.googleapis.com/back-bucket/wp_triconville/images/collection/grid%20view/vento-alu.jpg"
+      "image_banner": "https://storage.googleapis.com/magento-asset/wp_triconville/images/collection/banner-list/vento alu.jpg",
+      "image_grid": "https://storage.googleapis.com/magento-asset/wp_triconville/images/collection/grid%20view/vento-alu.jpg"
     },
     {
       "id": 5,
       "name": "Corda",
       "display_name": "Corda",
       "collection_id": 25,
-      "image_banner": "https://storage.googleapis.com/back-bucket/wp_triconville/images/collection/banner-list/corda.jpg",
-      "image_grid": "https://storage.googleapis.com/back-bucket/wp_triconville/images/collection/grid%20view/corda.jpg"
+      "image_banner": "https://storage.googleapis.com/magento-asset/wp_triconville/images/collection/banner-list/corda.jpg",
+      "image_grid": "https://storage.googleapis.com/magento-asset/wp_triconville/images/collection/grid%20view/corda.jpg"
     },
     {
       "id": 6,
       "name": "Marlow",
       "display_name": "Marlow",
       "collection_id": 1,
-      "image_banner": "https://storage.googleapis.com/back-bucket/wp_triconville/images/collection/banner-list/marlow.jpg",
-      "image_grid": "https://storage.googleapis.com/back-bucket/wp_triconville/images/collection/grid%20view/marlow.jpg"
+      "image_banner": "https://storage.googleapis.com/magento-asset/wp_triconville/images/collection/banner-list/marlow.jpg",
+      "image_grid": "https://storage.googleapis.com/magento-asset/wp_triconville/images/collection/grid%20view/marlow.jpg"
     },
     {
       "id": 7,
       "name": "Tora",
       "display_name": "Tora",
       "collection_id": 26,
-      "image_banner": "https://storage.googleapis.com/back-bucket/wp_triconville/images/collection/banner-list/tora.jpg",
-      "image_grid": "https://storage.googleapis.com/back-bucket/wp_triconville/images/collection/grid%20view/tora.jpg"
+      "image_banner": "https://storage.googleapis.com/magento-asset/wp_triconville/images/collection/banner-list/tora.jpg",
+      "image_grid": "https://storage.googleapis.com/magento-asset/wp_triconville/images/collection/grid%20view/tora.jpg"
     },
     {
       "id": 8,
       "name": "Emmilie",
       "display_name": "Emmilie",
       "collection_id": 31,
-      "image_banner": "https://storage.googleapis.com/back-bucket/wp_triconville/images/collection/banner-list/emmilie.jpg",
-      "image_grid": "https://storage.googleapis.com/back-bucket/wp_triconville/images/collection/grid%20view/emmilie.jpg"
+      "image_banner": "https://storage.googleapis.com/magento-asset/wp_triconville/images/collection/banner-list/emmilie.jpg",
+      "image_grid": "https://storage.googleapis.com/magento-asset/wp_triconville/images/collection/grid%20view/emmilie.jpg"
     },
     {
       "id": 9,
       "name": "Dexa",
       "display_name": "Dexa",
       "collection_id": 16,
-      "image_banner": "https://storage.googleapis.com/back-bucket/wp_triconville/images/collection/banner-list/dexa.jpg",
-      "image_grid": "https://storage.googleapis.com/back-bucket/wp_triconville/images/collection/grid%20view/dexa.jpg"
+      "image_banner": "https://storage.googleapis.com/magento-asset/wp_triconville/images/collection/banner-list/dexa.jpg",
+      "image_grid": "https://storage.googleapis.com/magento-asset/wp_triconville/images/collection/grid%20view/dexa.jpg"
     },
     {
       "id": 10,
       "name": "Ara",
       "display_name": "Ara",
       "collection_id": 69,
-      "image_banner": "https://storage.googleapis.com/back-bucket/wp_triconville/images/collection/banner-list/ara.jpg",
-      "image_grid": "https://storage.googleapis.com/back-bucket/wp_triconville/images/collection/grid%20view/ara.jpg"
+      "image_banner": "https://storage.googleapis.com/magento-asset/wp_triconville/images/collection/banner-list/ara.jpg",
+      "image_grid": "https://storage.googleapis.com/magento-asset/wp_triconville/images/collection/grid%20view/ara.jpg"
     },
     {
       "id": 11,
       "name": "Brie",
       "display_name": "Brie",
       "collection_id": 27,
-      "image_banner": "https://storage.googleapis.com/back-bucket/wp_triconville/images/collection/banner-list/brie.jpg",
-      "image_grid": "https://storage.googleapis.com/back-bucket/wp_triconville/images/collection/grid%20view/brie.jpg"
+      "image_banner": "https://storage.googleapis.com/magento-asset/wp_triconville/images/collection/banner-list/brie.jpg",
+      "image_grid": "https://storage.googleapis.com/magento-asset/wp_triconville/images/collection/grid%20view/brie.jpg"
     },
     {
       "id": 13,
       "name": "Vino",
       "display_name": "Vino",
       "collection_id": 17,
-      "image_banner": "https://storage.googleapis.com/back-bucket/wp_triconville/images/collection/banner-list/vino.jpg",
-      "image_grid": "https://storage.googleapis.com/back-bucket/wp_triconville/images/collection/grid%20view/vino.jpg"
+      "image_banner": "https://storage.googleapis.com/magento-asset/wp_triconville/images/collection/banner-list/vino.jpg",
+      "image_grid": "https://storage.googleapis.com/magento-asset/wp_triconville/images/collection/grid%20view/vino.jpg"
     },
     {
       "id": 14,
       "name": "Gera Tables & Benches",
       "display_name": "Gera",
       "collection_id": 15,
-      "image_banner": "https://storage.googleapis.com/back-bucket/wp_triconville/images/collection/banner-list/gera-tables-benches.jpg",
-      "image_grid": "https://storage.googleapis.com/back-bucket/wp_triconville/images/collection/grid%20view/gera.jpg"
+      "image_banner": "https://storage.googleapis.com/magento-asset/wp_triconville/images/collection/banner-list/gera-tables-benches.jpg",
+      "image_grid": "https://storage.googleapis.com/magento-asset/wp_triconville/images/collection/grid%20view/gera.jpg"
     },
     {
       "id": 15,
       "name": "Planka Tables",
       "display_name": "Planka",
       "collection_id": 18,
-      "image_banner": "https://storage.googleapis.com/back-bucket/wp_triconville/images/collection/banner-list/planka.png",
-      "image_grid": "https://storage.googleapis.com/back-bucket/wp_triconville/images/collection/grid%20view/planka.jpg"
+      "image_banner": "https://storage.googleapis.com/magento-asset/wp_triconville/images/collection/banner-list/planka.png",
+      "image_grid": "https://storage.googleapis.com/magento-asset/wp_triconville/images/collection/grid%20view/planka.jpg"
     },
     {
       "id": 16,
       "name": "Gazelig",
       "display_name": "Gazelig",
       "collection_id": 14,
-      "image_banner": "https://storage.googleapis.com/back-bucket/wp_triconville/images/collection/banner-list/gazelig.jpg",
-      "image_grid": "https://storage.googleapis.com/back-bucket/wp_triconville/images/collection/grid%20view/gazelig.jpg"
+      "image_banner": "https://storage.googleapis.com/magento-asset/wp_triconville/images/collection/banner-list/gazelig.jpg",
+      "image_grid": "https://storage.googleapis.com/magento-asset/wp_triconville/images/collection/grid%20view/gazelig.jpg"
     },
     {
       "id": 17,
@@ -126,7 +126,7 @@
       "display_name": "Dorus",
       "collection_id": 62,
       "image_banner": "",
-      "image_grid": "https://storage.googleapis.com/back-bucket/wp_triconville/images/collection/grid%20view/dorus.jpg"
+      "image_grid": "https://storage.googleapis.com/magento-asset/wp_triconville/images/collection/grid%20view/dorus.jpg"
     }
   ],
   "homePageCollection": [19, 13, 33, 28]

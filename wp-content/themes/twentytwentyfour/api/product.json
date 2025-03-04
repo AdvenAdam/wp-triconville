@@ -4,8 +4,8 @@
     "ids": [39, 30, 69],
     "name": "Sofas",
     "slug": "sofas",
-    "image": "https://storage.googleapis.com/back-bucket/wp_triconville/images/category/banner/banner_sofa2.jpg",
-    "thumb": "https://storage.googleapis.com/back-bucket/wp_triconville/images/category/sofa.png",
+    "image": "https://storage.googleapis.com/magento-asset/wp_triconville/images/category/banner/banner_sofa2.jpg",
+    "thumb": "https://storage.googleapis.com/magento-asset/wp_triconville/images/category/sofa.png",
     "children": [
       {
         "id": 30,
@@ -34,8 +34,8 @@
     "ids": [32, 34],
     "name": "Armchairs",
     "slug": "armchairs",
-    "image": "https://storage.googleapis.com/back-bucket/wp_triconville/images/category/banner/banner_armchair.jpg",
-    "thumb": "https://storage.googleapis.com/back-bucket/wp_triconville/images/category/lounge-chair.png",
+    "image": "https://storage.googleapis.com/magento-asset/wp_triconville/images/category/banner/banner_armchair.jpg",
+    "thumb": "https://storage.googleapis.com/magento-asset/wp_triconville/images/category/lounge-chair.png",
     "children": [
       {
         "id": 32,
@@ -59,8 +59,8 @@
     "ids": [38, 31],
     "name": "Coffee & Low Tables",
     "slug": "coffee-low-tables",
-    "image": "https://storage.googleapis.com/back-bucket/wp_triconville/images/category/banner/banner_coffee-&-end-table2.jpg",
-    "thumb": "https://storage.googleapis.com/back-bucket/wp_triconville/images/category/coffee-low-table.png",
+    "image": "https://storage.googleapis.com/magento-asset/wp_triconville/images/category/banner/banner_coffee-&-end-table2.jpg",
+    "thumb": "https://storage.googleapis.com/magento-asset/wp_triconville/images/category/coffee-low-table.png",
     "children": [
       {
         "id": 38,
@@ -94,8 +94,8 @@
     "ids": [37],
     "name": "Loungers",
     "slug": "loungers",
-    "image": "https://storage.googleapis.com/back-bucket/wp_triconville/images/category/banner/banner__daybeds.jpg",
-    "thumb": "https://storage.googleapis.com/back-bucket/wp_triconville/images/category/lounger-daybed.png",
+    "image": "https://storage.googleapis.com/magento-asset/wp_triconville/images/category/banner/banner__daybeds.jpg",
+    "thumb": "https://storage.googleapis.com/magento-asset/wp_triconville/images/category/lounger-daybed.png",
     "children": [
       {
         "id": 37,
@@ -114,8 +114,8 @@
     "ids": [87],
     "name": " Daybeds",
     "slug": "daybeds",
-    "image": "https://storage.googleapis.com/back-bucket/wp_triconville/images/category/banner/banner_lounger-&-daybed2.jpg",
-    "thumb": "https://storage.googleapis.com/back-bucket/wp_triconville/images/category/vento-daybed.png",
+    "image": "https://storage.googleapis.com/magento-asset/wp_triconville/images/category/banner/banner_lounger-&-daybed2.jpg",
+    "thumb": "https://storage.googleapis.com/magento-asset/wp_triconville/images/category/vento-daybed.png",
     "children": [
       {
         "id": 87,
@@ -135,8 +135,8 @@
     "ids": [23, 25, 86, 20],
     "name": "Chairs",
     "slug": "chairs",
-    "image": "https://storage.googleapis.com/back-bucket/wp_triconville/images/category/banner/banner_chair2.jpg",
-    "thumb": "https://storage.googleapis.com/back-bucket/wp_triconville/images/category/chair.png",
+    "image": "https://storage.googleapis.com/magento-asset/wp_triconville/images/category/banner/banner_chair2.jpg",
+    "thumb": "https://storage.googleapis.com/magento-asset/wp_triconville/images/category/chair.png",
     "children": [
       {
         "id": 25,
@@ -176,8 +176,8 @@
     "ids": [28, 24, 27],
     "name": "Tables",
     "slug": "tables",
-    "image": "https://storage.googleapis.com/back-bucket/wp_triconville/images/category/banner/banner_table2.jpg",
-    "thumb": "https://storage.googleapis.com/back-bucket/wp_triconville/images/category/table.png",
+    "image": "https://storage.googleapis.com/magento-asset/wp_triconville/images/category/banner/banner_table2.jpg",
+    "thumb": "https://storage.googleapis.com/magento-asset/wp_triconville/images/category/table.png",
     "children": [
       {
         "id": 28,
@@ -207,8 +207,8 @@
     "ids": [70, 85, 73, 6, 8, 37],
     "name": "Accessories",
     "slug": "accessories",
-    "image": "https://storage.googleapis.com/back-bucket/wp_triconville/images/category/banner/banner_accessories2.jpg",
-    "thumb": "https://storage.googleapis.com/back-bucket/wp_triconville/images/category/accessories.png",
+    "image": "https://storage.googleapis.com/magento-asset/wp_triconville/images/category/banner/banner_accessories2.jpg",
+    "thumb": "https://storage.googleapis.com/magento-asset/wp_triconville/images/category/accessories.png",
     "children": [
       {
         "id": 70,

@@ -30,7 +30,7 @@
                     </div>
                 </div>
                 <div class="">
-                    <img src="https://storage.googleapis.com/back-bucket/wp_triconville/images/home/Home%20Catalogue.jpg"
+                    <img src="https://storage.googleapis.com/magento-asset/wp_triconville/images/home/Home%20Catalogue.jpg"
                          class="w-auto h-auto object-cover" />
                 </div>
             </div>

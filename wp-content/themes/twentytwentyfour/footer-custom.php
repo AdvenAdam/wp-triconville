@@ -17,7 +17,7 @@
 
 <footer class="w-full footer snap-center snap-always">
     <div class=" bg-cover bg-center bg-no-repeat "
-         style="background-image: url(https://storage.googleapis.com/back-bucket/wp_triconville/images/store/footer.png)">
+         style="background-image: url(https://storage.googleapis.com/magento-asset/wp_triconville/images/store/footer.png)">
         <div class="py-10 md:py-20 px-5 md:px-8 bg-[#F4F6F6] bg-opacity-85">
             <div class="max-w-[1440px] mx-auto ">
                 <div class="w-full flex xl:flex-row flex-col-reverse justify-center gap-3 md:gap-5 lg:gap-9 xl:gap-0">
@@ -69,23 +69,23 @@
                                     <div class="flex items-center gap-4 my-3">
                                         <a href='https://www.instagram.com/triconville/'
                                            target="_blank">
-                                            <img src='https://storage.googleapis.com/back-bucket/wp_triconville/images/icons/instagram2.svg' />
+                                            <img src='https://storage.googleapis.com/magento-asset/wp_triconville/images/icons/instagram2.svg' />
                                         </a>
                                         <a href='https://www.linkedin.com/company/triconville-furniture/'
                                            target="_blank">
-                                            <img src='https://storage.googleapis.com/back-bucket/wp_triconville/images/icons/linkedin2.svg' />
+                                            <img src='https://storage.googleapis.com/magento-asset/wp_triconville/images/icons/linkedin2.svg' />
                                         </a>
                                         <a href='https://www.youtube.com/@triconville-furniture'
                                            target="_blank">
-                                            <img src='https://storage.googleapis.com/back-bucket/wp_triconville/images/icons/youtube2.svg' />
+                                            <img src='https://storage.googleapis.com/magento-asset/wp_triconville/images/icons/youtube2.svg' />
                                         </a>
                                         <a href='https://www.facebook.com/triconville'
                                            target="_blank">
-                                            <img src='https://storage.googleapis.com/back-bucket/wp_triconville/images/icons/facebook2.svg' />
+                                            <img src='https://storage.googleapis.com/magento-asset/wp_triconville/images/icons/facebook2.svg' />
                                         </a>
                                         <a href='https://id.pinterest.com/triconville/'
                                            target="_blank">
-                                            <img src='https://storage.googleapis.com/back-bucket/wp_triconville/images/icons/pinterest2.svg' />
+                                            <img src='https://storage.googleapis.com/magento-asset/wp_triconville/images/icons/pinterest2.svg' />
                                         </a>
                                     </div>
                                 </div>

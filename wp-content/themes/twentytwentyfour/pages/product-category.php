@@ -7,7 +7,7 @@ get_template_part('header-custom');
 
 <style>
 .product-header {
-    background: url('https://storage.googleapis.com/back-bucket/wp_triconville/images/products-banner.webp');
+    background: url('https://storage.googleapis.com/magento-asset/wp_triconville/images/products-banner.webp');
     overflow: hidden;
     background-size: cover;
     background-repeat: no-repeat;

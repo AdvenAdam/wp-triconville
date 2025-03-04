@@ -15,10 +15,10 @@ echo '<?xml version="1.0" encoding="UTF-8"?>';
     <url>
         <loc>https://triconville.com/</loc>
         <image:image>
-            <image:loc>https://storage.googleapis.com/back-bucket/wp_triconville/images/home/Hompage_BrandSection.jpg</image:loc>
+            <image:loc>https://storage.googleapis.com/magento-asset/wp_triconville/images/home/Hompage_BrandSection.jpg</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://storage.googleapis.com/back-bucket/wp_triconville/images/moods/All-Moods.png</image:loc>
+            <image:loc>https://storage.googleapis.com/magento-asset/wp_triconville/images/moods/All-Moods.png</image:loc>
         </image:image>
     </url>
 
@@ -29,43 +29,43 @@ echo '<?xml version="1.0" encoding="UTF-8"?>';
     <url>
         <loc>https://triconville.com/products/sofas/</loc>
         <image:image>
-            <image:loc>https://storage.googleapis.com/back-bucket/wp_triconville/images/category/sofa.png</image:loc>
+            <image:loc>https://storage.googleapis.com/magento-asset/wp_triconville/images/category/sofa.png</image:loc>
         </image:image>
     </url>
     <url>
         <loc>https://triconville.com/products/armchairs/</loc>
         <image:image>
-            <image:loc>https://storage.googleapis.com/back-bucket/wp_triconville/images/category/lounge-chair.png</image:loc>
+            <image:loc>https://storage.googleapis.com/magento-asset/wp_triconville/images/category/lounge-chair.png</image:loc>
         </image:image>
     </url>
     <url>
         <loc>https://triconville.com/products/coffee-low-tables/</loc>
         <image:image>
-            <image:loc>https://storage.googleapis.com/back-bucket/wp_triconville/images/category/coffee-low-table.png</image:loc>
+            <image:loc>https://storage.googleapis.com/magento-asset/wp_triconville/images/category/coffee-low-table.png</image:loc>
         </image:image>
     </url>
     <url>
         <loc>https://triconville.com/products/loungers-daybeds/</loc>
         <image:image>
-            <image:loc>https://storage.googleapis.com/back-bucket/wp_triconville/images/category/lounger-daybed.png</image:loc>
+            <image:loc>https://storage.googleapis.com/magento-asset/wp_triconville/images/category/lounger-daybed.png</image:loc>
         </image:image>
     </url>
     <url>
         <loc>https://triconville.com/products/chairs/</loc>
         <image:image>
-            <image:loc>https://storage.googleapis.com/back-bucket/wp_triconville/images/category/chair.png</image:loc>
+            <image:loc>https://storage.googleapis.com/magento-asset/wp_triconville/images/category/chair.png</image:loc>
         </image:image>
     </url>
     <url>
         <loc>https://triconville.com/products/tables/</loc>
         <image:image>
-            <image:loc>https://storage.googleapis.com/back-bucket/wp_triconville/images/category/table.png</image:loc>
+            <image:loc>https://storage.googleapis.com/magento-asset/wp_triconville/images/category/table.png</image:loc>
         </image:image>
     </url>
     <url>
         <loc>https://triconville.com/products/accessories/</loc>
         <image:image>
-            <image:loc>https://storage.googleapis.com/back-bucket/wp_triconville/images/category/accessories.png</image:loc>
+            <image:loc>https://storage.googleapis.com/magento-asset/wp_triconville/images/category/accessories.png</image:loc>
         </image:image>
     </url>
     <!-- NOTE List Of Collection -->
@@ -73,52 +73,52 @@ echo '<?xml version="1.0" encoding="UTF-8"?>';
     <url>
         <loc>https://triconville.com/collections/</loc>
         <image:image>
-            <image:loc>https://storage.googleapis.com/back-bucket/wp_triconville/images/collection/grid%20view/alpha.jpg</image:loc>
+            <image:loc>https://storage.googleapis.com/magento-asset/wp_triconville/images/collection/grid%20view/alpha.jpg</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://storage.googleapis.com/back-bucket/wp_triconville/images/collection/grid%20view/timo.jpg</image:loc>
+            <image:loc>https://storage.googleapis.com/magento-asset/wp_triconville/images/collection/grid%20view/timo.jpg</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://storage.googleapis.com/back-bucket/wp_triconville/images/collection/grid%20view/vento-teak.jpg</image:loc>
+            <image:loc>https://storage.googleapis.com/magento-asset/wp_triconville/images/collection/grid%20view/vento-teak.jpg</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://storage.googleapis.com/back-bucket/wp_triconville/images/collection/grid%20view/vento-alu.jpg</image:loc>
+            <image:loc>https://storage.googleapis.com/magento-asset/wp_triconville/images/collection/grid%20view/vento-alu.jpg</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://storage.googleapis.com/back-bucket/wp_triconville/images/collection/grid%20view/corda.jpg</image:loc>
+            <image:loc>https://storage.googleapis.com/magento-asset/wp_triconville/images/collection/grid%20view/corda.jpg</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://storage.googleapis.com/back-bucket/wp_triconville/images/collection/grid%20view/marlow.jpg</image:loc>
+            <image:loc>https://storage.googleapis.com/magento-asset/wp_triconville/images/collection/grid%20view/marlow.jpg</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://storage.googleapis.com/back-bucket/wp_triconville/images/collection/grid%20view/tora.jpg</image:loc>
+            <image:loc>https://storage.googleapis.com/magento-asset/wp_triconville/images/collection/grid%20view/tora.jpg</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://storage.googleapis.com/back-bucket/wp_triconville/images/collection/grid%20view/emmilie.jpg</image:loc>
+            <image:loc>https://storage.googleapis.com/magento-asset/wp_triconville/images/collection/grid%20view/emmilie.jpg</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://storage.googleapis.com/back-bucket/wp_triconville/images/collection/grid%20view/dexa.jpg</image:loc>
+            <image:loc>https://storage.googleapis.com/magento-asset/wp_triconville/images/collection/grid%20view/dexa.jpg</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://storage.googleapis.com/back-bucket/wp_triconville/images/collection/grid%20view/ara.jpg</image:loc>
+            <image:loc>https://storage.googleapis.com/magento-asset/wp_triconville/images/collection/grid%20view/ara.jpg</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://storage.googleapis.com/back-bucket/wp_triconville/images/collection/grid%20view/brie.jpg</image:loc>
+            <image:loc>https://storage.googleapis.com/magento-asset/wp_triconville/images/collection/grid%20view/brie.jpg</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://storage.googleapis.com/back-bucket/wp_triconville/images/collection/grid%20view/vino.jpg</image:loc>
+            <image:loc>https://storage.googleapis.com/magento-asset/wp_triconville/images/collection/grid%20view/vino.jpg</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://storage.googleapis.com/back-bucket/wp_triconville/images/collection/grid%20view/gera.jpg</image:loc>
+            <image:loc>https://storage.googleapis.com/magento-asset/wp_triconville/images/collection/grid%20view/gera.jpg</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://storage.googleapis.com/back-bucket/wp_triconville/images/collection/grid%20view/planka.jpg</image:loc>
+            <image:loc>https://storage.googleapis.com/magento-asset/wp_triconville/images/collection/grid%20view/planka.jpg</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://storage.googleapis.com/back-bucket/wp_triconville/images/collection/grid%20view/gazelig.jpg</image:loc>
+            <image:loc>https://storage.googleapis.com/magento-asset/wp_triconville/images/collection/grid%20view/gazelig.jpg</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://storage.googleapis.com/back-bucket/wp_triconville/images/collection/grid%20view/dorus.jpg</image:loc>
+            <image:loc>https://storage.googleapis.com/magento-asset/wp_triconville/images/collection/grid%20view/dorus.jpg</image:loc>
         </image:image>
     </url>
     <url>
@@ -4356,163 +4356,163 @@ echo '<?xml version="1.0" encoding="UTF-8"?>';
     <url>
         <loc>https://triconville.com/moods/dune-essence/</loc>
         <image:image>
-            <image:loc>https://storage.googleapis.com/back-bucket/wp_triconville/images/moods/dune-essence/dune-essence.png</image:loc>
+            <image:loc>https://storage.googleapis.com/magento-asset/wp_triconville/images/moods/dune-essence/dune-essence.png</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://storage.googleapis.com/back-bucket/wp_triconville/images/moods/dune-essence/dune-essence-sub.png</image:loc>
+            <image:loc>https://storage.googleapis.com/magento-asset/wp_triconville/images/moods/dune-essence/dune-essence-sub.png</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://storage.googleapis.com/back-bucket/wp_triconville/images/moods/dune-essence/dune-essence-materials.png</image:loc>
+            <image:loc>https://storage.googleapis.com/magento-asset/wp_triconville/images/moods/dune-essence/dune-essence-materials.png</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://storage.googleapis.com/back-bucket/wp_triconville/images/moods/dune-essence/dune-essence-catalogue.png</image:loc>
+            <image:loc>https://storage.googleapis.com/magento-asset/wp_triconville/images/moods/dune-essence/dune-essence-catalogue.png</image:loc>
         </image:image>
     </url>
     <url>
         <loc>https://triconville.com/moods/leafscape/</loc>
         <image:image>
-            <image:loc>https://storage.googleapis.com/back-bucket/wp_triconville/images/moods/leafscape/leafscape.png</image:loc>
+            <image:loc>https://storage.googleapis.com/magento-asset/wp_triconville/images/moods/leafscape/leafscape.png</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://storage.googleapis.com/back-bucket/wp_triconville/images/moods/leafscape/leafscape-sub.png</image:loc>
+            <image:loc>https://storage.googleapis.com/magento-asset/wp_triconville/images/moods/leafscape/leafscape-sub.png</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://storage.googleapis.com/back-bucket/wp_triconville/images/moods/leafscape/leafscape-materials.png</image:loc>
+            <image:loc>https://storage.googleapis.com/magento-asset/wp_triconville/images/moods/leafscape/leafscape-materials.png</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://storage.googleapis.com/back-bucket/wp_triconville/images/moods/leafscape/leafscape-catalogue.png</image:loc>
+            <image:loc>https://storage.googleapis.com/magento-asset/wp_triconville/images/moods/leafscape/leafscape-catalogue.png</image:loc>
         </image:image>
     </url>
     <url>
         <loc>https://triconville.com/moods/coastal-bliss/</loc>
         <image:image>
-            <image:loc>https://storage.googleapis.com/back-bucket/wp_triconville/images/moods/coastal-bliss/coastal-bliss.png</image:loc>
+            <image:loc>https://storage.googleapis.com/magento-asset/wp_triconville/images/moods/coastal-bliss/coastal-bliss.png</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://storage.googleapis.com/back-bucket/wp_triconville/images/moods/coastal-bliss/coastal-bliss-sub.png</image:loc>
+            <image:loc>https://storage.googleapis.com/magento-asset/wp_triconville/images/moods/coastal-bliss/coastal-bliss-sub.png</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://storage.googleapis.com/back-bucket/wp_triconville/images/moods/coastal-bliss/coastal-bliss-materials.png</image:loc>
+            <image:loc>https://storage.googleapis.com/magento-asset/wp_triconville/images/moods/coastal-bliss/coastal-bliss-materials.png</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://storage.googleapis.com/back-bucket/wp_triconville/images/moods/coastal-bliss/coastal-bliss-catalogue.png</image:loc>
+            <image:loc>https://storage.googleapis.com/magento-asset/wp_triconville/images/moods/coastal-bliss/coastal-bliss-catalogue.png</image:loc>
         </image:image>
     </url>
     <url>
         <loc>https://triconville.com/moods/bare-essence/</loc>
         <image:image>
-            <image:loc>https://storage.googleapis.com/back-bucket/wp_triconville/images/moods/bare-essence/bare-essence_2.png</image:loc>
+            <image:loc>https://storage.googleapis.com/magento-asset/wp_triconville/images/moods/bare-essence/bare-essence_2.png</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://storage.googleapis.com/back-bucket/wp_triconville/images/moods/bare-essence/bare-essence-sub.png</image:loc>
+            <image:loc>https://storage.googleapis.com/magento-asset/wp_triconville/images/moods/bare-essence/bare-essence-sub.png</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://storage.googleapis.com/back-bucket/wp_triconville/images/moods/bare-essence/bare-essence-materials.png</image:loc>
+            <image:loc>https://storage.googleapis.com/magento-asset/wp_triconville/images/moods/bare-essence/bare-essence-materials.png</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://storage.googleapis.com/back-bucket/wp_triconville/images/moods/bare-essence/bare-essence-catalogue.png</image:loc>
+            <image:loc>https://storage.googleapis.com/magento-asset/wp_triconville/images/moods/bare-essence/bare-essence-catalogue.png</image:loc>
         </image:image>
     </url>
 
     <url>
         <loc>https://triconville.com/materials/</loc>
         <image:image>
-            <image:loc>https://storage.googleapis.com/back-bucket/wp_triconville/images/material/banner/fabric.png</image:loc>
+            <image:loc>https://storage.googleapis.com/magento-asset/wp_triconville/images/material/banner/fabric.png</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://storage.googleapis.com/back-bucket/wp_triconville/images/material/banner/teak.png</image:loc>
+            <image:loc>https://storage.googleapis.com/magento-asset/wp_triconville/images/material/banner/teak.png</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://storage.googleapis.com/back-bucket/wp_triconville/images/material/banner/steel.png</image:loc>
+            <image:loc>https://storage.googleapis.com/magento-asset/wp_triconville/images/material/banner/steel.png</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://storage.googleapis.com/back-bucket/wp_triconville/images/material/banner/ceramic.png</image:loc>
+            <image:loc>https://storage.googleapis.com/magento-asset/wp_triconville/images/material/banner/ceramic.png</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://storage.googleapis.com/back-bucket/wp_triconville/images/material/banner/rope.png</image:loc>
+            <image:loc>https://storage.googleapis.com/magento-asset/wp_triconville/images/material/banner/rope.png</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://storage.googleapis.com/back-bucket/wp_triconville/images/material/banner/sling.png</image:loc>
+            <image:loc>https://storage.googleapis.com/magento-asset/wp_triconville/images/material/banner/sling.png</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://storage.googleapis.com/back-bucket/wp_triconville/images/material/banner/aluminium.png</image:loc>
+            <image:loc>https://storage.googleapis.com/magento-asset/wp_triconville/images/material/banner/aluminium.png</image:loc>
         </image:image>
     </url>
 
     <url>
         <loc>https://triconville.com/inspiration/</loc>
         <image:image>
-            <image:loc>https://storage.googleapis.com/back-bucket/wp_triconville/images/inspirations/BE-1.jpg</image:loc>
+            <image:loc>https://storage.googleapis.com/magento-asset/wp_triconville/images/inspirations/BE-1.jpg</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://storage.googleapis.com/back-bucket/wp_triconville/images/inspirations/BE-2.jpg</image:loc>
+            <image:loc>https://storage.googleapis.com/magento-asset/wp_triconville/images/inspirations/BE-2.jpg</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://storage.googleapis.com/back-bucket/wp_triconville/images/inspirations/BE-4.jpg</image:loc>
+            <image:loc>https://storage.googleapis.com/magento-asset/wp_triconville/images/inspirations/BE-4.jpg</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://storage.googleapis.com/back-bucket/wp_triconville/images/inspirations/BE-5.jpg</image:loc>
+            <image:loc>https://storage.googleapis.com/magento-asset/wp_triconville/images/inspirations/BE-5.jpg</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://storage.googleapis.com/back-bucket/wp_triconville/images/inspirations/BE-6.jpg</image:loc>
+            <image:loc>https://storage.googleapis.com/magento-asset/wp_triconville/images/inspirations/BE-6.jpg</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://storage.googleapis.com/back-bucket/wp_triconville/images/inspirations/CB-3.jpg</image:loc>
+            <image:loc>https://storage.googleapis.com/magento-asset/wp_triconville/images/inspirations/CB-3.jpg</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://storage.googleapis.com/back-bucket/wp_triconville/images/inspirations/DE-1.jpg</image:loc>
+            <image:loc>https://storage.googleapis.com/magento-asset/wp_triconville/images/inspirations/DE-1.jpg</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://storage.googleapis.com/back-bucket/wp_triconville/images/inspirations/DE-2.jpg</image:loc>
+            <image:loc>https://storage.googleapis.com/magento-asset/wp_triconville/images/inspirations/DE-2.jpg</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://storage.googleapis.com/back-bucket/wp_triconville/images/inspirations/DE-3.jpg</image:loc>
+            <image:loc>https://storage.googleapis.com/magento-asset/wp_triconville/images/inspirations/DE-3.jpg</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://storage.googleapis.com/back-bucket/wp_triconville/images/inspirations/DE-4.jpg</image:loc>
+            <image:loc>https://storage.googleapis.com/magento-asset/wp_triconville/images/inspirations/DE-4.jpg</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://storage.googleapis.com/back-bucket/wp_triconville/images/inspirations/DE-5.jpg</image:loc>
+            <image:loc>https://storage.googleapis.com/magento-asset/wp_triconville/images/inspirations/DE-5.jpg</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://storage.googleapis.com/back-bucket/wp_triconville/images/inspirations/DE-6.jpg</image:loc>
+            <image:loc>https://storage.googleapis.com/magento-asset/wp_triconville/images/inspirations/DE-6.jpg</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://storage.googleapis.com/back-bucket/wp_triconville/images/inspirations/LS-1.jpg</image:loc>
+            <image:loc>https://storage.googleapis.com/magento-asset/wp_triconville/images/inspirations/LS-1.jpg</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://storage.googleapis.com/back-bucket/wp_triconville/images/inspirations/LS-2.jpg</image:loc>
+            <image:loc>https://storage.googleapis.com/magento-asset/wp_triconville/images/inspirations/LS-2.jpg</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://storage.googleapis.com/back-bucket/wp_triconville/images/inspirations/LS-3.jpg</image:loc>
+            <image:loc>https://storage.googleapis.com/magento-asset/wp_triconville/images/inspirations/LS-3.jpg</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://storage.googleapis.com/back-bucket/wp_triconville/images/inspirations/LS-4.jpg</image:loc>
+            <image:loc>https://storage.googleapis.com/magento-asset/wp_triconville/images/inspirations/LS-4.jpg</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://storage.googleapis.com/back-bucket/wp_triconville/images/inspirations/LS-5.jpg</image:loc>
+            <image:loc>https://storage.googleapis.com/magento-asset/wp_triconville/images/inspirations/LS-5.jpg</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://storage.googleapis.com/back-bucket/wp_triconville/images/inspirations/LS-6.jpg</image:loc>
+            <image:loc>https://storage.googleapis.com/magento-asset/wp_triconville/images/inspirations/LS-6.jpg</image:loc>
         </image:image>
     </url>
 
     <url>
         <loc>https://triconville.com/about-us/</loc>
         <image:image>
-            <image:loc>https://storage.googleapis.com/back-bucket/wp_triconville/images/brand-page/Craft%20With%20Passion.jpg</image:loc>
+            <image:loc>https://storage.googleapis.com/magento-asset/wp_triconville/images/brand-page/Craft%20With%20Passion.jpg</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://storage.googleapis.com/back-bucket/wp_triconville/images/brand-page/earth-jewel.png</image:loc>
+            <image:loc>https://storage.googleapis.com/magento-asset/wp_triconville/images/brand-page/earth-jewel.png</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://storage.googleapis.com/back-bucket/wp_triconville/images/brand-page/story_in_every_grain.png</image:loc>
+            <image:loc>https://storage.googleapis.com/magento-asset/wp_triconville/images/brand-page/story_in_every_grain.png</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://storage.googleapis.com/back-bucket/wp_triconville/images/brand-page/art-of-our-craft_banner.jpg</image:loc>
+            <image:loc>https://storage.googleapis.com/magento-asset/wp_triconville/images/brand-page/art-of-our-craft_banner.jpg</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://storage.googleapis.com/back-bucket/wp_triconville/images/moods/All-Moods.png</image:loc>
+            <image:loc>https://storage.googleapis.com/magento-asset/wp_triconville/images/moods/All-Moods.png</image:loc>
         </image:image>
     </url>
 

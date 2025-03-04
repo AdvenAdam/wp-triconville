@@ -36,7 +36,7 @@ get_template_part('header-custom');
                      data-aos="fade-up"
                      data-aos-once="true"
                      data-aos-duration="1000">
-                    <img src="https://storage.googleapis.com/back-bucket/wp_triconville/images/moods/hero.png"
+                    <img src="https://storage.googleapis.com/magento-asset/wp_triconville/images/moods/hero.png"
                          alt="">
                 </div>
 

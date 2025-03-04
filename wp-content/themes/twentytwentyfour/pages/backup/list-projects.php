@@ -150,7 +150,7 @@ function renderPerProject(project) {
     project.galleries.forEach(gallery => {
         $(`#${project.slug}__galleries__slider`).append(`
             <div class="image max-w-screen me-2">
-                <img src="https://storage.googleapis.com/back-bucket/wp_triconville/images/${gallery}"
+                <img src="https://storage.googleapis.com/magento-asset/wp_triconville/images/${gallery}"
                     alt="${project.name}"
                     class="half-screen md:h-screen w-auto object-cover">
             </div>
