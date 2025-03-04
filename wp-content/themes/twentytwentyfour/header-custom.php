@@ -139,7 +139,7 @@
         <nav class="flex items-center justify-between px-5 md:px-8 2xl:px-20 w-full md:min-h-20 bg-white ">
             <div class="flex justify-center">
                 <a href="<?php echo home_url(); ?>">
-                    <img src="https://storage.googleapis.com/back-bucket/wp_triconville/images/icons/Triconville%20Logo%20Primary.svg"
+                    <img src="https://storage.googleapis.com/magento-asset/wp_triconville/images/icons/Triconville%20Logo%20Primary.svg"
                          alt="Triconville logo"
                          class="h-6 lg:h-8 w-auto min-w-20" />
                 </a>

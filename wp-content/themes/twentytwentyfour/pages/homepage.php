@@ -9,7 +9,7 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
 ?>
 <style>
 .homepage-banner {
-    background: url('https://storage.googleapis.com/back-bucket/wp_triconville/images/collection/banner-list/marlow.jpg');
+    background: url('https://storage.googleapis.com/magento-asset/wp_triconville/images/collection/banner-list/marlow.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -22,7 +22,7 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
 }
 
 .bg-ceramic {
-    background: url('https://storage.googleapis.com/back-bucket/wp_triconville/images/backgrounds/ifex-left-banner.jpeg');
+    background: url('https://storage.googleapis.com/magento-asset/wp_triconville/images/backgrounds/ifex-left-banner.jpeg');
     overflow: hidden;
     background-size: cover;
     background-repeat: no-repeat;
@@ -30,7 +30,7 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
 }
 
 .right-banner {
-    background: url('https://storage.googleapis.com/back-bucket/wp_triconville/images/backgrounds/ifex-right-banner.jpeg');
+    background: url('https://storage.googleapis.com/magento-asset/wp_triconville/images/backgrounds/ifex-right-banner.jpeg');
     overflow: hidden;
     background-size: cover;
     background-repeat: no-repeat;
@@ -134,7 +134,7 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                     </a>
                 </div>
                 <div class="image">
-                    <img src="https://storage.googleapis.com/back-bucket/wp_triconville/images/home/Hompage_BrandSection.jpg"
+                    <img src="https://storage.googleapis.com/magento-asset/wp_triconville/images/home/Hompage_BrandSection.jpg"
                          alt="Triconville story"
                          class="w-full h-full object-cover" />
                 </div>
@@ -194,7 +194,7 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                         </a>
                     </div>
                     <div>
-                        <img src="https://storage.googleapis.com/back-bucket/wp_triconville/images/moods/All-Moods.png"
+                        <img src="https://storage.googleapis.com/magento-asset/wp_triconville/images/moods/All-Moods.png"
                              alt="all Moods image"
                              class="w-full h-auto" />
                     </div>
@@ -257,7 +257,7 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                                 reserve a copy by filling out the form below.
                             </p>
                             <a onClick="requestCatalog('form')"
-                               class="btn-ghost uppercase text-xs">Request Catalog</a>
+                               class="btn-ghost uppercase text-xs cursor-pointer">Request Catalog</a>
                         </div>
                         <div class="request-catalog-form invisible opacity-0 h-0 transition duration-500 ease-in-out delay-150">
                             <h2 class="text-2xl lg:text-3xl">Complete the Form to Receive Your Triconville Catalog</h2>
@@ -275,7 +275,7 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
 
                     </div>
                     <div class="">
-                        <img src="https://storage.googleapis.com/back-bucket/wp_triconville/images/home/Home%20Catalogue.jpg"
+                        <img src="https://storage.googleapis.com/magento-asset/wp_triconville/images/home/Home%20Catalogue.jpg"
                              class="w-auto h-auto object-cover" />
                     </div>
                 </div>
@@ -389,7 +389,7 @@ function renderInspirations() {
         $('#inspiration-selected').append(`
             <a class="inspiration__card relative" href="${inspiration.link}">
                 <div class="inspiration__card__overlay absolute inset-0 bg-black bg-opacity-0 group hover:bg-opacity-20 transition duration-300 flex flex-col items-center justify-center">
-                    <img src="https://storage.googleapis.com/back-bucket/wp_triconville/images/icons/Instagram-white.svg" alt="Triconville" class="w-11 h-11 hidden group-hover:block">
+                    <img src="https://storage.googleapis.com/magento-asset/wp_triconville/images/icons/Instagram-white.svg" alt="Triconville" class="w-11 h-11 hidden group-hover:block">
                     <h3 class="text-white font-medium text-center hidden group-hover:block">@triconville</h3>
                 </div>
                 <img src="${inspiration.img}" alt="${inspiration.alt}" class="w-full h-full object-contain" />

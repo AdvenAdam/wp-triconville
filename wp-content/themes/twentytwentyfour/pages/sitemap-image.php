@@ -102,10 +102,10 @@ function dd($data) {
     <url>
         <loc><?= BASE_URL; ?>/</loc>
         <image:image>
-            <image:loc>https://storage.googleapis.com/back-bucket/wp_triconville/images/home/Hompage_BrandSection.jpg</image:loc>
+            <image:loc>https://storage.googleapis.com/magento-asset/wp_triconville/images/home/Hompage_BrandSection.jpg</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://storage.googleapis.com/back-bucket/wp_triconville/images/moods/All-Moods.png</image:loc>
+            <image:loc>https://storage.googleapis.com/magento-asset/wp_triconville/images/moods/All-Moods.png</image:loc>
         </image:image>
     </url>
 
@@ -236,19 +236,19 @@ function dd($data) {
     <url>
         <loc><?= BASE_URL; ?>/about-us/</loc>
         <image:image>
-            <image:loc>https://storage.googleapis.com/back-bucket/wp_triconville/images/brand-page/Craft%20With%20Passion.jpg</image:loc>
+            <image:loc>https://storage.googleapis.com/magento-asset/wp_triconville/images/brand-page/Craft%20With%20Passion.jpg</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://storage.googleapis.com/back-bucket/wp_triconville/images/brand-page/earth-jewel.png</image:loc>
+            <image:loc>https://storage.googleapis.com/magento-asset/wp_triconville/images/brand-page/earth-jewel.png</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://storage.googleapis.com/back-bucket/wp_triconville/images/brand-page/story_in_every_grain.png</image:loc>
+            <image:loc>https://storage.googleapis.com/magento-asset/wp_triconville/images/brand-page/story_in_every_grain.png</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://storage.googleapis.com/back-bucket/wp_triconville/images/brand-page/art-of-our-craft_banner.jpg</image:loc>
+            <image:loc>https://storage.googleapis.com/magento-asset/wp_triconville/images/brand-page/art-of-our-craft_banner.jpg</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://storage.googleapis.com/back-bucket/wp_triconville/images/moods/All-Moods.png</image:loc>
+            <image:loc>https://storage.googleapis.com/magento-asset/wp_triconville/images/moods/All-Moods.png</image:loc>
         </image:image>
     </url>
 

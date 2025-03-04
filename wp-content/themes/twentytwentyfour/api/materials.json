@@ -4,7 +4,7 @@
       "id": 1,
       "name": "Discover our fabrics",
       "alias": "Fabrics",
-      "banner": "https://storage.googleapis.com/back-bucket/wp_triconville/images/material/banner/fabric.png",
+      "banner": "https://storage.googleapis.com/magento-asset/wp_triconville/images/material/banner/fabric.png",
       "slugs": ["olefin-fabric", "sunbrella-fabric"],
       "subGroups": [
         {
@@ -30,7 +30,7 @@
       "id": 2,
       "name": "Wander through our teaks",
       "alias": "Teak",
-      "banner": "https://storage.googleapis.com/back-bucket/wp_triconville/images/material/banner/teak.png",
+      "banner": "https://storage.googleapis.com/magento-asset/wp_triconville/images/material/banner/teak.png",
       "slugs": ["outdoor-teak"],
       "subGroups": [
         {
@@ -48,7 +48,7 @@
       "id": 3,
       "name": "Sleekly stylish in stainless steel",
       "alias": "Stainless Steel",
-      "banner": "https://storage.googleapis.com/back-bucket/wp_triconville/images/material/banner/steel.png",
+      "banner": "https://storage.googleapis.com/magento-asset/wp_triconville/images/material/banner/steel.png",
       "slugs": ["stainless-steel"],
       "subGroups": [
         {
@@ -73,7 +73,7 @@
       "id": 4,
       "name": "Unveil the beauty of ceramic",
       "alias": "Ceramic",
-      "banner": "https://storage.googleapis.com/back-bucket/wp_triconville/images/material/banner/ceramic.png",
+      "banner": "https://storage.googleapis.com/magento-asset/wp_triconville/images/material/banner/ceramic.png",
       "slugs": ["ceramic"],
       "subGroups": [
         {
@@ -90,7 +90,7 @@
       "id": 5,
       "name": "Weave through our wickers and ropes",
       "alias": "Wicker & Rope",
-      "banner": "https://storage.googleapis.com/back-bucket/wp_triconville/images/material/banner/rope.png",
+      "banner": "https://storage.googleapis.com/magento-asset/wp_triconville/images/material/banner/rope.png",
       "slugs": ["wicker", "rope"],
       "subGroups": [
         {
@@ -124,7 +124,7 @@
       "id": 7,
       "name": "Swing by our slings",
       "alias": "Sling",
-      "banner": "https://storage.googleapis.com/back-bucket/wp_triconville/images/material/banner/sling.png",
+      "banner": "https://storage.googleapis.com/magento-asset/wp_triconville/images/material/banner/sling.png",
       "slugs": ["sling-fabric"],
       "subGroups": [
         {
@@ -149,7 +149,7 @@
       "id": 8,
       "name": "Strength meets style in our aluminium",
       "alias": "Powder Coated Aluminium",
-      "banner": "https://storage.googleapis.com/back-bucket/wp_triconville/images/material/banner/aluminium.png",
+      "banner": "https://storage.googleapis.com/magento-asset/wp_triconville/images/material/banner/aluminium.png",
       "slugs": ["powder-coated-aluminium"],
       "subGroups": [
         {

@@ -1,6 +1,6 @@
 <style>
 .showroom-banner {
-    background: url(https://storage.googleapis.com/back-bucket/wp_triconville/images/news-header.jpeg);
+    background: url(https://storage.googleapis.com/magento-asset/wp_triconville/images/news-header.jpeg);
     height: 50vh;
     width: 100%;
     overflow: hidden;
