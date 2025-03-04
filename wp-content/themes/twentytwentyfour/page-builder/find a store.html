@@ -307,6 +307,17 @@
       countryId: "au",
       website: "https://bali.com.au/",
     },
+    {
+      name: "ARD Outdoor",
+      address: "3019 Dufferin St, North York, ON M6B 3T7, Canada",
+      email: "info@ardoutdoor.com",
+      phone: ["+1 4165516055"],
+      lat: 43.71271670451602,
+      lng: -79.45398457976046,
+      gmap: "https://maps.app.goo.gl/1sfYUP7SvkCUt29E8",
+      countryId: "ca",
+      website: "http://www.ardoutdoor.com/",
+    },
   ];
 
   let map;
@@ -496,6 +507,7 @@
                 top: 0,
                 behavior: "smooth",
               });
+              map.setZoom(9);
             },
           });
           actionsWrapper.append(centerActionEl);
