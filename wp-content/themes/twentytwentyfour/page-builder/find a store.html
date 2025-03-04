@@ -21,7 +21,6 @@
     background-color: #f4f6f6;
     width: 400px !important;
     max-width: 95vw !important;
-    height: fit-content !important;
     font-family: "Helvetica Neue", sans-serif;
   }
   .gm-style-iw-d {
@@ -40,6 +39,7 @@
     <div
       id="map"
       class="w-screen h-[70vh]"
+      style="position: relative; overflow: hidden"
     ></div>
   </section>
 
@@ -233,7 +233,6 @@
       phone: ["+49 7471 9591665"],
       lat: 48.38007155661182,
       lng: 8.965297399609694,
-      gmap: "https://g.co/kgs/xwsZMuX",
       countryId: "de",
       website: "https://www.teakoutlet.de/",
     },
@@ -323,38 +322,44 @@
   }
 
   function generateLabels(map) {
-    for (var location of locations) {
+    for (const place of locations) {
       const marker = new google.maps.Marker({
-        position: {
-          lat: location.lat,
-          lng: location.lng,
-        },
+        position: { lat: place.lat, lng: place.lng },
         map,
         icon: {
           url: "https://storage.googleapis.com/back-bucket/wp_triconville/images/icons/Marker30x30.svg",
           scaledSize: new google.maps.Size(40, 40),
         },
-        title: location.name,
+        title: place.name,
       });
-      const locTile = new locTiles(location);
+
+      const locTile = new locTiles(place);
       const infoContent = locTile.build();
-      infoContent.removeClass("col-6 col-md-4");
       const infowindow = new google.maps.InfoWindow({
         content: infoContent.html(),
       });
+
+      // Store infowindow and marker inside the place object
+      place.infowindow = infowindow;
+      place.marker = marker;
+      place.openwindow = false; // Ensure the property exists
+
+      // Close event to track window state
       google.maps.event.addListener(infowindow, "closeclick", function () {
-        location.openwindow = false;
+        place.openwindow = false;
       });
-      location.infowindow = infowindow;
-      location.marker = marker;
-      marker.addListener("click", () => {
+
+      // Fix Safari issue: Ensure infoWindow opens properly
+      marker.addListener("click", function () {
         closeAllInfoWindow();
-        if (!location.openwindow) {
-          infowindow.open(map, marker);
-          location.openwindow = true;
+        if (!place.openwindow) {
+          setTimeout(() => {
+            infowindow.open(map, marker);
+            place.openwindow = true;
+          }, 0);
         } else {
           infowindow.close();
-          location.openwindow = false;
+          place.openwindow = false;
         }
       });
     }
