@@ -203,7 +203,7 @@ function renderCollections(e, index, type = 'grid') {
                 "
             >
                 <a href= "<?= BASE_LINK; ?>/collections/${slugify(e.name)}">
-                    <div class=" bg-gradient-to-b from-black/15 to-transparent h-full w-full absolute top-0 left-0 p-8 md:p-5 lg:p-20">
+                    <div class="bg-gradient-to-b from-black/25 to-transparent h-full w-full absolute top-0 left-0 p-8 md:p-5 lg:p-20">
                         <div class="max-w-[1440px]">
                             <h4 class='text-white text-sm mt-4 mb-2'>
                                 ${count < 10 ? '0' + (count) : count}. 

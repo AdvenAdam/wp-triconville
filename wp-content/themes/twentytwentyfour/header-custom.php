@@ -105,8 +105,6 @@
     }
 
     .gtranslate_wrapper .gt_selector {
-        padding-bottom: 16px;
-        padding-top: 19px;
         background-color: transparent;
         max-width: 120px;
         outline: none !important;
@@ -150,7 +148,7 @@
                 </div>
                 <!-- Note : Login -->
                 <div class="hidden lg:flex items-center gap-1 md:gap-4 xl:gap-6">
-                    <div class="pb-1 text-xs uppercase outline-none text-triconville-black hover:text-triconville-blue flex gap-1 items-center">
+                    <div class="pb-1 text-xs uppercase outline-none text-triconville-black hover:text-triconville-blue flex gap-1 pt-1 items-center">
                         <?php echo do_shortcode('[gtranslate]') ?>
                     </div>
                 </div>
@@ -241,7 +239,7 @@
                 <span class="sr-only">Close menu</span>
             </button>
         </div>
-        <div class="flex justify-end items-center my-5">
+        <div class="flex my-5 justify-end items-center">
             <div class="text-xs px-2 uppercase outline-none"
                  id="mobile_gtranslate">
                 <?php echo do_shortcode('[gtranslate]') ?>

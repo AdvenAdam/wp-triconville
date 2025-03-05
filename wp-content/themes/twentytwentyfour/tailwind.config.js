@@ -5,6 +5,7 @@ module.exports = {
     "./pages/*.php",
     "./page-builder/*.html",
     "./page-builder/*.php",
+    "./page-builder/*.js",
     "./page-builder/news/*.html",
     "./inc/blocks/*.php",
     "./inc/blocks/**/*.php",
