@@ -241,7 +241,7 @@
                 <span class="sr-only">Close menu</span>
             </button>
         </div>
-        <div class="flex justify-between items-center my-5">
+        <div class="flex justify-end items-center my-5">
             <div class="text-xs px-2 uppercase outline-none"
                  id="mobile_gtranslate">
                 <?php echo do_shortcode('[gtranslate]') ?>
