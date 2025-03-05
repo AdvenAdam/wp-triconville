@@ -246,9 +246,6 @@
                  id="mobile_gtranslate">
                 <?php echo do_shortcode('[gtranslate]') ?>
             </div>
-            <a href="https://indospaceb2b.com/">
-                <p class="btn-ghost text-xs">B2B Login</p>
-            </a>
         </div>
 
         <!-- NOTE : MENU LIST  -->
