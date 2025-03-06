@@ -177,14 +177,7 @@ function renderSubGroups(data) {
                     data-aos-duration="500"
                 >
                     <h2 class="text-2xl mb-2">${toTitleCase(subGroup.name)}</h2>
-                    <p class="text-sm">${filteredMaterials[0].material_information}</p>
-                    <div class=" max-h-0 opacity-0 invisible transition-all duration-500 ease-out" id="care_instruction_${slugify(subGroup.name)}">
-                        <p class="text-sm font-medium">Care Instruction</p>
-                        <span class="triconville-paragraph">${filteredMaterials[0].care_instruction}</span>
-                    </div>
-                    <p class="text-sm mb-6 text-[#798F98] cursor-pointer hover:underline" onClick="showCareInstruction('${slugify(subGroup.name)}')" id="care_instruction_btn_${slugify(subGroup.name)}">
-                        more
-                    </p>
+                    
                     <div id="material__list__${slugify(subGroup.name)}" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 2xl:gap-10">
                         ${filteredMaterials.map(material => {
                             return (
@@ -247,12 +240,14 @@ async function materialClick(slug, code) {
         <div class="w-full h-full flex items-center justify-center max-w-[95vw] mx-auto" onclick="event.stopPropagation(); $('#page-modal').addClass('invisible z-0').removeClass('z-30')">
             <div class="bg-white flex flex-col md:flex-row gap-4 md:gap-0 items-center relative" onclick="event.stopPropagation()">
                 <div class="w-[46vh] sm:w-[50vh] md:w-full h-[45vh] sm:h-[50vh] md:h-full md:max-w-[45vw] lg:max-w-[450px] relative" id="material__img__${slugify(swatchOption.alias)}"></div>
-                <div class="px-5 md:px-8 w-[46vh] sm:w-[50vh] md:w-[50vw] max-w-xl h-full">
+                <div class="p-5 md:p-8 lg:p-10 w-[46vh] sm:w-[50vh] md:w-[50vw] max-w-xl max-h-[450px] h-full scrollbar-sm overflow-x-hidden overflow-y-auto">
                     <div class="flex items-center gap-2 pt-2 md:pt-0">
                         <img src="${swatchOption.image_384}" alt="${swatchOption.alias}" class="w-8 h-auto object-contain rounded" />
                         <h3 class="text-xl lg:text-2xl">${swatchOption.alias} (${swatchOption.code})</h3>
                     </div>
                     <div class="mt-4" id="material__list__${slugify(swatchOption.alias)}">
+                    </div>
+                    <div class="mt-4 hidden lg:block" id="material__desc__${slugify(swatchOption.alias)}">
                     </div>
                     <div class="my-4 grid grid-cols-5 gap-4" id="material__care__${slugify(swatchOption.alias)}"></div>
                 </div>
@@ -292,6 +287,18 @@ async function materialClick(slug, code) {
         $('#material__list__' + slugify(swatchOption.alias)).append(swatchOption.information.map(material => {
             return `<p class="text-sm "><span class="font-medium">${material.name}</span> : ${material.description}</p>`
         }).join(''))
+        $('#material__desc__' + slugify(swatchOption.alias)).append(`
+            <p class="text-sm ">
+                ${swatchOption.material_information}
+            </p>
+            <p class="text-sm mt-4">
+                <span>Care Instructions</span>
+                <span class="!text-triconville-black !tracking-[0.07rem] !font-sans !text-xs sm:!text-sm !leading-[150%]">
+                    ${swatchOption.care_instruction}
+                </span>
+            </p>
+        `)
+
         $('#material__care__' + slugify(swatchOption.alias)).append(swatchOption.care_features.map(care_feature => {
             return `
                 <div class="flex flex-col items-center">
@@ -310,12 +317,6 @@ async function materialClick(slug, code) {
     await loadImages();
     await loadInfo();
     $('#page-modal').removeClass('invisible z-0').addClass('z-30');
-}
-
-function showCareInstruction(id) {
-    $(`#care_instruction_${id}`).toggleClass('max-h-0 opacity-0 invisible ease-out max-h-screen opacity-100 visible ease-in pt-4');
-    const buttonText = $(`#care_instruction_btn_${id}`).text();
-    $(`#care_instruction_btn_${id}`).text(buttonText === 'less' ? 'more' : 'less');
 }
 
 function changeFilter(id) {
