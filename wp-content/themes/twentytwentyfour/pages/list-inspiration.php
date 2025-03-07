@@ -24,6 +24,8 @@ body {
         <div class="md:pt-10 my-10">
             <h1 class="text-3xl lg:text-5xl text-center">Inspirations</h1>
             <h3 class="text-base text-center ">Explore endless design possibilities and create an escape that you’ll love</h3>
+            <h3 class="text-base text-center ">Visit our <a class="underline"
+                   href="https://www.instagram.com/triconville?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==">Instagram </a></h3>
         </div>
 
         <div id="inspiration__container"
