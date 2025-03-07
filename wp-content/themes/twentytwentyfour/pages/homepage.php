@@ -168,7 +168,7 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                 <p class="text-center text-xs uppercase tracking-widest">INSPIRATION</p>
                 <h2 class="text-center text-2xl lg:text-3xl mb-8">The Art of Outdoor Living</h2>
 
-                <div class="grid grid-cols-3 gap-1 sm:gap-3 mt-5 mb-10"
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-1 lg:gap-3 mt-5 mb-10"
                      id="inspiration-selected"></div>
                 <div class="text-center">
                     <a href="<?= BASE_LINK ?>/inspiration"
@@ -321,7 +321,9 @@ $(document).ready(function() {
     fetchData(
         "/?rest_route=/wp/v2/selected_inspirations",
         (res) => {
-            inspirationList = (res?.inspirationList || []).filter((e) => (res?.selectedInspirations || []).includes(e.id));
+            inspirationList = (res?.selectedInspirations || []).map((id) =>
+                (res?.inspirationList || []).find((e) => e.id === id)
+            ).filter(Boolean);
         },
         () => {
             renderInspirations();

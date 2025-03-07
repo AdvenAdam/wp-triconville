@@ -9,7 +9,7 @@
     "color": "#8C4A38",
     "bgColor": "#FFFAF4",
     "subName": "Captures the timeless beauty and calm of the desert",
-    "inspirations": [8, 9, 10, 11, 12, 13],
+    "inspirations": ["DE-1", "DE-2", "DE-3", "DE-4", "DE-5", "DE-6"],
     "subTitle": {
       "title": "Imagine stepping into a space defined by neutral, sandy tones, softened by rich, earthy accents.",
       "description": "The furniture in this collection is designed to mimic the smooth, flowing lines of desert dunes, with soft edges, curved forms, and textures that bring the outdoors inside. Materials like polished wood, natural stone, and fine textiles come together to create an aesthetic that feels grounded yet elevated, perfect for those seeking a connection with nature without sacrificing comfort.",
@@ -54,7 +54,7 @@
     "color": "#3D5937",
     "bgColor": "#FAFFF9",
     "subName": "Represents a harmonious blend of modern minimalism",
-    "inspirations": [14, 15, 16, 17, 18, 19],
+    "inspirations": ["LS-1", "LS-2", "LS-3", "LS-4", "LS-5", "LS-6"],
     "subTitle": {
       "title": "Imagine a home seamlessly connected to nature, where indoor and outdoor blend to form a sanctuary of modern design.",
       "description": "Clean lines, expansive glass, and natural materials like wood and stone define the Leafscape collection, strengthening the bond with nature while preserving a refined simplicity. Each piece is thoughtfully crafted for comfort, functionality, and timeless style.",
@@ -99,7 +99,7 @@
     "color": "#275674",
     "bgColor": "#F4FBFF",
     "subName": "Embrace the serene allure of the ocean",
-    "inspirations": [7],
+    "inspirations": ["CB-1", "CB-2", "CB-3", "CB-4", "CB-5", "CB-6"],
     "subTitle": {
       "title": "Imagine walking into a space where every element is in harmony with the coastline.",
       "description": "The soft morning light filters through sheer curtains, casting delicate shadows that dance on driftwood floors. Shades of sandy beige, seafoam green, and deep ocean blue create a palette as calming as the shoreline at dawn. This is a home where every piece feels like it’s been shaped by nature—smooth surfaces like sea-polished stones, woven textures that mimic the flow of tides, and finishes that are perfectly imperfect, mirroring the organic beauty of the beach.",
@@ -144,7 +144,7 @@
     "color": "#3B3D3F",
     "bgColor": "#F1F1F1",
     "subName": "A style that embraces the beauty of simplicity",
-    "inspirations": [1, 2, 3, 4, 5, 6],
+    "inspirations": ["BE-1", "BE-2", "BE-3", "BE-4", "BE-5", "BE-6"],
     "subTitle": {
       "title": "Imagine entering a courtyard where smooth stone paths meet lush patches of moss, and seating crafted from light rattan and metal feels both natural and modern.",
       "description": "Each piece is selected for comfort and form, blending effortlessly with the landscape. Neutral tones of sand, clay, and charcoal let nature’s colors quietly take center stage.",
