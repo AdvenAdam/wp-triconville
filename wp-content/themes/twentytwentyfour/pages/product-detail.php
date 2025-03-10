@@ -118,7 +118,11 @@ get_template_part('header-custom');
                 <div class="collection__product grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mb-16 justify-center"></div>
                 <div class="collection__product__btn text-center"></div>
             </div>
-            <div class="py-10 md:pb-20 relative h-fit hidden group/slider"
+        </div>
+    </div>
+    <div class="px-5 md:px-8mb-10 md:mb-20 group/slider">
+        <div class="max-w-[1440px] mx-auto">
+            <div class="py-10 md:pb-20 relative h-fit hidden"
                  id="releted__products"
                  data-aos="fade-up"
                  data-aos-once="true"
@@ -194,8 +198,9 @@ function renderMaster() {
         }
         if (Array.isArray(ProductsData.related_product) && ProductsData.related_product.length > 0) {
             let relatedProduct
-            relatedProduct = ProductsData.related_product.filter(data => data.status === 'published' || data.status === 'draft')
-            relatedProduct = relatedProduct.filter(data => !data.name.toLowerCase().includes('rivera'))
+            relatedProduct = ProductsData.related_product
+                .filter(data => data.status === 'published' || data.status === 'draft')
+                .filter(data => !['rivera', 'dune', 'artisan'].some(exclude => data.name.toLowerCase().includes(exclude)))
             renderRelatedProducts(relatedProduct);
         }
 

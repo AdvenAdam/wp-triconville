@@ -10,12 +10,12 @@
       {
         "id": 30,
         "name": "Sofas",
-        "param": ""
+        "param": "!dune,!artisan"
       },
       {
         "id": 39,
         "name": "Loveseats",
-        "param": ""
+        "param": "!dune,!artisan"
       },
       {
         "id": 69,
@@ -40,7 +40,7 @@
       {
         "id": 32,
         "name": "Armchairs",
-        "param": "!carpet"
+        "param": "!carpet,!dune,!artisan"
       },
       {
         "id": 34,
@@ -141,7 +141,7 @@
       {
         "id": 25,
         "name": "Outdoor Dining Chairs",
-        "param": "!side,!rivera"
+        "param": "!side,!rivera,!dune,!artisan"
       },
       {
         "id": 23,
