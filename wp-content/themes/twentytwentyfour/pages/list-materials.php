@@ -240,7 +240,7 @@ async function materialClick(slug, code) {
         <div class="w-full h-full flex items-center justify-center max-w-[95vw] mx-auto" onclick="event.stopPropagation(); $('#page-modal').addClass('invisible z-0').removeClass('z-30')">
             <div class="bg-white flex flex-col md:flex-row gap-4 md:gap-0 items-center relative" onclick="event.stopPropagation()">
                 <div class="w-[46vh] sm:w-[50vh] md:w-full h-[45vh] sm:h-[50vh] md:h-full md:max-w-[45vw] lg:max-w-[450px] relative" id="material__img__${slugify(swatchOption.alias)}"></div>
-                <div class="p-5 md:p-8 lg:p-10 w-[46vh] sm:w-[50vh] md:w-[50vw] max-w-xl max-h-[450px] h-full scrollbar-sm overflow-x-hidden overflow-y-auto">
+                <div class="p-5 md:p-8 lg:p-10 w-[46vh] sm:w-[50vh] md:w-[50vw] max-w-xl max-h-[450px] h-full overflow-x-hidden overflow-y-auto">
                     <div class="flex items-center gap-2 pt-2 md:pt-0">
                         <img src="${swatchOption.image_384}" alt="${swatchOption.alias}" class="w-8 h-auto object-contain rounded" />
                         <h3 class="text-xl lg:text-2xl">${swatchOption.alias} (${swatchOption.code})</h3>
