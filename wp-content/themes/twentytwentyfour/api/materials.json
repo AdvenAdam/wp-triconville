@@ -5,7 +5,7 @@
       "name": "Discover our fabrics",
       "alias": "Fabrics",
       "banner": "https://storage.googleapis.com/magento-asset/wp_triconville/images/material/banner/fabric.png",
-      "slugs": ["olefin-fabric", "sunbrella-fabric"],
+      "slugs": ["olefin-fabric", "sunbrella-fabric", "outdoor-luxe"],
       "subGroups": [
         {
           "name": "Solution Dyed Polyster / Olefin Fabric",
@@ -22,6 +22,15 @@
             "slug": "sunbrella-fabric",
             "keywords": "",
             "codes": "!TPU"
+          }
+        },
+        {
+          "name": "Luxury Acrylic / Polypropylene Fabric",
+          "description": "wancu",
+          "filters": {
+            "slug": "outdoor-luxe",
+            "keywords": "",
+            "codes": ""
           }
         }
       ]
