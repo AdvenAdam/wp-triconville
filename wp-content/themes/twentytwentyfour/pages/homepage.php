@@ -56,7 +56,7 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                loop
                class="object-cover full-screen w-screen max-h-[35vh] md:max-h-[calc(30vh+5rem)] lg:min-h-[720px] lg:max-h-[1020px]"
                id="myVideo">
-            <source src="<?= get_template_directory_uri(); ?>/assets/video/new_ifex_banner.mp4"
+            <source src="https://storage.googleapis.com/magento-asset/wp_triconville/videos/ifex/new_ifex_banner.mp4"
                     type="video/mp4">
             Your browser does not support HTML5 video.
         </video>
