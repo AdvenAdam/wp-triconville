@@ -9,7 +9,7 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
 ?>
 <style>
 .homepage-banner {
-    background: url('https://storage.googleapis.com/magento-asset/wp_triconville/images/collection/banner-list/marlow.jpg');
+    background: url('https://storage.googleapis.com/magento-asset/wp_triconville/images/home/home-banner3-resize.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -50,71 +50,20 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
 }
 </style>
 <div class="content-container overflow-hidden">
-    <div class="relative mt-20">
-        <video autoplay
-               muted
-               loop
-               class="object-cover full-screen w-screen max-h-[35vh] md:max-h-[calc(30vh+5rem)] lg:min-h-[720px] lg:max-h-[1020px]"
-               id="myVideo">
-            <source src="https://storage.googleapis.com/magento-asset/wp_triconville/videos/ifex/new_ifex_banner.mp4"
-                    type="video/mp4">
-            Your browser does not support HTML5 video.
-        </video>
-        <button class="absolute z-10 bottom-3 lg:bottom-5 left-3 lg:left-5 p-2 bg-black bg-opacity-50 text-white rounded-full"
-                id="toggleSoundButton">
-            <span class="sr-only">Toggle sound</span>
-            <svg xmlns="http://www.w3.org/2000/svg"
-                 fill="none"
-                 viewBox="0 0 24 24"
-                 stroke-width="1.5"
-                 stroke="currentColor"
-                 class="size-4 lg:size-6">
-                <path stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M17.25 9.75 19.5 12m0 0 2.25 2.25M19.5 12l2.25-2.25M19.5 12l-2.25 2.25m-10.5-6 4.72-4.72a.75.75 0 0 1 1.28.53v15.88a.75.75 0 0 1-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.507-1.938-1.354A9.009 9.009 0 0 1 2.25 12c0-.83.112-1.633.322-2.396C2.806 8.756 3.63 8.25 4.51 8.25H6.75Z" />
-            </svg>
-
-        </button>
-        <a href="<?= BASE_LINK; ?>/news/triconville-debuts-at-ifex-2025/"
-           class="absolute top-0 left-0 full-screen w-screen max-h-[35vh] md:max-h-[calc(30vh+5rem)] lg:min-h-[720px] lg:max-h-[1020px]">
-
-        </a>
-
-    </div>
 
     <!-- NOTE : Banner Desktop -->
-    <!-- <div class="homepage-banner px-5 md:px-8 mt-16 md:mt-20 py-12 full-screen w-screen max-h-[35vh] md:max-h-[calc(30vh+5rem)] lg:min-h-[720px] lg:max-h-[1020px]">
-        <div class="hidden lg:flex items-center justify-center h-full w-full">
-            <div class="text-center"
+    <div class="homepage-banner mt-16 md:mt-20 full-screen w-screen max-h-[35vh] md:max-h-[calc(30vh+5rem)] lg:min-h-[720px] lg:max-h-[1020px]">
+        <div class="flex items-center justify-center h-full w-full bg-black/30">
+            <div class="text-center  px-5 md:px-8"
                  data-aos="fade-up"
                  data-aos-once="true"
                  data-aos-delay="100"
                  data-aos-duration="1000">
-                <h1 class="text-3xl lg:text-5xl">Triconville Debuts at IFEX 2025</h1>
-                <h3 class="text-base">Join us at Indonesia's premier furniture & craft exhibition!</h3>
-                <div class="flex gap-3 justify-center mt-5">
-                    <a href="https://ifexindonesia.com/visitor/show-preview/919"
-                       target="_blank"
-                       class="btn-ghost-light uppercase text-sm flex items center gap-1">find us on IFEX
-                        <svg xmlns="http://www.w3.org/2000/svg"
-                             fill="none"
-                             viewBox="0 0 24 24"
-                             stroke-width="1.5"
-                             stroke="currentColor"
-                             class="size-4 text-xs">
-                            <path stroke-linecap="round"
-                                  stroke-linejoin="round"
-                                  d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
-                        </svg>
-
-                    </a>
-                    <a href="<?= BASE_LINK ?>/news/triconville-debuts-at-ifex-2025"
-                       target="_blank"
-                       class="btn-ghost-dark uppercase text-sm">Learn More</a>
-                </div>
+                <h3 class="text-base text-white">COMING SOON !</h3>
+                <h1 class="text-3xl lg:text-5xl text-white">Triconville New Launches 2025</h1>
             </div>
         </div>
-    </div> -->
+    </div>
     <!-- NOTE Banner MOBILE  -->
     <!-- <div class="px-5 md:px-8 py-10 md:py-20 lg:hidden">
         <div data-aos="fade-up"
@@ -122,28 +71,8 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
              data-aos-delay="100"
              data-aos-duration="1000">
             <div class="text-center">
-                <h1 class="text-3xl lg:text-5xl">Triconville Debuts at IFEX 2025</h1>
-                <h3 class="text-base">Join us at Indonesia's premier furniture & craft exhibition!</h3>
-            </div>
-            <div class="flex gap-3 flex-col-reverse md:flex-row justify-center md:items-center mt-5">
-                <a href="https://ifexindonesia.com/visitor/show-preview/919"
-                   target="_blank"
-                   class="btn-ghost uppercase text-sm flex justify-center gap-1">find us on IFEX
-                    <svg xmlns="http://www.w3.org/2000/svg"
-                         fill="none"
-                         viewBox="0 0 24 24"
-                         stroke-width="1.5"
-                         stroke="currentColor"
-                         class="size-4 text-xs">
-                        <path stroke-linecap="round"
-                              stroke-linejoin="round"
-                              d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
-                    </svg>
-
-                </a>
-                <a href="<?= BASE_LINK ?>/news/triconville-debuts-at-ifex-2025"
-                   target="_blank"
-                   class="btn-ghost-dark uppercase text-sm text-center">Learn More</a>
+                <h3 class="text-base text-white">COMING SOON !</h3>
+                <h1 class="text-3xl lg:text-5xl ">Triconville New Launches 2025</h1>
             </div>
         </div>
     </div> -->
@@ -320,30 +249,7 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
 <div id="errorIndicator"
      class="hidden">Error</div>
 </div>
-</div>
-<script>
-const myVideo = document.getElementById("myVideo");
-const toggleSoundButton = document.getElementById("toggleSoundButton");
 
-toggleSoundButton.addEventListener("click", () => {
-    if (myVideo.muted) {
-        myVideo.muted = false;
-        toggleSoundButton.innerHTML = `<span class="sr-only">Mute sound</span>
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-4 lg:size-6">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M19.114 5.636a9 9 0 0 1 0 12.728M16.463 8.288a5.25 5.25 0 0 1 0 7.424M6.75 8.25l4.72-4.72a.75.75 0 0 1 1.28.53v15.88a.75.75 0 0 1-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.507-1.938-1.354A9.009 9.009 0 0 1 2.25 12c0-.83.112-1.633.322-2.396C2.806 8.756 3.63 8.25 4.51 8.25H6.75Z" />
-        </svg>
-
-        `;
-    } else {
-        myVideo.muted = true;
-        toggleSoundButton.innerHTML = `<span class="sr-only">Unmute sound</span>
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-4 lg:size-6">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 9.75 19.5 12m0 0 2.25 2.25M19.5 12l2.25-2.25M19.5 12l-2.25 2.25m-10.5-6 4.72-4.72a.75.75 0 0 1 1.28.53v15.88a.75.75 0 0 1-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.507-1.938-1.354A9.009 9.009 0 0 1 2.25 12c0-.83.112-1.633.322-2.396C2.806 8.756 3.63 8.25 4.51 8.25H6.75Z" />
-            </svg>   
-        `;
-    }
-});
-</script>
 <script>
 let selectedCollectionIds = [];
 let filteredCollections = [];
