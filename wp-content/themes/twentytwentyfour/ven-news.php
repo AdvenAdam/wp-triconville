@@ -51,6 +51,9 @@ get_template_part('header-custom');
             case (strpos($url, 'meet-gera-tables-a-perfect-blend-of-quality-workmanship') !== false):
                 include(get_template_directory() . '/page-builder/news/meet-gera-tables-a-perfect-blend-of-quality-workmanship.html');
                 break;
+            case (strpos($url, 'triconville-is-the-creator-of-moments-at-ifex-2025') !== false):
+                include(get_template_directory() . '/page-builder/news/triconville-is-the-creator-of-moments-at-ifex-2025.html');
+                break;
             default:
                 echo "No page found";
         }
@@ -71,7 +74,7 @@ get_template_part('header-custom');
             <?php $Latestposts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&category_name=news'); ?>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-3 lg:gap-5">
                 <?php foreach ($Latestposts as $post): ?>
-                <?php if (strpos(get_the_title($post->ID), 'IFEX') !== false) : ?>
+                <?php if (strcmp(strtolower(get_the_title($post->ID)), strtolower('Triconville is the Creator of Moments at IFEX 2025')) == 0) : ?>
                 <div class="news-card flex flex-col md:flex-row md:items-center gap-3 md:block">
                     <a class="h-auto relative group hover:cursor-pointer"
                        href="<?php echo get_permalink($post->ID); ?>">

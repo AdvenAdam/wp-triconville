@@ -25,7 +25,7 @@
             </div>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 xl:gap-6 items-start py-10">
                 <?php while ($top_posts->have_posts()) : $top_posts->the_post(); ?>
-                <?php if (strpos(get_the_title($post->ID), 'IFEX') !== false) : ?>
+                <?php if (strcmp(strtolower(get_the_title($post->ID)), strtolower('Triconville is the Creator of Moments at IFEX 2025')) == 0) : ?>
                 <div class="w-full max-w-xl order-last lg:order-first group"
                      data-aos="fade-up"
                      data-aos-once="true"
