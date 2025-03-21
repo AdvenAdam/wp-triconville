@@ -1,4 +1,5 @@
 <?php
+define('WP_CACHE', true); // Added by WP Cloudflare Super Page Cache
 
 /**
 * The base configuration for WordPress
