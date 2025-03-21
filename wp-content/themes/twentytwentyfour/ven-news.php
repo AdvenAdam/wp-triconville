@@ -71,6 +71,32 @@ get_template_part('header-custom');
             <?php $Latestposts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&category_name=news'); ?>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-3 lg:gap-5">
                 <?php foreach ($Latestposts as $post): ?>
+                <?php if (strpos(get_the_title($post->ID), 'IFEX') !== false) : ?>
+                <div class="news-card flex flex-col md:flex-row md:items-center gap-3 md:block">
+                    <a class="h-auto relative group hover:cursor-pointer"
+                       href="<?php echo get_permalink($post->ID); ?>">
+                        <video autoplay
+                               muted
+                               loop
+                               class="w-full h-[320px] md:h-[25vh] xl:h-[35vh] max-h-[360px] object-cover"
+                               id="ifexVideo">
+                            <source src="https://storage.googleapis.com/magento-asset/wp_triconville/videos/ifex/thumbnail_ifex_timelapse.mp4"
+                                    type="video/mp4" />
+                            Your browser does not support HTML5 video.
+                        </video>
+                    </a>
+                    <div class="desc w-full md:w-[95%] flex flex-col justify-center">
+                        <div class="h-20 overflow-hidden">
+                            <h4 class="text-xl lg:text-2xl md:mb-5 md:mt-3">
+                                <a href="<?php echo get_permalink($post->ID); ?>"
+                                   class="hover:underline line-clamp-2">
+                                    <?php echo get_the_title($post->ID); ?>
+                                </a>
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+                <?php else : ?>
                 <div class="news-card flex flex-col md:flex-row md:items-center gap-3 md:block">
                     <a class="h-auto relative group hover:cursor-pointer"
                        href="<?php echo get_permalink($post->ID); ?>">
@@ -88,6 +114,8 @@ get_template_part('header-custom');
                         </div>
                     </div>
                 </div>
+                <?php endif; ?>
+
                 <?php  endforeach; ?>
             </div>
         </div>

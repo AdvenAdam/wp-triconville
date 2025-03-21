@@ -178,7 +178,35 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 xl:gap-6 items-start"
                      id="news-selected">
                     <?php foreach ($posts as $post): ?>
-                    <div class="w-full max-w-xl order-last lg:order-first group"
+                    <?php if (strpos(get_the_title($post->ID), 'IFEX') !== false) : ?>
+                    <div class="w-full max-w-xl lg:order-first group"
+                         data-aos="fade-up"
+                         data-aos-once="true"
+                         data-aos-duration="1000">
+                        <a href="<?php the_permalink(); ?>"
+                           class="">
+                            <div class="relative hover:cursor-pointer w-full">
+                                <video autoplay
+                                       muted
+                                       loop
+                                       class="h-auto w-full min-h-[25vh] xl:min-h-[35vh] object-cover"
+                                       id="ifexVideo">
+                                    <source src="https://storage.googleapis.com/magento-asset/wp_triconville/videos/ifex/thumbnail_ifex_timelapse.mp4"
+                                            type="video/mp4" />
+                                    Your browser does not support HTML5 video.
+                                </video>
+                                <div class="overlay absolute inset-0 bg-gradient-to-b from-transparent to-black/30 invisible group-hover:visible"></div>
+                            </div>
+                        </a>
+                        <p class="text-xs text-gray-500 mt-4">
+                            <?php the_time('F j, Y'); ?>
+                        </p>
+                        <h3 class="news-title my-2 text-2xl min-h-16 group-hover:underline">
+                            <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+                        </h3>
+                    </div>
+                    <?php else : ?>
+                    <div class="w-full max-w-xl lg:order-first group"
                          data-aos="fade-up"
                          data-aos-once="true"
                          data-aos-duration="1000">
@@ -196,6 +224,8 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                             <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
                         </h3>
                     </div>
+                    <?php endif; ?>
+
                     <?php  endforeach; ?>
                 </div>
                 <div class="text-center mt-10 lg:mt-0">
