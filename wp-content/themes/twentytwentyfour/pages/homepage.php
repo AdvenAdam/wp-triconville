@@ -178,7 +178,7 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 xl:gap-6 items-start"
                      id="news-selected">
                     <?php foreach ($posts as $post): ?>
-                    <?php if (strpos(get_the_title($post->ID), 'IFEX') !== false) : ?>
+                    <?php if (strcmp(strtolower(get_the_title($post->ID)), strtolower('Triconville is the Creator of Moments at IFEX 2025')) == 0) : ?>
                     <div class="w-full max-w-xl lg:order-first group"
                          data-aos="fade-up"
                          data-aos-once="true"
