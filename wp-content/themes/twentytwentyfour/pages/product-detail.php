@@ -200,7 +200,7 @@ function renderMaster() {
             let relatedProduct
             relatedProduct = ProductsData.related_product
                 .filter(data => data.status === 'published' || data.status === 'draft')
-                .filter(data => !['rivera', 'dune', 'artisan'].some(exclude => data.name.toLowerCase().includes(exclude)))
+                .filter(data => !['rivera'].some(exclude => data.name.toLowerCase().includes(exclude)))
             renderRelatedProducts(relatedProduct);
         }
 
