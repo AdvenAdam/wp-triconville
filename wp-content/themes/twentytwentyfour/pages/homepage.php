@@ -8,13 +8,6 @@ get_template_part('header-custom');
 $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&category_name=news');
 ?>
 <style>
-.homepage-banner {
-    background: url('https://storage.googleapis.com/magento-asset/wp_triconville/images/home/home-banner3-resize.png');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-}
-
 .news-image img {
     height: 300px !important;
     width: 100% !important;
@@ -23,14 +16,6 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
 
 .bg-ceramic {
     background: url('https://storage.googleapis.com/magento-asset/wp_triconville/images/backgrounds/ifex-left-banner.jpeg');
-    overflow: hidden;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-}
-
-.right-banner {
-    background: url('https://storage.googleapis.com/magento-asset/wp_triconville/images/backgrounds/ifex-right-banner.jpeg');
     overflow: hidden;
     background-size: cover;
     background-repeat: no-repeat;
@@ -52,14 +37,22 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
 <div class="content-container overflow-hidden">
 
     <!-- NOTE : Banner Desktop -->
-    <div class="homepage-banner mt-16 md:mt-20 full-screen w-screen max-h-[35vh] md:max-h-[calc(30vh+5rem)] lg:min-h-[720px] lg:max-h-[1020px]">
-        <div class="flex items-center justify-center h-full w-full bg-black/30">
+    <div class="relative mt-16 md:mt-20 full-screen w-screen max-h-[35vh] md:max-h-[calc(30vh+5rem)] lg:min-h-[720px] lg:max-h-[1020px]">
+        <video autoplay
+               muted
+               loop
+               class="object-cover w-full h-full"
+               id="myVideo">
+            <source src="https://storage.googleapis.com/magento-asset/wp_triconville/videos/home-banner/home-banner.mp4"
+                    type="video/mp4" />
+            Your browser does not support HTML5 video.
+        </video>
+        <div class="flex items-center justify-center h-full w-full bg-black/30 inset-0 absolute">
             <div class="text-center  px-5 md:px-8"
                  data-aos="fade-up"
                  data-aos-once="true"
                  data-aos-delay="100"
                  data-aos-duration="1000">
-                <h3 class="text-base text-white">COMING SOON !</h3>
                 <h1 class="text-3xl lg:text-5xl text-white">Triconville New Launches 2025</h1>
             </div>
         </div>
