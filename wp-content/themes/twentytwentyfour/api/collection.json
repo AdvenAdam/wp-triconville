@@ -73,14 +73,6 @@
       "image_grid": "https://storage.googleapis.com/magento-asset/wp_triconville/images/collection/grid%20view/tora.jpg"
     },
     {
-      "id": 10,
-      "name": "Emmilie",
-      "display_name": "Emmilie",
-      "collection_id": 31,
-      "image_banner": "https://storage.googleapis.com/magento-asset/wp_triconville/images/collection/banner-list/emmilie.jpg",
-      "image_grid": "https://storage.googleapis.com/magento-asset/wp_triconville/images/collection/grid%20view/emmilie.jpg"
-    },
-    {
       "id": 11,
       "name": "Dexa",
       "display_name": "Dexa",
