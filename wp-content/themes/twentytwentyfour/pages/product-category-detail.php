@@ -2,6 +2,7 @@
 $character_slug = get_query_var('product');
 
 $data = json_decode(file_get_contents(get_template_directory() . '/api/product.json'), true);
+$dataCollection = json_decode(file_get_contents(get_template_directory() . '/api/collection.json'), true)['collection'];
 $selectedCategory = array_filter($data, function($e) use ($character_slug) {
     return $e['slug'] === $character_slug;
 });
@@ -63,10 +64,13 @@ let localProductsData = [];
 let categoriesData;
 let haveSubCategories = false;
 let productListSelected = [];
+let newCollection = [];
 
 $(document).ready(function() {
     categoriesData = <?= json_encode($selectedCategory[0]); ?>;
     haveSubCategories = categoriesData?.children.length;
+    const collectionData = <?= json_encode($dataCollection); ?>;
+    newCollection = collectionData.filter(data => data?.is_new === true).map(data => data.collection_id);
     renderMaster()
 })
 
@@ -187,6 +191,7 @@ function subCategoryOnClick(name) {
 }
 
 function renderProducts(data, headerTitle = 'All Types') {
+    console.log("🚀 ~ renderProducts ~ data:", data)
     $('#product__list').append(`
         <!-- NOTE: ${headerTitle} -->
         <div id="product__${slugify(headerTitle)}" class="product-list mb-20" 
@@ -206,6 +211,7 @@ function renderProducts(data, headerTitle = 'All Types') {
     `);
 
     data.sort((a, b) => a.name.localeCompare(b.name)).forEach((e, index) => {
+        const isNew = newCollection.includes(e.collection);
         $(`#product__list__${slugify(headerTitle)}`).append(`
             <a href= "<?= BASE_LINK; ?>/product-detail/${slugify(e.name)}"
                 class="product__${slugify(headerTitle)}"
@@ -215,7 +221,10 @@ function renderProducts(data, headerTitle = 'All Types') {
             >
                 <div class='flex justify-center items-center flex-col group'>
                     <img class="w-auto lg:h-[384px] h-[240px] object-contain group-hover:scale-[.97] group-hover:brightness-110 transition duration-300" src="${e.product_image_384}" />
-                    <p class="text-center max-w-[90%] -mt-5 sm:-mt-10 lg:-mt-16 xl:-mt-10 relative z-10 capitalize group-hover:underline">${filterProductName(e.name)}</p>
+                    <div class="md:mt-[-30px] max-w-[90%] -mt-5 sm:-mt-10 lg:-mt-16 xl:-mt-10 flex gap-2 items-center">
+                        ${isNew ? '<p class="mx-auto text-xs bg-triconville-red text-white w-fit py-1 px-2">NEW</p>' : ''}
+                        <p class="text-center text-sm group-hover:underline">${filterProductName(e.name)}</p>
+                    </div>
                 </div>
             </a>
         `);

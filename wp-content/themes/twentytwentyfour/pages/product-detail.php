@@ -5,6 +5,7 @@ $url = BASE_API . '/v1_products_det_slug/' . $character_slug . '/';
 $headers = array(
     'Authorization' => API_KEY,
 );
+$dataCollection = json_decode(file_get_contents(get_template_directory() . '/api/collection.json'), true)['collection'];
 $response = wp_remote_get($url, array(
     'headers' => $headers,
     'timeout' => 10,
@@ -141,9 +142,13 @@ get_template_part('header-custom');
 let ProductsData = [];
 let isSectionalPage = false
 let selectedCollection = [];
+let newCollection = [];
+
 jQuery(document).ready(function($) {
     try {
         $('#page-loading').show();
+        const collectionData = <?= json_encode($dataCollection); ?>;
+        newCollection = collectionData.filter(data => data?.is_new === true).map(data => data.collection_id);
         ProductsData = <?php echo json_encode($data); ?>;
         selectedCollection = <?php echo file_get_contents(get_template_directory() . '/api/collection.json'); ?>.collection
     } catch (error) {
@@ -690,13 +695,15 @@ function renderCollectionProducts(products, name) {
     // Collection product
     $('.collection__product__name').text(`In ${filterProductName(name)} Collection`);
     products.forEach((e) => {
+        const isNew = newCollection.includes(e.collection);
         $('.collection__product').append(`
             <a href="<?= BASE_LINK; ?>/product-detail/${slugify(e.name)}">     
                 <div class="product__card group flex flex-col items-center justify-center">
                     <img src="${e.product_image}" class="md:h-[384px] h-[204px] object-contain w-auto group-hover:scale-[.97] group-hover:brightness-110 transition duration-300" />
-                    <p class="text-center w-full max-w-[90%] mx-auto -mt-5 sm:-mt-10 lg:-mt-16 xl:-mt-10 relative z-10 capitalize group-hover:underline">
-                        ${filterProductName(e.name)}
-                    </p>
+                     <div class="md:mt-[-30px] max-w-[90%] -mt-5 sm:-mt-10 lg:-mt-16 xl:-mt-10 flex gap-2 items-center">
+                        ${isNew ? '<p class="mx-auto text-xs bg-triconville-red text-white w-fit py-1 px-2">NEW</p>' : ''}
+                        <p class="text-center text-sm group-hover:underline">${filterProductName(e.name)}</p>
+                    </div>
                 </div>
             </a>
         `)
@@ -716,13 +723,15 @@ function renderRelatedProducts(products) {
     $('#releted__products').removeClass('hidden');
     $('.releted__products__name').text(`Related Products`);
     products.forEach((e) => {
+        const isNew = newCollection.includes(e.collection);
         $('.releted__products').append(`
             <a href="<?= BASE_LINK; ?>/product-detail/${slugify(e.name)}" class="max-h-60 md:max-h-96">
                 <div class="product__card group flex flex-col items-center justify-center mx-1">
                     <img src="${e.product_image}" class="md:h-[384px] h-[204px] max-w-[45vw] md:max-w-[33vw] lg:max-w-[23vw] object-contain w-auto group-hover:scale-[.97] group-hover:brightness-110 transition duration-300" />
-                    <p class="text-center w-full max-w-[90%] mx-auto -mt-5 sm:-mt-10 lg:-mt-16 xl:-mt-10 relative z-10 capitalize group-hover:underline">
-                        ${filterProductName(e.name)}
-                    </p>
+                     <div class="md:mt-[-30px] max-w-[90%] -mt-5 sm:-mt-10 lg:-mt-16 xl:-mt-10 flex gap-2 items-center">
+                        ${isNew ? '<p class="mx-auto text-xs bg-triconville-red text-white w-fit py-1 px-2">NEW</p>' : ''}
+                        <p class="text-center text-sm group-hover:underline">${filterProductName(e.name)}</p>
+                    </div>
                 </div>
             </a>
         `)

@@ -79,14 +79,14 @@ function loadCollections() {
         };
         collectionData.product_list = collectionData.product_list.filter(data => data.status === 'published' || data.status === 'draft');
         if (!collectionData.name) {
-            redirectError(404);
+            // redirectError(404);
         } else {
             $('#page-loading').hide();
             renderMaster();
         }
     } catch (error) {
         console.error("  ~ loadCollections ~ error:", error);
-        redirectError();
+        // redirectError();
     }
 };
 
@@ -185,7 +185,10 @@ function renderMaster() {
                                 data-aos-duration="1000"
                             >
                                 <img class="w-auto md:h-[384px] h-[240px] object-contain group-hover:scale-[.97] group-hover:brightness-110 transition duration-300" src="${pr.product_image_384}" />
-                                <p class="text-center text-sm md:mt-[-30px] max-w-[90%] -mt-5 sm:-mt-10 lg:-mt-16 xl:-mt-10 relative z-10 capitalize group-hover:underline">${filterProductName(pr.name)}</p>
+                                <div class="md:mt-[-30px] max-w-[90%] -mt-5 sm:-mt-10 lg:-mt-16 xl:-mt-10 flex items-center gap-2">
+                                    ${collectionData?.is_new ? '<p class="mx-auto text-xs bg-triconville-red text-white w-fit py-1 px-2">NEW</p>' : ''}
+                                    <p class="text-center text-sm group-hover:underline">${filterProductName(pr.name)}</p>
+                                </div>
                             </a>
                         `).join('')}
                     </div>
