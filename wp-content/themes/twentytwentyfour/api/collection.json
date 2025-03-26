@@ -6,7 +6,8 @@
       "display_name": "Artisan",
       "collection_id": 272,
       "image_banner": "https://storage.googleapis.com/magento-asset/wp_triconville/images/collection/banner-list/artisan_banner.jpg",
-      "image_grid": "https://storage.googleapis.com/magento-asset/wp_triconville/images/collection/grid%20view/artisan_thumb.jpg"
+      "image_grid": "https://storage.googleapis.com/magento-asset/wp_triconville/images/collection/grid%20view/artisan_thumb.jpg",
+      "is_new": true
     },
     {
       "id": 2,
@@ -14,7 +15,8 @@
       "display_name": "Dune",
       "collection_id": 273,
       "image_banner": "https://storage.googleapis.com/magento-asset/wp_triconville/images/collection/banner-list/dune_banner.jpg",
-      "image_grid": "https://storage.googleapis.com/magento-asset/wp_triconville/images/collection/grid%20view/dune_thumb.jpg"
+      "image_grid": "https://storage.googleapis.com/magento-asset/wp_triconville/images/collection/grid%20view/dune_thumb.jpg",
+      "is_new": true
     },
     {
       "id": 3,

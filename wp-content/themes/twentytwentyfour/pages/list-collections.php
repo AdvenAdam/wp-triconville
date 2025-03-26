@@ -185,7 +185,10 @@ function renderCollections(e, index, type = 'grid') {
                     ${count < 10 ? '0' + (count) : count}. 
                 </h4>
                 <hr class='w-2/5 border-black'/>
-                <h1 class="text-3xl lg:text-5xl font-medium capitalize my-2">${e.display_name}</h1>
+                 <div class ="flex gap-2">
+                    <h1 class="text-3xl lg:text-5xl font-medium capitalize my-2">${e.display_name}</h1>
+                    ${e?.is_new ? '<p class="text-xs bg-triconville-red text-white h-fit py-1 px-2 mt-3">New</p>' : ''}
+                </div>
                 <h3 class='text-base line-clamp-2 text-ellipsis'>
                     ${e.description}
                 </h3>
@@ -209,7 +212,10 @@ function renderCollections(e, index, type = 'grid') {
                                 ${count < 10 ? '0' + (count) : count}. 
                             </h4>
                             <hr class='w-1/5 border-white'/>
-                            <h1 class="text-3xl lg:text-5xl text-white font-medium capitalize my-2">${e.display_name}</h1>
+                            <div class ="flex gap-2">
+                                <h1 class="text-3xl lg:text-5xl text-white font-medium capitalize my-2">${e.display_name}</h1>
+                                ${e?.is_new ? '<p class="text-xs bg-triconville-red text-white h-fit py-1 px-2 mt-3">New</p>' : ''}
+                            </div>
                             <h3 class='text-base line-clamp-2 md:w-1/2 text-white'>
                                 ${e.description.length > 150 ? e.description.substring(0, 150) + '...' : e.description}
                             </h3>
