@@ -48,7 +48,7 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
             Your browser does not support HTML5 video.
         </video>
     </div>
-    <div class="blcok md:hidden relative mt-16 md:mt-20 full-screen w-screen">
+    <div class="block md:hidden relative mt-16 md:mt-20 full-screen w-screen">
         <video autoplay
             muted
             loop
