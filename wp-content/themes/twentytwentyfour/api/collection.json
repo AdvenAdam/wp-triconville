@@ -75,14 +75,6 @@
       "image_grid": "https://storage.googleapis.com/magento-asset/wp_triconville/images/collection/grid%20view/tora.jpg"
     },
     {
-      "id": 11,
-      "name": "Dexa",
-      "display_name": "Dexa",
-      "collection_id": 16,
-      "image_banner": "https://storage.googleapis.com/magento-asset/wp_triconville/images/collection/banner-list/dexa.jpg",
-      "image_grid": "https://storage.googleapis.com/magento-asset/wp_triconville/images/collection/grid%20view/dexa.jpg"
-    },
-    {
       "id": 12,
       "name": "Ara",
       "display_name": "Ara",
@@ -99,14 +91,6 @@
       "image_grid": "https://storage.googleapis.com/magento-asset/wp_triconville/images/collection/grid%20view/brie.jpg"
     },
     {
-      "id": 14,
-      "name": "Vino",
-      "display_name": "Vino",
-      "collection_id": 17,
-      "image_banner": "https://storage.googleapis.com/magento-asset/wp_triconville/images/collection/banner-list/vino.jpg",
-      "image_grid": "https://storage.googleapis.com/magento-asset/wp_triconville/images/collection/grid%20view/vino.jpg"
-    },
-    {
       "id": 15,
       "name": "Gera Tables & Benches",
       "display_name": "Gera",
@@ -121,14 +105,6 @@
       "collection_id": 18,
       "image_banner": "https://storage.googleapis.com/magento-asset/wp_triconville/images/collection/banner-list/planka.png",
       "image_grid": "https://storage.googleapis.com/magento-asset/wp_triconville/images/collection/grid%20view/planka.jpg"
-    },
-    {
-      "id": 17,
-      "name": "Gazelig",
-      "display_name": "Gazelig",
-      "collection_id": 14,
-      "image_banner": "https://storage.googleapis.com/magento-asset/wp_triconville/images/collection/banner-list/gazelig.jpg",
-      "image_grid": "https://storage.googleapis.com/magento-asset/wp_triconville/images/collection/grid%20view/gazelig.jpg"
     },
     {
       "id": 18,
