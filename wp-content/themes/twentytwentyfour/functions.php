@@ -541,3 +541,12 @@ add_action('wp_enqueue_scripts', 'enqueue_styles');
 function slugToTitleCase($slug) {
     return ucwords(str_replace('-', ' ', $slug));
 }
+function get_client_ip() {
+    if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
+        return $_SERVER['HTTP_CLIENT_IP'];
+    } elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+        return explode(',', $_SERVER['HTTP_X_FORWARDED_FOR'])[0];
+    } else {
+        return $_SERVER['REMOTE_ADDR'];
+    }
+}
