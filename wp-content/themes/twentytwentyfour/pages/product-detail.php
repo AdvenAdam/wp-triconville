@@ -20,7 +20,8 @@ $data = json_decode(wp_remote_retrieve_body($response), true);
 echo '<title>'. esc_attr($data['meta_title']) . '</title>';
 echo '<meta name="description" content="' . esc_attr($data['meta_description']) . '"/>';
 echo '<meta name="keywords" content="' . esc_attr($data['meta_keyword']) . '"/>';
-
+$countryCode = $_SERVER["HTTP_CF_IPCOUNTRY"] ?? 'Unknown';
+echo "Country Code (Cloudflare): " . $countryCode;
 get_template_part('header-custom');
 ?>
 
