@@ -182,8 +182,8 @@ function renderMaster() {
         const productName = filterProductName(ProductsData.name);
         isSectionalPage = ProductsData.combineoptionvariant.option1.length === 0
         $('#product__banner').append(`
-<div class="full-screen w-full"
-     style="
+            <div class="full-screen w-full"
+                style="
                     background: url('${ambienceImage}'); 
                     background-position: 50% 50%;
                     background-size: cover;
@@ -282,9 +282,10 @@ async function renderOverview(res) {
 
     if (res.name) {
         // Trim list description
-        let desc = res.description.replace(/<\ / ? p[ ^ > ] * > /g, '').replace(/ < li[ ^ > ] * > (.* ? ) < \/li>/g, '');
+        let desc = res.description.replace(/<\/?p[^>]*>/g, '').replace(/<li[^>]*>(.*?)<\/li>/g, '');
+
         // Trim Html tag
-        desc = desc.replace(/<\ / ? [ ^ > ] + ( > | $) / g, "")
+        desc = desc.replace(/<\/?[^>]+(>|$)/g, "")
         $('#product__overview').append(`
             <div class="grid lg:grid-cols-2 lg:gap-8 items-center">
                 <div class='max-w-xl mx-auto lg:mx-0 order-last lg:order-first'
@@ -475,111 +476,111 @@ function renderDimensions(dimensions, render = "all") {
     // Append other properties
     if (dimensions.ps_clearance_from_floor && /\d/.test(dimensions.ps_clearance_from_floor)) {
         $('#table__spec').append(`
-                <tr>
-                    <td class='w-fit xl:w-1/2 pt-2'>Clearance from Floor</td>
-                    <td class='md:px-3'> : </td>
-                    <td>${dimensions.ps_clearance_from_floor}</td>
-                </tr>
-                `);
+            <tr>
+                <td class='w-fit xl:w-1/2 pt-2'>Clearance from Floor</td>
+                <td class='md:px-3'> : </td>
+                <td>${dimensions.ps_clearance_from_floor}</td>
+            </tr>
+        `);
     }
     if (dimensions.ps_table_top_thickness && /\d/.test(dimensions.ps_table_top_thickness)) {
         $('#table__spec').append(`
-                <tr>
-                    <td class='w-fit xl:w-1/2 pt-2'>Table Top Thickness</td>
-                    <td class='md:px-3'> : </td>
-                    <td>${dimensions.ps_table_top_thickness}</td>
-                </tr>
-                `);
+            <tr>
+                <td class='w-fit xl:w-1/2 pt-2'>Table Top Thickness</td>
+                <td class='md:px-3'> : </td>
+                <td>${dimensions.ps_table_top_thickness}</td>
+            </tr>
+        `);
     }
     if (dimensions.ps_distance_between_legs && /\d/.test(dimensions.ps_distance_between_legs)) {
         $('#table__spec').append(`
-                <tr>
-                    <td class='w-fit xl:w-1/2 pt-2'>Distance Between Legs</td>
-                    <td class='md:px-3'> : </td>
-                    <td>${dimensions.ps_distance_between_legs}</td>
-                </tr>
-                `);
+            <tr>
+                <td class='w-fit xl:w-1/2 pt-2'>Distance Between Legs</td>
+                <td class='md:px-3'> : </td>
+                <td>${dimensions.ps_distance_between_legs}</td>
+            </tr>
+        `);
     }
     if (dimensions.ps_arm_height) {
         $('#table__spec').append(`
-                <tr>
-                    <td class='w-fit xl:w-1/2 pt-2'>Arm Height</td>
-                    <td class='md:px-3'> : </td>
-                    <td>${dimensions.ps_arm_height}</td>
-                </tr>
-                `);
+            <tr>
+                <td class='w-fit xl:w-1/2 pt-2'>Arm Height</td>
+                <td class='md:px-3'> : </td>
+                <td>${dimensions.ps_arm_height}</td>
+            </tr>
+        `);
     }
     if (dimensions.ps_seat_height) {
         $('#table__spec').append(`
-                <tr>
-                    <td class='w-fit xl:w-1/2 pt-2'>Seat Height</td>
-                    <td class='md:px-3'> : </td>
-                    <td>${dimensions.ps_seat_height}</td>
-                </tr>
-                `);
+            <tr>
+                <td class='w-fit xl:w-1/2 pt-2'>Seat Height</td>
+                <td class='md:px-3'> : </td>
+                <td>${dimensions.ps_seat_height}</td>
+            </tr>
+        `);
     }
     if (dimensions.ps_seat_depth) {
         $('#table__spec').append(`
-                <tr>
-                    <td class='w-fit xl:w-1/2 pt-2'>Seat Depth</td>
-                    <td class='md:px-3'> : </td>
-                    <td>${dimensions.ps_seat_depth}</td>
-                </tr>
-                `);
+            <tr>
+                <td class='w-fit xl:w-1/2 pt-2'>Seat Depth</td>
+                <td class='md:px-3'> : </td>
+                <td>${dimensions.ps_seat_depth}</td>
+            </tr>
+        `);
     }
     if (dimensions.ps_nett_weight) {
         $('#table__spec').append(`
-                <tr>
-                    <td class='w-fit xl:w-1/2 pt-2'>Nett Weight</td>
-                    <td class='md:px-3'> : </td>
-                    <td>${dimensions.ps_nett_weight}</td>
-                </tr>
-                `);
+            <tr>
+                <td class='w-fit xl:w-1/2 pt-2'>Nett Weight</td>
+                <td class='md:px-3'> : </td>
+                <td>${dimensions.ps_nett_weight}</td>
+            </tr>
+        `);
     }
     if (dimensions.ps_gross_weight) {
         $('#table__spec').append(`
-                <tr>
-                    <td class='w-fit xl:w-1/2 pt-2'>Gross Weight</td>
-                    <td class='md:px-3'> : </td>
-                    <td>${dimensions.ps_gross_weight}</td>
-                </tr>
-                `);
+            <tr>
+                <td class='w-fit xl:w-1/2 pt-2'>Gross Weight</td>
+                <td class='md:px-3'> : </td>
+                <td>${dimensions.ps_gross_weight}</td>
+            </tr>
+        `);
     }
     if (dimensions.ps_pax) {
         $('#table__spec').append(`
-                <tr>
-                    <td class='w-fit xl:w-1/2 pt-2'>PAX</td>
-                    <td class='md:px-3'> : </td>
-                    <td>${dimensions.ps_pax}</td>
-                </tr>
-                `);
+            <tr>
+                <td class='w-fit xl:w-1/2 pt-2'>PAX</td>
+                <td class='md:px-3'> : </td>
+                <td>${dimensions.ps_pax}</td>
+            </tr>
+        `);
     }
     if (dimensions.ps_20ft_container) {
         $('#table__spec').append(`
-                <tr>
-                    <td class='w-fit xl:w-1/2 pt-2'>20ft Container</td>
-                    <td class='md:px-3'> : </td>
-                    <td>${dimensions.ps_20ft_container}</td>
-                </tr>
-                `);
+            <tr>
+                <td class='w-fit xl:w-1/2 pt-2'>20ft Container</td>
+                <td class='md:px-3'> : </td>
+                <td>${dimensions.ps_20ft_container}</td>
+            </tr>
+        `);
     }
     if (dimensions.ps_40hq_container) {
         $('#table__spec').append(`
-                <tr>
-                    <td class='w-fit xl:w-1/2 pt-2'>40HQ Container</td>
-                    <td class='md:px-3'> : </td>
-                    <td>${dimensions.ps_40hq_container}</td>
-                </tr>
-                `);
+            <tr>
+                <td class='w-fit xl:w-1/2 pt-2'>40HQ Container</td>
+                <td class='md:px-3'> : </td>
+                <td>${dimensions.ps_40hq_container}</td>
+            </tr>
+        `);
     }
     if (dimensions.cbm) {
         $('#table__spec').append(`
-                <tr>
-                    <td class='w-fit xl:w-1/2 pt-2'>CBM</td>
-                    <td class='md:px-3'> : </td>
-                    <td>${dimensions.cbm}</td>
-                </tr>
-                `);
+            <tr>
+                <td class='w-fit xl:w-1/2 pt-2'>CBM</td>
+                <td class='md:px-3'> : </td>
+                <td>${dimensions.cbm}</td>
+            </tr>
+        `);
     }
 
 }
@@ -809,11 +810,11 @@ function renderCollectionProducts(products, name) {
     })
 
     $('.collection__product__btn').append(`
-                                    <a href="<?= BASE_LINK ?>/collections/${slugify(name)}"
-                                       class='btn-ghost uppercase text-xs'>
-                                        discover ${name} collection
-                                    </a>
-                                    `)
+        <a href="<?= BASE_LINK ?>/collections/${slugify(name)}"
+            class='btn-ghost uppercase text-xs'>
+            discover ${name} collection
+        </a>
+    `)
 
 }
 
@@ -839,35 +840,35 @@ function renderRelatedProducts(products) {
     })
     if (products.length > 4) {
         $('#releted__products').append(`
-                                    <button class="gww-prev left-0 2xl:-left-12 arrow-btn hidden lg:block invisible group-hover/slider:visible opacity-0 group-hover/slider:opacity-100"
-                                            aria-label="Previous"
-                                            type="button">
-                                        <svg xmlns="http://www.w3.org/2000/svg"
-                                             fill="none"
-                                             viewBox="0 0 24 24"
-                                             stroke-w1.5"1.5"
-                                             stroke="currentColor"
-                                             class="size-6">
-                                            <path stroke-linecap="round"
-                                                  stroke-linejoin="round"
-                                                  d="M15.75 19.5 8.25 12l7.5-7.5" />
-                                        </svg>
-                                    </button>
-                                    <button class="gww-next right-0 2xl:-right-12 arrow-btn hidden lg:block invisible group-hover/slider:visible opacity-0 group-hover/slider:opacity-100"
-                                            aria-label="Next"
-                                            type="button">
-                                        <svg xmlns="http://www.w3.org/2000/svg"
-                                             fill="none"
-                                             viewBox="0 0 24 24"
-                                             stroke-w1.5"1.5"
-                                             stroke="currentColor"
-                                             class="size-6">
-                                            <path stroke-linecap="round"
-                                                  stroke-linejoin="round"
-                                                  d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-                                        </svg>
-                                    </button>
-                                    `)
+            <button class="gww-prev left-0 2xl:-left-12 arrow-btn hidden lg:block invisible group-hover/slider:visible opacity-0 group-hover/slider:opacity-100"
+                    aria-label="Previous"
+                    type="button">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-w1.5"1.5"
+                        stroke="currentColor"
+                        class="size-6">
+                    <path stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M15.75 19.5 8.25 12l7.5-7.5" />
+                </svg>
+            </button>
+            <button class="gww-next right-0 2xl:-right-12 arrow-btn hidden lg:block invisible group-hover/slider:visible opacity-0 group-hover/slider:opacity-100"
+                    aria-label="Next"
+                    type="button">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-w1.5"1.5"
+                        stroke="currentColor"
+                        class="size-6">
+                    <path stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                </svg>
+            </button>
+        `)
         $('.releted__products').slick({
             variableWidth: true,
             infinite: true,
