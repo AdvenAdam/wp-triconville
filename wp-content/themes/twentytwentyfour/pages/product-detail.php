@@ -313,15 +313,20 @@ async function renderOverview(res) {
                 `);
     }
     let storeLink = '<?= BASE_LINK; ?>/find-a-store/';
+    let storeLabel = "Find a Store";
+
     switch (countryLocation) {
         case 'Indonesia':
             storeLink = `https://indospaceshop.com/id/product/${slugify(res.name)}`
+            storeLabel = "Shop Now";
             break;
         case 'Malaysia':
             storeLink = `https://indospaceshop.com/my/product/${slugify(res.name)}`
+            storeLabel = "Shop Now";
             break;
         case 'Saudi Arabia':
             storeLink = `https://indospaceshop.com/sa/product/${slugify(res.name)}`
+            storeLabel = "Shop Now";
             break;
         default:
             break;
@@ -347,7 +352,7 @@ async function renderOverview(res) {
             :''}
             <a href="${storeLink}"
                 class="btn-ghost flex items-end justify-center uppercase">
-                <p class="text-xs">Find a Store</p>
+                <p class="text-xs">${storeLabel}</p>
             </a>
         </div>
     `);
@@ -745,9 +750,9 @@ function renderImages(images) {
     if (Array.isArray(ProductsData.ambience_image_1920) && images.ambience_image_1920.length > 1) {
         images.ambience_image_1920.forEach((e) => {
             $('.ambience__img').append(`
-                                    <img src="${e}"
-                                         class="h-full me-2 mx-2 w-screen md:w-auto object-cover" />
-                                    `)
+            <img src="${e}"
+                    class="h-full me-2 mx-2 w-screen md:w-auto object-cover" />
+            `)
         })
         $('.ambience__img').slick({
             slidesToScroll: 1,
@@ -778,15 +783,13 @@ function renderImages(images) {
         $('.ambience__img').hide();
     }
 
-
-
     if (images.spec_image) {
         // Spec image
         $('#image__spec').append(`
-                                    <img src="${images.spec_image}"
-                                         alt="specification product"
-                                         class="h-auto w-full" />
-                                    `)
+            <img src="${images.spec_image}"
+                    alt="specification product"
+                    class="h-auto w-full" />
+        `)
     }
 }
 
