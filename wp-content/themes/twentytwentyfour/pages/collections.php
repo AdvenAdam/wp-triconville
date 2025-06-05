@@ -19,6 +19,20 @@
     echo '<title>' . esc_attr($data['meta_title']) . '</title>';
     echo '<meta name="description" content="' . esc_attr($data['meta_description']) . '"/>';
     echo '<meta name="keywords" content="' . esc_attr($data['meta_keyword']) . '"/>';
+
+    $location = null;
+    if (function_exists('geoip_detect2_get_info_from_ip')) {
+        $ip = get_client_ip();
+        $locales = geoip_detect2_get_info_from_ip($ip);
+        if ($locales && isset($locales->country->name)) {
+            $location = $locales->country->name;
+        } else {
+            echo 'Could not determine country.';
+        }
+    } else {
+        echo 'GeoIP Detection not available.';
+    }
+
     get_template_part('header-custom');
 
 ?>
@@ -56,6 +70,7 @@ let selectedCollection = [];
 let collectionData = [];
 let moreCollections = [];
 const collections = <?php echo file_get_contents(get_template_directory() . '/api/collection.json'); ?>;
+const countryLocation = JSON.parse('<?php echo json_encode($location); ?>');
 
 $(document).ready(function() {
     $.ajax({
@@ -104,6 +119,26 @@ function renderMaster() {
             </div>
         </section>
     `)
+
+    let storeLink = '<?= BASE_LINK; ?>/find-a-store/';
+    let storeLabel = "Find a Store";
+
+    switch (countryLocation) {
+        case 'Indonesia':
+            storeLink = `https://indospaceshop.com/id/collection/${slugify(collectionData.name)}`
+            storeLabel = "Shop Collection";
+            break;
+        case 'Malaysia':
+            storeLink = `https://indospaceshop.com/my/collection/${slugify(collectionData.name)}`
+            storeLabel = "Shop Collection";
+            break;
+        case 'Saudi Arabia':
+            storeLink = `https://indospaceshop.com/sa/collection/${slugify(collectionData.name)}`
+            storeLabel = "Shop Collection";
+            break;
+        default:
+            break;
+    }
     $('#container__<?= $character_slug ?>').append(`
         <div class="px-5 md:px-8">
             <div class="max-w-[1440px] mx-auto">
@@ -124,8 +159,10 @@ function renderMaster() {
                                     </svg>
                                 </a>
                             `:''}
-                            <a href="<?= BASE_LINK; ?>/find-a-store/"
-                                class="btn-ghost flex items-end justify-center uppercase"><p class="text-xs">Find a Store</p></a>
+                            <a href="${storeLink}"
+                                class="btn-ghost flex items-end justify-center uppercase">
+                                <p class="text-xs">${storeLabel}</p>
+                            </a>
                         </div>
                     </div>
                 </section>

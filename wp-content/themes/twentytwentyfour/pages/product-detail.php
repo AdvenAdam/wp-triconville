@@ -155,7 +155,6 @@ let isSectionalPage = false
 let selectedCollection = [];
 let newCollection = [];
 const countryLocation = JSON.parse('<?php echo json_encode($location); ?>');
-console.log("🚀 ~ countryLocation:", countryLocation)
 jQuery(document).ready(function($) {
     try {
         $('#page-loading').show();
