@@ -243,14 +243,14 @@ $(document).ready(function() {
     productCategories.forEach((category) => {
         $('#products-categories-footer').append(`
             <p class='text-sm py-1'>
-                <a href='<?= BASE_LINK; ?>/products/${category.slug}'>${category.name}/</a>
+                <a href='<?= BASE_LINK; ?>/products/${category.slug}/'>${category.name}</a>
             </p>
         `)
     })
     Moods.forEach((mood) => {
         $('#moods-categories-footer').append(`
             <p class='text-sm py-1'>
-                <a href='<?= BASE_LINK; ?>/moods/${mood.slug}'>${mood.name}/</a>
+                <a href='<?= BASE_LINK; ?>/moods/${mood.slug}/'>${mood.name}</a>
             </p>
         `)
     })
