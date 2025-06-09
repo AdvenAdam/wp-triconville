@@ -27,19 +27,19 @@
                             <div class="about tracking-wider">
                                 <p class='mb-3 uppercase text-sm font-bold '>Triconville</p>
                                 <p class='text-sm py-1'>
-                                    <a href='<?= BASE_LINK; ?>/about-us'> Brand </a>
+                                    <a href='<?= BASE_LINK; ?>/about-us/'> Brand </a>
                                 </p>
                                 <p class='text-sm py-1'>
-                                    <a href='<?= BASE_LINK; ?>/find-a-store'> Stores </a>
+                                    <a href='<?= BASE_LINK; ?>/find-a-store/'> Stores </a>
                                 </p>
                                 <p class='text-sm py-1'>
-                                    <a href='<?= BASE_LINK; ?>/inspiration'> Inspirations </a>
+                                    <a href='<?= BASE_LINK; ?>/inspiration/'> Inspirations </a>
                                 </p>
                                 <p class='text-sm py-1'>
-                                    <a href='<?= BASE_LINK; ?>/materials'> Materials </a>
+                                    <a href='<?= BASE_LINK; ?>/materials/'> Materials </a>
                                 </p>
                                 <p class='text-sm py-1'>
-                                    <a href='<?= BASE_LINK; ?>/request-catalog'> Catalog </a>
+                                    <a href='<?= BASE_LINK; ?>/request-catalog/'> Catalog </a>
                                 </p>
                             </div>
                             <div class="about tracking-wider"
@@ -75,11 +75,11 @@
                                            target="_blank">
                                             <img src='https://storage.googleapis.com/magento-asset/wp_triconville/images/icons/linkedin2.svg' />
                                         </a>
-                                        <a href='https://www.youtube.com/@triconville-furniture'
+                                        <a href='https://www.youtube.com/@triconville-furniture/'
                                            target="_blank">
                                             <img src='https://storage.googleapis.com/magento-asset/wp_triconville/images/icons/youtube2.svg' />
                                         </a>
-                                        <a href='https://www.facebook.com/triconville'
+                                        <a href='https://www.facebook.com/triconville/'
                                            target="_blank">
                                             <img src='https://storage.googleapis.com/magento-asset/wp_triconville/images/icons/facebook2.svg' />
                                         </a>
@@ -243,14 +243,14 @@ $(document).ready(function() {
     productCategories.forEach((category) => {
         $('#products-categories-footer').append(`
             <p class='text-sm py-1'>
-                <a href='<?= BASE_LINK; ?>/products/${category.slug}'>${category.name}</a>
+                <a href='<?= BASE_LINK; ?>/products/${category.slug}'>${category.name}/</a>
             </p>
         `)
     })
     Moods.forEach((mood) => {
         $('#moods-categories-footer').append(`
             <p class='text-sm py-1'>
-                <a href='<?= BASE_LINK; ?>/moods/${mood.slug}'>${mood.name}</a>
+                <a href='<?= BASE_LINK; ?>/moods/${mood.slug}'>${mood.name}/</a>
             </p>
         `)
     })

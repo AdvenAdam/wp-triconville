@@ -112,7 +112,7 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                 <div class="block lg:grid lg:grid-cols-2 gap-3 mt-5 mb-10 collection__wrapper "
                      id="colection-selected"></div>
                 <div class="text-center">
-                    <a href="<?= BASE_LINK ?>/collections"
+                    <a href="<?= BASE_LINK ?>/collections/"
                        class='btn-ghost uppercase text-xs tracking-widest'>
                         all collections
                     </a>
@@ -130,7 +130,7 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-1 lg:gap-3 mt-5 mb-10"
                      id="inspiration-selected"></div>
                 <div class="text-center">
-                    <a href="<?= BASE_LINK ?>/inspiration"
+                    <a href="<?= BASE_LINK ?>/inspiration/"
                        class='btn-ghost uppercase text-xs tracking-widest'>
                         Get Inspired
                     </a>
@@ -147,7 +147,7 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                         <p class="text-xs uppercase tracking-widest mb-2">MOODS</p>
                         <h2 class="text-2xl lg:text-3xl">Your World, Your Style, Your Outdoors.</h2>
                         <p class=" mt-3 mb-10">We believe every outdoor space has a story to tell. It should be as unique as you are. Hence we've curated a diverse collection of furniture styles to complement any outdoor space and reflect your personal taste:</p>
-                        <a href="<?= BASE_LINK ?>/moods"
+                        <a href="<?= BASE_LINK ?>/moods/"
                            class='btn-ghost uppercase text-xs tracking-widest'>
                             EXPLORE MOODS
                         </a>
@@ -179,7 +179,7 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                          data-aos="fade-up"
                          data-aos-once="true"
                          data-aos-duration="1000">
-                        <a href="<?php the_permalink(); ?>"
+                        <a href="<?php the_permalink(); ?>/"
                            class="">
                             <div class="relative hover:cursor-pointer w-full">
                                 <video autoplay
@@ -198,7 +198,7 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                             <?php the_time('F j, Y'); ?>
                         </p>
                         <h3 class="news-title my-2 text-2xl min-h-16 group-hover:underline">
-                            <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+                            <a href="<?php the_permalink(); ?>/"><?php the_title(); ?></a>
                         </h3>
                     </div>
                     <?php else : ?>
@@ -206,7 +206,7 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                          data-aos="fade-up"
                          data-aos-once="true"
                          data-aos-duration="1000">
-                        <a href="<?php the_permalink(); ?>"
+                        <a href="<?php the_permalink(); ?>/"
                            class="">
                             <div class="relative hover:cursor-pointer w-full">
                                 <?php the_post_thumbnail('full', array('class' => 'h-auto w-full min-h-[25vh] xl:min-h-[35vh] object-cover')); ?>
@@ -217,7 +217,7 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                             <?php the_time('F j, Y'); ?>
                         </p>
                         <h3 class="news-title my-2 text-2xl min-h-16 group-hover:underline">
-                            <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+                            <a href="<?php the_permalink(); ?>/"><?php the_title(); ?></a>
                         </h3>
                     </div>
                     <?php endif; ?>
@@ -225,7 +225,7 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                     <?php endforeach; ?>
                 </div>
                 <div class="text-center mt-10 lg:mt-0">
-                    <a href="<?= BASE_LINK ?>/news"
+                    <a href="<?= BASE_LINK ?>/news/"
                        class="btn-ghost uppercase text-xs tracking-widest">All News</a>
                 </div>
             </div>
@@ -357,7 +357,7 @@ function renderCollections(collection) {
     $('#colection-selected').append(`
         <div style="background-image: url(${collection.image_grid});"
             class="bg-cover bg-no-repeat bg-center h-[300px] sm:h-[365px] lg:mx-0 mx-2 w-auto overflow-hidden">
-            <a href="<?= BASE_LINK; ?>/collections/${slugify(collection.name)}">
+            <a href="<?= BASE_LINK; ?>/collections/${slugify(collection.name)}/">
                 <div class="h-[25vh] lg:h-full w-full md:h-[35vh] flex group items-end md:hover:bg-gradient-to-b from-transparent to-black/40 p-5">
                     <div class="max-w-md transition duration-300 translate-y-14 md:group-hover:translate-y-0 ease-in-out">
                         <h1 class="text-3xl lg:text-5xl text-white p-3 lg:p-0">
@@ -378,7 +378,7 @@ function renderCollections(collection) {
 function renderInspirations() {
     inspirationList.forEach((inspiration) => {
         $('#inspiration-selected').append(`
-            <a class="inspiration__card relative" href="${inspiration.link}">
+            <a class="inspiration__card relative" href="${inspiration.link}/">
                 <div class="inspiration__card__overlay absolute inset-0 bg-black bg-opacity-0 group hover:bg-opacity-20 transition duration-300 flex flex-col items-center justify-center">
                     <img src="https://storage.googleapis.com/magento-asset/wp_triconville/images/icons/Instagram-white.svg" alt="Triconville" class="w-11 h-11 hidden group-hover:block">
                     <h3 class="text-white font-medium text-center hidden group-hover:block">@triconville</h3>
