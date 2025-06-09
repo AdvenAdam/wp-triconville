@@ -81,13 +81,13 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                  data-aos-delay="200"
                  data-aos-duration="1000">
                 <div class="txt max-w-xl py-5 order-last lg:order-first">
-                    <h2 class='text-2xl lg:text-3xl'>
+                    <h1 class='text-2xl lg:text-3xl'>
                         20 Years of Excellence Experience on Outdoor Living
-                    </h2>
+                    </h1>
                     <p class="mt-3 mb-12">
                         For decades, Triconville has grown steadily, rooted in core values that honor tradition, quality, and integrity, and guided by a global vision—bringing timeless, handcrafted pieces to homes and spaces around the world.
                     </p>
-                    <a href="<?= BASE_LINK ?>/about-us"
+                    <a href="<?= BASE_LINK ?>/about-us/"
                        class='btn-ghost uppercase tracking-widest text-xs'>
                         learn about our Brand
                     </a>
@@ -265,6 +265,7 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                     </div>
                     <div class="">
                         <img src="https://storage.googleapis.com/magento-asset/wp_triconville/images/home/Home%20Catalogue.jpg"
+                             alt="Triconville Catalogue"
                              class="w-auto h-auto object-cover" />
                     </div>
                 </div>
