@@ -69,23 +69,28 @@
                                     <div class="flex items-center gap-4 my-3">
                                         <a href='https://www.instagram.com/triconville/'
                                            target="_blank">
-                                            <img src='https://storage.googleapis.com/magento-asset/wp_triconville/images/icons/instagram2.svg' />
+                                            <img alt="instagram"
+                                                 src='https://storage.googleapis.com/magento-asset/wp_triconville/images/icons/instagram2.svg' />
                                         </a>
                                         <a href='https://www.linkedin.com/company/triconville-furniture/'
                                            target="_blank">
-                                            <img src='https://storage.googleapis.com/magento-asset/wp_triconville/images/icons/linkedin2.svg' />
+                                            <img alt="linkedin"
+                                                 src='https://storage.googleapis.com/magento-asset/wp_triconville/images/icons/linkedin2.svg' />
                                         </a>
                                         <a href='https://www.youtube.com/@triconville-furniture/'
                                            target="_blank">
-                                            <img src='https://storage.googleapis.com/magento-asset/wp_triconville/images/icons/youtube2.svg' />
+                                            <img alt="youtube"
+                                                 src='https://storage.googleapis.com/magento-asset/wp_triconville/images/icons/youtube2.svg' />
                                         </a>
                                         <a href='https://www.facebook.com/triconville/'
                                            target="_blank">
-                                            <img src='https://storage.googleapis.com/magento-asset/wp_triconville/images/icons/facebook2.svg' />
+                                            <img alt="facebook"
+                                                 src='https://storage.googleapis.com/magento-asset/wp_triconville/images/icons/facebook2.svg' />
                                         </a>
                                         <a href='https://id.pinterest.com/triconville/'
                                            target="_blank">
-                                            <img src='https://storage.googleapis.com/magento-asset/wp_triconville/images/icons/pinterest2.svg' />
+                                            <img alt="pinterest"
+                                                 src='https://storage.googleapis.com/magento-asset/wp_triconville/images/icons/pinterest2.svg' />
                                         </a>
                                     </div>
                                 </div>

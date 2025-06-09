@@ -81,13 +81,13 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                  data-aos-delay="200"
                  data-aos-duration="1000">
                 <div class="txt max-w-xl py-5 order-last lg:order-first">
-                    <h2 class='text-2xl lg:text-3xl'>
+                    <h1 class='text-2xl lg:text-3xl'>
                         20 Years of Excellence Experience on Outdoor Living
-                    </h2>
+                    </h1>
                     <p class="mt-3 mb-12">
                         For decades, Triconville has grown steadily, rooted in core values that honor tradition, quality, and integrity, and guided by a global vision—bringing timeless, handcrafted pieces to homes and spaces around the world.
                     </p>
-                    <a href="<?= BASE_LINK ?>/about-us"
+                    <a href="<?= BASE_LINK ?>/about-us/"
                        class='btn-ghost uppercase tracking-widest text-xs'>
                         learn about our Brand
                     </a>
@@ -179,7 +179,7 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                          data-aos="fade-up"
                          data-aos-once="true"
                          data-aos-duration="1000">
-                        <a href="<?php the_permalink(); ?>/"
+                        <a href="<?php the_permalink(); ?>"
                            class="">
                             <div class="relative hover:cursor-pointer w-full">
                                 <video autoplay
@@ -188,7 +188,8 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                                        class="h-auto w-full min-h-[25vh] xl:min-h-[35vh] object-cover"
                                        id="ifexVideo">
                                     <source src="https://storage.googleapis.com/magento-asset/wp_triconville/videos/ifex/thumbnail_ifex_timelapse.mp4"
-                                            type="video/mp4" />
+                                            type="video/mp4"
+                                            alt="Triconville is the Creator of Moments at IFEX 2025" />
                                     Your browser does not support HTML5 video.
                                 </video>
                                 <div class="overlay absolute inset-0 bg-gradient-to-b from-transparent to-black/30 invisible group-hover:visible"></div>
@@ -198,7 +199,7 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                             <?php the_time('F j, Y'); ?>
                         </p>
                         <h3 class="news-title my-2 text-2xl min-h-16 group-hover:underline">
-                            <a href="<?php the_permalink(); ?>/"><?php the_title(); ?></a>
+                            <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
                         </h3>
                     </div>
                     <?php else : ?>
@@ -206,10 +207,10 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                          data-aos="fade-up"
                          data-aos-once="true"
                          data-aos-duration="1000">
-                        <a href="<?php the_permalink(); ?>/"
+                        <a href="<?php the_permalink(); ?>"
                            class="">
                             <div class="relative hover:cursor-pointer w-full">
-                                <?php the_post_thumbnail('full', array('class' => 'h-auto w-full min-h-[25vh] xl:min-h-[35vh] object-cover')); ?>
+                                <?php the_post_thumbnail('full', array('class' => 'h-auto w-full min-h-[25vh] xl:min-h-[35vh] object-cover', 'alt' => get_the_title())); ?>
                                 <div class="overlay absolute inset-0 bg-gradient-to-b from-transparent to-black/30 invisible group-hover:visible"></div>
                             </div>
                         </a>
@@ -217,7 +218,7 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                             <?php the_time('F j, Y'); ?>
                         </p>
                         <h3 class="news-title my-2 text-2xl min-h-16 group-hover:underline">
-                            <a href="<?php the_permalink(); ?>/"><?php the_title(); ?></a>
+                            <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
                         </h3>
                     </div>
                     <?php endif; ?>
@@ -265,6 +266,7 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                     </div>
                     <div class="">
                         <img src="https://storage.googleapis.com/magento-asset/wp_triconville/images/home/Home%20Catalogue.jpg"
+                             alt="Triconville Catalogue"
                              class="w-auto h-auto object-cover" />
                     </div>
                 </div>
