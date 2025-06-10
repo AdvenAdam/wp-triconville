@@ -39,7 +39,8 @@
                                    class="h-auto w-full min-h-[25vh] xl:min-h-[35vh] object-cover"
                                    id="ifexVideo">
                                 <source src="https://storage.googleapis.com/magento-asset/wp_triconville/videos/ifex/thumbnail_ifex_timelapse.mp4"
-                                        type="video/mp4" />
+                                        type="video/mp4"
+                                        alt="<?=  get_the_title(); ?>" />
                                 Your browser does not support HTML5 video.
                             </video>
                             <div class="overlay absolute inset-0 bg-gradient-to-b from-transparent to-black/30 invisible group-hover:visible"></div>
@@ -60,7 +61,7 @@
                     <a href="<?php the_permalink(); ?>"
                        class="">
                         <div class="relative hover:cursor-pointer w-full">
-                            <?php the_post_thumbnail('full', array('class' => 'h-auto w-full min-h-[25vh] xl:min-h-[35vh] object-cover')); ?>
+                            <?php the_post_thumbnail('full', array('class' => 'h-auto w-full min-h-[25vh] xl:min-h-[35vh] object-cover', 'alt' => get_the_title())); ?>
                             <div class="overlay absolute inset-0 bg-gradient-to-b from-transparent to-black/30 invisible group-hover:visible"></div>
                         </div>
                     </a>
