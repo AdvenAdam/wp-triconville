@@ -4,7 +4,7 @@
             <div class="grid lg:grid-cols-2 gap-8 items-center">
                 <div class="max-w-xl order-last lg:order-first">
                     <div class="request-catalog-form duration-500 ease-in-out">
-                        <h2 class="text-2xl lg:text-3xl">Complete the Form to Receive Your Triconville Catalog</h2>
+                        <h1 class="text-2xl lg:text-3xl">Complete the Form to Receive Your Triconville Catalog</h1>
                         <p class="mt-3 mb-6">
                             Please complete your company details, and once verified, we'll deliver the Triconville Catalog directly to
                             your company email.
@@ -31,7 +31,8 @@
                 </div>
                 <div class="">
                     <img src="https://storage.googleapis.com/magento-asset/wp_triconville/images/home/Home%20Catalogue.jpg"
-                         class="w-auto h-auto object-cover" />
+                         class="w-auto h-auto object-cover"
+                         alt="Triconville Catalogue" />
                 </div>
             </div>
         </div>

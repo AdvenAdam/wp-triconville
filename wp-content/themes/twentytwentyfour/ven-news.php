@@ -84,7 +84,8 @@ get_template_part('header-custom');
                                class="w-full h-[320px] md:h-[25vh] xl:h-[35vh] max-h-[360px] object-cover"
                                id="ifexVideo">
                             <source src="https://storage.googleapis.com/magento-asset/wp_triconville/videos/ifex/thumbnail_ifex_timelapse.mp4"
-                                    type="video/mp4" />
+                                    type="video/mp4"
+                                    alt="<?= get_the_title(); ?>" />
                             Your browser does not support HTML5 video.
                         </video>
                     </a>
@@ -103,7 +104,7 @@ get_template_part('header-custom');
                 <div class="news-card flex flex-col md:flex-row md:items-center gap-3 md:block">
                     <a class="h-auto relative group hover:cursor-pointer"
                        href="<?php echo get_permalink($post->ID); ?>">
-                        <?php the_post_thumbnail('full', array('class' => 'w-full h-[320px] md:h-[25vh] xl:h-[35vh] max-h-[360px] object-cover')); ?>
+                        <?php the_post_thumbnail('full', array('class' => 'w-full h-[320px] md:h-[25vh] xl:h-[35vh] max-h-[360px] object-cover', 'alt' => get_the_title())); ?>
                         <div class="overlay absolute inset-0 bg-gradient-to-b from-transparent to-black/30 invisible group-hover:visible"></div>
                     </a>
                     <div class="desc w-full md:w-[95%] flex flex-col justify-center">
