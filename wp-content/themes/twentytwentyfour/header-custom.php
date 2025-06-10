@@ -276,7 +276,7 @@
     function showSubMenu() {
         const url = window.location.href;
         switch (true) {
-            case /(products)/.test(url):
+            case /(products)/.test(url) || /(product-detail)/.test(url):
                 showSubHeader(true, 'products');
                 break;
             case /(news|materials|inspiration|moods)/.test(url):
@@ -470,45 +470,46 @@
     }
 
     function setActiveLink() {
-        const url = window.location.href;
-        const [_, childUrl, parentUrl] = url.split('/').reverse().slice(0, 3);
+        const urlParts = window.location.href.split('/').reverse();
+        const [_, childUrl, parentUrl] = urlParts.slice(0, 3);
+
         const linkSelectors = {
             'product-detail': '#products-link',
             'about-us': '#brand-link',
             'inspiration': '#inspirations-link',
             'contact-us': '#contact-link',
             'find-a-store': '#stores-link',
+            'collections': '#collections-link',
         };
-        // special case for inspiration 
-        const inspiration = {
+
+        const inspirationSubLinks = {
             'inspiration': '#inspirations-sub-link',
             'news': '#news-sub-link',
             'moods': '#moods-sub-link',
             'materials': '#materials-sub-link',
-        }
-        if (inspiration[childUrl]) {
-            $(linkSelectors['inspiration']).removeClass('text-gray-900').addClass('text-triconville-blue underline');
-            $(inspiration[childUrl]).removeClass('text-gray-900').addClass('text-triconville-blue underline');
-        }
-        if (inspiration[parentUrl]) {
-            $(linkSelectors['inspiration']).removeClass('text-gray-900').addClass('text-triconville-blue underline');
-            $(inspiration[parentUrl]).removeClass('text-gray-900').addClass('text-triconville-blue underline');
-        }
-        // Activate specific links based on the parentUrl
-        if (linkSelectors[parentUrl]) {
-            $(linkSelectors[parentUrl]).removeClass('text-gray-900').addClass('text-triconville-blue underline');
-        }
+        };
 
+        const highlight = (selector) => {
+            if (selector) {
+                $(selector).removeClass('text-gray-900').addClass('text-triconville-blue underline');
+            }
+        };
 
-        // Highlight the current parent link if present
-        if (parentUrl) {
-            $(`#${parentUrl}-link, #${parentUrl}-link-mobile`).removeClass('text-gray-900').addClass('text-triconville-blue underline');
-        }
+        // Handle inspiration sublinks
+        [childUrl, parentUrl].forEach(url => {
+            if (inspirationSubLinks[url]) {
+                highlight(linkSelectors['inspiration']);
+                highlight(inspirationSubLinks[url]);
+            }
+        });
 
-        // Highlight the child link if present
-        if (childUrl) {
-            $(`#${childUrl}-link, #${childUrl}-link-mobile, #${childUrl}-sub-link`).removeClass('text-gray-900').addClass('text-triconville-blue underline');
-        }
+        // Handle general links
+        [childUrl, parentUrl].forEach(url => {
+            highlight(linkSelectors[url]);
+            highlight(`#${url}-link`);
+            highlight(`#${url}-link-mobile`);
+            highlight(`#${url}-sub-link`);
+        });
     }
 
     function redirectError(status = 404) {
