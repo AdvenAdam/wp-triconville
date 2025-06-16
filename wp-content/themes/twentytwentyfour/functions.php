@@ -385,24 +385,74 @@ function getMaterialsList()
 // END JSON PRODUCT API
 
 
-// CUSTOM Collections
+// CUSTOM Collections: /collections/{slug}
+
+// 1. Add rewrite rule
 add_action('init', function () {
-	add_rewrite_rule('^collections/([^/]+)/?$', 'index.php?collection=$matches[1]', 'top');
+    add_rewrite_rule('^collections/([^/]+)/?$', 'index.php?collection=$matches[1]', 'top');
 });
 
+// 2. Register query var
 add_filter('query_vars', function ($query_vars) {
-	$query_vars[] = 'collection';
-	return $query_vars;
+    $query_vars[] = 'collection';
+    return $query_vars;
 });
 
+// 3. Fetch collection data from external API (helper)
+function fetch_collection_meta($slug) {
+    $response = wp_remote_get(BASE_API . '/v1_collections_det_slug/' . $slug . '/', [
+        'headers' => ['Authorization' => API_KEY],
+        'timeout' => 10,
+    ]);
+
+    if (is_wp_error($response)) return null;
+
+    $body = wp_remote_retrieve_body($response);
+    return json_decode($body, true);
+}
+
+// 4. Template include and centralized fetch
 add_action('template_include', function ($template) {
+    $slug = get_query_var('collection');
+    if (!$slug) return $template;
 
-	if (get_query_var('collection') == false || get_query_var('collection') == '') {
-		return $template;
-	}
+    global $fetched_product_data;
+    $fetched_product_data = fetch_collection_meta($slug);
 
-	return get_template_directory() . '/pages/collections.php';
+    if (empty($fetched_product_data)) {
+        wp_safe_redirect(home_url('/page-not-found'));
+        exit;
+    }
+
+    return get_template_directory() . '/pages/collections.php';
 });
+
+// 5. Set <title>
+add_filter('pre_get_document_title', function ($title) {
+    global $fetched_product_data;
+
+    if (!empty($fetched_product_data['meta_title'])) {
+        return $fetched_product_data['meta_title'];
+    }
+
+    return $title;
+});
+
+// 6. Output meta tags
+add_action('wp_head', function () {
+    global $fetched_product_data;
+
+    if (empty($fetched_product_data)) return;
+
+    if (!empty($fetched_product_data['meta_description'])) {
+        echo '<meta name="description" content="' . esc_attr($fetched_product_data['meta_description']) . '">' . "\n";
+    }
+
+    if (!empty($fetched_product_data['meta_keyword'])) {
+        echo '<meta name="keywords" content="' . esc_attr($fetched_product_data['meta_keyword']) . '">' . "\n";
+    }
+});
+
 
 // CUSTOM Categories
 add_action('init', function () {
@@ -424,46 +474,125 @@ add_action('template_include', function ($template) {
 });
 
 // CUSTOM product-category details
+// Register custom rewrite rule and query var
 add_action('init', function () {
-	add_rewrite_rule('products/([a-z0-9-]+)[/]?$', 'index.php?product=$matches[1]', 'top');
+    add_rewrite_rule('products/([a-z0-9-]+)[/]?$', 'index.php?product=$matches[1]', 'top');
 });
 
 add_filter('query_vars', function ($query_vars) {
-	$query_vars[] = 'product';
-	return $query_vars;
+    $query_vars[] = 'product';
+    return $query_vars;
 });
 
-add_filter('wp_title', function ($title) {
-    if (get_query_var('product')) {
-        return get_query_var('product');
+// Load custom template for product category detail
+add_action('template_include', function ($template) {
+    $slug = get_query_var('product');
+
+    if (!$slug) return $template;
+
+    $category = get_product_category_by_slug($slug);
+
+    if (!$category) {
+        wp_safe_redirect(home_url('page-not-found'));
+        exit;
+    }
+
+    // Output meta tags early (in template you'd hook into wp_head)
+    add_action('wp_head', function () use ($category) {
+        echo '<title>' . esc_html($category['meta']['title']) . '</title>';
+        echo '<meta name="description" content="' . esc_attr($category['meta']['description']) . '"/>';
+        echo '<meta name="keywords" content="' . esc_attr($category['meta']['keywords']) . '"/>';
+    });
+
+    return get_template_directory() . '/pages/product-category-detail.php';
+});
+
+// Optional: Override page <title> tag
+add_filter('pre_get_document_title', function ($title) {
+    $slug = get_query_var('product');
+    if ($slug) {
+        $category = get_product_category_by_slug($slug);
+        if ($category) return $category['meta']['title'];
     }
     return $title;
 });
 
-add_action('template_include', function ($template) {
-	if (get_query_var('product') == false || get_query_var('product') == '') {
-		return $template;
-	}
+// Helper function to get product category by slug
+function get_product_category_by_slug($slug) {
+    $data = json_decode(file_get_contents(get_template_directory() . '/api/product.json'), true);
+    foreach ($data as $item) {
+        if ($item['slug'] === $slug) return $item;
+    }
+    return null;
+}
 
-	return get_template_directory() . '/pages/product-category-detail.php';
-});
 
 // CUSTOM product-page details
+/// 1. Add custom rewrite rule for /product-detail/{slug}
 add_action('init', function () {
-	add_rewrite_rule('^product-detail/([^/]+)?$', 'index.php?detail=$matches[1]', 'top');
+    add_rewrite_rule('^product-detail/([^/]+)/?$', 'index.php?detail=$matches[1]', 'top');
 });
 
-add_filter('query_vars', function ($query_vars) {
-	$query_vars[] = 'detail';
-	return $query_vars;
-});
+// 2. Register custom query var
+add_filter('query_vars', fn($vars) => array_merge($vars, ['detail']));
 
+// 3. Global variable to store product data once
+global $fetched_product_data;
+
+// 4. Template selection and data fetch (centralized fetch)
 add_action('template_include', function ($template) {
-	if (get_query_var('detail') == false || get_query_var('detail') == '') {
-		return $template;
-	}
+    $slug = get_query_var('detail');
+    if (!$slug) return $template;
 
-	return get_template_directory() . '/pages/product-detail.php';
+    global $fetched_product_data;
+    $fetched_product_data = fetch_product_meta($slug);
+
+    // Optional: redirect to 404 if product not found
+    if (empty($fetched_product_data)) {
+        wp_safe_redirect(home_url('/page-not-found'));
+        exit;
+    }
+
+    return get_template_directory() . '/pages/product-detail.php';
+});
+
+// 5. Fetch product data from external API (helper function)
+function fetch_product_meta($slug) {
+    $response = wp_remote_get(BASE_API . '/v1_products_det_slug/' . $slug . '/', [
+        'headers' => ['Authorization' => API_KEY],
+        'timeout' => 10,
+    ]);
+
+    if (is_wp_error($response)) return null;
+
+    $body = wp_remote_retrieve_body($response);
+    return json_decode($body, true);
+}
+
+// 6. Set custom <title> tag
+add_filter('pre_get_document_title', function ($title) {
+    global $fetched_product_data;
+
+    if (!empty($fetched_product_data['meta_title'])) {
+        return $fetched_product_data['meta_title'];
+    }
+
+    return $title;
+});
+
+// 7. Output meta tags in <head>
+add_action('wp_head', function () {
+    global $fetched_product_data;
+
+    if (empty($fetched_product_data)) return;
+
+    if (!empty($fetched_product_data['meta_description'])) {
+        echo '<meta name="description" content="' . esc_attr($fetched_product_data['meta_description']) . '">' . "\n";
+    }
+
+    if (!empty($fetched_product_data['meta_keyword'])) {
+        echo '<meta name="keywords" content="' . esc_attr($fetched_product_data['meta_keyword']) . '">' . "\n";
+    }
 });
 
 // CUSTOM Moods details
@@ -482,6 +611,8 @@ add_action('template_include', function ($template) {
 	}
 	return get_template_directory() . '/pages/moods.php';
 });
+
+
 // CUSTOM Site map
 add_action('init', function () {
 	add_rewrite_rule('^sitemap/([^/]+)/?$', 'index.php?sitemap=$matches[1]', 'top');

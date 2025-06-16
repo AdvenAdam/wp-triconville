@@ -11,9 +11,6 @@ if (empty($selectedCategory)) {
     wp_safe_redirect(home_url('page-not-found'));
     exit;
 }
-echo '<title>'. esc_attr($selectedCategory[0]['meta']['title']) . '</title>';
-echo '<meta name="description" content="' . esc_attr($selectedCategory[0]['meta']['description']) . '"/>';
-echo '<meta name="keywords" content="' . esc_attr($selectedCategory[0]['meta']['keywords']). '"/>';
 
 get_template_part('header-custom');
 ?>
@@ -191,7 +188,6 @@ function subCategoryOnClick(name) {
 }
 
 function renderProducts(data, headerTitle = 'All Types') {
-    console.log("🚀 ~ renderProducts ~ data:", data)
     $('#product__list').append(`
         <!-- NOTE: ${headerTitle} -->
         <div id="product__${slugify(headerTitle)}" class="product-list mb-20" 

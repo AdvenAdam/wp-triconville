@@ -1,25 +1,14 @@
 <?php
     $character_slug = get_query_var('collection');
+    global $fetched_product_data;
 
-    $url = BASE_API . '/v1_collections_det_slug/' . $character_slug . '/';
-    $headers = array(
-        'Authorization' => API_KEY,
-    );
-    $response = wp_remote_get($url, array(
-        'headers' => $headers,
-        'timeout' => 10,
-    ));
-
-    if (is_wp_error($response)) {
-        echo 'Error fetching data: ' . $response->get_error_message();
+    if (empty($fetched_product_data)) {
+        echo 'Collection not found.';
         return;
     }
 
-    $data = json_decode(wp_remote_retrieve_body($response), true);
-    echo '<title>' . esc_attr($data['meta_title']) . '</title>';
-    echo '<meta name="description" content="' . esc_attr($data['meta_description']) . '"/>';
-    echo '<meta name="keywords" content="' . esc_attr($data['meta_keyword']) . '"/>';
-
+    $collection = $fetched_product_data;
+    
     $location = null;
     if (function_exists('geoip_detect2_get_info_from_ip')) {
         $ip = get_client_ip();
@@ -86,7 +75,7 @@ $(document).ready(function() {
 function loadCollections() {
     try {
         $('#page-loading').show();
-        const res = <?php echo json_encode($data); ?>;
+        const res = <?php echo json_encode($collection); ?>;
         selectedCollection = selectedCollection.filter(data => data.collection_id == res.collection_id);
         collectionData = {
             ...res,
@@ -108,7 +97,7 @@ function loadCollections() {
 // NOTE : Handling Render
 function renderMaster() {
     $('#collection__header').append(`
-        <section class="banner mt-4 md:mt-12 mb-5 relative">
+        <section class="banner mt-4 md:mt-8 mb-5 relative">
             <img src="${collectionData.image_banner || collectionData.image_1920}" alt="${collectionData.display_name}" class="w-full full-screen-with-subMenu object-cover">
             <div class='bg-black bg-opacity-25 h-full w-full absolute inset-0 flex items-center justify-center'>
                 <h1 class='text-white text-3xl lg:text-5xl font-medium capitalize'
