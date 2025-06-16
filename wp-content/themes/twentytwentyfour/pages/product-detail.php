@@ -169,6 +169,12 @@ jQuery(document).ready(function($) {
         console.error('Error fetching data:', error);
     } finally {
         renderMaster();
+        generateProductSchema({
+            name: filterProductName(ProductsData.name),
+            imageUrls: ProductsData.ambience_image_1920[0],
+            description: ProductsData.description,
+            brand: 'Triconville'
+        });
     }
 });
 
@@ -887,6 +893,30 @@ function renderRelatedProducts(products) {
     $(".gww-next").click(function() {
         $(".releted__products").slick("slickNext");
     });
+}
+
+function generateProductSchema({
+    name,
+    imageUrls,
+    description,
+    brand
+}) {
+    const schema = {
+        "@context": "https://schema.org/",
+        "@type": "Product",
+        name,
+        image: imageUrls,
+        description,
+        brand: {
+            "@type": "Brand",
+            name: brand
+        }
+    };
+
+    const script = document.createElement("script");
+    script.type = "application/ld+json";
+    script.textContent = JSON.stringify(schema, null, 2);
+    document.head.appendChild(script);
 }
 </script>
 
