@@ -435,6 +435,15 @@ function requestCatalog(action) {
 }
 </script>
 
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Corporation",
+    "name": "Triconville",
+    "url": "https://triconville.com",
+    "logo": "https://storage.googleapis.com/magento-asset/wp_triconville/images/icons/Triconville%20Logo%20Primary.svg"
+}
+</script>
 
 <?php
 // Conditional for footer
