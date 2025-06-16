@@ -65,7 +65,7 @@ get_template_part('header-custom');
     </div>
 
     <!-- NOTE : PRODUCT Ambience Slider -->
-    <div class="ambience__section relative mb-10 md:mb-20 group cursor-pointer"
+    <div class="ambience__section relative mb-10 md:mb-20 group cursor-pointer overflow-hidden"
          data-aos="fade-up"
          data-aos-once="true"
          data-aos-duration="1000">
@@ -746,7 +746,7 @@ function renderImages(images) {
         images.ambience_image_1920.forEach((e) => {
             $('.ambience__img').append(`
             <img src="${e}"
-                    class="h-full me-2 mx-2 w-screen md:w-auto object-cover" />
+                    class="h-full me-2 mx-2 w-screen md:w-fit object-cover " />
             `)
         })
         $('.ambience__img').slick({
