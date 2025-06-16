@@ -15,7 +15,7 @@ if (is_wp_error($response)) {
     echo 'Error fetching data: ' . $response->get_error_message();
     return;
 }
-
+remove_theme_support('title-tag');
 $data = json_decode(wp_remote_retrieve_body($response), true);
 echo '<title>'. esc_attr($data['meta_title']) . '</title>';
 echo '<meta name="description" content="' . esc_attr($data['meta_description']) . '"/>';
