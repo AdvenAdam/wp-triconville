@@ -1,25 +1,15 @@
 <?php
 $character_slug = get_query_var('detail');
+global $fetched_product_data;
 
-$url = BASE_API . '/v1_products_det_slug/' . $character_slug . '/';
-$headers = array(
-    'Authorization' => API_KEY,
-);
-$dataCollection = json_decode(file_get_contents(get_template_directory() . '/api/collection.json'), true)['collection'];
-$response = wp_remote_get($url, array(
-    'headers' => $headers,
-    'timeout' => 10,
-));
-
-if (is_wp_error($response)) {
-    echo 'Error fetching data: ' . $response->get_error_message();
+if (empty($fetched_product_data)) {
+    echo 'Product not found.';
     return;
 }
-remove_theme_support('title-tag');
-$data = json_decode(wp_remote_retrieve_body($response), true);
-echo '<title>'. esc_attr($data['meta_title']) . '</title>';
-echo '<meta name="description" content="' . esc_attr($data['meta_description']) . '"/>';
-echo '<meta name="keywords" content="' . esc_attr($data['meta_keyword']) . '"/>';
+
+$data = $fetched_product_data;
+$dataCollection = json_decode(file_get_contents(get_template_directory() . '/api/collection.json'), true)['collection'];
+
 $location = null;
 if (function_exists('geoip_detect2_get_info_from_ip')) {
     $ip = get_client_ip();
