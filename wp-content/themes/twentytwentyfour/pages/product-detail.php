@@ -69,7 +69,7 @@ get_template_part('header-custom');
          data-aos="fade-up"
          data-aos-once="true"
          data-aos-duration="1000">
-        <div class="ambience__img h-[350px] sm:h-[600px] lg:h-[720px]"></div>
+        <div class="ambience__img h-[350px] sm:h-[600px] lg:h-[720px] xl:h-[900px]"></div>
         <button class="slick-prev prev-btn hidden lg:block invisible group-hover:visible opacity-0 group-hover:opacity-100 left-5  arrow-btn"
                 aria-label="Previous"
                 type="button">
@@ -746,7 +746,7 @@ function renderImages(images) {
         images.ambience_image_1920.forEach((e) => {
             $('.ambience__img').append(`
             <img src="${e}"
-                    class="h-full me-2 mx-2 w-screen md:w-fit object-cover " />
+                     class="h-auto w-full max-w-screen-xl me-2 mx-2  object-contain" />
             `)
         })
         $('.ambience__img').slick({
