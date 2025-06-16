@@ -1,37 +1,25 @@
 <?php
 $character_slug = get_query_var('detail');
 
-// Get the current URL path
-$request_uri = $_SERVER['REQUEST_URI'];
+$url = BASE_API . '/v1_products_det_slug/' . $character_slug . '/';
+$headers = array(
+    'Authorization' => API_KEY,
+);
+$dataCollection = json_decode(file_get_contents(get_template_directory() . '/api/collection.json'), true)['collection'];
+$response = wp_remote_get($url, array(
+    'headers' => $headers,
+    'timeout' => 10,
+));
 
-// Check if the URL contains "product-detail"
-if (strpos($request_uri, 'product-detail') !== false) {
-    // Fetch your dynamic data
-    $character_slug = get_query_var('detail');
-    $url = BASE_API . '/v1_products_det_slug/' . $character_slug . '/';
-    $headers = array(
-        'Authorization' => API_KEY,
-    );
-
-    $response = wp_remote_get($url, array(
-        'headers' => $headers,
-        'timeout' => 10,
-    ));
-
-    if (!is_wp_error($response)) {
-        $data = json_decode(wp_remote_retrieve_body($response), true);
-
-        // Output your custom <title> and meta tags
-        echo '<title>' . htmlspecialchars($data['meta_title']) . '</title>';
-        echo '<meta name="description" content="' . htmlspecialchars($data['meta_description']) . '">';
-        echo '<meta name="keywords" content="' . htmlspecialchars($data['meta_keyword']) . '">';
-    } else {
-        echo '<title>Product Detail</title>'; // fallback
-    }
-} else {
-    // Default title for other pages
-    echo '<title>My Website</title>';
+if (is_wp_error($response)) {
+    echo 'Error fetching data: ' . $response->get_error_message();
+    return;
 }
+remove_theme_support('title-tag');
+$data = json_decode(wp_remote_retrieve_body($response), true);
+echo '<title>'. esc_attr($data['meta_title']) . '</title>';
+echo '<meta name="description" content="' . esc_attr($data['meta_description']) . '"/>';
+echo '<meta name="keywords" content="' . esc_attr($data['meta_keyword']) . '"/>';
 $location = null;
 if (function_exists('geoip_detect2_get_info_from_ip')) {
     $ip = get_client_ip();
