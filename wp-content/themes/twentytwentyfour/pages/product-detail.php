@@ -1,25 +1,37 @@
 <?php
 $character_slug = get_query_var('detail');
 
-$url = BASE_API . '/v1_products_det_slug/' . $character_slug . '/';
-$headers = array(
-    'Authorization' => API_KEY,
-);
-$dataCollection = json_decode(file_get_contents(get_template_directory() . '/api/collection.json'), true)['collection'];
-$response = wp_remote_get($url, array(
-    'headers' => $headers,
-    'timeout' => 10,
-));
+// Get the current URL path
+$request_uri = $_SERVER['REQUEST_URI'];
 
-if (is_wp_error($response)) {
-    echo 'Error fetching data: ' . $response->get_error_message();
-    return;
+// Check if the URL contains "product-detail"
+if (strpos($request_uri, 'product-detail') !== false) {
+    // Fetch your dynamic data
+    $character_slug = get_query_var('detail');
+    $url = BASE_API . '/v1_products_det_slug/' . $character_slug . '/';
+    $headers = array(
+        'Authorization' => API_KEY,
+    );
+
+    $response = wp_remote_get($url, array(
+        'headers' => $headers,
+        'timeout' => 10,
+    ));
+
+    if (!is_wp_error($response)) {
+        $data = json_decode(wp_remote_retrieve_body($response), true);
+
+        // Output your custom <title> and meta tags
+        echo '<title>' . htmlspecialchars($data['meta_title']) . '</title>';
+        echo '<meta name="description" content="' . htmlspecialchars($data['meta_description']) . '">';
+        echo '<meta name="keywords" content="' . htmlspecialchars($data['meta_keyword']) . '">';
+    } else {
+        echo '<title>Product Detail</title>'; // fallback
+    }
+} else {
+    // Default title for other pages
+    echo '<title>My Website</title>';
 }
-
-$data = json_decode(wp_remote_retrieve_body($response), true);
-echo '<title>'. esc_attr($data['meta_title']) . '</title>';
-echo '<meta name="description" content="' . esc_attr($data['meta_description']) . '"/>';
-echo '<meta name="keywords" content="' . esc_attr($data['meta_keyword']) . '"/>';
 $location = null;
 if (function_exists('geoip_detect2_get_info_from_ip')) {
     $ip = get_client_ip();
@@ -55,8 +67,8 @@ get_template_part('header-custom');
         <div class="px-5 lg:px-0 lg:max-w-xl"
              id="product__swatch">
             <div class="me-4 sm:me-8 lg:me-8 xl:me-2">
-                <h1 class="text-2xl lg:text-3xl"
-                    id="swatcest__name"></h1>
+                <h2 class="text-2xl lg:text-3xl"
+                    id="swatcest__name"></h2>
                 <p class="text-xs mb-6 "
                    id="swatcest__description"></p>
                 <p class="mr-3 uppercase mb-2 text-xs"
@@ -289,7 +301,7 @@ async function renderOverview(res) {
             <div class="grid lg:grid-cols-2 lg:gap-8 items-center">
                 <div class='max-w-xl mx-auto lg:mx-0 order-last lg:order-first'
                         id="product__description">
-                    <h1 class="text-2xl md:text-3xl text-gray-900 line-clamp-2">${filterProductName(res.name)}</h1>
+                    <h2 class="text-2xl md:text-3xl text-gray-900 line-clamp-2">${filterProductName(res.name)}</h2>
                     <p class="text-slate-500 mb-4">Designed by
                         <span class="text-black font-medium underline"><a href="https://indospacegroup.com/indospace-studio/"
                                 target="_blank">Indospace Studio </a></span>
