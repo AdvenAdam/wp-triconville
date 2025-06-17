@@ -485,7 +485,7 @@ add_action('template_redirect', function () {
     add_action('wp_head', function () use ($category) {
         echo '<meta name="description" content="' . esc_attr($category['meta']['description']) . '">' . PHP_EOL;
         echo '<meta name="keywords" content="' . esc_attr($category['meta']['keywords']) . '">' . PHP_EOL;
-    });
+    },1);
 
     global $product_category_data;
     $product_category_data = $category;
@@ -521,7 +521,7 @@ add_filter('query_vars', fn($vars) => array_merge($vars, ['detail']));
 
 // 2. Fetch product detail and route to template
 add_action('template_redirect', function () {
-    $slug = get_query_var('detail'); // ✅ Use correct query var
+    $slug = get_query_var('detail'); 
     if (!$slug) return;
 
     $detail = fetch_product_meta($slug);
@@ -532,7 +532,11 @@ add_action('template_redirect', function () {
 
     global $fetched_product_data;
     $fetched_product_data = $detail;
-    add_filter('pre_get_document_title', fn() => $detail['meta_title'] ?? '');
+    add_filter('document_title_parts', function ($title) use ($detail) {
+        return [
+            'title' => $detail['meta_title'],
+        ];
+    });
 
     add_action('wp_head', function () use ($detail) {
         if (!empty($detail['meta_description'])) {
@@ -541,7 +545,7 @@ add_action('template_redirect', function () {
         if (!empty($detail['meta_keyword'])) {
             echo '<meta name="keywords" content="' . esc_attr($detail['meta_keyword']) . '">' . PHP_EOL;
         }
-    });
+    },1);
 });
 
 // 3. Use custom template for product detail
