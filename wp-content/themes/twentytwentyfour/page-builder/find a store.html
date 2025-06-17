@@ -145,7 +145,8 @@
 
   const locations = [
     {
-      name: "Dezign District Jakarta managed by Indospace Group",
+      name: "Dezign District Jakarta ",
+      subName: "Managed by Indospace Group",
       address: "14, Sultan Iskandar Muda Street No.7D, South Jakarta, Indonesia 12240",
       email: "info@dezigndistrict.com",
       phone: ["+62 856 018 040 26"],
@@ -449,14 +450,17 @@
       },
       titleEl() {
         return $("<div/>", {
-          class: "location-tile-title text-3xl lg:text-5xl font-semibold",
-          html: `<h2 class="text-2xl min-h-14 mb-6">${this.data.name}</h2>`,
+          class: "location-tile-title text-3xl lg:text-5xl ",
+          html: `
+          <h2 class="text-2xl font-semibold min-h-14">${this.data.name}</h2> 
+          ${this.data.subName ? `<p class="mb-2 ">${this.data.subName}</p>` : ``}
+          `,
         });
       },
       addressEl() {
         return $("<div/>", {
           class: "location-tile-address",
-          html: `<p class="mb-2 min-h-14">${this.data.address}</p>`,
+          html: `<p class="mb-2 mt-6 min-h-14">${this.data.address}</p>`,
         });
       },
 
