@@ -599,22 +599,95 @@ function fetch_product_meta($slug) {
 
 
 
-// CUSTOM Moods details
+// NOTE : CUSTOM Moods details
+// 1. Add rewrite rule and register query var
 add_action('init', function () {
 	add_rewrite_rule('^moods/([^/]+)/?$', 'index.php?mood=$matches[1]', 'top');
 });
-
+ 
 add_filter('query_vars', function ($query_vars) {
 	$query_vars[] = 'mood';
 	return $query_vars;
 });
 
-add_action('template_include', function ($template) {
-	if (get_query_var('mood') == false || get_query_var('mood') == '') {
-		return $template;
+// 2. Fetch mood data and set meta/title
+add_action('wp', function () {
+	$slug = get_query_var('mood');
+	if (!$slug) return;
+
+	$mood = fetch_mood_data($slug);
+	if (!$mood) {
+		error_log("Mood not found: $slug");
+		wp_safe_redirect(home_url('/page-not-found'));
+		exit;
 	}
-	return get_template_directory() . '/pages/moods.php';
+
+	// Store globally
+	global $fetched_mood_data;
+	$fetched_mood_data = $mood;
+	
+	global $all_mood_data;
+	$all_mood_data = fetch_mood_data('');
+
+
+	// Disable Yoast SEO title for this page
+	add_filter('wpseo_title', '__return_false');
+	add_filter('wpseo_frontend_presenters', function ($presenters) {
+		return array_filter($presenters, function ($presenter) {
+			return !is_a($presenter, \Yoast\WP\SEO\Presenters\Title_Presenter::class);
+		});
+	});
+
+	// Set <title>
+	add_filter('document_title_parts', function ($title) use ($mood) {
+		$title['title'] = $mood['meta']['title'] ?? '';
+		return $title;
+	});
+	add_filter('pre_get_document_title', fn() => $mood['meta']['title'] ?? '');
+
+	// Output meta tags
+	add_action('wp_head', function () use ($mood) {
+		if (!empty($mood['meta']['description'])) {
+			echo '<meta name="description" content="' . esc_attr($mood['meta']['description']) . '">' . PHP_EOL;
+		}
+		if (!empty($mood['meta']['keywords'])) {
+			echo '<meta name="keywords" content="' . esc_attr($mood['meta']['keywords']) . '">' . PHP_EOL;
+		}
+	}, 1);
 });
+
+
+// 3. Template override
+add_filter('template_include', function ($template) {
+	if (!empty(get_query_var('mood'))) {
+		return get_template_directory() . '/pages/moods.php';
+	}
+	return $template;
+});
+
+
+// 4. Helper function to fetch mood data
+function fetch_mood_data($slug) {
+	$path = get_template_directory() . '/api/moods.json';
+	if (!file_exists($path)) return null;
+	$json = file_get_contents($path);
+	$all = json_decode($json, true);
+
+	if (!is_array($all)) return null;
+
+	if ($slug === '') {
+		return $all;
+	}
+	// Find mood data by slug
+	foreach ($all as $item) {
+		if (isset($item['slug']) && $item['slug'] === $slug) {
+			return $item;
+		}
+	}
+	return null;
+}
+
+
 
 
 // CUSTOM Site map
