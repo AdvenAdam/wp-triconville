@@ -409,6 +409,15 @@ add_action('template_redirect', function () {
     $fetched_product_data = $detail;
 
     // Set dynamic <title>
+	// 🛑 Disable Yoast title override
+    add_filter('wpseo_title', '__return_false');
+    add_filter('wpseo_frontend_presenters', function ($presenters) {
+        // Remove the Title presenter
+        return array_filter($presenters, function ($presenter) {
+            return !is_a($presenter, \Yoast\WP\SEO\Presenters\Title_Presenter::class);
+        });
+    });
+
     add_filter('document_title_parts', function ($title) use ($detail) {
         return [
             'title' => $detail['meta_title'],
@@ -475,6 +484,14 @@ add_action('template_redirect', function () {
         wp_safe_redirect(home_url('page-not-found'));
         exit;
     }
+    // 🛑 Disable Yoast title override
+    add_filter('wpseo_title', '__return_false');
+    add_filter('wpseo_frontend_presenters', function ($presenters) {
+        // Remove the Title presenter
+        return array_filter($presenters, function ($presenter) {
+            return !is_a($presenter, \Yoast\WP\SEO\Presenters\Title_Presenter::class);
+        });
+    });
 
     add_filter('document_title_parts', function ($title) use ($category) {
         return [
@@ -532,6 +549,15 @@ add_action('template_redirect', function () {
 
     global $fetched_product_data;
     $fetched_product_data = $detail;
+	// 🛑 Disable Yoast title override
+    add_filter('wpseo_title', '__return_false');
+    add_filter('wpseo_frontend_presenters', function ($presenters) {
+        // Remove the Title presenter
+        return array_filter($presenters, function ($presenter) {
+            return !is_a($presenter, \Yoast\WP\SEO\Presenters\Title_Presenter::class);
+        });
+    });
+
     add_filter('document_title_parts', function ($title) use ($detail) {
         return [
             'title' => $detail['meta_title'],
