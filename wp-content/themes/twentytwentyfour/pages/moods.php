@@ -1,20 +1,8 @@
 <?php
 $character_slug = get_query_var('mood');
 
-$data = json_decode(file_get_contents(get_template_directory() . '/api/moods.json'), true);
-
-$selectedMood = array_filter($data, function($e) use ($character_slug) {
-    return $e['slug'] === $character_slug;
-});
-$selectedMood = array_values($selectedMood);
-if (empty($selectedMood)) {
-    wp_safe_redirect(home_url('page-not-found'));
-    exit;
-}
-
-echo '<title>'. esc_attr($selectedMood[0]['meta']['title']) . '</title>';
-echo '<meta name="description" content="' . esc_attr($selectedMood[0]['meta']['description']) . '"/>';
-echo '<meta name="keywords" content="' . esc_attr($selectedMood[0]['meta']['keywords']). '"/>';
+$selectedMood = $fetched_mood_data;
+$allMood = $all_mood_data;
 
 get_template_part('header-custom');
 ?>
@@ -71,18 +59,17 @@ get_template_part('header-custom');
 
 </div>
 <script>
-let moods = <?= json_encode($data); ?>;
 let selectedMood = {};
-let otherMoods = [];
+let otherMoods = <?= json_encode($allMood); ?>;
 
 $(document).ready(function() {
     try {
         $('#page-loading').hide();
-        selectedMood = <?= json_encode($selectedMood[0]); ?>;
-        otherMoods = moods.filter(mood => mood.slug !== selectedMood.slug);
+        selectedMood = <?= json_encode($selectedMood); ?>;
+        otherMoods = otherMoods.filter(mood => mood.slug !== selectedMood.slug);
         renderMaster()
     } catch (error) {
-        redirectError()
+        // redirectError()
     }
 })
 
@@ -96,7 +83,7 @@ function renderMaster() {
         renderOtherMoods()
     } catch (error) {
         console.error('Error rendering data:', error);
-        redirectError()
+        // redirectError()
     } finally {
         $('#page-loading').hide();
     }
