@@ -10,6 +10,9 @@ echo '<?xml version="1.0" encoding="UTF-8"?>';
 <?php
 $products = json_decode(file_get_contents(get_template_directory() . '/api/sitemap.json'), true);
 $products = $products['products'];
+$categoryProducts = json_decode(file_get_contents(get_template_directory() . '/api/product.json'), true);
+$collections = json_decode(file_get_contents(get_template_directory() . '/api/collection.json'), true);
+$moods = json_decode(file_get_contents(get_template_directory() . '/api/moods.json'), true);
 ?>
 
 <?php
@@ -40,104 +43,28 @@ function slugify($str) {
         <lastmod>2024-09-19T04:55:40+00:00</lastmod>
     </url>
     <!-- NOTE List Of Product - Category -->
-    <url>
-        <loc><?= BASE_URL; ?>/products/sofas/</loc>
-        <lastmod>2024-09-19T04:55:40+00:00</lastmod>
-    </url>
-    <url>
-        <loc><?= BASE_URL; ?>/products/armchairs/</loc>
-        <lastmod>2024-09-19T04:55:40+00:00</lastmod>
-    </url>
-    <url>
-        <loc><?= BASE_URL; ?>/products/coffee-low-tables/</loc>
-        <lastmod>2024-09-19T04:55:40+00:00</lastmod>
-    </url>
-    <url>
-        <loc><?= BASE_URL; ?>/products/loungers-daybeds/</loc>
-        <lastmod>2024-09-19T04:55:40+00:00</lastmod>
-    </url>
-    <url>
-        <loc><?= BASE_URL; ?>/products/chairs/</loc>
-        <lastmod>2024-09-19T04:55:40+00:00</lastmod>
-    </url>
-    <url>
-        <loc><?= BASE_URL; ?>/products/tables/</loc>
-        <lastmod>2024-09-19T04:55:40+00:00</lastmod>
-    </url>
-    <url>
-        <loc><?= BASE_URL; ?>/products/accessories/</loc>
-        <lastmod>2024-09-19T04:55:40+00:00</lastmod>
-    </url>
-
-    <url>
-        <loc><?= BASE_URL; ?>/collections/</loc>
-        <lastmod>2024-09-19T04:32:37+00:00</lastmod>
-    </url>
-    <!-- NOTE List Of Collection -->
-    <url>
-        <loc><?= BASE_URL; ?>/collections/alpha/</loc>
-        <lastmod>2024-09-19T04:32:37+00:00</lastmod>
-    </url>
-    <url>
-        <loc><?= BASE_URL; ?>/collections/timo/</loc>
-        <lastmod>2024-09-19T04:32:37+00:00</lastmod>
-    </url>
-    <url>
-        <loc><?= BASE_URL; ?>/collections/vento-teak/</loc>
-        <lastmod>2024-09-19T04:32:37+00:00</lastmod>
-    </url>
-    <url>
-        <loc><?= BASE_URL; ?>/collections/vento-aluminium/</loc>
-        <lastmod>2024-09-19T04:32:37+00:00</lastmod>
-    </url>
-    <url>
-        <loc><?= BASE_URL; ?>/collections/corda/</loc>
-        <lastmod>2024-09-19T04:32:37+00:00</lastmod>
-    </url>
-    <url>
-        <loc><?= BASE_URL; ?>/collections/marlow/</loc>
-        <lastmod>2024-09-19T04:32:37+00:00</lastmod>
-    </url>
-    <url>
-        <loc><?= BASE_URL; ?>/collections/tora/</loc>
-        <lastmod>2024-09-19T04:32:37+00:00</lastmod>
-    </url>
-    <url>
-        <loc><?= BASE_URL; ?>/collections/emmilie/</loc>
-        <lastmod>2024-09-19T04:32:37+00:00</lastmod>
-    </url>
-    <url>
-        <loc><?= BASE_URL; ?>/collections/dexa/</loc>
-        <lastmod>2024-09-19T04:32:37+00:00</lastmod>
-    </url>
-    <url>
-        <loc><?= BASE_URL; ?>/collections/ara/</loc>
-        <lastmod>2024-09-19T04:32:37+00:00</lastmod>
-    </url>
-    <url>
-        <loc><?= BASE_URL; ?>/collections/brie/</loc>
-        <lastmod>2024-09-19T04:32:37+00:00</lastmod>
-    </url>
-    <url>
-        <loc><?= BASE_URL; ?>/collections/vino/</loc>
-        <lastmod>2024-09-19T04:32:37+00:00</lastmod>
-    </url>
-    <url>
-        <loc><?= BASE_URL; ?>/collections/gera-tables-benches/</loc>
-        <lastmod>2024-09-19T04:32:37+00:00</lastmod>
-    </url>
-    <url>
-        <loc><?= BASE_URL; ?>/collections/planka-tables/</loc>
-        <lastmod>2024-09-19T04:32:37+00:00</lastmod>
-    </url>
-    <url>
-        <loc><?= BASE_URL; ?>/collections/gazelig/</loc>
-        <lastmod>2024-09-19T04:32:37+00:00</lastmod>
-    </url>
-    <url>
-        <loc><?= BASE_URL; ?>/collections/dorus/</loc>
-        <lastmod>2024-09-19T04:32:37+00:00</lastmod>
-    </url>
+    <?php 
+        foreach ($categoryProducts as $category) {
+            $category = str_replace('-', ' ', $category['slug']);
+            $category = slugify($category);
+            echo "<url>\n";
+            echo "<loc>" . BASE_URL . "/products/{$category}/</loc>\n";
+            echo "<lastmod>" . date('c') . "</lastmod>\n";
+            echo "</url>\n";
+        }
+    ?>
+    <!-- NOTE : Collection -->
+    <?php 
+        foreach ($collections['collection'] as $collection) {
+            $collection = str_replace('-', ' ', $collection['name']);
+            $collection = slugify($collection);
+            echo "<url>\n";
+            echo "<loc>" . BASE_URL . "/collections/{$collection}/</loc>\n";
+            echo "<lastmod>" . date('c') . "</lastmod>\n";
+            echo "</url>\n";
+        }
+    
+    ?>
 
     <!-- NOTE List Of Product - Detail -->
     <?php 
@@ -170,22 +97,16 @@ function slugify($str) {
         <lastmod>2024-10-08T02:45:14+00:00</lastmod>
     </url>
     <!-- NOTE List Of Mood -->
-    <url>
-        <loc><?= BASE_URL; ?>/moods/dune-essence</loc>
-        <lastmod>2024-10-08T02:45:14+00:00</lastmod>
-    </url>
-    <url>
-        <loc><?= BASE_URL; ?>/moods/leafscape</loc>
-        <lastmod>2024-10-08T02:45:14+00:00</lastmod>
-    </url>
-    <url>
-        <loc><?= BASE_URL; ?>/moods/coastal-bliss</loc>
-        <lastmod>2024-10-08T02:45:14+00:00</lastmod>
-    </url>
-    <url>
-        <loc><?= BASE_URL; ?>/moods/bare-essence</loc>
-        <lastmod>2024-10-08T02:45:14+00:00</lastmod>
-    </url>
+    <?php 
+        foreach ($moods as $mood) {
+            $mood = str_replace('-', ' ', $mood['slug']);
+            $mood = slugify($mood);
+            echo "<url>\n";
+            echo "<loc>" . BASE_URL . "/moods/{$mood}/</loc>\n";
+            echo "<lastmod>" . date('c') . "</lastmod>\n";
+            echo "</url>\n";
+        }
+    ?>
 
     <url>
         <loc><?= BASE_URL; ?>/materials/</loc>
