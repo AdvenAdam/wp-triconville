@@ -386,93 +386,72 @@ function getMaterialsList()
 
 
 // CUSTOM Collections: /collections/{slug}
+// NOTE: CUSTOM Collection Detail
 
-// 1. Add rewrite rule
+// 1. Add rewrite rule and query var
 add_action('init', function () {
     add_rewrite_rule('^collections/([^/]+)/?$', 'index.php?collection=$matches[1]', 'top');
 });
+add_filter('query_vars', fn($vars) => array_merge($vars, ['collection']));
 
-// 2. Register query var
-add_filter('query_vars', function ($query_vars) {
-    $query_vars[] = 'collection';
-    return $query_vars;
+// 2. Fetch collection and setup data
+add_action('template_redirect', function () {
+    $slug = get_query_var('collection');
+    if (!$slug) return;
+
+    $detail = fetch_collection_meta($slug);
+    if (!$detail) {
+        wp_safe_redirect(home_url('/page-not-found'));
+        exit;
+    }
+
+    global $fetched_product_data;
+    $fetched_product_data = $detail;
+
+    // Set dynamic <title>
+    add_filter('document_title_parts', function ($title) use ($detail) {
+        return [
+            'title' => $detail['meta_title'],
+        ];
+    });
+
+    // Output meta tags
+    add_action('wp_head', function () use ($detail) {
+        if (!empty($detail['meta_description'])) {
+            echo '<meta name="description" content="' . esc_attr($detail['meta_description']) . '">' . "\n";
+        }
+        if (!empty($detail['meta_keyword'])) {
+            echo '<meta name="keywords" content="' . esc_attr($detail['meta_keyword']) . '">' . "\n";
+        }
+    },1);
 });
 
-// 3. Fetch collection data from external API (helper)
+// 3. Use custom template
+add_filter('template_include', function ($template) {
+    if (get_query_var('collection')) {
+        return get_template_directory() . '/pages/collections.php';
+    }
+    return $template;
+});
+
+// 4. Helper to fetch collection meta from API
 function fetch_collection_meta($slug) {
     $response = wp_remote_get(BASE_API . '/v1_collections_det_slug/' . $slug . '/', [
         'headers' => ['Authorization' => API_KEY],
         'timeout' => 10,
     ]);
 
+
     if (is_wp_error($response)) return null;
 
     $body = wp_remote_retrieve_body($response);
-    return json_decode($body, true);
+    $data = json_decode($body, true);
+
+    return is_array($data) ? $data : null;
 }
 
-// 4. Template include and centralized fetch
-add_action('template_include', function ($template) {
-    $slug = get_query_var('collection');
-    if (!$slug) return $template;
 
-    global $fetched_product_data;
-    $fetched_product_data = fetch_collection_meta($slug);
-
-    if (empty($fetched_product_data)) {
-        wp_safe_redirect(home_url('/page-not-found'));
-        exit;
-    }
-
-    return get_template_directory() . '/pages/collections.php';
-});
-
-// 5. Set <title>
-add_filter('pre_get_document_title', function ($title) {
-    global $fetched_product_data;
-
-    if (!empty($fetched_product_data['meta_title'])) {
-        return $fetched_product_data['meta_title'];
-    }
-
-    return $title;
-});
-
-// 6. Output meta tags
-add_action('wp_head', function () {
-    global $fetched_product_data;
-
-    if (empty($fetched_product_data)) return;
-
-    if (!empty($fetched_product_data['meta_description'])) {
-        echo '<meta name="description" content="' . esc_attr($fetched_product_data['meta_description']) . '">' . "\n";
-    }
-
-    if (!empty($fetched_product_data['meta_keyword'])) {
-        echo '<meta name="keywords" content="' . esc_attr($fetched_product_data['meta_keyword']) . '">' . "\n";
-    }
-});
-
-
-// CUSTOM Categories
-add_action('init', function () {
-	add_rewrite_rule('categories/([a-z0-9]+)[/]?$', 'index.php?category=$matches[1]', 'top');
-});
-
-add_filter('query_vars', function ($query_vars) {
-	$query_vars[] = 'category';
-	return $query_vars;
-});
-
-add_action('template_include', function ($template) {
-
-	if (get_query_var('category') == false || get_query_var('product_category') == '') {
-		return $template;
-	}
-
-	return get_template_directory() . '/pages/product-category-detail.php';
-});
-
+// NOTE CUSTOM Categories
 // CUSTOM product-category details
 // Register custom rewrite rule and query var
 add_action('init', function () {
@@ -485,10 +464,10 @@ add_filter('query_vars', function ($query_vars) {
 });
 
 // Load custom template for product category detail
-add_action('template_include', function ($template) {
+add_action('template_redirect', function () {
     $slug = get_query_var('product');
 
-    if (!$slug) return $template;
+    if (!$slug) return;
 
     $category = get_product_category_by_slug($slug);
 
@@ -497,25 +476,30 @@ add_action('template_include', function ($template) {
         exit;
     }
 
-    // Output meta tags early (in template you'd hook into wp_head)
-    add_action('wp_head', function () use ($category) {
-		var_dump($category);
-        echo '<title>' . esc_html($category['meta']['title']) . '</title>';
-        echo '<meta name="description" content="' . esc_attr($category['meta']['description']) . '"/>';
-        echo '<meta name="keywords" content="' . esc_attr($category['meta']['keywords']) . '"/>';
+    add_filter('document_title_parts', function ($title) use ($category) {
+        return [
+            'title' => $category['meta']['title'],
+        ];
     });
 
-    return get_template_directory() . '/pages/product-category-detail.php';
+    add_action('wp_head', function () use ($category) {
+        echo '<meta name="description" content="' . esc_attr($category['meta']['description']) . '">' . PHP_EOL;
+        echo '<meta name="keywords" content="' . esc_attr($category['meta']['keywords']) . '">' . PHP_EOL;
+    });
+
+    global $product_category_data;
+    $product_category_data = $category;
 });
 
-// Optional: Override page <title> tag
-add_filter('pre_get_document_title', function ($title) {
+// Set the custom template
+add_filter('template_include', function ($template) {
     $slug = get_query_var('product');
-    if ($slug) {
-        $category = get_product_category_by_slug($slug);
-        if ($category) return $category['meta']['title'];
-    }
-    return $title;
+    if (!$slug) return $template;
+
+    $category = get_product_category_by_slug($slug);
+    if (!$category) return $template;
+
+    return get_template_directory() . '/pages/product-category-detail.php';
 });
 
 // Helper function to get product category by slug
@@ -527,37 +511,48 @@ function get_product_category_by_slug($slug) {
     return null;
 }
 
-
-// CUSTOM product-page details
-/// 1. Add custom rewrite rule for /product-detail/{slug}
+// NOTE: CUSTOM Product Detail
+// 1. Register custom rewrite rule and query var
 add_action('init', function () {
     add_rewrite_rule('^product-detail/([^/]+)/?$', 'index.php?detail=$matches[1]', 'top');
 });
 
-// 2. Register custom query var
 add_filter('query_vars', fn($vars) => array_merge($vars, ['detail']));
 
-// 3. Global variable to store product data once
-global $fetched_product_data;
+// 2. Fetch product detail and route to template
+add_action('template_redirect', function () {
+    $slug = get_query_var('detail'); // ✅ Use correct query var
+    if (!$slug) return;
 
-// 4. Template selection and data fetch (centralized fetch)
-add_action('template_include', function ($template) {
-    $slug = get_query_var('detail');
-    if (!$slug) return $template;
-
-    global $fetched_product_data;
-    $fetched_product_data = fetch_product_meta($slug);
-
-    // Optional: redirect to 404 if product not found
-    if (empty($fetched_product_data)) {
-        wp_safe_redirect(home_url('/page-not-found'));
+    $detail = fetch_product_meta($slug);
+    if (!$detail) {
+        wp_safe_redirect(home_url('page-not-found'));
         exit;
     }
 
-    return get_template_directory() . '/pages/product-detail.php';
+    global $fetched_product_data;
+    $fetched_product_data = $detail;
+    add_filter('pre_get_document_title', fn() => $detail['meta_title'] ?? '');
+
+    add_action('wp_head', function () use ($detail) {
+        if (!empty($detail['meta_description'])) {
+            echo '<meta name="description" content="' . esc_attr($detail['meta_description']) . '">' . PHP_EOL;
+        }
+        if (!empty($detail['meta_keyword'])) {
+            echo '<meta name="keywords" content="' . esc_attr($detail['meta_keyword']) . '">' . PHP_EOL;
+        }
+    });
 });
 
-// 5. Fetch product data from external API (helper function)
+// 3. Use custom template for product detail
+add_filter('template_include', function ($template) {
+    if (get_query_var('detail')) {
+        return get_template_directory() . '/pages/product-detail.php';
+    }
+    return $template;
+});
+
+// 4. Helper to fetch product meta from API
 function fetch_product_meta($slug) {
     $response = wp_remote_get(BASE_API . '/v1_products_det_slug/' . $slug . '/', [
         'headers' => ['Authorization' => API_KEY],
@@ -567,34 +562,12 @@ function fetch_product_meta($slug) {
     if (is_wp_error($response)) return null;
 
     $body = wp_remote_retrieve_body($response);
-    return json_decode($body, true);
+    $data = json_decode($body, true);
+
+    return is_array($data) ? $data : null;
 }
 
-// 6. Set custom <title> tag
-add_filter('pre_get_document_title', function ($title) {
-    global $fetched_product_data;
 
-    if (!empty($fetched_product_data['meta_title'])) {
-        return $fetched_product_data['meta_title'];
-    }
-
-    return $title;
-});
-
-// 7. Output meta tags in <head>
-add_action('wp_head', function () {
-    global $fetched_product_data;
-
-    if (empty($fetched_product_data)) return;
-
-    if (!empty($fetched_product_data['meta_description'])) {
-        echo '<meta name="description" content="' . esc_attr($fetched_product_data['meta_description']) . '">' . "\n";
-    }
-
-    if (!empty($fetched_product_data['meta_keyword'])) {
-        echo '<meta name="keywords" content="' . esc_attr($fetched_product_data['meta_keyword']) . '">' . "\n";
-    }
-});
 
 // CUSTOM Moods details
 add_action('init', function () {
