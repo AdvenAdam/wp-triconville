@@ -148,7 +148,7 @@ function renderMaster() {
                                     </svg>
                                 </a>
                             `:''}
-                            <a href="${storeLink}"
+                            <a href="${storeLink}" target="_blank"
                                 class="btn-ghost flex items-end justify-center uppercase">
                                 <p class="text-xs">${storeLabel}</p>
                             </a>
