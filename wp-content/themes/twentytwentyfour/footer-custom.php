@@ -51,19 +51,7 @@
                                 <p class='mb-3 uppercase text-sm font-bold '>products</p>
                             </div>
                             <div class="about flex flex-col md:flex-row md:col-span-3 gap-10">
-                                <!-- <div class="address">
-                                    <p class='mb-3 font-bold text-sm uppercase '>triconville head office</p>
-                                    <p class='md:mb-3 text-sm underline'>
-                                        <a href="https://maps.app.goo.gl/XGY2DAFMPpAdxmzH6"
-                                           target="_blank">
-                                            Sidorekso, Kaliwungu District,<br />
-                                            Kudus Regency, Central Java 59332,<br />
-                                            Indonesia
-                                        </a>
-                                    </p>
-                                    <p class='text-sm mt-3 md:mb-3 md:mt-0'>+62 21 27084824</p>
-                                    <p class='text-sm md:mb-3'>info@triconville.com</p>
-                                </div> -->
+
                                 <div class="">
                                     <p class='font-bold text-sm uppercase'>connect</p>
                                     <div class="flex items-center gap-4 my-3">
@@ -71,11 +59,6 @@
                                            target="_blank">
                                             <img alt="instagram"
                                                  src='https://storage.googleapis.com/magento-asset/wp_triconville/images/icons/instagram2.svg' />
-                                        </a>
-                                        <a href='https://www.linkedin.com/company/triconville-furniture/'
-                                           target="_blank">
-                                            <img alt="linkedin"
-                                                 src='https://storage.googleapis.com/magento-asset/wp_triconville/images/icons/linkedin2.svg' />
                                         </a>
                                         <a href='https://www.youtube.com/@triconville-furniture/'
                                            target="_blank">
