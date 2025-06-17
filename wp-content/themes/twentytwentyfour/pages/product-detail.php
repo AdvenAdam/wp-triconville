@@ -285,7 +285,7 @@ async function renderOverview(res) {
             <div class="grid lg:grid-cols-2 lg:gap-8 items-center">
                 <div class='max-w-xl mx-auto lg:mx-0 order-last lg:order-first'
                         id="product__description">
-                    <h2 class="text-2xl md:text-3xl text-gray-900 line-clamp-2">${filterProductName(res.name)}</h2>
+                    <h1 class="text-2xl md:text-3xl text-gray-900 line-clamp-2">${filterProductName(res.name)}</h1>
                     <p class="text-slate-500 mb-4">Designed by
                         <span class="text-black font-medium underline"><a href="https://indospacegroup.com/indospace-studio/"
                                 target="_blank">Indospace Studio </a></span>
