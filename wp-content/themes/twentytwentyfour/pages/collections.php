@@ -33,7 +33,7 @@
              data-aos="fade-up"
              data-aos-once="true"
              data-aos-duration="1000">
-            <h1 class="text-2xl md:text-3xl mb-5 ms-1">More From Our Collection</h1>
+            <h2 class="text-2xl md:text-3xl mb-5 ms-1">More From Our Collection</h2>
             <div class="relative group"
                  id="project__slider__wrapper">
                 <div id="project__slider_1"

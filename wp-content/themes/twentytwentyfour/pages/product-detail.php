@@ -30,9 +30,6 @@ get_template_part('header-custom');
     <!-- NOTE : PRODUCT Overview & Material -->
     <div class="lg:mb-16 bg-triconville-beige px-5 md:px-8 py-10 lg:py-20">
         <div class="text-center lg:text-left max-w-[1440px] mx-auto"
-             data-aos="fade-up"
-             data-aos-once="true"
-             data-aos-duration="1000"
              id="product__overview"></div>
     </div>
     <!-- NOTE : PRODUCT Swatcest -->
