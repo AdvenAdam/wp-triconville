@@ -499,6 +499,7 @@ add_action('template_include', function ($template) {
 
     // Output meta tags early (in template you'd hook into wp_head)
     add_action('wp_head', function () use ($category) {
+		var_dump($category);
         echo '<title>' . esc_html($category['meta']['title']) . '</title>';
         echo '<meta name="description" content="' . esc_attr($category['meta']['description']) . '"/>';
         echo '<meta name="keywords" content="' . esc_attr($category['meta']['keywords']) . '"/>';
