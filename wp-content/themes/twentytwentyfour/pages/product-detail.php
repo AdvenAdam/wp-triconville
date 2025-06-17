@@ -282,8 +282,8 @@ async function renderOverview(res) {
         // Trim Html tag
         desc = desc.replace(/<\/?[^>]+(>|$)/g, "")
         $('#product__overview').append(`
-            <div class="grid lg:grid-cols-2 lg:gap-8 items-center">
-                <div class='max-w-xl mx-auto lg:mx-0 order-last lg:order-first'
+            <section class="grid lg:grid-cols-2 lg:gap-8 items-center">
+                <text class='max-w-xl mx-auto lg:mx-0 order-last lg:order-first'
                         id="product__description">
                     <h1 class="text-2xl md:text-3xl text-gray-900 line-clamp-2">${filterProductName(res.name)}</h1>
                     <p class="text-slate-500 mb-4">Designed by
@@ -291,13 +291,13 @@ async function renderOverview(res) {
                                 target="_blank">Indospace Studio </a></span>
                     </p>
                     <p class="line-clamp-4">${desc}</p>
-                </div>
+                </text>
                 <div class="flex justify-center hidden">
                     <img src="${res.product_image}"
                             alt="${res.name}"
                             class="w-[70vw] md:w-[50vw] lg:w-auto h-[25vh] lg:h-[50vh] object-cover px-8" />
                 </div>
-            </div>
+            </section>
         `);
     }
     if (Array.isArray(res.ambience_image) && res.ambience_image.length > 0) {
