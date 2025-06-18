@@ -558,20 +558,30 @@ add_action('template_redirect', function () {
         });
     });
 
-    add_filter('document_title_parts', function ($title) use ($detail) {
-        return [
-            'title' => $detail['meta_title'],
-        ];
-    });
+    // Filter and get the first matching SEO item
+	$seo_data = array_reduce($detail['seodata'], function ($carry, $item) {
+		return $item['iso2'] === 'US' ? $item : $carry;
+	}, null);
 
-    add_action('wp_head', function () use ($detail) {
-        if (!empty($detail['meta_description'])) {
-            echo '<meta name="description" content="' . esc_attr($detail['meta_description']) . '">' . PHP_EOL;
-        }
-        if (!empty($detail['meta_keyword'])) {
-            echo '<meta name="keywords" content="' . esc_attr($detail['meta_keyword']) . '">' . PHP_EOL;
-        }
-    },1);
+	if ($seo_data) {
+		add_filter('document_title_parts', function ($title) use ($seo_data) {
+			$title['title'] = $seo_data['official_seo_title'] ?? $title['title'];
+			return $title;
+		});
+
+		add_action('wp_head', function () use ($seo_data) {
+			$description = $seo_data['official_seo_description'] ?? '';
+			$keywords = $seo_data['official_seo_keyword'] ?? '';
+
+			if (!empty($description)) {
+				echo '<meta name="description" content="' . esc_attr($description) . '">' . PHP_EOL;
+			}
+			if (!empty($keywords)) {
+				echo '<meta name="keywords" content="' . esc_attr($keywords) . '">' . PHP_EOL;
+			}
+		}, 1);
+	}
+
 });
 
 // 3. Use custom template for product detail
@@ -596,8 +606,6 @@ function fetch_product_meta($slug) {
 
     return is_array($data) ? $data : null;
 }
-
-
 
 // NOTE : CUSTOM Moods details
 // 1. Add rewrite rule and register query var
@@ -687,10 +695,34 @@ function fetch_mood_data($slug) {
 	return null;
 }
 
+// NOTE : https://triconville.com/category/news/ || https://triconville.com/author/yurina/
+add_action('init', function () {
+	flush_rewrite_rules();
+    // Add custom rewrite rules
+    add_rewrite_rule('^category/news/?$', 'index.php?category_name=news', 'top');
+    add_rewrite_rule('^author/yurina/?$', 'index.php?author_name=yurina', 'top');
+});
+
+// Run on 'wp' to conditionally remove the Yoast SEO title
+add_action('wp', function () {
+    if (
+        (is_category('news') && get_query_var('category_name') === 'news') ||
+        (is_author('yurina') && get_query_var('author_name') === 'yurina')
+    ) {
+        // Remove Yoast SEO title output
+        add_filter('wpseo_title', '__return_false');
+
+        add_filter('wpseo_frontend_presenters', function ($presenters) {
+            return array_filter($presenters, function ($presenter) {
+                return !is_a($presenter, \Yoast\WP\SEO\Presenters\Title_Presenter::class);
+            });
+        });
+    }
+});
 
 
 
-// CUSTOM Site map
+//NOTE : CUSTOM Site map
 add_action('init', function () {
 	add_rewrite_rule('^sitemap/([^/]+)/?$', 'index.php?sitemap=$matches[1]', 'top');
 });
