@@ -29,8 +29,22 @@ get_template_part('header-custom');
     <div id="product__banner"></div>
     <!-- NOTE : PRODUCT Overview & Material -->
     <div class="lg:mb-16 bg-triconville-beige px-5 md:px-8 py-10 lg:py-20">
-        <div class="text-center lg:text-left max-w-[1440px] mx-auto"
-             id="product__overview"></div>
+        <div class=" max-w-[1440px] mx-auto"
+             id="product__overview">
+            <section class="grid lg:grid-cols-2 lg:gap-8 items-center">
+                <text class='max-w-xl mx-auto lg:mx-0 order-last lg:order-first'
+                      id="product__description">
+                    <h1 class="text-2xl md:text-3xl text-gray-900 line-clamp-2"
+                        id="product__name"></h1>
+                    <p class="text-slate-500 mb-4">Designed by
+                        <span class="text-black font-medium underline"><a href="https://indospacegroup.com/indospace-studio/"
+                               target="_blank">Indospace Studio </a></span>
+                    </p>
+                    <p class="line-clamp-4"
+                       id="product__desc"></p>
+                </text>
+            </section>
+        </div>
     </div>
     <!-- NOTE : PRODUCT Swatcest -->
     <div class="grid grid-cols-1 lg:grid-cols-2 items-center lg:gap-8 mb-10"
@@ -278,23 +292,9 @@ async function renderOverview(res) {
 
         // Trim Html tag
         desc = desc.replace(/<\/?[^>]+(>|$)/g, "")
-        $('#product__overview').append(`
-            <section class="grid lg:grid-cols-2 lg:gap-8 items-center">
-                <text class='max-w-xl mx-auto lg:mx-0 order-last lg:order-first'
-                        id="product__description">
-                    <h1 class="text-2xl md:text-3xl text-gray-900 line-clamp-2">${filterProductName(res.name)}</h1>
-                    <p class="text-slate-500 mb-4">Designed by
-                        <span class="text-black font-medium underline"><a href="https://indospacegroup.com/indospace-studio/"
-                                target="_blank">Indospace Studio </a></span>
-                    </p>
-                    <p class="line-clamp-4">${desc}</p>
-                </text>
-                <div class="flex justify-center hidden">
-                    <img src="${res.product_image}"
-                            alt="${res.name}"
-                            class="w-[70vw] md:w-[50vw] lg:w-auto h-[25vh] lg:h-[50vh] object-cover px-8" />
-                </div>
-            </section>
+        $('#product__name').text(filterProductName(res.name));
+        $('#product__description').append(`
+            <p class="text-sm text-gray-600">${desc}</p>
         `);
     }
     if (Array.isArray(res.ambience_image) && res.ambience_image.length > 0) {
