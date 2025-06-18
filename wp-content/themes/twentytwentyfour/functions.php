@@ -565,8 +565,9 @@ add_action('template_redirect', function () {
 
 	if ($seo_data) {
 		add_filter('document_title_parts', function ($title) use ($seo_data) {
-			$title['title'] = $seo_data['official_seo_title'] ?? $title['title'];
-			return $title;
+			return [
+				'title' => $seo_data['official_seo_title'],
+			];
 		});
 
 		add_action('wp_head', function () use ($seo_data) {
