@@ -27,7 +27,24 @@
 ?>
 <div class="content-container mt-20">
     <div id="collection__header"></div>
-    <div id="container__<?=$character_slug ?>"></div>
+    <div id="container__<?=$character_slug ?>">
+        <div class="px-5 md:px-8">
+            <div class="max-w-[1440px] mx-auto">
+                <section class="collection__description my-5 md:my-10 lg:my-28"
+                         data-aos="fade-up"
+                         data-aos-once="true"
+                         data-aos-duration="1000">
+                    <div class="collection__description-content max-w-3xl mx-auto text-center"
+                         id="collection__description__content">
+                        <h1 class="text-3xl lg:text-5xl mx-auto capitalize"
+                            id="collection__name"><?= str_replace('Vento Aluminium', 'Vento Alu', $collection['name']); ?></h1>
+                        <p class="text-sm mt-2 mb-10"
+                           id="collection__description"></p>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
     <div class="mb-10 md:mb-20 lg:mb-36 px-5 md:px-8">
         <div class="max-w-[1440px] mx-auto"
              data-aos="fade-up"
@@ -128,35 +145,27 @@ function renderMaster() {
         default:
             break;
     }
-    $('#container__<?= $character_slug ?>').append(`
-        <div class="px-5 md:px-8">
-            <div class="max-w-[1440px] mx-auto">
-                <section class="collection__description my-5 md:my-10 lg:my-28" 
-                    data-aos="fade-up"
-                    data-aos-once="true"
-                    data-aos-duration="1000"
-                >
-                    <div class="collection__description-content max-w-3xl mx-auto text-center">
-                        <h1 class="text-3xl lg:text-5xl mx-auto capitalize">${collectionData.display_name}</h1>
-                        <p class="text-sm mt-2 mb-10">${collectionData.description}</p>
-                        <div class="flex sm:flex-row flex-col gap-2 justify-center mt-10">
-                            ${collectionData.sheet !== 'False' ? `
-                                <a href="${collectionData.sheet}" target="_blank" class='btn-ghost-dark uppercase text-sm flex items-center gap-2 w-fit'>
-                                    download collection sheet
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5 pb-1 group-hover:text-slate-400">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
-                                    </svg>
-                                </a>
-                            `:''}
-                            <a href="${storeLink}" target="_blank"
-                                class="btn-ghost flex items-end justify-center uppercase">
-                                <p class="text-xs">${storeLabel}</p>
-                            </a>
-                        </div>
-                    </div>
-                </section>
-            </div>
+    $('#collection__name').text(`${collectionData.display_name}`)
+    $('#collection__description').text(`${collectionData.description}`)
+
+    $('#collection__description__content').append(`
+        <div class="flex sm:flex-row flex-col gap-2 justify-center mt-10">
+            ${collectionData.sheet !== 'False' ? `
+                <a href="${collectionData.sheet}" target="_blank" class='btn-ghost-dark uppercase text-sm flex items-center gap-2 w-fit'>
+                    download collection sheet
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5 pb-1 group-hover:text-slate-400">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
+                    </svg>
+                </a>
+            `:''}
+            <a href="${storeLink}" target="_blank"
+                class="btn-ghost flex items-end justify-center uppercase">
+                <p class="text-xs">${storeLabel}</p>
+            </a>
         </div>
+    `)
+
+    $('#container__<?= $character_slug ?>').append(`
         <div class="ambience__section relative mb-10 md:mb-20 lg:mb-36 group cursor-pointer"
             data-aos="fade-up"
             data-aos-once="true"

@@ -454,12 +454,12 @@
 
             const displayName = item.display_name || item.name;
             categoryMobile += `
-                <a href="${href}/">
+                <a href="${href}">
                     <p class="py-1 !text-xs hover:text-triconville-blue whitespace-nowrap" id="${slugify(item.name)}-link-mobile">${displayName}</p>
                 </a>
             `;
             categoryDesktop += `
-                <a href="${href}/">
+                <a href="${href}">
                     <p class="${menu === 'Inspirations' ? 'pt-1' : 'py-1'} !text-xs px-1 hover:text-triconville-blue whitespace-nowrap" id="${slugify(item.name)}-sub-link">${displayName}</p>
                 </a>
             `;

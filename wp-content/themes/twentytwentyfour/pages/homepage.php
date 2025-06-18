@@ -392,15 +392,15 @@ function renderInspirations() {
 }
 
 function collectionSlick() {
-    if ($(window).width() <= 1023 && $(".collection__wrapper").length) {
-        $(".collection__wrapper").slick({
+    if ($(window).width() <= 1023 && $("#colection-selected").length) {
+        $("#colection-selected").slick({
             slidesToScroll: 1,
             slidesToShow: 1.03,
             arrows: false,
             infinite: true,
         });
-    } else if ($(".collection__wrapper").hasClass("slick-initialized")) {
-        $(".collection__wrapper").slick("unslick");
+    } else if ($("#colection-selected").hasClass("slick-initialized")) {
+        $("#colection-selected").slick("unslick");
     }
 
 }
@@ -411,7 +411,7 @@ function renderRequestCatalogForm() {
 
 $(window).resize(function() {
     setTimeout(() => {
-        $(".collection__wrapper").slick('refresh');
+        $("#colection-selected").slick('refresh');
     }, 2000);
     collectionSlick();
 

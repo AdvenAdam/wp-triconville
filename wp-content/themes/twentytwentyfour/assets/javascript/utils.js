@@ -5,17 +5,19 @@ function checkUrl(url) {
 }
 
 function slugify(str) {
-  str = str.replace(/^\s+|\s+$/g, ""); // trim
-  str = str.toLowerCase();
+  str = str.trim().toLowerCase();
 
-  // remove accents, swap  for "e", etc.
-  var from = "  -_";
-  var to = "  --";
-  for (var i = 0, l = from.length; i < l; i++) {
-    str = str.replace(new RegExp(from.charAt(i), "g"), to.charAt(i));
-  }
+  // Optional: convert accented characters to ASCII equivalents
+  str = str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
 
-  str = str.replace(/[^a-z0-9-]/g, " ").replace(/\s+/g, "-");
+  // Replace unwanted characters with dash
+  str = str.replace(/[^a-z0-9]+/g, "-");
+
+  // Collapse multiple dashes
+  str = str.replace(/-+/g, "-");
+
+  // Trim leading and trailing dashes
+  str = str.replace(/^-+|-+$/g, "");
 
   return str;
 }
