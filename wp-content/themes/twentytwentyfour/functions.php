@@ -649,10 +649,10 @@ add_action('wp', function () {
 
 	// Set <title>
 	add_filter('document_title_parts', function ($title) use ($mood) {
-		$title['title'] = $mood['meta']['title'] ?? '';
-		return $title;
+		return [
+			'title' => $mood['meta']['title'],
+		];
 	});
-	add_filter('pre_get_document_title', fn() => $mood['meta']['title'] ?? '');
 
 	// Output meta tags
 	add_action('wp_head', function () use ($mood) {
