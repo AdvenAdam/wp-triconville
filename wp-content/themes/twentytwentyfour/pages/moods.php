@@ -25,7 +25,8 @@ get_template_part('header-custom');
     <div id="mood__title">
         <div class="flex gap-5 w-full mt-20 md:flex-row flex-col">
             <img src="<?= $selectedMood['banner']; ?>"
-                 class="w-full md:w-3/5 h-auto object-cover" />
+                 class="w-full md:w-3/5 h-auto object-cover"
+                 alt="<?= $selectedMood['name']; ?>" />
             <div class="ps-3 md:ps-5 flex flex-col md:justify-end">
                 <h1 class="text-3xl  lg:text-6xl xl:text-[7.5rem] xl:!leading-[9rem] mood-color font-bold mb-5"><?= $selectedMood['name']; ?></h1>
                 <div class="max-w-sm ">
