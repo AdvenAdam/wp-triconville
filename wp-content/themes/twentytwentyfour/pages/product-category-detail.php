@@ -30,7 +30,9 @@ get_template_part('header-custom');
                 id="category__name"
                 data-aos="fade-up"
                 data-aos-once="true"
-                data-aos-duration="1000"></h1>
+                data-aos-duration="1000">
+                <?= $selectedCategory[0]['name']; ?>
+            </h1>
         </div>
     </div>
     <div class="px-5 md:px-8">
@@ -74,7 +76,6 @@ $(document).ready(function() {
 function renderMaster() {
     try {
         $('.product-detail-banner').css('background-image', `url("${categoriesData.image}")`);
-        $('#category__name').text(categoriesData.name);
         $('#category__name-title').text(`Explore Our Outdoor ${categoriesData.name}`);
 
         // NOTE : Render all Filter Product
