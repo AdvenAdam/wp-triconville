@@ -292,10 +292,10 @@ async function materialClick(slug, code) {
                 ${swatchOption.material_information}
             </p>
             <p class="text-sm mt-4">
-                <span>Care Instructions</span>
-                <span class="!text-triconville-black !tracking-[0.07rem] !font-sans !text-xs sm:!text-sm !leading-[150%]">
+                <span>Care Instructions :</span>
+                <div class="!text-triconville-black !tracking-[0.07rem] !font-sans !text-xs sm:!text-sm !leading-[150%]">
                     ${swatchOption.care_instruction}
-                </span>
+                </div>
             </p>
         `)
 
