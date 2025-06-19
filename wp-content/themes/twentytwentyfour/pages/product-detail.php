@@ -137,7 +137,7 @@ get_template_part('header-custom');
                 <div class="collection__product grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mb-16 justify-center">
                     <?php foreach ($data['collection_product'] as $product): ?>
                     <?php $isNew = in_array($product['collection'], $newCollection); ?>
-                    <a href="<?= BASE_LINK; ?>/product-detail/<?= slugify($product['name']); ?>">
+                    <a href="<?= BASE_LINK; ?>/product-detail/<?= slugify($product['name']); ?>/">
                         <div class="product__card group flex flex-col items-center justify-center">
                             <img src="<?= $product['product_image'] ?>"
                                  class="md:h-[384px] h-[204px] object-contain w-auto group-hover:scale-[.97] group-hover:brightness-110 transition duration-300" />
@@ -805,7 +805,7 @@ function renderImages(images) {
 function renderCollectionProducts(products, name) {
     // Collection product
     $('.collection__product__btn').append(`
-        <a href="<?= BASE_LINK ?>/collections/${slugify(name)}"
+        <a href="<?= BASE_LINK ?>/collections/${slugify(name)}/"
             class='btn-ghost uppercase text-xs'>
             discover ${name} collection
         </a>
@@ -820,7 +820,7 @@ function renderRelatedProducts(products) {
     products.forEach((e) => {
         const isNew = newCollection.includes(e.collection);
         $('.releted__products').append(`
-            <a href="<?= BASE_LINK; ?>/product-detail/${slugify(e.name)}"
+            <a href="<?= BASE_LINK; ?>/product-detail/${slugify(e.name)}/"
                 class="max-h-60 md:max-h-96">
                 <div class="product__card group flex flex-col items-center justify-center mx-1">
                     <img src="${e.product_image}"
