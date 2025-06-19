@@ -15,22 +15,6 @@ $collections = json_decode(file_get_contents(get_template_directory() . '/api/co
 $moods = json_decode(file_get_contents(get_template_directory() . '/api/moods.json'), true);
 ?>
 
-<?php
-function slugify($str) {
-    $str = trim($str);
-    $str = strtolower($str);
-
-    // remove accents, swap  for "e", etc.
-    $from = array(' ', '-', '_');
-    $to = array(' ', '-', '-');
-    $str = str_replace($from, $to, $str);
-
-    $str = preg_replace('/[^a-z0-9-]/', ' ', $str);
-    $str = preg_replace('/\s+/', '-', $str);
-
-    return $str;
-}
-?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
     <url>
