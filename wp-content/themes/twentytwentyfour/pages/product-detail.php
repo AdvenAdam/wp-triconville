@@ -10,6 +10,12 @@ if (empty($fetched_product_data)) {
 $data = $fetched_product_data;
 $dataCollection = json_decode(file_get_contents(get_template_directory() . '/api/collection.json'), true)['collection'];
 
+$newCollection = array_map(function($data) {
+    return $data['collection_id'];
+}, array_filter($dataCollection, function($data) {
+    return isset($data['is_new']) && $data['is_new'] === true;
+}));
+
 $location = null;
 if (function_exists('geoip_detect2_get_info_from_ip')) {
     $ip = get_client_ip();
@@ -127,8 +133,24 @@ get_template_part('header-custom');
                  data-aos="fade-up"
                  data-aos-once="true"
                  data-aos-duration="1000">
-                <h2 class='text-3xl collection__product__name'></h2>
-                <div class="collection__product grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mb-16 justify-center"></div>
+                <h2 class='text-3xl collection__product__name'>In <?= $data['collection_det']; ?> Collection</h2>
+                <div class="collection__product grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mb-16 justify-center">
+                    <?php foreach ($data['collection_product'] as $product): ?>
+                    <?php $isNew = in_array($product['collection'], $newCollection); ?>
+                    <a href="<?= BASE_LINK; ?>/product-detail/<?= slugify($product['name']); ?>">
+                        <div class="product__card group flex flex-col items-center justify-center">
+                            <img src="<?= $product['product_image'] ?>"
+                                 class="md:h-[384px] h-[204px] object-contain w-auto group-hover:scale-[.97] group-hover:brightness-110 transition duration-300" />
+                            <div class="md:mt-[-30px] max-w-[90%] -mt-5 sm:-mt-10 lg:-mt-16 xl:-mt-10 flex gap-2 items-center">
+                                <?php if ($isNew): ?>
+                                <p class="mx-auto text-xs bg-triconville-red text-white w-fit py-1 px-2">NEW</p>
+                                <?php endif; ?>
+                                <p class="text-center text-sm group-hover:underline"><?= $product['name'] ?></p>
+                            </div>
+                        </div>
+                    </a>
+                    <?php endforeach; ?>
+                </div>
                 <div class="collection__product__btn text-center"></div>
             </div>
         </div>
@@ -151,24 +173,15 @@ get_template_part('header-custom');
 </div>
 
 <script>
-let ProductsData = [];
+let ProductsData = <?php echo json_encode($data); ?>;
 let isSectionalPage = false
-let selectedCollection = [];
-let newCollection = [];
+let selectedCollection = <?php echo file_get_contents(get_template_directory() . '/api/collection.json'); ?>.collection;
+let newCollection = JSON.parse('<?php echo json_encode($newCollection); ?>');
+const collectionData = <?= json_encode($dataCollection); ?>;
 const countryLocation = JSON.parse('<?php echo json_encode($location); ?>');
+
 jQuery(document).ready(function($) {
     try {
-        $('#page-loading').show();
-        const collectionData = <?= json_encode($dataCollection); ?>;
-        newCollection = collectionData.filter(data => data?.is_new === true).map(data => data.collection_id);
-        ProductsData = <?php echo json_encode($data); ?>;
-        selectedCollection = <?php echo file_get_contents(get_template_directory() . '/api/collection.json'); ?>.collection
-    } catch (error) {
-        if (error.status === 404) {
-            redirectError(404)
-        }
-        console.error('Error fetching data:', error);
-    } finally {
         renderMaster();
         generateProductSchema({
             name: filterProductName(ProductsData.name),
@@ -176,6 +189,11 @@ jQuery(document).ready(function($) {
             description: ProductsData.description,
             brand: 'Triconville'
         });
+    } catch (error) {
+        if (error.status === 404) {
+            redirectError(404)
+        }
+        console.error('Error fetching data:', error);
     }
 });
 
@@ -786,23 +804,6 @@ function renderImages(images) {
 
 function renderCollectionProducts(products, name) {
     // Collection product
-    $('.collection__product__name').text(`In ${filterProductName(name)} Collection`);
-    products.forEach((e) => {
-        const isNew = newCollection.includes(e.collection);
-        $('.collection__product').append(`
-            <a href="<?= BASE_LINK; ?>/product-detail/${slugify(e.name)}">
-                <div class="product__card group flex flex-col items-center justify-center">
-                    <img src="${e.product_image}"
-                            class="md:h-[384px] h-[204px] object-contain w-auto group-hover:scale-[.97] group-hover:brightness-110 transition duration-300" />
-                    <div class="md:mt-[-30px] max-w-[90%] -mt-5 sm:-mt-10 lg:-mt-16 xl:-mt-10 flex gap-2 items-center">
-                        ${isNew ? '<p class="mx-auto text-xs bg-triconville-red text-white w-fit py-1 px-2">NEW</p>' : ''}
-                        <p class="text-center text-sm group-hover:underline">${filterProductName(e.name)}</p>
-                    </div>
-                </div>
-            </a>
-        `)
-    })
-
     $('.collection__product__btn').append(`
         <a href="<?= BASE_LINK ?>/collections/${slugify(name)}"
             class='btn-ghost uppercase text-xs'>

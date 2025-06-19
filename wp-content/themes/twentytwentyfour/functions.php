@@ -791,3 +791,18 @@ function get_client_ip() {
         return $_SERVER['REMOTE_ADDR'];
     }
 }
+
+function slugify($str) {
+    $str = trim($str);
+    $str = strtolower($str);
+
+    // remove accents, swap  for "e", etc.
+    $from = array(' ', '-', '_');
+    $to = array(' ', '-', '-');
+    $str = str_replace($from, $to, $str);
+
+    $str = preg_replace('/[^a-z0-9-]/', ' ', $str);
+    $str = preg_replace('/\s+/', '-', $str);
+
+    return $str;
+}
