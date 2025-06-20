@@ -401,7 +401,9 @@ add_filter('query_vars', function ($query_vars) {
 add_action('template_redirect', function () {
     $slug = get_query_var('collection');
     if (!$slug) return;
-
+	if(slugify($slug) == 'planka-tables') {
+		$slug = 'planka';
+	}
     $detail = fetch_collection_meta(slugify($slug));
     if (!$detail) {
         wp_safe_redirect(home_url('/page-not-found'));
@@ -420,13 +422,13 @@ add_action('template_redirect', function () {
             return !is_a($presenter, \Yoast\WP\SEO\Presenters\Title_Presenter::class);
         });
     });
-
-    add_filter('document_title_parts', function ($title) use ($detail) {
-        return [
-            'title' => $detail['meta_title'],
-        ];
-    });
-
+	if(!empty($detail['name'])) {
+		add_filter('document_title_parts', function ($title) use ($detail) {
+			return [
+				'title' => $detail['meta_title'],
+			];
+		});
+	}
     // Output meta tags
     add_action('wp_head', function () use ($detail) {
         if (!empty($detail['meta_description'])) {
@@ -435,7 +437,11 @@ add_action('template_redirect', function () {
         if (!empty($detail['meta_keyword'])) {
             echo '<meta name="keywords" content="' . esc_attr($detail['meta_keyword']) . '">' . "\n";
         }
-		echo '<link rel="canonical" href="' . esc_url(home_url("/collections/" . slugify($detail['name']). '/')) . '" />' . "\n";
+		if(!empty($detail['name'])) {
+			echo '<link rel="canonical" href="' . esc_url(home_url("/collections/" . slugify($detail['name']). '/')) . '" />' . "\n";
+		}else {
+			echo '<link rel="canonical" href="' . esc_url(home_url("/collections/" .  '/')) . '" />' . "\n";
+		}
     },1);
 });
 
