@@ -533,8 +533,10 @@ function get_product_category_by_slug($slug) {
 add_action('init', function () {
     add_rewrite_rule('^product-detail/([^/]+)/?$', 'index.php?detail=$matches[1]', 'top');
 });
-
-add_filter('query_vars', fn($vars) => array_merge($vars, ['detail']));
+add_filter('query_vars', function ($query_vars) {
+    $query_vars[] = 'detail';
+    return $query_vars;
+});
 
 // 2. Fetch product detail and route to template
 add_action('template_redirect', function () {
@@ -542,10 +544,15 @@ add_action('template_redirect', function () {
     if (!$slug) return;
 
     $detail = fetch_product_meta($slug);
-    if (!$detail) {
+	$seodata = null;
+    if (isset($detail['detail']) && $detail['detail'] === 'Not found.') {
         wp_safe_redirect(home_url('page-not-found'));
         exit;
-    }
+	} else {
+		$seo_data = array_reduce($detail['seodata'], function ($carry, $item) {
+			return $item['iso2'] === 'US' ? $item : $carry;
+		}, null);
+	}
 
     global $fetched_product_data;
     $fetched_product_data = $detail;
@@ -559,9 +566,6 @@ add_action('template_redirect', function () {
     });
 
     // Filter and get the first matching SEO item
-	$seo_data = array_reduce($detail['seodata'], function ($carry, $item) {
-		return $item['iso2'] === 'US' ? $item : $carry;
-	}, null);
 
 	if ($seo_data) {
 		add_filter('document_title_parts', function ($title) use ($seo_data) {
