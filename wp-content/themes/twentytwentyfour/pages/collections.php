@@ -151,14 +151,14 @@ function renderMaster() {
     $('#collection__description__content').append(`
         <div class="flex sm:flex-row flex-col gap-2 justify-center mt-10">
             ${collectionData.sheet !== 'False' ? `
-                <a href="${collectionData.sheet}" target="_blank" class='btn-ghost-dark uppercase text-sm flex items-center gap-2 w-fit'>
+                <a href="${collectionData.sheet}/" target="_blank" class='btn-ghost-dark uppercase text-sm flex items-center gap-2 w-fit'>
                     download collection sheet
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5 pb-1 group-hover:text-slate-400">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
                     </svg>
                 </a>
             `:''}
-            <a href="${storeLink}" target="_blank"
+            <a href="${storeLink}/" target="_blank"
                 class="btn-ghost flex items-end justify-center uppercase">
                 <p class="text-xs">${storeLabel}</p>
             </a>
@@ -214,7 +214,7 @@ function renderMaster() {
                     </h3>
                     <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 mt-5 gap-4 justify-center container mt-5 mb-10">
                         ${collectionData.product_list.map((pr, i) => `
-                            <a href="<?= BASE_LINK; ?>/product-detail/${slugify(pr.name)}" class='flex justify-center items-center flex-col group'
+                            <a href="<?= BASE_LINK; ?>/product-detail/${slugify(pr.name)}/" class='flex justify-center items-center flex-col group'
                                 data-aos="fade-up"
                                 data-aos-once="true"
                                 data-aos-duration="1000"
@@ -304,7 +304,7 @@ function loadMoreCollections() {
 
 function renderMoreCollections(collection) {
     $('#project__slider_1').append(`
-        <a href= "<?= BASE_LINK; ?>/collections/${slugify(collection.name)}" class="mx-1 md:mx-2 !h-fit">
+        <a href= "<?= BASE_LINK; ?>/collections/${slugify(collection.name)}/" class="mx-1 md:mx-2 !h-fit">
             <img src="${collection.image_grid || collection.collection_image_1024}" 
                 class="w-auto h-auto object-cover hover:brightness-110 transition duration-300" />
             <h4 class='text-sm mt-4 mb-2'>

@@ -194,7 +194,7 @@ function renderOtherMoods() {
                     <div class ="snap-center me-2">
                         <div class="h-[600px] w-80 max-w-screen bg-no-repeat bg-center bg-cover group overflow-hidden"
                             style="background-image: url('${mood.thumb}')">
-                            <a href="<?= BASE_LINK ?>/moods/${mood.slug}"
+                            <a href="<?= BASE_LINK ?>/moods/${mood.slug}/"
                                 style="background-image: linear-gradient(to bottom, transparent, ${mood.color});"
                                 class="h-full w-full flex flex-col items-end justify-end p-5 transition duration-300 md:translate-y-14 md:group-hover:translate-y-0 ease-in-out">
                                 <h1 class="text-3xl lg:text-5xl !leading-none font-medium text-end text-white max-w-[160px] md:max-w-[260px] md:mb-6">${mood.name}</h1>
