@@ -435,6 +435,7 @@ add_action('template_redirect', function () {
         if (!empty($detail['meta_keyword'])) {
             echo '<meta name="keywords" content="' . esc_attr($detail['meta_keyword']) . '">' . "\n";
         }
+		echo '<link rel="canonical" href="' . esc_url(home_url("/collections/" . slugify($detail['slug']))) . '" />' . "\n";
     },1);
 });
 
