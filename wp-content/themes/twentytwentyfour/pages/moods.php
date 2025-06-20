@@ -3,6 +3,10 @@ $character_slug = get_query_var('mood');
 
 $selectedMood = $fetched_mood_data;
 $allMood = $all_mood_data;
+$otherMoods = array_filter($allMood, function($mood) use ($selectedMood) {
+    return $mood['slug'] !== $selectedMood['slug'];
+});
+
 $descriptionParts = explode('<br/>', $selectedMood['desc']);
 $descriptionTitle = $descriptionParts[0];
 $description = $descriptionParts[1];
@@ -65,7 +69,30 @@ get_template_part('header-custom');
              id="mood__other_moods"
              data-aos="fade-up"
              data-aos-once="true"
-             data-aos-duration="1000"></div>
+             data-aos-duration="1000">
+            <div class="md:py-10 text-center">
+                <h2 class="text-2xl md:text-3xl mood-color">
+                    Discover Other Moods
+                </h2>
+                <div class="flex items-center lg:justify-center my-5 snap-x overflow-x-scroll scrollbar-none">
+                    <?php foreach ($otherMoods as $mood) { ?>
+                    <div class="snap-center me-2">
+                        <div class="h-[600px] w-80 max-w-screen bg-no-repeat bg-center bg-cover group overflow-hidden"
+                             style="background-image: url('<?= $mood['thumb']; ?>')">
+                            <a href="<?= BASE_LINK ?>/moods/<?= $mood['slug']; ?>/"
+                               style="background-image: linear-gradient(to bottom, transparent, <?= $mood['color']; ?>);"
+                               class="h-full w-full flex flex-col items-end justify-end p-5 transition duration-300 md:translate-y-14 md:group-hover:translate-y-0 ease-in-out">
+                                <h1 class="text-3xl lg:text-5xl !leading-none font-medium text-end text-white max-w-[160px] md:max-w-[260px] md:mb-6"><?= $mood['name']; ?></h1>
+                                <div class="text-end h-0 md:h-8">
+                                    <p class="text-white invisible md:group-hover:visible duration-300 md:mb-6"><?= $mood['subName']; ?></p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <?php } ?>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -80,7 +107,6 @@ $(document).ready(function() {
     try {
         $('#page-loading').hide();
         selectedMood = <?= json_encode($selectedMood); ?>;
-        otherMoods = otherMoods.filter(mood => mood.slug !== selectedMood.slug);
         renderMaster()
     } catch (error) {
         // redirectError()
@@ -94,7 +120,6 @@ function renderMaster() {
         renderMaterials(selectedMood.materials)
         renderCatalogue(selectedMood.catalogueImage)
         renderInspirations(selectedMood.inspirations)
-        renderOtherMoods()
     } catch (error) {
         console.error('Error rendering data:', error);
         // redirectError()
@@ -180,35 +205,6 @@ function renderCatalogue(catalogueImage) {
             </div>
         `);
     }
-}
-
-function renderOtherMoods() {
-    // Note : Set Other Moods
-    $('#mood__other_moods').append(`
-        <div class="md:py-10 text-center">
-            <h2 class="text-2xl md:text-3xl mood-color">
-                Discover Other Moods
-            </h2>
-            <div class="flex items-center lg:justify-center my-5 snap-x overflow-x-scroll scrollbar-none">
-                ${otherMoods.map(mood => `
-                    <div class ="snap-center me-2">
-                        <div class="h-[600px] w-80 max-w-screen bg-no-repeat bg-center bg-cover group overflow-hidden"
-                            style="background-image: url('${mood.thumb}')">
-                            <a href="<?= BASE_LINK ?>/moods/${mood.slug}/"
-                                style="background-image: linear-gradient(to bottom, transparent, ${mood.color});"
-                                class="h-full w-full flex flex-col items-end justify-end p-5 transition duration-300 md:translate-y-14 md:group-hover:translate-y-0 ease-in-out">
-                                <h1 class="text-3xl lg:text-5xl !leading-none font-medium text-end text-white max-w-[160px] md:max-w-[260px] md:mb-6">${mood.name}</h1>
-                                <div class="text-end h-0 md:h-8">
-                                    <p class="text-white invisible md:group-hover:visible duration-300 md:mb-6">${mood.subName}</p>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                `).join('')}
-                
-            </div>
-        </div>
-    `);
 }
 
 function renderInspirations(inspirations) {
