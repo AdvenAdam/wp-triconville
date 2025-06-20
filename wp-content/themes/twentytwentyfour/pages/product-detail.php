@@ -140,6 +140,7 @@ get_template_part('header-custom');
                     <a href="<?= BASE_LINK; ?>/product-detail/<?= slugify($product['name']); ?>/">
                         <div class="product__card group flex flex-col items-center justify-center">
                             <img src="<?= $product['product_image'] ?>"
+                                 alt="<?= $product['name'] ?>"
                                  class="md:h-[384px] h-[204px] object-contain w-auto group-hover:scale-[.97] group-hover:brightness-110 transition duration-300" />
                             <div class="md:mt-[-30px] max-w-[90%] -mt-5 sm:-mt-10 lg:-mt-16 xl:-mt-10 flex gap-2 items-center">
                                 <?php if ($isNew): ?>
@@ -759,7 +760,7 @@ function renderImages(images) {
     if (Array.isArray(ProductsData.ambience_image_1920) && images.ambience_image_1920.length > 1) {
         images.ambience_image_1920.forEach((e) => {
             $('.ambience__img').append(`
-            <img src="${e}"
+            <img src="${e}" alt="ambience product"
                      class="h-auto w-full max-w-screen-xl me-2 mx-2  object-contain" />
             `)
         })
@@ -823,7 +824,7 @@ function renderRelatedProducts(products) {
             <a href="<?= BASE_LINK; ?>/product-detail/${slugify(e.name)}/"
                 class="max-h-60 md:max-h-96">
                 <div class="product__card group flex flex-col items-center justify-center mx-1">
-                    <img src="${e.product_image}"
+                    <img src="${e.product_image}" alt="${e.name}"
                             class="md:h-[384px] h-[204px] max-w-[45vw] md:max-w-[33vw] lg:max-w-[23vw] object-contain w-auto group-hover:scale-[.97] group-hover:brightness-110 transition duration-300" />
                     <div class="md:mt-[-30px] max-w-[90%] -mt-5 sm:-mt-10 lg:-mt-16 xl:-mt-10 flex gap-2 items-center">
                         ${isNew ? '<p class="mx-auto text-xs bg-triconville-red text-white w-fit py-1 px-2">NEW</p>' : ''}
