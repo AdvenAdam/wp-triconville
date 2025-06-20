@@ -129,6 +129,7 @@ get_template_part('header-custom');
     <!-- NOTE : PRODUCT IN THIS SECTION -->
     <div class="px-5 md:px-8mb-10 md:mb-20">
         <div class="max-w-[1440px] mx-auto">
+            <?php if ($data['collection_product'] ) :?>
             <div class="py-10 md:pb-20"
                  data-aos="fade-up"
                  data-aos-once="true"
@@ -152,23 +153,49 @@ get_template_part('header-custom');
                     </a>
                     <?php endforeach; ?>
                 </div>
-                <div class="collection__product__btn text-center"></div>
+                <div class="collection__product__btn text-center">
+                    <a href="<?= BASE_LINK ?>/collections/<?= $data['collection_det']; ?>/"
+                       class='btn-ghost uppercase text-xs'>
+                        discover <?= $data['collection_det']; ?> collection
+                    </a>
+                </div>
             </div>
+            <?php endif; ?>
         </div>
     </div>
+    <?php if ($data['related_product']) : ?>
     <div class="px-5 md:px-8mb-10 md:mb-20 group/slider">
         <div class="max-w-[1440px] mx-auto">
-            <div class="py-10 md:pb-20 relative h-fit hidden"
+            <div class="py-10 md:pb-20 relative h-fit "
                  id="releted__products"
                  data-aos="fade-up"
                  data-aos-once="true"
                  data-aos-duration="1000">
-                <h2 class='text-2xl md:text-3xl releted__products__name'></h2>
-                <div class="releted__products my-10"></div>
+                <h2 class='text-2xl md:text-3xl releted__products__name'>Related Products</h2>
+                <div class="releted__products my-10">
+                    <?php foreach ($data['related_product'] as $product): ?>
+                    <?php $isNew = in_array($product['collection'], $newCollection); ?>
+                    <a href="<?= BASE_LINK; ?>/product-detail/<?= slugify($product['name']); ?>/"
+                       class="max-h-60 md:max-h-96">
+                        <div class="product__card group flex flex-col items-center justify-center mx-1">
+                            <img src="<?= $product['product_image'] ?>"
+                                 alt="<?= $product['name'] ?>"
+                                 class="md:h-[384px] h-[204px] max-w-[45vw] md:max-w-[33vw] lg:max-w-[23vw] object-contain w-auto group-hover:scale-[.97] group-hover:brightness-110 transition duration-300" />
+                            <div class="md:mt-[-30px] max-w-[90%] -mt-5 sm:-mt-10 lg:-mt-16 xl:-mt-10 flex gap-2 items-center">
+                                <?php if ($isNew): ?>
+                                <p class="mx-auto text-xs bg-triconville-red text-white w-fit py-1 px-2">NEW</p>
+                                <?php endif; ?>
+                                <p class="text-center text-sm group-hover:underline"><?= $product['name'] ?></p>
+                            </div>
+                        </div>
+                    </a>
+                    <?php endforeach; ?>
+                </div>
                 <div class="releted__products__btn text-center"></div>
             </div>
         </div>
     </div>
+    <?php endif; ?>
 </div>
 <div id="page-loading">
 </div>
@@ -232,12 +259,6 @@ function renderMaster() {
         renderImages(ProductsData);
 
         // FILTER ONLY COLLECTION LIST ALLOWED
-        const isCollectionListed = selectedCollection.map(collection => collection.collection_id).includes(ProductsData.collection);
-        const isCollectionProductNotEmpty = Array.isArray(ProductsData.collection_product) && ProductsData.collection_product.length > 0;
-        if (isCollectionListed && isCollectionProductNotEmpty) {
-            const collectionProduct = ProductsData.collection_product.slice(0, 4).filter(data => data.status === 'published' || data.status === 'draft');
-            renderCollectionProducts(collectionProduct, ProductsData.collection_det);
-        }
         if (Array.isArray(ProductsData.related_product) && ProductsData.related_product.length > 0) {
             let relatedProduct
             relatedProduct = ProductsData.related_product
@@ -803,37 +824,8 @@ function renderImages(images) {
     }
 }
 
-function renderCollectionProducts(products, name) {
-    // Collection product
-    $('.collection__product__btn').append(`
-        <a href="<?= BASE_LINK ?>/collections/${slugify(name)}/"
-            class='btn-ghost uppercase text-xs'>
-            discover ${name} collection
-        </a>
-    `)
-
-}
-
 function renderRelatedProducts(products) {
     // Goes Well with product
-    $('#releted__products').removeClass('hidden');
-    $('.releted__products__name').text(`Related Products`);
-    products.forEach((e) => {
-        const isNew = newCollection.includes(e.collection);
-        $('.releted__products').append(`
-            <a href="<?= BASE_LINK; ?>/product-detail/${slugify(e.name)}/"
-                class="max-h-60 md:max-h-96">
-                <div class="product__card group flex flex-col items-center justify-center mx-1">
-                    <img src="${e.product_image}" alt="${e.name}"
-                            class="md:h-[384px] h-[204px] max-w-[45vw] md:max-w-[33vw] lg:max-w-[23vw] object-contain w-auto group-hover:scale-[.97] group-hover:brightness-110 transition duration-300" />
-                    <div class="md:mt-[-30px] max-w-[90%] -mt-5 sm:-mt-10 lg:-mt-16 xl:-mt-10 flex gap-2 items-center">
-                        ${isNew ? '<p class="mx-auto text-xs bg-triconville-red text-white w-fit py-1 px-2">NEW</p>' : ''}
-                        <p class="text-center text-sm group-hover:underline">${filterProductName(e.name)}</p>
-                    </div>
-                </div>
-            </a>
-        `)
-    })
     if (products.length > 4) {
         $('#releted__products').append(`
             <button class="gww-prev left-0 2xl:-left-12 arrow-btn hidden lg:block invisible group-hover/slider:visible opacity-0 group-hover/slider:opacity-100"
