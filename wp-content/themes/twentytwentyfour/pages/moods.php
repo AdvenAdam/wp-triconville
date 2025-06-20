@@ -82,7 +82,7 @@ get_template_part('header-custom');
                             <a href="<?= BASE_LINK ?>/moods/<?= $mood['slug']; ?>/"
                                style="background-image: linear-gradient(to bottom, transparent, <?= $mood['color']; ?>);"
                                class="h-full w-full flex flex-col items-end justify-end p-5 transition duration-300 md:translate-y-14 md:group-hover:translate-y-0 ease-in-out">
-                                <h1 class="text-3xl lg:text-5xl !leading-none font-medium text-end text-white max-w-[160px] md:max-w-[260px] md:mb-6"><?= $mood['name']; ?></h1>
+                                <h2 class="text-3xl lg:text-5xl !leading-none font-medium text-end text-white max-w-[160px] md:max-w-[260px] md:mb-6"><?= $mood['name']; ?></h2>
                                 <div class="text-end h-0 md:h-8">
                                     <p class="text-white invisible md:group-hover:visible duration-300 md:mb-6"><?= $mood['subName']; ?></p>
                                 </div>
@@ -210,7 +210,7 @@ function renderCatalogue(catalogueImage) {
 function renderInspirations(inspirations) {
     if (inspirations) {
         $('#mood__inspirations').append(`
-            <h1 class="text-3xl lg:text-5xl font-medium mood-color text-center">Inspirations</h1>
+            <h2 class="text-3xl lg:text-5xl font-medium mood-color text-center">Inspirations</h2>
             <div id="inspiration__container"
                 class="max-w-[1440px] py-10 mx-auto grid grid-cols-3 gap-1 sm:gap-3">
             </div>
