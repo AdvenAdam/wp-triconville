@@ -399,7 +399,7 @@ add_action('template_redirect', function () {
     $slug = get_query_var('collection');
     if (!$slug) return;
 
-    $detail = fetch_collection_meta($slug);
+    $detail = fetch_collection_meta(slugify($slug));
     if (!$detail) {
         wp_safe_redirect(home_url('/page-not-found'));
         exit;
@@ -798,22 +798,21 @@ function get_client_ip() {
 }
 
 function slugify($str) {
-    $str = trim($str);
-    $str = strtolower($str);
+    // Decode URL-encoded strings
+    $str = urldecode($str);
 
-    // Replace common delimiters with dashes
-    $from = [' ', '_'];
-    $to = ['-','-'];
-    $str = str_replace($from, $to, $str);
+    // Trim and convert to lowercase
+    $str = trim(strtolower($str));
 
-    // Remove non-alphanumeric characters (keep dashes)
-    $str = preg_replace('/[^a-z0-9-]/', ' ', $str);
-    // Replace whitespace with dashes
-    $str = preg_replace('/\s+/', '-', $str);
-    // Remove multiple consecutive dashes
+    // Replace underscores and spaces with dashes
+    $str = str_replace(['_', ' '], '-', $str);
+
+    // Remove all characters except a-z, 0-9, and dashes
+    $str = preg_replace('/[^a-z0-9-]/', '', $str);
+
+    // Replace multiple dashes with a single dash
     $str = preg_replace('/-+/', '-', $str);
-    // Trim any leading or trailing dashes
-    $str = trim($str, '-');
 
-    return $str;
+    // Trim dashes from the start and end
+    return trim($str, '-');
 }

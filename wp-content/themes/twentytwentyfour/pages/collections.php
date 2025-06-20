@@ -1,5 +1,5 @@
 <?php
-    $character_slug = get_query_var('collection');
+    $character_slug = slugify(get_query_var('collection')   );
     global $fetched_product_data;
 
     if (empty($fetched_product_data)) {
