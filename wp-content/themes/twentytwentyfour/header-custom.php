@@ -121,6 +121,35 @@
         background-color: rgba(0, 0, 0, 0.5);
     }
     </style>
+    <link rel="canonical"
+          href="https://triconville.com/collections/alpha/" />
+    <link rel="canonical"
+          href="https://triconville.com/collections/artisan/" />
+    <link rel="canonical"
+          href="https://triconville.com/collections/dune/" />
+    <link rel="canonical"
+          href="https://triconville.com/collections/timo/" />
+    <link rel="canonical"
+          href="https://triconville.com/collections/vento-teak/" />
+    <link rel="canonical"
+          href="https://triconville.com/collections/vento-aluminium/" />
+    <link rel="canonical"
+          href="https://triconville.com/collections/corda/" />
+    <link rel="canonical"
+          href="https://triconville.com/collections/marlow/" />
+    <link rel="canonical"
+          href="https://triconville.com/collections/tora/" />
+    <link rel="canonical"
+          href="https://triconville.com/collections/ara/" />
+    <link rel="canonical"
+          href="https://triconville.com/collections/brie/" />
+    <link rel="canonical"
+          href="https://triconville.com/collections/gera/" />
+    <link rel="canonical"
+          href="https://triconville.com/collections/planka/" />
+    <link rel="canonical"
+          href="https://triconville.com/collections/dorus/" />
+
 </head>
 
 <body <?php body_class(); ?>>
