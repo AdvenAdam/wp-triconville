@@ -543,11 +543,12 @@ add_action('template_redirect', function () {
     $slug = get_query_var('detail'); 
     if (!$slug) return;
 
-    $detail = fetch_product_meta($slug);
+    $detail = fetch_product_meta(slugify($slug));
 	$seodata = null;
+	
     if (isset($detail['detail']) && $detail['detail'] === 'Not found.') {
-        wp_safe_redirect(home_url('page-not-found'));
-        exit;
+        // wp_safe_redirect(home_url('page-not-found'));
+        // exit;
 	} else {
 		$seo_data = array_reduce($detail['seodata'], function ($carry, $item) {
 			return $item['iso2'] === 'US' ? $item : $carry;
@@ -800,13 +801,19 @@ function slugify($str) {
     $str = trim($str);
     $str = strtolower($str);
 
-    // remove accents, swap  for "e", etc.
-    $from = array(' ', '-', '_');
-    $to = array(' ', '-', '-');
+    // Replace common delimiters with dashes
+    $from = [' ', '_'];
+    $to = ['-','-'];
     $str = str_replace($from, $to, $str);
 
+    // Remove non-alphanumeric characters (keep dashes)
     $str = preg_replace('/[^a-z0-9-]/', ' ', $str);
+    // Replace whitespace with dashes
     $str = preg_replace('/\s+/', '-', $str);
+    // Remove multiple consecutive dashes
+    $str = preg_replace('/-+/', '-', $str);
+    // Trim any leading or trailing dashes
+    $str = trim($str, '-');
 
     return $str;
 }

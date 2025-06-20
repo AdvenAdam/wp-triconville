@@ -1,5 +1,5 @@
 <?php
-$character_slug = get_query_var('detail');
+$character_slug = slugify(get_query_var('detail'));
 global $fetched_product_data;
 
 if (empty($fetched_product_data)) {
@@ -219,7 +219,7 @@ jQuery(document).ready(function($) {
         });
     } catch (error) {
         if (error.status === 404) {
-            redirectError(404)
+            // redirectError(404)
         }
         console.error('Error fetching data:', error);
     }
@@ -269,7 +269,7 @@ function renderMaster() {
 
     } catch (error) {
         console.error("🚀 ~ renderMaster ~ error:", error);
-        redirectError();
+        // redirectError();
     } finally {
         $('#page-loading').hide();
         console.timeEnd('renderMaster');
