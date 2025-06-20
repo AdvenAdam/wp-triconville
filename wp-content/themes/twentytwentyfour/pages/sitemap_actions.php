@@ -98,14 +98,13 @@ function fetchProducts($id, $param = null) {
             return array_reduce($keywords, function ($carry, $keyword) use ($product) {
                 $isExclude = strpos($keyword, '!') === 0;
                 $keywordValue = $isExclude ? substr($keyword, 1) : $keyword;
-                return $carry && (
-                    $isExclude ?
-                    !strpos(strtolower($product['name']), $keywordValue) :
-                    strpos(strtolower($product['name']), $keywordValue)
-                );
+                $name = $product['name'];
+                $match = stripos($name, $keywordValue) !== false;
+                return $carry && ($isExclude ? !$match : $match);
             }, true);
         });
         return array_values($products);
+
     } catch (Exception $error) {
         throw $error;
     }
