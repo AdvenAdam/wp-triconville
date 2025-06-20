@@ -392,8 +392,11 @@ function getMaterialsList()
 add_action('init', function () {
     add_rewrite_rule('^collections/([^/]+)/?$', 'index.php?collection=$matches[1]', 'top');
 });
-add_filter('query_vars', fn($vars) => array_merge($vars, ['collection']));
-
+// add_filter('query_vars', fn($vars) => array_merge($vars, ['collection']));
+add_filter('query_vars', function ($query_vars) {
+    $query_vars[] = 'collection';
+    return $query_vars;
+});
 // 2. Fetch collection and setup data
 add_action('template_redirect', function () {
     $slug = get_query_var('collection');
