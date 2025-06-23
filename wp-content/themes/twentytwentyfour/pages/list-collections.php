@@ -3,6 +3,50 @@
 Template Name: List Collections
 */
 get_template_part('header-custom');
+$api_url = BASE_API . '/v1_collections/';
+$api_key = API_KEY;
+
+// Perform the GET request
+$response = wp_remote_get($api_url, [
+    'headers' => [
+        'Authorization' => $api_key,
+    ],
+]);
+$body = wp_remote_retrieve_body($response);
+$data = json_decode($body, true);
+
+// Check for WP error
+if (is_wp_error($response)) {
+    error_log('Request failed: ' . $response->get_error_message());
+    return;
+}
+
+$selectedCollectionId = json_decode(file_get_contents(get_template_directory() . '/api/collection.json'), true)['collection'];
+
+$filteredCollection = [];
+
+if (isset($data['results']) && is_array($data['results'])) {
+    foreach ($data['results'] as $e) {
+        foreach ($selectedCollectionId as $selectedCollection) {
+            if ($e['collection_id'] == $selectedCollection['collection_id']) {
+                // Merge both arrays — values from $selectedCollection override $e
+                $merged = array_merge($e, $selectedCollection);
+                $filteredCollection[] = $merged;
+                break;
+            }
+        }
+    }
+}
+$sortedCollection = $filteredCollection;
+
+// Sort by 'id' ascending
+usort($sortedCollection, function ($a, $b) {
+    $aId = isset($a['id']) ? (int)$a['id'] : 0;
+    $bId = isset($b['id']) ? (int)$b['id'] : 0;
+    return $aId <=> $bId;
+});
+
+
 ?>
 <style>
 body {
@@ -59,6 +103,34 @@ body {
         <div class="max-w-[1440px] mx-auto">
             <div id="grid__collections"
                  class='mb-5 grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-12'>
+                <?php foreach ($sortedCollection as $count => $e): ?>
+                <a href="<?= BASE_LINK ?>/collections/<?= slugify($e['name']) ?>/"
+                   data-aos="fade-up"
+                   data-aos-duration="1000">
+                    <img src="<?= $e['image_grid'] ?? $e['collection_image_768']; ?>"
+                         class="h-auto max-h-[365px] w-full hover:brightness-110 transition duration-300 ease-in-out transform">
+
+                    <h4 class="text-sm mt-4 mb-2">
+                        <?= str_pad($count + 1, 2, '0', STR_PAD_LEFT) . '.'; ?>
+                    </h4>
+
+                    <hr class="w-2/5 border-black" />
+
+                    <div class="flex gap-2">
+                        <h1 class="text-3xl lg:text-5xl font-medium capitalize my-2">
+                            <?= $e['display_name']; ?>
+                        </h1>
+                        <?php if (!empty($e['is_new'])): ?>
+                        <p class="text-xs bg-triconville-red text-white h-fit py-1 px-2 mt-3">New</p>
+                        <?php endif; ?>
+                    </div>
+
+                    <h3 class="text-base line-clamp-2 text-ellipsis">
+                        <?= $e['description']; ?>
+                    </h3>
+                </a>
+                <?php endforeach; ?>
+
             </div>
         </div>
     </div>
@@ -68,6 +140,35 @@ body {
          data-aos-once="true"
          delay="500"
          data-aos-duration="1000">
+        <?php foreach ($sortedCollection as $count => $e): ?>
+        <div class="full-screen-with-subMenu w-screen relative text-white snap-always snap-start"
+             style="
+                    background-position:center; 
+                    background-image: url('<?= esc_url(!empty($e['image_banner']) ? $e['image_banner'] : $e['collection_image_1920']); ?>');
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                ">
+            <a href="<?= BASE_LINK ?>/collections/<?= slugify($e['name']) ?>/">
+                <div class="bg-gradient-to-b from-black/25 to-transparent h-full w-full absolute top-0 left-0 p-8 md:p-5 lg:p-20">
+                    <div class="max-w-[1440px]">
+                        <h4 class='text-white text-sm mt-4 mb-2'>
+                            <?= str_pad($count + 1, 2, '0', STR_PAD_LEFT) . '.'; ?>
+                        </h4>
+                        <hr class='w-1/5 border-white' />
+                        <div class="flex gap-2">
+                            <h1 class="text-3xl lg:text-5xl text-white font-medium capitalize my-2"><?= $e['display_name']; ?></h1>
+                            <?php if (!empty($e['is_new'])): ?>
+                            <p class="text-xs bg-triconville-red text-white h-fit py-1 px-2 mt-3">New</p>
+                            <?php endif; ?>
+                        </div>
+                        <h3 class='text-base line-clamp-2 md:w-1/2 text-white text-ellipsis'>
+                            <?= $e['description']; ?>
+                        </h3>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <?php endforeach; ?>
     </div>
     <div id="page-loading">
 
@@ -79,12 +180,8 @@ body {
     ?>
 </div>
 <script>
-let stop = false;
-let count = 0;
-let selectedCollectionId = [];
-let sortedCollection = [];
-let filteredCollection = [];
 let timeout;
+
 let isMobile = window.matchMedia("(max-width: 767px)").matches;
 $(document).ready(function() {
     isMobile = window.matchMedia("(max-width: 767px)").matches;
@@ -108,51 +205,19 @@ function checkIsMobile(isMobile) {
 }
 
 $(document).ready(function() {
-    $.ajax({
-        url: "<?= BASE_URL; ?>/?rest_route=/wp/v2/selected_collection",
-        type: "GET",
-        success: (res) => {
-            selectedCollectionId = res.collection;
-            loadCollections();
-        }
-    })
+    loadCollections();
 })
 
 function loadCollections() {
     isLoading = true;
     $('#page-loading').show();
-    $.ajax({
-        url: `<?= BASE_API; ?>/v1_collections/`,
-        type: 'GET',
-        headers: {
-            Authorization: '<?= API_KEY; ?>',
-        },
-        success: function(res) {
-            filteredCollection = res.results.filter(e => selectedCollectionId.some(element => element.collection_id === parseInt(e.collection_id))).map(e => {
-                const selectedCollection = selectedCollectionId.find(element => element.collection_id === parseInt(e.collection_id));
-                return {
-                    ...e,
-                    ...selectedCollection
-                };
-            });
-        },
-        error: function(xhr, status, error) {
-            $('#page-loading').hide();
-            $('#errorIndicator').show();
-        },
-        complete: () => {
-            sortedCollection = filteredCollection.sort((a, b) => (a.id > b.id) ? 1 : -1)
-            if (isMobile) {
-                changeView('grid');
-            } else {
-                changeView('list');
-            }
-            sortedCollection.forEach((e, index) => renderCollections(e, index, 'grid'));
-            count = 0;
-            sortedCollection.forEach((e, index) => renderCollections(e, index, 'list'));
-            $('#page-loading').hide();
-        }
-    });
+    if (isMobile) {
+        changeView('grid');
+    } else {
+        changeView('list');
+    }
+    $('#page-loading').hide();
+
 }
 
 function changeView(type) {
@@ -163,69 +228,18 @@ function changeView(type) {
         $('#grid-container').show();
         $('#list__collections').hide();
         $('#grid-button').removeClass('btn-ghost').addClass('btn-ghost-dark');
+        $('.content-container').off('wheel', onscrollHandler);
+
     } else if (type == 'list') {
         $('.content-container').addClass('snap-y snap-mandatory transition duration-500 ease-in-out overflow-y-scroll h-[calc(100vh-5rem)] md:h-[calc(100vh-8rem)]')
         $('#grid-container').hide();
         $('#list__collections').show();
         $('#list-button').removeClass('btn-ghost').addClass('btn-ghost-dark');
+        $('.content-container').on('wheel', onscrollHandler);
+
     }
 }
 
-function renderCollections(e, index, type = 'grid') {
-    count += 1;
-    if (type == 'grid') {
-        $('.content-container').off('wheel', onscrollHandler);
-        $('#grid__collections').append(`
-            <a href= "<?= BASE_LINK; ?>/collections/${slugify(e.name)}/" 
-                data-aos="fade-up"
-                data-aos-duration="1000"
-            >
-                <img src="${e.image_grid || e.collection_image_768}" class="h-auto max-h-[365px] w-full hover:brightness-110 transition duration-300 ease-in-out transform" >
-                <h4 class='text-sm mt-4 mb-2'>
-                    ${count < 10 ? '0' + (count) : count}. 
-                </h4>
-                <hr class='w-2/5 border-black'/>
-                 <div class ="flex gap-2">
-                    <h1 class="text-3xl lg:text-5xl font-medium capitalize my-2">${e.display_name}</h1>
-                    ${e?.is_new ? '<p class="text-xs bg-triconville-red text-white h-fit py-1 px-2 mt-3">New</p>' : ''}
-                </div>
-                <h3 class='text-base line-clamp-2 text-ellipsis'>
-                    ${e.description}
-                </h3>
-            </a>
-        `);
-    } else if (type == 'list') {
-        $('.content-container').on('wheel', onscrollHandler);
-        $('#list__collections').append(`
-            <div class="full-screen-with-subMenu w-screen relative text-white snap-always snap-start" 
-                style="
-                    background-position:center; 
-                    background-image: url('${e.image_banner || e.collection_image_1920}'); 
-                    background-repeat: no-repeat;
-                    background-size: cover;
-                "
-            >
-                <a href= "<?= BASE_LINK; ?>/collections/${slugify(e.name)}/">
-                    <div class="bg-gradient-to-b from-black/25 to-transparent h-full w-full absolute top-0 left-0 p-8 md:p-5 lg:p-20">
-                        <div class="max-w-[1440px]">
-                            <h4 class='text-white text-sm mt-4 mb-2'>
-                                ${count < 10 ? '0' + (count) : count}. 
-                            </h4>
-                            <hr class='w-1/5 border-white'/>
-                            <div class ="flex gap-2">
-                                <h1 class="text-3xl lg:text-5xl text-white font-medium capitalize my-2">${e.display_name}</h1>
-                                ${e?.is_new ? '<p class="text-xs bg-triconville-red text-white h-fit py-1 px-2 mt-3">New</p>' : ''}
-                            </div>
-                            <h3 class='text-base line-clamp-2 md:w-1/2 text-white'>
-                                ${e.description.length > 150 ? e.description.substring(0, 150) + '...' : e.description}
-                            </h3>
-                        </div>
-                    </div>
-                </a>
-           </div>
-        `);
-    }
-}
 
 function onscrollHandler(event) {
     if (timeout) return;
