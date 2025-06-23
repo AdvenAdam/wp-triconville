@@ -3,6 +3,8 @@
 Template Name: List Product
 */
 get_template_part('header-custom');
+
+$productsCategory =  json_decode(file_get_contents(get_template_directory() . '/api/product.json'), true);
 ?>
 
 <style>
@@ -34,40 +36,25 @@ get_template_part('header-custom');
         </h2>
         <div class="max-w-[1440px] mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 md:gap-y-9 mb-20"
              id="product__list">
+            <?php foreach ($productsCategory as $id => $product): ?>
+            <a href="<?= BASE_LINK; ?>/products/<?= slugify($product['name']); ?>/"
+               class="group"
+               data-aos="fade-up"
+               data-aos-once="true"
+               data-aos-delay="<?= ($id +1) * 100 ?>"
+               data-aos-duration="500">
+                <div>
+                    <img class="w-full h-full object-cover md:object-contain group-hover:scale-[.97] group-hover:brightness-110 transition duration-300"
+                         src="<?= $product['thumb']; ?>"
+                         alt="<?= $product['name']; ?>" />
+                </div>
+                <p class="capitalize text-center md:-mt-5 group-hover:underline"><?= $product['name']; ?></p>
+            </a>
+            <?php endforeach; ?>
         </div>
 
     </div>
 </div>
-<script>
-$(document).ready(function() {
-    let category = [];
-
-    $.ajax({
-        url: "<?= BASE_URL; ?>/?rest_route=/wp/v2/product_service",
-        type: "GET",
-        success: (res) => {
-            res.forEach((e, id) => {
-                renderProducts(e, id);
-            });
-        }
-    })
-})
-
-function renderProducts(e, id) {
-    $('#product__list').append(`
-        <a href= "<?= BASE_LINK; ?>/products/${e.slug}" class="group" 
-            data-aos="fade-up"
-            data-aos-once="true"
-            data-aos-delay="${(id +1) * 100}"
-            data-aos-duration="500">
-            <div>
-                <img class="w-full h-full object-cover md:object-contain group-hover:scale-[.97] group-hover:brightness-110 transition duration-300" src="${e.thumb}" alt="${e.name}" />
-            </div>
-            <p class="capitalize text-center md:-mt-5 group-hover:underline">${e.name}</p>
-        </a>
-    `);
-}
-</script>
 
 <?php
 // Conditional for footer
