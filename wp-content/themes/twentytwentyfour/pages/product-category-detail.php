@@ -220,7 +220,7 @@ function renderProducts(data, headerTitle = 'All Types') {
                     <img class="w-auto lg:h-[384px] h-[240px] object-contain group-hover:scale-[.97] group-hover:brightness-110 transition duration-300" alt="${e.name}" src="${e.product_image_384}" />
                     <div class="md:mt-[-30px] max-w-[90%] -mt-5 sm:-mt-10 lg:-mt-16 xl:-mt-10 flex gap-2 items-center">
                         ${isNew ? '<p class="mx-auto text-xs bg-triconville-red text-white w-fit py-1 px-2">NEW</p>' : ''}
-                        <p class="text-center text-sm group-hover:underline">${filterProductName(e.name)}</p>
+                        <p class="text-center text-sm group-hover:underline z-10">${filterProductName(e.name)}</p>
                     </div>
                 </div>
             </a>
