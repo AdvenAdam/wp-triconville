@@ -212,26 +212,30 @@ add_theme_support('menus');
 // REDIRECT HEADER
 add_action('template_redirect', 'geoip_country_redirect');
 
-function geoip_country_redirect() {
-    // if (is_admin()) return;
+add_action('template_redirect', 'geoip_country_redirect');
 
-    if (function_exists('geoip_detect2_get_info_from_ip') && ENV == 'prod') {
+function geoip_country_redirect() {
+    if (function_exists('geoip_detect2_get_info_from_ip') && defined('ENV') && ENV === 'prod') {
         $ip = $_SERVER['REMOTE_ADDR'];
         $geo = geoip_detect2_get_info_from_ip($ip);
 
         if ($geo && isset($geo->country->isoCode)) {
-            $country = $geo->country->isoCode;
+            $country = strtoupper($geo->country->isoCode);
             $host = $_SERVER['HTTP_HOST'];
+            $uri  = $_SERVER['REQUEST_URI'];
 
-            if ($country === 'MY' && strpos($host, 'triconville.com/my') === false) {
-                wp_redirect('https://triconville.com/my' . $_SERVER['REQUEST_URI'], 302);
+            // Malaysia
+            if (
+                $country === 'MY' &&
+                strpos($host, 'triconville.com') !== false &&
+                strpos($uri, '/my/') !== 0
+            ) {
+                wp_redirect('https://triconville.com/my' . $uri, 302);
                 exit;
             }
         }
     }
 }
-
-
 
 function get_base_link() {
     return trailingslashit( get_site_url() );
