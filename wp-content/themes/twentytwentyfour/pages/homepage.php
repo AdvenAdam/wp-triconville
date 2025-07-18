@@ -359,7 +359,7 @@ function renderCollections(collection) {
     $('#colection-selected').append(`
         <div style="background-image: url(${collection.image_grid});"
             class="bg-cover bg-no-repeat bg-center h-[300px] sm:h-[365px] lg:mx-0 mx-2 w-auto overflow-hidden">
-            <a href=""<?= get_base_link(); ?>/collections/${slugify(collection.name)}/">
+            <a href="<?= get_base_link(); ?>collections/${slugify(collection.name)}/">
                 <div class="h-[25vh] lg:h-full w-full md:h-[35vh] flex group items-end md:hover:bg-gradient-to-b from-transparent to-black/40 p-5">
                     <div class="max-w-md transition duration-300 translate-y-14 md:group-hover:translate-y-0 ease-in-out">
                         <h1 class="text-3xl lg:text-5xl text-white p-3 lg:p-0">
