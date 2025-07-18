@@ -18,11 +18,11 @@
                             company email.
                         </p>
                         <div class="flex sm:flex-row flex-col gap-2 mt-10">
-                            <a href="<?= BASE_LINK; ?>"
+                            <a href=""<?= get_base_link(); ?>"
                                class='btn-ghost-dark uppercase text-sm flex items-center gap-2 w-fit'>
                                 back to home
                             </a>
-                            <a href="<?= BASE_LINK; ?>/find-a-store/"
+                            <a href=""<?= get_base_link(); ?>/find-a-store/"
                                class="btn-ghost flex items-end justify-center uppercase">
                                 <p class="text-xs">Find a Store</p>
                             </a>

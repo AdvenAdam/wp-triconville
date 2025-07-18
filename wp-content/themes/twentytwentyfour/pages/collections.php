@@ -60,7 +60,7 @@
         </div>
 
         <div class="flex justify-center mt-5">
-            <a href="<?= BASE_LINK; ?>/collections/"
+            <a href=""<?= get_base_link(); ?>/collections/"
                class='btn-ghost uppercase text-sm mt-5'> view all collections</a>
         </div>
 
@@ -126,7 +126,7 @@ function renderMaster() {
         </section>
     `)
 
-    let storeLink = '<?= BASE_LINK; ?>/find-a-store/';
+    let storeLink = '"<?= get_base_link(); ?>/find-a-store/';
     let storeLabel = "Find a Store";
 
     switch (countryLocation) {
@@ -214,7 +214,7 @@ function renderMaster() {
                     </h3>
                     <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 mt-5 gap-4 justify-center container mt-5 mb-10">
                         ${collectionData.product_list.map((pr, i) => `
-                            <a href="<?= BASE_LINK; ?>/product-detail/${slugify(pr.name)}/" class='flex justify-center items-center flex-col group'
+                            <a href=""<?= get_base_link(); ?>/product-detail/${slugify(pr.name)}/" class='flex justify-center items-center flex-col group'
                                 data-aos="fade-up"
                                 data-aos-once="true"
                                 data-aos-duration="1000"
@@ -304,7 +304,7 @@ function loadMoreCollections() {
 
 function renderMoreCollections(collection) {
     $('#project__slider_1').append(`
-        <a href= "<?= BASE_LINK; ?>/collections/${slugify(collection.name)}/" class="mx-1 md:mx-2 !h-fit">
+        <a href= ""<?= get_base_link(); ?>/collections/${slugify(collection.name)}/" class="mx-1 md:mx-2 !h-fit">
             <img src="${collection.image_grid || collection.collection_image_1024}" 
                 class="w-auto h-auto object-cover hover:brightness-110 transition duration-300" />
             <h4 class='text-sm mt-4 mb-2'>

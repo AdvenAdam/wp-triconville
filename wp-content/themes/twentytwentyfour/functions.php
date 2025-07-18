@@ -147,7 +147,6 @@ if (!function_exists('twentytwentyfour_block_styles')) :
 endif;
 
 add_action('init', 'twentytwentyfour_block_styles');
-
 /**
  * Enqueue block stylesheets.
  */
@@ -210,6 +209,9 @@ endif;
 add_theme_support('menus');
 
 // NOTE 404 Page
+function get_base_link() {
+    return trailingslashit( get_site_url() );
+}
 function twentytwentyfour_template_404($template) {
 	if (is_404()) {
 		return get_theme_file_path('404.php');

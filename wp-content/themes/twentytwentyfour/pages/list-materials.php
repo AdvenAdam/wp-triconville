@@ -299,20 +299,22 @@ async function materialClick(slug, code) {
             </p>
         `)
 
-        $('#material__care__' + slugify(swatchOption.alias)).append(swatchOption.care_features.map(care_feature => {
-            return `
-                <div class="flex flex-col items-center">
-                    <img class="w-12 h-12 hidden lg:block" src="${care_feature.image}" alt="${care_feature.name}" />
-                    <p class="text-center text-xs hidden lg:block">${care_feature.name}</p>
-                    <div class="group option_2 cursor-pointer relative id="${care_feature.name}">
-                        <div id="tooltip-${care_feature.name}" class=" absolute -top-16 -left-12 w-fit z-10 invisible group-hover:visible inline-block bg-gray-900 rounded-lg shadow-sm opacity-0 group-hover:opacity-100 ">
-                            <p class="px-3 py-2 font-medium text-white w-[140px]">${care_feature.name}</p>
+        if (Array.isArray(swatchOption.care_features) && swatchOption.care_features.length > 0) {
+            $('#material__care__' + slugify(swatchOption.alias)).append(swatchOption.care_features.map(care_feature => {
+                return `
+                    <div class="flex flex-col items-center">
+                        <img class="w-12 h-12 hidden lg:block" src="${care_feature.image}" alt="${care_feature.name}" />
+                        <p class="text-center text-xs hidden lg:block">${care_feature.name}</p>
+                        <div class="group option_2 cursor-pointer relative id="${care_feature.name}">
+                            <div id="tooltip-${care_feature.name}" class=" absolute -top-16 -left-12 w-fit z-10 invisible group-hover:visible inline-block bg-gray-900 rounded-lg shadow-sm opacity-0 group-hover:opacity-100 ">
+                                <p class="px-3 py-2 font-medium text-white w-[140px]">${care_feature.name}</p>
+                            </div>
+                            <img src="${care_feature.image}" class="w-12 h-12 object-contain lg:hidden"/>
                         </div>
-                        <img src="${care_feature.image}" class="w-12 h-12 object-contain lg:hidden"/>
                     </div>
-                </div>
-            `
-        }).join(''))
+                `
+            }).join(''))
+        }
     }
     await loadImages();
     await loadInfo();

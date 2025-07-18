@@ -27,19 +27,19 @@
                             <div class="about tracking-wider">
                                 <p class='mb-3 uppercase text-sm font-bold '>Triconville</p>
                                 <p class='text-sm py-1'>
-                                    <a href='<?= BASE_LINK; ?>/about-us/'> Brand </a>
+                                    <a href='<?= get_base_link(); ?>about-us/'> Brand </a>
                                 </p>
                                 <p class='text-sm py-1'>
-                                    <a href='<?= BASE_LINK; ?>/find-a-store/'> Stores </a>
+                                    <a href='<?= get_base_link(); ?>find-a-store/'> Stores </a>
                                 </p>
                                 <p class='text-sm py-1'>
-                                    <a href='<?= BASE_LINK; ?>/inspiration/'> Inspirations </a>
+                                    <a href='<?= get_base_link(); ?>inspiration/'> Inspirations </a>
                                 </p>
                                 <p class='text-sm py-1'>
-                                    <a href='<?= BASE_LINK; ?>/materials/'> Materials </a>
+                                    <a href='<?= get_base_link(); ?>materials/'> Materials </a>
                                 </p>
                                 <p class='text-sm py-1'>
-                                    <a href='<?= BASE_LINK; ?>/request-catalog/'> Catalog </a>
+                                    <a href='<?= get_base_link(); ?>request-catalog/'> Catalog </a>
                                 </p>
                             </div>
                             <div class="about tracking-wider"
@@ -83,7 +83,7 @@
                     </div>
                     <div class="xl:w-2/5 w-full">
                         <div class="stores">
-                            <a href="<?= BASE_LINK; ?>/find-a-store/"
+                            <a href="<?= get_base_link(); ?>find-a-store/"
                                class="flex items-center w-full gap-3">
                                 <h2 class="text-2xl xl:text-3xl md:text-center font-medium">
                                     Find the Nearest Store
@@ -231,14 +231,14 @@ $(document).ready(function() {
     productCategories.forEach((category) => {
         $('#products-categories-footer').append(`
             <p class='text-sm py-1'>
-                <a href='<?= BASE_LINK; ?>/products/${category.slug}/'>${category.name}</a>
+                <a href='<?= get_base_link(); ?>products/${category.slug}/'>${category.name}</a>
             </p>
         `)
     })
     Moods.forEach((mood) => {
         $('#moods-categories-footer').append(`
             <p class='text-sm py-1'>
-                <a href='<?= BASE_LINK; ?>/moods/${mood.slug}/'>${mood.name}</a>
+                <a href='<?= get_base_link(); ?>moods/${mood.slug}/'>${mood.name}</a>
             </p>
         `)
     })

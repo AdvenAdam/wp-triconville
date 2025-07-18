@@ -77,7 +77,7 @@ function renderBanner() {
                     data-aos-once="true"
                     data-aos-duration="1000"
                     >
-                    <a href="<?= BASE_LINK ?>/moods/${mood.slug}/"
+                    <a href="<?= get_base_link(); ?>moods/${mood.slug}/"
                         style="background-image: linear-gradient(to bottom, transparent, ${mood.color});"
                         class="h-full w-full flex flex-col items-end justify-end p-5 transition duration-300 md:translate-y-14 md:group-hover:translate-y-0 md:hover:translate-y-0 ease-in-out">
                         <h1 class="text-2xl md:text-3xl xl:text-5xl !leading-none font-medium text-end text-white max-w-[260px] md:mb-6">${mood.name}</h1>

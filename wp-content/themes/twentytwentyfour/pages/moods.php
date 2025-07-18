@@ -79,7 +79,7 @@ get_template_part('header-custom');
                     <div class="snap-center me-2">
                         <div class="h-[600px] w-80 max-w-screen bg-no-repeat bg-center bg-cover group overflow-hidden"
                              style="background-image: url('<?= $mood['thumb']; ?>')">
-                            <a href="<?= BASE_LINK ?>/moods/<?= $mood['slug']; ?>/"
+                            <a href="<?= get_base_link(); ?>moods/<?= $mood['slug']; ?>/"
                                style="background-image: linear-gradient(to bottom, transparent, <?= $mood['color']; ?>);"
                                class="h-full w-full flex flex-col items-end justify-end p-5 transition duration-300 md:translate-y-14 md:group-hover:translate-y-0 ease-in-out">
                                 <h2 class="text-3xl lg:text-5xl !leading-none font-medium text-end text-white max-w-[160px] md:max-w-[260px] md:mb-6"><?= $mood['name']; ?></h2>
@@ -199,7 +199,7 @@ function renderCatalogue(catalogueImage) {
                     <p class="uppercase text-xs tracking-widest mood-color mb-2">CATALOG</p>
                     <h2 class="mood-color text-3xl">Triconville - 2025 Catalog</h2>
                     <p class="tracking-wider mt-3 mb-12 mood-color">Discover an unrivaled selection of luxuriant designs from Triconville. Brought to life with captivating imagery, the 2025 Triconville catalogue is a go-to resource for inspiration and information. Qualified trade members can reserve a copy by filling out the form below.</p>
-                    <p><a href="<?= BASE_LINK ?>/request-catalog" class="btn-ghost uppercase text-xs  mood-color">Request Catalog</a></p>
+                    <p><a href="<?= get_base_link(); ?>request-catalog" class="btn-ghost uppercase text-xs  mood-color">Request Catalog</a></p>
                 </div>
                 <img src="${catalogueImage}" class=" w-full h-auto object-cover order-1 sm:order-2" />
             </div>

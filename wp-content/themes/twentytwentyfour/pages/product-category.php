@@ -37,7 +37,8 @@ $productsCategory =  json_decode(file_get_contents(get_template_directory() . '/
         <div class="max-w-[1440px] mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 md:gap-y-9 mb-20"
              id="product__list">
             <?php foreach ($productsCategory as $id => $product): ?>
-            <a href="<?= BASE_LINK; ?>/products/<?= slugify($product['name']); ?>/"
+            <a href=""
+               <?= get_base_link(); ?>/products/<?= slugify($product['name']); ?>/"
                class="group"
                data-aos="fade-up"
                data-aos-once="true"

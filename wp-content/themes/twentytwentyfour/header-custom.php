@@ -255,24 +255,19 @@
 
     <script>
     const productCategories = <?php echo file_get_contents(get_template_directory() . '/api/product.json'); ?>
+    const menus = <?php echo file_get_contents(get_template_directory() . '/api/top-nav.json'); ?>
     $(document).ready(function() {
-        $.ajax({
-            url: '<?php echo BASE_URL; ?>/?rest_route=/wp/v2/top-nav',
-            type: 'GET',
-            success: function(menus) {
-                menus.forEach((menu) => {
-                    renderLink(menu);
-                });
-            },
-            error: function(xhr, status, error) {
-                console.error('Error fetching top navigation items:', error);
-            },
-            complete: function() {
-                setActiveLink();
-                showSubMenu();
-                navSubMenu();
-            }
-        });
+        try {
+            menus.forEach((menu) => {
+                renderLink(menu);
+            });
+        } catch (error) {
+            console.error('Error fetching top navigation items:', error);
+        } finally {
+            setActiveLink();
+            showSubMenu();
+            navSubMenu();
+        }
     });
 
     function showSubMenu() {
@@ -383,7 +378,7 @@
 
         // Append main link to the navbar menu
         $('#navbar_menu_category').append(`
-            <a href="${menu.href}" class="flex items-center">
+            <a href="<?= get_base_link(); ?>${menu.href}" class="flex items-center">
                 <p class="uppercase text-xs hover:text-triconville-blue" id="${slugify(menu.name)}-link">${menu.name}</p>
             </a>
         `);
@@ -398,7 +393,7 @@
             $('#navbar__category').append(`
                 <li>
                     <a class="${mobileClass}"
-                        href="${menu.href}"
+                        href="<?= get_base_link(); ?>${menu.href}"
                     >
                         <h5 class="text-lg font-medium">${menu.name}</h5>
                     </a>
@@ -410,7 +405,7 @@
             // Append regular link without submenu
             $('#navbar__category').append(`
                 <li>
-                    <a href="${menu.href}" class="${mobileClass}">
+                    <a href="<?= get_base_link(); ?>${menu.href}" class="${mobileClass}">
                         <h5 class="text-lg font-medium">${menu.name}</h5>
                     </a>
                 </li>
@@ -445,11 +440,11 @@
         submenuData.forEach((item) => {
             let href;
             if (menu === 'Products') {
-                href = `<?= BASE_LINK; ?>/products/${item.slug}/`;
+                href = `<?= get_base_link(); ?>products/${item.slug}/`;
             } else if (menu === 'Inspirations') {
-                href = `<?= BASE_LINK; ?>/${item.slug}/`;
+                href = `<?= get_base_link(); ?>${item.slug}/`;
             } else {
-                href = `<?= BASE_LINK; ?>/collections/${slugify(item.name)}/`;
+                href = `<?= get_base_link(); ?>collections/${slugify(item.name)}/`;
             }
 
             const displayName = item.display_name || item.name;
@@ -516,7 +511,7 @@
 
     function redirectError(status = 404) {
         if (status === 404) {
-            window.location.href = "<?= BASE_LINK; ?>/page-not-found";
+            window.location.href = "<?= get_base_link(); ?>/page-not-found";
         }
     }
     </script>
