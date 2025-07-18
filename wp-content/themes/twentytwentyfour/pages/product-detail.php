@@ -138,8 +138,7 @@ get_template_part('header-custom');
                 <div class="collection__product grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mb-16 justify-center">
                     <?php foreach ($data['collection_product'] as $product): ?>
                     <?php $isNew = in_array($product['collection'], $newCollection); ?>
-                    <a href=""
-                       <?= get_base_link(); ?>/product-detail/<?= slugify($product['name']); ?>/">
+                    <a href="<?= get_base_link(); ?>product-detail/<?= slugify($product['name']); ?>/">
                         <div class="product__card group flex flex-col items-center justify-center">
                             <img src="<?= $product['product_image'] ?>"
                                  alt="<?= $product['name'] ?>"
@@ -176,8 +175,7 @@ get_template_part('header-custom');
                 <div class="releted__products my-10">
                     <?php foreach ($data['related_product'] as $product): ?>
                     <?php $isNew = in_array($product['collection'], $newCollection); ?>
-                    <a href=""
-                       <?= get_base_link(); ?>/product-detail/<?= slugify($product['name']); ?>/"
+                    <a href="<?= get_base_link(); ?>product-detail/<?= slugify($product['name']); ?>/"
                        class="max-h-60 md:max-h-96">
                         <div class="product__card group flex flex-col items-center justify-center mx-1">
                             <img src="<?= $product['product_image'] ?>"
@@ -345,7 +343,7 @@ async function renderOverview(res) {
                      class="w-full h-auto rounded-xl" />
                 `);
     }
-    let storeLink = '"<?= get_base_link(); ?>/find-a-store/';
+    let storeLink = '<?= get_base_link(); ?>find-a-store/';
     let storeLabel = "Find a Store";
 
     switch (countryLocation) {
