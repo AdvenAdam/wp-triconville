@@ -57,6 +57,11 @@ define('ENV', 'prod');
 *
 * @since 2.6.0
 */
+
+// MULTISITE
+define( 'WP_ALLOW_MULTISITE', true );
+
+
 define('AUTH_KEY',         'bBD`h+V1b9M2o?Zc.m83>+~MS?i/9AEOWh)/k#}LCqLW2g(;k58RqYG>TaITjE.H');
 define('SECURE_AUTH_KEY',  '`Q~/:7q/9%K|,`+1*bE}w^Rrq;T jEPOV;=o}@PiE`9/emm+<Lwz@q6/LX<jp>S[');
 define('LOGGED_IN_KEY',    'Vr//5[D5~vAv8FHc*(<=R:O4WzSg87.c=BB{F4/#;D>mNr2o&yW7kby0,qXRqrJz');
