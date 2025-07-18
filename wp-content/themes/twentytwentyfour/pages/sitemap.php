@@ -18,12 +18,12 @@ $moods = json_decode(file_get_contents(get_template_directory() . '/api/moods.js
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
     <url>
-        <loc><?= BASE_URL; ?>/</loc>
+        <loc><?= get_base_link(); ?></loc>
         <lastmod>2025-01-23T08:56:26+00:00</lastmod>
     </url>
 
     <url>
-        <loc><?= BASE_URL; ?>/products/</loc>
+        <loc><?= get_base_link(); ?>products/</loc>
         <lastmod>2024-09-19T04:55:40+00:00</lastmod>
     </url>
     <!-- NOTE List Of Product - Category -->
@@ -32,7 +32,7 @@ $moods = json_decode(file_get_contents(get_template_directory() . '/api/moods.js
             $category = str_replace('-', ' ', $category['slug']);
             $category = slugify($category);
             echo "<url>\n";
-            echo "<loc>" . BASE_URL . "/products/{$category}/</loc>\n";
+            echo "<loc>" . get_base_link() . "products/{$category}/</loc>\n";
             echo "<lastmod>" . date('c') . "</lastmod>\n";
             echo "</url>\n";
         }
@@ -43,7 +43,7 @@ $moods = json_decode(file_get_contents(get_template_directory() . '/api/moods.js
             $collection = str_replace('-', ' ', $collection['name']);
             $collection = slugify($collection);
             echo "<url>\n";
-            echo "<loc>" . BASE_URL . "/collections/{$collection}/</loc>\n";
+            echo "<loc>" . get_base_link() . "collections/{$collection}/</loc>\n";
             echo "<lastmod>" . date('c') . "</lastmod>\n";
             echo "</url>\n";
         }
@@ -56,14 +56,14 @@ $moods = json_decode(file_get_contents(get_template_directory() . '/api/moods.js
             $product = str_replace('-', ' ', $product);
             $product = slugify($product);
             echo "<url>\n";
-            echo "<loc>" . BASE_URL . "/product-detail/{$product}/</loc>\n";
+            echo "<loc>" . get_base_link() . "product-detail/{$product}/</loc>\n";
             echo "<lastmod>" . date('c') . "</lastmod>\n";
             echo "</url>\n";
         }
     ?>
 
     <url>
-        <loc><?= BASE_URL; ?>/news/</loc>
+        <loc><?= get_base_link(); ?>news/</loc>
         <lastmod>2024-12-09T04:06:22+00:00</lastmod>
     </url>
     <?php 
@@ -77,7 +77,7 @@ $moods = json_decode(file_get_contents(get_template_directory() . '/api/moods.js
              endwhile; wp_reset_postdata(); endif;
     ?>
     <url>
-        <loc><?= BASE_URL; ?>/moods/</loc>
+        <loc><?= get_base_link(); ?>moods/</loc>
         <lastmod>2024-10-08T02:45:14+00:00</lastmod>
     </url>
     <!-- NOTE List Of Mood -->
@@ -86,39 +86,39 @@ $moods = json_decode(file_get_contents(get_template_directory() . '/api/moods.js
             $mood = str_replace('-', ' ', $mood['slug']);
             $mood = slugify($mood);
             echo "<url>\n";
-            echo "<loc>" . BASE_URL . "/moods/{$mood}/</loc>\n";
+            echo "<loc>" . get_base_link() . "moods/{$mood}/</loc>\n";
             echo "<lastmod>" . date('c') . "</lastmod>\n";
             echo "</url>\n";
         }
     ?>
 
     <url>
-        <loc><?= BASE_URL; ?>/materials/</loc>
+        <loc><?= get_base_link(); ?>materials/</loc>
         <lastmod>2024-09-23T06:50:54+00:00</lastmod>
     </url>
 
     <url>
-        <loc><?= BASE_URL; ?>/inspiration/</loc>
+        <loc><?= get_base_link(); ?>inspiration/</loc>
         <lastmod>2024-11-25T04:09:12+00:00</lastmod>
     </url>
 
     <url>
-        <loc><?= BASE_URL; ?>/about-us/</loc>
+        <loc><?= get_base_link(); ?>about-us/</loc>
         <lastmod>2025-01-23T09:57:59+00:00</lastmod>
     </url>
 
     <url>
-        <loc><?= BASE_URL; ?>/contact-us/</loc>
+        <loc><?= get_base_link(); ?>contact-us/</loc>
         <lastmod>2024-11-19T03:18:44+00:00</lastmod>
     </url>
 
     <url>
-        <loc><?= BASE_URL; ?>/find-a-store/</loc>
+        <loc><?= get_base_link(); ?>find-a-store/</loc>
         <lastmod>2024-12-06T03:56:10+00:00</lastmod>
     </url>
 
     <url>
-        <loc><?= BASE_URL; ?>/request-catalog/</loc>
+        <loc><?= get_base_link(); ?>request-catalog/</loc>
         <lastmod>2025-01-23T09:00:41+00:00</lastmod>
     </url>
 

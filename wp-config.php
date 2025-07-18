@@ -40,7 +40,7 @@ define('DB_COLLATE', '');
 
 define('BASE_API', 'https://platform.indospacegroup.com/v1/');
 define('API_KEY', 'Token 09633df1426fce26fc53de676e8bb65f47a0dcf1');
-define('BASE_URL', 'http://192.168.88.65/triconville');
+define('BASE_URL', 'http://localhost/triconville');
 define('BASE_LINK', '/triconville');
 define('ENV', 'development');
 
@@ -89,6 +89,15 @@ $table_prefix = 'wp_';
 define('WP_DEBUG', true);
 define('WP_DEBUG_LOG', true);
 define('WP_DEBUG_DISPLAY', true);
+/* Multisite */
+define( 'WP_ALLOW_MULTISITE', true );
+define( 'MULTISITE', true );
+define( 'SUBDOMAIN_INSTALL', false );
+define( 'DOMAIN_CURRENT_SITE', 'localhost' );
+define( 'PATH_CURRENT_SITE', '/triconville/' );
+define( 'SITE_ID_CURRENT_SITE', 1 );
+define( 'BLOG_ID_CURRENT_SITE', 1 );
+
 /* Add any custom values between this line and the "stop editing" line. */
 
 define('WP_CACHE', false);

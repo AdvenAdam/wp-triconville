@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Brand",
+    "href": "about-us/"
+  },
+  {
+    "name": "Products",
+    "href": "products/"
+  },
+  {
+    "name": "Collections",
+    "href": "collections/"
+  },
+  {
+    "name": "Inspirations",
+    "href": "inspiration/"
+  },
+  {
+    "name": "Contact",
+    "href": "contact-us/"
+  },
+  {
+    "name": "Stores",
+    "href": "find-a-store/"
+  }
+]

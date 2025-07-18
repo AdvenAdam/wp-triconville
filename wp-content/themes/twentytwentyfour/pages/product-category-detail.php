@@ -210,7 +210,7 @@ function renderProducts(data, headerTitle = 'All Types') {
     data.sort((a, b) => a.name.localeCompare(b.name)).forEach((e, index) => {
         const isNew = newCollection.includes(e.collection);
         $(`#product__list__${slugify(headerTitle)}`).append(`
-            <a href= "<?= BASE_LINK; ?>/product-detail/${slugify(e.name)}/"
+            <a href= ""<?= get_base_link(); ?>/product-detail/${slugify(e.name)}/"
                 class="product__${slugify(headerTitle)}"
                 data-aos="fade-up"
                 data-aos-once="true"
