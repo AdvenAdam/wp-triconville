@@ -122,6 +122,22 @@
     }
     </style>
 </head>
+<?php 
+
+    $location = null;
+    if (function_exists('geoip_detect2_get_info_from_ip')) {
+        $ip = get_client_ip();
+        $locales = geoip_detect2_get_info_from_ip($ip);
+        if ($locales && isset($locales->country->name)) {
+            $location = $locales->country->name;
+        } else {
+            echo 'Could not determine country.';
+        }
+    } else {
+        echo 'GeoIP Detection not available.';
+    }
+    var_dump(wp_is_mobile());
+?>
 
 <body <?php body_class(); ?>>
     <!-- Google Tag Manager (noscript) -->
