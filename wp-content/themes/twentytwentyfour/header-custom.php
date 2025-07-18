@@ -122,27 +122,6 @@
     }
     </style>
 </head>
-<?php
-if (function_exists('geoip_detect2_get_info_from_ip') && ENV === 'prod') {
-    $ip = get_client_ip(); // make sure this function correctly resolves the IP
-    $geoInfo = geoip_detect2_get_info_from_ip($ip);
-    
-    if ($geoInfo && isset($geoInfo->country->isoCode)) {
-        $country = $geoInfo->country->isoCode;
-        
-        // Redirect based on country code
-        if ($country === 'MY') {
-            header("Location: https://triconville.com/my/");
-            exit;
-        } else {
-            header("Location: https://triconville.com/");
-            exit;
-        }
-    } else {
-        echo 'Could not determine country.';
-    }
-}
-?>
 
 
 <body <?php body_class(); ?>>
