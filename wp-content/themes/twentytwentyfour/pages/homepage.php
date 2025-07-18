@@ -87,7 +87,7 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                     <p class="mt-3 mb-12">
                         For decades, Triconville has grown steadily, rooted in core values that honor tradition, quality, and integrity, and guided by a global vision—bringing timeless, handcrafted pieces to homes and spaces around the world.
                     </p>
-                    <a href="<?= BASE_LINK ?>/about-us/"
+                    <a href="<?= get_base_link() ?>about-us/"
                        class='btn-ghost uppercase tracking-widest text-xs'>
                         learn about our Brand
                     </a>
@@ -112,7 +112,7 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                 <div class="block lg:grid lg:grid-cols-2 gap-3 mt-5 mb-10 collection__wrapper "
                      id="colection-selected"></div>
                 <div class="text-center">
-                    <a href="<?= BASE_LINK ?>/collections/"
+                    <a href="<?= get_base_link() ?>collections/"
                        class='btn-ghost uppercase text-xs tracking-widest'>
                         all collections
                     </a>
@@ -130,7 +130,7 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-1 lg:gap-3 mt-5 mb-10"
                      id="inspiration-selected"></div>
                 <div class="text-center">
-                    <a href="<?= BASE_LINK ?>/inspiration/"
+                    <a href="<?= get_base_link() ?>inspiration/"
                        class='btn-ghost uppercase text-xs tracking-widest'>
                         Get Inspired
                     </a>
@@ -147,7 +147,7 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                         <p class="text-xs uppercase tracking-widest mb-2">MOODS</p>
                         <h2 class="text-2xl lg:text-3xl">Your World, Your Style, Your Outdoors.</h2>
                         <p class=" mt-3 mb-10">We believe every outdoor space has a story to tell. It should be as unique as you are. Hence we've curated a diverse collection of furniture styles to complement any outdoor space and reflect your personal taste:</p>
-                        <a href="<?= BASE_LINK ?>/moods/"
+                        <a href="<?= get_base_link() ?>moods/"
                            class='btn-ghost uppercase text-xs tracking-widest'>
                             EXPLORE MOODS
                         </a>
@@ -226,7 +226,7 @@ $posts = query_posts('post_type=post&posts_per_page=3&order=DESC&orderby=date&ca
                     <?php endforeach; ?>
                 </div>
                 <div class="text-center mt-10 lg:mt-0">
-                    <a href="<?= BASE_LINK ?>/news/"
+                    <a href="<?= get_base_link() ?>news/"
                        class="btn-ghost uppercase text-xs tracking-widest">All News</a>
                 </div>
             </div>
