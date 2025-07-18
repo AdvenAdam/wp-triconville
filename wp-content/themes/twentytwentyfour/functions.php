@@ -215,7 +215,7 @@ add_action('template_redirect', 'geoip_country_redirect');
 function geoip_country_redirect() {
     // if (is_admin()) return;
 
-    if (function_exists('geoip_detect2_get_info_from_ip')) {
+    if (function_exists('geoip_detect2_get_info_from_ip') && ENV == 'prod') {
         $ip = $_SERVER['REMOTE_ADDR'];
         $geo = geoip_detect2_get_info_from_ip($ip);
 
