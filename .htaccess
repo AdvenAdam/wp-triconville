@@ -1,14 +1,18 @@
 RewriteEngine On
-RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
 RewriteBase /
 RewriteRule ^index\.php$ - [L]
 
-# add a trailing slash to /wp-admin
+# Allow access to wp-admin
 RewriteRule ^wp-admin$ wp-admin/ [R=301,L]
 
+# Handle existing files/directories
 RewriteCond %{REQUEST_FILENAME} -f [OR]
 RewriteCond %{REQUEST_FILENAME} -d
 RewriteRule ^ - [L]
+
+# Allow access to multisite wp-(content|admin|includes)
 RewriteRule ^(wp-(content|admin|includes).*) $1 [L]
 RewriteRule ^(.*\.php)$ $1 [L]
+
+# Handle everything else via index.php
 RewriteRule . index.php [L]
