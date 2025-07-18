@@ -154,7 +154,7 @@ get_template_part('header-custom');
                     <?php endforeach; ?>
                 </div>
                 <div class="collection__product__btn text-center">
-                    <a href="<?= BASE_LINK ?>/collections/<?= $data['collection_det']; ?>/"
+                    <a href="<?= get_base_link() ?>collections/<?= $data['collection_det']; ?>/"
                        class='btn-ghost uppercase text-xs'>
                         discover <?= $data['collection_det']; ?> collection
                     </a>
