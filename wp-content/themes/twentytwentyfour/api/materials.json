@@ -5,13 +5,13 @@
       "name": "Discover our fabrics",
       "alias": "Fabrics",
       "banner": "https://storage.googleapis.com/magento-asset/wp_triconville/images/material/banner/fabric.png",
-      "slugs": ["olefin-fabric", "sunbrella-fabric", "outdoor-luxe"],
+      "slugs": ["solution-dyed-polyester---olefin-fabric", "sunbrella-fabric", "outdoor-luxe"],
       "subGroups": [
         {
           "name": "Solution Dyed Polyster / Olefin Fabric",
           "description": "Solution dyed polyster is premium quality of outdoor fabric which provides the exclusive solution for your comfort. Color fastness to light, chlorinated pool water, anti bacterial, anti mildew, and UV resistance.",
           "filters": {
-            "slug": "olefin-fabric",
+            "slug": "solution-dyed-polyester---olefin-fabric",
             "keywords": "!laytown"
           }
         },

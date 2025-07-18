@@ -136,7 +136,7 @@
     } else {
         echo 'GeoIP Detection not available.';
     }
-    var_dump(wp_is_mobile());
+    var_dump($location);
 ?>
 
 <body <?php body_class(); ?>>
