@@ -60,6 +60,12 @@ define('ENV', 'prod');
 
 // MULTISITE
 define( 'WP_ALLOW_MULTISITE', true );
+define( 'MULTISITE', true );
+define( 'SUBDOMAIN_INSTALL', true );
+define( 'DOMAIN_CURRENT_SITE', 'triconville.com' );
+define( 'PATH_CURRENT_SITE', '/' );
+define( 'SITE_ID_CURRENT_SITE', 1 );
+define( 'BLOG_ID_CURRENT_SITE', 1 );
 
 
 define('AUTH_KEY',         'bBD`h+V1b9M2o?Zc.m83>+~MS?i/9AEOWh)/k#}LCqLW2g(;k58RqYG>TaITjE.H');
