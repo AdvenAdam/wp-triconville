@@ -223,7 +223,7 @@ function geoip_country_redirect() {
             $country = $geo->country->isoCode;
             $host = $_SERVER['HTTP_HOST'];
 
-            if ($country === 'MY' && strpos($host, 'triconville.com.my') === false) {
+            if ($country === 'MY' && strpos($host, 'triconville.com/my') === false) {
                 wp_redirect('https://triconville.com/my' . $_SERVER['REQUEST_URI'], 302);
                 exit;
             }
