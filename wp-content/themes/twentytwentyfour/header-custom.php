@@ -122,22 +122,28 @@
     }
     </style>
 </head>
-<?php 
-
-    $location = null;
-    if (function_exists('geoip_detect2_get_info_from_ip')) {
-        $ip = get_client_ip();
-        $locales = geoip_detect2_get_info_from_ip($ip);
-        if ($locales && isset($locales->country->name)) {
-            $location = $locales->country->name;
+<?php
+if (function_exists('geoip_detect2_get_info_from_ip') && ENV === 'prod') {
+    $ip = get_client_ip(); // make sure this function correctly resolves the IP
+    $geoInfo = geoip_detect2_get_info_from_ip($ip);
+    
+    if ($geoInfo && isset($geoInfo->country->isoCode)) {
+        $country = $geoInfo->country->isoCode;
+        
+        // Redirect based on country code
+        if ($country === 'MY') {
+            header("Location: https://triconville.com/my/");
+            exit;
         } else {
-            echo 'Could not determine country.';
+            header("Location: https://triconville.com/");
+            exit;
         }
     } else {
-        echo 'GeoIP Detection not available.';
+        echo 'Could not determine country.';
     }
-    var_dump($location);
+}
 ?>
+
 
 <body <?php body_class(); ?>>
     <!-- Google Tag Manager (noscript) -->
