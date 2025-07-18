@@ -215,7 +215,7 @@ add_action('template_redirect', 'geoip_country_redirect');
 function geoip_country_redirect() {
     // if (is_admin()) return;
 
-    if (function_exists('geoip_detect2_get_info_from_ip')) {
+    if (function_exists('geoip_detect2_get_info_from_ip') && ENV == 'prod') {
         $ip = $_SERVER['REMOTE_ADDR'];
         $geo = geoip_detect2_get_info_from_ip($ip);
 
@@ -224,7 +224,7 @@ function geoip_country_redirect() {
             $host = $_SERVER['HTTP_HOST'];
 
             if ($country === 'MY' && strpos($host, 'triconville.com.my') === false) {
-                wp_redirect('https://triconville.com.my' . $_SERVER['REQUEST_URI'], 302);
+                wp_redirect('https://triconville.com/my' . $_SERVER['REQUEST_URI'], 302);
                 exit;
             }
         }
