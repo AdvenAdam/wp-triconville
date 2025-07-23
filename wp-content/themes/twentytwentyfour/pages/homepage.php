@@ -412,7 +412,9 @@ function renderRequestCatalogForm() {
 $(window).resize(function() {
     if ($("#colection-selected").length) {
         setTimeout(() => {
-            $("#colection-selected").slick('refresh');
+            if ($("#colection-selected").hasClass("slick-initialized")) {
+                $("#colection-selected").slick('refresh');
+            }
         }, 2000);
         collectionSlick();
     }
