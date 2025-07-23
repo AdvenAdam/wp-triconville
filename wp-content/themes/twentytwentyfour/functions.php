@@ -250,7 +250,7 @@ function geoip_country_redirect() {
                     }
                     break;
 				default:
-					 if (strpos($host, 'triconville.com') !== false ) {
+					 if (strpos($host, 'triconville.com') !== false  && strpos($uri, '/') !== 0) {
                         wp_redirect('https://triconville.com', 302);
                         exit;
                     }
