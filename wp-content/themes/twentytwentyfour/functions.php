@@ -229,33 +229,48 @@ function geoip_country_redirect() {
             $country = strtoupper($geo->country->isoCode);
             $host = $_SERVER['HTTP_HOST'];
             $uri  = $_SERVER['REQUEST_URI'];
+			switch ($country) {
+				case 'MY':
+					if (
+						strpos($host, 'triconville.com') !== false &&
+						$uri !== '/' &&
+						strpos($uri, '/my/') !== 0
+					) {
+						wp_redirect('https://triconville.com/my', 302);
+						exit;
+					}
+					break;
 
-            switch ($country) {
-                case 'MY':
-                    if (strpos($host, 'triconville.com') === false && strpos($uri, '/my/') !== 0) {
-                        wp_redirect('https://triconville.com/my', 302);
-                        exit;
-                    }
-                    break;
-                case 'SA':
-                    if (strpos($host, 'triconville.com') === false && strpos($uri, '/sa/') !== 0) {
-                        wp_redirect('https://triconville.com/sa', 302);
-                        exit;
-                    }
-                    break;
-                case 'ID':
-                    if (strpos($host, 'triconville.com') === false && strpos($uri, '/id/') !== 0) {
-                        wp_redirect('https://triconville.com/id', 302);
-                        exit;
-                    }
-                    break;
+				case 'SA':
+					if (
+						strpos($host, 'triconville.com') !== false &&
+						$uri !== '/' &&
+						strpos($uri, '/sa/') !== 0
+					) {
+						wp_redirect('https://triconville.com/sa', 302);
+						exit;
+					}
+					break;
+
+				case 'ID':
+					if (
+						strpos($host, 'triconville.com') !== false &&
+						$uri !== '/' &&
+						strpos($uri, '/id/') !== 0
+					) {
+						wp_redirect('https://triconville.com/id', 302);
+						exit;
+					}
+					break;
+
 				default:
-                    if ($uri !== '/') {
-                        wp_redirect('https://triconville.com/', 302);
-                        exit;
-                    }
-                    break;
-            }
+					if ($uri !== '/') {
+						wp_redirect('https://triconville.com/', 302);
+						exit;
+					}
+					break;
+			}
+
         }
     }
 }
