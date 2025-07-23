@@ -255,8 +255,6 @@ function geoip_country_redirect() {
                 wp_redirect('https://triconville.com/id' . $uri, 302);
                 exit;
             }
-			wp_redirect('https://triconville.com' . $uri, 302);
-			exit;
         }
     }
 }
