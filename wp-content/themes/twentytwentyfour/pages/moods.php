@@ -176,7 +176,11 @@ function renderMaterials(materials) {
         $('#mood__materials').append(`
             <div class="py-5 md:py-10 flex sm:flex-row flex-col items-center">
                 <div class="md:p-5 w-full md:w-[60%]">
-                    <img src="${selectedMood.materials.image}" class="w-full md:w-auto max-h-[38rem] object-cover relative z-10" />
+                    <picture>
+                        <source srcset="${selectedMood.materials.image[0]}" type="image/webp">
+                        <source srcset="${selectedMood.materials.image[1]}" type="image/png">
+                        <img src="${selectedMood.materials.image[0]}" class="w-full md:w-auto max-h-[38rem] object-cover relative z-10" alt="Mood Image" />
+                    </picture>
                 </div>
                 <div class="p-3 md:p-5 w-full md:w-[40%]">
                     <h2 class="text-2xl mood-color md:text-3xl text-white mb-5">
