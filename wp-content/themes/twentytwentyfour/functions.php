@@ -209,7 +209,7 @@ endif;
 add_theme_support('menus');
 
 // NOTE 404 Page
-// REDIRECT HEADER
+// NOTE REDIRECT HEADER
 add_action('template_redirect', 'geoip_country_redirect');
 
 add_action('init', function () {
@@ -219,14 +219,75 @@ add_action('init', function () {
         exit;
     }
 });
+function isBot() {
+    $bots = [
+        'Googlebot', 'Bingbot', 'Slurp', 'DuckDuckBot', 'Baiduspider', 'YandexBot', 'Sogou', 'Exabot', 'facebot', 'ia_archiver',
+        'AdsBot-Google', 'Applebot', 'AhrefsBot', 'SemrushBot', 'MJ12bot', 'DotBot', 'PetalBot', 'SeznamBot', 'BLEXBot',
+        'Twitterbot', 'LinkedInBot', 'Discordbot', 'TelegramBot', 'Pinterestbot', 'WhatsApp', 'Yahoo! Slurp',
+        'Coccocbot', 'MegaIndex', 'Qwantify', 'Screaming Frog SEO Spider', 'Yeti', 'Bytespider', 'NaverBot',
+        'Sosospider', 'YoudaoBot', 'HuaweiBot', 'UptimeRobot', 'Google-Read-Aloud', 'Mediapartners-Google',
+        'Google-InspectionTool', 'Google-Safety', 'Google-Publisher-Plugin', 'SEBot-WA', 'facebookexternalhit/1.1'
+    ];
+    
+    $userAgent = $_SERVER['HTTP_USER_AGENT'] ?? '';
+    
+    foreach ($bots as $bot) {
+        if (stripos($userAgent, $bot) !== false) {
+            return true;
+        }
+    }
+    return false;
+}
+
+function getClientIP() {
+    $ipaddress = '';
+
+    if (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+        // May contain multiple IPs; take the first one
+        $iplist = explode(',', $_SERVER['HTTP_X_FORWARDED_FOR']);
+        $candidate = trim($iplist[0]);
+        if (filter_var($candidate, FILTER_VALIDATE_IP)) {
+            return $candidate;
+        }
+    }
+
+    if (!empty($_SERVER['HTTP_CLIENT_IP']) && filter_var($_SERVER['HTTP_CLIENT_IP'], FILTER_VALIDATE_IP)) {
+        return $_SERVER['HTTP_CLIENT_IP'];
+    }
+
+    if (!empty($_SERVER['REMOTE_ADDR']) && filter_var($_SERVER['REMOTE_ADDR'], FILTER_VALIDATE_IP)) {
+        return $_SERVER['REMOTE_ADDR'];
+    }
+
+    return '127.0.0.1'; // Fallback
+}
+
+function getIpInfo($ip = null, $purpose = "country_code") {
+    $apiKey = 'd10a589ca86d0492b5e68517406b1a61486dd8002bd4155bc634e060';
+	if (!$ip) {
+        $ip = getClientIP();
+    }
+
+    $apiUrl = "https://api.ipdata.co/{$ip}?api-key={$apiKey}";
+    $curl = curl_init($apiUrl);
+    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+
+    $jsonResponse = curl_exec($curl);
+    curl_close($curl);
+
+    $apiResult = json_decode($jsonResponse, true);
+
+    return $apiResult[$purpose] ?? null;
+}
+
 
 function geoip_country_redirect() {
     if (function_exists('geoip_detect2_get_info_from_ip') && defined('ENV') && ENV === 'prod') {
         $ip = $_SERVER['REMOTE_ADDR'];
-        $geo = geoip_detect2_get_info_from_ip($ip);
+        $geo = getIpInfo($ip);
 
-        if ($geo && isset($geo->country->isoCode)) {
-            $country = strtoupper($geo->country->isoCode);
+        if ($geo && isset($geo)) {
+            $country = strtoupper($geo);
             $host = $_SERVER['HTTP_HOST'];
             $uri  = $_SERVER['REQUEST_URI'];
 			switch ($country) {
