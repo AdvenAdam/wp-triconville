@@ -221,43 +221,45 @@ add_action('init', function () {
 });
 
 function geoip_country_redirect() {
-    if (function_exists('geoip_detect2_get_info_from_ip') && defined('ENV') && ENV === 'prod') {
-        $ip = $_SERVER['REMOTE_ADDR'];
-        $geo = geoip_detect2_get_info_from_ip($ip);
+    if (!function_exists('geoip_detect2_get_info_from_ip') || !defined('ENV') || ENV !== 'prod') return;
+    if (isset($_COOKIE['geoip_redirected'])) return;
 
-        if ($geo && isset($geo->country->isoCode)) {
-            $country = strtoupper($geo->country->isoCode);
-            $host = $_SERVER['HTTP_HOST'];
-            $uri  = $_SERVER['REQUEST_URI'];
+    $ip   = $_SERVER['REMOTE_ADDR'];
+    $geo  = geoip_detect2_get_info_from_ip($ip);
+    if (!$geo || empty($geo->country->isoCode)) return;
 
-            // Malaysia
-            if (
-                $country === 'MY' &&
-                strpos($host, 'triconville.com') !== false &&
-                strpos($uri, '/my/') !== 0
-            ) {
-                wp_redirect('https://triconville.com/my' . $uri, 302);
-                exit;
+    $country = strtoupper($geo->country->isoCode);
+    $uri     = $_SERVER['REQUEST_URI'];
+    $host    = $_SERVER['HTTP_HOST'];
+
+    if (strpos($host, 'triconville.com') === false) return;
+
+    $supported = ['MY', 'SA', 'ID'];
+
+    // Extract first URI segment like "MY", "SA", etc.
+    $uriSegments = explode('/', trim($uri, '/'));
+    $uriPrefix   = strtoupper($uriSegments[0] ?? '');
+
+    // Mismatch: User from ID but accessing /MY or /SA
+    if (in_array($country, $supported)) {
+        if ($uriPrefix !== $country) {
+            setcookie('geoip_redirected', '1', time() + 3600, '/');
+            // Remove wrong prefix if it's in the supported list
+            if (in_array($uriPrefix, $supported)) {
+                array_shift($uriSegments); // Remove wrong prefix
             }
-            if (
-                $country === 'SA' &&
-                strpos($host, 'triconville.com') !== false &&
-                strpos($uri, '/sa/') !== 0
-            ) {
-                wp_redirect('https://triconville.com/sa' . $uri, 302);
-                exit;
-            }
-            if (
-                $country === 'ID' &&
-                strpos($host, 'triconville.com') !== false &&
-                strpos($uri, '/id/') !== 0
-            ) {
-                wp_redirect('https://triconville.com/id' . $uri, 302);
-                exit;
-            }
+            $newPath = implode('/', $uriSegments);
+            wp_redirect("https://triconville.com/$country/" . $newPath, 302);
+            exit;
         }
+    } else {
+        // For unsupported countries, redirect to homepage
+        setcookie('geoip_redirected', '1', time() + 3600, '/');
+        wp_redirect('https://triconville.com/');
+        exit;
     }
 }
+
 
 function get_base_link() {
     return trailingslashit( get_site_url() );
