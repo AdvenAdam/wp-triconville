@@ -232,19 +232,19 @@ function geoip_country_redirect() {
 
             switch ($country) {
                 case 'MY':
-                    if (strpos($host, 'triconville.com') !== false && strpos($uri, '/my/') !== 0) {
+                    if (strpos($host, 'triconville.com') === false && strpos($uri, '/my/') !== 0) {
                         wp_redirect('https://triconville.com/my', 302);
                         exit;
                     }
                     break;
                 case 'SA':
-                    if (strpos($host, 'triconville.com') !== false && strpos($uri, '/sa/') !== 0) {
+                    if (strpos($host, 'triconville.com') === false && strpos($uri, '/sa/') !== 0) {
                         wp_redirect('https://triconville.com/sa', 302);
                         exit;
                     }
                     break;
                 case 'ID':
-                    if (strpos($host, 'triconville.com') !== false && strpos($uri, '/id/') !== 0) {
+                    if (strpos($host, 'triconville.com') === false && strpos($uri, '/id/') !== 0) {
                         wp_redirect('https://triconville.com/id', 302);
                         exit;
                     }
