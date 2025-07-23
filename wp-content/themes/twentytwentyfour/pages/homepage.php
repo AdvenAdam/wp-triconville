@@ -410,11 +410,12 @@ function renderRequestCatalogForm() {
 }
 
 $(window).resize(function() {
-    setTimeout(() => {
-        $("#colection-selected").slick('refresh');
-    }, 2000);
-    collectionSlick();
-
+    if ($("#colection-selected").length) {
+        setTimeout(() => {
+            $("#colection-selected").slick('refresh');
+        }, 2000);
+        collectionSlick();
+    }
 })
 </script>
 <script>

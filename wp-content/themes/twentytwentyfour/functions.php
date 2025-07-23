@@ -212,7 +212,13 @@ add_theme_support('menus');
 // REDIRECT HEADER
 add_action('template_redirect', 'geoip_country_redirect');
 
-add_action('template_redirect', 'geoip_country_redirect');
+add_action('init', function () {
+    // Redirect wp-signup.php with ?new=... to base URL
+    if (is_multisite() && strpos($_SERVER['REQUEST_URI'], 'wp-signup.php') !== false && isset($_GET['new'])) {
+        wp_redirect(home_url());
+        exit;
+    }
+});
 
 function geoip_country_redirect() {
     if (function_exists('geoip_detect2_get_info_from_ip') && defined('ENV') && ENV === 'prod') {
