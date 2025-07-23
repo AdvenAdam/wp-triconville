@@ -239,6 +239,22 @@ function geoip_country_redirect() {
                 wp_redirect('https://triconville.com/my' . $uri, 302);
                 exit;
             }
+            if (
+                $country === 'SA' &&
+                strpos($host, 'triconville.com') !== false &&
+                strpos($uri, '/sa/') !== 0
+            ) {
+                wp_redirect('https://triconville.com/sa' . $uri, 302);
+                exit;
+            }
+            if (
+                $country === 'ID' &&
+                strpos($host, 'triconville.com') !== false &&
+                strpos($uri, '/id/') !== 0
+            ) {
+                wp_redirect('https://triconville.com/id' . $uri, 302);
+                exit;
+            }
         }
     }
 }
