@@ -230,30 +230,31 @@ function geoip_country_redirect() {
             $host = $_SERVER['HTTP_HOST'];
             $uri  = $_SERVER['REQUEST_URI'];
 
-            // Malaysia
-            if (
-                $country === 'MY' &&
-                strpos($host, 'triconville.com') !== false &&
-                strpos($uri, '/my/') !== 0
-            ) {
-                wp_redirect('https://triconville.com/my' . $uri, 302);
-                exit;
-            }
-            if (
-                $country === 'SA' &&
-                strpos($host, 'triconville.com') !== false &&
-                strpos($uri, '/sa/') !== 0
-            ) {
-                wp_redirect('https://triconville.com/sa' . $uri, 302);
-                exit;
-            }
-            if (
-                $country === 'ID' &&
-                strpos($host, 'triconville.com') !== false &&
-                strpos($uri, '/id/') !== 0
-            ) {
-                wp_redirect('https://triconville.com/id' . $uri, 302);
-                exit;
+            switch ($country) {
+                case 'MY':
+                    if (strpos($host, 'triconville.com') !== false && strpos($uri, '/my/') !== 0) {
+                        wp_redirect('https://triconville.com/my' . $uri, 302);
+                        exit;
+                    }
+                    break;
+                case 'SA':
+                    if (strpos($host, 'triconville.com') !== false && strpos($uri, '/sa/') !== 0) {
+                        wp_redirect('https://triconville.com/sa' . $uri, 302);
+                        exit;
+                    }
+                    break;
+                case 'ID':
+                    if (strpos($host, 'triconville.com') !== false && strpos($uri, '/id/') !== 0) {
+                        wp_redirect('https://triconville.com/id' . $uri, 302);
+                        exit;
+                    }
+                    break;
+				default:
+					 if (strpos($host, 'triconville.com') !== false ) {
+                        wp_redirect('https://triconville.com' . $uri, 302);
+                        exit;
+                    }
+					break;
             }
         }
     }
